@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=3 uid="uid://nqrdlgej5tc"]
+
+[ext_resource type="PackedScene" uid="uid://b1vwlavr53m1a" path="res://Assets/Mesh/Outsiders/Ireno/ireno.gltf" id="1_kso0h"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Characters/Ireno_Shader.gdshader" id="2_8f6vn"]
+[ext_resource type="Texture2D" uid="uid://c2dyl3ihohtvr" path="res://Assets/Mesh/Outsiders/Ireno/dot_texture_light.png" id="3_fe6ew"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cfqdq"]
+render_priority = 0
+shader = ExtResource("2_8f6vn")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/useTexture = true
+shader_parameter/useNormalMap = false
+shader_parameter/amount_of_light = 0.0
+shader_parameter/amount_of_shadow = null
+shader_parameter/cut_point = null
+shader_parameter/normalMapDepth = null
+shader_parameter/debanding_dither = null
+shader_parameter/text = ExtResource("3_fe6ew")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvwqr"]
+render_priority = 0
+shader = ExtResource("2_8f6vn")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/useTexture = true
+shader_parameter/useNormalMap = false
+shader_parameter/amount_of_light = 0.0
+shader_parameter/amount_of_shadow = null
+shader_parameter/cut_point = null
+shader_parameter/normalMapDepth = null
+shader_parameter/debanding_dither = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o7dit"]
+render_priority = 0
+shader = ExtResource("2_8f6vn")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/useTexture = true
+shader_parameter/useNormalMap = false
+shader_parameter/amount_of_light = 0.0
+shader_parameter/amount_of_shadow = null
+shader_parameter/cut_point = null
+shader_parameter/normalMapDepth = null
+shader_parameter/debanding_dither = null
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aayji"]
+animation = &"idle"
+
+[node name="Ireno" type="Node3D"]
+
+[node name="ireno" parent="." instance=ExtResource("1_kso0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.47688)
+
+[node name="Skeleton3D" parent="ireno/metarig" index="0"]
+bones/1/rotation = Quaternion(-0.0637956, 0.142382, -0.0270562, 0.987383)
+bones/2/rotation = Quaternion(-0.069156, -0.00767861, -0.0138223, 0.997481)
+bones/3/rotation = Quaternion(-0.00121945, 0, 0, 0.999999)
+bones/4/rotation = Quaternion(0.105604, -5.09212e-09, -1.97193e-09, 0.994408)
+bones/5/rotation = Quaternion(-0.0973361, 1.18643e-07, -1.16034e-08, 0.995252)
+bones/7/rotation = Quaternion(-0.0828664, 0.0218278, -0.30147, 0.949617)
+bones/8/rotation = Quaternion(0.154122, -0.00126607, 0.0273251, 0.987673)
+bones/9/rotation = Quaternion(0.0606642, -0.000419412, 0.00173981, 0.998157)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.0949431, 0.0310384, 0.175708, 0.979362)
+bones/11/rotation = Quaternion(0.132982, -0.152708, -0.018382, 0.979111)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.0518053, -0.0579394, -0.00676904, 0.996952)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(-0.490797, -0.49293, -0.497692, 0.518113)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.347131, 0.574605, -0.437467, 0.598292)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.000404598, 0.013412, 0.00204921, 0.999908)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(0.000521257, 0.0361685, -0.00418682, 0.999337)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(-0.490797, 0.49293, 0.497692, 0.518113)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(-0.41316, -0.667108, 0.342434, 0.516724)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.000841673, -0.0135669, -0.00248208, 0.999905)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(0.000521257, -0.0361685, 0.00418682, 0.999337)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(3.14335e-08, 0.694892, 0.719114, 3.03747e-08)
+bones/22/rotation = Quaternion(3.14335e-08, 0.694892, 0.719114, 3.03747e-08)
+bones/23/rotation = Quaternion(-0.152455, -0.793331, -0.285504, 0.515627)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/rotation = Quaternion(-0.152455, 0.793331, 0.285504, 0.515627)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(0.990592, -0.00385015, 0.000638836, 0.136794)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(0.0300346, 8.59276e-05, -0.00900385, 0.999508)
+bones/27/rotation = Quaternion(-0.486932, -0.204686, -0.102801, 0.842872)
+bones/28/rotation = Quaternion(2.09503e-08, 0.961249, -0.275683, -4.15558e-08)
+bones/29/rotation = Quaternion(0.679705, 0.679705, -0.194937, 0.194937)
+bones/29/scale = Vector3(1, 1, 1)
+bones/30/rotation = Quaternion(0.991954, -0.0203306, 0.00238102, 0.124931)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/rotation = Quaternion(0.00244755, -0.000312813, 0.00142769, 0.999996)
+bones/32/rotation = Quaternion(-0.501175, 0.0103324, -0.0177291, 0.865103)
+bones/33/rotation = Quaternion(-1.33318e-08, 0.961249, -0.275683, 4.20175e-08)
+bones/34/rotation = Quaternion(0.679705, -0.679705, 0.194937, 0.194937)
+bones/34/scale = Vector3(1, 1, 1)
+
+[node name="Cylinder" parent="ireno/metarig/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_cfqdq")
+surface_material_override/1 = SubResource("ShaderMaterial_hvwqr")
+surface_material_override/2 = SubResource("ShaderMaterial_o7dit")
+
+[node name="AnimationTree" type="AnimationTree" parent="ireno/AnimationPlayer" index="0"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeAnimation_aayji")
+anim_player = NodePath("..")
+parameters/current_length = 2.5
+parameters/current_position = 1.93541
+parameters/current_delta = 0.0318817
+
+[editable path="ireno"]

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c5x7mybaq8i17"]
+
+[ext_resource type="Texture2D" uid="uid://dw2u6eaoeo0qc" path="res://Assets/Mesh/Items/Character/Hexii_Device/Color_Palette_Phone.png" id="1_cqvyg"]
+[ext_resource type="Texture2D" uid="uid://b186m8j10wesi" path="res://Assets/Mesh/Items/Character/Hexii_Device/Color_Palette_Phone_Emiss.png" id="2_dj6yu"]
+
+[resource]
+albedo_texture = ExtResource("1_cqvyg")
+emission_enabled = true
+emission_energy_multiplier = 6.26
+emission_texture = ExtResource("2_dj6yu")
+texture_filter = 2

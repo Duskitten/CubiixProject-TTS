@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://daagacetbe7yf"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Character.gd" id="1_4skhm"]
+[ext_resource type="PackedScene" uid="uid://cirw3ifxx1v8v" path="res://Assets/Scenes/Client/Characters/cubiix_model.tscn" id="2_q4jtr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m8ql4"]
+margin = 0.4
+radius = 0.202349
+height = 0.734779
+
+[node name="Cubiix_Base" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 130
+collision_mask = 130
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_floor_layers = 1
+platform_wall_layers = 1
+script = ExtResource("1_4skhm")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="Hub" type="Node3D" parent="."]
+
+[node name="Cubiix_Model" parent="Hub" instance=ExtResource("2_q4jtr")]
+
+[node name="Items" type="Node3D" parent="Hub"]
+
+[node name="Follow_Point" type="Node3D" parent="Hub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_m8ql4")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214239, 0)
+target_position = Vector3(0, -0.24, 0)
+collision_mask = 2
+
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214239, 0)
+target_position = Vector3(0, -0.24, 0)
+collision_mask = 2
+
+[node name="RayCast3D3" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214239, 0)
+target_position = Vector3(0, -0.32, 0)
+collision_mask = 2

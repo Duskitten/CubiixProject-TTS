@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdcosjmdgl06"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/Other/Perlin_Noise.gdshader" id="1_5avdh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfvtk"]
+shader = ExtResource("1_5avdh")
+shader_parameter/ColorA = Color(1, 1, 1, 1)
+shader_parameter/ColorB = Color(0.82457, 0.132117, 0.804382, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jfvtk")
+offset_right = 512.0
+offset_bottom = 512.0

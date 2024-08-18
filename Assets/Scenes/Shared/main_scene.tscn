@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b743ed8o4h5bc"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Shared/Core.gd" id="1_it4n2"]
+
+[node name="Main_Scene" type="Node3D"]
+metadata/_edit_vertical_guides_ = [200.0, 600.0]
+
+[node name="CoreLoader" type="Node" parent="."]
+script = ExtResource("1_it4n2")
+
+[node name="Current_Scene" type="Node" parent="."]

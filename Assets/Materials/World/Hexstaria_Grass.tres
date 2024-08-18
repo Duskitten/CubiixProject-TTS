@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2twddr3t75ii"]
+
+[ext_resource type="Texture2D" uid="uid://bsf1ktvgxelg1" path="res://Assets/Textures/World/Hexstaria_Sand.png" id="1_56xm7"]
+
+[resource]
+albedo_color = Color(0.246896, 0.416634, 0.377723, 1)
+albedo_texture = ExtResource("1_56xm7")
+normal_texture = ExtResource("1_56xm7")
+texture_filter = 4

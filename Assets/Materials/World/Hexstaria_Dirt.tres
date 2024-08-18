@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ftmrpm5j4yei"]
+
+[ext_resource type="Texture2D" uid="uid://dt7ubs0hhco03" path="res://Assets/Textures/World/Hexstaria_Stone.png" id="1_ckarg"]
+[ext_resource type="Texture2D" uid="uid://bsf1ktvgxelg1" path="res://Assets/Textures/World/Hexstaria_Sand.png" id="1_ymvd0"]
+
+[resource]
+albedo_color = Color(0.920244, 0.512859, 0.416155, 1)
+albedo_texture = ExtResource("1_ckarg")
+normal_texture = ExtResource("1_ymvd0")
+texture_filter = 4
