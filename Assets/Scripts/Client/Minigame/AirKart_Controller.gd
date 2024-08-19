@@ -4,7 +4,10 @@ extends CharacterBody3D
 const walkspeed = .5
 const runspeed = 2
 
-var speed = 3
+var speed_max = 1.5
+var speed = 0.0
+var speed_accelerate = 0.01
+var speed_deccelerate = 0.03
 var jumpspeed = 6
 const gravity = -0.98 * 2
 var gravity_control:Vector3 = Vector3.ZERO
@@ -27,28 +30,31 @@ func _process(delta: float) -> void:
 	if has_player:
 		input = Core.Client.Local_Player.input
 		
-		print(input)
-		
 		if Input.is_action_just_pressed("ui_jump"):
 			FlyDisable()
 			
 func FlyDisable():
+	$Interact_Prompt.show()
+	$Interact_Prompt.hard_disable = false
 	Core.Client.Local_Player.BasePlayer_Disabled = false
 	Core.Client.Local_Player.Is_Sitting = false
 	Core.Client.Local_Player.Is_Piloting = false
-	$RemotePos.remote_path = ""
-	$RemoteRot.remote_path = ""
+	$Hub/RemotePos.remote_path = ""
+	$Hub/RemoteRot.remote_path = ""
 	has_player = false
 	Core.Client.Local_Player.AltJump = true
 	
 func FlySetup():
+	$Interact_Prompt.hide()
+	$Interact_Prompt.hard_disable = true
 	Core.Client.Local_Player.BasePlayer_Disabled = true
 	Core.Client.Local_Player.Is_Sitting = true
 	Core.Client.Local_Player.Is_Piloting = true
-	$RemotePos.remote_path = Core.Client.Local_Player.get_path()
-	$RemoteRot.remote_path = Core.Client.Local_Player.get_node("Hub").get_path()
+	$Hub/RemotePos.remote_path = Core.Client.Local_Player.get_path()
+	$Hub/RemoteRot.remote_path = Core.Client.Local_Player.get_node("Hub").get_path()
 	has_player = true
 
+@onready var Camera = get_viewport().get_camera_3d()
 func _physics_process(delta: float) -> void:
 	
 	gravity_control += (self.global_transform.basis.y * 1) * (gravity/8)
@@ -64,7 +70,19 @@ func _physics_process(delta: float) -> void:
 		var suspension_force = (self.global_transform.basis.y * 1) * (spring_force + damper_force)
 		prev_spring_length = spring_length
 		gravity_control += suspension_force
+	if input != Vector2.ZERO && has_player:
+		$MoveMarker.rotation.y = lerp_angle($MoveMarker.rotation.y,atan2(-input.x,-input.y)+Camera.get_parent().get_parent().get_parent().transform.basis.get_euler().y, 0.15)
+		$Hub.rotation.y = lerp_angle($Hub.rotation.y, $MoveMarker.rotation.y, delta*10)
+		speed += speed_accelerate
+		speed = clamp(speed,0,speed_max)
+		compiled_velocity += (($MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
+	elif input == Vector2.ZERO || !has_player:
+		speed -= speed_deccelerate
+		speed = clamp(speed,0,speed_max)
+		compiled_velocity += (($MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
+	
 	velocity = compiled_velocity + gravity_control
+	compiled_velocity = compiled_velocity.slerp(Vector3.ZERO,0.05)
 	move_and_slide()
 
 	

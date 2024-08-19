@@ -12,10 +12,20 @@ radius = 0.332584
 collision_layer = 0
 script = ExtResource("1_n66c1")
 
-[node name="Airboat_Model" parent="." instance=ExtResource("1_63cef")]
+[node name="Hub" parent="." instance=ExtResource("1_63cef")]
 
-[node name="Airboat" parent="Airboat_Model" index="0"]
+[node name="Airboat" parent="Hub" index="0"]
 surface_material_override/0 = ExtResource("2_ko044")
+
+[node name="RemotePos" type="RemoteTransform3D" parent="Hub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372173, 0.125123)
+update_rotation = false
+update_scale = false
+
+[node name="RemoteRot" type="RemoteTransform3D" parent="Hub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372173, 0.125123)
+update_position = false
+update_scale = false
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, -2, 0)
@@ -29,14 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0108345, 0)
 
 [node name="Interact_Prompt" parent="." instance=ExtResource("4_ca3bs")]
 
-[node name="RemotePos" type="RemoteTransform3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372173, 0.125123)
-update_rotation = false
-update_scale = false
+[node name="MoveMarker" type="Marker3D" parent="."]
 
-[node name="RemoteRot" type="RemoteTransform3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372173, 0.125123)
-update_position = false
-update_scale = false
-
-[editable path="Airboat_Model"]
+[editable path="Hub"]

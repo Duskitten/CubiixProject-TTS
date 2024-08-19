@@ -6,6 +6,7 @@ signal Interacted
 @onready var Marker = $Marker
 var active = false
 var disable = false
+var hard_disable = false
 
 func _process(delta: float) -> void:
 	if active:
@@ -16,7 +17,7 @@ func _process(delta: float) -> void:
 			disable = true
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body == Core.Client.Local_Player:
+	if body == Core.Client.Local_Player && !hard_disable:
 		active = true
 		$CanvasLayer/AnimationPlayer.stop(true)
 		$CanvasLayer/AnimationPlayer.play("Open")
@@ -25,7 +26,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body == Core.Client.Local_Player:
+	if body == Core.Client.Local_Player && !hard_disable:
 		$CanvasLayer/AnimationPlayer.stop(true)
 		if !disable:
 			$CanvasLayer/AnimationPlayer.play("Close")
