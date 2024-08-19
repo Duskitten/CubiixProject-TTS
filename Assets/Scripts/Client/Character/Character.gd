@@ -56,6 +56,7 @@ var BasePlayer_Disabled = false
 
 ##Integration for Sitting
 var Is_Sitting  = false
+var Is_Piloting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -156,11 +157,13 @@ func _process(delta: float) -> void:
 	
 	if can_idle && can_idle_override && !customizing:
 		Idle_Timer += Delta
-			
-	if Is_Player && !BasePlayer_Disabled:
+		
+	if Is_Player:
 		input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-		
+			
+	if Is_Player && !BasePlayer_Disabled:
+
 		if Input.is_action_just_pressed("ui_accept") && CharSetup:
 			Ears = EAR_ENUM.Cat
 			Tail = TAIL_ENUM.Cat
@@ -243,6 +246,7 @@ var anti_grav_enabled = false
 
 var queue_network_moved = false
 var forcingUp = false
+var AltJump = false
 
 var target_camera_position = null:
 	set(value):
@@ -261,6 +265,27 @@ var compiled_velocity = Vector3.ZERO
 var last_hit = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
+	if Is_Player:
+		var camparent = Camera.get_parent().get_parent().get_parent().get_parent()
+		if target_camera_position != null:
+			camparent.global_position = lerp(camparent.global_position ,target_camera_position.global_position,0.1)
+			target_camera_position.look_at($Hub/Follow_Point.global_position)
+			Camera.get_parent().get_parent().get_parent().global_rotation.y = lerp_angle(Camera.get_parent().get_parent().get_parent().global_rotation.y ,target_camera_position.global_rotation.y + deg_to_rad(180),0.1)
+			Camera.get_parent().get_parent().global_rotation.x = lerp_angle(Camera.get_parent().get_parent().global_rotation.x,-target_camera_position.global_rotation.x,0.1)
+			Camera.get_parent().spring_length = 0
+		else:
+			Camera.get_parent().spring_length = -4
+			camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
+			if reset_camera:
+				reset_camera = false
+				var tween = get_tree().create_tween() \
+				.set_ease(Tween.EASE_IN_OUT) \
+				.set_trans(Tween.TRANS_QUAD) \
+				.set_parallel(true)
+				
+				tween.tween_property(Camera.get_parent().get_parent().get_parent(),"global_rotation:y",$Hub.global_rotation.y,1)
+				tween.tween_property(Camera.get_parent().get_parent(),"global_rotation:x",deg_to_rad(25),1)
+	
 	if Is_Player && !BasePlayer_Disabled:
 		forcingUp = false
 		cache_data["Player_Position"] = self.global_position
@@ -285,24 +310,7 @@ func _physics_process(delta: float) -> void:
 				
 				up_direction = $RayCast3D.get_collision_normal()
 			
-		if target_camera_position != null:
-			camparent.global_position = lerp(camparent.global_position ,target_camera_position.global_position,0.1)
-			target_camera_position.look_at($Hub/Follow_Point.global_position)
-			Camera.get_parent().get_parent().get_parent().global_rotation.y = lerp_angle(Camera.get_parent().get_parent().get_parent().global_rotation.y ,target_camera_position.global_rotation.y + deg_to_rad(180),0.1)
-			Camera.get_parent().get_parent().global_rotation.x = lerp_angle(Camera.get_parent().get_parent().global_rotation.x,-target_camera_position.global_rotation.x,0.1)
-			Camera.get_parent().spring_length = 0
-		else:
-			Camera.get_parent().spring_length = -4
-			camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
-			if reset_camera:
-				reset_camera = false
-				var tween = get_tree().create_tween() \
-				.set_ease(Tween.EASE_IN_OUT) \
-				.set_trans(Tween.TRANS_QUAD) \
-				.set_parallel(true)
-				
-				tween.tween_property(Camera.get_parent().get_parent().get_parent(),"global_rotation:y",$Hub.global_rotation.y,1)
-				tween.tween_property(Camera.get_parent().get_parent(),"global_rotation:x",deg_to_rad(25),1)
+		
 
 				#Camera.get_parent().get_parent().get_parent().global_rotation.y = lerp_angle(Camera.get_parent().get_parent().get_parent().global_rotation.y ,$Hub.global_rotation.y,0.1)
 				#Camera.get_parent().get_parent().global_rotation.x = lerp_angle(Camera.get_parent().get_parent().global_rotation.x,deg_to_rad(25),0.1)
@@ -335,11 +343,14 @@ func _physics_process(delta: float) -> void:
 			else:
 				speed = runspeed
 				
-			if Input.is_action_just_pressed("ui_jump") && !jumping:
+			if (Input.is_action_just_pressed("ui_jump") && !jumping) || (AltJump):
 				jumping = true
 				gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
 				$RayCast3D.target_position = Vector3(0,-0.07,0)
 				$RayCast3D2.target_position = Vector3(0,-0.07,0)
+				if AltJump:
+					AltJump = false
+				
 
 			
 			if cam_swapped:

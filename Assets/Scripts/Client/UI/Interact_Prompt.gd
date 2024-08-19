@@ -5,13 +5,15 @@ signal Interacted
 @onready var CoreUI = $CanvasLayer
 @onready var Marker = $Marker
 var active = false
+var disable = false
 
 func _process(delta: float) -> void:
 	if active:
 		CoreUI.get_node("Panel").position = get_viewport().get_camera_3d().unproject_position(Marker.global_position) - (CoreUI.get_node("Panel").size/2)
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("interact") && !disable:
 			$CanvasLayer/AnimationPlayer.play("Close")
 			emit_signal("Interacted")
+			disable = true
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == Core.Client.Local_Player:
@@ -19,12 +21,14 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		$CanvasLayer/AnimationPlayer.stop(true)
 		$CanvasLayer/AnimationPlayer.play("Open")
 		set_process(true)
+		disable = false
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body == Core.Client.Local_Player:
 		$CanvasLayer/AnimationPlayer.stop(true)
-		$CanvasLayer/AnimationPlayer.play("Close")
+		if !disable:
+			$CanvasLayer/AnimationPlayer.play("Close")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Close":

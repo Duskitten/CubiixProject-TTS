@@ -29,14 +29,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0108345, 0)
 
 [node name="Interact_Prompt" parent="." instance=ExtResource("4_ca3bs")]
 
-[node name="RemotePos" type="RemoteTransform3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372173, 0.125123)
-update_rotation = false
-update_scale = false
-
-[node name="RemoteRot" type="RemoteTransform3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372173, 0.125123)
-update_position = false
-update_scale = false
-
 [editable path="Airboat_Model"]
