@@ -123,7 +123,7 @@ op_type = 0
 operator = 2
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_1jirr"]
-constant = 0.1
+constant = 1.0
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_gjcwe"]
 input_name = "time"
@@ -213,7 +213,7 @@ void fragment() {
 
 
 // FloatConstant:8
-	float n_out8p0 = 0.100000;
+	float n_out8p0 = 1.000000;
 
 
 // FloatConstant:22
@@ -230,7 +230,6 @@ void fragment() {
 	METALLIC = n_out19p0;
 	ROUGHNESS = n_out14p0;
 	SPECULAR = n_out8p0;
-	NORMAL_MAP = vec3(n_out30p0.xyz);
 	NORMAL_MAP_DEPTH = n_out8p0;
 	RIM = n_out22p0;
 	RIM_TINT = n_out24p0.x;
@@ -282,4 +281,4 @@ nodes/fragment/30/node = SubResource("VisualShaderNodeMix_kc7xq")
 nodes/fragment/30/position = Vector2(-120, -280)
 nodes/fragment/31/node = SubResource("VisualShaderNodeTexture_bc5df")
 nodes/fragment/31/position = Vector2(-680, 420)
-nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 10, 0, 9, 0, 10, 2, 5, 0, 13, 0, 13, 0, 12, 0, 12, 0, 11, 1, 9, 0, 13, 2, 11, 0, 15, 0, 14, 0, 0, 3, 8, 0, 0, 4, 19, 0, 0, 2, 22, 0, 0, 11, 24, 0, 0, 12, 11, 0, 25, 0, 29, 0, 26, 0, 5, 0, 29, 0, 5, 0, 28, 0, 9, 0, 28, 2, 9, 0, 29, 2, 26, 0, 30, 1, 30, 0, 0, 1, 30, 0, 0, 9, 8, 0, 0, 10, 25, 0, 0, 0, 10, 0, 31, 0, 31, 0, 11, 0, 28, 0, 27, 0, 27, 0, 30, 0)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 10, 0, 9, 0, 10, 2, 5, 0, 13, 0, 13, 0, 12, 0, 12, 0, 11, 1, 9, 0, 13, 2, 11, 0, 15, 0, 19, 0, 0, 2, 22, 0, 0, 11, 24, 0, 0, 12, 11, 0, 25, 0, 29, 0, 26, 0, 5, 0, 29, 0, 5, 0, 28, 0, 9, 0, 28, 2, 9, 0, 29, 2, 26, 0, 30, 1, 8, 0, 0, 10, 25, 0, 0, 0, 10, 0, 31, 0, 31, 0, 11, 0, 28, 0, 27, 0, 27, 0, 30, 0, 30, 0, 0, 1, 14, 0, 0, 3, 8, 0, 0, 4)

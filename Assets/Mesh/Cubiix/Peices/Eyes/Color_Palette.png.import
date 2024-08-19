@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfk27q3w8f8hh"
-path.s3tc="res://.godot/imported/Color_Palette.png-5a97ed4b2886fdd5fa2834b402d4da40.s3tc.ctex"
+path.s3tc="res://.revel/imported/Color_Palette.png-5a97ed4b2886fdd5fa2834b402d4da40.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Peices/Eyes/Color_Palette.png"
-dest_files=["res://.godot/imported/Color_Palette.png-5a97ed4b2886fdd5fa2834b402d4da40.s3tc.ctex"]
+dest_files=["res://.revel/imported/Color_Palette.png-5a97ed4b2886fdd5fa2834b402d4da40.s3tc.ctex"]
 
 [params]
 

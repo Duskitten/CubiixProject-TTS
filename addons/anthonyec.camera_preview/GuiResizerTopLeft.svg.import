@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btc01wc11tiid"
-path="res://.godot/imported/GuiResizerTopLeft.svg-eb563f557424c74239e878a1213a5bf4.ctex"
+path="res://.revel/imported/GuiResizerTopLeft.svg-eb563f557424c74239e878a1213a5bf4.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/anthonyec.camera_preview/GuiResizerTopLeft.svg"
-dest_files=["res://.godot/imported/GuiResizerTopLeft.svg-eb563f557424c74239e878a1213a5bf4.ctex"]
+dest_files=["res://.revel/imported/GuiResizerTopLeft.svg-eb563f557424c74239e878a1213a5bf4.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://do6d60od41vmg"
-path="res://.godot/imported/Pin.svg-83b09f5c00a829c5d8b136bf5bae65bc.ctex"
+path="res://.revel/imported/Pin.svg-83b09f5c00a829c5d8b136bf5bae65bc.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/anthonyec.camera_preview/Pin.svg"
-dest_files=["res://.godot/imported/Pin.svg-83b09f5c00a829c5d8b136bf5bae65bc.ctex"]
+dest_files=["res://.revel/imported/Pin.svg-83b09f5c00a829c5d8b136bf5bae65bc.ctex"]
 
 [params]
 

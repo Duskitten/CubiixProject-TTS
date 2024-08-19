@@ -48,6 +48,7 @@ var CharSetup = false
 @onready var Camera = get_viewport().get_camera_3d()
 @onready var MoveMarker = $Marker3D
 signal MeshFinished
+
 var cache_data = {}
 
 ##Integration for Disabling Player
@@ -117,6 +118,9 @@ func Regen_Character():
 		base_model.position = Vector3(0,0,0)
 		base_model.show()
 		CharSetup = true
+		await get_tree().create_timer(0.2).timeout
+		DynBones.emit_signal("RePositioned")
+		
 		tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 		tween2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 		tween2.tween_property(charmat,"shader_parameter/distance_fade_glow",0.0,.5)
@@ -124,7 +128,9 @@ func Regen_Character():
 		tween.tween_callback(func():
 			for i in stored_items.keys():
 				stored_items[i]["object"].show()
-			charmat.set_shader_parameter("distance_transitioning",false))
+			charmat.set_shader_parameter("distance_transitioning",false)
+
+			)
 	)
 
 var input :Vector2 = Vector2.ZERO
