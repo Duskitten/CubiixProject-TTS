@@ -58,6 +58,7 @@ func FlySetup():
 func _physics_process(delta: float) -> void:
 	
 	gravity_control += (self.global_transform.basis.y * 1) * (gravity/8)
+
 	if $RayCast3D.is_colliding():
 		var raycast_origin = $RayCast3D.global_position
 		var raycast_dest = $RayCast3D.get_collision_point()
@@ -81,6 +82,8 @@ func _physics_process(delta: float) -> void:
 		speed = clamp(speed,0,speed_max)
 		compiled_velocity += (($MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
 	
+	if $RayCast3D2.is_colliding():
+		gravity_control = (self.global_transform.basis.y * 1) * 1
 	velocity = compiled_velocity + gravity_control
 	compiled_velocity = compiled_velocity.slerp(Vector3.ZERO,0.05)
 	move_and_slide()

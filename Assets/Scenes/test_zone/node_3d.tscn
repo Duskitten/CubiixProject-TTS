@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://brg0um6pv877w"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/test_zone/paternoster_math.gd" id="1_4crim"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_4crim")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044014, -1.01264, 0)
+size = Vector3(0.5, 0.5, 0.5)

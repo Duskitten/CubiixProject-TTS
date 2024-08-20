@@ -364,11 +364,11 @@ mesh = SubResource("ArrayMesh_2vnre")
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="AirKart" parent="Objects" instance=ExtResource("16_hsbks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3132, 2.26059, 163.518)
-spring_strength = 11.12
-suspension_rest_dist = 0.11
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3132, 0.220612, 163.518)
+spring_strength = 8.34
+suspension_rest_dist = 0.055
 wheel_radius = 0.45
-spring_damper = 0.135
+spring_damper = 0.068
 
 [connection signal="body_entered" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_entered" binds= ["House_1"]]
 [connection signal="body_exited" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_exited"]

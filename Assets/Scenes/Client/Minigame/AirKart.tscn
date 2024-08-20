@@ -10,6 +10,10 @@ radius = 0.332584
 
 [node name="AirKart" type="CharacterBody3D"]
 collision_layer = 0
+wall_min_slide_angle = 0.0
+floor_stop_on_slope = false
+floor_block_on_wall = false
+floor_max_angle = 0.0
 script = ExtResource("1_n66c1")
 
 [node name="Hub" parent="." instance=ExtResource("1_63cef")]
@@ -30,8 +34,11 @@ update_scale = false
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, -2, 0)
 
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.4, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.283924, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333, 0)
 shape = SubResource("SphereShape3D_u7fa5")
 
 [node name="Marker3D" type="Marker3D" parent="."]
