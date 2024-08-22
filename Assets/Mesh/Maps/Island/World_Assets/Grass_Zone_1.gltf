@@ -98,7 +98,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":340,
+			"count":336,
 			"max":[
 				882.3715209960938,
 				44.309452056884766,
@@ -114,19 +114,19 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":340,
+			"count":336,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":340,
+			"count":336,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":1389,
+			"count":1323,
 			"type":"SCALAR"
 		},
 		{
@@ -166,7 +166,7 @@
 		{
 			"bufferView":8,
 			"componentType":5126,
-			"count":269,
+			"count":264,
 			"max":[
 				-350.45440673828125,
 				123.8618392944336,
@@ -182,13 +182,13 @@
 		{
 			"bufferView":9,
 			"componentType":5126,
-			"count":269,
+			"count":264,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":10,
 			"componentType":5126,
-			"count":269,
+			"count":264,
 			"type":"VEC2"
 		},
 		{
@@ -201,80 +201,80 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":4080,
+			"byteLength":4032,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4080,
-			"byteOffset":4080,
+			"byteLength":4032,
+			"byteOffset":4032,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2720,
-			"byteOffset":8160,
+			"byteLength":2688,
+			"byteOffset":8064,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2778,
-			"byteOffset":10880,
+			"byteLength":2646,
+			"byteOffset":10752,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":2592,
-			"byteOffset":13660,
+			"byteOffset":13400,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":2592,
-			"byteOffset":16252,
+			"byteOffset":15992,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1728,
-			"byteOffset":18844,
+			"byteOffset":18584,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1800,
-			"byteOffset":20572,
+			"byteOffset":20312,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":3228,
-			"byteOffset":22372,
+			"byteLength":3168,
+			"byteOffset":22112,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3228,
-			"byteOffset":25600,
+			"byteLength":3168,
+			"byteOffset":25280,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2152,
-			"byteOffset":28828,
+			"byteLength":2112,
+			"byteOffset":28448,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":2160,
-			"byteOffset":30980,
+			"byteOffset":30560,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":33140,
+			"byteLength":32720,
 			"uri":"Grass_Zone_1.bin"
 		}
 	]

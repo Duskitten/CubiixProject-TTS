@@ -6,18 +6,32 @@ code = "// NOTE: Shader automatically converted from Revel Engine 4.2.beta's Sta
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert;
 
+uniform bool has_metallic = false;
+
 uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
 uniform vec4 Body1 : source_color;
 uniform vec4 emiss_Body1 : source_color;
+uniform float Body1_metallic = 1.0;
+uniform float Body1_roughness = 1.0;
 
 uniform vec4 Body2 : source_color;
 uniform vec4 emiss_Body2 : source_color;
+uniform float Body2_metallic = 1.0;
+uniform float Body2_roughness = 1.0;
+
 
 uniform vec4 Body3 : source_color;
 uniform vec4 emiss_Body3 : source_color;
+uniform float Body3_metallic = 1.0;
+uniform float Body3_roughness = 1.0;
+
 
 uniform vec4 Body4 : source_color;
 uniform vec4 emiss_Body4 : source_color;
+uniform float Body4_metallic = 1.0;
+uniform float Body4_roughness = 1.0;
+
+
 
 uniform float distance_fade_min : hint_range(0.0, 4096.0, 0.01);
 uniform float distance_fade_max : hint_range(0.0, 4096.0, 0.01);
@@ -32,6 +46,11 @@ void fragment() {
 			}else{
 			EMISSION = vec3(distance_fade_glow,distance_fade_glow,distance_fade_glow);
 		}
+
+			if (has_metallic){
+				ROUGHNESS = Body2_roughness;
+				METALLIC = Body2_metallic;
+			}
 		}
 	else if (int(albedo_tex.r) == int(1.0) && int(albedo_tex.g) != int(1.0)){
 
@@ -42,6 +61,10 @@ void fragment() {
 			EMISSION = vec3(distance_fade_glow,distance_fade_glow,distance_fade_glow);
 
 		}
+		if (has_metallic){
+				ROUGHNESS = Body1_roughness;
+				METALLIC = Body1_metallic;
+			}
 		}
 	else if (int(albedo_tex.g) == int(1.0) && int(albedo_tex.r) != int(1.0)){
 		ALBEDO = Body3.rgb;
@@ -51,6 +74,10 @@ void fragment() {
 			EMISSION = vec3(distance_fade_glow,distance_fade_glow,distance_fade_glow);
 
 		}
+		if (has_metallic){
+				ROUGHNESS = Body3_roughness;
+				METALLIC = Body3_metallic;
+			}
 		}
 	else{
 		ALBEDO = Body4.rgb;
@@ -59,6 +86,10 @@ void fragment() {
 		}else{
 			EMISSION = vec3(distance_fade_glow,distance_fade_glow,distance_fade_glow);
 		}
+		if (has_metallic){
+				ROUGHNESS = Body4_roughness;
+				METALLIC = Body4_metallic;
+			}
 		}
 
 	{
