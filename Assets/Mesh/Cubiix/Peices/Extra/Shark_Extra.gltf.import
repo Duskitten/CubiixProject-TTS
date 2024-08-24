@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://crpppa22j01ha"
-path="res://.revel/imported/Shark_Extra.gltf-493ad0e8ea3ec712d9b8afbcd55bbd27.scn"
+path="res://.godot/imported/Shark_Extra.gltf-493ad0e8ea3ec712d9b8afbcd55bbd27.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Peices/Extra/Shark_Extra.gltf"
-dest_files=["res://.revel/imported/Shark_Extra.gltf-493ad0e8ea3ec712d9b8afbcd55bbd27.scn"]
+dest_files=["res://.godot/imported/Shark_Extra.gltf-493ad0e8ea3ec712d9b8afbcd55bbd27.scn"]
 
 [params]
 
@@ -32,8 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
 gltf/naming_version=1
 gltf/embedded_image_handling=1

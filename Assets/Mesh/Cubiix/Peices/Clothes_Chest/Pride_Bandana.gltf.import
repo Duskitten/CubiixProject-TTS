@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://diqdrd4iysffw"
-path="res://.revel/imported/Pride_Bandana.gltf-c2bfdec2f1667f98c46626de905d0962.scn"
+path="res://.godot/imported/Pride_Bandana.gltf-c2bfdec2f1667f98c46626de905d0962.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf"
-dest_files=["res://.revel/imported/Pride_Bandana.gltf-c2bfdec2f1667f98c46626de905d0962.scn"]
+dest_files=["res://.godot/imported/Pride_Bandana.gltf-c2bfdec2f1667f98c46626de905d0962.scn"]
 
 [params]
 

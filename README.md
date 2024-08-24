@@ -1,7 +1,7 @@
 # Cubiix Project: To The Stars!
 
 <p align="center">
-  <img src="Assets/Textures/UI/Titlescreen/Cubiix Project_Logo.png" width="400" alt="Revel Engine logo">
+  <img src="Assets/Textures/UI/Titlescreen/Cubiix Project_Logo.png" width="400" alt="Cubiix Project Logo">
 </p>
 
 ## "Cubiix Project: To The Stars!" is an open source Social MMO with RPG Elements
@@ -10,9 +10,8 @@ The project is maintained by Duskitten/Selkspace, and is licensed under the [Cub
 
 ## Instructions
 
-- The project is currently built with the [Revel Engine](https://github.com/Duskitten/revel) which is a fork Godot.
-- You'll need to compile it if you'd like to use this project.
-- Revel contains changes to maintain plugin compatibility so I am unsure if it will work on regular Godot Engine.
+- The project is currently built with the [Godot Engine 4.3](https://godotengine.org/).
+- Download and open the project as normal.
 
 ## Credits
 Credits to external resources used currently in the project:

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cuxby3kvbmimx"
-path="res://.revel/imported/Phone_Default_Icon.gltf-7bff528c8b7f6fe7c67c5b9a0d99f392.scn"
+path="res://.godot/imported/Phone_Default_Icon.gltf-7bff528c8b7f6fe7c67c5b9a0d99f392.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/UI/3D_UI/Phone_Default/Phone_Default_Icon.gltf"
-dest_files=["res://.revel/imported/Phone_Default_Icon.gltf-7bff528c8b7f6fe7c67c5b9a0d99f392.scn"]
+dest_files=["res://.godot/imported/Phone_Default_Icon.gltf-7bff528c8b7f6fe7c67c5b9a0d99f392.scn"]
 
 [params]
 

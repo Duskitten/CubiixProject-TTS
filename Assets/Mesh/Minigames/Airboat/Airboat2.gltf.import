@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cksf5c7ak53y6"
-path="res://.revel/imported/Airboat2.gltf-3d1233a0057782f7cebb6470be35a07f.scn"
+path="res://.godot/imported/Airboat2.gltf-3d1233a0057782f7cebb6470be35a07f.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Minigames/Airboat/Airboat2.gltf"
-dest_files=["res://.revel/imported/Airboat2.gltf-3d1233a0057782f7cebb6470be35a07f.scn"]
+dest_files=["res://.godot/imported/Airboat2.gltf-3d1233a0057782f7cebb6470be35a07f.scn"]
 
 [params]
 

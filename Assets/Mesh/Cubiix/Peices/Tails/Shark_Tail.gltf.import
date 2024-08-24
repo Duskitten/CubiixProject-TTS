@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c4b71y2h0adu3"
-path="res://.revel/imported/Shark_Tail.gltf-238392dab002f16895bd37f7129e46fe.scn"
+path="res://.godot/imported/Shark_Tail.gltf-238392dab002f16895bd37f7129e46fe.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Peices/Tails/Shark_Tail.gltf"
-dest_files=["res://.revel/imported/Shark_Tail.gltf-238392dab002f16895bd37f7129e46fe.scn"]
+dest_files=["res://.godot/imported/Shark_Tail.gltf-238392dab002f16895bd37f7129e46fe.scn"]
 
 [params]
 
@@ -32,8 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
 gltf/naming_version=1
 gltf/embedded_image_handling=1

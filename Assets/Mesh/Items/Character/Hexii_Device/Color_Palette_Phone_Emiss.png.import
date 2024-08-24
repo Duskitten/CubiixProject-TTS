@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b186m8j10wesi"
-path="res://.revel/imported/Color_Palette_Phone_Emiss.png-371241c8287c3e74bd335b24be9367f5.ctex"
+path="res://.godot/imported/Color_Palette_Phone_Emiss.png-371241c8287c3e74bd335b24be9367f5.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Mesh/Items/Character/Hexii_Device/Color_Palette_Phone_Emiss.png"
-dest_files=["res://.revel/imported/Color_Palette_Phone_Emiss.png-371241c8287c3e74bd335b24be9367f5.ctex"]
+dest_files=["res://.godot/imported/Color_Palette_Phone_Emiss.png-371241c8287c3e74bd335b24be9367f5.ctex"]
 
 [params]
 

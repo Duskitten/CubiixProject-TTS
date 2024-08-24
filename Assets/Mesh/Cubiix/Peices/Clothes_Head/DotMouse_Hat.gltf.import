@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b1rtvw8jeiwx7"
-path="res://.revel/imported/DotMouse_Hat.gltf-2a899ef4d19193cbf4c26297d386a08e.scn"
+path="res://.godot/imported/DotMouse_Hat.gltf-2a899ef4d19193cbf4c26297d386a08e.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Peices/Clothes_Head/DotMouse_Hat.gltf"
-dest_files=["res://.revel/imported/DotMouse_Hat.gltf-2a899ef4d19193cbf4c26297d386a08e.scn"]
+dest_files=["res://.godot/imported/DotMouse_Hat.gltf-2a899ef4d19193cbf4c26297d386a08e.scn"]
 
 [params]
 

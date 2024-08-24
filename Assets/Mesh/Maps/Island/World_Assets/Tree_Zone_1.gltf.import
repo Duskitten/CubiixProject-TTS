@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dr0klhkouh7qd"
-path="res://.revel/imported/Tree_Zone_1.gltf-991ead35e97c9c5ee0ce930b2e66b70a.scn"
+path="res://.godot/imported/Tree_Zone_1.gltf-991ead35e97c9c5ee0ce930b2e66b70a.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Maps/Island/World_Assets/Tree_Zone_1.gltf"
-dest_files=["res://.revel/imported/Tree_Zone_1.gltf-991ead35e97c9c5ee0ce930b2e66b70a.scn"]
+dest_files=["res://.godot/imported/Tree_Zone_1.gltf-991ead35e97c9c5ee0ce930b2e66b70a.scn"]
 
 [params]
 

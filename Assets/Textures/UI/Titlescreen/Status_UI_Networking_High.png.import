@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cl7mom54qnge6"
-path="res://.revel/imported/Status_UI_Networking_High.png-fb75b49428a1fb1cc6aa70486160c1a9.ctex"
+path="res://.godot/imported/Status_UI_Networking_High.png-fb75b49428a1fb1cc6aa70486160c1a9.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Textures/UI/Titlescreen/Status_UI_Networking_High.png"
-dest_files=["res://.revel/imported/Status_UI_Networking_High.png-fb75b49428a1fb1cc6aa70486160c1a9.ctex"]
+dest_files=["res://.godot/imported/Status_UI_Networking_High.png-fb75b49428a1fb1cc6aa70486160c1a9.ctex"]
 
 [params]
 

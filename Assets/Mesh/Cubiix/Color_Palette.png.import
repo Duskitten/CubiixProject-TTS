@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ef6dpy4dl3nl"
-path="res://.revel/imported/Color_Palette.png-ac4a112e97db1e1b9d80f9b6045f7e7c.ctex"
+path="res://.godot/imported/Color_Palette.png-ac4a112e97db1e1b9d80f9b6045f7e7c.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Color_Palette.png"
-dest_files=["res://.revel/imported/Color_Palette.png-ac4a112e97db1e1b9d80f9b6045f7e7c.ctex"]
+dest_files=["res://.godot/imported/Color_Palette.png-ac4a112e97db1e1b9d80f9b6045f7e7c.ctex"]
 
 [params]
 

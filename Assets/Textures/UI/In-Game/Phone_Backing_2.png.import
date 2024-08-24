@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq4ioqap8yndm"
-path="res://.revel/imported/Phone_Backing_2.png-48af3b8a9db54f3dc67e81787d720e7e.ctex"
+path="res://.godot/imported/Phone_Backing_2.png-48af3b8a9db54f3dc67e81787d720e7e.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Textures/UI/In-Game/Phone_Backing_2.png"
-dest_files=["res://.revel/imported/Phone_Backing_2.png-48af3b8a9db54f3dc67e81787d720e7e.ctex"]
+dest_files=["res://.godot/imported/Phone_Backing_2.png-48af3b8a9db54f3dc67e81787d720e7e.ctex"]
 
 [params]
 

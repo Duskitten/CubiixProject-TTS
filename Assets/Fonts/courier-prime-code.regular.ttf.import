@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://d4abxqqufataa"
-path="res://.revel/imported/courier-prime-code.regular.ttf-501b13af3c0574357f5a93a38b344b96.fontdata"
+path="res://.godot/imported/courier-prime-code.regular.ttf-501b13af3c0574357f5a93a38b344b96.fontdata"
 
 [deps]
 
 source_file="res://Assets/Fonts/courier-prime-code.regular.ttf"
-dest_files=["res://.revel/imported/courier-prime-code.regular.ttf-501b13af3c0574357f5a93a38b344b96.fontdata"]
+dest_files=["res://.godot/imported/courier-prime-code.regular.ttf-501b13af3c0574357f5a93a38b344b96.fontdata"]
 
 [params]
 

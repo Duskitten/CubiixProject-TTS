@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyqwv1jmkd6bx"
-path="res://.revel/imported/frog_body.png-16140281c12335c9a50bf6c5e3f28ccc.ctex"
+path="res://.godot/imported/frog_body.png-16140281c12335c9a50bf6c5e3f28ccc.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Mesh/Creatures/Frog/frog_body.png"
-dest_files=["res://.revel/imported/frog_body.png-16140281c12335c9a50bf6c5e3f28ccc.ctex"]
+dest_files=["res://.godot/imported/frog_body.png-16140281c12335c9a50bf6c5e3f28ccc.ctex"]
 
 [params]
 

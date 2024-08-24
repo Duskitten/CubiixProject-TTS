@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b1vwlavr53m1a"
-path="res://.revel/imported/ireno.gltf-7ad79e2bd9a370206cb9dc72c97064db.scn"
+path="res://.godot/imported/ireno.gltf-7ad79e2bd9a370206cb9dc72c97064db.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Outsiders/Ireno/ireno.gltf"
-dest_files=["res://.revel/imported/ireno.gltf-7ad79e2bd9a370206cb9dc72c97064db.scn"]
+dest_files=["res://.godot/imported/ireno.gltf-7ad79e2bd9a370206cb9dc72c97064db.scn"]
 
 [params]
 
@@ -32,8 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
 gltf/naming_version=1
 gltf/embedded_image_handling=1

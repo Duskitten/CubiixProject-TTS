@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b8o4y8nhyx285"
-path="res://.revel/imported/Paternoster.gltf-a175ffaff2120ada365649b82605402d.scn"
+path="res://.godot/imported/Paternoster.gltf-a175ffaff2120ada365649b82605402d.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Maps/Island/World_Assets/Paternoster.gltf"
-dest_files=["res://.revel/imported/Paternoster.gltf-a175ffaff2120ada365649b82605402d.scn"]
+dest_files=["res://.godot/imported/Paternoster.gltf-a175ffaff2120ada365649b82605402d.scn"]
 
 [params]
 

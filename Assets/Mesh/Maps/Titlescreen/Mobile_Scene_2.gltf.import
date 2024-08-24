@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wq644rdll5wc"
-path="res://.revel/imported/Mobile_Scene_2.gltf-6cfb20e5531d75ba2978c1296e461880.scn"
+path="res://.godot/imported/Mobile_Scene_2.gltf-6cfb20e5531d75ba2978c1296e461880.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Maps/Titlescreen/Mobile_Scene_2.gltf"
-dest_files=["res://.revel/imported/Mobile_Scene_2.gltf-6cfb20e5531d75ba2978c1296e461880.scn"]
+dest_files=["res://.godot/imported/Mobile_Scene_2.gltf-6cfb20e5531d75ba2978c1296e461880.scn"]
 
 [params]
 
@@ -32,8 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
 gltf/naming_version=1
 gltf/embedded_image_handling=1

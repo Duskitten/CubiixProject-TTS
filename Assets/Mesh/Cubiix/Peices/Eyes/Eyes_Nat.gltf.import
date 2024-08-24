@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cpdjk3pa5p241"
-path="res://.revel/imported/Eyes_Nat.gltf-57af179ef1544ad0c06616ae59d4dd07.scn"
+path="res://.godot/imported/Eyes_Nat.gltf-57af179ef1544ad0c06616ae59d4dd07.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Nat.gltf"
-dest_files=["res://.revel/imported/Eyes_Nat.gltf-57af179ef1544ad0c06616ae59d4dd07.scn"]
+dest_files=["res://.godot/imported/Eyes_Nat.gltf-57af179ef1544ad0c06616ae59d4dd07.scn"]
 
 [params]
 
@@ -32,8 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
 gltf/naming_version=1
 gltf/embedded_image_handling=1

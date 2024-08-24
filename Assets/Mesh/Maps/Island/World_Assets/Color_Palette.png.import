@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq24dwp51y6oq"
-path="res://.revel/imported/Color_Palette.png-0f366b80d48d3613b9387c8eb5265766.ctex"
+path="res://.godot/imported/Color_Palette.png-0f366b80d48d3613b9387c8eb5265766.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Mesh/Maps/Island/World_Assets/Color_Palette.png"
-dest_files=["res://.revel/imported/Color_Palette.png-0f366b80d48d3613b9387c8eb5265766.ctex"]
+dest_files=["res://.godot/imported/Color_Palette.png-0f366b80d48d3613b9387c8eb5265766.ctex"]
 
 [params]
 

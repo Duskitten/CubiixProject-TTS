@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bvf3465f6vxjk"
-path="res://.revel/imported/Grass.gltf-d249093122d94ca883032f1b044544d7.scn"
+path="res://.godot/imported/Grass.gltf-d249093122d94ca883032f1b044544d7.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Maps/Island/World_Assets/Grass.gltf"
-dest_files=["res://.revel/imported/Grass.gltf-d249093122d94ca883032f1b044544d7.scn"]
+dest_files=["res://.godot/imported/Grass.gltf-d249093122d94ca883032f1b044544d7.scn"]
 
 [params]
 

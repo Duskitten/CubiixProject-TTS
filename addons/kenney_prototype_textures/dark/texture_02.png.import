@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtipf7hbrne32"
-path="res://.revel/imported/texture_02.png-814d4f515892bb8274d285748f4a73a0.ctex"
+path="res://.godot/imported/texture_02.png-814d4f515892bb8274d285748f4a73a0.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/kenney_prototype_textures/dark/texture_02.png"
-dest_files=["res://.revel/imported/texture_02.png-814d4f515892bb8274d285748f4a73a0.ctex"]
+dest_files=["res://.godot/imported/texture_02.png-814d4f515892bb8274d285748f4a73a0.ctex"]
 
 [params]
 

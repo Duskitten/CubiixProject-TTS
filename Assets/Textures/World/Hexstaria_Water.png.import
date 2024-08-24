@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cneov18jif2qu"
-path.s3tc="res://.revel/imported/Hexstaria_Water.png-71df091d28642d4d9a9d2b0610357f57.s3tc.ctex"
+path.s3tc="res://.godot/imported/Hexstaria_Water.png-71df091d28642d4d9a9d2b0610357f57.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Textures/World/Hexstaria_Water.png"
-dest_files=["res://.revel/imported/Hexstaria_Water.png-71df091d28642d4d9a9d2b0610357f57.s3tc.ctex"]
+dest_files=["res://.godot/imported/Hexstaria_Water.png-71df091d28642d4d9a9d2b0610357f57.s3tc.ctex"]
 
 [params]
 

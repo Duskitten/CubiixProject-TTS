@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xyn671s3ppgw"
-path="res://.revel/imported/Traditional_Flag.png-74f33ddc56482b89857ac6dcae6ca9be.ctex"
+path="res://.godot/imported/Traditional_Flag.png-74f33ddc56482b89857ac6dcae6ca9be.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Traditional_Flag.png"
-dest_files=["res://.revel/imported/Traditional_Flag.png-74f33ddc56482b89857ac6dcae6ca9be.ctex"]
+dest_files=["res://.godot/imported/Traditional_Flag.png-74f33ddc56482b89857ac6dcae6ca9be.ctex"]
 
 [params]
 

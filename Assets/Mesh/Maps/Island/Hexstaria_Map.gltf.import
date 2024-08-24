@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cycideexy0qrf"
-path="res://.revel/imported/Hexstaria_Map.gltf-c88940018ec9d10ef5d3f5418314eb42.scn"
+path="res://.godot/imported/Hexstaria_Map.gltf-c88940018ec9d10ef5d3f5418314eb42.scn"
 
 [deps]
 
 source_file="res://Assets/Mesh/Maps/Island/Hexstaria_Map.gltf"
-dest_files=["res://.revel/imported/Hexstaria_Map.gltf-c88940018ec9d10ef5d3f5418314eb42.scn"]
+dest_files=["res://.godot/imported/Hexstaria_Map.gltf-c88940018ec9d10ef5d3f5418314eb42.scn"]
 
 [params]
 
