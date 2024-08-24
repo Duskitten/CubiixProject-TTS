@@ -6,7 +6,7 @@
 
 ## "Cubiix Project: To The Stars!" is an open source Social MMO with RPG Elements
 
-The project is maintained by Duskitten/Selkspace, and is licensed under the [Cubiix Project License](https://cubiixproject.xyz/en/License)
+The project is maintained by Duskitten / [Selkspace](https://selkspace.xyz), and is licensed under the [Cubiix Project License](https://cubiixproject.xyz/en/License)
 
 ## Instructions
 
@@ -20,3 +20,4 @@ Credits to external resources used currently in the project:
 -  [Godot Sqlite](https://github.com/2shady4u/godot-sqlite)
 -  [Godot JWT](https://github.com/fenix-hub/godot-engine.jwt/tree/main)
 -  [Kenney Prototype Textures](https://kenney.nl/assets/prototype-textures)
+-
