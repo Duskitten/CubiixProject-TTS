@@ -1066,27 +1066,30 @@ var Item_Data_Assets ={
 var MeshRenderQueue = []
 var MeshGenThread = Thread.new()
 var MeshGenSemaphore = Semaphore.new()
+signal Finished_Mesh
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
 func add_to_mesh_queue(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, TargetSkeleton:Skeleton3D = null, MainNode:Node = null):
 	MeshRenderQueue.append([MeshList,Materials,TargetMesh,TargetSkeleton, MainNode])
-	MeshGenSemaphore.post()
 
 func thread_force_post():
 	MeshGenSemaphore.post()
 
 func _ready() -> void:
 	MeshGenThread.start(gen_thread_run)
-	print("start!")
+	thread_force_post()
 
 func gen_thread_run():
-	MeshGenThread.set_thread_safety_checks_enabled(false)
 	while true:
 		MeshGenSemaphore.wait()
 		if Core.Globals.KillThreads:
 			break
+		
 		var Queue = MeshRenderQueue.pop_front()
-		merge_meshes(Queue[0],Queue[1],Queue[2],Queue[3], Queue[4])
+		if Queue != null:
+			merge_meshes(Queue[0],Queue[1],Queue[2],Queue[3], Queue[4])
+		else:
+			thread_force_post()
 		
 	print("Killing Mesh Thread!")
 	
@@ -1126,12 +1129,14 @@ func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary) -> Dictiona
 func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
 	##Initial Setup of Meshes
 	print("Generating New Mesh.")
+	
 	var Final_Mesh : ArrayMesh = ArrayMesh.new()
 	var TargetSkin : Skin = TargetMesh.skin.duplicate(true)
 	##Blendshape Key:
 	var Blendshape_Key : Array = []
 	var Replace_Bone_Key : Dictionary = {}
 	var DynBoneList : Dictionary  = {}
+	var Compiled_AABB : AABB = AABB()
 	##Loops to add blendshapes and bones ahead of time
 	for MeshSubList in MeshList:
 		var Meshes = []
@@ -1234,10 +1239,9 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 			##Clean Up SurfaceTool
 
 			var Mesh_Commit = Meshes[i][1]
-			
-			
 			st.append_from(Meshes[i][0],0,Transform3D())
-			
+
+			Compiled_AABB = Meshes[i][0].get_aabb().merge(Compiled_AABB)
 			###Adjust Bone Index
 			var Key = Replace_Bone_Key[MeshSubList[i]]
 			if !Key.is_empty():
@@ -1320,9 +1324,11 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 	
 	TargetMesh.call_deferred("set_mesh",Final_Mesh)
 	TargetMesh.call_deferred("set_skin",TargetSkin)
-	
+	#print(Compiled_AABB)
+	TargetMesh.set_custom_aabb(Compiled_AABB)
 	##Apply materials to mesh surfaces as required
 	for i in Materials.size():
 		TargetMesh.call_deferred("set_surface_override_material",i,Materials[i])
 		
 	MainNode.call_deferred("emit_signal","MeshFinished")
+	thread_force_post()

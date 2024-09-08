@@ -25,10 +25,55 @@ script = ExtResource("1_4skhm")
 
 [node name="Cubiix_Model" parent="Hub" instance=ExtResource("2_q4jtr")]
 
+[node name="Skeleton3D" parent="Hub/Cubiix_Model" index="0"]
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/2/position = Vector3(0, 0.254852, 0)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(-0.327326, 0.134334, 0)
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/5/rotation = Quaternion(0, 0, 0, 1)
+bones/6/rotation = Quaternion(0, 0, 0, 1)
+bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/8/position = Vector3(0.327326, 0.134334, 0)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/9/rotation = Quaternion(0, 0, 0, 1)
+bones/10/rotation = Quaternion(0, 0, 0, 1)
+bones/11/rotation = Quaternion(0, 0, 0, 1)
+bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/position = Vector3(0, 0.12722, 0)
+bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/position = Vector3(0, 0.12722, 0)
+bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+
+[node name="Cube" parent="Hub/Cubiix_Model/Skeleton3D" index="0"]
+surface_material_override/0 = null
+
+[node name="AnimationTree" parent="Hub/Cubiix_Model" index="2"]
+parameters/Blend2/blend_amount = 0
+
 [node name="Items" type="Node3D" parent="Hub"]
 
 [node name="Follow_Point" type="Node3D" parent="Hub"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="Head" type="Node3D" parent="Hub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494852, 0)
+
+[node name="Lerped_Head" type="Node3D" parent="Hub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494852, 0)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Hub/Lerped_Head"]
+transform = Transform3D(1, 0.000343971, 0.000427783, -0.000343709, 1, -0.00061229, -0.000428021, 0.000612143, 1, 0, 0.00149581, 0)
+bone_name = "Head"
+bone_idx = 2
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Cubiix_Model/Skeleton3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -48,3 +93,5 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214239, 0)
 target_position = Vector3(0, -0.32, 0)
 collision_mask = 2
+
+[editable path="Hub/Cubiix_Model"]

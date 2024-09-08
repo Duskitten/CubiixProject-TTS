@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgl6owk1m1q4u"]
+
+[ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="1_negna"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwgxd"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.106543, 0.190333, 0.210938, 1)
+border_width_left = 18
+border_width_top = 18
+border_color = Color(0.126383, 0.233143, 0.242188, 0.638)
+corner_radius_top_left = 16
+corner_radius_bottom_right = 16
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+shadow_color = Color(0, 0, 0, 0.211)
+shadow_size = 1
+shadow_offset = Vector2(8, 8)
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [100.0, 700.0]
+
+[node name="Box" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.499
+anchor_top = 0.5
+anchor_right = 0.499
+anchor_bottom = 0.5
+offset_left = -300.2
+offset_top = 113.0
+offset_right = 300.8
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lwgxd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_negna")
+text = "123123123"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Box/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 12.0
+offset_top = -15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+theme = ExtResource("1_negna")
+theme_override_constants/outline_size = 9
+theme_override_constants/line_separation = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = " Test NPC"
+scroll_active = false

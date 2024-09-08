@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjh7kic6808a"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Npc_Function.gd" id="1_gscbr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v5r17"]
+radius = 1.25044
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3iuut"]
+radius = 0.856332
+
+[node name="NPC_Function" type="Node3D"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+script = ExtResource("1_gscbr")
+
+[node name="Look_At_Range" type="Area3D" parent="."]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0.419477, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Look_At_Range"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_v5r17")
+
+[node name="Interact_Range" type="Area3D" parent="."]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0.419477, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact_Range"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_3iuut")

@@ -13,6 +13,8 @@ enum HEAD_ENUM {None,Goggle_Test,Orb_Test,DotMouse_Hat}
 enum CHEST_ENUM {None,Trad_Pride_Bandanna,Trans_Pride_Bandanna}
 enum BACK_ENUM {None}
 
+@export var Randomize : bool
+
 @export var Eyes : EYE_ENUM = EYE_ENUM.Default
 @export var Ears : EAR_ENUM = EAR_ENUM.None
 @export var Extra : EXTRA_ENUM = EXTRA_ENUM.None
@@ -38,6 +40,7 @@ var Skeleton_Values = {}
 
 var CharSetup = false
 @export var Is_Player = false
+@export var Generate = false
 
 @onready var Anim_Tree = $Hub/Cubiix_Model/AnimationTree
 @onready var Anim_Player = $Hub/Cubiix_Model/AnimationPlayer
@@ -60,7 +63,21 @@ var Is_Piloting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Core.Client.Local_Player = self
+	if Is_Player:
+		Core.Client.Local_Player = self
+	else:
+		self.remove_from_group("Player")
+		$CollisionShape3D.queue_free()
+		$RayCast3D.queue_free()
+		$RayCast3D2.queue_free()
+		$RayCast3D3.queue_free()
+		set_physics_process(false)
+		if Randomize:
+			Eyes = Core.AssetData.Eye_Slot.find(Core.AssetData.Eye_Slot.pick_random())
+			Ears = Core.AssetData.Ear_Slot.find(Core.AssetData.Ear_Slot.pick_random())
+			Extra = Core.AssetData.Extra_Slot.find(Core.AssetData.Extra_Slot.pick_random())
+			Tail = Core.AssetData.Tail_Slot.find(Core.AssetData.Tail_Slot.pick_random())
+			Wings = Core.AssetData.Wing_Slot.find(Core.AssetData.Wing_Slot.pick_random())
 	Regen_Character()
 
 
@@ -100,9 +117,13 @@ func Regen_Character():
 		["Body",Core.AssetData.Eye_Slot[Eyes],Core.AssetData.Ear_Slot[Ears],Core.AssetData.Extra_Slot[Extra],Core.AssetData.Tail_Slot[Tail],Core.AssetData.Wing_Slot[Wings],Core.AssetData.Head_Slot[Head],Core.AssetData.Chest_Slot[Chest],Core.AssetData.Back_Slot[Back]],
 		{"User":charmat}
 		)
+		var parent = Skeleton.get_parent()
+		Skeleton.get_parent().remove_child(Skeleton)
 		
-		Core.AssetData.add_to_mesh_queue(compiled["MeshList"],compiled["MaterialList"],MeshObj,Skeleton, self)
+		Core.AssetData.add_to_mesh_queue(compiled["MeshList"],compiled["MaterialList"],MeshObj,Skeleton,self)
 		await MeshFinished
+		parent.add_child(Skeleton)
+		$Hub/Lerped_Head/BoneAttachment3D.set_external_skeleton(Skeleton.get_path())
 		charmat.set_shader_parameter("Body1",Body_1)
 		charmat.set_shader_parameter("emiss_Body1",Body_Emiss_1)
 		charmat.set_shader_parameter("Body2",Body_2)
@@ -113,9 +134,11 @@ func Regen_Character():
 		charmat.set_shader_parameter("emiss_Body4",Body_Emiss_4)
 		
 		Anim_Tree.active = true
-		Skeleton.add_child(DynBones)
-		DynBones.DynBones_Register = DynBones_Register.duplicate(true)
-		DynBones.first_run()
+		if Is_Player:
+			
+			Skeleton.add_child(DynBones)
+			DynBones.DynBones_Register = DynBones_Register.duplicate(true)
+			DynBones.first_run()
 		base_model.position = Vector3(0,0,0)
 		base_model.show()
 		CharSetup = true
@@ -148,13 +171,27 @@ var walk = false
 var customizing = false
 var stored_items = {}
 var Delta = 0
+var Look_At = null
 
 
 func _process(delta: float) -> void:
 	Delta = Time.get_ticks_msec() - Tick_Prev
 	Tick_Prev = Time.get_ticks_msec()
 	Blink_Timer += Delta
-	
+	if !Is_Player:
+		$Hub/Lerped_Head/BoneAttachment3D.override_pose = true
+		$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",1)
+		if Look_At != null:
+			$Hub/Head.look_at(Look_At.global_position)
+			$Hub/Lerped_Head.rotation.x = clamp(lerp_angle($Hub/Lerped_Head.rotation.x,-$Hub/Head.rotation.x, 0.1),deg_to_rad(-30),deg_to_rad(30))
+			$Hub/Lerped_Head.rotation.y = clamp(lerp_angle($Hub/Lerped_Head.rotation.y,$Hub/Head.rotation.y+deg_to_rad(180), 0.1),deg_to_rad(-30),deg_to_rad(30))
+			$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,$Hub/Head.rotation.z, 0.1)
+		else:
+			if $Hub/Lerped_Head.rotation != Vector3.ZERO:
+				$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,0, 0.1)
+				$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,0, 0.1)
+				$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,0, 0.1)
+		
 	if can_idle && can_idle_override && !customizing:
 		Idle_Timer += Delta
 		
