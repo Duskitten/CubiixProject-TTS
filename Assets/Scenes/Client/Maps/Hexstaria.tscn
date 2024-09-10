@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://cdowyf8qq0d1y"]
+[gd_scene load_steps=51 format=4 uid="uid://cdowyf8qq0d1y"]
 
 [ext_resource type="PackedScene" uid="uid://cycideexy0qrf" path="res://Assets/Mesh/Maps/Island/Hexstaria_Map.gltf" id="1_80u8o"]
 [ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="2_hxswa"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/test_zone/paternoster_math.gd" id="17_mue2h"]
 [ext_resource type="PackedScene" uid="uid://6dynrwinbb21" path="res://Assets/Scenes/Client/Map_Assets/patternoster_kart.tscn" id="18_1ll5t"]
 [ext_resource type="PackedScene" uid="uid://bjh7kic6808a" path="res://Assets/Scenes/Client/Tools/Npc_Function.tscn" id="20_tk2ss"]
+[ext_resource type="Texture2D" uid="uid://dvwfqrpuntr1m" path="res://Assets/Textures/UI/In-Game/Exclaim.png" id="21_lfpw1"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="21_mctrc"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xqani"]
@@ -383,29 +384,7 @@ Is_Player = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Player/Hub/Cubiix_Model" index="0"]
-bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/2/position = Vector3(0, 0.254852, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
 bones/2/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(-0.327326, 0.134334, 0)
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
-bones/5/rotation = Quaternion(0, 0, 0, 1)
-bones/6/rotation = Quaternion(0, 0, 0, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/8/position = Vector3(0.327326, 0.134334, 0)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/9/rotation = Quaternion(0, 0, 0, 1)
-bones/10/rotation = Quaternion(0, 0, 0, 1)
-bones/11/rotation = Quaternion(0, 0, 0, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/position = Vector3(0, 0.12722, 0)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/position = Vector3(0, 0.12722, 0)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="RayCast3D" parent="Player" index="3"]
 target_position = Vector3(0, -0.27, 0)
@@ -488,133 +467,133 @@ height = 72.115
 speed = 2.0
 
 [node name="PatternosterKart" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -9.20235, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -39.6611, 0)
 
 [node name="PatternosterKart2" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -5.713, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -43.1505, 0)
 
 [node name="PatternosterKart3" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -2.22365, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -46.6398, 0)
 
 [node name="PatternosterKart4" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186014, 0.906104, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -50.1292, 0)
 
 [node name="PatternosterKart5" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -1.84907, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -53.6185, 0)
 
 [node name="PatternosterKart6" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -5.33842, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -57.1079, 0)
 
 [node name="PatternosterKart7" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -8.82776, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -60.5972, 0)
 
 [node name="PatternosterKart8" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -12.3171, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -64.0866, 0)
 
 [node name="PatternosterKart9" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -15.8065, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -67.5759, 0)
 
 [node name="PatternosterKart10" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -19.2958, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -71.0653, 0)
 
 [node name="PatternosterKart11" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -22.7852, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.809911, -72.5618, 0)
 
 [node name="PatternosterKart12" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -26.2745, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -69.092, 0)
 
 [node name="PatternosterKart13" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -29.7638, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -65.6027, 0)
 
 [node name="PatternosterKart14" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -33.2532, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -62.1133, 0)
 
 [node name="PatternosterKart15" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -36.7425, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -58.624, 0)
 
 [node name="PatternosterKart16" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -40.2319, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -55.1346, 0)
 
 [node name="PatternosterKart17" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -43.7212, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -51.6453, 0)
 
 [node name="PatternosterKart18" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -47.2106, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -48.1559, 0)
 
 [node name="PatternosterKart19" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -50.6999, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -44.6666, 0)
 
 [node name="PatternosterKart20" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -54.1893, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -41.1772, 0)
 
 [node name="PatternosterKart21" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -57.6786, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -37.6879, 0)
 
 [node name="PatternosterKart22" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -61.168, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -34.1985, 0)
 
 [node name="PatternosterKart23" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -64.6573, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -30.7092, 0)
 
 [node name="PatternosterKart24" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -68.1467, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -27.2198, 0)
 
 [node name="PatternosterKart25" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -71.636, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -23.7305, 0)
 
 [node name="PatternosterKart26" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -72.0106, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -20.2411, 0)
 
 [node name="PatternosterKart27" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -68.5213, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -16.7518, 0)
 
 [node name="PatternosterKart28" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -65.0319, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -13.2624, 0)
 
 [node name="PatternosterKart29" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -61.5426, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -9.77309, 0)
 
 [node name="PatternosterKart30" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -58.0532, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -6.28375, 0)
 
 [node name="PatternosterKart31" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -54.5639, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -2.7944, 0)
 
 [node name="PatternosterKart32" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -51.0745, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.675994, 0.631393, 0)
 
 [node name="PatternosterKart33" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -47.5852, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -1.27832, 0)
 
 [node name="PatternosterKart34" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -44.0958, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -4.76767, 0)
 
 [node name="PatternosterKart35" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -40.6065, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -8.25702, 0)
 
 [node name="PatternosterKart36" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -37.1171, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -11.7464, 0)
 
 [node name="PatternosterKart37" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -33.6278, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -15.2357, 0)
 
 [node name="PatternosterKart38" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -30.1384, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -18.7251, 0)
 
 [node name="PatternosterKart39" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -26.6491, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -22.2144, 0)
 
 [node name="PatternosterKart40" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -23.1597, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -25.7038, 0)
 
 [node name="PatternosterKart41" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -19.6704, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -29.1931, 0)
 
 [node name="PatternosterKart42" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -16.181, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -32.6825, 0)
 
 [node name="PatternosterKart43" parent="Objects/Paternoster" instance=ExtResource("18_1ll5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, -12.6917, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925, -36.1718, 0)
 
 [node name="NPC" type="Node3D" parent="."]
 
@@ -633,6 +612,13 @@ Body_Emiss_4 = Color(0.752941, 0.156863, 0.176471, 1)
 
 [node name="NPC_Function" parent="NPC/Ki" instance=ExtResource("20_tk2ss")]
 Character = &"Ki"
+Is_Important = true
+
+[node name="Sprite3D" type="Sprite3D" parent="NPC/Ki"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79679, 0)
+pixel_size = 0.003
+billboard = 1
+texture = ExtResource("21_lfpw1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -173,24 +173,28 @@ var stored_items = {}
 var Delta = 0
 var Look_At = null
 
+var NPC_Is_InterestPoint = false
 
 func _process(delta: float) -> void:
 	Delta = Time.get_ticks_msec() - Tick_Prev
 	Tick_Prev = Time.get_ticks_msec()
 	Blink_Timer += Delta
 	if !Is_Player:
-		$Hub/Lerped_Head/BoneAttachment3D.override_pose = true
-		$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",1)
+		$Hub/Cubiix_Model/AnimationTree.set("parameters/NPC/blend_amount",1)
 		if Look_At != null:
+			$Hub/Lerped_Head/BoneAttachment3D.override_pose = true
+			$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",1)
 			$Hub/Head.look_at(Look_At.global_position)
-			$Hub/Lerped_Head.rotation.x = clamp(lerp_angle($Hub/Lerped_Head.rotation.x,-$Hub/Head.rotation.x, 0.1),deg_to_rad(-30),deg_to_rad(30))
-			$Hub/Lerped_Head.rotation.y = clamp(lerp_angle($Hub/Lerped_Head.rotation.y,$Hub/Head.rotation.y+deg_to_rad(180), 0.1),deg_to_rad(-30),deg_to_rad(30))
+			$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,clamp(lerp_angle($Hub/Lerped_Head.rotation.x,-$Hub/Head.rotation.x, 1),deg_to_rad(-30),deg_to_rad(30)),0.1)
+			$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,clamp(lerp_angle($Hub/Lerped_Head.rotation.y,$Hub/Head.rotation.y+deg_to_rad(180), 1),deg_to_rad(-45),deg_to_rad(45)),0.1)
 			$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,$Hub/Head.rotation.z, 0.1)
 		else:
-			if $Hub/Lerped_Head.rotation != Vector3.ZERO:
-				$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,0, 0.1)
-				$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,0, 0.1)
-				$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,0, 0.1)
+			$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,0, 0.5)
+			$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,0, 0.5)
+			$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,0, 0.5)
+			if $Hub/Lerped_Head.rotation.length() <= 0.1:
+				$Hub/Lerped_Head/BoneAttachment3D.override_pose = false
+				$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",0)
 		
 	if can_idle && can_idle_override && !customizing:
 		Idle_Timer += Delta

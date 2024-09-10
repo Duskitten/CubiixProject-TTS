@@ -2,6 +2,7 @@ extends Node3D
 var CanInteract = false
 @export var Character:StringName
 @export var Line:int
+@export var Is_Important:bool
 
 
 func _ready() -> void:
@@ -9,6 +10,8 @@ func _ready() -> void:
 	$Look_At_Range.body_exited.connect(Look_At_Range_Exit)
 	$Interact_Range.body_entered.connect(Interact_Range_Enter)
 	$Interact_Range.body_exited.connect(Interact_Range_Exit)
+	if Is_Important:
+		get_parent().NPC_Is_InterestPoint = true
 	
 	
 func Look_At_Range_Enter(Body:Node3D):

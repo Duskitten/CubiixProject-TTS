@@ -1,7 +1,9 @@
-[gd_scene load_steps=74 format=4 uid="uid://cirw3ifxx1v8v"]
+[gd_scene load_steps=26 format=4 uid="uid://cirw3ifxx1v8v"]
 
 [ext_resource type="Texture2D" uid="uid://ef6dpy4dl3nl" path="res://Assets/Mesh/Cubiix/Color_Palette.png" id="1_5ro10"]
 [ext_resource type="Material" uid="uid://da55ukgpbvpxn" path="res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres" id="2_2760a"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://66yh8wx1jq5e" path="res://Assets/Animations/PlayerStateMachine.tres" id="3_85fqt"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://cwaik7ippqh75" path="res://Assets/Animations/NPCStateMachine.tres" id="3_ah4lj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10u2h"]
 resource_name = "Material"
@@ -1629,6 +1631,263 @@ tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = PackedFloat32Array(0, 1, 0, 0.24, 0)
 
+[sub_resource type="Animation" id="Animation_jookv"]
+resource_name = "NPC_Attention"
+length = 2.2
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cubiix_Model/Skeleton3D:Chest")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -0.131435, 0.991325)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cubiix_Model/Skeleton3D:Hips")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0, 0, 0, 0.366667, 1, 0, 0.305695, 0, 0.666667, 1, 0, 0.305695, 0, 0.833333, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1.13333, 1, 0, 0, 0, 1.26667, 1, 0, 0.305695, 0, 1.8, 1, 0, 0.305695, 0, 2, 1, 0, 0, 0)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cubiix_Model/Skeleton3D:Head")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, 0, 0, 0, 1, 0.8, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1.2, 1, 0, 0, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cubiix_Model/Skeleton3D:Leg_R")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -2.66925e-08, 2.66925e-08, 0.707107, 0.707107, 0.1, 1, -2.66925e-08, 2.66925e-08, 0.707107, 0.707107, 0.2, 1, 0.0683689, -0.0683689, 0.703794, 0.703794, 0.666667, 1, 0.0683689, -0.0683689, 0.703794, 0.703794, 0.8, 1, -2.66925e-08, 2.66925e-08, 0.707107, 0.707107, 1, 1, -2.66925e-08, 2.66925e-08, 0.707107, 0.707107, 1.1, 1, -2.66925e-08, 2.66925e-08, 0.707107, 0.707107, 1.2, 1, 0.0683689, -0.0683689, 0.703794, 0.703794, 1.83333, 1, 0.0683689, -0.0683689, 0.703794, 0.703794, 1.93333, 1, -2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cubiix_Model/Skeleton3D:Leg_L")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0.24, 0, 0.2, 1, 0, 0.24, 0)
+tracks/5/type = "position_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cubiix_Model/Skeleton3D:Palm_R")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.305586, 0.404165, 0, 0.2, 1, -0.263685, 0.529448, 0, 0.3, 1, -0.333936, 0.510486, 0, 0.4, 1, -0.263685, 0.529448, 0, 0.5, 1, -0.333936, 0.510486, 0, 0.6, 1, -0.263685, 0.529448, 0, 0.7, 1, -0.333936, 0.510486, 0, 0.8, 1, -0.305586, 0.404165, 0, 1.36667, 1, -0.263685, 0.529448, 0, 1.46667, 1, -0.333936, 0.510486, 0, 1.56667, 1, -0.263685, 0.529448, 0, 1.66667, 1, -0.333936, 0.510486, 0, 1.76667, 1, -0.263685, 0.529448, 0, 1.86667, 1, -0.333936, 0.510486, 0)
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cubiix_Model/Skeleton3D:Middle_R")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0, 0.223611, 0)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cubiix_Model/Skeleton3D:Middle_R")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/8/type = "position_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cubiix_Model/Skeleton3D:Pinky_R")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.00361538, 0.200243, -0.0778246)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cubiix_Model/Skeleton3D:Pinky_R")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/10/type = "position_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cubiix_Model/Skeleton3D:Index_R")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0.00362426, 0.200243, 0.0780157)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cubiix_Model/Skeleton3D:Index_R")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/12/type = "position_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Cubiix_Model/Skeleton3D:Thumb_R")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0.00878999, 0.111369, 0.122818)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Cubiix_Model/Skeleton3D:Thumb_R")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, 0.534875, 0.0759609, 0.0397133, 0.840572)
+tracks/14/type = "position_3d"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Cubiix_Model/Skeleton3D:Palm_L")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, 0.350349, 0.117622, 0, 0.266667, 1, 0.350349, 0.117622, 0, 0.366667, 1, 0.380348, 0.00648004, 0, 0.9, 1, 0.350349, 0.117622, 0, 1.16667, 1, 0.350349, 0.117622, 0, 1.26667, 1, 0.380348, 0.00648004, 0)
+tracks/15/type = "rotation_3d"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Cubiix_Model/Skeleton3D:Palm_L")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = PackedFloat32Array(0, 1, -0.0214757, -0.00880041, 0.9457, -0.32421)
+tracks/16/type = "position_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Cubiix_Model/Skeleton3D:Middle_L")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, 0, 0.223611, 0)
+tracks/17/type = "rotation_3d"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Cubiix_Model/Skeleton3D:Middle_L")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 1.1711e-08, 9.03607e-10, -0.721984, 0.69191)
+tracks/18/type = "position_3d"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Cubiix_Model/Skeleton3D:Pinky_L")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, 0.00361538, 0.200243, -0.0778246)
+tracks/19/type = "rotation_3d"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Cubiix_Model/Skeleton3D:Pinky_L")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = PackedFloat32Array(0, 1, 2.84008e-09, -2.58439e-09, -0.47355, 0.880767)
+tracks/20/type = "position_3d"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Cubiix_Model/Skeleton3D:Index_L")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = PackedFloat32Array(0, 1, -0.00362426, 0.200243, 0.0780157)
+tracks/21/type = "rotation_3d"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Cubiix_Model/Skeleton3D:Index_L")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = PackedFloat32Array(0, 1, 1.02448e-08, -3.23383e-09, -0.736304, 0.676651)
+tracks/22/type = "position_3d"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Cubiix_Model/Skeleton3D:Thumb_L")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = PackedFloat32Array(0, 1, -0.00878999, 0.111369, 0.122818)
+tracks/23/type = "rotation_3d"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Cubiix_Model/Skeleton3D:Thumb_L")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = PackedFloat32Array(0, 1, 0.0872531, -0.016449, -0.441118, 0.893046)
+tracks/24/type = "position_3d"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Cubiix_Model/Skeleton3D:Bone.002")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = PackedFloat32Array(0, 1, 0, 0.24, 0)
+tracks/25/type = "rotation_3d"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Cubiix_Model/Skeleton3D:Bone.002")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/26/type = "position_3d"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Cubiix_Model/Skeleton3D:Foot_R")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = PackedFloat32Array(0, 1, 0, 0.12722, 0, 0.2, 1, 0, 0.12722, 0, 1, 1, 0, 0.12722, 0, 1.2, 1, 0, 0.12722, 0)
+tracks/27/type = "rotation_3d"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Cubiix_Model/Skeleton3D:Foot_R")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = PackedFloat32Array(0, 1, 4.21609e-09, -5.76012e-08, 0.707107, 0.707107, 0.1, 1, 4.21609e-09, -5.76012e-08, 0.707107, 0.707107, 0.2, 1, -0.190933, -0.190934, 0.680841, 0.680841, 0.7, 1, -0.190933, -0.190934, 0.680841, 0.680841, 0.8, 1, 4.21609e-09, -5.76012e-08, 0.707107, 0.707107, 1, 1, 4.21609e-09, -5.76012e-08, 0.707107, 0.707107, 1.1, 1, 4.21609e-09, -5.76012e-08, 0.707107, 0.707107, 1.2, 1, -0.190933, -0.190934, 0.680841, 0.680841, 1.83333, 1, -0.190933, -0.190934, 0.680841, 0.680841, 1.93333, 1, 4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+tracks/28/type = "position_3d"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Cubiix_Model/Skeleton3D:Foot_L")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = PackedFloat32Array(0, 1, 0, 0.12722, 0, 0.2, 1, 0, 0.12722, 0)
+tracks/29/type = "rotation_3d"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Cubiix_Model/Skeleton3D:Foot_L")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = PackedFloat32Array(0, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107, 0.1, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107, 0.2, 1, -0.112669, 0.112669, -0.698073, 0.698073, 0.666667, 1, -0.112669, 0.112669, -0.698073, 0.698073, 0.8, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107, 1, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107, 1.1, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107, 1.2, 1, -0.112669, 0.112669, -0.698073, 0.698073, 1.8, 1, -0.112669, 0.112669, -0.698073, 0.698073, 1.93333, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+tracks/30/type = "rotation_3d"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Cubiix_Model/Skeleton3D:Hips")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, 0, 0, 0, 1)
+tracks/31/type = "rotation_3d"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Cubiix_Model/Skeleton3D:Palm_R")
+tracks/31/interp = 2
+tracks/31/loop_wrap = true
+tracks/31/keys = PackedFloat32Array(0, 1, -0.258153, 0.608305, 0.283611, 0.6949, 0.2, 1, -0.063927, 0.657717, 0.0622551, 0.747961, 0.3, 1, -0.144907, 0.644733, 0.154427, 0.734489, 0.366667, 1, -0.063927, 0.657717, 0.0622551, 0.747961, 0.466667, 1, -0.144907, 0.644733, 0.154427, 0.734489, 0.533333, 1, -0.063927, 0.657717, 0.0622551, 0.747961, 0.633333, 1, -0.144907, 0.644733, 0.154427, 0.734489, 1.36667, 1, -0.258153, 0.608305, 0.283611, 0.6949, 1.56667, 1, -0.063927, 0.657717, 0.0622551, 0.747961, 1.66667, 1, -0.144907, 0.644733, 0.154427, 0.734489, 1.73333, 1, -0.063927, 0.657717, 0.0622551, 0.747961, 1.83333, 1, -0.144907, 0.644733, 0.154427, 0.734489, 1.9, 1, -0.063927, 0.657717, 0.0622551, 0.747961, 2, 1, -0.144907, 0.644733, 0.154427, 0.734489)
+tracks/32/type = "rotation_3d"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Cubiix_Model/Skeleton3D:Leg_L")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = PackedFloat32Array(0, 1, -2.66925e-08, -2.66925e-08, -0.707107, 0.707107, 0.1, 1, -2.66925e-08, -2.66925e-08, -0.707107, 0.707107, 0.2, 1, 0.0843124, 0.0843124, -0.702062, 0.702062, 0.433333, 1, 0.0843124, 0.0843124, -0.702062, 0.702062, 0.766667, 1, -2.66925e-08, -2.66925e-08, -0.707107, 0.707107, 1, 1, -2.66925e-08, -2.66925e-08, -0.707107, 0.707107, 1.1, 1, -2.66925e-08, -2.66925e-08, -0.707107, 0.707107, 1.2, 1, 0.0843124, 0.0843124, -0.702062, 0.702062, 1.8, 1, 0.0843124, 0.0843124, -0.702062, 0.702062, 1.93333, 1, -2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+tracks/33/type = "position_3d"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Cubiix_Model/Skeleton3D:Chest")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = PackedFloat32Array(0, 1, 0, 0.24, 0, 0.2, 1, 0, 0.24, 0, 0.433333, 1, 0, 0.25533, 0, 0.8, 1, 0, 0.25533, 0, 1, 1, 0, 0.24, 0, 1.2, 1, 0, 0.24, 0, 1.8, 1, 0, 0.25533, 0, 1.93333, 1, 0, 0.25533, 0)
+tracks/34/type = "position_3d"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Cubiix_Model/Skeleton3D:Head")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = PackedFloat32Array(0, 1, 0, 0.254852, 0, 0.2, 1, 0.00658073, 0.230471, 0, 0.8, 1, -0.00795371, 0.28432, 0, 1, 1, 0, 0.254852, 0, 1.2, 1, 0.00658073, 0.230471, 0, 1.9, 1, -0.00795371, 0.28432, 0)
+tracks/35/type = "position_3d"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Cubiix_Model/Skeleton3D:Leg_R")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = PackedFloat32Array(0, 1, 0, 0.24, 0, 0.2, 1, 0, 0.24, 0, 1, 1, 0, 0.24, 0, 1.2, 1, 0, 0.24, 0)
+
 [sub_resource type="Animation" id="Animation_255p7"]
 resource_name = "Null"
 step = 0.0833333
@@ -2926,6 +3185,7 @@ _data = {
 "Idle": SubResource("Animation_pxuq1"),
 "Idle_2": SubResource("Animation_4eum5"),
 "Jump": SubResource("Animation_4xpxi"),
+"NPC_Attention": SubResource("Animation_jookv"),
 "Null": SubResource("Animation_255p7"),
 "RESET": SubResource("Animation_5gknq"),
 "Run": SubResource("Animation_ms2jw"),
@@ -2941,285 +3201,22 @@ animation = &"Null"
 filter_enabled = true
 filters = ["Cubiix_Model/Skeleton3D:Head"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qypfg"]
-animation = &"Customizing"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1tc43"]
-animation = &"Drive"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvi7s"]
-animation = &"Falling"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i6ho0"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_okf7g"]
-animation = &"Idle_2"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ib7u3"]
-animation = &"Jump"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t8cjt"]
-animation = &"Run"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7cuik"]
-animation = &"Sit"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_blst1"]
-animation = &"Walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q81gr"]
-switch_mode = 1
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ex3j7"]
-xfade_time = 0.1
-switch_mode = 1
-advance_mode = 2
-advance_expression = "input != Vector2(0,0) && !walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_poa4a"]
-xfade_time = 0.3
-switch_mode = 1
-advance_mode = 2
-advance_expression = "not can_idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahh41"]
-xfade_time = 0.3
-switch_mode = 1
-advance_mode = 2
-advance_expression = "can_idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a8vp3"]
-xfade_time = 0.2
-switch_mode = 1
-advance_mode = 2
-advance_expression = "input == Vector2(0,0)"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ceeu"]
-xfade_time = 0.3
-switch_mode = 1
-advance_mode = 2
-advance_expression = "input == Vector2(0,0)"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v8gcc"]
-xfade_time = 0.3
-switch_mode = 1
-advance_mode = 2
-advance_expression = "input != Vector2(0,0) && walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b3dly"]
-xfade_time = 0.3
-advance_mode = 2
-advance_expression = "input != Vector2(0,0) && !walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_isxm1"]
-xfade_time = 0.2
-advance_mode = 2
-advance_expression = "input != Vector2(0,0) && walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nwxst"]
-xfade_time = 0.3
-advance_mode = 2
-advance_expression = "input != Vector2(0,0) && !walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rmdnw"]
-xfade_time = 0.3
-advance_mode = 2
-advance_expression = "input != Vector2(0,0) && walk"
-
-[sub_resource type="Curve" id="Curve_vjenh"]
-_data = [Vector2(0, 0), 0.0, -0.0430006, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l70ts"]
-xfade_time = 0.3
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "customizing"
-
-[sub_resource type="Curve" id="Curve_jfl27"]
-_data = [Vector2(0, 0), 0.0, -0.0430006, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m82mv"]
-xfade_time = 0.3
-xfade_curve = SubResource("Curve_jfl27")
-advance_mode = 2
-advance_expression = "customizing"
-
-[sub_resource type="Curve" id="Curve_tfubn"]
-_data = [Vector2(0, 0), 0.0, -0.0430006, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_obbxk"]
-xfade_time = 0.3
-xfade_curve = SubResource("Curve_tfubn")
-advance_mode = 2
-advance_expression = "customizing"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_icrel"]
-advance_mode = 2
-advance_expression = "customizing"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0viec"]
-xfade_time = 0.3
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!customizing"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v7wqn"]
-xfade_time = 0.3
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!customizing && input != Vector2(0,0) && !walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ksoj"]
-xfade_time = 0.3
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!customizing && input != Vector2(0,0) && walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fnlwv"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "jumping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hbj5k"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "jumping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lkpyh"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "jumping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1mdt3"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "jumping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rjvtq"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!jumping && input == Vector2(0,0)"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_flhlb"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!jumping && input != Vector2(0,0) && !walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vxdob"]
-xfade_time = 0.3
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "jumping && falling"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pju48"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!jumping && input != Vector2(0,0) && walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c0apt"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!jumping && input != Vector2(0,0) && walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xa001"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!jumping && input != Vector2(0,0) && !walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_63ou4"]
-xfade_time = 0.1
-xfade_curve = SubResource("Curve_vjenh")
-advance_mode = 2
-advance_expression = "!jumping && input == Vector2(0,0)
-"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8gk0t"]
-advance_mode = 2
-advance_expression = "Is_Piloting"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7pie1"]
-advance_mode = 2
-advance_expression = "!BasePlayer_Disabled && !Is_Sitting && !Is_Piloting"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8hsh5"]
-advance_mode = 2
-advance_expression = "Is_Sitting && BasePlayer_Disabled"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rhu3j"]
-advance_mode = 2
-advance_expression = "Is_Sitting && BasePlayer_Disabled"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1pwas"]
-advance_mode = 2
-advance_expression = "Is_Sitting && BasePlayer_Disabled"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iqdy0"]
-advance_mode = 2
-advance_expression = "Is_Sitting && BasePlayer_Disabled"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jvid7"]
-advance_mode = 2
-advance_expression = "Is_Sitting && BasePlayer_Disabled"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krjbw"]
-advance_mode = 2
-advance_expression = "Is_Sitting && BasePlayer_Disabled"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_06ypi"]
-advance_mode = 2
-advance_expression = "Is_Sitting && BasePlayer_Disabled"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a8bjr"]
-advance_mode = 2
-advance_expression = "!BasePlayer_Disabled && !Is_Sitting"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d2uu4"]
-states/Customizing/node = SubResource("AnimationNodeAnimation_qypfg")
-states/Customizing/position = Vector2(382, -226)
-states/Drive/node = SubResource("AnimationNodeAnimation_1tc43")
-states/Drive/position = Vector2(662, -365)
-states/Falling/node = SubResource("AnimationNodeAnimation_jvi7s")
-states/Falling/position = Vector2(797, -55)
-states/Idle/node = SubResource("AnimationNodeAnimation_i6ho0")
-states/Idle/position = Vector2(278, -82)
-states/Idle_2/node = SubResource("AnimationNodeAnimation_okf7g")
-states/Idle_2/position = Vector2(278, 13)
-states/Jump/node = SubResource("AnimationNodeAnimation_ib7u3")
-states/Jump/position = Vector2(699, -184)
-states/Run/node = SubResource("AnimationNodeAnimation_t8cjt")
-states/Run/position = Vector2(511, -174)
-states/Sit/node = SubResource("AnimationNodeAnimation_7cuik")
-states/Sit/position = Vector2(516, -344)
-states/Start/position = Vector2(104, 88)
-states/Walk/node = SubResource("AnimationNodeAnimation_blst1")
-states/Walk/position = Vector2(468, 13)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_q81gr"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ex3j7"), "Idle", "Idle_2", SubResource("AnimationNodeStateMachineTransition_poa4a"), "Idle_2", "Idle", SubResource("AnimationNodeStateMachineTransition_ahh41"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_a8vp3"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_8ceeu"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_v8gcc"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_b3dly"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_isxm1"), "Idle_2", "Run", SubResource("AnimationNodeStateMachineTransition_nwxst"), "Idle_2", "Walk", SubResource("AnimationNodeStateMachineTransition_rmdnw"), "Idle", "Customizing", SubResource("AnimationNodeStateMachineTransition_l70ts"), "Run", "Customizing", SubResource("AnimationNodeStateMachineTransition_m82mv"), "Walk", "Customizing", SubResource("AnimationNodeStateMachineTransition_obbxk"), "Idle_2", "Customizing", SubResource("AnimationNodeStateMachineTransition_icrel"), "Customizing", "Idle", SubResource("AnimationNodeStateMachineTransition_0viec"), "Customizing", "Run", SubResource("AnimationNodeStateMachineTransition_v7wqn"), "Customizing", "Walk", SubResource("AnimationNodeStateMachineTransition_6ksoj"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_fnlwv"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_hbj5k"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_lkpyh"), "Idle_2", "Jump", SubResource("AnimationNodeStateMachineTransition_1mdt3"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_rjvtq"), "Jump", "Run", SubResource("AnimationNodeStateMachineTransition_flhlb"), "Jump", "Falling", SubResource("AnimationNodeStateMachineTransition_vxdob"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_pju48"), "Falling", "Walk", SubResource("AnimationNodeStateMachineTransition_c0apt"), "Falling", "Run", SubResource("AnimationNodeStateMachineTransition_xa001"), "Falling", "Idle", SubResource("AnimationNodeStateMachineTransition_63ou4"), "Sit", "Drive", SubResource("AnimationNodeStateMachineTransition_8gk0t"), "Drive", "Jump", SubResource("AnimationNodeStateMachineTransition_7pie1"), "Customizing", "Sit", SubResource("AnimationNodeStateMachineTransition_8hsh5"), "Jump", "Sit", SubResource("AnimationNodeStateMachineTransition_rhu3j"), "Falling", "Sit", SubResource("AnimationNodeStateMachineTransition_1pwas"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_iqdy0"), "Idle", "Sit", SubResource("AnimationNodeStateMachineTransition_jvid7"), "Walk", "Sit", SubResource("AnimationNodeStateMachineTransition_krjbw"), "Idle_2", "Sit", SubResource("AnimationNodeStateMachineTransition_06ypi"), "Sit", "Jump", SubResource("AnimationNodeStateMachineTransition_a8bjr")]
-graph_offset = Vector2(-201, -372)
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_3w0ts"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dllpe"]
-graph_offset = Vector2(0, 62.7047)
+graph_offset = Vector2(-481.851, 23.7363)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_3qlsb")
 nodes/Animation/position = Vector2(140, 260)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_ujiym")
 nodes/Blend2/position = Vector2(360, 80)
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_d2uu4")
-nodes/StateMachine/position = Vector2(120, 100)
+nodes/NPC/node = SubResource("AnimationNodeBlend2_3w0ts")
+nodes/NPC/position = Vector2(140, 60)
+nodes/NPC_State/node = ExtResource("3_ah4lj")
+nodes/NPC_State/position = Vector2(-60, 180)
+nodes/Player_State/node = ExtResource("3_85fqt")
+nodes/Player_State/position = Vector2(-60, 20)
 nodes/output/position = Vector2(580, 160)
-node_connections = [&"Blend2", 0, &"StateMachine", &"Blend2", 1, &"Animation", &"output", 0, &"Blend2"]
+node_connections = [&"Blend2", 0, &"NPC", &"Blend2", 1, &"Animation", &"NPC", 0, &"Player_State", &"NPC", 1, &"NPC_State", &"output", 0, &"Blend2"]
 
 [node name="Cubiix_Model" type="Node3D"]
 
@@ -3229,7 +3226,7 @@ bones/0/name = "Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0, 0)
+bones/0/position = Vector3(0, 0.000581513, 0)
 bones/0/rotation = Quaternion(0, -0.133753, 0, 0.991015)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Chest"
@@ -3243,29 +3240,29 @@ bones/2/name = "Head"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254852, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(0, 0.260217, 0)
-bones/2/rotation = Quaternion(0.160115, 0.157917, -0.0201267, 0.974177)
+bones/2/position = Vector3(0, 0.261135, 0)
+bones/2/rotation = Quaternion(0.000280363, 0.133965, -0.000211318, 0.990986)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Palm_R"
 bones/3/parent = 1
 bones/3/rest = Transform3D(1.19209e-07, -1, -1.86265e-09, 0.998923, 1.19209e-07, -0.0464055, 0.0464055, 1.86265e-09, 0.998923, -0.327326, 0.134334, 0)
 bones/3/enabled = true
-bones/3/position = Vector3(-0.107947, 0.131226, 0.190253)
-bones/3/rotation = Quaternion(0.157902, 0.78731, 0.446001, 0.39534)
+bones/3/position = Vector3(-0.304417, 0.0750822, -0.0062985)
+bones/3/rotation = Quaternion(0.0104593, -0.0207185, 0.892455, 0.450538)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Middle_R"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.223611, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(0, 0.223611, 0)
-bones/4/rotation = Quaternion(-6.7741e-08, 3.17975e-08, 0.940943, 0.338566)
+bones/4/rotation = Quaternion(6.1018e-09, 3.85539e-09, 0.534153, 0.845388)
 bones/4/scale = Vector3(0.999999, 1, 1)
 bones/5/name = "Pinky_R"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00361538, 0.200243, -0.0778246)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.00361538, 0.200243, -0.0778246)
-bones/5/rotation = Quaternion(-1.43021e-08, 5.36333e-08, 0.925692, 0.378277)
+bones/5/rotation = Quaternion(8.84005e-09, 6.83767e-09, 0.611824, 0.790994)
 bones/5/scale = Vector3(0.999999, 1, 1)
 bones/6/name = "Index_R"
 bones/6/parent = 3
@@ -3279,42 +3276,42 @@ bones/7/parent = 3
 bones/7/rest = Transform3D(0.985306, 0.0144954, 0.170185, 0.148023, 0.424664, -0.893168, -0.0852181, 0.905235, 0.416278, 0.00878999, 0.111369, 0.122818)
 bones/7/enabled = true
 bones/7/position = Vector3(0.00878999, 0.111369, 0.122818)
-bones/7/rotation = Quaternion(0.288188, -0.456956, 0.783221, 0.307739)
+bones/7/rotation = Quaternion(0.51637, -0.158818, 0.393559, 0.743808)
 bones/7/scale = Vector3(1, 0.999999, 1)
 bones/8/name = "Palm_L"
 bones/8/parent = 1
 bones/8/rest = Transform3D(1.19209e-07, 1, 1.86265e-09, -0.998923, 1.19209e-07, -0.0464055, -0.0464055, 1.86265e-09, 0.998923, 0.327326, 0.134334, 0)
 bones/8/enabled = true
-bones/8/position = Vector3(0.276052, 0.117286, 0.441748)
-bones/8/rotation = Quaternion(0.232473, -0.578958, -0.601161, -0.499369)
+bones/8/position = Vector3(0.332064, 0.0774046, -0.022304)
+bones/8/rotation = Quaternion(0.0079604, 0.0218011, -0.939087, 0.342895)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "Middle_L"
 bones/9/parent = 8
 bones/9/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.223611, 0)
 bones/9/enabled = true
 bones/9/position = Vector3(0, 0.223611, 0)
-bones/9/rotation = Quaternion(-1.5003e-08, 2.80711e-08, -0.660277, 0.751022)
+bones/9/rotation = Quaternion(1.72379e-09, 1.65706e-08, -0.537359, 0.843354)
 bones/9/scale = Vector3(1, 0.999999, 1)
 bones/10/name = "Pinky_L"
 bones/10/parent = 8
 bones/10/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00361538, 0.200243, -0.0778246)
 bones/10/enabled = true
 bones/10/position = Vector3(0.00361538, 0.200243, -0.0778246)
-bones/10/rotation = Quaternion(0.11886, -0.0811581, -0.558023, 0.817249)
+bones/10/rotation = Quaternion(4.20133e-09, 6.15304e-09, -0.563894, 0.825847)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Index_L"
 bones/11/parent = 8
 bones/11/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00362426, 0.200243, 0.0780157)
 bones/11/enabled = true
 bones/11/position = Vector3(-0.00362426, 0.200243, 0.0780157)
-bones/11/rotation = Quaternion(-0.168554, 0.120202, -0.568039, 0.796538)
+bones/11/rotation = Quaternion(8.65187e-09, 1.21322e-08, -0.580618, 0.814176)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "Thumb_L"
 bones/12/parent = 8
 bones/12/rest = Transform3D(0.985306, -0.0144954, -0.170185, -0.148023, 0.424664, -0.893168, 0.0852181, 0.905235, 0.416278, -0.00878999, 0.111369, 0.122818)
 bones/12/enabled = true
-bones/12/position = Vector3(0.0219544, 0.0572425, 0.0897956)
-bones/12/rotation = Quaternion(0.609932, 0.0712509, -0.325374, 0.719054)
+bones/12/position = Vector3(-0.00878999, 0.111369, 0.122818)
+bones/12/rotation = Quaternion(0.529837, 0.105517, -0.315929, 0.779954)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "Bone.002"
 bones/13/parent = 0
@@ -3334,8 +3331,8 @@ bones/15/name = "Foot_R"
 bones/15/parent = 14
 bones/15/rest = Transform3D(0, -1, -7.54979e-08, 1, 0, -8.74228e-08, 8.74228e-08, -7.54979e-08, 1, 0, 0.12722, 0)
 bones/15/enabled = true
-bones/15/position = Vector3(0, 0.12722, 0)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/15/position = Vector3(-8.82613e-05, 0.12722, 0.00095559)
+bones/15/rotation = Quaternion(-0.00167439, -0.00167445, 0.707105, 0.707105)
 bones/15/scale = Vector3(1, 0.999999, 1)
 bones/16/name = "Leg_L"
 bones/16/parent = 0
@@ -3348,8 +3345,8 @@ bones/17/name = "Foot_L"
 bones/17/parent = 16
 bones/17/rest = Transform3D(0, 1, 7.54979e-08, -1, 0, -8.74228e-08, -8.74228e-08, -7.54979e-08, 1, 0, 0.12722, 0)
 bones/17/enabled = true
-bones/17/position = Vector3(0, 0.12722, 0)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+bones/17/position = Vector3(9.06395e-05, 0.12722, 0.00107646)
+bones/17/rotation = Quaternion(-0.00152717, 0.00152723, -0.707105, 0.707105)
 bones/17/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Skeleton3D"]
@@ -3372,3 +3369,4 @@ tree_root = SubResource("AnimationNodeBlendTree_dllpe")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Blend2/blend_amount = 0.0
+parameters/NPC/blend_amount = 0
