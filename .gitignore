@@ -4,6 +4,7 @@
 # Godot-specific ignores
 .import/
 
+
 # Imported translations (automatically generated from CSV files)
 *.translation
 
@@ -11,3 +12,6 @@
 .mono/
 data_*/
 mono_crash.*.json
+
+#AddonIgnores
+addons/anthonyec.camera_preview
