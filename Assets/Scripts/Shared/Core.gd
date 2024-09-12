@@ -6,6 +6,8 @@ signal core_loaded
 var SceneData
 var Globals
 var AssetData
+var Dialogue_Handler
+var Persistant_Core
 
 var Client
 var Server
@@ -17,11 +19,18 @@ func _ready():
 		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
 		AssetData = load("res://Assets/Scripts/Client/Character/Asset_Data.gd").new()
 		Client = load("res://Assets/Scripts/Client/Networking/Network_Client.gd").new()
+		Dialogue_Handler = load("res://Assets/Scripts/Client/UI/DialogueBank.gd").new()
+		Persistant_Core = load("res://Assets/Scenes/Client/Persistant_Core.tscn").instantiate()
 		add_child(SceneData)
 		add_child(Globals)
 		add_child(AssetData)
 		add_child(Client)
-		SceneData.Swap_Scene("Hexstaria")
+		add_child(Dialogue_Handler)
+		get_parent().call_deferred("add_child", Persistant_Core)
+		SceneData.call_deferred("Swap_Scene","Hexstaria")
+		await Persistant_Core.ready
+		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Chat_Anim","Exit","Hexii_Ui_Login_Anim")
+		
 		
 	if OS.has_feature("server"):
 		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()

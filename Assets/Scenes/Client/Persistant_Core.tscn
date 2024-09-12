@@ -1,0 +1,379 @@
+[gd_scene load_steps=22 format=3 uid="uid://dvvu2ls7inlev"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
+[ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
+[ext_resource type="PackedScene" uid="uid://bmqym3jemx6x1" path="res://Assets/Scenes/Client/Ui/hexii_ui.tscn" id="2_2xjws"]
+[ext_resource type="Texture2D" uid="uid://bxbehfpnollp1" path="res://Assets/Textures/UI/Other/Loading.png" id="3_382uw"]
+[ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://Assets/Scenes/Client/Ui/version_image.tscn" id="3_vuaqi"]
+[ext_resource type="Texture2D" uid="uid://4x8mk84readb" path="res://Assets/Textures/UI/Map_Screenshots/screenshot_hexstaria_village.png" id="4_hsy5v"]
+[ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="5_1jexs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0sve"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_41tnh"]
+resource_name = "Loading"
+length = 3.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D3:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D6:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2, 1.3, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D9:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D8:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2, 2.1, 2.2, 2.3, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D7:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.4, 2.5, 2.6, 2.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D4:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.8, 2.9, 3, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_4ltjv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ima1k"]
+_data = {
+"Loading": SubResource("Animation_41tnh"),
+"RESET": SubResource("Animation_4ltjv")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ae5f8"]
+animation = &"Loading"
+
+[sub_resource type="Gradient" id="Gradient_0si2u"]
+offsets = PackedFloat32Array(0.1, 0.5, 0.9)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uy3ag"]
+gradient = SubResource("Gradient_0si2u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jvpvl"]
+texture = SubResource("GradientTexture1D_uy3ag")
+
+[sub_resource type="Gradient" id="Gradient_66wa0"]
+offsets = PackedFloat32Array(0.2, 0.5, 0.8)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.435294, 0.498039, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vqmes"]
+gradient = SubResource("Gradient_66wa0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jdtv5"]
+texture = SubResource("GradientTexture1D_vqmes")
+
+[sub_resource type="Animation" id="Animation_n4ghk"]
+resource_name = "FadeOut"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_e2t24"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qifgu"]
+_data = {
+"FadeOut": SubResource("Animation_n4ghk"),
+"RESET": SubResource("Animation_e2t24")
+}
+
+[node name="Persistant" type="Node"]
+script = ExtResource("1_crhm8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource("1_rvalq")]
+visible = false
+
+[node name="Hexii_UI" parent="CanvasLayer" instance=ExtResource("2_2xjws")]
+offset_left = -36.0
+offset_top = 310.0
+offset_right = -36.0
+offset_bottom = 310.0
+
+[node name="Transitioner" type="Panel" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_f0sve")
+
+[node name="Control" type="Control" parent="CanvasLayer/Transitioner"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
+texture_filter = 1
+position = Vector2(18, 18)
+texture = ExtResource("3_382uw")
+hframes = 4
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
+texture_filter = 1
+position = Vector2(-11, 18)
+texture = ExtResource("3_382uw")
+hframes = 4
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
+texture_filter = 1
+position = Vector2(-40, 18)
+rotation = 1.5708
+texture = ExtResource("3_382uw")
+hframes = 4
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
+texture_filter = 1
+position = Vector2(18, -11)
+rotation = -1.5708
+texture = ExtResource("3_382uw")
+hframes = 4
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
+texture_filter = 1
+position = Vector2(-40, -11)
+rotation = 1.5708
+texture = ExtResource("3_382uw")
+hframes = 4
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
+texture_filter = 1
+position = Vector2(18, -40)
+rotation = 4.71239
+texture = ExtResource("3_382uw")
+hframes = 4
+
+[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
+texture_filter = 1
+position = Vector2(-11, -40)
+rotation = 3.14159
+texture = ExtResource("3_382uw")
+hframes = 4
+
+[node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
+texture_filter = 1
+position = Vector2(-40, -40)
+rotation = 3.14159
+texture = ExtResource("3_382uw")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transitioner/Control"]
+libraries = {
+"": SubResource("AnimationLibrary_ima1k")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="CanvasLayer/Transitioner/Control/AnimationPlayer"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeAnimation_ae5f8")
+anim_player = NodePath("..")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Transitioner"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -129.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hsy5v")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Transitioner/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jvpvl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Transitioner/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 205.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.373)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_separation = 3
+theme_override_fonts/normal_font = ExtResource("5_1jexs")
+theme_override_fonts/bold_font = ExtResource("5_1jexs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jdtv5")
+bbcode_enabled = true
+text = "[center][font_size=40] [b]Hexstaria[/b][/font_size]
+  Home of the Cubiix"
+fit_content = true
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transitioner"]
+libraries = {
+"": SubResource("AnimationLibrary_qifgu")
+}
+
+[node name="VersionImage" parent="CanvasLayer" instance=ExtResource("3_vuaqi")]
+offset_left = 263.0
+offset_top = -44.0
+offset_right = 371.0
+offset_bottom = -4.0

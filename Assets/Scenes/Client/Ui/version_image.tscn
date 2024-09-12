@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb30770sajce6"]
+
+[ext_resource type="Texture2D" uid="uid://dmpdb5102s7eq" path="res://Assets/Textures/UI/Titlescreen/CubiixLogo_Base.png" id="1_geggn"]
+[ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="2_vi76u"]
+
+[node name="VersionImage" type="TextureRect"]
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -43.0
+offset_right = 111.0
+offset_bottom = -3.0
+grow_vertical = 0
+texture = ExtResource("1_geggn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -14.0
+offset_right = 85.0
+offset_bottom = 9.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_vi76u")
+text = "V_B.01.00"

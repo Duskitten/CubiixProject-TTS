@@ -1,6 +1,9 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bst76owxspkj5"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bst76owxspkj5"]
 
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="1_uf7h7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs782"]
+bg_color = Color(0.6, 0.6, 0.6, 0.168)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3be1p"]
 
@@ -31,6 +34,8 @@ border_width_left = 8
 border_color = Color(0.226707, 0.226707, 0.226707, 0.188235)
 
 [resource]
+Button/fonts/font = ExtResource("1_uf7h7")
+Button/styles/normal = SubResource("StyleBoxFlat_qs782")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
@@ -42,6 +47,7 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_uf7h7")
 Label/styles/normal = SubResource("StyleBoxEmpty_3be1p")
+LineEdit/fonts/font = ExtResource("1_uf7h7")
 RichTextLabel/fonts/normal_font = ExtResource("1_uf7h7")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_85od5")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_mf0g8")

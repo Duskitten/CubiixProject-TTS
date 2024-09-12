@@ -1,5 +1,5 @@
 extends Node
-
+@onready var Core = get_node("/root/Main_Scene/CoreLoader")
 var Dialogue = {
 	"Dusk" : {
 		##Text, End, Next Line, character

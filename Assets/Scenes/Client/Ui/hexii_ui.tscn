@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bmqym3jemx6x1"]
+[gd_scene load_steps=52 format=3 uid="uid://bmqym3jemx6x1"]
 
 [ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://Assets/Textures/UI/In-Game/Phone_Backing.png" id="1_bfryu"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="2_s0t65"]
@@ -104,6 +104,15 @@ border_color = Color(0.45098, 1, 0.54902, 1)
 border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7q4k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ddmb"]
+bg_color = Color(0.0339279, 0.0351563, 0.0346124, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0yc3"]
+bg_color = Color(0.203125, 0.203125, 0.203125, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqsm"]
+bg_color = Color(0.109375, 0.109375, 0.109375, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj8in"]
 bg_color = Color(0, 0, 0, 1)
@@ -721,8 +730,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 224.0
-offset_right = 224.0
+offset_right = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -972,6 +980,75 @@ libraries = {
 "": ExtResource("3_irqxn")
 }
 
+[node name="Chat_Screen" type="Control" parent="Overlay/Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Overlay/Screens/Chat_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.696777
+offset_bottom = -0.640656
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ddmb")
+
+[node name="LineEdit" type="LineEdit" parent="Overlay/Screens/Chat_Screen/Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 203.0
+offset_right = 219.0
+offset_bottom = 226.0
+theme = ExtResource("5_adsjc")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxFlat_g0yc3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2cqsm")
+placeholder_text = "<Click to type>"
+
+[node name="Template_Text" type="RichTextLabel" parent="Overlay/Screens/Chat_Screen/Panel"]
+visible = false
+layout_mode = 2
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 211.0
+offset_bottom = 37.0
+size_flags_horizontal = 3
+theme = ExtResource("5_adsjc")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "[url]>System:[/url] Hello guyes How are you!"
+fit_content = true
+scroll_active = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Overlay/Screens/Chat_Screen/Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 219.0
+offset_bottom = 203.0
+theme = ExtResource("5_adsjc")
+vertical_scroll_mode = 2
+
+[node name="ChatArea" type="VBoxContainer" parent="Overlay/Screens/Chat_Screen/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("5_adsjc")
+alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Chat_Screen"]
+libraries = {
+"": ExtResource("3_irqxn")
+}
+
 [node name="Home_Screen" type="Control" parent="Overlay/Screens"]
 visible = false
 layout_mode = 1
@@ -1211,3 +1288,15 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_81w5k")
 libraries = {
 "": SubResource("AnimationLibrary_yiapa")
 }
+
+[node name="HTTPNodes" type="Node" parent="."]
+
+[node name="Update_Check" type="HTTPRequest" parent="HTTPNodes"]
+
+[node name="Update_Downloader" type="HTTPRequest" parent="HTTPNodes"]
+
+[node name="Login_Create" type="HTTPRequest" parent="HTTPNodes"]
+
+[node name="Login_Signin" type="HTTPRequest" parent="HTTPNodes"]
+
+[node name="API_Validate" type="HTTPRequest" parent="HTTPNodes"]

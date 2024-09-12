@@ -44,7 +44,7 @@ var CharSetup = false
 
 @onready var Anim_Tree = $Hub/Cubiix_Model/AnimationTree
 @onready var Anim_Player = $Hub/Cubiix_Model/AnimationPlayer
-@onready var Skeleton = $Hub/Cubiix_Model/Skeleton3D
+@onready var Skeleton:Skeleton3D = $Hub/Cubiix_Model/Skeleton3D
 @onready var MeshObj = $Hub/Cubiix_Model/Skeleton3D/Cube
 @onready var DynBones = null
 @onready var Model = $Hub/Cubiix_Model
@@ -188,14 +188,16 @@ func _process(delta: float) -> void:
 			$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,clamp(lerp_angle($Hub/Lerped_Head.rotation.x,-$Hub/Head.rotation.x, 1),deg_to_rad(-30),deg_to_rad(30)),0.1)
 			$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,clamp(lerp_angle($Hub/Lerped_Head.rotation.y,$Hub/Head.rotation.y+deg_to_rad(180), 1),deg_to_rad(-45),deg_to_rad(45)),0.1)
 			$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,$Hub/Head.rotation.z, 0.1)
+			$Hub/Lerped_Head.position = $Hub/Cubiix_Model/Skeleton3D/ProxyHeadPoint.position + Skeleton.get_bone_global_pose(Skeleton.find_bone("Chest")).origin
 		else:
 			$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,0, 0.5)
 			$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,0, 0.5)
 			$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,0, 0.5)
+			
+			
 			if $Hub/Lerped_Head.rotation.length() <= 0.1:
 				$Hub/Lerped_Head/BoneAttachment3D.override_pose = false
 				$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",0)
-		
 	if can_idle && can_idle_override && !customizing:
 		Idle_Timer += Delta
 		
