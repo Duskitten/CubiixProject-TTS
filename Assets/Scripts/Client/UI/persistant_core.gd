@@ -42,6 +42,12 @@ func add_new_message(user:String, text:String) -> void:
 	
 
 func send_text(new_text:String) -> void:
-	add_new_message("Dusk", new_text)
-	Hexii_Ui_Chat_TextInput.text = ""
-	Hexii_Ui_Chat_TextInput.release_focus()
+	if new_text.begins_with("/"):
+		#Go To CommandParser Instead
+		add_new_message("[color=red]System[/color]", "[color=red]Error Invalid Command[/color]")
+		Hexii_Ui_Chat_TextInput.text = ""
+		Hexii_Ui_Chat_TextInput.release_focus()
+	else:
+		add_new_message("Dusk", new_text)
+		Hexii_Ui_Chat_TextInput.text = ""
+		Hexii_Ui_Chat_TextInput.release_focus()

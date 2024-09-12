@@ -207,13 +207,13 @@ func _process(delta: float) -> void:
 			
 	if Is_Player && !BasePlayer_Disabled:
 
-		if Input.is_action_just_pressed("ui_accept") && CharSetup:
-			Ears = EAR_ENUM.Cat
-			Tail = TAIL_ENUM.Cat
-			Wings = WING_ENUM.Angel
-			Extra = EXTRA_ENUM.None
-			Eyes = EYE_ENUM.Default
-			Regen_Character()
+		#if Input.is_action_just_pressed("ui_accept") && CharSetup:
+			#Ears = EAR_ENUM.Cat
+			#Tail = TAIL_ENUM.Cat
+			#Wings = WING_ENUM.Angel
+			#Extra = EXTRA_ENUM.None
+			#Eyes = EYE_ENUM.Default
+			#Regen_Character()
 
 		if CharSetup:
 			if Input.is_action_just_pressed("ui_cancel"):
@@ -317,8 +317,8 @@ func _physics_process(delta: float) -> void:
 			Camera.get_parent().get_parent().global_rotation.x = lerp_angle(Camera.get_parent().get_parent().global_rotation.x,-target_camera_position.global_rotation.x,0.1)
 			Camera.get_parent().spring_length = 0
 		else:
-			Camera.get_parent().spring_length = -4
-			camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
+#			Camera.get_parent().spring_length = -4
+#			camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
 			if reset_camera:
 				reset_camera = false
 				var tween = get_tree().create_tween() \
