@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=25 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
@@ -7,6 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://Assets/Scenes/Client/Ui/version_image.tscn" id="3_vuaqi"]
 [ext_resource type="Texture2D" uid="uid://4x8mk84readb" path="res://Assets/Textures/UI/Map_Screenshots/screenshot_hexstaria_village.png" id="4_hsy5v"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="5_1jexs"]
+[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="7_lesmr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
+texture = ExtResource("7_lesmr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggn8j"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.13, 0.13, 0.13, 1)
+border_color = Color(0.46, 0.46, 0.46, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0sve"]
 bg_color = Color(0, 0, 0, 1)
@@ -226,14 +238,33 @@ script = ExtResource("1_crhm8")
 visible = false
 
 [node name="Hexii_UI" parent="CanvasLayer" instance=ExtResource("2_2xjws")]
-offset_left = -36.0
+offset_left = -56.0
 offset_top = 310.0
-offset_right = -36.0
+offset_right = -56.0
 offset_bottom = 310.0
 
-[node name="ServerSelect_Screen" parent="CanvasLayer/Hexii_UI/Overlay/Screens" index="4"]
-offset_left = 0.0
-offset_right = -1.52588e-05
+[node name="Hexii_Tablet_UI" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 207.0
+offset_right = 247.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Hexii_Tablet_UI"]
+layout_mode = 0
+offset_right = 637.0
+offset_bottom = 637.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_43210")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Hexii_Tablet_UI/Panel"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 52.0
+offset_top = 57.0
+offset_right = 585.0
+offset_bottom = 563.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ggn8j")
 
 [node name="Transitioner" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -271,6 +302,7 @@ texture_filter = 1
 position = Vector2(-11, 18)
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 2
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -306,7 +338,6 @@ position = Vector2(-11, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 3
 
 [node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -378,9 +409,9 @@ libraries = {
 }
 
 [node name="VersionImage" parent="CanvasLayer" instance=ExtResource("3_vuaqi")]
-offset_left = 263.0
+offset_left = 240.0
 offset_top = -44.0
-offset_right = 371.0
+offset_right = 348.0
 offset_bottom = -4.0
 
 [editable path="CanvasLayer/Hexii_UI"]
