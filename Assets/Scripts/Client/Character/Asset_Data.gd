@@ -1141,8 +1141,7 @@ func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary) -> Dictiona
 
 func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
 	##Initial Setup of Meshes
-	print(MeshList)
-	print("Generating New Mesh.")
+	print("Generating New Mesh.", MeshList)
 	var Final_Mesh : ArrayMesh = ArrayMesh.new()
 	var TargetSkin : Skin = TargetMesh.skin.duplicate(true)
 	##Blendshape Key:
@@ -1206,7 +1205,6 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 									##MainNode.DynBones_Register[MeshSubList[i]]["Bones"]
 			if Mesh_Data_Assets[MeshSubList[i]]["Has_DynBones"]:
 				DynBoneList[MeshSubList[i]] = DynBones
-		print(Meshes)
 		Meshes = []
 	if MainNode != null:
 		MainNode.DynBones_Register = DynBoneList

@@ -231,6 +231,10 @@ offset_top = 310.0
 offset_right = -36.0
 offset_bottom = 310.0
 
+[node name="ServerSelect_Screen" parent="CanvasLayer/Hexii_UI/Overlay/Screens" index="4"]
+offset_left = 0.0
+offset_right = -1.52588e-05
+
 [node name="Transitioner" type="Panel" parent="CanvasLayer"]
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -302,6 +306,7 @@ position = Vector2(-11, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 3
 
 [node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -377,3 +382,5 @@ offset_left = 263.0
 offset_top = -44.0
 offset_right = 371.0
 offset_bottom = -4.0
+
+[editable path="CanvasLayer/Hexii_UI"]

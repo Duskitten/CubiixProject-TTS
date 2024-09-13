@@ -29,7 +29,7 @@ func _ready():
 		get_parent().call_deferred("add_child", Persistant_Core)
 		SceneData.call_deferred("Swap_Scene","Hexstaria")
 		await Persistant_Core.ready
-		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Chat_Anim","Exit","Hexii_Ui_Login_Anim")
+		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_TitleScreen_Anim")
 		
 		
 	if OS.has_feature("server"):
