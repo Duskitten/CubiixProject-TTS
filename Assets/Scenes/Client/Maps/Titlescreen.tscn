@@ -1194,7 +1194,7 @@ spot_angle_attenuation = 0.378929
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Environment"]
-transform = Transform3D(0.984196, 0.0533927, -0.168831, -0.0533307, 0.998564, 0.00490454, 0.168851, 0.00417688, 0.985632, -0.160326, 0.774156, 0.90551)
+transform = Transform3D(0.984196, 0.0533927, -0.168831, -0.0533308, 0.998564, 0.00490454, 0.168851, 0.00417688, 0.985632, -0.160326, 0.774156, 0.90551)
 attributes = SubResource("CameraAttributesPractical_31xnr")
 current = true
 fov = 52.0

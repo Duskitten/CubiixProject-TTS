@@ -60,6 +60,7 @@ var Model_Data_Assets = {
 	"Head_Clothes/Goggle_Test":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Goggle_Test.gltf").instantiate(),
 	"Head_Clothes/Orb_Test":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Orb_Test.gltf").instantiate(),
 	"Head_Clothes/DotMouse_Hat":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/DotMouse_Hat.gltf").instantiate(),
+	"Head_Clothes/Pumpkin_Head":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Pumpkin_Head.gltf").instantiate(),
 	##Chest Clothes
 	"Chest_Clothes/Pride_Bandana":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf").instantiate(),
 	##Back Clothes
@@ -943,6 +944,16 @@ var Mesh_Data_Assets = {
 		"Data":[],
 		"BlendData":{},
 	},
+	"Head_Clothes/Pumpkin_Head_Cute_1":{
+		"Override_Model":Model_Data_Assets["Head_Clothes/Pumpkin_Head"],
+		"Mesh_Node":"Armature/Skeleton3D/Pumpkin",
+		"MaterialID":"Pumpkin_Cute_1",
+		"Has_Blendshapes":false,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
 	##Chest Clothes
 	"Chest_Clothes/Trad_Pride_Bandanna":{
 		"Override_Model":Model_Data_Assets["Chest_Clothes/Pride_Bandana"],
@@ -972,7 +983,8 @@ var Material_Data_Assets = {
 	"Goggle_Test_Mat":load("res://Assets/Materials/Characters/Accessories/Goggle_Test_Mat.tres"),
 	"DotMouse_Hat_Mat":load("res://Assets/Materials/Characters/Accessories/DotMouse_Hat_Mat.tres"),
 	"Trad_Pride_Bandana_Mat":load("res://Assets/Materials/Characters/Accessories/Trad_Pride_Bandana_Mat.tres"),
-	"Trans_Pride_Bandana_Mat":load("res://Assets/Materials/Characters/Accessories/Trans_Pride_Bandana_Mat.tres")
+	"Trans_Pride_Bandana_Mat":load("res://Assets/Materials/Characters/Accessories/Trans_Pride_Bandana_Mat.tres"),
+	"Pumpkin_Cute_1":load("res://Assets/Materials/Characters/Accessories/Pumpkin_Cute_1_Mat.tres")
 }
 #--
 var Cubiix_Model = load("res://Assets/Scenes/Client/Characters/cubiix_model.tscn").instantiate()
@@ -1044,7 +1056,8 @@ var Head_Slot = [
 	"",
 	"Head_Clothes/Goggle_Test",
 	"Head_Clothes/Orb_Test",
-	"Head_Clothes/DotMouse_Hat"
+	"Head_Clothes/DotMouse_Hat",
+	"Head_Clothes/Pumpkin_Head_Cute_1"
 	]
 var Chest_Slot = [
 	"",
@@ -1087,7 +1100,7 @@ func gen_thread_run():
 		
 		var Queue = MeshRenderQueue.pop_front()
 		if Queue != null:
-			merge_meshes(Queue[0],Queue[1],Queue[2],Queue[3], Queue[4])
+			merge_meshes(Queue[0],Queue[1],Queue[2],Queue[3],Queue[4])
 		else:
 			thread_force_post()
 		
@@ -1128,8 +1141,8 @@ func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary) -> Dictiona
 
 func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
 	##Initial Setup of Meshes
+	print(MeshList)
 	print("Generating New Mesh.")
-	
 	var Final_Mesh : ArrayMesh = ArrayMesh.new()
 	var TargetSkin : Skin = TargetMesh.skin.duplicate(true)
 	##Blendshape Key:
@@ -1155,6 +1168,7 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 						Model_Data_Assets[MeshSubList[i]].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]),
 					]
 					)
+
 			##Add the blendshapes
 			if Mesh_Data_Assets[MeshSubList[i]]["Has_Blendshapes"]:
 				for b in Meshes[i][0].mesh.get_blend_shape_count():
@@ -1192,7 +1206,8 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 									##MainNode.DynBones_Register[MeshSubList[i]]["Bones"]
 			if Mesh_Data_Assets[MeshSubList[i]]["Has_DynBones"]:
 				DynBoneList[MeshSubList[i]] = DynBones
-		Meshes = null
+		print(Meshes)
+		Meshes = []
 	if MainNode != null:
 		MainNode.DynBones_Register = DynBoneList
 
@@ -1203,39 +1218,39 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 		var st = SurfaceTool.new()
 		for i in MeshSubList.size():
 			##Loops to add mesh + Surface Tool For Blending
-			if Mesh_Data_Assets[MeshSubList[i]]["Data"].is_empty():
-				if Mesh_Data_Assets[MeshSubList[i]].has("Override_Model"):
-					Meshes.append(
-						[
-							Mesh_Data_Assets[MeshSubList[i]]["Override_Model"].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
-							SurfaceTool.new()
-						]
-						)
-				else:
-					Meshes.append(
-						[
-							Model_Data_Assets[MeshSubList[i]].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
-							SurfaceTool.new()
-						]
-						)
-				Meshes[i][1].append_from(Meshes[i][0],0,Transform3D())
-				Meshes[i][1] = Meshes[i][1].commit_to_arrays()
-				Mesh_Data_Assets[MeshSubList[i]]["Data"] = Meshes[i][1]
+			#if Mesh_Data_Assets[MeshSubList[i]]["Data"].is_empty():
+			if Mesh_Data_Assets[MeshSubList[i]].has("Override_Model"):
+				Meshes.append(
+					[
+						Mesh_Data_Assets[MeshSubList[i]]["Override_Model"].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
+						SurfaceTool.new()
+					]
+					)
 			else:
-				if Mesh_Data_Assets[MeshSubList[i]].has("Override_Model"):
-					Meshes.append(
-						[
-							Mesh_Data_Assets[MeshSubList[i]]["Override_Model"].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
-							Mesh_Data_Assets[MeshSubList[i]]["Data"]
-						]
-						)
-				else:
-					Meshes.append(
-						[
-							Model_Data_Assets[MeshSubList[i]].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
-							Mesh_Data_Assets[MeshSubList[i]]["Data"]
-						]
-						)
+				Meshes.append(
+					[
+						Model_Data_Assets[MeshSubList[i]].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
+						SurfaceTool.new()
+					]
+					)
+			Meshes[i][1].append_from(Meshes[i][0],0,Transform3D())
+			Meshes[i][1] = Meshes[i][1].commit_to_arrays()
+			Mesh_Data_Assets[MeshSubList[i]]["Data"] = Meshes[i][1]
+			#else:
+				#if Mesh_Data_Assets[MeshSubList[i]].has("Override_Model"):
+					#Meshes.append(
+						#[
+							#Mesh_Data_Assets[MeshSubList[i]]["Override_Model"].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
+							#Mesh_Data_Assets[MeshSubList[i]]["Data"]
+						#]
+						#)
+				#else:
+					#Meshes.append(
+						#[
+							#Model_Data_Assets[MeshSubList[i]].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
+							#Mesh_Data_Assets[MeshSubList[i]]["Data"]
+						#]
+						#)
 			##Clean Up SurfaceTool
 
 			var Mesh_Commit = Meshes[i][1]

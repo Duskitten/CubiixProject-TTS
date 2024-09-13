@@ -9,7 +9,7 @@ enum EXTRA_ENUM {None, Shark, Nub, Antler, Ram, Fish, Narwhal, Dragon}
 enum TAIL_ENUM {None,Cat, Fox, Wolf, Bug, Bee, Moth, Dog, Mouse, Fluffy, Shark, Entity, Bunny, Deer, Dragon}
 enum WING_ENUM {None, Entity, Angel, Butterfly, Wasp, Dragon}
 #--
-enum HEAD_ENUM {None,Goggle_Test,Orb_Test,DotMouse_Hat}
+enum HEAD_ENUM {None,Goggle_Test,Orb_Test,DotMouse_Hat, Pumpkin_Head_Cute_1}
 enum CHEST_ENUM {None,Trad_Pride_Bandanna,Trans_Pride_Bandanna}
 enum BACK_ENUM {None}
 
@@ -179,6 +179,8 @@ func _process(delta: float) -> void:
 	Delta = Time.get_ticks_msec() - Tick_Prev
 	Tick_Prev = Time.get_ticks_msec()
 	Blink_Timer += Delta
+	if Skeleton == null:
+		$Hub/Lerped_Head/BoneAttachment3D.override_pose = false
 	if !Is_Player:
 		$Hub/Cubiix_Model/AnimationTree.set("parameters/NPC/blend_amount",1)
 		if Look_At != null:
@@ -317,8 +319,8 @@ func _physics_process(delta: float) -> void:
 			Camera.get_parent().get_parent().global_rotation.x = lerp_angle(Camera.get_parent().get_parent().global_rotation.x,-target_camera_position.global_rotation.x,0.1)
 			Camera.get_parent().spring_length = 0
 		else:
-#			Camera.get_parent().spring_length = -4
-#			camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
+			Camera.get_parent().spring_length = -4
+			camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
 			if reset_camera:
 				reset_camera = false
 				var tween = get_tree().create_tween() \
