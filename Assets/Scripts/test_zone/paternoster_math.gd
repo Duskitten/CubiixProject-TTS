@@ -1,4 +1,3 @@
-@tool
 extends Node3D
 # Called when the node enters the scene tree for the first time.
 #var TimeOffset = 3
@@ -25,13 +24,18 @@ func _process(delta: float) -> void:
 	time += delta * speed / totalTrackLength
 	for i in get_child_count():
 		var distance = fmod(((time - floor(time)) * totalTrackLength)+(totalTrackLength/get_child_count()*i), totalTrackLength)
+		if (distance  >= 0 &&  distance  < 12) || (distance  >= totalTrackLength - 12 &&  distance  < 160) || (distance  >= totalTrackLength/2 - 12 &&  distance  < totalTrackLength/2  + 12):
+			get_child(i).show()
+		else:
+			if !get_child(i).preventHiding:
+				get_child(i).hide()
+		
 		if distance < halfCircleLength:
 			get_child(i).position.x = cos((distance/halfCircleLength)*PI)*radius
 			get_child(i).position.y = sin((distance/halfCircleLength)*PI)*radius
 		elif distance < halfCircleLength + height:
 			get_child(i).position.y = -((distance - halfCircleLength))
 			get_child(i).position.x = -radius
-			
 		elif distance < halfCircleLength + height + halfCircleLength:
 			get_child(i).position.x = cos(((distance - (halfCircleLength+height)) / halfCircleLength)*PI+PI)*radius
 			get_child(i).position.y = (sin(((distance - (halfCircleLength+height)) / halfCircleLength)*PI+PI)*radius)-height
@@ -39,45 +43,4 @@ func _process(delta: float) -> void:
 			get_child(i).position.y = (distance - (halfCircleLength+height+halfCircleLength))-height
 			get_child(i).position.x = radius
 			
-	
-		
-	
-	
-	#TickTime = floor(Time.get_ticks_msec()/1000) % (TimeOffset*2)
-	
-	#if TickTime > 0 && TickTime < TimeOffset:
-		#YOffset += delta
-		#print(TickTime)
-	#elif TickTime > TimeOffset && TickTime < TimeOffset*2:
-		#YOffset -= delta
-		#print(TickTime)
-	#else:
-		#time += delta
-		
-	#cached_pos = Vector2(sin(Time.get_ticks_msec()/1000.0),max(cos(Time.get_ticks_msec()/1000.0),0))
-	
-	#if !paused:
-		#time += delta
-		#if max(cos((time)),0) == 0 && !flipstopped:
-			#paused = true
-			#flipstopped = true
-			#basestopped = false
-		#elif max(cos((time)-PI),0) == 0 && !basestopped:
-			#paused = true
-			#flipstopped = false
-			#basestopped = true
-	#else:
-		#if PauseTime >= PauseLength:
-			#paused = false
-			#PauseTime = 0
-#
-		#PauseTime += delta
-		#if basestopped:
-			#YOffset += delta
-		#elif flipstopped:
-			#YOffset -= delta
-	
-	
-	
-
-	#$CSGBox3D2.position.y = max(cos((Time.get_ticks_msec()/1000.0)),0)
+			

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bmqym3jemx6x1"]
+[gd_scene load_steps=51 format=3 uid="uid://bmqym3jemx6x1"]
 
 [ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://Assets/Textures/UI/In-Game/Phone_Backing.png" id="1_bfryu"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="2_s0t65"]
@@ -105,14 +105,11 @@ border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7q4k"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ddmb"]
-bg_color = Color(0.0339279, 0.0351563, 0.0346124, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0yc3"]
-bg_color = Color(0.203125, 0.203125, 0.203125, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlhlj"]
+bg_color = Color(0.142966, 0.111562, 0.25, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqsm"]
-bg_color = Color(0.109375, 0.109375, 0.109375, 1)
+bg_color = Color(0.259125, 0.202206, 0.453125, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj8in"]
 bg_color = Color(0, 0, 0, 1)
@@ -730,8 +727,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 224.0
-offset_right = 224.0
+offset_right = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1000,7 +996,7 @@ offset_right = -0.696777
 offset_bottom = -0.640656
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3ddmb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rro7q")
 
 [node name="LineEdit" type="LineEdit" parent="Overlay/Screens/Chat_Screen/Panel"]
 layout_mode = 0
@@ -1010,7 +1006,7 @@ offset_right = 219.0
 offset_bottom = 226.0
 theme = ExtResource("5_adsjc")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/focus = SubResource("StyleBoxFlat_g0yc3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_nlhlj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2cqsm")
 placeholder_text = "<Click to type>"
 

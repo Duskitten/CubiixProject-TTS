@@ -1,0 +1,31 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://6xen2wdpmgwi"]
+
+[ext_resource type="Shader" uid="uid://qw8xxswsw5c8" path="res://Assets/Shaders/Characters/Cubiix_Shader_Material.tres" id="1_hrv3s"]
+[ext_resource type="Texture2D" uid="uid://rad00hl5f0fm" path="res://Assets/Mesh/Cubiix/Color_Palette_Mask.png" id="2_46het"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_hrv3s")
+shader_parameter/has_metallic = true
+shader_parameter/Body1 = Color(0.408329, 0.286852, 0.22463, 1)
+shader_parameter/emiss_Body1 = Color(0, 0, 0, 1)
+shader_parameter/Body1_metallic = 0.5
+shader_parameter/Body1_roughness = 1.0
+shader_parameter/Body2 = Color(0.773438, 0.773438, 0.773438, 1)
+shader_parameter/emiss_Body2 = Color(0, 0, 0, 1)
+shader_parameter/Body2_metallic = 0.5
+shader_parameter/Body2_roughness = 0.22
+shader_parameter/Body3 = Color(0.8, 0.541176, 0.364706, 1)
+shader_parameter/emiss_Body3 = Color(0, 0, 0, 1)
+shader_parameter/Body3_metallic = 1.0
+shader_parameter/Body3_roughness = 0.8
+shader_parameter/Body4 = Color(0.191916, 0.8, 0.673671, 1)
+shader_parameter/emiss_Body4 = Color(0, 0, 0, 1)
+shader_parameter/Body4_metallic = 0.5
+shader_parameter/Body4_roughness = 0.0
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 0.0
+shader_parameter/distance_fade_glow = 0.0
+shader_parameter/distance_transitioning = false
+shader_parameter/texture_albedo = ExtResource("2_46het")

@@ -1,0 +1,955 @@
+[gd_scene load_steps=31 format=3 uid="uid://hrgnkcktrbta"]
+
+[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
+[ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="2_f3wu7"]
+[ext_resource type="Texture2D" uid="uid://uh2xqm07w13p" path="res://Assets/Textures/UI/Titlescreen/Cubiix Project_Logo.png" id="3_0ua4g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
+texture = ExtResource("1_wdvji")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jwsx"]
+bg_color = Color(0.137272, 0.0943, 0.23, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upwro"]
+bg_color = Color(0.137272, 0.0943, 0.23, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tvrs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkrfm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipwh6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ru86"]
+bg_color = Color(0, 0.984314, 1, 1)
+draw_center = false
+border_width_left = 15
+border_color = Color(0.415686, 0.431373, 0.607843, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbmvr"]
+content_margin_top = 2.0
+bg_color = Color(0.315695, 0.00100699, 0.734288, 1)
+draw_center = false
+border_width_left = 10
+border_color = Color(0, 0.984314, 1, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oegg0"]
+content_margin_top = 2.0
+bg_color = Color(0.315695, 0.00100699, 0.734288, 1)
+draw_center = false
+border_width_left = 10
+border_color = Color(0, 0.984314, 1, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnxb0"]
+bg_color = Color(0, 0.984314, 1, 1)
+draw_center = false
+border_width_left = 15
+border_color = Color(2.14182e-06, 0.542492, 0.192805, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jpre"]
+content_margin_top = 2.0
+bg_color = Color(0.315695, 0.00100699, 0.734288, 1)
+draw_center = false
+border_width_left = 10
+border_color = Color(0.45098, 1, 0.54902, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gs8v"]
+bg_color = Color(0.506563, 0.359289, 0.6, 1)
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdgc4"]
+bg_color = Color(0.137255, 0.0941176, 0.231373, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mb6q6"]
+
+[sub_resource type="Animation" id="Animation_nf7oo"]
+resource_name = "Back"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-310, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_xy1hs"]
+resource_name = "Enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-310, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_u8tin"]
+resource_name = "Exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(310, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_jar84"]
+resource_name = "Exit_Back"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(310, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0vubs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb5od"]
+_data = {
+"Back": SubResource("Animation_nf7oo"),
+"Enter": SubResource("Animation_xy1hs"),
+"Exit": SubResource("Animation_u8tin"),
+"Exit_Back": SubResource("Animation_jar84"),
+"RESET": SubResource("Animation_0vubs")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dcu6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ptw8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5r6to"]
+bg_color = Color(0.201602, 0.138242, 0.339844, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.222062, 0.357139, 0.535156, 1)
+shadow_size = 18
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gytrq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aea1h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8hgm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cewsm"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[node name="Hexii_Tablet_UI" type="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 196.0
+offset_top = -26.0
+offset_right = 236.0
+offset_bottom = 14.0
+
+[node name="Overlay" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 48.0
+offset_right = 608.0
+offset_bottom = 588.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_43210")
+
+[node name="Screens" type="Panel" parent="Overlay"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 44.0
+offset_top = 49.0
+offset_right = 496.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2jwsx")
+
+[node name="Main_Panel" type="Control" parent="Overlay/Screens"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Main_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="In_Game_Bar" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(128.04, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_upwro")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4tvrs")
+
+[node name="InventoryButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " inventory"
+alignment = 0
+
+[node name="CharacterButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " character"
+alignment = 0
+
+[node name="QuestButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " quests"
+alignment = 0
+
+[node name="CollectionsButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " collections"
+alignment = 0
+
+[node name="JournalButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " journal"
+alignment = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4tvrs")
+
+[node name="SettingsButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " settings"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " quit"
+alignment = 0
+
+[node name="HSeparator3" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4tvrs")
+
+[node name="Title_Bar" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer"]
+custom_minimum_size = Vector2(128.04, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_upwro")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4tvrs")
+
+[node name="TitleButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " title"
+alignment = 0
+
+[node name="PlayButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " play"
+alignment = 0
+
+[node name="UpdateButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gnxb0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8jpre")
+text = " update"
+alignment = 0
+
+[node name="DevlogButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " devlog"
+alignment = 0
+
+[node name="CommunityButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " community"
+alignment = 0
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4tvrs")
+
+[node name="SettingsButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " settings"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = " quit"
+alignment = 0
+
+[node name="HSeparator3" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4tvrs")
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxFlat_4gs8v")
+
+[node name="Panel" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer"]
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_cdgc4")
+
+[node name="Title_Screen" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel"]
+visible = false
+clip_children = 2
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mb6q6")
+
+[node name="Control" type="Control" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Title_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Title_Screen/Control"]
+custom_minimum_size = Vector2(0, 31.48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("3_0ua4g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Title_Screen"]
+libraries = {
+"": SubResource("AnimationLibrary_sb5od")
+}
+
+[node name="Null_Screen" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel"]
+visible = false
+clip_children = 2
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mb6q6")
+
+[node name="Control" type="Control" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Null_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Null_Screen"]
+libraries = {
+"": SubResource("AnimationLibrary_sb5od")
+}
+
+[node name="Login_Screen" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel"]
+visible = false
+clip_children = 2
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mb6q6")
+
+[node name="Control" type="Control" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_right = -310.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5dcu6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ptw8w")
+
+[node name="Panel" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(222.04, 227.86)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5r6to")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gytrq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator3" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_aea1h")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+bbcode_enabled = true
+text = "[center]Login[/center]"
+fit_content = true
+
+[node name="HSeparator5" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_aea1h")
+
+[node name="LineEdit" type="LineEdit" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+placeholder_text = " Username"
+
+[node name="LineEdit2" type="LineEdit" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+placeholder_text = " Password"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator4" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_aea1h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="InventoryButton" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = "register"
+alignment = 0
+
+[node name="InventoryButton2" type="Button" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_f3wu7")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
+text = "login"
+alignment = 0
+
+[node name="HSeparator6" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_aea1h")
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gytrq")
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_aea1h")
+
+[node name="VSeparator2" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e8hgm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen"]
+libraries = {
+"": SubResource("AnimationLibrary_sb5od")
+}
+
+[node name="Devlog_Screen" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel"]
+visible = false
+clip_children = 2
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mb6q6")
+
+[node name="Control" type="Control" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5dcu6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ptw8w")
+
+[node name="Panel" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(279.52, 380.14)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5r6to")
+
+[node name="LineEdit" type="RichTextLabel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/Control/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cewsm")
+bbcode_enabled = true
+text = "This is the funny Devlog Panel"
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_aea1h")
+
+[node name="VSeparator2" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e8hgm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen"]
+libraries = {
+"": SubResource("AnimationLibrary_sb5od")
+}
+
+[node name="Settings_Screen" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel"]
+visible = false
+clip_children = 2
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mb6q6")
+
+[node name="Control" type="Control" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_right = -310.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5dcu6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ptw8w")
+
+[node name="Panel" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(279.52, 380.14)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5r6to")
+
+[node name="LineEdit" type="RichTextLabel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/Control/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cewsm")
+bbcode_enabled = true
+text = "Put all the settings here! :3"
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_aea1h")
+
+[node name="VSeparator2" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e8hgm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen"]
+libraries = {
+"": SubResource("AnimationLibrary_sb5od")
+}
+
+[node name="Character_Screen" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel"]
+visible = false
+clip_children = 2
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mb6q6")
+
+[node name="Control" type="Control" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_right = -310.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5dcu6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ptw8w")
+
+[node name="Panel" type="Panel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(279.52, 380.14)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5r6to")
+
+[node name="LineEdit" type="RichTextLabel" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cewsm")
+bbcode_enabled = true
+text = "Put all the settings here! :3"
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_aea1h")
+
+[node name="VSeparator2" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e8hgm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen"]
+libraries = {
+"": SubResource("AnimationLibrary_sb5od")
+}

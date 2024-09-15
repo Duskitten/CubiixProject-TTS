@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="1_uf7h7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs782"]
+content_margin_top = 2.0
 bg_color = Color(0.6, 0.6, 0.6, 0.168)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3be1p"]
@@ -47,6 +48,7 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_uf7h7")
 Label/styles/normal = SubResource("StyleBoxEmpty_3be1p")
+LineEdit/font_sizes/font_size = 13
 LineEdit/fonts/font = ExtResource("1_uf7h7")
 RichTextLabel/fonts/normal_font = ExtResource("1_uf7h7")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_85od5")
