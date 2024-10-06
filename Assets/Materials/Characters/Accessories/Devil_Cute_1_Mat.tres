@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://8g6fy2tqpx4f"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 1.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.777344, 0.1661, 0.119663, 1)
+roughness = 0.25
+texture_filter = 0

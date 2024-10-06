@@ -1,10 +1,24 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bst76owxspkj5"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bst76owxspkj5"]
 
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="1_uf7h7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs782"]
 content_margin_top = 2.0
 bg_color = Color(0.6, 0.6, 0.6, 0.168)
+
+[sub_resource type="Gradient" id="Gradient_pje66"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ks4w7"]
+gradient = SubResource("Gradient_pje66")
+width = 16
+height = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6afwb"]
+bg_color = Color(0.298927, 0.204979, 0.503906, 1)
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3be1p"]
 
@@ -37,6 +51,13 @@ border_color = Color(0.226707, 0.226707, 0.226707, 0.188235)
 [resource]
 Button/fonts/font = ExtResource("1_uf7h7")
 Button/styles/normal = SubResource("StyleBoxFlat_qs782")
+HSlider/icons/grabber = SubResource("GradientTexture2D_ks4w7")
+HSlider/icons/grabber_disabled = SubResource("GradientTexture2D_ks4w7")
+HSlider/icons/grabber_highlight = SubResource("GradientTexture2D_ks4w7")
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_6afwb")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_6afwb")
+HSlider/styles/slider = SubResource("StyleBoxFlat_6afwb")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)

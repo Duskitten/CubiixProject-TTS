@@ -9,7 +9,7 @@ enum EXTRA_ENUM {None, Shark, Nub, Antler, Ram, Fish, Narwhal, Dragon}
 enum TAIL_ENUM {None,Cat, Fox, Wolf, Bug, Bee, Moth, Dog, Mouse, Fluffy, Shark, Entity, Bunny, Deer, Dragon}
 enum WING_ENUM {None, Entity, Angel, Butterfly, Wasp, Dragon}
 #--
-enum HEAD_ENUM {None,Goggle_Test,Orb_Test,DotMouse_Hat, Pumpkin_Head_Cute_1}
+enum HEAD_ENUM {None,Goggle_Test,Orb_Test,DotMouse_Hat, Pumpkin_Head_Cute_1, Devil_Head, Witch_Head}
 enum CHEST_ENUM {None,Trad_Pride_Bandanna,Trans_Pride_Bandanna}
 enum BACK_ENUM {None}
 
@@ -40,6 +40,7 @@ var Skeleton_Values = {}
 
 var CharSetup = false
 @export var Is_Player = false
+@export var Is_UI = false
 @export var Generate = false
 
 @onready var Anim_Tree = $Hub/Cubiix_Model/AnimationTree
@@ -60,11 +61,15 @@ var BasePlayer_Disabled = false
 ##Integration for Sitting
 var Is_Sitting  = false
 var Is_Piloting = false
+var Is_Grinding = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if Is_Player:
 		Core.Client.Local_Player = self
+		Regen_Character()
+	elif Is_UI:
+		pass
 	else:
 		self.remove_from_group("Player")
 		$CollisionShape3D.queue_free()
@@ -78,7 +83,7 @@ func _ready() -> void:
 			Extra = Core.AssetData.Extra_Slot.find(Core.AssetData.Extra_Slot.pick_random())
 			Tail = Core.AssetData.Tail_Slot.find(Core.AssetData.Tail_Slot.pick_random())
 			Wings = Core.AssetData.Wing_Slot.find(Core.AssetData.Wing_Slot.pick_random())
-	Regen_Character()
+		Regen_Character()
 
 
 func Regen_Character():
@@ -270,7 +275,7 @@ func run_idle():
 
 func _input(event: InputEvent) -> void:
 	if Is_Player:
-		if Input.is_action_pressed("mouse_right"):
+		if Input.is_action_pressed("mouse_right") && !Core.Persistant_Core.Mouse_In_UI:
 			if event is InputEventMouseMotion:
 				Camera.get_parent().get_parent().get_parent().rotation.y -= event["relative"].x/200
 				Camera.get_parent().get_parent().rotation.x += event["relative"].y/200
@@ -287,7 +292,7 @@ var gravity_control:Vector3 = Vector3.ZERO
 var jumping = false
 var falling = false
 var fall_timer = 0
-var anti_grav_enabled = false
+@export var anti_grav_enabled = false
 
 var queue_network_moved = false
 var forcingUp = false
@@ -309,16 +314,34 @@ var old_velocity = Vector3.ZERO
 var compiled_velocity = Vector3.ZERO
 var last_hit = Vector3.ZERO
 
+
+###RailGrinding Stuff
+var HitRail = null
+var InitRail = false
+var CanRide = true
+var RailDir = 0
+var RotOffset = 0 
+var RailSpeed = 10
+var ActiveArea = null
+var HopCooldown = false
+var AltRiding = false
+var IsTransfering = false
+var movepoint = null
+var Flip_B = false
+
 func _physics_process(delta: float) -> void:
 	if Is_Player:
 		var camparent = Camera.get_parent().get_parent().get_parent().get_parent()
+		
 		if target_camera_position != null:
+			
 			camparent.global_position = lerp(camparent.global_position ,target_camera_position.global_position,0.1)
 			target_camera_position.look_at($Hub/Follow_Point.global_position)
 			Camera.get_parent().get_parent().get_parent().global_rotation.y = lerp_angle(Camera.get_parent().get_parent().get_parent().global_rotation.y ,target_camera_position.global_rotation.y + deg_to_rad(180),0.1)
 			Camera.get_parent().get_parent().global_rotation.x = lerp_angle(Camera.get_parent().get_parent().global_rotation.x,-target_camera_position.global_rotation.x,0.1)
 			Camera.get_parent().spring_length = 0
 		else:
+			
 			Camera.get_parent().spring_length = -4
 			camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
 			if reset_camera:
@@ -331,10 +354,102 @@ func _physics_process(delta: float) -> void:
 				tween.tween_property(Camera.get_parent().get_parent().get_parent(),"global_rotation:y",$Hub.global_rotation.y,1)
 				tween.tween_property(Camera.get_parent().get_parent(),"global_rotation:x",deg_to_rad(25),1)
 	
+	if Is_Player && Is_Grinding:
+		Camera.fov = lerpf(Camera.fov,85,0.025)
+		if CanRide:
+			
+			var RailPath = HitRail.get_node("Path3D")
+			var RailPathFollow = RailPath.get_node("PathFollow3D")
+			var RailPathTransform = RailPathFollow.get_node("RemoteTransform3D")
+			var RailPathParticles = RailPathFollow.get_node("GPUParticles3D")
+			if InitRail:
+				InitRail = false
+				var p_b = RailPath.curve.get_closest_point(RailPath.to_local(self.global_position))
+				var p_c = RailPath.curve.get_closest_offset(p_b)
+				RailPathFollow.progress = p_c
+				await get_tree().physics_frame
+				var playerdirection = $Hub.global_transform.basis.z
+				RailDir = roundi(playerdirection.dot(RailPathFollow.get_node("RemoteTransform3D").global_transform.basis.z))
+				if RailDir == 0:
+					RailDir = 1
+				if RailDir == 1:
+					RotOffset = 0
+					AltRiding = false
+				else:
+					RotOffset = 180
+					AltRiding = true
+					
+				RailPathTransform.remote_path = get_path()
+				RailPathParticles.emitting = true
+			RailPathFollow.progress -= RailDir*(RailSpeed*delta)
+			$Hub.quaternion = RailPathTransform.global_transform.basis.get_rotation_quaternion() * Quaternion.from_euler(Vector3(0,deg_to_rad(RotOffset),0))
+			
+			if IsTransfering:
+				var movepath = movepoint.get_node("Path3D")
+				var MovePathFollow = movepath.get_node("PathFollow3D")
+				var MovePathTransform = MovePathFollow.get_node("RemoteTransform3D")
+				MovePathFollow.progress -= RailDir*(RailSpeed*delta)
+				self.global_position = self.global_position.move_toward(MovePathTransform.global_position, .14)
+				print(self.global_position.distance_squared_to(MovePathTransform.global_position))
+
+				if self.global_position.distance_squared_to(MovePathTransform.global_position) > 1.8 :
+					IsTransfering = false
+					HitRail = movepoint
+					movepoint = null
+					InitRail = true
+					await get_tree().create_timer(0.4).timeout
+					HopCooldown = false
+				
+			if (Input.is_action_just_pressed("ui_jump") && !IsTransfering) ||  ((RailPathFollow.progress_ratio == 1 || RailPathFollow.progress_ratio == 0 ) && !RailPathFollow.loop) :
+				RailPathParticles.emitting = false
+				CanRide = false
+				BasePlayer_Disabled = false
+				AltJump = true
+				Is_Grinding = false
+				$RayCast3D4/RailTimer.start()
+				$Hub.rotation = up_direction
+
+			if (Input.is_action_just_pressed("ui_left") || Input.is_action_just_pressed("ui_right")) && !HopCooldown && ActiveArea != null && !IsTransfering:
+					if  (Input.is_action_just_pressed("ui_left")):
+						if AltRiding:
+							if ActiveArea.P_Right_Fixed != null:
+								movepoint = ActiveArea.P_Right_Fixed
+								Flip_B = true
+						else:
+							if ActiveArea.P_Left_Fixed  != null:
+								Flip_B = true
+								movepoint = ActiveArea.P_Left_Fixed
+					elif (Input.is_action_just_pressed("ui_right")):
+						if AltRiding:
+							if ActiveArea.P_Left_Fixed != null:
+								Flip_B = false
+								movepoint = ActiveArea.P_Left_Fixed
+						else:
+							if ActiveArea.P_Right_Fixed != null:
+								Flip_B = false
+								movepoint = ActiveArea.P_Right_Fixed
+					
+					if movepoint != null:
+						IsTransfering = true
+						HopCooldown = true
+						var movepath = movepoint.get_node("Path3D")
+						var MovePathFollow = movepath.get_node("PathFollow3D")
+						var MovePathTransform = MovePathFollow.get_node("RemoteTransform3D")
+						var MovePathParticles = MovePathFollow.get_node("GPUParticles3D")
+						var p_b = movepath.curve.get_closest_point(movepoint.to_local(self.global_position))
+						var p_c = movepath.curve.get_closest_offset(p_b)
+						MovePathFollow.progress = p_c
+						MovePathFollow.progress -= RailDir*(RailSpeed*delta)
+						RailPathTransform.remote_path = NodePath("")
+						MovePathTransform.remote_path = NodePath("")
+						RailPathParticles.emitting = false
+
+						
+				
 	if Is_Player && !BasePlayer_Disabled:
+		Camera.fov = lerpf(Camera.fov,56.3,0.1)
 		forcingUp = false
 		cache_data["Player_Position"] = self.global_position
-		
 		if customizing:
 			input = Vector2.ZERO
 		
@@ -351,7 +466,7 @@ func _physics_process(delta: float) -> void:
 				if target_camera_position != null:
 					camparent.transform = target_camera_position.transform
 				else:
-					camparent.transform = transform
+					camparent.global_transform.basis = global_transform.basis
 				
 				up_direction = $RayCast3D.get_collision_normal()
 			
@@ -375,10 +490,19 @@ func _physics_process(delta: float) -> void:
 					camparent.transform.basis = align_up(camparent.transform.basis,  Vector3.UP, 0.05)
 					transform.basis = align_up(transform.basis,  Vector3.UP, 0.15)
 					forcingUp = true
-				
-			if up_direction < gravity_control:
-				falling = true
+					
 			gravity_control += (MoveMarker.global_transform.basis.y * 1) * (gravity/8)
+			
+			if up_direction > gravity_control:
+				falling = true
+				if $RayCast3D4.is_colliding() && CanRide:
+					BasePlayer_Disabled = true
+					Is_Grinding = true
+					HitRail = $RayCast3D4.get_collider().get_parent()
+					InitRail = true
+					
+					
+
 			$RayCast3D.target_position = Vector3(0,-0.27,0)
 			$RayCast3D2.target_position = Vector3(0,-0.27,0)
 		
@@ -426,3 +550,7 @@ func align_up(node_basis, normal, slerptime):
 	
 	result = node_basis.slerp(result.orthonormalized(),slerptime)
 	return result
+
+
+func _on_rail_timer_timeout() -> void:
+	CanRide = true

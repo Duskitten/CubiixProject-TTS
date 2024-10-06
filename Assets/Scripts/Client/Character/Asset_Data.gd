@@ -61,6 +61,8 @@ var Model_Data_Assets = {
 	"Head_Clothes/Orb_Test":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Orb_Test.gltf").instantiate(),
 	"Head_Clothes/DotMouse_Hat":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/DotMouse_Hat.gltf").instantiate(),
 	"Head_Clothes/Pumpkin_Head":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Pumpkin_Head.gltf").instantiate(),
+	"Head_Clothes/Devil_Head":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Devil_Head.gltf").instantiate(),
+	"Head_Clothes/Witch_Head":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Witch_Head.gltf").instantiate(),
 	##Chest Clothes
 	"Chest_Clothes/Pride_Bandana":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf").instantiate(),
 	##Back Clothes
@@ -944,10 +946,29 @@ var Mesh_Data_Assets = {
 		"Data":[],
 		"BlendData":{},
 	},
+	#Halloween Stuff
 	"Head_Clothes/Pumpkin_Head_Cute_1":{
 		"Override_Model":Model_Data_Assets["Head_Clothes/Pumpkin_Head"],
 		"Mesh_Node":"Armature/Skeleton3D/Pumpkin",
 		"MaterialID":"Pumpkin_Cute_1",
+		"Has_Blendshapes":false,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
+	"Head_Clothes/Devil_Head":{
+		"Mesh_Node":"Armature/Skeleton3D/Devil",
+		"MaterialID":"Devil_Cute_1",
+		"Has_Blendshapes":false,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
+	"Head_Clothes/Witch_Head":{
+		"Mesh_Node":"Armature/Skeleton3D/Witch",
+		"MaterialID":"Witch_Cute_1",
 		"Has_Blendshapes":false,
 		"Has_Bones":false,
 		"Has_DynBones":false,
@@ -984,7 +1005,10 @@ var Material_Data_Assets = {
 	"DotMouse_Hat_Mat":load("res://Assets/Materials/Characters/Accessories/DotMouse_Hat_Mat.tres"),
 	"Trad_Pride_Bandana_Mat":load("res://Assets/Materials/Characters/Accessories/Trad_Pride_Bandana_Mat.tres"),
 	"Trans_Pride_Bandana_Mat":load("res://Assets/Materials/Characters/Accessories/Trans_Pride_Bandana_Mat.tres"),
-	"Pumpkin_Cute_1":load("res://Assets/Materials/Characters/Accessories/Pumpkin_Cute_1_Mat.tres")
+	#Halloween Stuff
+	"Pumpkin_Cute_1":load("res://Assets/Materials/Characters/Accessories/Pumpkin_Cute_1_Mat.tres"),
+	"Devil_Cute_1":load("res://Assets/Materials/Characters/Accessories/Devil_Cute_1_Mat.tres"),
+	"Witch_Cute_1":load("res://Assets/Materials/Characters/Accessories/Witch_Cute_1_Mat.tres")
 }
 #--
 var Cubiix_Model = load("res://Assets/Scenes/Client/Characters/cubiix_model.tscn").instantiate()
@@ -1057,7 +1081,10 @@ var Head_Slot = [
 	"Head_Clothes/Goggle_Test",
 	"Head_Clothes/Orb_Test",
 	"Head_Clothes/DotMouse_Hat",
-	"Head_Clothes/Pumpkin_Head_Cute_1"
+	#Halloween Stuff
+	"Head_Clothes/Pumpkin_Head_Cute_1",
+	"Head_Clothes/Devil_Head",
+	"Head_Clothes/Witch_Head"
 	]
 var Chest_Slot = [
 	"",
@@ -1282,14 +1309,11 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 					var New_Blend_Array
 					var Blend_Name = Meshes[i][0].get_blend_shape_name(b)
 					
-					if !Mesh_Data_Assets[MeshSubList[i]]["BlendData"].has(Blend_Name):
-						var New_Blend_Array_Tool = SurfaceTool.new()
-						New_Blend_Array_Tool.create_from_blend_shape(Meshes[i][0],0,Blend_Name)
-						New_Blend_Array = New_Blend_Array_Tool.commit_to_arrays()
+
+					var New_Blend_Array_Tool = SurfaceTool.new()
+					New_Blend_Array_Tool.create_from_blend_shape(Meshes[i][0],0,Blend_Name)
+					New_Blend_Array = New_Blend_Array_Tool.commit_to_arrays()
 						
-						Mesh_Data_Assets[MeshSubList[i]]["BlendData"][Blend_Name] = New_Blend_Array_Tool.commit_to_arrays()
-					else:
-						New_Blend_Array = Mesh_Data_Assets[MeshSubList[i]]["BlendData"][Blend_Name]
 
 					var Blend_Array_Compiled = [New_Blend_Array[0],Meshes[i][1][1],Meshes[i][1][2]]
 					##Remove the values to get raw changed value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bmqym3jemx6x1"]
+[gd_scene load_steps=52 format=3 uid="uid://bmqym3jemx6x1"]
 
 [ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://Assets/Textures/UI/In-Game/Phone_Backing.png" id="1_bfryu"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="2_s0t65"]
@@ -14,18 +14,6 @@
 texture = ExtResource("1_bfryu")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ov6bm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56vv1"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.13, 0.13, 0.13, 1)
-border_color = Color(0.46, 0.46, 0.46, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rro7q"]
 bg_color = Color(0.137272, 0.0943, 0.23, 1)
@@ -105,11 +93,15 @@ border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7q4k"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2m8d"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlhlj"]
 bg_color = Color(0.142966, 0.111562, 0.25, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqsm"]
 bg_color = Color(0.259125, 0.202206, 0.453125, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a06nl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj8in"]
 bg_color = Color(0, 0, 0, 1)
@@ -273,7 +265,7 @@ offset_left = 15.8485
 offset_top = 15.6111
 offset_right = -16.8485
 offset_bottom = -17.0298
-theme_override_styles/panel = SubResource("StyleBoxFlat_56vv1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rro7q")
 metadata/_edit_use_anchors_ = true
 
 [node name="Login_Screen" type="Control" parent="Overlay/Screens"]
@@ -988,6 +980,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="Overlay/Screens/Chat_Screen"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -996,7 +989,7 @@ offset_right = -0.696777
 offset_bottom = -0.640656
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rro7q")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_m2m8d")
 
 [node name="LineEdit" type="LineEdit" parent="Overlay/Screens/Chat_Screen/Panel"]
 layout_mode = 0
@@ -1032,6 +1025,7 @@ offset_top = 7.0
 offset_right = 219.0
 offset_bottom = 203.0
 theme = ExtResource("5_adsjc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a06nl")
 vertical_scroll_mode = 2
 
 [node name="ChatArea" type="VBoxContainer" parent="Overlay/Screens/Chat_Screen/Panel/ScrollContainer"]
@@ -1257,6 +1251,7 @@ libraries = {
 }
 
 [node name="Panel3" type="Panel" parent="Overlay"]
+visible = false
 show_behind_parent = true
 clip_contents = true
 layout_mode = 1

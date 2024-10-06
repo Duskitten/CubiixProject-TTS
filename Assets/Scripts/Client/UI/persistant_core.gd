@@ -3,6 +3,8 @@ extends Node
 @onready var Dialogue = $CanvasLayer/Dialogue
 @onready var Transitioner = $CanvasLayer/Transitioner
 @onready var Transitioner_AnimationPlayer = Transitioner.get_node("AnimationPlayer")
+var Mouse_In_UI = false
+@onready var Player = $Node3D/Player
 
 func _ready() -> void:
 ###### Signal Connections ######
@@ -12,10 +14,36 @@ func _ready() -> void:
 	Hexii_Ui_Tablet_PlayButton.pressed.connect(Hexii_UI_Transition.bind("Exit_Back","Hexii_Ui_Tablet_LoginScreen_Anim","Back","", false))
 	Hexii_Ui_Tablet_DevlogButton.pressed.connect(Hexii_UI_Transition.bind("Exit_Back","Hexii_Ui_Tablet_DevlogScreen_Anim","Back","", false))
 	Hexii_Ui_Tablet_SettingsButton.pressed.connect(Hexii_UI_Transition.bind("Exit_Back","Hexii_Ui_Tablet_SettingsScreen_Anim","Back","", false))
+	Hexii_Ui_Tablet_CharacterButton.pressed.connect(Hexii_UI_Transition.bind("Exit_Back","Hexii_Ui_Tablet_CharacterScreen_Anim","Back","", false))
 	Hexii_Ui_Tablet_CommunityButton.pressed.connect(CommunityButton_Pressed.bind())
+	
+	
 	#Chat
 	Hexii_Ui_Chat_TextInput.text_submitted.connect(send_text.bind())
+	
+	await Player.MeshFinished
+	
+	Hexii_Ui_Tablet_Character.Eyes = Player.Eyes
+	Hexii_Ui_Tablet_Character.Ears = Player.Ears 
+	Hexii_Ui_Tablet_Character.Extra = Player.Extra 
+	Hexii_Ui_Tablet_Character.Tail = Player.Tail 
+	Hexii_Ui_Tablet_Character.Wings = Player.Wings
 
+	Hexii_Ui_Tablet_Character.Head = Player.Head 
+	Hexii_Ui_Tablet_Character.Chest = Player.Chest 
+	Hexii_Ui_Tablet_Character.Back = Player.Back
+
+	Hexii_Ui_Tablet_Character.Body_1 = Player.Body_1 
+	Hexii_Ui_Tablet_Character.Body_2 = Player.Body_2
+	Hexii_Ui_Tablet_Character.Body_3 = Player.Body_3 
+	Hexii_Ui_Tablet_Character.Body_4 = Player.Body_4
+
+	Hexii_Ui_Tablet_Character.Body_Emiss_1 = Player.Body_Emiss_1 
+	Hexii_Ui_Tablet_Character.Body_Emiss_2 = Player.Body_Emiss_2 
+	Hexii_Ui_Tablet_Character.Body_Emiss_3 = Player.Body_Emiss_3 
+	Hexii_Ui_Tablet_Character.Body_Emiss_4 = Player.Body_Emiss_4
+	
+	Hexii_Ui_Tablet_Character.Regen_Character()
 #############################
 ###### Hexii UI System ######
 #############################
@@ -26,6 +54,25 @@ func _ready() -> void:
 @onready var Hexii_Ui_Tablet = $CanvasLayer/Hexii_Tablet_UI
 @onready var Hexii_Ui_Tablet_DevlogScreen_Anim = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/AnimationPlayer")
 @onready var Hexii_Ui_Tablet_SettingsScreen_Anim = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/AnimationPlayer")
+@onready var Hexii_Ui_Tablet_Character = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base")
+
+func _on_area_2d_mouse_entered() -> void:
+	Mouse_In_UI = true
+	print("Entered")
+
+func _on_area_2d_mouse_exited() -> void:
+	Mouse_In_UI = false
+	print("Exit")
+
+var IsInBounds = false
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		if (($CanvasLayer/Hexii_Tablet_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && $CanvasLayer/Hexii_Tablet_UI.visible) || ($CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && $CanvasLayer/Hexii_UI.visible)) && !IsInBounds:
+			IsInBounds = true
+			_on_area_2d_mouse_entered()
+		elif (!$CanvasLayer/Hexii_Tablet_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && !$CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position())) && IsInBounds:
+			IsInBounds = false
+			_on_area_2d_mouse_exited()
 
 func Hexii_UI_Transition(anim_1,  componentName, anim_2, component2Name, device:bool)-> void:
 	
@@ -63,7 +110,13 @@ func QuitButton_Pressed():
 	
 func CommunityButton_Pressed():
 	OS.shell_open("https://cubiixproject.xyz/") 
-	
+#################################
+###### In-Game Screen System ######
+#################################
+@onready var Hexii_Ui_Tablet_CharacterButton =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/In_Game_Bar/VBoxContainer2/CharacterButton")
+@onready var Hexii_Ui_Tablet_CharacterScreen_Anim =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/AnimationPlayer")
+
+
 ###################################
 ###### Update Checker System ######
 ###################################
@@ -80,6 +133,10 @@ func CommunityButton_Pressed():
 ################################
 @onready var Hexii_Ui_ServerListScreen_Anim = Hexii_Ui.get_node("Overlay/Screens/ServerList_Screen/AnimationPlayer")
 @onready var Hexii_Ui_ServerSelectScreen_Anim = Hexii_Ui.get_node("Overlay/Screens/ServerSelect_Screen/AnimationPlayer")
+
+#########################
+###### Character Editor System ######
+#########################
 
 #########################
 ###### Chat System ######

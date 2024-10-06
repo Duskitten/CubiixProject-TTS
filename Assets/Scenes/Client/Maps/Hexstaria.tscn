@@ -12,6 +12,7 @@
 [ext_resource type="Shader" uid="uid://dwlkv1o2dedt2" path="res://Assets/Shaders/Maps/Hexstaria_Water.tres" id="8_ydhjl"]
 [ext_resource type="Material" uid="uid://6xen2wdpmgwi" path="res://Assets/Materials/World/Observatory_Shader_Material.tres" id="9_h1fjv"]
 [ext_resource type="Shader" uid="uid://dvr6esaiwjw0n" path="res://Assets/Shaders/Maps/Hexstaria_Lower_Water.tres" id="9_npa3f"]
+[ext_resource type="Material" uid="uid://38ul7ibenuiy" path="res://Assets/Materials/World/Hexstaria_GlowStone.tres" id="10_x8o3e"]
 [ext_resource type="PackedScene" uid="uid://bvf3465f6vxjk" path="res://Assets/Mesh/Maps/Island/World_Assets/Grass.gltf" id="11_j6din"]
 [ext_resource type="Shader" uid="uid://dkfqg56gfikfj" path="res://Assets/Shaders/Maps/Hexstaria_Grass.tres" id="12_u4dqq"]
 [ext_resource type="Material" uid="uid://cumjroo3v04g" path="res://Assets/Materials/World/Hexstaria_Leaf_Anim.tres" id="13_1x4dl"]
@@ -98,9 +99,6 @@ auto_exposure_speed = 1.0
 dof_blur_far_distance = 54.6
 dof_blur_far_transition = 96.04
 dof_blur_amount = 0.03
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_aeikb"]
-radius = 0.3
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_kk753"]
 _data = {
@@ -290,13 +288,13 @@ ground_horizon_color = Color(0, 0.87451, 0.956863, 1)
 sun_angle_max = 30.88
 sun_curve = 0.178379
 
-[sub_resource type="Sky" id="Sky_b1eu5"]
+[sub_resource type="Sky" id="Sky_th6b4"]
 sky_material = SubResource("ProceduralSkyMaterial_e4tx0")
 
 [sub_resource type="Environment" id="Environment_4d62e"]
 background_mode = 2
 background_color = Color(0.758192, 0.758192, 0.758192, 1)
-sky = SubResource("Sky_b1eu5")
+sky = SubResource("Sky_th6b4")
 ambient_light_source = 3
 ambient_light_color = Color(0.295519, 0.36199, 0.642791, 1)
 ambient_light_sky_contribution = 0.38
@@ -399,7 +397,7 @@ shape = SubResource("ConcavePolygonShape3D_1yo4k")
 
 [node name="Underground" parent="Hexstaria_Map" index="6"]
 surface_material_override/0 = ExtResource("3_2k7hf")
-surface_material_override/1 = ExtResource("5_oijx1")
+surface_material_override/1 = ExtResource("10_x8o3e")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hexstaria_Map/Underground" index="0"]
 collision_layer = 3
@@ -436,22 +434,6 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_bake_mode = 1
 sky_mode = 2
-
-[node name="Core_Follow" type="Node3D" parent="Environment_Template"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9533, 0.370745, 50.6123)
-
-[node name="Rot_Y" type="Node3D" parent="Environment_Template/Core_Follow"]
-
-[node name="Rot_X" type="Node3D" parent="Environment_Template/Core_Follow/Rot_Y"]
-
-[node name="Rot_Z" type="SpringArm3D" parent="Environment_Template/Core_Follow/Rot_Y/Rot_X"]
-shape = SubResource("SphereShape3D_aeikb")
-spring_length = -4.0
-
-[node name="Camera3D" type="Camera3D" parent="Environment_Template/Core_Follow/Rot_Y/Rot_X/Rot_Z"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.24216e-07, 0, -2.56473)
-current = true
-fov = 56.25
 
 [node name="VoxelGI_Underground" type="VoxelGI" parent="Environment_Template"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.661, -49.7403, -75.2356)
@@ -794,51 +776,6 @@ alpha_cut = 2
 texture_filter = 5
 texture = ExtResource("21_lfpw1")
 
-[node name="Player" parent="." instance=ExtResource("2_hxswa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.056, 0.67074, 173.603)
-Eyes = 6
-Ears = 4
-Extra = 7
-Tail = 14
-Wings = 5
-Head = 4
-Body_1 = Color(0.372549, 0.372549, 0.372549, 1)
-Body_2 = Color(0.776471, 0.776471, 0.776471, 1)
-Body_3 = Color(0.798314, 0.542604, 0.363722, 1)
-Body_4 = Color(0.8, 0.541176, 0.364706, 1)
-Body_Emiss_3 = Color(0.8, 0.541176, 0.364706, 1)
-Body_Emiss_4 = Color(0.8, 0.541176, 0.364706, 1)
-Is_Player = true
-
-[node name="Hub" parent="Player" index="1"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
-
-[node name="Skeleton3D" parent="Player/Hub/Cubiix_Model" index="0"]
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/scale = Vector3(1, 1, 1)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
-
-[node name="RayCast3D" parent="Player" index="3"]
-target_position = Vector3(0, -0.27, 0)
-
-[node name="RayCast3D2" parent="Player" index="4"]
-target_position = Vector3(0, -0.27, 0)
-
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(2000, 600)
 render_target_update_mode = 4
@@ -856,5 +793,3 @@ fov = 41.1
 [editable path="Hexstaria_Map"]
 [editable path="Multimeshes/Refs/Grass"]
 [editable path="Multimeshes/Refs/Tree2"]
-[editable path="Player"]
-[editable path="Player/Hub/Cubiix_Model"]

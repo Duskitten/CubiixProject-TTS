@@ -27,25 +27,23 @@ script = ExtResource("1_4skhm")
 
 [node name="Skeleton3D" parent="Hub/Cubiix_Model" index="0"]
 bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/2/position = Vector3(0, 0.254852, 0)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
 bones/2/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(-0.327326, 0.134334, 0)
 bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/4/rotation = Quaternion(0, 0, 0, 1)
 bones/5/rotation = Quaternion(0, 0, 0, 1)
 bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/8/position = Vector3(0.327326, 0.134334, 0)
 bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
 bones/9/rotation = Quaternion(0, 0, 0, 1)
 bones/10/rotation = Quaternion(0, 0, 0, 1)
 bones/11/rotation = Quaternion(0, 0, 0, 1)
-bones/12/position = Vector3(-0.00878999, 0.111369, 0.122818)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
 bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/position = Vector3(0, 0.12722, 0)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Cube" parent="Hub/Cubiix_Model/Skeleton3D" index="0"]
@@ -91,5 +89,16 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214239, 0)
 target_position = Vector3(0, -0.32, 0)
 collision_mask = 2
+
+[node name="RayCast3D4" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.214239, 0)
+target_position = Vector3(0, -0.32, 0)
+collision_mask = 256
+
+[node name="RailTimer" type="Timer" parent="RayCast3D4"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="RayCast3D4/RailTimer" to="." method="_on_rail_timer_timeout"]
 
 [editable path="Hub/Cubiix_Model"]

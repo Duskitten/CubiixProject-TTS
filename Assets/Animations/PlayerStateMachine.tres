@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=53 format=3 uid="uid://66yh8wx1jq5e"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=62 format=3 uid="uid://66yh8wx1jq5e"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qypfg"]
 animation = &"Customizing"
@@ -20,6 +20,15 @@ animation = &"Jump"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v2aus"]
 animation = &"Null"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_50sf7"]
+animation = &"Rail_Flip"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1coef"]
+animation = &"Rail_Flip_Backwards"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m0gia"]
+animation = &"Rail_Grinding"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t8cjt"]
 animation = &"Run"
@@ -249,21 +258,55 @@ advance_expression = "Is_Sitting && BasePlayer_Disabled"
 advance_mode = 2
 advance_expression = "!BasePlayer_Disabled && !Is_Sitting"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_enflp"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "Is_Grinding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x41am"]
+xfade_time = 0.3
+advance_mode = 2
+advance_expression = "!Is_Grinding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kssjf"]
+advance_mode = 2
+advance_expression = "IsTransfering && !Flip_B"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gtrkx"]
+xfade_time = 0.3
+advance_mode = 2
+advance_expression = "!IsTransfering"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dx37c"]
+advance_mode = 2
+advance_expression = "IsTransfering && Flip_B"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7olks"]
+xfade_time = 0.3
+advance_mode = 2
+advance_expression = "!IsTransfering"
+
 [resource]
 states/Customizing/node = SubResource("AnimationNodeAnimation_qypfg")
 states/Customizing/position = Vector2(382, -226)
 states/Drive/node = SubResource("AnimationNodeAnimation_1tc43")
 states/Drive/position = Vector2(662, -365)
 states/Falling/node = SubResource("AnimationNodeAnimation_jvi7s")
-states/Falling/position = Vector2(797, -55)
+states/Falling/position = Vector2(793, -60)
 states/Idle/node = SubResource("AnimationNodeAnimation_i6ho0")
 states/Idle/position = Vector2(278, -82)
 states/Idle_2/node = SubResource("AnimationNodeAnimation_okf7g")
 states/Idle_2/position = Vector2(278, 13)
 states/Jump/node = SubResource("AnimationNodeAnimation_ib7u3")
-states/Jump/position = Vector2(699, -184)
+states/Jump/position = Vector2(770, -205)
 states/Null/node = SubResource("AnimationNodeAnimation_v2aus")
 states/Null/position = Vector2(193, -275)
+states/Rail_Flip/node = SubResource("AnimationNodeAnimation_50sf7")
+states/Rail_Flip/position = Vector2(1155, -57)
+states/Rail_Flip_Backwards/node = SubResource("AnimationNodeAnimation_1coef")
+states/Rail_Flip_Backwards/position = Vector2(1189, 50)
+states/Rail_Grinding/node = SubResource("AnimationNodeAnimation_m0gia")
+states/Rail_Grinding/position = Vector2(958, -8)
 states/Run/node = SubResource("AnimationNodeAnimation_t8cjt")
 states/Run/position = Vector2(511, -174)
 states/Sit/node = SubResource("AnimationNodeAnimation_7cuik")
@@ -271,5 +314,5 @@ states/Sit/position = Vector2(516, -344)
 states/Start/position = Vector2(104, 88)
 states/Walk/node = SubResource("AnimationNodeAnimation_blst1")
 states/Walk/position = Vector2(468, 13)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_q81gr"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ex3j7"), "Idle", "Idle_2", SubResource("AnimationNodeStateMachineTransition_poa4a"), "Idle_2", "Idle", SubResource("AnimationNodeStateMachineTransition_ahh41"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_a8vp3"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_8ceeu"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_v8gcc"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_b3dly"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_isxm1"), "Idle_2", "Run", SubResource("AnimationNodeStateMachineTransition_nwxst"), "Idle_2", "Walk", SubResource("AnimationNodeStateMachineTransition_rmdnw"), "Idle", "Customizing", SubResource("AnimationNodeStateMachineTransition_l70ts"), "Run", "Customizing", SubResource("AnimationNodeStateMachineTransition_m82mv"), "Walk", "Customizing", SubResource("AnimationNodeStateMachineTransition_obbxk"), "Idle_2", "Customizing", SubResource("AnimationNodeStateMachineTransition_icrel"), "Customizing", "Idle", SubResource("AnimationNodeStateMachineTransition_0viec"), "Customizing", "Run", SubResource("AnimationNodeStateMachineTransition_v7wqn"), "Customizing", "Walk", SubResource("AnimationNodeStateMachineTransition_6ksoj"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_fnlwv"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_hbj5k"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_lkpyh"), "Idle_2", "Jump", SubResource("AnimationNodeStateMachineTransition_1mdt3"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_rjvtq"), "Jump", "Run", SubResource("AnimationNodeStateMachineTransition_flhlb"), "Jump", "Falling", SubResource("AnimationNodeStateMachineTransition_vxdob"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_pju48"), "Falling", "Walk", SubResource("AnimationNodeStateMachineTransition_c0apt"), "Falling", "Run", SubResource("AnimationNodeStateMachineTransition_xa001"), "Falling", "Idle", SubResource("AnimationNodeStateMachineTransition_63ou4"), "Sit", "Drive", SubResource("AnimationNodeStateMachineTransition_8gk0t"), "Drive", "Jump", SubResource("AnimationNodeStateMachineTransition_7pie1"), "Customizing", "Sit", SubResource("AnimationNodeStateMachineTransition_8hsh5"), "Jump", "Sit", SubResource("AnimationNodeStateMachineTransition_rhu3j"), "Falling", "Sit", SubResource("AnimationNodeStateMachineTransition_1pwas"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_iqdy0"), "Idle", "Sit", SubResource("AnimationNodeStateMachineTransition_jvid7"), "Walk", "Sit", SubResource("AnimationNodeStateMachineTransition_krjbw"), "Idle_2", "Sit", SubResource("AnimationNodeStateMachineTransition_06ypi"), "Sit", "Jump", SubResource("AnimationNodeStateMachineTransition_a8bjr")]
-graph_offset = Vector2(-217, -422)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_q81gr"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ex3j7"), "Idle", "Idle_2", SubResource("AnimationNodeStateMachineTransition_poa4a"), "Idle_2", "Idle", SubResource("AnimationNodeStateMachineTransition_ahh41"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_a8vp3"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_8ceeu"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_v8gcc"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_b3dly"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_isxm1"), "Idle_2", "Run", SubResource("AnimationNodeStateMachineTransition_nwxst"), "Idle_2", "Walk", SubResource("AnimationNodeStateMachineTransition_rmdnw"), "Idle", "Customizing", SubResource("AnimationNodeStateMachineTransition_l70ts"), "Run", "Customizing", SubResource("AnimationNodeStateMachineTransition_m82mv"), "Walk", "Customizing", SubResource("AnimationNodeStateMachineTransition_obbxk"), "Idle_2", "Customizing", SubResource("AnimationNodeStateMachineTransition_icrel"), "Customizing", "Idle", SubResource("AnimationNodeStateMachineTransition_0viec"), "Customizing", "Run", SubResource("AnimationNodeStateMachineTransition_v7wqn"), "Customizing", "Walk", SubResource("AnimationNodeStateMachineTransition_6ksoj"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_fnlwv"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_hbj5k"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_lkpyh"), "Idle_2", "Jump", SubResource("AnimationNodeStateMachineTransition_1mdt3"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_rjvtq"), "Jump", "Run", SubResource("AnimationNodeStateMachineTransition_flhlb"), "Jump", "Falling", SubResource("AnimationNodeStateMachineTransition_vxdob"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_pju48"), "Falling", "Walk", SubResource("AnimationNodeStateMachineTransition_c0apt"), "Falling", "Run", SubResource("AnimationNodeStateMachineTransition_xa001"), "Falling", "Idle", SubResource("AnimationNodeStateMachineTransition_63ou4"), "Sit", "Drive", SubResource("AnimationNodeStateMachineTransition_8gk0t"), "Drive", "Jump", SubResource("AnimationNodeStateMachineTransition_7pie1"), "Customizing", "Sit", SubResource("AnimationNodeStateMachineTransition_8hsh5"), "Jump", "Sit", SubResource("AnimationNodeStateMachineTransition_rhu3j"), "Falling", "Sit", SubResource("AnimationNodeStateMachineTransition_1pwas"), "Run", "Sit", SubResource("AnimationNodeStateMachineTransition_iqdy0"), "Idle", "Sit", SubResource("AnimationNodeStateMachineTransition_jvid7"), "Walk", "Sit", SubResource("AnimationNodeStateMachineTransition_krjbw"), "Idle_2", "Sit", SubResource("AnimationNodeStateMachineTransition_06ypi"), "Sit", "Jump", SubResource("AnimationNodeStateMachineTransition_a8bjr"), "Falling", "Rail_Grinding", SubResource("AnimationNodeStateMachineTransition_enflp"), "Rail_Grinding", "Jump", SubResource("AnimationNodeStateMachineTransition_x41am"), "Rail_Grinding", "Rail_Flip", SubResource("AnimationNodeStateMachineTransition_kssjf"), "Rail_Flip", "Rail_Grinding", SubResource("AnimationNodeStateMachineTransition_gtrkx"), "Rail_Grinding", "Rail_Flip_Backwards", SubResource("AnimationNodeStateMachineTransition_dx37c"), "Rail_Flip_Backwards", "Rail_Grinding", SubResource("AnimationNodeStateMachineTransition_7olks")]
+graph_offset = Vector2(513, -100)

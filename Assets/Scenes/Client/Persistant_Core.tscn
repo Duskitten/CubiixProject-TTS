@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=28 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
@@ -9,6 +9,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cmwufqqj34wma" path="res://Assets/Animations/UI/Tile_Slide.tres" id="4_ylswe"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="5_1jexs"]
 [ext_resource type="PackedScene" uid="uid://hrgnkcktrbta" path="res://Assets/Scenes/Client/Ui/hexii_tablet_ui.tscn" id="5_d7p8w"]
+[ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="10_i2prw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhpf"]
 bg_color = Color(0.137272, 0.0943, 0.23, 1)
@@ -225,6 +226,9 @@ _data = {
 "RESET": SubResource("Animation_e2t24")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_sqaxx"]
+radius = 0.3
+
 [node name="Persistant" type="Node"]
 script = ExtResource("1_crhm8")
 
@@ -239,15 +243,36 @@ offset_bottom = -556.0
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("1_rvalq")]
 visible = false
 
+[node name="Hexii_Tablet_UI" parent="CanvasLayer" instance=ExtResource("5_d7p8w")]
+visible = false
+
+[node name="Screens" parent="CanvasLayer/Hexii_Tablet_UI/Overlay" index="0"]
+modulate = Color(1, 1, 1, 0.821)
+
+[node name="Skeleton3D" parent="CanvasLayer/Hexii_Tablet_UI/Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model" index="0"]
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+
+[node name="InventoryButton2" parent="CanvasLayer/Hexii_Tablet_UI" index="1"]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="Hexii_UI" parent="CanvasLayer" instance=ExtResource("2_2xjws")]
+visible = false
 texture_filter = 1
-offset_left = -56.0
+offset_left = -18.0
 offset_top = 310.0
-offset_right = -56.0
+offset_right = -18.0
 offset_bottom = 310.0
 
 [node name="Screens" parent="CanvasLayer/Hexii_UI/Overlay" index="0"]
-modulate = Color(1, 1, 1, 0.54902)
+modulate = Color(1, 1, 1, 0.819608)
 
 [node name="Panel" parent="CanvasLayer/Hexii_UI/Overlay/Screens/Chat_Screen" index="0"]
 theme_override_styles/panel = SubResource("StyleBoxFlat_pbhpf")
@@ -258,8 +283,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -224.0
-offset_right = -224.0
 offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
@@ -280,10 +303,7 @@ libraries = {
 "": ExtResource("4_ylswe")
 }
 
-[node name="Hexii_Tablet_UI" parent="CanvasLayer" instance=ExtResource("5_d7p8w")]
-
 [node name="Transitioner" type="Panel" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -338,7 +358,6 @@ position = Vector2(-40, -11)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 1
 
 [node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -353,6 +372,7 @@ position = Vector2(-11, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 1
 
 [node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -423,5 +443,66 @@ libraries = {
 "": SubResource("AnimationLibrary_qifgu")
 }
 
-[editable path="CanvasLayer/Hexii_UI"]
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Player" parent="Node3D" instance=ExtResource("10_i2prw")]
+Ears = 1
+Tail = 1
+Wings = 2
+Head = 6
+Body_1 = Color(0.372549, 0.372549, 0.372549, 1)
+Body_2 = Color(0.776471, 0.776471, 0.776471, 1)
+Body_3 = Color(0.798314, 0.542604, 0.363722, 1)
+Body_4 = Color(0.8, 0.541176, 0.364706, 1)
+Body_Emiss_3 = Color(0.8, 0.541176, 0.364706, 1)
+Body_Emiss_4 = Color(0.8, 0.541176, 0.364706, 1)
+Is_Player = true
+anti_grav_enabled = true
+
+[node name="Hub" parent="Node3D/Player" index="1"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Node3D/Player/Hub/Cubiix_Model" index="0"]
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/9/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+
+[node name="RayCast3D" parent="Node3D/Player" index="3"]
+target_position = Vector3(0, -0.27, 0)
+
+[node name="RayCast3D2" parent="Node3D/Player" index="4"]
+target_position = Vector3(0, -0.27, 0)
+
+[node name="Core_Follow" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9533, 0.370745, 50.6123)
+
+[node name="Rot_Y" type="Node3D" parent="Node3D/Core_Follow"]
+
+[node name="Rot_X" type="Node3D" parent="Node3D/Core_Follow/Rot_Y"]
+
+[node name="Rot_Z" type="SpringArm3D" parent="Node3D/Core_Follow/Rot_Y/Rot_X"]
+shape = SubResource("SphereShape3D_sqaxx")
+spring_length = -4.0
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/Core_Follow/Rot_Y/Rot_X/Rot_Z"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.24216e-07, 0, -2.56473)
+current = true
+fov = 56.25
+
 [editable path="CanvasLayer/Hexii_Tablet_UI"]
+[editable path="CanvasLayer/Hexii_Tablet_UI/Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/Character_Editor"]
+[editable path="CanvasLayer/Hexii_Tablet_UI/Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model"]
+[editable path="CanvasLayer/Hexii_UI"]
+[editable path="Node3D/Player"]
+[editable path="Node3D/Player/Hub/Cubiix_Model"]

@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=3 uid="uid://c476y3oq2ygq6"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Character.gd" id="1_enbgk"]
+[ext_resource type="PackedScene" uid="uid://cirw3ifxx1v8v" path="res://Assets/Scenes/Client/Characters/cubiix_model.tscn" id="2_v6ccf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m8ql4"]
+margin = 0.4
+radius = 0.202349
+height = 0.734779
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kp3qj"]
+size = Vector2(5.66, 5.66)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kr5cl"]
+transparency = 1
+albedo_color = Color(0.141353, 0.096928, 0.238281, 1)
+metallic_specular = 0.0
+roughness = 0.0
+anisotropy_enabled = true
+texture_filter = 0
+
+[sub_resource type="Environment" id="Environment_eawu4"]
+ambient_light_source = 2
+ambient_light_color = Color(0.652344, 0.652344, 0.652344, 1)
+ssao_sharpness = 0.0
+glow_enabled = true
+glow_normalized = true
+volumetric_fog_density = 0.1227
+
+[node name="Character_Editor" type="Node3D"]
+
+[node name="Cubiix_Base" type="CharacterBody3D" parent="." groups=["Player"]]
+collision_layer = 130
+collision_mask = 130
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_floor_layers = 1
+platform_wall_layers = 1
+script = ExtResource("1_enbgk")
+Eyes = 1
+Extra = 1
+Head = 3
+Body_1 = Color(0.730469, 0.250963, 0.261863, 1)
+Body_2 = Color(0.546875, 0.546875, 0.546875, 1)
+Body_3 = Color(0, 0.763226, 0.808594, 1)
+Body_4 = Color(0, 0.764706, 0.807843, 1)
+Is_UI = true
+
+[node name="Hub" type="Node3D" parent="Cubiix_Base"]
+
+[node name="Cubiix_Model" parent="Cubiix_Base/Hub" instance=ExtResource("2_v6ccf")]
+
+[node name="Skeleton3D" parent="Cubiix_Base/Hub/Cubiix_Model" index="0"]
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/5/rotation = Quaternion(0, 0, 0, 1)
+bones/6/rotation = Quaternion(0, 0, 0, 1)
+bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/9/rotation = Quaternion(0, 0, 0, 1)
+bones/10/rotation = Quaternion(0, 0, 0, 1)
+bones/11/rotation = Quaternion(0, 0, 0, 1)
+bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/position = Vector3(0, 0.12722, 0)
+bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+
+[node name="Cube" parent="Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
+surface_material_override/0 = null
+
+[node name="AnimationTree" parent="Cubiix_Base/Hub/Cubiix_Model" index="2"]
+parameters/Blend2/blend_amount = 0
+
+[node name="Items" type="Node3D" parent="Cubiix_Base/Hub"]
+
+[node name="Follow_Point" type="Node3D" parent="Cubiix_Base/Hub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="Head" type="Node3D" parent="Cubiix_Base/Hub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494852, 0)
+
+[node name="Lerped_Head" type="Node3D" parent="Cubiix_Base/Hub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494852, 0)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Cubiix_Base/Hub/Lerped_Head"]
+transform = Transform3D(1, 0.000343971, 0.000427783, -0.000343709, 1, -0.00061229, -0.000428021, 0.000612143, 1, 0, 0.00149581, 0)
+bone_name = "Head"
+bone_idx = 2
+override_pose = true
+use_external_skeleton = true
+external_skeleton = NodePath("../../Cubiix_Model/Skeleton3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cubiix_Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_m8ql4")
+
+[node name="Marker3D" type="Marker3D" parent="Cubiix_Base"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_kp3qj")
+surface_material_override/0 = SubResource("StandardMaterial3D_kr5cl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, 0.0669873, -0.25, 0.258819, -0.25, 0.933013, 0, -0.965926, -0.258819, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.5
+directional_shadow_mode = 0
+directional_shadow_max_distance = 4.0
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.997452, 0.0713408, 0, -0.0713408, 0.997452, 0, 0.812616, 2.68435)
+environment = SubResource("Environment_eawu4")
+current = true
+fov = 31.4
+far = 10.0
+
+[editable path="Cubiix_Base/Hub/Cubiix_Model"]
