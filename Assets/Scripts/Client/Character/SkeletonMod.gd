@@ -43,6 +43,7 @@ func first_run():
 				var current_bone = DynBones_Register[x][y][z]
 				if oldSystem:
 					if z == 0:
+						print(DynBones_Register[x][y])
 						current_parent = parent_check(current_bone)
 					var new_node = Node3D.new()
 					if debug:
@@ -74,6 +75,7 @@ func first_run():
 					#print(DynBones_OldVal[x][y][z])
 	canrun = true
 func parent_check(bone_old) -> Node3D:
+	print(bone_old)
 	var current_bone = Skeleton.get_bone_parent(bone_old)
 	if !DynBones_Parents.has(current_bone):
 		var new_node = Node3D.new()

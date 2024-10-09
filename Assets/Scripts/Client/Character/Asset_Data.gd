@@ -66,6 +66,7 @@ var Model_Data_Assets = {
 	##Chest Clothes
 	"Chest_Clothes/Pride_Bandana":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf").instantiate(),
 	##Back Clothes
+	"Back_Clothes/Cape_1":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Back/Cape_1.gltf").instantiate(),
 }
 
 var Mesh_Data_Assets = {
@@ -997,6 +998,28 @@ var Mesh_Data_Assets = {
 		"BlendData":{},
 	},
 	##Back Clothes
+	"Back_Clothes/Trad_Pride_Cape":{
+		"Override_Model":Model_Data_Assets["Back_Clothes/Cape_1"],
+		"Mesh_Node":"Cape_Armature/Skeleton3D/Cape",
+		"MaterialID":"Trad_Pride_Bandana_Mat",
+		"Has_Blendshapes":false,
+		"Has_Bones":true,
+		"Has_DynBones":true,
+		"Data":[],
+		"DynBone_Data":{
+			"DynBone_Sets":{
+				"Trad_Pride_Cape":["Cape_2","Cape.001","Cape.002","Cape.003","Cape.004"]
+			},
+			"DynBone_Settings":{
+				"Trad_Pride_Cape":{
+					"osc_ps":10,
+					"dampening": .1,
+					"damp_time":.7,
+					"extension_damp_time":.35,
+				}
+			}
+		}
+	},
 }
 
 
@@ -1092,7 +1115,8 @@ var Chest_Slot = [
 	"Chest_Clothes/Trans_Pride_Bandanna"
 	]
 var Back_Slot = [
-	""
+	"",
+	"Back_Clothes/Trad_Pride_Cape"
 	]
 #--
 

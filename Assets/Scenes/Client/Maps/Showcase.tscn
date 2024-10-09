@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://b7hkly5i6xxpx"]
+[gd_scene load_steps=34 format=3 uid="uid://b7hkly5i6xxpx"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/Maps/showcase_script.gd" id="1_uioni"]
 [ext_resource type="Script" path="res://Assets/Scripts/test_zone/railtest.gd" id="2_q0s2a"]
+[ext_resource type="Material" uid="uid://cyktn5nsw8vst" path="res://Assets/Materials/Characters/Accessories/Trad_Pride.tres" id="3_7qyie"]
 [ext_resource type="Material" uid="uid://dx2jfvcj654ri" path="res://Assets/Materials/World/Showcase_Grid.tres" id="3_8uomk"]
 [ext_resource type="Script" path="res://Assets/Scripts/test_zone/sub_viewport_Capture.gd" id="6_s3a5g"]
 
@@ -251,9 +252,9 @@ path_simplify_angle = 0.0
 path_rotation = 2
 path_local = false
 path_continuous_u = true
-path_u_distance = 1.0
+path_u_distance = 4.86
 path_joined = false
-material = SubResource("StandardMaterial3D_xxpho")
+material = ExtResource("3_7qyie")
 
 [node name="Collider" type="CSGPolygon3D" parent="Node3D3"]
 layers = 0

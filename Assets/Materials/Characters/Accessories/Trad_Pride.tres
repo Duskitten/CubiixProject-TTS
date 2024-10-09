@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cyktn5nsw8vst"]
+
+[ext_resource type="Texture2D" uid="uid://xyn671s3ppgw" path="res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Traditional_Flag.png" id="1_ahdqa"]
+
+[resource]
+albedo_texture = ExtResource("1_ahdqa")
+uv1_triplanar = true
+texture_filter = 0

@@ -11,7 +11,7 @@ enum WING_ENUM {None, Entity, Angel, Butterfly, Wasp, Dragon}
 #--
 enum HEAD_ENUM {None,Goggle_Test,Orb_Test,DotMouse_Hat, Pumpkin_Head_Cute_1, Devil_Head, Witch_Head}
 enum CHEST_ENUM {None,Trad_Pride_Bandanna,Trans_Pride_Bandanna}
-enum BACK_ENUM {None}
+enum BACK_ENUM {None, Trad_Pride_Cape}
 
 @export var Randomize : bool
 
