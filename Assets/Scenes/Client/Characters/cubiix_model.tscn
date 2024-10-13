@@ -4141,7 +4141,9 @@ bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 bones/17/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Skeleton3D"]
+visibility_range_begin = 0.5
 visibility_range_end = 32.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_161gf")
 skin = SubResource("Skin_gea7w")
 surface_material_override/0 = ExtResource("2_2760a")

@@ -33,8 +33,8 @@ uniform float Body4_roughness = 1.0;
 
 
 
-uniform float distance_fade_min : hint_range(0.0, 4096.0, 0.01);
-uniform float distance_fade_max : hint_range(0.0, 4096.0, 0.01);
+uniform float distance_fade_min : hint_range(-4096.0, 4096.0, 0.01);
+uniform float distance_fade_max : hint_range(-4096.0, 4096.0, 0.01);
 uniform float distance_fade_glow : hint_range(0.0, 4096.0, 0.01);
 uniform bool distance_transitioning;
 void fragment() {

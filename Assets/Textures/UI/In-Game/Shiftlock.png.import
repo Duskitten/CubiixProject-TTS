@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj5prl8clhqia"
-path="res://.godot/imported/Color_Palette.png-3d4478dc737e02c2d3fa78b811fcb6b9.ctex"
+uid="uid://b2j135lyefuy1"
+path="res://.godot/imported/Shiftlock.png-5a07a1ebcbf9e27ec554a7d6b1527488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mesh/Minigames/Airboat/Color_Palette.png"
-dest_files=["res://.godot/imported/Color_Palette.png-3d4478dc737e02c2d3fa78b811fcb6b9.ctex"]
+source_file="res://Assets/Textures/UI/In-Game/Shiftlock.png"
+dest_files=["res://.godot/imported/Shiftlock.png-5a07a1ebcbf9e27ec554a7d6b1527488.ctex"]
 
 [params]
 

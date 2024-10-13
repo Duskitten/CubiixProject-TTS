@@ -8,6 +8,7 @@ var Mouse_In_UI = false
 
 func _ready() -> void:
 ###### Signal Connections ######
+	$CanvasLayer/CrossHair.position = Vector2(get_viewport().size/2) - ($CanvasLayer/CrossHair.size/2)
 	#TitleScreen
 	Hexii_Ui_Tablet_QuitButton.pressed.connect(QuitButton_Pressed.bind())
 	Hexii_Ui_Tablet_TitleButton.pressed.connect(Hexii_UI_Transition.bind("Exit_Back","Hexii_Ui_Tablet_TitleScreen_Anim","Back","", false))
@@ -73,6 +74,8 @@ func _input(event: InputEvent) -> void:
 		elif (!$CanvasLayer/Hexii_Tablet_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && !$CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position())) && IsInBounds:
 			IsInBounds = false
 			_on_area_2d_mouse_exited()
+	if Input.is_action_just_pressed("shiftlock"):
+		$CanvasLayer/CrossHair.visible = !$CanvasLayer/CrossHair.visible
 
 func Hexii_UI_Transition(anim_1,  componentName, anim_2, component2Name, device:bool)-> void:
 	

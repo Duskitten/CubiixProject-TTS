@@ -652,8 +652,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -61.4576
-offset_right = -61.4576
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1224,6 +1222,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_2goy8")
 [node name="Node" type="Node" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen"]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

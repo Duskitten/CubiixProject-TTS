@@ -50,6 +50,7 @@ var CharSetup = false
 @onready var DynBones = null
 @onready var Model = $Hub/Cubiix_Model
 @onready var Camera = get_viewport().get_camera_3d()
+var CameraLength = -4.0
 @onready var MoveMarker = $Marker3D
 signal MeshFinished
 
@@ -181,6 +182,14 @@ var Look_At = null
 var NPC_Is_InterestPoint = false
 
 func _process(delta: float) -> void:
+	var Camera2 = get_viewport().get_camera_3d()
+	
+	if Camera2.is_in_group("PlayerCamera"):
+		Camera = get_viewport().get_camera_3d()
+	else:
+		Camera = null
+	
+		
 	Delta = Time.get_ticks_msec() - Tick_Prev
 	Tick_Prev = Time.get_ticks_msec()
 	Blink_Timer += Delta
@@ -275,12 +284,22 @@ func run_idle():
 
 func _input(event: InputEvent) -> void:
 	if Is_Player:
-		if Input.is_action_pressed("mouse_right") && !Core.Persistant_Core.Mouse_In_UI:
-			if event is InputEventMouseMotion:
+		if (Input.is_action_pressed("mouse_right")||shiftlock_Enabled) && !Core.Persistant_Core.Mouse_In_UI:
+			if event is InputEventMouseMotion && Camera != null:
 				Camera.get_parent().get_parent().get_parent().rotation.y -= event["relative"].x/200
 				Camera.get_parent().get_parent().rotation.x += event["relative"].y/200
 				reset_camera = false
-				
+		if Input.is_action_just_released("ui_scroll_up") && Camera != null:
+			CameraLength -= 1.0
+			print("Haoi")
+		if Input.is_action_just_released("ui_scroll_down") && Camera != null:
+			CameraLength += 1.0
+		if Input.is_action_just_pressed("shiftlock"):
+			shiftlock_Enabled = !shiftlock_Enabled
+			if shiftlock_Enabled:
+				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
+			else:
+				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
 
 const walkspeed = .5
 const runspeed = 2
@@ -313,6 +332,7 @@ var input_old = Vector2.ZERO
 var old_velocity = Vector3.ZERO
 var compiled_velocity = Vector3.ZERO
 var last_hit = Vector3.ZERO
+var shiftlock_Enabled = false
 
 
 ###RailGrinding Stuff
@@ -331,31 +351,53 @@ var Flip_B = false
 
 func _physics_process(delta: float) -> void:
 	if Is_Player:
-		var camparent = Camera.get_parent().get_parent().get_parent().get_parent()
-		
-		if target_camera_position != null:
+		if Camera != null:
+			var camparent = Camera.get_parent().get_parent().get_parent().get_parent()
 			
-			camparent.global_position = lerp(camparent.global_position ,target_camera_position.global_position,0.1)
-			target_camera_position.look_at($Hub/Follow_Point.global_position)
-			Camera.get_parent().get_parent().get_parent().global_rotation.y = lerp_angle(Camera.get_parent().get_parent().get_parent().global_rotation.y ,target_camera_position.global_rotation.y + deg_to_rad(180),0.1)
-			Camera.get_parent().get_parent().global_rotation.x = lerp_angle(Camera.get_parent().get_parent().global_rotation.x,-target_camera_position.global_rotation.x,0.1)
-			Camera.get_parent().spring_length = 0
-		else:
-			
-			Camera.get_parent().spring_length = -4
-			camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
-			if reset_camera:
-				reset_camera = false
-				var tween = get_tree().create_tween() \
-				.set_ease(Tween.EASE_IN_OUT) \
-				.set_trans(Tween.TRANS_QUAD) \
-				.set_parallel(true)
+			if target_camera_position != null:
+				if CameraLength != 0:
+					camparent.global_position = lerp(camparent.global_position ,target_camera_position.global_position,0.1)
+					target_camera_position.look_at($Hub/Follow_Point.global_position)
+					Camera.get_parent().get_parent().get_parent().global_rotation.y = lerp_angle(Camera.get_parent().get_parent().get_parent().global_rotation.y ,target_camera_position.global_rotation.y + deg_to_rad(180),0.1)
+					Camera.get_parent().get_parent().global_rotation.x = lerp_angle(Camera.get_parent().get_parent().global_rotation.x,-target_camera_position.global_rotation.x,0.1)
+					Camera.get_parent().spring_length = 0
+				else:
+					Camera.get_parent().spring_length = clamp(lerpf(Camera.get_parent().spring_length,float(CameraLength),0.15),-8, 0)
+					camparent.global_position = $Hub/Follow_Point.global_position
 				
-				tween.tween_property(Camera.get_parent().get_parent().get_parent(),"global_rotation:y",$Hub.global_rotation.y,1)
-				tween.tween_property(Camera.get_parent().get_parent(),"global_rotation:x",deg_to_rad(25),1)
-	
+			else:
+				CameraLength = clamp(CameraLength,-8, 0)
+				Camera.get_parent().spring_length = clamp(lerpf(Camera.get_parent().spring_length,float(CameraLength),0.15),-8, 0)
+
+				if CameraLength != 0:
+					
+					if shiftlock_Enabled:
+						$Hub.rotation.y = Camera.get_parent().get_parent().get_parent().rotation.y
+						Camera.get_parent().position.x = -.5
+						camparent.global_position = $Hub/Follow_Point.global_position
+						
+					else:
+						camparent.global_position = lerp(camparent.global_position,$Hub/Follow_Point.global_position,0.2)
+						Camera.get_parent().position.x = 0
+					if reset_camera:
+						reset_camera = false
+						var tween = get_tree().create_tween() \
+						.set_ease(Tween.EASE_IN_OUT) \
+						.set_trans(Tween.TRANS_QUAD) \
+						.set_parallel(true)
+						
+						tween.tween_property(Camera.get_parent().get_parent().get_parent(),"global_rotation:y",$Hub.global_rotation.y,1)
+						tween.tween_property(Camera.get_parent().get_parent(),"global_rotation:x",deg_to_rad(25),1)
+				else:
+					
+					camparent.global_position = $Hub/Follow_Point.global_position
+					if reset_camera:
+						reset_camera = false
+
+		
 	if Is_Player && Is_Grinding:
-		Camera.fov = lerpf(Camera.fov,85,0.025)
+		if Camera != null:
+			Camera.fov = lerpf(Camera.fov,85,0.025)
 		if CanRide:
 			
 			var RailPath = HitRail.get_node("Path3D")
@@ -447,26 +489,30 @@ func _physics_process(delta: float) -> void:
 						
 				
 	if Is_Player && !BasePlayer_Disabled:
-		Camera.fov = lerpf(Camera.fov,56.3,0.1)
+		var camparent
+		if Camera != null:
+			Camera.fov = lerpf(Camera.fov,56.3,0.1)
+			camparent = Camera.get_parent().get_parent().get_parent().get_parent()
 		forcingUp = false
 		cache_data["Player_Position"] = self.global_position
 		if customizing:
 			input = Vector2.ZERO
 		
-		var camparent = Camera.get_parent().get_parent().get_parent().get_parent()
-		
 		if input != Vector2.ZERO:
 			if !cam_swapped:
-				MoveMarker.rotation.y = atan2(-input.x,-input.y)+Camera.get_parent().get_parent().get_parent().transform.basis.get_euler().y
-				$Hub.rotation.y = lerp_angle($Hub.rotation.y, MoveMarker.rotation.y, delta*10)
-		
+				if Camera != null: 
+					MoveMarker.rotation.y = atan2(-input.x,-input.y)+Camera.get_parent().get_parent().get_parent().transform.basis.get_euler().y
+					if !shiftlock_Enabled:
+						$Hub.rotation.y = lerp_angle($Hub.rotation.y, MoveMarker.rotation.y, delta*10)
+
 		if $RayCast3D.is_colliding() || is_on_floor():
 			if anti_grav_enabled:
 				transform.basis = align_up(transform.basis, $RayCast3D.get_collision_normal(), 0.15)
-				if target_camera_position != null:
-					camparent.transform = target_camera_position.transform
-				else:
-					camparent.global_transform.basis = global_transform.basis
+				if Camera != null:
+					if target_camera_position != null:
+						camparent.transform = target_camera_position.transform
+					else:
+						camparent.global_transform.basis = global_transform.basis
 				
 				up_direction = $RayCast3D.get_collision_normal()
 			
