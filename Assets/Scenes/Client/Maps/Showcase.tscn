@@ -176,6 +176,7 @@ process_material = SubResource("ParticleProcessMaterial_p5331")
 draw_pass_1 = SubResource("PlaneMesh_g6apo")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Node3D"]
+layers = 524289
 polygon = PackedVector2Array(-0.05, 0.1, 0.05, 0.1, 0, 0)
 mode = 2
 path_node = NodePath("../Path3D")
@@ -243,6 +244,7 @@ Path_Right = NodePath("../../../Node3D5")
 shape = SubResource("BoxShape3D_81cro")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Node3D3"]
+layers = 524289
 polygon = PackedVector2Array(-0.05, 0.1, 0.05, 0.1, 0, 0)
 mode = 2
 path_node = NodePath("../Path3D")
@@ -309,6 +311,7 @@ Path_Right = NodePath("../../../Node3D3")
 shape = SubResource("BoxShape3D_81cro")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Node3D4"]
+layers = 524289
 polygon = PackedVector2Array(-0.05, 0.1, 0.05, 0.1, 0, 0)
 mode = 2
 path_node = NodePath("../Path3D")
@@ -375,6 +378,7 @@ Path_Left = NodePath("../../../Node3D3")
 shape = SubResource("BoxShape3D_81cro")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Node3D5"]
+layers = 524289
 polygon = PackedVector2Array(-0.05, 0.1, 0.05, 0.1, 0, 0)
 mode = 2
 path_node = NodePath("../Path3D")
@@ -431,6 +435,7 @@ process_material = SubResource("ParticleProcessMaterial_p5331")
 draw_pass_1 = SubResource("PlaneMesh_g6apo")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Node3D2"]
+layers = 524289
 polygon = PackedVector2Array(-0.05, 0.1, 0.05, 0.1, 0, 0)
 mode = 2
 path_node = NodePath("../Path3D")
@@ -469,12 +474,12 @@ environment = SubResource("Environment_5tgg7")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template"]
 transform = Transform3D(0.595928, 0.554044, -0.581297, -0.412463, 0.83227, 0.370407, 0.689017, 0.019027, 0.724495, 0.00469455, 0, 0.0278296)
 light_energy = 1.801
-shadow_enabled = true
 directional_shadow_mode = 0
 directional_shadow_split_1 = 0.03
 directional_shadow_split_2 = 0.1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 524289
 mesh = SubResource("PlaneMesh_ig5x7")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -487,6 +492,7 @@ shape = SubResource("ConvexPolygonShape3D_1pwsh")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 4.16616, -0.325073, 0)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -499,6 +505,7 @@ shape = SubResource("ConcavePolygonShape3D_ebhw5")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.766045, -0.642788, 0, 0.642788, 0.766045, 0, 0, 0, 1, 4.73652, -0.065309, 0)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -511,6 +518,7 @@ shape = SubResource("ConcavePolygonShape3D_kddws")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0, 0, 1, 5.25805, 0.499279, 0)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -523,6 +531,7 @@ shape = SubResource("ConcavePolygonShape3D_7lt52")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 19.7541, -2.38002e-09)
+layers = 524289
 mesh = SubResource("PlaneMesh_tv7jo")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -535,6 +544,7 @@ shape = SubResource("ConcavePolygonShape3D_rcudl")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.939693, -0.34202, 0, -0.34202, -0.939693, -8.74228e-08, 2.99003e-08, 8.21506e-08, -1, 4.16616, 20.0792, -3.07988e-08)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -547,6 +557,7 @@ shape = SubResource("ConcavePolygonShape3D_ebhw5")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.766045, -0.642788, 0, -0.642788, -0.766045, -8.74228e-08, 5.61943e-08, 6.69698e-08, -1, 4.73652, 19.8194, -8.08951e-09)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -559,6 +570,7 @@ shape = SubResource("ConcavePolygonShape3D_kddws")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.34202, -0.939693, 0, -0.939693, -0.34202, -8.74228e-08, 8.21506e-08, 2.99003e-08, -1, 5.25805, 19.2548, 4.12683e-08)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -571,6 +583,7 @@ shape = SubResource("ConcavePolygonShape3D_7lt52")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.939693, 0.34202, 8.74228e-08, 0.34202, 0.939693, 0, -8.21506e-08, 2.99003e-08, -1, 6.7143, -0.325073, 4.92328e-08)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -583,6 +596,7 @@ shape = SubResource("ConcavePolygonShape3D_ebhw5")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.766045, 0.642788, 8.74228e-08, 0.642788, 0.766045, 0, -6.69698e-08, 5.61943e-08, -1, 6.14394, -0.0653086, -6.29626e-10)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -595,6 +609,7 @@ shape = SubResource("ConcavePolygonShape3D_kddws")
 
 [node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.34202, 0.939693, 8.74228e-08, 0.939693, 0.34202, 0, -2.99003e-08, 8.21506e-08, -1, 5.62241, 0.499279, -4.62232e-08)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -607,6 +622,7 @@ shape = SubResource("ConcavePolygonShape3D_7lt52")
 
 [node name="MeshInstance3D16" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.939693, 0.34202, -8.74228e-08, -0.34202, -0.939693, -8.74228e-08, -1.12051e-07, -5.22502e-08, 1, 6.7143, 20.0792, 8.00316e-08)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -619,6 +635,7 @@ shape = SubResource("ConcavePolygonShape3D_ebhw5")
 
 [node name="MeshInstance3D17" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.766045, 0.642788, -8.74228e-08, -0.642788, -0.766045, -8.74228e-08, -1.23164e-07, -1.07755e-08, 1, 6.14394, 19.8194, 7.45989e-09)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -631,6 +648,7 @@ shape = SubResource("ConcavePolygonShape3D_kddws")
 
 [node name="MeshInstance3D18" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.34202, 0.939693, -8.74228e-08, -0.939693, -0.34202, -8.74228e-08, -1.12051e-07, 5.22502e-08, 1, 5.62241, 19.2548, -8.74916e-08)
+layers = 524289
 mesh = SubResource("BoxMesh_glw5l")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -643,6 +661,7 @@ shape = SubResource("ConcavePolygonShape3D_7lt52")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.96046e-08, -1, 0, 1, 5.96046e-08, 0, 0, 0, 1, 5.45805, 3.39815, 0)
+layers = 524289
 mesh = SubResource("BoxMesh_bdw6f")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -655,6 +674,7 @@ shape = SubResource("ConcavePolygonShape3D_1a61l")
 
 [node name="MeshInstance3D20" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 1.03316e-07, 0, -1.03316e-07, 1, 0, 0, 0, 1, -20.3748, -0.401532, 0)
+layers = 524289
 mesh = SubResource("BoxMesh_bdw6f")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -667,6 +687,7 @@ shape = SubResource("ConcavePolygonShape3D_1a61l")
 
 [node name="MeshInstance3D22" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.996195, 1.02923e-07, 0.0871557, -1.03316e-07, 1, 0, -0.0871557, -9.00458e-09, 0.996195, -20.7763, -0.301532, -0.0360952)
+layers = 524289
 mesh = SubResource("BoxMesh_bdw6f")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -679,6 +700,7 @@ shape = SubResource("ConcavePolygonShape3D_1a61l")
 
 [node name="MeshInstance3D24" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.984808, 1.01746e-07, 0.173648, -1.03316e-07, 1, 0, -0.173648, -1.79406e-08, 0.984808, -21.196, -0.199412, 0.000616404)
+layers = 524289
 mesh = SubResource("BoxMesh_bdw6f")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -691,6 +713,7 @@ shape = SubResource("ConcavePolygonShape3D_1a61l")
 
 [node name="MeshInstance3D26" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.965926, 9.97956e-08, 0.258819, -1.03316e-07, 1, 0, -0.258819, -2.67401e-08, 0.965926, -21.5944, -0.0994121, 0.0354788)
+layers = 524289
 mesh = SubResource("BoxMesh_bdw6f")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -703,6 +726,7 @@ shape = SubResource("ConcavePolygonShape3D_1a61l")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.96046e-08, -1, 0, 1, 5.96046e-08, 0, 0, 0, 1, 5.45805, 15.8235, 0)
+layers = 524289
 mesh = SubResource("BoxMesh_bdw6f")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -715,6 +739,7 @@ shape = SubResource("ConcavePolygonShape3D_1a61l")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.88651e-08, 0.431582, -0.902074, -1, -4.37114e-08, 0, -3.94309e-08, 0.902074, 0.431582, 16.0213, 9.5299, 0)
+layers = 524289
 mesh = SubResource("CylinderMesh_p4wc8")
 surface_material_override/0 = ExtResource("3_8uomk")
 
@@ -727,6 +752,7 @@ shape = SubResource("ConcavePolygonShape3D_ki1s8")
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.93539, 10.1571, 0)
+layers = 524289
 mesh = SubResource("SphereMesh_0cemn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D12"]

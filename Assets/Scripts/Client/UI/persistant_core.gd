@@ -45,6 +45,15 @@ func _ready() -> void:
 	Hexii_Ui_Tablet_Character.Body_Emiss_4 = Player.Body_Emiss_4
 	
 	Hexii_Ui_Tablet_Character.Regen_Character()
+	
+func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
+	$Node3D/Player.position = Location
+	$Node3D/Player.CameraLength = -4.0
+	$Node3D/Player/Hub.rotation = Rotation
+	$Node3D/Core_Follow/Rot_Y.rotation = Rotation
+	$Node3D/Core_Follow/Rot_Y/Rot_X.rotation = Vector3(deg_to_rad(15),0,0)
+	
+	
 #############################
 ###### Hexii UI System ######
 #############################

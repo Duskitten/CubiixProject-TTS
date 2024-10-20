@@ -27,7 +27,7 @@ func _ready():
 		add_child(Client)
 		add_child(Dialogue_Handler)
 		get_parent().call_deferred("add_child", Persistant_Core)
-		SceneData.call_deferred("Swap_Scene","Showcase",{},true)
+		SceneData.call_deferred("Swap_Scene","Hexstaria",{},true,"Spawn_Docks")
 		await Persistant_Core.ready 
 		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Tablet_TitleScreen_Anim","Exit","", false)
 		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)

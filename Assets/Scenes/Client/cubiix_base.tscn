@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://daagacetbe7yf"]
+[gd_scene load_steps=6 format=3 uid="uid://daagacetbe7yf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Character.gd" id="1_4skhm"]
 [ext_resource type="PackedScene" uid="uid://cirw3ifxx1v8v" path="res://Assets/Scenes/Client/Characters/cubiix_model.tscn" id="2_q4jtr"]
@@ -7,6 +7,17 @@
 margin = 0.4
 radius = 0.202349
 height = 0.734779
+
+[sub_resource type="Gradient" id="Gradient_o3cf8"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.125561, 0.29148)
+colors = PackedColorArray(0, 0, 0, 0.502, 0, 0, 0, 0.501961, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8cvkc"]
+gradient = SubResource("Gradient_o3cf8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
 
 [node name="Cubiix_Base" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 130
@@ -27,8 +38,17 @@ script = ExtResource("1_4skhm")
 
 [node name="Skeleton3D" parent="Hub/Cubiix_Model" index="0"]
 bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Cube" parent="Hub/Cubiix_Model/Skeleton3D" index="0"]
+layers = 524289
 surface_material_override/0 = null
 
 [node name="AnimationTree" parent="Hub/Cubiix_Model" index="2"]
@@ -80,6 +100,15 @@ collision_mask = 256
 [node name="RailTimer" type="Timer" parent="RayCast3D4"]
 wait_time = 0.5
 one_shot = true
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)
+layers = 1048575
+size = Vector3(2, 5, 2)
+texture_albedo = SubResource("GradientTexture2D_8cvkc")
+upper_fade = 1e-05
+lower_fade = 1.03526e-05
+cull_mask = 524288
 
 [connection signal="timeout" from="RayCast3D4/RailTimer" to="." method="_on_rail_timer_timeout"]
 

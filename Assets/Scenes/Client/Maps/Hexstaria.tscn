@@ -335,6 +335,8 @@ dof_blur_far_transition = 600.38
 [node name="Hexstaria_Map" parent="." instance=ExtResource("1_80u8o")]
 
 [node name="CoreTerrain" parent="Hexstaria_Map" index="0"]
+layers = 524289
+cast_shadow = 0
 surface_material_override/0 = ExtResource("3_2k7hf")
 surface_material_override/1 = ExtResource("4_mtuf6")
 surface_material_override/2 = ExtResource("4_6ptrv")
@@ -349,6 +351,8 @@ collision_mask = 3
 shape = SubResource("ConcavePolygonShape3D_wbu3b")
 
 [node name="PlayerCollideable" parent="Hexstaria_Map" index="1"]
+layers = 524289
+cast_shadow = 0
 lod_bias = 2.0
 surface_material_override/0 = ExtResource("5_oijx1")
 surface_material_override/1 = ExtResource("5_snbhx")
@@ -363,9 +367,13 @@ shape = SubResource("ConcavePolygonShape3D_uk3ke")
 
 [node name="Water_001" parent="Hexstaria_Map" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0492087, -0.1229, -0.036299)
+layers = 524289
+cast_shadow = 0
 surface_material_override/0 = SubResource("ShaderMaterial_ry4jr")
 
 [node name="Observatory" parent="Hexstaria_Map" index="3"]
+layers = 524289
+cast_shadow = 0
 surface_material_override/0 = ExtResource("9_h1fjv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hexstaria_Map/Observatory" index="0"]
@@ -376,6 +384,8 @@ collision_mask = 3
 shape = SubResource("ConcavePolygonShape3D_txm0d")
 
 [node name="Observatory_Top" parent="Hexstaria_Map" index="4"]
+layers = 524289
+cast_shadow = 0
 surface_material_override/0 = ExtResource("9_h1fjv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hexstaria_Map/Observatory_Top" index="0"]
@@ -386,6 +396,8 @@ collision_mask = 3
 shape = SubResource("ConcavePolygonShape3D_qqgff")
 
 [node name="Observatory_Scope" parent="Hexstaria_Map" index="5"]
+layers = 524289
+cast_shadow = 0
 surface_material_override/0 = ExtResource("9_h1fjv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hexstaria_Map/Observatory_Scope" index="0"]
@@ -396,6 +408,8 @@ collision_mask = 3
 shape = SubResource("ConcavePolygonShape3D_1yo4k")
 
 [node name="Underground" parent="Hexstaria_Map" index="6"]
+layers = 524289
+cast_shadow = 0
 surface_material_override/0 = ExtResource("3_2k7hf")
 surface_material_override/1 = ExtResource("10_x8o3e")
 
@@ -408,6 +422,8 @@ shape = SubResource("ConcavePolygonShape3D_qysya")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hexstaria_Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.086, -61.4106, -74.4702)
+layers = 524289
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_i37dx")
 surface_material_override/0 = SubResource("ShaderMaterial_v26uc")
 
@@ -420,7 +436,6 @@ camera_attributes = SubResource("CameraAttributesPractical_5achi")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template"]
 transform = Transform3D(0.5, 0.482418, -0.719217, -2.62057e-09, 0.83048, 0.557049, 0.866025, -0.278524, 0.41524, 0.00469455, 0, 0.0278296)
 light_color = Color(0.691406, 0.691406, 0.691406, 1)
-shadow_enabled = true
 directional_shadow_split_1 = 0.03
 directional_shadow_split_2 = 0.1
 directional_shadow_split_3 = 0.3
@@ -437,6 +452,7 @@ sky_mode = 2
 
 [node name="VoxelGI_Underground" type="VoxelGI" parent="Environment_Template"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.661, -49.7403, -75.2356)
+visible = false
 subdiv = 2
 size = Vector3(59.0078, 55.9788, 65.2119)
 data = SubResource("VoxelGIData_kk753")
@@ -492,21 +508,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20359, 0.241519, -0.54229)
 [node name="Multimeshes" type="Node3D" parent="."]
 
 [node name="GrassMM" type="MultiMeshInstance3D" parent="Multimeshes"]
+layers = 524289
 material_override = SubResource("ShaderMaterial_oixte")
+cast_shadow = 0
 multimesh = SubResource("MultiMesh_hdafq")
 
 [node name="GrassMM2" type="MultiMeshInstance3D" parent="Multimeshes"]
+layers = 524289
 material_override = SubResource("ShaderMaterial_oixte")
+cast_shadow = 0
 multimesh = SubResource("MultiMesh_nadfo")
 
 [node name="GrassMM3" type="MultiMeshInstance3D" parent="Multimeshes"]
+layers = 524289
 material_override = SubResource("ShaderMaterial_oixte")
+cast_shadow = 0
 multimesh = SubResource("MultiMesh_56ira")
 
 [node name="TreeMM" type="MultiMeshInstance3D" parent="Multimeshes"]
+layers = 524289
+cast_shadow = 0
 multimesh = SubResource("MultiMesh_0ap5b")
 
 [node name="TreeMM2" type="MultiMeshInstance3D" parent="Multimeshes"]
+layers = 524289
+cast_shadow = 0
 multimesh = SubResource("MultiMesh_xyc4p")
 
 [node name="Refs" type="Node3D" parent="Multimeshes"]
@@ -786,6 +812,9 @@ transform = Transform3D(0.377049, -1.63363e-09, 0.926193, -0.0270728, 0.999573, 
 environment = SubResource("Environment_4d62e")
 attributes = SubResource("CameraAttributesPractical_ll24o")
 fov = 41.1
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 77.3727, 0.667928, 173.588)
 
 [connection signal="body_entered" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_entered" binds= ["House_1"]]
 [connection signal="body_exited" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_exited"]

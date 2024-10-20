@@ -68,6 +68,7 @@ var Is_Grinding = false
 func _ready() -> void:
 	if Is_Player:
 		Core.Client.Local_Player = self
+		await get_tree().create_timer(3).timeout
 		Regen_Character()
 	elif Is_UI:
 		pass
@@ -92,76 +93,58 @@ func Regen_Character():
 	for i in stored_items.keys():
 		stored_items[i]["object"].hide()
 	
-	var tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
-	var tween2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(charmat,"shader_parameter/distance_fade_max",300.0,.5)
-	tween2.tween_property(charmat,"shader_parameter/distance_fade_glow",300.0,.2)
-	charmat.set_shader_parameter("distance_transitioning",true)
-	tween.tween_callback(func():
-		Model.queue_free()
-		await get_tree().process_frame
-		var base_model = Core.AssetData.Cubiix_Model.duplicate(true)
-		base_model.hide()
-		Model = base_model
-		$Hub.add_child(base_model)
-		base_model.global_position = Vector3(0,0,0)
-		await get_tree().process_frame
-		base_model.name = "Cubiix_Model"
-		Anim_Tree = base_model.get_node("AnimationTree")
-		Anim_Tree.advance_expression_base_node = self.get_path()
-		Anim_Player = base_model.get_node("AnimationPlayer")
-		Skeleton = base_model.get_node("Skeleton3D")
-		MeshObj = Skeleton.get_node("Cube")
-		DynBones = DynBone.new()
-		for i in stored_items.keys():
-			stored_items[i]["object"].external_skeleton = Skeleton.get_path()
-			stored_items[i]["object"].bone_name = Core.AssetData.Item_Data_Assets[stored_items[i]["type"]]["target"]
-			
-		await get_tree().process_frame
+	Model.name = "replaceMe"
+	var base_model = Core.AssetData.Cubiix_Model.duplicate(true)
+	base_model.hide()
+	$Hub.add_child(base_model)
+	base_model.global_position = Vector3(0,0,0)
+	await get_tree().process_frame
+	base_model.name = "Cubiix_Model"
+	Anim_Tree = base_model.get_node("AnimationTree")
+	Anim_Tree.advance_expression_base_node = self.get_path()
+	Anim_Player = base_model.get_node("AnimationPlayer")
+	Skeleton = base_model.get_node("Skeleton3D")
+	MeshObj = Skeleton.get_node("Cube")
+	DynBones = DynBone.new()
+	for i in stored_items.keys():
+		stored_items[i]["object"].external_skeleton = Skeleton.get_path()
+		stored_items[i]["object"].bone_name = Core.AssetData.Item_Data_Assets[stored_items[i]["type"]]["target"]
 		
-		var compiled = Core.AssetData.register_meshlist(
-		["Body",Core.AssetData.Eye_Slot[Eyes],Core.AssetData.Ear_Slot[Ears],Core.AssetData.Extra_Slot[Extra],Core.AssetData.Tail_Slot[Tail],Core.AssetData.Wing_Slot[Wings],Core.AssetData.Head_Slot[Head],Core.AssetData.Chest_Slot[Chest],Core.AssetData.Back_Slot[Back]],
-		{"User":charmat}
-		)
-		var parent = Skeleton.get_parent()
-		Skeleton.get_parent().remove_child(Skeleton)
-		
-		Core.AssetData.add_to_mesh_queue(compiled["MeshList"],compiled["MaterialList"],MeshObj,Skeleton,self)
-		await MeshFinished
-		parent.add_child(Skeleton)
-		$Hub/Lerped_Head/BoneAttachment3D.set_external_skeleton(Skeleton.get_path())
-		charmat.set_shader_parameter("Body1",Body_1)
-		charmat.set_shader_parameter("emiss_Body1",Body_Emiss_1)
-		charmat.set_shader_parameter("Body2",Body_2)
-		charmat.set_shader_parameter("emiss_Body2",Body_Emiss_2)
-		charmat.set_shader_parameter("Body3",Body_3)
-		charmat.set_shader_parameter("emiss_Body3",Body_Emiss_3)
-		charmat.set_shader_parameter("Body4",Body_4)
-		charmat.set_shader_parameter("emiss_Body4",Body_Emiss_4)
-		
-		Anim_Tree.active = true
-		if Is_Player:
-			
-			Skeleton.add_child(DynBones)
-			DynBones.DynBones_Register = DynBones_Register.duplicate(true)
-			DynBones.first_run()
-		base_model.position = Vector3(0,0,0)
-		base_model.show()
-		CharSetup = true
-		await get_tree().create_timer(0.2).timeout
-		DynBones.emit_signal("RePositioned")
-		
-		tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
-		tween2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-		tween2.tween_property(charmat,"shader_parameter/distance_fade_glow",0.0,.5)
-		tween.tween_property(charmat,"shader_parameter/distance_fade_max",0.0,.5)
-		tween.tween_callback(func():
-			for i in stored_items.keys():
-				stored_items[i]["object"].show()
-			charmat.set_shader_parameter("distance_transitioning",false)
-
-			)
+	await get_tree().process_frame
+	
+	var compiled = Core.AssetData.register_meshlist(
+	["Body",Core.AssetData.Eye_Slot[Eyes],Core.AssetData.Ear_Slot[Ears],Core.AssetData.Extra_Slot[Extra],Core.AssetData.Tail_Slot[Tail],Core.AssetData.Wing_Slot[Wings],Core.AssetData.Head_Slot[Head],Core.AssetData.Chest_Slot[Chest],Core.AssetData.Back_Slot[Back]],
+	{"User":charmat}
 	)
+	var parent = Skeleton.get_parent()
+	Skeleton.get_parent().remove_child(Skeleton)
+	
+	Core.AssetData.add_to_mesh_queue(compiled["MeshList"],compiled["MaterialList"],MeshObj,Skeleton,self)
+	await MeshFinished
+	Model.queue_free()
+	parent.add_child(Skeleton)
+	Model = base_model
+	$Hub/Lerped_Head/BoneAttachment3D.set_external_skeleton(Skeleton.get_path())
+	charmat.set_shader_parameter("Body1",Body_1)
+	charmat.set_shader_parameter("emiss_Body1",Body_Emiss_1)
+	charmat.set_shader_parameter("Body2",Body_2)
+	charmat.set_shader_parameter("emiss_Body2",Body_Emiss_2)
+	charmat.set_shader_parameter("Body3",Body_3)
+	charmat.set_shader_parameter("emiss_Body3",Body_Emiss_3)
+	charmat.set_shader_parameter("Body4",Body_4)
+	charmat.set_shader_parameter("emiss_Body4",Body_Emiss_4)
+	
+	Anim_Tree.active = true
+	if Is_Player:
+		
+		Skeleton.add_child(DynBones)
+		DynBones.DynBones_Register = DynBones_Register.duplicate(true)
+		DynBones.first_run()
+	base_model.position = Vector3(0,0,0)
+	base_model.show()
+	CharSetup = true
+	await get_tree().create_timer(0.2).timeout
+	DynBones.emit_signal("RePositioned")
 
 var input :Vector2 = Vector2.ZERO
 var CurrentTick :int = 0
@@ -273,7 +256,6 @@ func _process(delta: float) -> void:
 			Idle_Timer = 0
 			print("Damb")
 			run_idle()
-		
 
 			
 			
@@ -289,10 +271,10 @@ func _input(event: InputEvent) -> void:
 				Camera.get_parent().get_parent().get_parent().rotation.y -= event["relative"].x/200
 				Camera.get_parent().get_parent().rotation.x += event["relative"].y/200
 				reset_camera = false
-		if Input.is_action_just_released("ui_scroll_up") && Camera != null:
+		if Input.is_action_just_released("ui_scroll_down") && Camera != null:
 			CameraLength -= 1.0
 			print("Haoi")
-		if Input.is_action_just_released("ui_scroll_down") && Camera != null:
+		if Input.is_action_just_released("ui_scroll_up") && Camera != null:
 			CameraLength += 1.0
 		if Input.is_action_just_pressed("shiftlock"):
 			shiftlock_Enabled = !shiftlock_Enabled
@@ -370,7 +352,7 @@ func _physics_process(delta: float) -> void:
 				Camera.get_parent().spring_length = clamp(lerpf(Camera.get_parent().spring_length,float(CameraLength),0.15),-8, 0)
 
 				if CameraLength != 0:
-					
+					$Hub/Cubiix_Model.show()
 					if shiftlock_Enabled:
 						$Hub.rotation.y = Camera.get_parent().get_parent().get_parent().rotation.y
 						Camera.get_parent().position.x = -.5
@@ -389,7 +371,8 @@ func _physics_process(delta: float) -> void:
 						tween.tween_property(Camera.get_parent().get_parent().get_parent(),"global_rotation:y",$Hub.global_rotation.y,1)
 						tween.tween_property(Camera.get_parent().get_parent(),"global_rotation:x",deg_to_rad(25),1)
 				else:
-					
+					$Hub.rotation.y = Camera.get_parent().get_parent().get_parent().rotation.y
+					$Hub/Cubiix_Model.hide()
 					camparent.global_position = $Hub/Follow_Point.global_position
 					if reset_camera:
 						reset_camera = false

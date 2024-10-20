@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=30 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://hrgnkcktrbta" path="res://Assets/Scenes/Client/Ui/hexii_tablet_ui.tscn" id="5_d7p8w"]
 [ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="10_i2prw"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="10_mbyra"]
+[ext_resource type="PackedScene" uid="uid://dctu4v4neanem" path="res://Assets/Scenes/Client/Minigame/cubiixi_game.tscn" id="11_y43yq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhpf"]
 bg_color = Color(0.137272, 0.0943, 0.23, 1)
@@ -251,7 +252,6 @@ visible = false
 modulate = Color(1, 1, 1, 0.821)
 
 [node name="Skeleton3D" parent="CanvasLayer/Hexii_Tablet_UI/Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model" index="0"]
-bones/2/scale = Vector3(1, 1, 1)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/scale = Vector3(1, 1, 1)
@@ -304,6 +304,7 @@ libraries = {
 }
 
 [node name="Transitioner" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -344,6 +345,7 @@ position = Vector2(-40, 18)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 1
 
 [node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -365,7 +367,6 @@ position = Vector2(18, -40)
 rotation = 4.71239
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 2
 
 [node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -453,6 +454,9 @@ offset_bottom = 349.0
 texture = ExtResource("10_mbyra")
 expand_mode = 5
 
+[node name="Cubiixi_Game" parent="CanvasLayer" instance=ExtResource("11_y43yq")]
+visible = false
+
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Player" parent="Node3D" instance=ExtResource("10_i2prw")]
@@ -469,26 +473,20 @@ Body_4 = Color(0.8, 0.541176, 0.364706, 1)
 Body_Emiss_3 = Color(0.8, 0.541176, 0.364706, 1)
 Body_Emiss_4 = Color(0.8, 0.541176, 0.364706, 1)
 Is_Player = true
-anti_grav_enabled = true
 
 [node name="Hub" parent="Node3D/Player" index="1"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Node3D/Player/Hub/Cubiix_Model" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
 bones/9/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+
+[node name="Cube" parent="Node3D/Player/Hub/Cubiix_Model/Skeleton3D" index="0"]
+layers = 1
 
 [node name="RayCast3D" parent="Node3D/Player" index="3"]
 target_position = Vector3(0, -0.27, 0)
