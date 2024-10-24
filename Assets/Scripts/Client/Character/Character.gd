@@ -50,6 +50,10 @@ var CharSetup = false
 @onready var DynBones = null
 @onready var Model = $Hub/Cubiix_Model
 @onready var Camera = get_viewport().get_camera_3d()
+
+@onready var LeftHandPoint = $Hub/Cubiix_Model/Skeleton3D/ProxyLeftHandPoint
+@onready var RightHandPoint = $Hub/Cubiix_Model/Skeleton3D/ProxyRightHandPoint
+
 var CameraLength = -4.0
 @onready var MoveMarker = $Marker3D
 signal MeshFinished
@@ -93,6 +97,7 @@ func Regen_Character():
 	for i in stored_items.keys():
 		stored_items[i]["object"].hide()
 	
+	swapping = true
 	Model.name = "replaceMe"
 	var base_model = Core.AssetData.Cubiix_Model.duplicate(true)
 	base_model.hide()
@@ -103,26 +108,34 @@ func Regen_Character():
 	Anim_Tree = base_model.get_node("AnimationTree")
 	Anim_Tree.advance_expression_base_node = self.get_path()
 	Anim_Player = base_model.get_node("AnimationPlayer")
+	Skeleton.remove_child(LeftHandPoint)
+	Skeleton.remove_child(RightHandPoint)
 	Skeleton = base_model.get_node("Skeleton3D")
+	Skeleton.get_node("ProxyLeftHandPoint").queue_free()
+	Skeleton.get_node("ProxyRightHandPoint").queue_free()
 	MeshObj = Skeleton.get_node("Cube")
 	DynBones = DynBone.new()
-	for i in stored_items.keys():
-		stored_items[i]["object"].external_skeleton = Skeleton.get_path()
-		stored_items[i]["object"].bone_name = Core.AssetData.Item_Data_Assets[stored_items[i]["type"]]["target"]
-		
+	#for i in stored_items.keys():
+		#stored_items[i]["object"].external_skeleton = Skeleton.get_path()
+		#stored_items[i]["object"].bone_name = Core.AssetData.Item_Data_Assets[stored_items[i]["type"]]["target"]
+		#
 	await get_tree().process_frame
-	
+
 	var compiled = Core.AssetData.register_meshlist(
 	["Body",Core.AssetData.Eye_Slot[Eyes],Core.AssetData.Ear_Slot[Ears],Core.AssetData.Extra_Slot[Extra],Core.AssetData.Tail_Slot[Tail],Core.AssetData.Wing_Slot[Wings],Core.AssetData.Head_Slot[Head],Core.AssetData.Chest_Slot[Chest],Core.AssetData.Back_Slot[Back]],
 	{"User":charmat}
 	)
 	var parent = Skeleton.get_parent()
+	
 	Skeleton.get_parent().remove_child(Skeleton)
 	
 	Core.AssetData.add_to_mesh_queue(compiled["MeshList"],compiled["MaterialList"],MeshObj,Skeleton,self)
+	
 	await MeshFinished
 	Model.queue_free()
 	parent.add_child(Skeleton)
+	Skeleton.add_child(LeftHandPoint)
+	Skeleton.add_child(RightHandPoint)
 	Model = base_model
 	$Hub/Lerped_Head/BoneAttachment3D.set_external_skeleton(Skeleton.get_path())
 	charmat.set_shader_parameter("Body1",Body_1)
@@ -136,7 +149,6 @@ func Regen_Character():
 	
 	Anim_Tree.active = true
 	if Is_Player:
-		
 		Skeleton.add_child(DynBones)
 		DynBones.DynBones_Register = DynBones_Register.duplicate(true)
 		DynBones.first_run()
@@ -144,7 +156,10 @@ func Regen_Character():
 	base_model.show()
 	CharSetup = true
 	await get_tree().create_timer(0.2).timeout
+	swapping = false
 	DynBones.emit_signal("RePositioned")
+	#if Is_Player:
+		#add_new_item("Tech_Sword")
 
 var input :Vector2 = Vector2.ZERO
 var CurrentTick :int = 0
@@ -215,20 +230,20 @@ func _process(delta: float) -> void:
 			#Regen_Character()
 
 		if CharSetup:
-			if Input.is_action_just_pressed("ui_cancel"):
-				customizing = !customizing
-				if customizing:
-					var device = Core.AssetData.Item_Data_Assets["Hexii_Device"]["path"].duplicate()
-					$Hub/Items.add_child(device)
-					device.external_skeleton = Skeleton.get_path()
-					device.bone_name = Core.AssetData.Item_Data_Assets["Hexii_Device"]["target"]
-					stored_items["Device"] = {
-						"object":device,
-						"type":"Hexii_Device"
-						}
-				else:
-					stored_items["Device"]["object"].queue_free()
-					stored_items.erase("Device")
+			#if Input.is_action_just_pressed("ui_cancel"):
+				#customizing = !customizing
+				#if customizing:
+					#var device = Core.AssetData.Item_Data_Assets["Hexii_Device"]["path"].duplicate()
+					#$Hub/Items.add_child(device)
+					#device.external_skeleton = Skeleton.get_path()
+					#device.bone_name = Core.AssetData.Item_Data_Assets["Hexii_Device"]["target"]
+					#stored_items["Device"] = {
+						#"object":device,
+						#"type":"Hexii_Device"
+						#}
+				#else:
+					#stored_items["Device"]["object"].queue_free()
+					#stored_items.erase("Device")
 				
 			walk = Input.is_action_pressed("ui_select")
 
@@ -330,12 +345,12 @@ var AltRiding = false
 var IsTransfering = false
 var movepoint = null
 var Flip_B = false
+var swapping = false
 
 func _physics_process(delta: float) -> void:
 	if Is_Player:
 		if Camera != null:
 			var camparent = Camera.get_parent().get_parent().get_parent().get_parent()
-			
 			if target_camera_position != null:
 				if CameraLength != 0:
 					camparent.global_position = lerp(camparent.global_position ,target_camera_position.global_position,0.1)
@@ -542,6 +557,7 @@ func _physics_process(delta: float) -> void:
 				speed = runspeed
 				
 			if (Input.is_action_just_pressed("ui_jump") && !jumping) || (AltJump):
+				$JumpTimer.start()
 				jumping = true
 				gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
 				$RayCast3D.target_position = Vector3(0,-0.07,0)
@@ -559,6 +575,7 @@ func _physics_process(delta: float) -> void:
 				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
 			
 		if $RayCast3D3.is_colliding() && !jumping:
+			$JumpTimer.stop()
 			self.position = self.position.slerp($RayCast3D3.get_collision_point(),.5)
 			gravity_control += (MoveMarker.global_transform.basis.y * 1) * 0.2
 		
@@ -583,3 +600,16 @@ func align_up(node_basis, normal, slerptime):
 
 func _on_rail_timer_timeout() -> void:
 	CanRide = true
+
+func _on_jump_timer_timeout() -> void:
+	jumping = false
+
+func add_new_item(ItemID:String) -> void:
+	var item = Core.AssetData.Item_Data_Assets[ItemID]
+	var LoadedItem = item["path"].duplicate()
+	
+	match item["attachpoint"]:
+		"Hand_R":
+			for i in RightHandPoint.get_children():
+				i.queue_free()
+			RightHandPoint.add_child(LoadedItem)

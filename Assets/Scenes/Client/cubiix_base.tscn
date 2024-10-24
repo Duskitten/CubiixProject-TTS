@@ -8,13 +8,13 @@ margin = 0.4
 radius = 0.202349
 height = 0.734779
 
-[sub_resource type="Gradient" id="Gradient_o3cf8"]
+[sub_resource type="Gradient" id="Gradient_035cj"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.125561, 0.29148)
 colors = PackedColorArray(0, 0, 0, 0.502, 0, 0, 0, 0.501961, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cvkc"]
-gradient = SubResource("Gradient_o3cf8")
+gradient = SubResource("Gradient_035cj")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
@@ -53,6 +53,7 @@ surface_material_override/0 = null
 
 [node name="AnimationTree" parent="Hub/Cubiix_Model" index="2"]
 parameters/Blend2/blend_amount = 0
+parameters/Hand_Controller_R/blend_amount = 0
 
 [node name="Items" type="Node3D" parent="Hub"]
 
@@ -110,6 +111,11 @@ upper_fade = 1e-05
 lower_fade = 1.03526e-05
 cull_mask = 524288
 
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="RayCast3D4/RailTimer" to="." method="_on_rail_timer_timeout"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
 
 [editable path="Hub/Cubiix_Model"]

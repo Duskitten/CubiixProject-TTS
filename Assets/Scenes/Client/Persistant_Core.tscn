@@ -246,22 +246,26 @@ offset_bottom = -556.0
 visible = false
 
 [node name="Hexii_Tablet_UI" parent="CanvasLayer" instance=ExtResource("5_d7p8w")]
-visible = false
 
 [node name="Screens" parent="CanvasLayer/Hexii_Tablet_UI/Overlay" index="0"]
 modulate = Color(1, 1, 1, 0.821)
 
 [node name="Skeleton3D" parent="CanvasLayer/Hexii_Tablet_UI/Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model" index="0"]
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
 bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
 bones/9/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/15/scale = Vector3(1, 1, 1)
-
-[node name="InventoryButton2" parent="CanvasLayer/Hexii_Tablet_UI" index="1"]
-offset_right = 8.0
-offset_bottom = 8.0
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Hexii_UI" parent="CanvasLayer" instance=ExtResource("2_2xjws")]
 visible = false
@@ -345,7 +349,6 @@ position = Vector2(-40, 18)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 1
 
 [node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1

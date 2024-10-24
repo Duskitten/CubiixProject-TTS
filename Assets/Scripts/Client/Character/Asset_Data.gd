@@ -1123,7 +1123,11 @@ var Back_Slot = [
 var Item_Data_Assets ={
 	"Hexii_Device":{
 		"path" : load("res://Assets/Scenes/Client/Items/hexii_device.tscn").instantiate(),
-		"target":"Palm_L"
+		"attachpoint":"Hand_R"
+	},
+	"Tech_Sword":{
+		"path" : load("res://Assets/Scenes/Client/Items/tech_sword.tscn").instantiate(),
+		"attachpoint":"Hand_R"
 	}
 }
 

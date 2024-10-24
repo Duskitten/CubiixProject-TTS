@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=26 format=3 uid="uid://b387dvnm4g771"]
+[gd_resource type="VisualShader" load_steps=27 format=3 uid="uid://b387dvnm4g771"]
 
 [ext_resource type="Texture2D" uid="uid://bsf1ktvgxelg1" path="res://Assets/Textures/World/Hexstaria_Sand.png" id="1_m0i7r"]
 
@@ -14,6 +14,8 @@ operator = 2
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0.895, 0, -0.446)]
 op_type = 2
 operator = 2
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_hdn45"]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_qf3od"]
 constant = Color(2.88785e-07, 0.523276, 0.386587, 1)
@@ -192,8 +194,13 @@ void fragment() {
 	vec4 n_out8p0 = n_out6p0 * n_out4p0;
 
 
+// FloatConstant:13
+	float n_out13p0 = 0.000000;
+
+
 // Output:0
 	ALBEDO = vec3(n_out8p0.xyz);
+	SPECULAR = n_out13p0;
 
 
 }
@@ -246,4 +253,6 @@ nodes/fragment/11/node = SubResource("VisualShaderNodeVectorOp_clv6m")
 nodes/fragment/11/position = Vector2(-60, 420)
 nodes/fragment/12/node = SubResource("VisualShaderNodeVectorOp_nswd4")
 nodes/fragment/12/position = Vector2(-780, 300)
-nodes/fragment/connections = PackedInt32Array(3, 0, 4, 1, 2, 0, 4, 0, 6, 0, 8, 0, 9, 0, 6, 2, 10, 0, 6, 0, 5, 0, 11, 0, 11, 0, 4, 2, 10, 0, 12, 0, 4, 0, 8, 1, 8, 0, 0, 0, 12, 0, 5, 0)
+nodes/fragment/13/node = SubResource("VisualShaderNodeFloatConstant_hdn45")
+nodes/fragment/13/position = Vector2(511.504, 286.774)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 1, 2, 0, 4, 0, 6, 0, 8, 0, 9, 0, 6, 2, 10, 0, 6, 0, 5, 0, 11, 0, 11, 0, 4, 2, 10, 0, 12, 0, 4, 0, 8, 1, 8, 0, 0, 0, 12, 0, 5, 0, 13, 0, 0, 4)

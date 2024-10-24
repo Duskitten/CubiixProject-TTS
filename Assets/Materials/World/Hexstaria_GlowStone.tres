@@ -21,6 +21,7 @@ noise = SubResource("FastNoiseLite_ncwv6")
 
 [resource]
 albedo_texture = ExtResource("1_1kgm6")
+metallic_specular = 0.0
 emission_enabled = true
 emission = Color(0, 0.308594, 0.290863, 1)
 emission_energy_multiplier = 0.2

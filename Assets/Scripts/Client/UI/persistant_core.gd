@@ -53,7 +53,11 @@ func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
 	$Node3D/Core_Follow/Rot_Y.rotation = Rotation
 	$Node3D/Core_Follow/Rot_Y/Rot_X.rotation = Vector3(deg_to_rad(15),0,0)
 	
-	
+func _process(delta: float) -> void:
+	if (($CanvasLayer/Hexii_Tablet_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && $CanvasLayer/Hexii_Tablet_UI.visible) || ($CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && $CanvasLayer/Hexii_UI.visible)):
+		_on_area_2d_mouse_entered()
+	elif (!$CanvasLayer/Hexii_Tablet_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && !$CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position())):
+		_on_area_2d_mouse_exited()
 #############################
 ###### Hexii UI System ######
 #############################
@@ -68,21 +72,12 @@ func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
 
 func _on_area_2d_mouse_entered() -> void:
 	Mouse_In_UI = true
-	print("Entered")
 
 func _on_area_2d_mouse_exited() -> void:
 	Mouse_In_UI = false
-	print("Exit")
 
 var IsInBounds = false
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		if (($CanvasLayer/Hexii_Tablet_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && $CanvasLayer/Hexii_Tablet_UI.visible) || ($CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && $CanvasLayer/Hexii_UI.visible)) && !IsInBounds:
-			IsInBounds = true
-			_on_area_2d_mouse_entered()
-		elif (!$CanvasLayer/Hexii_Tablet_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && !$CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position())) && IsInBounds:
-			IsInBounds = false
-			_on_area_2d_mouse_exited()
 	if Input.is_action_just_pressed("shiftlock"):
 		$CanvasLayer/CrossHair.visible = !$CanvasLayer/CrossHair.visible
 

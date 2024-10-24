@@ -1,9 +1,29 @@
-[gd_scene load_steps=60 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=80 format=3 uid="uid://hrgnkcktrbta"]
 
+[ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="2_f3wu7"]
+[ext_resource type="Texture2D" uid="uid://doljxqqrbnxu4" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Bar.png" id="2_ny2kl"]
 [ext_resource type="Texture2D" uid="uid://uh2xqm07w13p" path="res://Assets/Textures/UI/Titlescreen/Cubiix Project_Logo.png" id="3_0ua4g"]
+[ext_resource type="Texture2D" uid="uid://cqvic52gfyfox" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Settings_Normal.png" id="3_ux823"]
+[ext_resource type="Texture2D" uid="uid://brp4jd2vlikd" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Power_Normal.png" id="3_yj6ey"]
+[ext_resource type="Texture2D" uid="uid://cx30v0i7ge8qh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Power_Hover.png" id="4_fbhj4"]
+[ext_resource type="Texture2D" uid="uid://bbqlfv6m2dyb" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Settings_Hover.png" id="4_ilexu"]
 [ext_resource type="PackedScene" uid="uid://c476y3oq2ygq6" path="res://Assets/Scenes/Client/Ui/character_editor.tscn" id="4_ui7sq"]
+[ext_resource type="Texture2D" uid="uid://cv8k23cfk5f6l" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Character_Normal.png" id="5_57dn8"]
+[ext_resource type="Texture2D" uid="uid://bqxf4xabavamt" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Character_Hover.png" id="6_skk27"]
+[ext_resource type="Texture2D" uid="uid://b75v50g0xdex6" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Inventory_Normal.png" id="9_2w1vp"]
+[ext_resource type="Texture2D" uid="uid://c464754weknwv" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Inventory_Hover.png" id="10_nb54h"]
+[ext_resource type="Texture2D" uid="uid://bolx33ybv5rbj" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Quests_Normal.png" id="11_281p3"]
+[ext_resource type="Texture2D" uid="uid://cghmmbav2vsic" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Quests_Hover.png" id="12_jkbe7"]
+[ext_resource type="Texture2D" uid="uid://btkkg2yhjf75p" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Journal_Normal.png" id="13_klmm8"]
+[ext_resource type="Texture2D" uid="uid://byjff2db5wwqy" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Collections_Normal.png" id="13_vve87"]
+[ext_resource type="Texture2D" uid="uid://cep7hj872sp05" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Journal_Hover.png" id="14_lehqb"]
+[ext_resource type="Texture2D" uid="uid://c8plj3261h3hq" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Collections_Hover.png" id="14_x0hah"]
+[ext_resource type="Texture2D" uid="uid://cxqe51ju1at61" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_big.png" id="17_po7ah"]
+[ext_resource type="Texture2D" uid="uid://bv88l5lmf0w1q" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_med.png" id="18_n3ib1"]
+[ext_resource type="Texture2D" uid="uid://bcm3p5cpd0pbr" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_small.png" id="19_peyqs"]
+[ext_resource type="Texture2D" uid="uid://dkji8bodqlyhv" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character.png" id="20_06l3h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
 texture = ExtResource("1_wdvji")
@@ -364,16 +384,158 @@ offset_top = -26.0
 offset_right = 236.0
 offset_bottom = 14.0
 
+[node name="Wallpaper" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 94.0
+offset_right = 566.0
+offset_bottom = 511.0
+texture = ExtResource("1_2xfh6")
+
+[node name="TextureRect" type="TextureRect" parent="Wallpaper"]
+layout_mode = 0
+offset_top = 376.0
+offset_right = 452.0
+offset_bottom = 430.0
+texture = ExtResource("2_ny2kl")
+
+[node name="Control" type="Control" parent="Wallpaper"]
+anchors_preset = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Wallpaper/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 377.0
+offset_right = 41.0
+offset_bottom = 417.0
+theme_override_constants/separation = 0
+
+[node name="PowerButton" type="TextureButton" parent="Wallpaper/Control/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("3_yj6ey")
+texture_pressed = ExtResource("3_yj6ey")
+texture_hover = ExtResource("4_fbhj4")
+texture_focused = ExtResource("4_fbhj4")
+
+[node name="SettingsButton" type="TextureButton" parent="Wallpaper/Control/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("3_ux823")
+texture_pressed = ExtResource("3_ux823")
+texture_hover = ExtResource("4_ilexu")
+texture_focused = ExtResource("4_ilexu")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Wallpaper/Control"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 377.0
+offset_right = 521.0
+offset_bottom = 417.0
+theme_override_constants/separation = 0
+
+[node name="CharacterButton" type="TextureButton" parent="Wallpaper/Control/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("5_57dn8")
+texture_pressed = ExtResource("5_57dn8")
+texture_hover = ExtResource("6_skk27")
+texture_focused = ExtResource("6_skk27")
+
+[node name="InventoryButton" type="TextureButton" parent="Wallpaper/Control/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("9_2w1vp")
+texture_pressed = ExtResource("9_2w1vp")
+texture_hover = ExtResource("10_nb54h")
+texture_focused = ExtResource("10_nb54h")
+
+[node name="QuestButton" type="TextureButton" parent="Wallpaper/Control/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("11_281p3")
+texture_pressed = ExtResource("11_281p3")
+texture_hover = ExtResource("12_jkbe7")
+texture_focused = ExtResource("12_jkbe7")
+
+[node name="CollectionsButton" type="TextureButton" parent="Wallpaper/Control/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("13_vve87")
+texture_pressed = ExtResource("13_vve87")
+texture_hover = ExtResource("14_x0hah")
+texture_focused = ExtResource("14_x0hah")
+
+[node name="JournalButton" type="TextureButton" parent="Wallpaper/Control/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("13_klmm8")
+texture_pressed = ExtResource("13_klmm8")
+texture_hover = ExtResource("14_lehqb")
+texture_focused = ExtResource("14_lehqb")
+
+[node name="Screens" type="Control" parent="Wallpaper"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Character_Screen" type="Control" parent="Wallpaper/Screens"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="Options" type="TextureRect" parent="Wallpaper/Screens/Character_Screen"]
+clip_contents = true
+layout_mode = 0
+offset_left = 244.0
+offset_top = 34.0
+offset_right = 427.0
+offset_bottom = 353.0
+texture = ExtResource("17_po7ah")
+metadata/_edit_lock_ = true
+
+[node name="Preview" type="TextureRect" parent="Wallpaper/Screens/Character_Screen"]
+clip_contents = true
+layout_mode = 0
+offset_left = 24.0
+offset_top = 34.0
+offset_right = 221.0
+offset_bottom = 221.0
+texture = ExtResource("18_n3ib1")
+metadata/_edit_lock_ = true
+
+[node name="Parts" type="TextureRect" parent="Wallpaper/Screens/Character_Screen"]
+clip_contents = true
+offset_left = 24.0
+offset_top = 255.0
+offset_right = 221.0
+offset_bottom = 354.0
+mouse_filter = 2
+texture = ExtResource("19_peyqs")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Wallpaper/Screens/Character_Screen"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 436.0
+offset_bottom = 364.0
+texture = ExtResource("20_06l3h")
+metadata/_edit_lock_ = true
+
 [node name="Overlay" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 48.0
 offset_right = 608.0
 offset_bottom = 588.0
-mouse_filter = 1
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_43210")
+metadata/_edit_lock_ = true
 
 [node name="Screens" type="Panel" parent="Overlay"]
+visible = false
 show_behind_parent = true
 layout_mode = 0
 offset_left = 44.0
@@ -1716,15 +1878,3 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_jv2md")
 libraries = {
 "": SubResource("AnimationLibrary_sb5od")
 }
-
-[node name="InventoryButton2" type="Button" parent="."]
-layout_mode = 0
-theme = ExtResource("2_f3wu7")
-theme_override_font_sizes/font_size = 13
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nkrfm")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ipwh6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6ru86")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qbmvr")
-theme_override_styles/normal = SubResource("StyleBoxFlat_oegg0")
-text = " inventory"
-alignment = 0

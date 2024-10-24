@@ -19,18 +19,15 @@ uniform vec4 emiss_Body2 : source_color;
 uniform float Body2_metallic = 1.0;
 uniform float Body2_roughness = 1.0;
 
-
 uniform vec4 Body3 : source_color;
 uniform vec4 emiss_Body3 : source_color;
 uniform float Body3_metallic = 1.0;
 uniform float Body3_roughness = 1.0;
 
-
 uniform vec4 Body4 : source_color;
 uniform vec4 emiss_Body4 : source_color;
 uniform float Body4_metallic = 1.0;
 uniform float Body4_roughness = 1.0;
-
 
 
 uniform float distance_fade_min : hint_range(-4096.0, 4096.0, 0.01);
@@ -46,11 +43,11 @@ void fragment() {
 			}else{
 			EMISSION = vec3(distance_fade_glow,distance_fade_glow,distance_fade_glow);
 		}
-
-			if (has_metallic){
-				ROUGHNESS = Body2_roughness;
-				METALLIC = Body2_metallic;
+		if (has_metallic){
+			ROUGHNESS = Body2_roughness;
+			METALLIC = Body2_metallic;
 			}
+		
 		}
 	else if (int(albedo_tex.r) == int(1.0) && int(albedo_tex.g) != int(1.0)){
 

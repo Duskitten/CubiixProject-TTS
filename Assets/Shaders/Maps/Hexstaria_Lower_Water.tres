@@ -64,6 +64,7 @@ texture_type = 1
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_4bqmk"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
+operator = 2
 
 [sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_d3270"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0.1, 0.5, 0.5, 0.5), 2, Quaternion(1, 1, 1, 1)]
@@ -148,22 +149,11 @@ void fragment() {
 
 
 // VectorOp:32
-	vec4 n_out32p0 = n_out31p0 + n_out12p0;
+	vec4 n_out32p0 = n_out31p0 * n_out12p0;
 
 
-// VectorOp:36
-	vec4 n_in36p1 = vec4(10.00000, 10.00000, 100.00000, 0.00000);
-	vec4 n_out36p0 = pow(n_out32p0, n_in36p1);
-
-
-// Clamp:35
-	vec4 n_in35p1 = vec4(0.10000, 0.50000, 0.50000, 0.50000);
-	vec4 n_in35p2 = vec4(1.00000, 1.00000, 1.00000, 1.00000);
-	vec4 n_out35p0 = clamp(n_out36p0, n_in35p1, n_in35p2);
-
-
-// FloatConstant:8
-	float n_out8p0 = 1.000000;
+// FloatConstant:37
+	float n_out37p0 = 0.500000;
 
 
 // FloatConstant:14
@@ -172,6 +162,10 @@ void fragment() {
 
 // Texture2D:39
 	vec4 n_out39p0 = texture(tex_frg_39, UV);
+
+
+// FloatConstant:8
+	float n_out8p0 = 1.000000;
 
 
 // FloatConstant:22
@@ -184,10 +178,8 @@ void fragment() {
 
 // Output:0
 	ALBEDO = vec3(n_out32p0.xyz);
-	ALPHA = n_out35p0.x;
-	METALLIC = n_out8p0;
-	ROUGHNESS = n_out32p0.x;
-	SPECULAR = n_out14p0;
+	ALPHA = n_out37p0;
+	ROUGHNESS = n_out14p0;
 	EMISSION = vec3(n_out39p0.xyz);
 	NORMAL_MAP_DEPTH = n_out8p0;
 	RIM = n_out22p0;
@@ -196,7 +188,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-174.273, -24.0745)
 nodes/vertex/0/position = Vector2(540, 220)
 nodes/fragment/0/position = Vector2(1140, 180)
 nodes/fragment/4/node = SubResource("VisualShaderNodeInput_kahcc")
@@ -233,4 +224,4 @@ nodes/fragment/37/node = SubResource("VisualShaderNodeFloatConstant_f5jm6")
 nodes/fragment/37/position = Vector2(340, 380)
 nodes/fragment/39/node = SubResource("VisualShaderNodeTexture_7gppi")
 nodes/fragment/39/position = Vector2(220.521, 991.027)
-nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 10, 0, 9, 0, 10, 2, 5, 0, 13, 0, 13, 0, 12, 0, 9, 0, 13, 2, 22, 0, 0, 11, 24, 0, 0, 12, 8, 0, 0, 10, 10, 0, 31, 0, 31, 0, 32, 0, 12, 0, 32, 1, 32, 0, 0, 0, 35, 0, 0, 1, 32, 0, 36, 0, 36, 0, 35, 0, 39, 0, 0, 5, 32, 0, 0, 3, 8, 0, 0, 2, 14, 0, 0, 4)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 10, 0, 9, 0, 10, 2, 5, 0, 13, 0, 13, 0, 12, 0, 9, 0, 13, 2, 22, 0, 0, 11, 24, 0, 0, 12, 8, 0, 0, 10, 10, 0, 31, 0, 31, 0, 32, 0, 12, 0, 32, 1, 32, 0, 0, 0, 32, 0, 36, 0, 36, 0, 35, 0, 39, 0, 0, 5, 14, 0, 0, 3, 37, 0, 0, 1)

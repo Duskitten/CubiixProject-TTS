@@ -5,8 +5,7 @@
 [resource]
 cull_mode = 2
 albedo_texture = ExtResource("1_fcm41")
-metallic = 1.0
-metallic_specular = 0.41
+metallic_specular = 0.0
 metallic_texture = ExtResource("1_fcm41")
 anisotropy_enabled = true
 anisotropy = 1.0

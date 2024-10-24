@@ -6,6 +6,7 @@
 [resource]
 albedo_color = Color(0.675678, 0.683311, 0.74249, 1)
 albedo_texture = ExtResource("1_f65dk")
+metallic_specular = 0.0
 normal_scale = 0.2
 normal_texture = ExtResource("2_7l42m")
 heightmap_flip_tangent = true

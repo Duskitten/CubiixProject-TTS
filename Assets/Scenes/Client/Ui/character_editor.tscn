@@ -53,7 +53,6 @@ Is_UI = true
 [node name="Cubiix_Model" parent="Cubiix_Base/Hub" instance=ExtResource("2_v6ccf")]
 
 [node name="Skeleton3D" parent="Cubiix_Base/Hub/Cubiix_Model" index="0"]
-bones/2/scale = Vector3(1, 1, 1)
 bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
 bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
