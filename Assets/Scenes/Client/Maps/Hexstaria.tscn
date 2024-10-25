@@ -122,6 +122,7 @@ edge_fade = 1e-05
 
 [sub_resource type="FogMaterial" id="FogMaterial_dceas"]
 density = 0.9333
+albedo = Color(0, 0, 0, 1)
 edge_fade = 1e-05
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ply31"]

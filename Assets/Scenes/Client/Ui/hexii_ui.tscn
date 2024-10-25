@@ -1,7 +1,7 @@
 [gd_scene load_steps=52 format=3 uid="uid://bmqym3jemx6x1"]
 
 [ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://Assets/Textures/UI/In-Game/Phone_Backing.png" id="1_bfryu"]
-[ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="2_s0t65"]
+[ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="2_s0t65"]
 [ext_resource type="AnimationLibrary" uid="uid://cmwufqqj34wma" path="res://Assets/Animations/UI/Tile_Slide.tres" id="3_irqxn"]
 [ext_resource type="PackedScene" uid="uid://d0phoqsu07oes" path="res://Assets/Scenes/Client/Ui/Phone_Default_Icon.tscn" id="3_tal58"]
 [ext_resource type="Script" path="res://Assets/Scripts/test_zone/phone_default_icon.gd" id="4_f4pqp"]

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=11 format=3 uid="uid://bst76owxspkj5"]
 
-[ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/courier-prime-code.regular.ttf" id="1_uf7h7"]
+[ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="1_uf7h7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs782"]
 content_margin_top = 2.0

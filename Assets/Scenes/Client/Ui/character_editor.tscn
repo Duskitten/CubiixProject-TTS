@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c476y3oq2ygq6"]
+[gd_scene load_steps=13 format=3 uid="uid://c476y3oq2ygq6"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Character.gd" id="1_enbgk"]
 [ext_resource type="PackedScene" uid="uid://cirw3ifxx1v8v" path="res://Assets/Scenes/Client/Characters/cubiix_model.tscn" id="2_v6ccf"]
@@ -8,24 +8,50 @@ margin = 0.4
 radius = 0.202349
 height = 0.734779
 
+[sub_resource type="Gradient" id="Gradient_rryif"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.161435, 0.29148)
+colors = PackedColorArray(0.582031, 0.582031, 0.582031, 1, 0.580392, 0.580392, 0.580392, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8laqd"]
+gradient = SubResource("Gradient_rryif")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_kp3qj"]
 size = Vector2(5.66, 5.66)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kr5cl"]
 transparency = 1
-albedo_color = Color(0.141353, 0.096928, 0.238281, 1)
-metallic_specular = 0.0
 roughness = 0.0
 anisotropy_enabled = true
 texture_filter = 0
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hegkc"]
+
+[sub_resource type="Sky" id="Sky_ibw1c"]
+sky_material = SubResource("ProceduralSkyMaterial_hegkc")
+
 [sub_resource type="Environment" id="Environment_eawu4"]
+sky = SubResource("Sky_ibw1c")
 ambient_light_source = 2
-ambient_light_color = Color(0.652344, 0.652344, 0.652344, 1)
+ambient_light_color = Color(0.691406, 0.691406, 0.691406, 1)
 ssao_sharpness = 0.0
 glow_enabled = true
 glow_normalized = true
 volumetric_fog_density = 0.1227
+
+[sub_resource type="Gradient" id="Gradient_035cj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.125561, 0.29148)
+colors = PackedColorArray(0, 0, 0, 0.502, 0, 0, 0, 0.501961, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gkhtr"]
+gradient = SubResource("Gradient_035cj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
 
 [node name="Character_Editor" type="Node3D"]
 
@@ -53,13 +79,27 @@ Is_UI = true
 [node name="Cubiix_Model" parent="Cubiix_Base/Hub" instance=ExtResource("2_v6ccf")]
 
 [node name="Skeleton3D" parent="Cubiix_Base/Hub/Cubiix_Model" index="0"]
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/2/position = Vector3(0, 0.254852, 0)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/position = Vector3(-0.327326, 0.134334, 0)
 bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/5/rotation = Quaternion(0, 0, 0, 1)
+bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/8/position = Vector3(0.327326, 0.134334, 0)
 bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/9/rotation = Quaternion(0, 0, 0, 1)
+bones/10/rotation = Quaternion(0, 0, 0, 1)
+bones/11/rotation = Quaternion(0, 0, 0, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
 bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/position = Vector3(0, 0.12722, 0)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/position = Vector3(0, 0.12722, 0)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Cube" parent="Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
@@ -93,14 +133,24 @@ shape = SubResource("CapsuleShape3D_m8ql4")
 
 [node name="Marker3D" type="Marker3D" parent="Cubiix_Base"]
 
+[node name="Decal" type="Decal" parent="Cubiix_Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)
+layers = 1048575
+size = Vector3(2, 5, 2)
+texture_albedo = SubResource("GradientTexture2D_8laqd")
+upper_fade = 1e-05
+lower_fade = 1.03526e-05
+cull_mask = 524288
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 524295
 mesh = SubResource("PlaneMesh_kp3qj")
 surface_material_override/0 = SubResource("StandardMaterial3D_kr5cl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.965926, 0.0669873, -0.25, 0.258819, -0.25, 0.933013, 0, -0.965926, -0.258819, 0, 0, 0)
-shadow_enabled = true
-shadow_opacity = 0.5
+transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, 0, -0.965926, 0.258819, 0, 0, 0)
+shadow_opacity = 0.83
+shadow_blur = 0.0
 directional_shadow_mode = 0
 directional_shadow_max_distance = 4.0
 
@@ -110,7 +160,16 @@ directional_shadow_max_distance = 4.0
 transform = Transform3D(1, 0, 0, 0, 0.997452, 0.0713408, 0, -0.0713408, 0.997452, 0, 0.812616, 2.68435)
 environment = SubResource("Environment_eawu4")
 current = true
-fov = 31.4
+fov = 30.2
 far = 10.0
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)
+layers = 1048575
+size = Vector3(2, 5, 2)
+texture_albedo = SubResource("GradientTexture2D_gkhtr")
+upper_fade = 1e-05
+lower_fade = 1.03526e-05
+cull_mask = 524288
 
 [editable path="Cubiix_Base/Hub/Cubiix_Model"]

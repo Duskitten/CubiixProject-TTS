@@ -11,7 +11,7 @@ var hard_disable = false
 func _process(delta: float) -> void:
 	if active:
 		CoreUI.get_node("Panel").position = get_viewport().get_camera_3d().unproject_position(Marker.global_position) - (CoreUI.get_node("Panel").size/2)
-		if Input.is_action_just_pressed("interact") && !disable:
+		if Input.is_action_just_pressed("interact") && !disable && !Core.Persistant_Core.Menu_Focused:
 			$CanvasLayer/AnimationPlayer.play("Close")
 			emit_signal("Interacted")
 			disable = true

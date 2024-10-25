@@ -54,6 +54,10 @@ var CharSetup = false
 @onready var LeftHandPoint = $Hub/Cubiix_Model/Skeleton3D/ProxyLeftHandPoint
 @onready var RightHandPoint = $Hub/Cubiix_Model/Skeleton3D/ProxyRightHandPoint
 
+var Emote_Anims = ["wave"]
+var Is_Emoting = false
+var Current_Emote = ""
+
 var CameraLength = -4.0
 @onready var MoveMarker = $Marker3D
 signal MeshFinished
@@ -72,7 +76,6 @@ var Is_Grinding = false
 func _ready() -> void:
 	if Is_Player:
 		Core.Client.Local_Player = self
-		await get_tree().create_timer(3).timeout
 		Regen_Character()
 	elif Is_UI:
 		pass
@@ -137,7 +140,6 @@ func Regen_Character():
 	Skeleton.add_child(LeftHandPoint)
 	Skeleton.add_child(RightHandPoint)
 	Model = base_model
-	$Hub/Lerped_Head/BoneAttachment3D.set_external_skeleton(Skeleton.get_path())
 	charmat.set_shader_parameter("Body1",Body_1)
 	charmat.set_shader_parameter("emiss_Body1",Body_Emiss_1)
 	charmat.set_shader_parameter("Body2",Body_2)
@@ -155,7 +157,10 @@ func Regen_Character():
 	base_model.position = Vector3(0,0,0)
 	base_model.show()
 	CharSetup = true
+	if !Is_Player:
+		$Hub/Cubiix_Model/AnimationTree.set("parameters/NPC/blend_amount",1)
 	await get_tree().create_timer(0.2).timeout
+	
 	swapping = false
 	DynBones.emit_signal("RePositioned")
 	#if Is_Player:
@@ -191,33 +196,38 @@ func _process(delta: float) -> void:
 	Delta = Time.get_ticks_msec() - Tick_Prev
 	Tick_Prev = Time.get_ticks_msec()
 	Blink_Timer += Delta
-	if Skeleton == null:
-		$Hub/Lerped_Head/BoneAttachment3D.override_pose = false
-	if !Is_Player:
-		$Hub/Cubiix_Model/AnimationTree.set("parameters/NPC/blend_amount",1)
-		if Look_At != null:
-			$Hub/Lerped_Head/BoneAttachment3D.override_pose = true
-			$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",1)
-			$Hub/Head.look_at(Look_At.global_position)
-			$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,clamp(lerp_angle($Hub/Lerped_Head.rotation.x,-$Hub/Head.rotation.x, 1),deg_to_rad(-30),deg_to_rad(30)),0.1)
-			$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,clamp(lerp_angle($Hub/Lerped_Head.rotation.y,$Hub/Head.rotation.y+deg_to_rad(180), 1),deg_to_rad(-45),deg_to_rad(45)),0.1)
-			$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,$Hub/Head.rotation.z, 0.1)
-			$Hub/Lerped_Head.position = $Hub/Cubiix_Model/Skeleton3D/ProxyHeadPoint.position + Skeleton.get_bone_global_pose(Skeleton.find_bone("Chest")).origin
-		else:
-			$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,0, 0.5)
-			$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,0, 0.5)
-			$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,0, 0.5)
+	#if Skeleton == null:
+		#$Hub/Lerped_Head/BoneAttachment3D.override_pose = false
+	#if !Is_Player:
+		#if Look_At != null:
+			#$Hub/Lerped_Head/BoneAttachment3D.override_pose = true
+			#
+			#$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",1)
+			#$Hub/Head.look_at(Look_At.global_position)
+			#$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,clamp(lerp_angle($Hub/Lerped_Head.rotation.x,-$Hub/Head.rotation.x, 1),deg_to_rad(-30),deg_to_rad(30)),0.1)
+			#$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,clamp(lerp_angle($Hub/Lerped_Head.rotation.y,$Hub/Head.rotation.y+deg_to_rad(180), 1),deg_to_rad(-45),deg_to_rad(45)),0.1)
+			#$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,$Hub/Head.rotation.z, 0.1)
+			#$Hub/Lerped_Head.global_position = Skeleton.to_global(Skeleton.get_bone_global_pose(Skeleton.find_bone("Chest")).origin)
+			#
+		#else:
+			#$Hub/Lerped_Head.rotation.x = lerp_angle($Hub/Lerped_Head.rotation.x,0, 0.5)
+			#$Hub/Lerped_Head.rotation.y = lerp_angle($Hub/Lerped_Head.rotation.y,0, 0.5)
+			#$Hub/Lerped_Head.rotation.z = lerp_angle($Hub/Lerped_Head.rotation.z,0, 0.5)
+			#
+			#
+			#if $Hub/Lerped_Head.rotation.length() <= 0.1:
+				#$Hub/Lerped_Head/BoneAttachment3D.override_pose = false
+				#$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",0)
 			
-			
-			if $Hub/Lerped_Head.rotation.length() <= 0.1:
-				$Hub/Lerped_Head/BoneAttachment3D.override_pose = false
-				$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend2/blend_amount",0)
 	if can_idle && can_idle_override && !customizing:
 		Idle_Timer += Delta
 		
 	if Is_Player:
-		input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-		input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+		if !Core.Persistant_Core.Menu_Focused:
+			input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+			input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+		else:
+			input = Vector2.ZERO
 			
 	if Is_Player && !BasePlayer_Disabled:
 
@@ -248,6 +258,8 @@ func _process(delta: float) -> void:
 			walk = Input.is_action_pressed("ui_select")
 
 		if input != Vector2.ZERO || customizing:
+			Is_Emoting = false
+			Current_Emote = ""
 			Idle_Timer = 0
 			can_idle_override = false
 		else:
@@ -280,13 +292,13 @@ func run_idle():
 	can_idle = true
 
 func _input(event: InputEvent) -> void:
-	if Is_Player:
-		if (Input.is_action_pressed("mouse_right")||shiftlock_Enabled) && !Core.Persistant_Core.Mouse_In_UI:
+	if Is_Player && !Core.Persistant_Core.Mouse_In_UI:
+		if (Input.is_action_pressed("mouse_right")||shiftlock_Enabled):
 			if event is InputEventMouseMotion && Camera != null:
 				Camera.get_parent().get_parent().get_parent().rotation.y -= event["relative"].x/200
 				Camera.get_parent().get_parent().rotation.x += event["relative"].y/200
 				reset_camera = false
-		if Input.is_action_just_released("ui_scroll_down") && Camera != null:
+		if Input.is_action_just_released("ui_scroll_down") && Camera != null :
 			CameraLength -= 1.0
 			print("Haoi")
 		if Input.is_action_just_released("ui_scroll_up") && Camera != null:
@@ -394,6 +406,8 @@ func _physics_process(delta: float) -> void:
 
 		
 	if Is_Player && Is_Grinding:
+		Is_Emoting = false
+		Current_Emote = ""
 		if Camera != null:
 			Camera.fov = lerpf(Camera.fov,85,0.025)
 		if CanRide:
@@ -556,7 +570,9 @@ func _physics_process(delta: float) -> void:
 			else:
 				speed = runspeed
 				
-			if (Input.is_action_just_pressed("ui_jump") && !jumping) || (AltJump):
+			if (Input.is_action_just_pressed("ui_jump") && !jumping && !Core.Persistant_Core.Menu_Focused) || (AltJump):
+				Is_Emoting = false
+				Current_Emote = ""
 				$JumpTimer.start()
 				jumping = true
 				gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
@@ -613,3 +629,11 @@ func add_new_item(ItemID:String) -> void:
 			for i in RightHandPoint.get_children():
 				i.queue_free()
 			RightHandPoint.add_child(LoadedItem)
+
+func play_new_emote(EmoteID:String) -> bool:
+	if Emote_Anims.has(EmoteID) && (!Is_Sitting && !Is_Piloting && !Is_Grinding && !falling && !jumping):
+		Is_Emoting = true
+		Current_Emote = EmoteID
+		return true
+	else:
+		return false

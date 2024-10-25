@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	if has_player:
 		input = Core.Client.Local_Player.input
 		
-		if Input.is_action_just_pressed("ui_jump"):
+		if Input.is_action_just_pressed("ui_jump") && !Core.Persistant_Core.Menu_Focused:
 			FlyDisable()
 			
 func FlyDisable():

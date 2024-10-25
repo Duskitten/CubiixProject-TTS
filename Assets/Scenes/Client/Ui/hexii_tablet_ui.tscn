@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=93 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -22,8 +22,26 @@
 [ext_resource type="Texture2D" uid="uid://c8plj3261h3hq" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Collections_Hover.png" id="14_x0hah"]
 [ext_resource type="Texture2D" uid="uid://cxqe51ju1at61" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_big.png" id="17_po7ah"]
 [ext_resource type="Texture2D" uid="uid://bv88l5lmf0w1q" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_med.png" id="18_n3ib1"]
+[ext_resource type="Texture2D" uid="uid://buk6iatm82ese" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Short_Normal.png" id="19_goiuj"]
 [ext_resource type="Texture2D" uid="uid://bcm3p5cpd0pbr" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_small.png" id="19_peyqs"]
+[ext_resource type="Texture2D" uid="uid://bl6m5nmihmpvi" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Small_Item_Normal.png" id="19_vuf1e"]
+[ext_resource type="Texture2D" uid="uid://yrvu7w48om4p" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Short_Hover.png" id="20_2j1hx"]
 [ext_resource type="Texture2D" uid="uid://dkji8bodqlyhv" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character.png" id="20_06l3h"]
+[ext_resource type="Texture2D" uid="uid://d28iijjfc87s8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Small_Item_Hover.png" id="20_7wift"]
+[ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://Assets/Fonts/Jura/Jura-Bold.ttf" id="22_u408p"]
+[ext_resource type="Texture2D" uid="uid://b826lby5iuk56" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Journal_big.png" id="25_n0j87"]
+[ext_resource type="Texture2D" uid="uid://c0woqqtra3nmy" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Long_Normal.png" id="27_t3w3u"]
+[ext_resource type="Texture2D" uid="uid://bqc4q1d6fq0rp" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Long_Hover.png" id="28_duf7k"]
+[ext_resource type="Texture2D" uid="uid://17s5v24q7uxf" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Journal.png" id="29_dbeuu"]
+[ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="31_3586r"]
+[ext_resource type="FontFile" uid="uid://boi1e108why6s" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code Italic.ttf" id="32_86pgu"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_o7lx1"]
+color = Color(1, 1, 1, 1)
+grow_begin = 3.0
+thickness = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpvvo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
 texture = ExtResource("1_wdvji")
@@ -474,54 +492,432 @@ texture_pressed = ExtResource("13_klmm8")
 texture_hover = ExtResource("14_lehqb")
 texture_focused = ExtResource("14_lehqb")
 
-[node name="Screens" type="Control" parent="Wallpaper"]
+[node name="Character_Screen" type="Control" parent="Wallpaper"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+pivot_offset = Vector2(236, 188)
 
-[node name="Character_Screen" type="Control" parent="Wallpaper/Screens"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_lock_ = true
-
-[node name="Options" type="TextureRect" parent="Wallpaper/Screens/Character_Screen"]
+[node name="Parts" type="TextureRect" parent="Wallpaper/Character_Screen"]
 clip_contents = true
-layout_mode = 0
+layout_mode = 2
+anchor_left = 0.6
+anchor_top = 6.375
+anchor_right = 5.525
+anchor_bottom = 8.85
+mouse_filter = 2
+texture = ExtResource("19_peyqs")
+
+[node name="GridContainer" type="GridContainer" parent="Wallpaper/Character_Screen/Parts"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = 4.0
+offset_right = 176.0
+offset_bottom = 100.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_vuf1e")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="TextureButton2" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_vuf1e")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="TextureButton3" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_vuf1e")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="TextureButton4" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_vuf1e")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="TextureButton5" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_vuf1e")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="TextureButton6" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_vuf1e")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="Options" type="TextureRect" parent="Wallpaper/Character_Screen"]
+clip_contents = true
+layout_mode = 2
 offset_left = 244.0
 offset_top = 34.0
 offset_right = 427.0
 offset_bottom = 353.0
 texture = ExtResource("17_po7ah")
-metadata/_edit_lock_ = true
 
-[node name="Preview" type="TextureRect" parent="Wallpaper/Screens/Character_Screen"]
+[node name="Preview" type="TextureRect" parent="Wallpaper/Character_Screen"]
 clip_contents = true
-layout_mode = 0
-offset_left = 24.0
-offset_top = 34.0
-offset_right = 221.0
-offset_bottom = 221.0
+layout_mode = 2
+anchor_left = 0.6
+anchor_top = 0.85
+anchor_right = 5.525
+anchor_bottom = 5.525
 texture = ExtResource("18_n3ib1")
-metadata/_edit_lock_ = true
 
-[node name="Parts" type="TextureRect" parent="Wallpaper/Screens/Character_Screen"]
-clip_contents = true
-offset_left = 24.0
-offset_top = 255.0
-offset_right = 221.0
-offset_bottom = 354.0
-mouse_filter = 2
-texture = ExtResource("19_peyqs")
-metadata/_edit_lock_ = true
-
-[node name="TextureRect2" type="TextureRect" parent="Wallpaper/Screens/Character_Screen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper/Character_Screen/Preview"]
 layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 60.0
+offset_bottom = 187.0
+theme_override_constants/separation = 2
+
+[node name="Label2" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Body"
+
+[node name="Control2" type="HSeparator" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_o7lx1")
+
+[node name="TextureButton" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Ears"
+
+[node name="TextureButton2" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Extra"
+
+[node name="TextureButton3" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton3"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Eyes"
+
+[node name="TextureButton4" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton4"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Wings"
+
+[node name="TextureButton5" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton5"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Tails"
+
+[node name="Control" type="HSeparator" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lpvvo")
+
+[node name="Label3" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Colors"
+
+[node name="Control3" type="HSeparator" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_o7lx1")
+
+[node name="TextureButton6" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton6"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Main 1"
+
+[node name="TextureButton7" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton7"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Main 2"
+
+[node name="TextureButton8" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton8"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Eye 1"
+
+[node name="TextureButton9" type="TextureButton" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_goiuj")
+texture_pressed = ExtResource("19_goiuj")
+texture_hover = ExtResource("20_2j1hx")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton9"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Eye 2"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Wallpaper/Character_Screen"]
+layout_mode = 2
+offset_left = 86.0
+offset_top = 36.0
+offset_right = 218.0
+offset_bottom = 216.0
+
+[node name="SubViewport" type="SubViewport" parent="Wallpaper/Character_Screen/SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 2
+use_debanding = true
+size = Vector2i(132, 180)
+render_target_update_mode = 0
+
+[node name="Character_Editor" parent="Wallpaper/Character_Screen/SubViewportContainer/SubViewport" instance=ExtResource("4_ui7sq")]
+
+[node name="TextureRect2" type="TextureRect" parent="Wallpaper/Character_Screen"]
+layout_mode = 2
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 436.0
 offset_bottom = 364.0
+mouse_filter = 2
 texture = ExtResource("20_06l3h")
+metadata/_edit_lock_ = true
+
+[node name="Journal_Screen" type="Control" parent="Wallpaper"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(236, 188)
+
+[node name="Preview" type="TextureRect" parent="Wallpaper/Journal_Screen"]
+clip_contents = true
+layout_mode = 2
+anchor_left = 0.6
+anchor_top = 0.85
+anchor_right = 5.525
+anchor_bottom = 5.525
+texture = ExtResource("25_n0j87")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper/Journal_Screen/Preview"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 124.0
+offset_bottom = 319.0
+theme_override_constants/separation = 2
+
+[node name="Label2" type="Label" parent="Wallpaper/Journal_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Journal Entries"
+
+[node name="Control2" type="HSeparator" parent="Wallpaper/Journal_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_o7lx1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Wallpaper/Journal_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_f3wu7")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper/Journal_Screen/Preview/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Wallpaper/Journal_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("27_t3w3u")
+texture_pressed = ExtResource("27_t3w3u")
+texture_hover = ExtResource("28_duf7k")
+
+[node name="Label" type="Label" parent="Wallpaper/Journal_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer/TextureButton"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "A good hello!"
+
+[node name="Panel" type="ScrollContainer" parent="Wallpaper/Journal_Screen/Preview"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 3.0
+offset_right = 399.0
+offset_bottom = 316.0
+theme = ExtResource("2_f3wu7")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper/Journal_Screen/Preview/Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 24
+text = "A good hello!"
+
+[node name="HSeparator2" type="HSeparator" parent="Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Author: Duskitten"
+
+[node name="HSeparator" type="HSeparator" parent="Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_f3wu7")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("31_3586r")
+theme_override_fonts/italics_font = ExtResource("32_86pgu")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Hello! Thank you for trying out my game, it has been something I have put in alot of time and effort into.
+
+I hope if you enjoy it, please do let me know on my [color=blue][url={\"OpenURL\": \"duskitten.bsky.social\"}]Bluesky[/url][/color]!"
+fit_content = true
+
+[node name="TextureRect2" type="TextureRect" parent="Wallpaper/Journal_Screen"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 436.0
+offset_bottom = 364.0
+mouse_filter = 2
+texture = ExtResource("29_dbeuu")
 metadata/_edit_lock_ = true
 
 [node name="Overlay" type="Panel" parent="."]
@@ -1308,19 +1704,6 @@ texture_hover = SubResource("GradientTexture2D_4egy7")
 [node name="VSeparator4" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_bfp0e")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer/SubViewportContainer"]
-own_world_3d = true
-transparent_bg = true
-handle_input_locally = false
-use_debanding = true
-size = Vector2i(200, 256)
-render_target_update_mode = 0
-
-[node name="Character_Editor" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("4_ui7sq")]
 
 [node name="VSeparator2" type="VSeparator" parent="Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/Control/HBoxContainer/VBoxContainer/Panel/HBoxContainer/Character_Editor_Screen/Container/VBoxContainer/HBoxContainer"]
 layout_mode = 2

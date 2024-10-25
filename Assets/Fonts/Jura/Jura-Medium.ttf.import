@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d4abxqqufataa"
-path="res://.godot/imported/courier-prime-code.regular.ttf-501b13af3c0574357f5a93a38b344b96.fontdata"
+uid="uid://dr502oa1gk524"
+path="res://.godot/imported/Jura-Medium.ttf-20ed21cf363642b2357e47727573045a.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/courier-prime-code.regular.ttf"
-dest_files=["res://.godot/imported/courier-prime-code.regular.ttf-501b13af3c0574357f5a93a38b344b96.fontdata"]
+source_file="res://Assets/Fonts/Jura/Jura-Medium.ttf"
+dest_files=["res://.godot/imported/Jura-Medium.ttf-20ed21cf363642b2357e47727573045a.fontdata"]
 
 [params]
 
