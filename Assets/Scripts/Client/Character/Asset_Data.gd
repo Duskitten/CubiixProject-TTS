@@ -81,6 +81,7 @@ var Mesh_Data_Assets = {
 		},
 	##Eyes
 	"Eyes/Default":{
+		"Name": "Default",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Default",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -90,6 +91,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{}
 	},
 	"Eyes/Chonk":{
+		"Name": "Chonk",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Chonk",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -99,6 +101,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{}
 	},
 	"Eyes/Tri":{
+		"Name": "Tri",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Tri",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -108,6 +111,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{}
 	},
 	"Eyes/Nat":{
+		"Name": "Nat",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Nat",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -117,6 +121,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{}
 	},
 	"Eyes/Circle":{
+		"Name": "Circle",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Circle",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -126,6 +131,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{}
 	},
 	"Eyes/Fox":{
+		"Name": "Fox",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Fox",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -135,6 +141,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{}
 	},
 	"Eyes/Four":{
+		"Name": "Four",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Four",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -144,6 +151,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{}
 	},
 	"Eyes/Entity":{
+		"Name": "Entity",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Entity",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -153,6 +161,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{}
 	},
 	"Eyes/Text":{
+		"Name": "Text",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Text",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
@@ -163,6 +172,7 @@ var Mesh_Data_Assets = {
 	},
 	##Ears
 	"Ears/Cat":{
+		"Name": "Cat",
 		"Mesh_Node":"Cat_Ear_Armature/Skeleton3D/Cat_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -191,6 +201,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Fox":{
+		"Name": "Fox",
 		"Mesh_Node":"Fox_Ear_Armature/Skeleton3D/Fox_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -219,6 +230,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Wolf":{
+		"Name": "Wolf",
 		"Mesh_Node":"Wolf_Ear_Armature/Skeleton3D/Wolf_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -247,6 +259,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Goat":{
+		"Name": "Goat",
 		"Mesh_Node":"Goat_Ear_Armature/Skeleton3D/Goat_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -275,6 +288,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Bee":{
+		"Name": "Bee",
 		"Mesh_Node":"Bee_Ear_Armature/Skeleton3D/Bee_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -303,6 +317,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Moth":{
+		"Name": "Moth",
 		"Mesh_Node":"Moth_Ear_Armature/Skeleton3D/Moth_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -331,6 +346,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Mouse":{
+		"Name": "Mouse",
 		"Mesh_Node":"Mouse_Ear_Armature/Skeleton3D/Mouse_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -359,6 +375,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Alien":{
+		"Name": "Alien",
 		"Mesh_Node":"Alien_Ear_Armature/Skeleton3D/Alien_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -387,6 +404,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Deer":{
+		"Name": "Deer",
 		"Mesh_Node":"Deer_Ear_Armature/Skeleton3D/Deer_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -415,6 +433,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Entity":{
+		"Name": "Entity",
 		"Mesh_Node":"Entity_Ear_Armature/Skeleton3D/Entity_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -443,6 +462,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Dog":{
+		"Name": "Dog",
 		"Mesh_Node":"Dog_Ear_Armature/Skeleton3D/Dog_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -471,6 +491,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Bunny":{
+		"Name": "Bunny",
 		"Mesh_Node":"Bunny_Ear_Armature/Skeleton3D/Bunny_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -499,6 +520,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Ears/Fluffy":{
+		"Name": "Fluffy",
 		"Mesh_Node":"Fluffy_Ear_Armature/Skeleton3D/Fluffy_Ears",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -528,6 +550,7 @@ var Mesh_Data_Assets = {
 	},
 	##Extra
 	"Extra/Shark":{
+		"Name": "Shark",
 		"Mesh_Node":"Armature/Skeleton3D/Shark_Extra",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -536,6 +559,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Extra/Nub":{
+		"Name": "Nub",
 		"Mesh_Node":"Armature/Skeleton3D/Nub_Extra",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -544,6 +568,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Extra/Antler":{
+		"Name": "Antler",
 		"Mesh_Node":"Armature/Skeleton3D/Antler_Extra",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -552,6 +577,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Extra/Ram":{
+		"Name": "Ram",
 		"Mesh_Node":"Armature/Skeleton3D/Ram_Extra",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -560,6 +586,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Extra/Fish":{
+		"Name": "Fish",
 		"Mesh_Node":"Armature/Skeleton3D/Fish_Extra",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -568,6 +595,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Extra/Narwhal":{
+		"Name": "Narwhal",
 		"Mesh_Node":"Armature/Skeleton3D/Narwhal_Extra",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -576,6 +604,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Extra/Dragon":{
+		"Name": "Dragon",
 		"Mesh_Node":"Armature/Skeleton3D/Dragon_Extra",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -585,6 +614,7 @@ var Mesh_Data_Assets = {
 	},
 	##Wings
 	"Wings/Entity":{
+		"Name": "Entity",
 		"Mesh_Node":"Entity_Wings_Armature/Skeleton3D/Entity_Wings",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -593,6 +623,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Wings/Angel":{
+		"Name": "Angel",
 		"Mesh_Node":"Angel_Wings_Armature/Skeleton3D/Angel_Wings",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -601,6 +632,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Wings/Butterfly":{
+		"Name": "Butterfly",
 		"Mesh_Node":"Butterfly_Wings_Armature/Skeleton3D/Butterfly_Wings",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -609,6 +641,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Wings/Wasp":{
+		"Name": "Wasp",
 		"Mesh_Node":"Wasp_Wings_Armature/Skeleton3D/Wasp_Wings",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -617,6 +650,7 @@ var Mesh_Data_Assets = {
 		"Data":[],
 	},
 	"Wings/Dragon":{
+		"Name": "Dragon",
 		"Mesh_Node":"Dragon_Wings_Armature/Skeleton3D/Dragon_Wings",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -626,6 +660,7 @@ var Mesh_Data_Assets = {
 	},
 	##Tail
 	"Tails/Cat":{
+		"Name": "Cat",
 		"Mesh_Node":"Cat_Tail_Armature/Skeleton3D/Cat_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -647,6 +682,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Fox":{
+		"Name": "Fox",
 		"Mesh_Node":"Fox_Tail_Armature/Skeleton3D/Fox_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -668,6 +704,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Wolf":{
+		"Name": "Wolf",
 		"Mesh_Node":"Wolf_Tail_Armature/Skeleton3D/Wolf_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -689,6 +726,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Bug":{
+		"Name": "Bug",
 		"Mesh_Node":"Bug_Tail_Armature/Skeleton3D/Bug_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -710,6 +748,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Bee":{
+		"Name": "Bee",
 		"Mesh_Node":"Bee_Tail_Armature/Skeleton3D/Bee_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -731,6 +770,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Moth":{
+		"Name": "Moth",
 		"Mesh_Node":"Moth_Tail_Armature/Skeleton3D/Moth_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -752,6 +792,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Dog":{
+		"Name": "Dog",
 		"Mesh_Node":"Dog_Tail_Armature/Skeleton3D/Dog_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -773,6 +814,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Mouse":{
+		"Name": "Mouse",
 		"Mesh_Node":"Mouse_Tail_Armature/Skeleton3D/Mouse_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -794,6 +836,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Fluffy":{
+		"Name": "Fluffy",
 		"Mesh_Node":"Fluffy_Tail_Armature/Skeleton3D/Fluffy_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -815,6 +858,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Shark":{
+		"Name": "Shark",
 		"Mesh_Node":"Shark_Tail_Armature/Skeleton3D/Shark_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -836,6 +880,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Entity":{
+		"Name": "Entity",
 		"Mesh_Node":"Entity_Tail_Armature/Skeleton3D/Entity_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -857,6 +902,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Bunny":{
+		"Name": "Bunny",
 		"Mesh_Node":"Bunny_Tail_Armature/Skeleton3D/Bunny_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -878,6 +924,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Deer":{
+		"Name": "Deer",
 		"Mesh_Node":"Deer_Tail_Armature/Skeleton3D/Deer_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -899,6 +946,7 @@ var Mesh_Data_Assets = {
 		}
 	},
 	"Tails/Dragon":{
+		"Name": "Dragon",
 		"Mesh_Node":"Dragon_Tail_Armature/Skeleton3D/Dragon_Tail",
 		"MaterialID":"User",
 		"Has_Blendshapes":false,
@@ -921,6 +969,7 @@ var Mesh_Data_Assets = {
 	},
 	##Head Clothes
 	"Head_Clothes/Goggle_Test":{
+		"Name": "Goggles",
 		"Mesh_Node":"Armature/Skeleton3D/Cube_002",
 		"MaterialID":"Goggle_Test_Mat",
 		"Has_Blendshapes":true,
@@ -930,6 +979,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{},
 	},
 	"Head_Clothes/Orb_Test":{
+		"Name": "Orb",
 		"Mesh_Node":"Armature/Skeleton3D/Icosphere",
 		"MaterialID":"Orb_Test_Mat",
 		"Has_Blendshapes":false,
@@ -939,6 +989,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{},
 	},
 	"Head_Clothes/DotMouse_Hat":{
+		"Name": "Dotmouse",
 		"Mesh_Node":"Armature/Skeleton3D/DotMouseHat",
 		"MaterialID":"DotMouse_Hat_Mat",
 		"Has_Blendshapes":false,
@@ -949,6 +1000,7 @@ var Mesh_Data_Assets = {
 	},
 	#Halloween Stuff
 	"Head_Clothes/Pumpkin_Head_Cute_1":{
+		"Name": "Pumpkin",
 		"Override_Model":Model_Data_Assets["Head_Clothes/Pumpkin_Head"],
 		"Mesh_Node":"Armature/Skeleton3D/Pumpkin",
 		"MaterialID":"Pumpkin_Cute_1",
@@ -959,6 +1011,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{},
 	},
 	"Head_Clothes/Devil_Head":{
+		"Name": "Devil",
 		"Mesh_Node":"Armature/Skeleton3D/Devil",
 		"MaterialID":"Devil_Cute_1",
 		"Has_Blendshapes":false,
@@ -968,6 +1021,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{},
 	},
 	"Head_Clothes/Witch_Head":{
+		"Name": "Witch",
 		"Mesh_Node":"Armature/Skeleton3D/Witch",
 		"MaterialID":"Witch_Cute_1",
 		"Has_Blendshapes":false,
@@ -978,6 +1032,7 @@ var Mesh_Data_Assets = {
 	},
 	##Chest Clothes
 	"Chest_Clothes/Trad_Pride_Bandanna":{
+		"Name": "LGBT Bandanna",
 		"Override_Model":Model_Data_Assets["Chest_Clothes/Pride_Bandana"],
 		"Mesh_Node":"Armature/Skeleton3D/Cube_001",
 		"MaterialID":"Trad_Pride_Bandana_Mat",
@@ -988,6 +1043,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{},
 	},
 	"Chest_Clothes/Trans_Pride_Bandanna":{
+		"Name": "Trans Bandanna",
 		"Override_Model":Model_Data_Assets["Chest_Clothes/Pride_Bandana"],
 		"Mesh_Node":"Armature/Skeleton3D/Cube_001",
 		"MaterialID":"Trans_Pride_Bandana_Mat",
@@ -999,6 +1055,7 @@ var Mesh_Data_Assets = {
 	},
 	##Back Clothes
 	"Back_Clothes/Trad_Pride_Cape":{
+		"Name": "LGBT Cape",
 		"Override_Model":Model_Data_Assets["Back_Clothes/Cape_1"],
 		"Mesh_Node":"Cape_Armature/Skeleton3D/Cape",
 		"MaterialID":"Trad_Pride_Bandana_Mat",
@@ -1107,8 +1164,9 @@ var Head_Slot = [
 	#Halloween Stuff
 	"Head_Clothes/Pumpkin_Head_Cute_1",
 	"Head_Clothes/Devil_Head",
-	"Head_Clothes/Witch_Head"
-	]
+	"Head_Clothes/Witch_Head"]
+var Face_Slot = [
+	"",]
 var Chest_Slot = [
 	"",
 	"Chest_Clothes/Trad_Pride_Bandanna",
@@ -1116,8 +1174,11 @@ var Chest_Slot = [
 	]
 var Back_Slot = [
 	"",
-	"Back_Clothes/Trad_Pride_Cape"
-	]
+	"Back_Clothes/Trad_Pride_Cape"]
+var L_Hip_Slot = [
+	"",]
+var R_Hip_Slot = [
+	"",]
 #--
 
 var Item_Data_Assets ={

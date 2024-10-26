@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=95 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -35,6 +35,13 @@
 [ext_resource type="Texture2D" uid="uid://17s5v24q7uxf" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Journal.png" id="29_dbeuu"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="31_3586r"]
 [ext_resource type="FontFile" uid="uid://boi1e108why6s" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code Italic.ttf" id="32_86pgu"]
+
+[sub_resource type="Gradient" id="Gradient_pvti5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_748mb"]
+gradient = SubResource("Gradient_pvti5")
+width = 80
+height = 80
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_o7lx1"]
 color = Color(1, 1, 1, 1)
@@ -493,7 +500,6 @@ texture_hover = ExtResource("14_lehqb")
 texture_focused = ExtResource("14_lehqb")
 
 [node name="Character_Screen" type="Control" parent="Wallpaper"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -511,49 +517,190 @@ texture = ExtResource("19_peyqs")
 
 [node name="GridContainer" type="GridContainer" parent="Wallpaper/Character_Screen/Parts"]
 layout_mode = 2
-offset_left = 22.0
-offset_top = 4.0
-offset_right = 176.0
-offset_bottom = 100.0
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 4
-columns = 3
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 159.0
+offset_bottom = 101.0
+theme_override_constants/h_separation = -9
+theme_override_constants/v_separation = -1
+columns = 4
 
-[node name="TextureButton" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+[node name="Head_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("19_vuf1e")
 texture_pressed = ExtResource("19_vuf1e")
 texture_hover = ExtResource("20_7wift")
 
-[node name="TextureButton2" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Parts/GridContainer/Head_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.66
+offset_bottom = 0.560001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Head"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Face_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("19_vuf1e")
 texture_pressed = ExtResource("19_vuf1e")
 texture_hover = ExtResource("20_7wift")
 
-[node name="TextureButton3" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+[node name="Label2" type="Label" parent="Wallpaper/Character_Screen/Parts/GridContainer/Face_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.66
+offset_bottom = 0.560001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Face"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="L_Hip_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("19_vuf1e")
 texture_pressed = ExtResource("19_vuf1e")
 texture_hover = ExtResource("20_7wift")
 
-[node name="TextureButton4" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+[node name="Label5" type="Label" parent="Wallpaper/Character_Screen/Parts/GridContainer/L_Hip_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.66
+offset_bottom = 0.560001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "L_Hip"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="L_Hand_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("19_vuf1e")
 texture_pressed = ExtResource("19_vuf1e")
 texture_hover = ExtResource("20_7wift")
 
-[node name="TextureButton5" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+[node name="Label5" type="Label" parent="Wallpaper/Character_Screen/Parts/GridContainer/L_Hand_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.66
+offset_bottom = 0.560001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "L_Hand"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Back_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("19_vuf1e")
 texture_pressed = ExtResource("19_vuf1e")
 texture_hover = ExtResource("20_7wift")
 
-[node name="TextureButton6" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+[node name="Label3" type="Label" parent="Wallpaper/Character_Screen/Parts/GridContainer/Back_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.66
+offset_bottom = 0.560001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Chest_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("19_vuf1e")
 texture_pressed = ExtResource("19_vuf1e")
 texture_hover = ExtResource("20_7wift")
+
+[node name="Label4" type="Label" parent="Wallpaper/Character_Screen/Parts/GridContainer/Chest_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.83
+offset_right = -3.83
+offset_bottom = 0.560001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Chest"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="R_Hip_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_vuf1e")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="Label6" type="Label" parent="Wallpaper/Character_Screen/Parts/GridContainer/R_Hip_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.66
+offset_bottom = 0.560001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "R_Hip"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="R_Hand_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Parts/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_vuf1e")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="Label6" type="Label" parent="Wallpaper/Character_Screen/Parts/GridContainer/R_Hand_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.66
+offset_bottom = 0.560001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "R_Hand"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Options" type="TextureRect" parent="Wallpaper/Character_Screen"]
 clip_contents = true
@@ -563,6 +710,47 @@ offset_top = 34.0
 offset_right = 427.0
 offset_bottom = 353.0
 texture = ExtResource("17_po7ah")
+
+[node name="Template_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Options"]
+visible = false
+layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 84.0
+offset_bottom = 84.0
+texture_normal = SubResource("GradientTexture2D_748mb")
+texture_pressed = ExtResource("19_vuf1e")
+texture_hover = ExtResource("20_7wift")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Options/Template_Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 9
+text = "LGBT Bandanna"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Wallpaper/Character_Screen/Options"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 124.0
+offset_bottom = 319.0
+theme = ExtResource("2_f3wu7")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer2" type="GridContainer" parent="Wallpaper/Character_Screen/Options/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 16
+columns = 2
 
 [node name="Preview" type="TextureRect" parent="Wallpaper/Character_Screen"]
 clip_contents = true
@@ -683,6 +871,11 @@ theme_override_fonts/font = ExtResource("22_u408p")
 theme_override_font_sizes/font_size = 12
 text = "Tails"
 
+[node name="Label2" type="Label" parent="Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Control" type="HSeparator" parent="Wallpaper/Character_Screen/Preview/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_lpvvo")
@@ -785,7 +978,7 @@ handle_input_locally = false
 msaa_3d = 2
 use_debanding = true
 size = Vector2i(132, 180)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Character_Editor" parent="Wallpaper/Character_Screen/SubViewportContainer/SubViewport" instance=ExtResource("4_ui7sq")]
 
@@ -799,7 +992,61 @@ mouse_filter = 2
 texture = ExtResource("20_06l3h")
 metadata/_edit_lock_ = true
 
+[node name="Label2" type="Label" parent="Wallpaper/Character_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 239.0
+offset_right = 24.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.582884, 0, 0.660156, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Items"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="Wallpaper/Character_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 18.0
+offset_right = 49.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.582884, 0, 0.660156, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Character"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label4" type="Label" parent="Wallpaper/Character_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 247.0
+offset_top = 18.0
+offset_right = 282.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.582884, 0, 0.660156, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Asset Editor"
+vertical_alignment = 2
+
 [node name="Journal_Screen" type="Control" parent="Wallpaper"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

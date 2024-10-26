@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 func Look_At_Range_Enter(Body:Node3D):
 	if Body.is_in_group("Player"):
 		print("Looking!")
-		get_parent().Look_At = Body.get_node("Hub/Head")
+		##get_parent().Look_At = Body.get_node("Hub/Head")
 	
 func Look_At_Range_Exit(Body:Node3D):
 	if Body.is_in_group("Player"):

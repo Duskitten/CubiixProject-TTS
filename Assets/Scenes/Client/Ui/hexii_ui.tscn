@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bmqym3jemx6x1"]
+[gd_scene load_steps=55 format=3 uid="uid://bmqym3jemx6x1"]
 
 [ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://Assets/Textures/UI/In-Game/Phone_Backing.png" id="1_bfryu"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="2_s0t65"]
@@ -14,6 +14,18 @@
 texture = ExtResource("1_bfryu")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ov6bm"]
+
+[sub_resource type="Gradient" id="Gradient_rv0in"]
+colors = PackedColorArray(0.335938, 0.335938, 0.335938, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_npmny"]
+gradient = SubResource("Gradient_rv0in")
+fill = 1
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvyc1"]
+texture = SubResource("GradientTexture2D_npmny")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rro7q"]
 bg_color = Color(0.137272, 0.0943, 0.23, 1)
@@ -95,11 +107,10 @@ border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2m8d"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlhlj"]
-bg_color = Color(0.142966, 0.111562, 0.25, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqsm"]
-bg_color = Color(0.259125, 0.202206, 0.453125, 1)
+bg_color = Color(0.527041, 0.536537, 0.550781, 0.490196)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ollt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a06nl"]
 
@@ -265,7 +276,7 @@ offset_left = 15.8485
 offset_top = 15.6111
 offset_right = -16.8485
 offset_bottom = -17.0298
-theme_override_styles/panel = SubResource("StyleBoxFlat_rro7q")
+theme_override_styles/panel = SubResource("StyleBoxTexture_pvyc1")
 metadata/_edit_use_anchors_ = true
 
 [node name="Login_Screen" type="Control" parent="Overlay/Screens"]
@@ -999,8 +1010,8 @@ offset_right = 219.0
 offset_bottom = 226.0
 theme = ExtResource("5_adsjc")
 theme_override_font_sizes/font_size = 13
-theme_override_styles/focus = SubResource("StyleBoxFlat_nlhlj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_2cqsm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2cqsm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2ollt")
 placeholder_text = "<Click to type>"
 
 [node name="Template_Text" type="RichTextLabel" parent="Overlay/Screens/Chat_Screen/Panel"]

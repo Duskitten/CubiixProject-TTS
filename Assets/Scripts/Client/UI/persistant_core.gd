@@ -74,10 +74,11 @@ func _process(delta: float) -> void:
 	elif (!$CanvasLayer/Hexii_Tablet_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) || !$CanvasLayer/Hexii_Tablet_UI.visible) && (!$CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) || !$CanvasLayer/Hexii_UI.visible):
 		_on_area_2d_mouse_exited()
 	
-	if Input.is_action_just_pressed("sub_menu"):
-		Hexii_Ui_Tablet.visible = !Hexii_Ui_Tablet.visible
-	if Input.is_action_just_pressed("chat_menu"):
-		Hexii_Ui.visible = !Hexii_Ui.visible
+	if !Menu_Focused:
+		if Input.is_action_just_pressed("sub_menu"):
+			Hexii_Ui_Tablet.visible = !Hexii_Ui_Tablet.visible
+		if Input.is_action_just_pressed("chat_menu"):
+			Hexii_Ui.visible = !Hexii_Ui.visible
 #############################
 ###### Hexii UI System ######
 #############################
@@ -265,3 +266,9 @@ func _on_line_edit_focus_exited() -> void:
 func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 	if str(meta).begins_with("openURL, "):
 		OS.shell_open("https://"+str(meta).lstrip("openURL, "))
+
+func _on_part_button_pressed(PartData: String) -> void:
+	if PartData.begins_with("Color, "):
+		print(PartData.lstrip("Color, "))
+	else:
+		print(PartData)
