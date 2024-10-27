@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=31 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://4x8mk84readb" path="res://Assets/Textures/UI/Map_Screenshots/screenshot_hexstaria_village.png" id="4_hsy5v"]
 [ext_resource type="AnimationLibrary" uid="uid://cmwufqqj34wma" path="res://Assets/Animations/UI/Tile_Slide.tres" id="4_ylswe"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="5_1jexs"]
+[ext_resource type="Script" path="res://Assets/Scripts/Client/UI/Slide_Char.gd" id="5_ayhcd"]
 [ext_resource type="PackedScene" uid="uid://hrgnkcktrbta" path="res://Assets/Scenes/Client/Ui/hexii_tablet_ui.tscn" id="5_d7p8w"]
 [ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="10_i2prw"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="10_mbyra"]
@@ -279,13 +280,8 @@ offset_bottom = 0.360001
 [node name="Label6" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts/GridContainer/R_Hand_Button" index="0"]
 offset_bottom = 0.360001
 
-[node name="Skeleton3D" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model" index="0"]
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/2/position = Vector3(0, 0.254852, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/2/scale = Vector3(1, 1, 1)
-bones/15/position = Vector3(0, 0.12722, 0)
-bones/17/position = Vector3(0, 0.12722, 0)
+[node name="SubViewport" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer" index="0"]
+script = ExtResource("5_ayhcd")
 
 [node name="RichTextLabel" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer" index="4"]
 text = "Hello! Thank you for trying out my game, it has been something I have put in alot of time and effort into.
@@ -407,7 +403,6 @@ position = Vector2(-11, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 2
 
 [node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -492,7 +487,6 @@ expand_mode = 5
 visible = false
 
 [node name="Node3D" type="Node3D" parent="."]
-visible = false
 
 [node name="Player" parent="Node3D" instance=ExtResource("10_i2prw")]
 Ears = 1
@@ -510,17 +504,12 @@ Is_Player = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Node3D/Player/Hub/Cubiix_Model" index="0"]
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/2/position = Vector3(0, 0.254852, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/scale = Vector3(1, 1, 1)
 bones/9/scale = Vector3(1, 1, 1)
-bones/15/position = Vector3(0, 0.12722, 0)
 bones/15/scale = Vector3(1, 1, 1)
-bones/17/position = Vector3(0, 0.12722, 0)
 
 [node name="Cube" parent="Node3D/Player/Hub/Cubiix_Model/Skeleton3D" index="0"]
 layers = 1

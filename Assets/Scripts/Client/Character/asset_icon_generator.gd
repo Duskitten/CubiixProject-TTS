@@ -25,10 +25,10 @@ enum BACK_ENUM {None, Trad_Pride_Cape}
 
 var DynBones_Register = {}
 var Skeleton_Values = {}
-#func _ready() -> void:
+func _ready() -> void:
 	#for i in TAIL_ENUM.size():
-		#Tail = i
-		#Regen_Character(Core.AssetData.Tail_Slot[i])
+	Ears = EAR_ENUM.Fluffy
+	Regen_Character(Core.AssetData.Ear_Slot[EAR_ENUM.Fluffy])
 		#await Screenshotted
 
 @onready var Skeleton:Skeleton3D = $Cubiix_Base/Armature/Skeleton3D

@@ -114,8 +114,9 @@ func Regen_Character():
 	Skeleton.remove_child(LeftHandPoint)
 	Skeleton.remove_child(RightHandPoint)
 	Skeleton = base_model.get_node("Skeleton3D")
-	Skeleton.get_node("ProxyLeftHandPoint").queue_free()
-	Skeleton.get_node("ProxyRightHandPoint").queue_free()
+	if !Is_UI:
+		Skeleton.get_node("ProxyLeftHandPoint").queue_free()
+		Skeleton.get_node("ProxyRightHandPoint").queue_free()
 	MeshObj = Skeleton.get_node("Cube")
 	DynBones = DynBone.new()
 	#for i in stored_items.keys():
@@ -150,7 +151,7 @@ func Regen_Character():
 	charmat.set_shader_parameter("emiss_Body4",Body_Emiss_4)
 	
 	Anim_Tree.active = true
-	if Is_Player:
+	if Is_Player || Is_UI:
 		Skeleton.add_child(DynBones)
 		DynBones.DynBones_Register = DynBones_Register.duplicate(true)
 		DynBones.first_run()

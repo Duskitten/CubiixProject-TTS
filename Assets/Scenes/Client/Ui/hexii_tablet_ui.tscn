@@ -713,24 +713,31 @@ texture = ExtResource("17_po7ah")
 
 [node name="Template_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Options"]
 visible = false
+custom_minimum_size = Vector2(0, 97.12)
 layout_mode = 2
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 84.0
-offset_bottom = 84.0
+offset_bottom = 101.12
 texture_normal = SubResource("GradientTexture2D_748mb")
 texture_pressed = ExtResource("19_vuf1e")
 texture_hover = ExtResource("20_7wift")
 
 [node name="Label" type="Label" parent="Wallpaper/Character_Screen/Options/Template_Button"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 14.0
+anchor_bottom = 0.818
+offset_bottom = 14.5558
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.171875, 0.171875, 0.171875, 1)
+theme_override_colors/font_color = Color(0.953125, 0.953125, 0.953125, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = ExtResource("22_u408p")
 theme_override_font_sizes/font_size = 9
 text = "LGBT Bandanna"

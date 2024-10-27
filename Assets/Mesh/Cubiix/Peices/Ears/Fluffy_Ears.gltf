@@ -297,13 +297,20 @@
 	"materials":[
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				1,
+				1
+			],
+			"emissiveTexture":{
+				"index":0
+			},
 			"name":"Material",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":0
+					"index":1
 				},
-				"metallicFactor":0,
-				"roughnessFactor":0.6102362275123596
+				"metallicFactor":0
 			}
 		}
 	],
@@ -326,6 +333,10 @@
 		}
 	],
 	"textures":[
+		{
+			"sampler":0,
+			"source":0
+		},
 		{
 			"sampler":0,
 			"source":0

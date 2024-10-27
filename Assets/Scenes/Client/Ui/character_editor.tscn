@@ -65,9 +65,6 @@ floor_block_on_wall = false
 platform_floor_layers = 1
 platform_wall_layers = 1
 script = ExtResource("1_enbgk")
-Eyes = 1
-Extra = 1
-Head = 3
 Body_1 = Color(0.730469, 0.250963, 0.261863, 1)
 Body_2 = Color(0.546875, 0.546875, 0.546875, 1)
 Body_3 = Color(0, 0.763226, 0.808594, 1)
@@ -80,6 +77,10 @@ Is_UI = true
 
 [node name="Skeleton3D" parent="Cubiix_Base/Hub/Cubiix_Model" index="0"]
 bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/2/position = Vector3(0, 0.254852, 0)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/2/scale = Vector3(1, 1, 1)
 bones/3/position = Vector3(-0.327326, 0.134334, 0)
 bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/4/rotation = Quaternion(0, 0, 0, 1)
@@ -93,8 +94,10 @@ bones/10/rotation = Quaternion(0, 0, 0, 1)
 bones/11/rotation = Quaternion(0, 0, 0, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
 bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/position = Vector3(0, 0.12722, 0)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/position = Vector3(0, 0.12722, 0)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Cube" parent="Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
@@ -149,10 +152,15 @@ shadow_blur = 0.0
 directional_shadow_mode = 0
 directional_shadow_max_distance = 4.0
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Y" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76429, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.997452, 0.0713408, 0, -0.0713408, 0.997452, 0, 0.812616, 2.68435)
+[node name="X" type="Node3D" parent="Y"]
+
+[node name="Z" type="Node3D" parent="Y/X"]
+
+[node name="Camera3D" type="Camera3D" parent="Y/X/Z"]
+transform = Transform3D(1, 0, 0, 0, 0.997452, 0.0713408, 0, -0.0713408, 0.997452, 0, 0, 2.684)
 environment = SubResource("Environment_eawu4")
 current = true
 fov = 30.2

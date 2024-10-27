@@ -1032,7 +1032,7 @@ var Mesh_Data_Assets = {
 	},
 	##Chest Clothes
 	"Chest_Clothes/Trad_Pride_Bandanna":{
-		"Name": "LGBT Bandanna",
+		"Name": "LGBT Band",
 		"Override_Model":Model_Data_Assets["Chest_Clothes/Pride_Bandana"],
 		"Mesh_Node":"Armature/Skeleton3D/Cube_001",
 		"MaterialID":"Trad_Pride_Bandana_Mat",
@@ -1043,7 +1043,7 @@ var Mesh_Data_Assets = {
 		"BlendData":{},
 	},
 	"Chest_Clothes/Trans_Pride_Bandanna":{
-		"Name": "Trans Bandanna",
+		"Name": "Trans Band",
 		"Override_Model":Model_Data_Assets["Chest_Clothes/Pride_Bandana"],
 		"Mesh_Node":"Armature/Skeleton3D/Cube_001",
 		"MaterialID":"Trans_Pride_Bandana_Mat",
@@ -1178,6 +1178,10 @@ var Back_Slot = [
 var L_Hip_Slot = [
 	"",]
 var R_Hip_Slot = [
+	"",]
+var L_Hand_Slot = [
+	"",]
+var R_Hand_Slot = [
 	"",]
 #--
 

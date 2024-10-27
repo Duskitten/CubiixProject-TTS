@@ -1,4 +1,5 @@
 extends Node
+@onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
 @onready var Dialogue = $CanvasLayer/Dialogue
 @onready var Transitioner = $CanvasLayer/Transitioner
@@ -108,6 +109,7 @@ var window_lock = false
 
 
 
+
 func button_check(buttonID) -> void:
 	
 	if !window_lock:
@@ -163,6 +165,77 @@ func Hexii_UI_Transition(anim_1,  componentName, anim_2, component2Name, device:
 			get(Active_Hexii_Ui_Tablet_Screen_Anim).play(anim_2)
 			Active_Hexii_Ui_Tablet_Screen_Anim = componentName
 
+#######################################
+###### Tablet Char Screen System ######
+#######################################
+
+@onready var Hexii_Ui_Tablet_Character_Template_Part = Hexii_Ui_Tablet.get_node("Wallpaper/Character_Screen/Options/Template_Button")
+
+func _on_part_button_pressed(PartData: String) -> void:
+	if PartData.begins_with("Color, "):
+		print(PartData.lstrip("Color, "))
+	else:
+		for i in $CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.get_children():
+			i.queue_free()
+
+		for i in Core.AssetData.get(PartData+"_Slot"):
+			var x:String = i
+			var New_Part = Hexii_Ui_Tablet_Character_Template_Part.duplicate()
+			
+			var main_texture = null
+			
+			if i == "":
+				if PartData != "Extra":
+					i = PartData+"s/None"
+					main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+i.replace("/","_")+".png")
+				else:
+					i = PartData+"/None"
+					main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+i.replace("/","_")+".png")
+			else:
+				if PartData != "Extra":
+					main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+x.replace("/","_")+".png")
+				else:
+					main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+x.replace("/","_")+".png")
+			
+			if main_texture != null:
+				
+				(New_Part as TextureButton).texture_normal = main_texture
+				(New_Part as TextureButton).texture_pressed = main_texture
+				var newtexture = main_texture.duplicate()
+				var modTexture = newtexture.get_image()
+				
+				var backTexture = Image.create_empty(80,80,false,Image.FORMAT_RGBA8)
+				backTexture.fill(Color(1,1,1,.5))
+				backTexture.blend_rect(modTexture,Rect2i(0,0,80,80),Vector2i.ZERO)
+				
+				newtexture = ImageTexture.create_from_image(backTexture)
+				(New_Part as TextureButton).texture_hover = newtexture
+				
+			if (i as String).ends_with("None"):
+				New_Part.get_node("Label").text = "None.gltf"
+			else:
+				New_Part.get_node("Label").text = Core.AssetData.Mesh_Data_Assets[i]["Name"]+".gltf"
+				
+			if PartData == "Ear" || PartData == "Wing" || PartData == "Extra" || PartData == "Eye" || PartData == "Tail":
+				
+				var pt = Core.AssetData.get(PartData+"_Slot")
+				var n = PartData
+				if PartData != "Extra" && PartData != "Tail":
+					n = PartData+"s"
+				if (i as String).ends_with("None"):
+					New_Part.pressed.connect(change_part.bind(n,0))
+				else:
+					New_Part.pressed.connect(change_part.bind(n,pt.find(i)))
+					
+				
+			$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.add_child(New_Part)
+			New_Part.visible = true
+			#print(i)
+
+func change_part(Core_Part:String, Part:int) -> void:
+	print(Core_Part," , ",Part)
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base.set(Core_Part,Part)
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base.Regen_Character()
 #################################
 ###### Title Screen System ######
 #################################
@@ -266,9 +339,3 @@ func _on_line_edit_focus_exited() -> void:
 func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 	if str(meta).begins_with("openURL, "):
 		OS.shell_open("https://"+str(meta).lstrip("openURL, "))
-
-func _on_part_button_pressed(PartData: String) -> void:
-	if PartData.begins_with("Color, "):
-		print(PartData.lstrip("Color, "))
-	else:
-		print(PartData)
