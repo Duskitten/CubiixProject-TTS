@@ -709,9 +709,6 @@ Body_1 = Color(0.390625, 0.377604, 0.585938, 1)
 Body_2 = Color(0.640625, 0.333535, 0.0492594, 1)
 Body_3 = Color(0.752941, 0.158561, 0.175416, 1)
 Body_4 = Color(0.752941, 0.156863, 0.176471, 1)
-Body_Emiss_2 = Color(0.8, 0.395, 0, 1)
-Body_Emiss_3 = Color(0.752941, 0.156863, 0.176471, 1)
-Body_Emiss_4 = Color(0.752941, 0.156863, 0.176471, 1)
 
 [node name="NPC_Function" parent="NPC/Ki" instance=ExtResource("20_tk2ss")]
 Character = &"Ki"
@@ -735,9 +732,6 @@ Body_1 = Color(0.309804, 0.309804, 0.4, 1)
 Body_2 = Color(0.462891, 0.462891, 0.597656, 1)
 Body_3 = Color(0, 1, 1, 1)
 Body_4 = Color(0, 1, 1, 1)
-Body_Emiss_2 = Color(0.462745, 0.462745, 0.596078, 1)
-Body_Emiss_3 = Color(0.380392, 0.666667, 0.721569, 1)
-Body_Emiss_4 = Color(0.380392, 0.666667, 0.721569, 1)
 
 [node name="NPC_Function" parent="NPC/Skim" instance=ExtResource("20_tk2ss")]
 Character = &"Skim"
@@ -761,9 +755,6 @@ Body_1 = Color(0.224035, 0.761719, 0.570542, 1)
 Body_2 = Color(0.321617, 0.648438, 0.544963, 1)
 Body_3 = Color(0.447059, 1, 0.909804, 1)
 Body_4 = Color(0.447059, 1, 0.909804, 1)
-Body_Emiss_2 = Color(0.321569, 0.647059, 0.545098, 1)
-Body_Emiss_3 = Color(0.447059, 1, 0.909804, 1)
-Body_Emiss_4 = Color(0.447059, 1, 0.909804, 1)
 
 [node name="NPC_Function" parent="NPC/Nat" instance=ExtResource("20_tk2ss")]
 Character = &"Nat"
@@ -787,9 +778,6 @@ Body_1 = Color(0.35536, 0.367188, 0.364421, 1)
 Body_2 = Color(0.542497, 0.574219, 0.56992, 1)
 Body_3 = Color(0.40917, 0.322917, 0.460938, 1)
 Body_4 = Color(0.407843, 0.321569, 0.462745, 1)
-Body_Emiss_2 = Color(0.593967, 0.628906, 0.623531, 1)
-Body_Emiss_3 = Color(0.915754, 0.403737, 1, 1)
-Body_Emiss_4 = Color(0.917647, 0.403922, 1, 1)
 
 [node name="NPC_Function" parent="NPC/Dusk" instance=ExtResource("20_tk2ss")]
 Character = &"Dusk"

@@ -100,9 +100,6 @@ bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/position = Vector3(0, 0.12722, 0)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
-[node name="Cube" parent="Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
-surface_material_override/0 = null
-
 [node name="AnimationTree" parent="Cubiix_Base/Hub/Cubiix_Model" index="2"]
 parameters/Blend2/blend_amount = 0
 
@@ -113,17 +110,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="Head" type="Node3D" parent="Cubiix_Base/Hub"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494852, 0)
-
-[node name="Lerped_Head" type="Node3D" parent="Cubiix_Base/Hub"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494852, 0)
-
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Cubiix_Base/Hub/Lerped_Head"]
-transform = Transform3D(1, 0.000343971, 0.000427783, -0.000343709, 1, -0.00061229, -0.000428021, 0.000612143, 1, 0, 0.00149581, 0)
-bone_name = "Head"
-bone_idx = 2
-override_pose = true
-use_external_skeleton = true
-external_skeleton = NodePath("../../Cubiix_Model/Skeleton3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cubiix_Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

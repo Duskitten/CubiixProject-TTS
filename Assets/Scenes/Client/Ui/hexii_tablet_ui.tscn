@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=105 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://byjff2db5wwqy" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Collections_Normal.png" id="13_vve87"]
 [ext_resource type="Texture2D" uid="uid://cep7hj872sp05" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Journal_Hover.png" id="14_lehqb"]
 [ext_resource type="Texture2D" uid="uid://c8plj3261h3hq" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Collections_Hover.png" id="14_x0hah"]
-[ext_resource type="Texture2D" uid="uid://cxqe51ju1at61" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_big.png" id="17_po7ah"]
 [ext_resource type="Texture2D" uid="uid://bv88l5lmf0w1q" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_med.png" id="18_n3ib1"]
 [ext_resource type="Texture2D" uid="uid://buk6iatm82ese" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Short_Normal.png" id="19_goiuj"]
 [ext_resource type="Texture2D" uid="uid://bcm3p5cpd0pbr" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_small.png" id="19_peyqs"]
@@ -28,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://yrvu7w48om4p" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Short_Hover.png" id="20_2j1hx"]
 [ext_resource type="Texture2D" uid="uid://dkji8bodqlyhv" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character.png" id="20_06l3h"]
 [ext_resource type="Texture2D" uid="uid://d28iijjfc87s8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Small_Item_Hover.png" id="20_7wift"]
+[ext_resource type="Texture2D" uid="uid://dunyn1pah5lx6" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_big_2.png" id="21_kdt3d"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://Assets/Fonts/Jura/Jura-Bold.ttf" id="22_u408p"]
 [ext_resource type="Texture2D" uid="uid://b826lby5iuk56" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Journal_big.png" id="25_n0j87"]
 [ext_resource type="Texture2D" uid="uid://c0woqqtra3nmy" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Long_Normal.png" id="27_t3w3u"]
@@ -42,6 +42,47 @@
 gradient = SubResource("Gradient_pvti5")
 width = 80
 height = 80
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rwf05"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vly2"]
+bg_color = Color(0.642157, 0.773134, 0.945313, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.722656, 0.722656, 0.722656, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a55ub"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.722656, 0.722656, 0.722656, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqxjv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1ojy"]
+
+[sub_resource type="Gradient" id="Gradient_sqw08"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_05kal"]
+gradient = SubResource("Gradient_sqw08")
+width = 2
+height = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3e4h"]
+expand_margin_top = 2.0
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5o6dm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xs253"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_o7lx1"]
 color = Color(1, 1, 1, 1)
@@ -709,7 +750,7 @@ offset_left = 244.0
 offset_top = 34.0
 offset_right = 427.0
 offset_bottom = 353.0
-texture = ExtResource("17_po7ah")
+texture = ExtResource("21_kdt3d")
 
 [node name="Template_Button" type="TextureButton" parent="Wallpaper/Character_Screen/Options"]
 visible = false
@@ -731,15 +772,12 @@ anchor_bottom = 0.818
 offset_bottom = 14.5558
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.953125, 0.953125, 0.953125, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.435294)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 1
-theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = ExtResource("22_u408p")
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 11
 text = "LGBT Bandanna"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -758,6 +796,562 @@ layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 16
 columns = 2
+
+[node name="Color_Picker" type="TextureRect" parent="Wallpaper/Character_Screen"]
+clip_contents = true
+layout_mode = 2
+offset_left = 244.0
+offset_top = 34.0
+offset_right = 427.0
+offset_bottom = 353.0
+texture = ExtResource("21_kdt3d")
+
+[node name="ScrollContainer_Color" type="ScrollContainer" parent="Wallpaper/Character_Screen/Color_Picker"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 182.0
+offset_bottom = 319.0
+theme = ExtResource("2_f3wu7")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer2" type="VBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Label12" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 18
+text = "Base Color"
+
+[node name="HSeparator2" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Base_Color_Rect" type="ColorRect" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HSeparator5" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Hex:"
+
+[node name="Hex_Input" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Hex_Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "#FFFFFF"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Hex_Input"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label2" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "R:   "
+
+[node name="R" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/R"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "255"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/R"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/R"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 255.0
+value = 255.0
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/R"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator3" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label3" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "G:  "
+
+[node name="G" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/G"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "255"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/G"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/G"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 255.0
+value = 255.0
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/G"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator4" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label4" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "B:  "
+
+[node name="B" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/B"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "255"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/B"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/B"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 255.0
+value = 255.0
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/B"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator7" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 13
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label13" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 18
+text = "Emission Color"
+
+[node name="HSeparator12" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Emiss_Color_Rect" type="ColorRect" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HSeparator16" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Label11" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Hex:"
+
+[node name="Emission_Input" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Emission_Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "#FFFFFF"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Emission_Input"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator11" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label7" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "R:"
+
+[node name="E_R" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_R"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "255"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_R"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_R"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 255.0
+value = 255.0
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_R"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator8" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label8" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "G:"
+
+[node name="E_G" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_G"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "255"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_G"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_G"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 255.0
+value = 255.0
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_G"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator9" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label9" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "B:"
+
+[node name="E_B" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_B"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "255"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_B"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_B"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 255.0
+value = 255.0
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_B"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator10" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label10" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Strength:"
+
+[node name="E_S" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_S"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "0"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_S"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_S"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 1.0
+step = 0.01
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_S"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator13" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 13
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label14" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 18
+text = "Metallic Settings"
+
+[node name="HSeparator14" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Label6" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Roughness:"
+
+[node name="RO" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/RO"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "1"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/RO"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/RO"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/RO"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator6" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label5" type="Label" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(27, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Metallic:"
+
+[node name="M" type="HBoxContainer" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "0"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+max_value = 1.0
+step = 0.01
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator15" type="HSeparator" parent="Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
 
 [node name="Preview" type="TextureRect" parent="Wallpaper/Character_Screen"]
 clip_contents = true

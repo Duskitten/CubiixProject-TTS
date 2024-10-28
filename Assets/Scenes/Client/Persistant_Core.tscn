@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=34 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
@@ -10,9 +10,38 @@
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="5_1jexs"]
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/Slide_Char.gd" id="5_ayhcd"]
 [ext_resource type="PackedScene" uid="uid://hrgnkcktrbta" path="res://Assets/Scenes/Client/Ui/hexii_tablet_ui.tscn" id="5_d7p8w"]
+[ext_resource type="Shader" uid="uid://qw8xxswsw5c8" path="res://Assets/Shaders/Characters/Cubiix_Shader_Material.tres" id="6_sb0rj"]
+[ext_resource type="Texture2D" uid="uid://rad00hl5f0fm" path="res://Assets/Mesh/Cubiix/Color_Palette_Mask.png" id="7_eauhs"]
 [ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="10_i2prw"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="10_mbyra"]
 [ext_resource type="PackedScene" uid="uid://dctu4v4neanem" path="res://Assets/Scenes/Client/Minigame/cubiixi_game.tscn" id="11_y43yq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wiv8h"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_sb0rj")
+shader_parameter/has_metallic = true
+shader_parameter/Body1 = Color(0.372549, 0.372549, 0.372549, 1)
+shader_parameter/emiss_Body1 = Color(0, 0, 0, 1)
+shader_parameter/Body1_metallic = 0.0
+shader_parameter/Body1_roughness = 1.0
+shader_parameter/Body2 = Color(0.776471, 0.776471, 0.776471, 1)
+shader_parameter/emiss_Body2 = Color(0, 0, 0, 1)
+shader_parameter/Body2_metallic = 0.0
+shader_parameter/Body2_roughness = 1.0
+shader_parameter/Body3 = Color(0.643843, 0.343793, 0.8, 1)
+shader_parameter/emiss_Body3 = Color(0.643137, 0.345098, 0.8, 1)
+shader_parameter/Body3_metallic = 0.0
+shader_parameter/Body3_roughness = 1.0
+shader_parameter/Body4 = Color(0.643137, 0.345098, 0.8, 1)
+shader_parameter/emiss_Body4 = Color(0.643137, 0.345098, 0.8, 1)
+shader_parameter/Body4_metallic = 0.0
+shader_parameter/Body4_roughness = 1.0
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 0.0
+shader_parameter/distance_fade_glow = 0.0
+shader_parameter/distance_transitioning = false
+shader_parameter/texture_albedo = ExtResource("7_eauhs")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhpf"]
 bg_color = Color(0.137272, 0.0943, 0.23, 1)
@@ -280,8 +309,14 @@ offset_bottom = 0.360001
 [node name="Label6" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts/GridContainer/R_Hand_Button" index="0"]
 offset_bottom = 0.360001
 
+[node name="Color_Picker" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen" index="2"]
+visible = false
+
 [node name="SubViewport" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer" index="0"]
 script = ExtResource("5_ayhcd")
+
+[node name="Cube" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_wiv8h")
 
 [node name="RichTextLabel" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer" index="4"]
 text = "Hello! Thank you for trying out my game, it has been something I have put in alot of time and effort into.
@@ -375,6 +410,7 @@ position = Vector2(-40, 18)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 3
 
 [node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -496,8 +532,8 @@ Body_1 = Color(0.372549, 0.372549, 0.372549, 1)
 Body_2 = Color(0.776471, 0.776471, 0.776471, 1)
 Body_3 = Color(0.798314, 0.542604, 0.363722, 1)
 Body_4 = Color(0.8, 0.541176, 0.364706, 1)
-Body_Emiss_3 = Color(0.8, 0.541176, 0.364706, 1)
-Body_Emiss_4 = Color(0.8, 0.541176, 0.364706, 1)
+Body_3_Emiss = Color(0.8, 0.541176, 0.364706, 1)
+Body_4_Emiss = Color(0.8, 0.541176, 0.364706, 1)
 Is_Player = true
 
 [node name="Hub" parent="Node3D/Player" index="1"]
@@ -544,15 +580,57 @@ fov = 56.25
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts/GridContainer/Chest_Button" to="." method="_on_part_button_pressed" binds= ["Chest"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts/GridContainer/R_Hip_Button" to="." method="_on_part_button_pressed" binds= ["R_Hip"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts/GridContainer/R_Hand_Button" to="." method="_on_part_button_pressed" binds= ["R_Hand"]]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Hex_Input/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Hex_Input/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Hex_Input/LineEdit" to="." method="_on_color_text_change" binds= ["Hex"]]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/R/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/R/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/R/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/R/HSlider" to="." method="_on_color_value_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/G/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/G/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/G/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/G/HSlider" to="." method="_on_color_value_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/B/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/B/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/B/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/B/HSlider" to="." method="_on_color_value_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Emission_Input/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Emission_Input/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/Emission_Input/LineEdit" to="." method="_on_color_text_change" binds= ["Hex"]]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_R/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_R/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_R/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_R/HSlider" to="." method="_on_color_value_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_G/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_G/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_G/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_G/HSlider" to="." method="_on_color_value_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_B/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_B/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_B/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_B/HSlider" to="." method="_on_color_value_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_S/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_S/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_S/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/E_S/HSlider" to="." method="_on_color_value_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/RO/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/RO/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/RO/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/RO/HSlider" to="." method="_on_color_value_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M/LineEdit" to="." method="_on_line_edit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M/LineEdit" to="." method="_on_color_text_change" binds= ["RGB"]]
+[connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M/HSlider" to="." method="_on_color_value_changed"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton" to="." method="_on_part_button_pressed" binds= ["Ear"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton2" to="." method="_on_part_button_pressed" binds= ["Extra"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton3" to="." method="_on_part_button_pressed" binds= ["Eye"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton4" to="." method="_on_part_button_pressed" binds= ["Wing"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton5" to="." method="_on_part_button_pressed" binds= ["Tail"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton6" to="." method="_on_part_button_pressed" binds= ["Color, Main_1"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton7" to="." method="_on_part_button_pressed" binds= ["Color, Main_2"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton8" to="." method="_on_part_button_pressed" binds= ["Color, Eye_1"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton9" to="." method="_on_part_button_pressed" binds= ["Color, Eye_2"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton6" to="." method="_on_part_button_pressed" binds= ["Color, Body_1"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton7" to="." method="_on_part_button_pressed" binds= ["Color, Body_2"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton8" to="." method="_on_part_button_pressed" binds= ["Color, Body_3"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton9" to="." method="_on_part_button_pressed" binds= ["Color, Body_4"]]
 [connection signal="meta_clicked" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
 [connection signal="focus_entered" from="CanvasLayer/Hexii_UI/Overlay/Screens/Chat_Screen/Panel/LineEdit" to="." method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/Hexii_UI/Overlay/Screens/Chat_Screen/Panel/LineEdit" to="." method="_on_line_edit_focus_exited"]

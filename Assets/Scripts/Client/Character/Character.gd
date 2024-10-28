@@ -30,10 +30,25 @@ enum BACK_ENUM {None, Trad_Pride_Cape}
 @export_color_no_alpha var Body_3 = Color8(0,0,0)
 @export_color_no_alpha var Body_4 = Color8(0,0,0)
 
-@export_color_no_alpha var Body_Emiss_1 = Color8(0,0,0)
-@export_color_no_alpha var Body_Emiss_2 = Color8(0,0,0)
-@export_color_no_alpha var Body_Emiss_3 = Color8(0,0,0)
-@export_color_no_alpha var Body_Emiss_4 = Color8(0,0,0)
+@export_color_no_alpha var Body_1_Emiss = Color8(0,0,0)
+@export_color_no_alpha var Body_2_Emiss = Color8(0,0,0)
+@export_color_no_alpha var Body_3_Emiss = Color8(0,0,0)
+@export_color_no_alpha var Body_4_Emiss = Color8(0,0,0)
+
+@export var Body_1_Emiss_S = 1.0
+@export var Body_2_Emiss_S = 1.0
+@export var Body_3_Emiss_S = 1.0
+@export var Body_4_Emiss_S = 1.0
+
+@export var Body_1_Roughness = 1.0
+@export var Body_2_Roughness = 1.0
+@export var Body_3_Roughness = 1.0
+@export var Body_4_Roughness = 1.0
+
+@export var Body_1_Metallic = 0.0
+@export var Body_2_Metallic= 0.0
+@export var Body_3_Metallic = 0.0
+@export var Body_4_Metallic = 0.0
 
 var DynBones_Register = {}
 var Skeleton_Values = {}
@@ -94,7 +109,23 @@ func _ready() -> void:
 			Wings = Core.AssetData.Wing_Slot.find(Core.AssetData.Wing_Slot.pick_random())
 		Regen_Character()
 
-
+func Regen_Color():
+	charmat.set_shader_parameter("Body1",Body_1)
+	charmat.set_shader_parameter("emiss_Body1",Body_1_Emiss*Body_1_Emiss_S)
+	charmat.set_shader_parameter("Body1_metallic",Body_1_Metallic)
+	charmat.set_shader_parameter("Body1_roughness",Body_1_Roughness)
+	charmat.set_shader_parameter("Body2",Body_2)
+	charmat.set_shader_parameter("emiss_Body2",Body_2_Emiss*Body_2_Emiss_S)
+	charmat.set_shader_parameter("Body2_metallic",Body_2_Metallic)
+	charmat.set_shader_parameter("Body2_roughness",Body_2_Roughness)
+	charmat.set_shader_parameter("Body3",Body_3)
+	charmat.set_shader_parameter("Body3_metallic",Body_3_Metallic)
+	charmat.set_shader_parameter("Body3_roughness",Body_3_Roughness)
+	charmat.set_shader_parameter("emiss_Body3",Body_3_Emiss*Body_3_Emiss_S)
+	charmat.set_shader_parameter("Body4",Body_4)
+	charmat.set_shader_parameter("emiss_Body4",Body_4_Emiss*Body_4_Emiss_S)
+	charmat.set_shader_parameter("Body4_metallic",Body_1_Metallic)
+	charmat.set_shader_parameter("Body4_roughness",Body_1_Roughness)
 func Regen_Character():
 	CharSetup = false
 	for i in stored_items.keys():
@@ -141,14 +172,8 @@ func Regen_Character():
 	Skeleton.add_child(LeftHandPoint)
 	Skeleton.add_child(RightHandPoint)
 	Model = base_model
-	charmat.set_shader_parameter("Body1",Body_1)
-	charmat.set_shader_parameter("emiss_Body1",Body_Emiss_1)
-	charmat.set_shader_parameter("Body2",Body_2)
-	charmat.set_shader_parameter("emiss_Body2",Body_Emiss_2)
-	charmat.set_shader_parameter("Body3",Body_3)
-	charmat.set_shader_parameter("emiss_Body3",Body_Emiss_3)
-	charmat.set_shader_parameter("Body4",Body_4)
-	charmat.set_shader_parameter("emiss_Body4",Body_Emiss_4)
+	
+	Regen_Color()
 	
 	Anim_Tree.active = true
 	if Is_Player || Is_UI:
