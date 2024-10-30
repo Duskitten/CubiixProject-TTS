@@ -135,6 +135,10 @@ func Regen_Color():
 	charmat.set_shader_parameter("emiss_Body4",Body_4_Emiss*Body_4_Emiss_S)
 	charmat.set_shader_parameter("Body4_metallic",Body_1_Metallic)
 	charmat.set_shader_parameter("Body4_roughness",Body_1_Roughness)
+	
+func Adjust_Scale():
+	Model.scale = Vector3(Scale,Scale,Scale)
+
 func Regen_Character():
 	CharSetup = false
 	for i in stored_items.keys():
@@ -148,6 +152,7 @@ func Regen_Character():
 	base_model.global_position = Vector3(0,0,0)
 	await get_tree().process_frame
 	base_model.name = "Cubiix_Model"
+	base_model.scale = Vector3(Scale,Scale,Scale)
 	Anim_Tree = base_model.get_node("AnimationTree")
 	Anim_Tree.advance_expression_base_node = self.get_path()
 	Anim_Player = base_model.get_node("AnimationPlayer")

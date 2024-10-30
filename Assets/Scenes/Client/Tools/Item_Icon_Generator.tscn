@@ -19,6 +19,7 @@ handle_input_locally = false
 size = Vector2i(80, 80)
 render_target_update_mode = 4
 script = ExtResource("1_eev8m")
+Eyes = 9
 
 [node name="Cubiix_Base" parent="SubViewport" instance=ExtResource("2_h4jl1")]
 
@@ -27,7 +28,6 @@ surface_material_override/0 = ExtResource("3_dp6vp")
 
 [node name="Eye_Camera" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.704155, 0.998147)
-visible = false
 environment = SubResource("Environment_2yyoj")
 current = true
 fov = 30.0
@@ -38,7 +38,6 @@ fov = 30.0
 transform = Transform3D(0.906963, 0, 0.42121, 0, 1, 0, -0.42121, 0, 0.906963, 0.503789, 0.827135, 1.28275)
 visible = false
 environment = SubResource("Environment_2yyoj")
-current = true
 fov = 37.9
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Ear_Camera"]
@@ -48,17 +47,17 @@ visible = false
 transform = Transform3D(0.527949, 0, 0.849276, 0, 1, 0, -0.849276, 0, 0.527949, 1.41645, 0.571486, 0.306699)
 visible = false
 environment = SubResource("Environment_2yyoj")
-current = true
 fov = 37.9
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Ear_Camera2"]
 
 [node name="Ear_Camera3" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(0.0325795, 0, 0.999469, 0, 1, 0, -0.999469, 0, 0.0325795, 1.59511, 0.387672, -0.302294)
+visible = false
 environment = SubResource("Environment_2yyoj")
-current = true
 fov = 37.9
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Ear_Camera3"]
+visible = false
 
 [editable path="SubViewport/Cubiix_Base"]

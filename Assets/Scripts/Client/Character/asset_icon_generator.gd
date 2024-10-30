@@ -3,7 +3,7 @@ extends SubViewport
 
 var charmat = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
 
-enum EYE_ENUM {Default,Chonk,Tri,Nat,Circle,Fox,Four,Entity,Text}
+enum EYE_ENUM {Default,Chonk,Tri,Nat,Circle,Fox,Four,Entity,Text,Mouse}
 enum EAR_ENUM {None,Cat, Fox, Wolf, Goat, Bee, Moth,Mouse,Alien,Deer, Entity, Dog, Bunny, Fluffy}
 enum EXTRA_ENUM {None, Shark, Nub, Antler, Ram, Fish, Narwhal, Dragon}
 enum TAIL_ENUM {None,Cat, Fox, Wolf, Bug, Bee, Moth, Dog, Mouse, Fluffy, Shark, Entity, Bunny, Deer, Dragon}
@@ -27,8 +27,8 @@ var DynBones_Register = {}
 var Skeleton_Values = {}
 func _ready() -> void:
 	#for i in TAIL_ENUM.size():
-	Ears = EAR_ENUM.Fluffy
-	Regen_Character(Core.AssetData.Ear_Slot[EAR_ENUM.Fluffy])
+	Eyes = EYE_ENUM.Mouse
+	Regen_Character(Core.AssetData.Eye_Slot[EYE_ENUM.Mouse])
 		#await Screenshotted
 
 @onready var Skeleton:Skeleton3D = $Cubiix_Base/Armature/Skeleton3D

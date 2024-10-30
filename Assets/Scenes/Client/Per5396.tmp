@@ -406,6 +406,7 @@ position = Vector2(-40, -11)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 3
 
 [node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -602,22 +603,16 @@ fov = 56.25
 [connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker/ScrollContainer_Color/GridContainer2/M/HSlider" to="." method="_on_color_value_changed"]
 [connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input/LineEdit" to="." method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input/LineEdit" to="." method="_on_line_edit_focus_exited"]
-[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/LineEdit" to="." method="_on_line_edit_focus_entered"]
-[connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/LineEdit" to="." method="_on_line_edit_focus_exited"]
 [connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/LineEdit" to="." method="_on_scale_text_submitted"]
 [connection signal="value_changed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/HSlider" to="." method="_on_scale_value_changed"]
 [connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input2/LineEdit" to="." method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input2/LineEdit" to="." method="_on_line_edit_focus_exited"]
-[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input2/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input2/LineEdit" to="." method="_on_namepanel_text_submitted" binds= ["Pronouns_A"]]
 [connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input3/LineEdit" to="." method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input3/LineEdit" to="." method="_on_line_edit_focus_exited"]
-[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input3/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input3/LineEdit" to="." method="_on_namepanel_text_submitted" binds= ["Pronouns_B"]]
 [connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input4/LineEdit" to="." method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input4/LineEdit" to="." method="_on_line_edit_focus_exited"]
-[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input4/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input4/LineEdit" to="." method="_on_namepanel_text_submitted" binds= ["Pronouns_C"]]
 [connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit" to="." method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit" to="." method="_on_line_edit_focus_exited"]
