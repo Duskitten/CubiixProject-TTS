@@ -1170,8 +1170,8 @@ var Wing_Slot = [
 #--
 var Head_Slot = [
 	"",
-	"Head_Clothes/Goggle_Test",
-	"Head_Clothes/Orb_Test",
+	#"Head_Clothes/Goggle_Test",
+	#"Head_Clothes/Orb_Test",
 	"Head_Clothes/DotMouse_Hat",
 	#Halloween Stuff
 	"Head_Clothes/Pumpkin_Head_Cute_1",

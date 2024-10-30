@@ -443,16 +443,16 @@ func _on_part_button_pressed(PartData: String) -> void:
 			else:
 				New_Part.get_node("Label").text = Core.AssetData.Mesh_Data_Assets[i]["Name"]+"."+PartData.to_lower()
 				
-			if PartData == "Ear" || PartData == "Wing" || PartData == "Extra" || PartData == "Eye" || PartData == "Tail":
+			#if PartData == "Ear" || PartData == "Wing" || PartData == "Extra" || PartData == "Eye" || PartData == "Tail":
 				
-				var pt = Core.AssetData.get(PartData+"_Slot")
-				var n = PartData
-				if PartData != "Extra" && PartData != "Tail":
-					n = PartData+"s"
-				if (i as String).ends_with("None"):
-					New_Part.pressed.connect(change_part.bind(n,0))
-				else:
-					New_Part.pressed.connect(change_part.bind(n,pt.find(i)))
+			var pt = Core.AssetData.get(PartData+"_Slot")
+			var n = PartData
+			if PartData == "Ear" || PartData == "Wing" || PartData == "Eye":
+				n = PartData+"s"
+			if (i as String).ends_with("None"):
+				New_Part.pressed.connect(change_part.bind(n,0))
+			else:
+				New_Part.pressed.connect(change_part.bind(n,pt.find(i)))
 					
 				
 			$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.add_child(New_Part)
@@ -913,6 +913,7 @@ func change_part(Core_Part:String, Part:int) -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
 	Hexii_Ui_Tablet_Character_OBJ.set(Core_Part,Part)
 	Hexii_Ui_Tablet_Character_OBJ.Regen_Character()
+
 #################################
 ###### Title Screen System ######
 #################################
