@@ -78,6 +78,133 @@ func _ready() -> void:
 	Hexii_Ui_Tablet_Character.Regen_Character()
 
 
+	V1_ConversionPath = {
+	"Cubiix_Base:Cat_Ears":Player.EAR_ENUM.Cat,
+	"Cubiix_Base:Fox_Ears":Player.EAR_ENUM.Fox,
+	"Cubiix_Base:Mouse_Ears":Player.EAR_ENUM.Mouse,
+	"Cubiix_Base:Bee_Ears":Player.EAR_ENUM.Bee,
+	"Cubiix_Base:Bunny_Ears":Player.EAR_ENUM.Bunny,
+	"Cubiix_Base:Deer_Ears":Player.EAR_ENUM.Deer,
+	"Cubiix_Base:Dog_Ears":Player.EAR_ENUM.Dog,
+	"Cubiix_Base:Fluffy_Ears":Player.EAR_ENUM.Fluffy,
+	"Cubiix_Base:Entity_Ears":Player.EAR_ENUM.Entity,
+	"Cubiix_Base:Moth1_Ears":Player.EAR_ENUM.Moth,
+	"Cubiix_Base:Moth2_Ears":Player.EAR_ENUM.Moth,
+	"Cubiix_Base:Alien_Ears":Player.EAR_ENUM.Alien,
+	"Cubiix_Base:Wolf_Ears":Player.EAR_ENUM.Wolf,
+	"Cubiix_Base:Goat_Ears":Player.EAR_ENUM.Goat,
+	
+	"Cubiix_Base:Shark_Fin":Player.EXTRA_ENUM.Shark,
+	"Cubiix_Base:Dragon_Extra":Player.EXTRA_ENUM.Dragon,
+	"Cubiix_Base:Narwal_Extra":Player.EXTRA_ENUM.Narwhal,
+	"Cubiix_Base:Deer_Extra":Player.EXTRA_ENUM.Nub,
+	"Cubiix_Base:Antlers_Extra":Player.EXTRA_ENUM.Antler,
+	"Cubiix_Base:Fish_Extra":Player.EXTRA_ENUM.Fish,
+	"Cubiix_Base:Ram_Extra":Player.EXTRA_ENUM.Ram,
+	
+	"Cubiix_Base:Cat_Tail":Player.TAIL_ENUM.Cat,
+	"Cubiix_Base:Fox_Tail":Player.TAIL_ENUM.Fox,
+	"Cubiix_Base:Mouse_Tail":Player.TAIL_ENUM.Mouse,
+	"Cubiix_Base:Shark_Tail":Player.TAIL_ENUM.Shark,
+	"Cubiix_Base:Bee_Tail":Player.TAIL_ENUM.Bee,
+	"Cubiix_Base:Bunny_Tail":Player.TAIL_ENUM.Bunny,
+	"Cubiix_Base:Dragon_Tail":Player.TAIL_ENUM.Dragon,
+	"Cubiix_Base:Deer_Tail":Player.TAIL_ENUM.Deer,
+	"Cubiix_Base:Dog_Tail":Player.TAIL_ENUM.Dog,
+	"Cubiix_Base:Fluffy_Tail":Player.TAIL_ENUM.Fluffy,
+	"Cubiix_Base:Moth_Tail":Player.TAIL_ENUM.Moth,
+	"Cubiix_Base:Entity_Tail":Player.TAIL_ENUM.Entity,
+	"Cubiix_Base:Bug_Tail":Player.TAIL_ENUM.Bug,
+	"Cubiix_Base:Wolf_Tail":Player.TAIL_ENUM.Wolf,
+	
+	"Cubiix_Base:Entity_Wings":Player.WING_ENUM.Entity,
+	"Cubiix_Base:Bee_Wings":Player.WING_ENUM.Wasp,
+	"Cubiix_Base:Dragon_Wings":Player.WING_ENUM.Dragon,
+	"Cubiix_Base:Angel_Wings":Player.WING_ENUM.Angel,
+	"Cubiix_Base:Moth_Wings":Player.WING_ENUM.Butterfly,
+	"Cubiix_Base:Butterfly_Wings":Player.WING_ENUM.Butterfly,
+	
+	"Cubiix_Base:Default_Eyes":Player.EYE_ENUM.Default,
+	"Cubiix_Base:Nat_Eyes":Player.EYE_ENUM.Nat,
+	"Cubiix_Base:Triangle_Eyes":Player.EYE_ENUM.Tri,
+	"Cubiix_Base:Circle_Eyes":Player.EYE_ENUM.Circle,
+	"Cubiix_Base:Mouse_Eyes":Player.EYE_ENUM.Mouse,
+	"Cubiix_Base:Text_Eyes":Player.EYE_ENUM.Text,
+	"Cubiix_Base:Fox_Eyes":Player.EYE_ENUM.Fox,
+	"Cubiix_Base:Four_Eyes":Player.EYE_ENUM.Four,
+	"Cubiix_Base:Chonk_Eyes":Player.EYE_ENUM.Chonk,
+	"Cubiix_Base:Entity_Eyes":Player.EYE_ENUM.Entity,
+	
+	"Cubiix_Base:Empty_Socket":0
+	}
+
+	V2_ConversionPath = {
+		"Ears":{
+			"None":0,
+			"Fox":Player.EAR_ENUM.Fox,
+			"Wolf":Player.EAR_ENUM.Wolf,
+			"Goat":Player.EAR_ENUM.Goat,
+			"Bee":Player.EAR_ENUM.Bee,
+			"Cat":Player.EAR_ENUM.Cat,
+			"Moth":Player.EAR_ENUM.Moth,
+			"Moth2":Player.EAR_ENUM.Moth,
+			"Mouse":Player.EAR_ENUM.Mouse,
+			"Alien":Player.EAR_ENUM.Alien,
+			"Deer":Player.EAR_ENUM.Deer,
+			"Entity":Player.EAR_ENUM.Entity,
+			"Dog":Player.EAR_ENUM.Dog,
+			"Bunny":Player.EAR_ENUM.Bunny,
+			"Fluffy":Player.EAR_ENUM.Fluffy
+		},
+		"Extra":{
+			"None":0,
+			"Shark":Player.EXTRA_ENUM.Shark,
+			"Antler":Player.EXTRA_ENUM.Antler,
+			"Ram":Player.EXTRA_ENUM.Ram,
+			"Fish":Player.EXTRA_ENUM.Fish,
+			"Narlwal":Player.EXTRA_ENUM.Narwhal,
+			"Dragon":Player.EXTRA_ENUM.Dragon,
+			"Nub":Player.EXTRA_ENUM.Nub
+		},
+		"Eyes":{
+			"Chonk":Player.EYE_ENUM.Chonk,
+			"Tri":Player.EYE_ENUM.Tri,
+			"Nat":Player.EYE_ENUM.Nat,
+			"Default":Player.EYE_ENUM.Default,
+			"Circle":Player.EYE_ENUM.Circle,
+			"Fox":Player.EYE_ENUM.Fox,
+			"Mouse":Player.EYE_ENUM.Nat,
+			"Four":Player.EYE_ENUM.Four,
+			"Entity":Player.EYE_ENUM.Entity,
+			"Text":Player.EYE_ENUM.Text
+		},
+		"Tail":{
+			"None":0,
+			"Fox":Player.TAIL_ENUM.Fox,
+			"Wolf":Player.TAIL_ENUM.Wolf,
+			"Bug":Player.TAIL_ENUM.Bug,
+			"Bee":Player.TAIL_ENUM.Bee,
+			"Moth":Player.TAIL_ENUM.Moth,
+			"Dog":Player.TAIL_ENUM.Dog,
+			"Mouse":Player.TAIL_ENUM.Mouse,
+			"Fluffy":Player.TAIL_ENUM.Fluffy,
+			"Cat":Player.TAIL_ENUM.Cat,
+			"Shark":Player.TAIL_ENUM.Shark,
+			"Entity":Player.TAIL_ENUM.Entity,
+			"Bunny":Player.TAIL_ENUM.Bunny,
+			"Deer":Player.TAIL_ENUM.Deer,
+			"Dragon":Player.TAIL_ENUM.Dragon
+		},
+		"Wings":{
+			"None":0,
+			"Entity":Player.WING_ENUM.Entity,
+			"Angel":Player.WING_ENUM.Angel,
+			"Butterfly":Player.WING_ENUM.Butterfly,
+			"Bee":Player.WING_ENUM.Wasp,
+			"Dragon":Player.WING_ENUM.Dragon,
+			"Moth":Player.WING_ENUM.Butterfly
+		}
+	}
 	
 
 func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
@@ -195,10 +322,23 @@ func Hexii_UI_Transition(anim_1,  componentName, anim_2, component2Name, device:
 var current_colorselected = ""
 var initialpress = false
 func _on_part_button_pressed(PartData: String) -> void:
-	if PartData.begins_with("Color, "):
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker.hide()
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options.hide()
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker.hide()
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader.hide()
+	
+	if PartData.begins_with("Extra, "):
+		var Asset = PartData.lstrip("Extra, ")
+		match Asset:
+			"Code":
+				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader.show()
+			"Detail":
+				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker.show()
+	
+		
+	elif PartData.begins_with("Color, "):
 		var Asset = PartData.lstrip("Color, ")
 		$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker.show()
-		$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options.hide()
 		current_colorselected = Asset
 		
 		var color:Color = Hexii_Ui_Tablet_Character_OBJ.get(Asset)
@@ -220,7 +360,6 @@ func _on_part_button_pressed(PartData: String) -> void:
 		initialpress = false
 		
 	else:
-		$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker.hide()
 		$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options.show()
 		for i in $CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.get_children():
 			i.queue_free()
@@ -383,6 +522,292 @@ func update_values() -> void:
 	Hexii_Ui_Tablet_Color_Container.get_node("RO/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(current_colorselected+"_Roughness"))
 	Hexii_Ui_Tablet_Color_Container.get_node("M/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(current_colorselected+"_Metallic"))
 
+var V1_Keywords = [
+	"EarID",
+	"ExtraID",
+	"EyeCol",
+	"EyeID",
+	"GlowCol",
+	"Height",
+	"PrimCol",
+	"TailID",
+	"WingID",
+	"WireCol",
+	"WireInnerCol"
+	]
+	
+var V2_Keywords = [
+	"Color_Body",
+	"Color_BodyGlow",
+	"Color_Eye_1",
+	"Color_Eye_2",
+	"Ears",
+	"Extra",
+	"Eyes",
+	"Size",
+	"Tail",
+	"Wings"
+	]
+	
+var V3_Keywords = [
+	"B1",
+	"B2",
+	"B3",
+	"B4",
+	"B1E",
+	"B2E",
+	"B3E",
+	"B4E",
+	"B1ES",
+	"B2ES",
+	"B3ES",
+	"B4ES",
+	"B1R",
+	"B2R",
+	"B3R",
+	"B4R",
+	"B1M",
+	"B2M",
+	"B3M",
+	"B4M",
+	"T",
+	"W",
+	"EA",
+	"EX",
+	"EY",
+	"S",
+	"N",
+	"PA",
+	"PB",
+	"PC"
+	]
+
+##Since paths changed, we need to have a lookup index!
+var V1_ConversionPath = {}
+
+var V2_ConversionPath = {}
+
+func _on_load_button_pressed() -> void:
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text = ""
+	var json = JSON.new()
+	json.parse($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text)
+	
+	var data = json.data
+	var keyversion = 0
+	
+	if data == null:
+		data = str_to_var($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text)
+
+	if typeof(data) == TYPE_DICTIONARY:
+		if keyversion == 0:
+			for i in V1_Keywords:
+				if data.has(i):
+					keyversion = 1
+					break
+		if keyversion == 0:
+			for i in V2_Keywords:
+				if data.has(i):
+					keyversion = 2
+					break
+					
+		if keyversion == 0:
+			for i in V3_Keywords:
+				if data.has(i):
+					keyversion = 3
+					break
+		
+		
+		match keyversion:
+			1:
+				print("Version 1 Save!")
+				for i in data.keys():
+					match i:
+						"EarID":
+							if V1_ConversionPath.keys().has(data["EarID"]):
+								if V1_ConversionPath.keys().has(data["ExtraID"]):
+									if data["EarID"] == "Cubiix_Base:Shark_Fin" && data["ExtraID"] != "Cubiix_Base:Empty_Socket" :
+										$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text += "[color=red]Error: Extra Overlap (Sharkfin), Defaulting To ExtraID Value...\n"
+						
+								Hexii_Ui_Tablet_Character_OBJ.Ears = V1_ConversionPath[data["EarID"]]
+						"ExtraID":
+							if V1_ConversionPath.keys().has(data["ExtraID"]):
+								Hexii_Ui_Tablet_Character_OBJ.Extra = V1_ConversionPath[data["ExtraID"]]
+						"EyeCol":
+							if data["EyeCol"] is Color:
+								Hexii_Ui_Tablet_Character_OBJ.Body_3 = Color(0,0,0,1)
+								Hexii_Ui_Tablet_Character_OBJ.Body_4 = Color(0,0,0,1)
+								Hexii_Ui_Tablet_Character_OBJ.Body_3_Emiss = Color(data["EyeCol"].to_html(false))
+								Hexii_Ui_Tablet_Character_OBJ.Body_4_Emiss = Color(data["EyeCol"].to_html(false))
+								Hexii_Ui_Tablet_Character_OBJ.Body_3_Emiss_S = 1.0
+								Hexii_Ui_Tablet_Character_OBJ.Body_4_Emiss_S = 1.0
+						"EyeID":
+							if V1_ConversionPath.keys().has(data["EyeID"]):
+								Hexii_Ui_Tablet_Character_OBJ.Eyes = V1_ConversionPath[data["EyeID"]]
+						"GlowCol":
+							$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text += "[color=red]Error: GlowCol Defunct.\n"
+						"Height":
+							Hexii_Ui_Tablet_Character_OBJ.Scale = clampf(data["Height"], 0.7, 1.2)
+						"PrimCol":
+							if data["PrimCol"] is Color:
+								Hexii_Ui_Tablet_Character_OBJ.Body_1 = Color(data["PrimCol"].to_html(false))
+								Hexii_Ui_Tablet_Character_OBJ.Body_1_Emiss = Color(0,0,0,1)
+								Hexii_Ui_Tablet_Character_OBJ.Body_1_Emiss_S = 0.0
+						"TailID":
+							if V1_ConversionPath.keys().has(data["TailID"]):
+								Hexii_Ui_Tablet_Character_OBJ.Tail = V1_ConversionPath[data["TailID"]]
+						"WingID":
+							if V1_ConversionPath.keys().has(data["WingID"]):
+								Hexii_Ui_Tablet_Character_OBJ.Wings = V1_ConversionPath[data["WingID"]]
+						"WireCol":
+							if data["WireCol"] is Color:
+								Hexii_Ui_Tablet_Character_OBJ.Body_2 = Color(0,0,0,1)
+								if data["WireCol"].r > 1.0 || data["WireCol"].g > 1.0 || data["WireCol"].b > 1.0:
+									var sortedValues = [snapped(data["WireCol"].r,0.01),snapped(data["WireCol"].g,0.01),snapped(data["WireCol"].b,0.01)]
+									var sortarray = sortedValues.duplicate(true)
+									var percentage = (sortarray[2] - 1) * 100
+									var newArray = [0,0,0]
+									for x in sortarray.size():
+										newArray[x] = sortedValues[x] / (percentage/100)
+									
+									print(newArray)
+										
+									data["WireCol"] = Color(newArray[0],newArray[1],newArray[2],1.0)
+									
+									$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text += "[color=red]Error: WireCol Too Intense, Lowering.\n"
+								Hexii_Ui_Tablet_Character_OBJ.Body_2_Emiss =  Color(data["WireCol"].to_html(false))
+								Hexii_Ui_Tablet_Character_OBJ.Body_2_Emiss_S = 1.0
+						"WireInnerCol":
+							$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text += "[color=red]Error: WireInnerCol Defunct.\n"
+						"Name":
+							pass
+			2:
+				print("Version 2 Save!")
+				for i in data.keys():
+					match i:
+						"Color_Body":
+							pass
+						"Color_BodyGlow":
+							pass
+						"Color_Eye_1":
+							pass
+						"Color_Eye_2":
+							pass
+						"Ears":
+							pass
+						"Extra":
+							pass
+						"Eyes":
+							pass
+						"Size":
+							pass
+						"Tail":
+							pass
+						"Wings":
+							pass
+						"Name":
+							pass
+			3:
+				print("Version 3 Save!")
+				for i in data.keys():
+					match i:
+						"B1":
+							pass
+						"B2":
+							pass
+						"B3":
+							pass
+						"B4":
+							pass
+						"B1E":
+							pass
+						"B2E":
+							pass
+						"B3E":
+							pass
+						"B4E":
+							pass
+						"B1ES":
+							pass
+						"B2ES":
+							pass
+						"B3ES":
+							pass
+						"B4ES":
+							pass
+						"B1R":
+							pass
+						"B2R":
+							pass
+						"B3R":
+							pass
+						"B4R":
+							pass
+						"B1M":
+							pass
+						"B2M":
+							pass
+						"B3M":
+							pass
+						"B4M":
+							pass
+						"T":
+							pass
+						"W":
+							pass
+						"EA":
+							pass
+						"EX":
+							pass
+						"EY":
+							pass
+						"S":
+							pass
+						"N":
+							pass
+						"PA":
+							pass
+						"PB":
+							pass
+						"PC":
+							pass
+		Hexii_Ui_Tablet_Character_OBJ.Regen_Character()
+
+func _on_export_button_pressed() -> void:
+	var V3Template = {
+"B1":Player.Body_1.to_html(false),
+"B2":Player.Body_2.to_html(false),
+"B3":Player.Body_3.to_html(false),
+"B4":Player.Body_4.to_html(false),
+"B1E":Player.Body_1_Emiss.to_html(false),
+"B2E":Player.Body_2_Emiss.to_html(false),
+"B3E":Player.Body_3_Emiss.to_html(false),
+"B4E":Player.Body_4_Emiss.to_html(false),
+"B1ES":Player.Body_1_Emiss_S,
+"B2ES":Player.Body_2_Emiss_S,
+"B3ES":Player.Body_3_Emiss_S,
+"B4ES":Player.Body_4_Emiss_S,
+"B1R":Player.Body_1_Roughness,
+"B2R":Player.Body_2_Roughness,
+"B3R":Player.Body_3_Roughness,
+"B4R":Player.Body_4_Roughness,
+"B1M":Player.Body_1_Metallic,
+"B2M":Player.Body_2_Metallic,
+"B3M":Player.Body_3_Metallic,
+"B4M":Player.Body_4_Metallic,
+"T":Player.Tail,
+"W":Player.Wings,
+"EA":Player.Ears,
+"EX":Player.Extra,
+"EY":Player.Eyes,
+"S":Player.Scale,
+"N":Player.Name,
+"PA":Player.Pronouns_A,
+"PB":Player.Pronouns_B,
+"PC":Player.Pronouns_C
+}
+	
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text = JSON.stringify(V3Template)
+
 
 func change_part(Core_Part:String, Part:int) -> void:
 	print(Core_Part," , ",Part)
@@ -491,3 +916,7 @@ func _on_line_edit_focus_exited() -> void:
 func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 	if str(meta).begins_with("openURL, "):
 		OS.shell_open("https://"+str(meta).lstrip("openURL, "))
+
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	get_viewport().gui_release_focus()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=118 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -29,12 +29,22 @@
 [ext_resource type="Texture2D" uid="uid://d28iijjfc87s8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Small_Item_Hover.png" id="20_7wift"]
 [ext_resource type="Texture2D" uid="uid://dunyn1pah5lx6" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_big_2.png" id="21_kdt3d"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://Assets/Fonts/Jura/Jura-Bold.ttf" id="22_u408p"]
+[ext_resource type="Texture2D" uid="uid://dumxnfuj7qbe8" path="res://Assets/Textures/Faction_Icons/Hexii_Logo_V2.png" id="23_u1vjt"]
+[ext_resource type="Texture2D" uid="uid://b2ddrpax5ek4w" path="res://Assets/Textures/Faction_Icons/Trii_Logo_V2.png" id="24_vrbsv"]
 [ext_resource type="Texture2D" uid="uid://b826lby5iuk56" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Journal_big.png" id="25_n0j87"]
+[ext_resource type="Texture2D" uid="uid://b1wttq8xmguni" path="res://Assets/Textures/Faction_Icons/Octii_Logo_V2.png" id="25_nnkox"]
+[ext_resource type="Texture2D" uid="uid://v0at14ksgfgw" path="res://Assets/Textures/Faction_Icons/Nullvii_Logo_V2.png" id="26_m5v55"]
+[ext_resource type="Texture2D" uid="uid://cjtr4mys5irfy" path="res://Assets/Textures/Faction_Icons/Tixii_Logo_V2.png" id="27_1v53e"]
 [ext_resource type="Texture2D" uid="uid://c0woqqtra3nmy" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Long_Normal.png" id="27_t3w3u"]
 [ext_resource type="Texture2D" uid="uid://bqc4q1d6fq0rp" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Long_Hover.png" id="28_duf7k"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Ui/Glitch.gdshader" id="28_qabcl"]
 [ext_resource type="Texture2D" uid="uid://17s5v24q7uxf" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Journal.png" id="29_dbeuu"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="31_3586r"]
+[ext_resource type="Texture2D" uid="uid://ccu1d78mjbc0a" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/QR_Normal.png" id="31_q2flp"]
+[ext_resource type="Texture2D" uid="uid://d1i5avhgsgo1x" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/QR_Hover.png" id="32_2lwwm"]
 [ext_resource type="FontFile" uid="uid://boi1e108why6s" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code Italic.ttf" id="32_86pgu"]
+[ext_resource type="Texture2D" uid="uid://cmchmkhn3gdgn" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Edit_Hover.png" id="33_jb53h"]
+[ext_resource type="Texture2D" uid="uid://cpvmhe6avdq1y" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Edit_Normal.png" id="34_t7m6n"]
 
 [sub_resource type="Gradient" id="Gradient_pvti5"]
 
@@ -83,6 +93,29 @@ shadow_offset = Vector2(1, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5o6dm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xs253"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxumx"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.722656, 0.722656, 0.722656, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rf2su"]
+shader = ExtResource("28_qabcl")
+shader_parameter/shake_power = -0.01
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 120.7
+shader_parameter/shake_color_rate = 0.003
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah46f"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_o7lx1"]
 color = Color(1, 1, 1, 1)
@@ -744,6 +777,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Options" type="TextureRect" parent="Wallpaper/Character_Screen"]
+visible = false
 clip_contents = true
 layout_mode = 2
 offset_left = 244.0
@@ -798,6 +832,7 @@ theme_override_constants/v_separation = 16
 columns = 2
 
 [node name="Color_Picker" type="TextureRect" parent="Wallpaper/Character_Screen"]
+visible = false
 clip_contents = true
 layout_mode = 2
 offset_left = 244.0
@@ -1353,6 +1388,375 @@ layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
 
+[node name="Name_Picker" type="TextureRect" parent="Wallpaper/Character_Screen"]
+visible = false
+clip_contents = true
+layout_mode = 2
+offset_left = 244.0
+offset_top = 34.0
+offset_right = 427.0
+offset_bottom = 353.0
+texture = ExtResource("21_kdt3d")
+
+[node name="ScrollContainer_Color" type="ScrollContainer" parent="Wallpaper/Character_Screen/Name_Picker"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 182.0
+offset_bottom = 319.0
+theme = ExtResource("2_f3wu7")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer2" type="VBoxContainer" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Label12" type="Label" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 18
+text = "Character Info"
+
+[node name="HSeparator2" type="HSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Name:"
+
+[node name="Name_Input" type="HBoxContainer" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_placeholder_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+placeholder_text = "Default"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator" type="HSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label6" type="Label" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Scale:"
+
+[node name="Scale" type="HBoxContainer" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+text = "1"
+max_length = 3
+
+[node name="VSeparator" type="VSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSlider" type="HSlider" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("2_f3wu7")
+theme_override_icons/grabber = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_05kal")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_05kal")
+theme_override_styles/slider = SubResource("StyleBoxFlat_a3e4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_5o6dm")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_xs253")
+min_value = 0.8
+max_value = 1.2
+step = 0.1
+value = 1.0
+
+[node name="VSeparator2" type="VSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="Label2" type="Label" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Pronouns:"
+
+[node name="Label3" type="Label" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.398438, 0.398438, 0.398438, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Used for NPC Dialogue"
+
+[node name="Name_Input2" type="HBoxContainer" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_placeholder_color = Color(0.4375, 0.4375, 0.4375, 1)
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+placeholder_text = "She/He/They/Etc"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="Name_Input3" type="HBoxContainer" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_placeholder_color = Color(0.4375, 0.4375, 0.4375, 1)
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+placeholder_text = "Her/Him/Them/Etc"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input3"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="Name_Input4" type="HBoxContainer" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_placeholder_color = Color(0.4375, 0.4375, 0.4375, 1)
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+placeholder_text = "Hers/His/Their/Etc"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input4"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="HSeparator3" type="HSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Label4" type="Label" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Faction:"
+
+[node name="Label5" type="Label" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.398438, 0.398438, 0.398438, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Used for Roleplay"
+
+[node name="GridContainer" type="GridContainer" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+columns = 5
+
+[node name="Hexii" type="TextureButton" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/GridContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("23_u1vjt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Trii" type="TextureButton" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/GridContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("24_vrbsv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Octii" type="TextureButton" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/GridContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("25_nnkox")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="NullVii" type="TextureButton" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/GridContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("26_m5v55")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Tixii" type="TextureButton" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/GridContainer"]
+texture_filter = 4
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("27_1v53e")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HSeparator4" type="HSeparator" parent="Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
+
+[node name="Code_Loader" type="TextureRect" parent="Wallpaper/Character_Screen"]
+clip_contents = true
+layout_mode = 2
+offset_left = 244.0
+offset_top = 34.0
+offset_right = 427.0
+offset_bottom = 353.0
+texture = ExtResource("21_kdt3d")
+
+[node name="ScrollContainer_Color" type="ScrollContainer" parent="Wallpaper/Character_Screen/Code_Loader"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 182.0
+offset_bottom = 319.0
+theme = ExtResource("2_f3wu7")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer2" type="VBoxContainer" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Label12" type="Label" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 18
+text = "Character
+Loader & Exporter"
+
+[node name="HSeparator2" type="HSeparator" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Label3" type="Label" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 0, 0.167171, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Warning:This will set a new preview!!!"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 14
+text = "Code:"
+
+[node name="Code_Input" type="HBoxContainer" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input"]
+custom_minimum_size = Vector2(0, 25.94)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_placeholder_color = Color(0.439216, 0.439216, 0.439216, 1)
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+placeholder_text = "<Paste Or Load Text>"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="ErrorLog" type="RichTextLabel" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="HSeparator3" type="HSeparator" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Button_1" type="HBoxContainer" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="Button" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Button_1"]
+custom_minimum_size = Vector2(0, 20.7)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nxumx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nxumx")
+text = "Load Character"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Button_1"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="Button_2" type="HBoxContainer" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="Button" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Button_2"]
+custom_minimum_size = Vector2(0, 20.7)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.234375, 0.234375, 0.234375, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nxumx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nxumx")
+text = "Export Character"
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Button_2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
+[node name="Panel" type="Panel" parent="Wallpaper/Character_Screen/Code_Loader"]
+material = SubResource("ShaderMaterial_rf2su")
+layout_mode = 0
+offset_right = 181.0
+offset_bottom = 319.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ah46f")
+metadata/_edit_lock_ = true
+
 [node name="Preview" type="TextureRect" parent="Wallpaper/Character_Screen"]
 clip_contents = true
 layout_mode = 2
@@ -1565,10 +1969,32 @@ theme_override_fonts/font = ExtResource("22_u408p")
 theme_override_font_sizes/font_size = 12
 text = "Eye 2"
 
+[node name="Button" type="TextureButton" parent="Wallpaper/Character_Screen/Preview"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 3.0
+offset_right = 166.0
+offset_bottom = 28.0
+focus_mode = 0
+texture_normal = ExtResource("34_t7m6n")
+texture_pressed = ExtResource("34_t7m6n")
+texture_hover = ExtResource("33_jb53h")
+
+[node name="Button2" type="TextureButton" parent="Wallpaper/Character_Screen/Preview"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 3.0
+offset_right = 194.0
+offset_bottom = 28.0
+focus_mode = 0
+texture_normal = ExtResource("32_2lwwm")
+texture_pressed = ExtResource("32_2lwwm")
+texture_hover = ExtResource("31_q2flp")
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Wallpaper/Character_Screen"]
 layout_mode = 2
 offset_left = 86.0
-offset_top = 36.0
+offset_top = 56.0
 offset_right = 218.0
 offset_bottom = 216.0
 
@@ -1578,7 +2004,7 @@ transparent_bg = true
 handle_input_locally = false
 msaa_3d = 2
 use_debanding = true
-size = Vector2i(132, 180)
+size = Vector2i(132, 160)
 render_target_update_mode = 4
 
 [node name="Character_Editor" parent="Wallpaper/Character_Screen/SubViewportContainer/SubViewport" instance=ExtResource("4_ui7sq")]

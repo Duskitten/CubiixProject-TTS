@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var charmat = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
 
-enum EYE_ENUM {Default,Chonk,Tri,Nat,Circle,Fox,Four,Entity,Text}
+enum EYE_ENUM {Default,Chonk,Tri,Nat,Circle,Fox,Four,Entity,Text,Mouse}
 enum EAR_ENUM {None,Cat, Fox, Wolf, Goat, Bee, Moth,Mouse,Alien,Deer, Entity, Dog, Bunny, Fluffy}
 enum EXTRA_ENUM {None, Shark, Nub, Antler, Ram, Fish, Narwhal, Dragon}
 enum TAIL_ENUM {None,Cat, Fox, Wolf, Bug, Bee, Moth, Dog, Mouse, Fluffy, Shark, Entity, Bunny, Deer, Dragon}
@@ -12,6 +12,8 @@ enum WING_ENUM {None, Entity, Angel, Butterfly, Wasp, Dragon}
 enum HEAD_ENUM {None,Goggle_Test,Orb_Test,DotMouse_Hat, Pumpkin_Head_Cute_1, Devil_Head, Witch_Head}
 enum CHEST_ENUM {None,Trad_Pride_Bandanna,Trans_Pride_Bandanna}
 enum BACK_ENUM {None, Trad_Pride_Cape}
+
+
 
 @export var Randomize : bool
 
@@ -49,6 +51,13 @@ enum BACK_ENUM {None, Trad_Pride_Cape}
 @export var Body_2_Metallic= 0.0
 @export var Body_3_Metallic = 0.0
 @export var Body_4_Metallic = 0.0
+
+@export var Name = ""
+@export var Pronouns_A = ""
+@export var Pronouns_B = ""
+@export var Pronouns_C = ""
+
+@export var Scale = 1.0
 
 var DynBones_Register = {}
 var Skeleton_Values = {}

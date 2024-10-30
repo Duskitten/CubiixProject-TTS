@@ -13,6 +13,7 @@ var Model_Data_Assets = {
 	"Eyes/Four":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Four.gltf").instantiate(),
 	"Eyes/Entity":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Entity.gltf").instantiate(),
 	"Eyes/Text":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Text.gltf").instantiate(),
+	"Eyes/Mouse":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Mouse.gltf").instantiate(),
 	##Ears
 	"Ears/Cat":load("res://Assets/Mesh/Cubiix/Peices/Ears/Cat_Ears.gltf").instantiate(),
 	"Ears/Fox":load("res://Assets/Mesh/Cubiix/Peices/Ears/Fox_Ears.gltf").instantiate(),
@@ -163,6 +164,16 @@ var Mesh_Data_Assets = {
 	"Eyes/Text":{
 		"Name": "Text",
 		"Mesh_Node":"Armature/Skeleton3D/Eyes_Text",
+		"MaterialID":"User",
+		"Has_Blendshapes":true,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{}
+	},
+	"Eyes/Mouse":{
+		"Name": "Mouse",
+		"Mesh_Node":"Armature/Skeleton3D/Eyes_Mouse",
 		"MaterialID":"User",
 		"Has_Blendshapes":true,
 		"Has_Bones":false,
@@ -1102,7 +1113,8 @@ var Eye_Slot = [
 	"Eyes/Fox",
 	"Eyes/Four",
 	"Eyes/Entity",
-	"Eyes/Text"
+	"Eyes/Text",
+	"Eyes/Mouse"
 	]
 var Ear_Slot = [
 	"",

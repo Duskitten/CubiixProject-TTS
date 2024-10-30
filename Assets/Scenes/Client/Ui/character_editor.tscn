@@ -1,7 +1,36 @@
-[gd_scene load_steps=13 format=3 uid="uid://c476y3oq2ygq6"]
+[gd_scene load_steps=16 format=3 uid="uid://c476y3oq2ygq6"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Character.gd" id="1_enbgk"]
 [ext_resource type="PackedScene" uid="uid://cirw3ifxx1v8v" path="res://Assets/Scenes/Client/Characters/cubiix_model.tscn" id="2_v6ccf"]
+[ext_resource type="Shader" uid="uid://qw8xxswsw5c8" path="res://Assets/Shaders/Characters/Cubiix_Shader_Material.tres" id="3_m1qu1"]
+[ext_resource type="Texture2D" uid="uid://rad00hl5f0fm" path="res://Assets/Mesh/Cubiix/Color_Palette_Mask.png" id="4_eigcd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hoj5a"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_m1qu1")
+shader_parameter/has_metallic = true
+shader_parameter/Body1 = Color(0.372549, 0.372549, 0.372549, 1)
+shader_parameter/emiss_Body1 = Color(0, 0, 0, 1)
+shader_parameter/Body1_metallic = 0.0
+shader_parameter/Body1_roughness = 1.0
+shader_parameter/Body2 = Color(0.776471, 0.776471, 0.776471, 1)
+shader_parameter/emiss_Body2 = Color(0, 0, 0, 1)
+shader_parameter/Body2_metallic = 0.0
+shader_parameter/Body2_roughness = 1.0
+shader_parameter/Body3 = Color(0.643843, 0.343793, 0.8, 1)
+shader_parameter/emiss_Body3 = Color(0.643137, 0.345098, 0.8, 1)
+shader_parameter/Body3_metallic = 0.0
+shader_parameter/Body3_roughness = 1.0
+shader_parameter/Body4 = Color(0.643137, 0.345098, 0.8, 1)
+shader_parameter/emiss_Body4 = Color(0.643137, 0.345098, 0.8, 1)
+shader_parameter/Body4_metallic = 0.0
+shader_parameter/Body4_roughness = 1.0
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 0.0
+shader_parameter/distance_fade_glow = 0.0
+shader_parameter/distance_transitioning = false
+shader_parameter/texture_albedo = ExtResource("4_eigcd")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m8ql4"]
 margin = 0.4
@@ -80,7 +109,6 @@ bones/0/position = Vector3(0, 0, 0)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/2/position = Vector3(0, 0.254852, 0)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/2/scale = Vector3(1, 1, 1)
 bones/3/position = Vector3(-0.327326, 0.134334, 0)
 bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/4/rotation = Quaternion(0, 0, 0, 1)
@@ -99,6 +127,9 @@ bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/position = Vector3(0, 0.12722, 0)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+
+[node name="Cube" parent="Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hoj5a")
 
 [node name="AnimationTree" parent="Cubiix_Base/Hub/Cubiix_Model" index="2"]
 parameters/Blend2/blend_amount = 0
