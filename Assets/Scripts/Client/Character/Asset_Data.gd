@@ -66,6 +66,10 @@ var Model_Data_Assets = {
 	"Head_Clothes/Witch_Head":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Witch_Head.gltf").instantiate(),
 	##Chest Clothes
 	"Chest_Clothes/Pride_Bandana":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf").instantiate(),
+	##L_Hip Clothes
+	"L_Hip/HipSkirt":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_L/HipSkirt_L.gltf").instantiate(),
+	##R_Hip Clothes
+	"R_Hip/HipSkirt":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_R/HipSkirt_R.gltf").instantiate(),
 	##Back Clothes
 	"Back_Clothes/Cape_1":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Back/Cape_1.gltf").instantiate(),
 }
@@ -1064,6 +1068,30 @@ var Mesh_Data_Assets = {
 		"Data":[],
 		"BlendData":{},
 	},
+	##L_Hip Clothes
+	"L_Hip/HipSkirt":{
+		"Name": "Leaf Skirt",
+		"Override_Model":Model_Data_Assets["L_Hip/HipSkirt"],
+		"Mesh_Node":"HipSkirt/Skeleton3D/Hip_Skirt_L",
+		"MaterialID":"Tropic_1",
+		"Has_Blendshapes":false,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
+	##R_Hip Clothes
+	"R_Hip/HipSkirt":{
+		"Name": "Leaf Skirt",
+		"Override_Model":Model_Data_Assets["R_Hip/HipSkirt"],
+		"Mesh_Node":"HipSkirt/Skeleton3D/Hip_Skirt_R",
+		"MaterialID":"Tropic_1",
+		"Has_Blendshapes":false,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
 	##Back Clothes
 	"Back_Clothes/Trad_Pride_Cape":{
 		"Name": "LGBT Cape",
@@ -1099,7 +1127,8 @@ var Material_Data_Assets = {
 	#Halloween Stuff
 	"Pumpkin_Cute_1":load("res://Assets/Materials/Characters/Accessories/Pumpkin_Cute_1_Mat.tres"),
 	"Devil_Cute_1":load("res://Assets/Materials/Characters/Accessories/Devil_Cute_1_Mat.tres"),
-	"Witch_Cute_1":load("res://Assets/Materials/Characters/Accessories/Witch_Cute_1_Mat.tres")
+	"Witch_Cute_1":load("res://Assets/Materials/Characters/Accessories/Witch_Cute_1_Mat.tres"),
+	"Tropic_1":load("res://Assets/Materials/Characters/Accessories/Tropic_Shader_Material.tres")
 }
 #--
 var Cubiix_Model = load("res://Assets/Scenes/Client/Characters/cubiix_model.tscn").instantiate()
@@ -1188,9 +1217,9 @@ var Back_Slot = [
 	"",
 	"Back_Clothes/Trad_Pride_Cape"]
 var L_Hip_Slot = [
-	"",]
+	"","L_Hip/HipSkirt"]
 var R_Hip_Slot = [
-	"",]
+	"","R_Hip/HipSkirt"]
 var L_Hand_Slot = [
 	"",]
 var R_Hand_Slot = [

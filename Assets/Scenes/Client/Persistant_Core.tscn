@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=32 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="10_i2prw"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="10_mbyra"]
 [ext_resource type="PackedScene" uid="uid://dctu4v4neanem" path="res://Assets/Scenes/Client/Minigame/cubiixi_game.tscn" id="11_y43yq"]
+[ext_resource type="PackedScene" uid="uid://m671gvpwynkg" path="res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_L/HipSkirt_L.gltf" id="13_mywxv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhpf"]
 bg_color = Color(0.137272, 0.0943, 0.23, 1)
@@ -516,6 +517,8 @@ visible = false
 
 [node name="Node3D" type="Node3D" parent="."]
 
+[node name="HipSkirt_L" parent="Node3D" instance=ExtResource("13_mywxv")]
+
 [node name="Player" parent="Node3D" instance=ExtResource("10_i2prw")]
 Body_1 = Color(0.372549, 0.372549, 0.372549, 1)
 Body_2 = Color(0.776471, 0.776471, 0.776471, 1)
@@ -661,5 +664,6 @@ fov = 56.25
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor"]
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model"]
 [editable path="CanvasLayer/Hexii_UI"]
+[editable path="Node3D/HipSkirt_L"]
 [editable path="Node3D/Player"]
 [editable path="Node3D/Player/Hub/Cubiix_Model"]

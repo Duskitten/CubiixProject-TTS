@@ -353,9 +353,14 @@ func ApplyParts(A,B)-> void:
 	A.Wings = B.Wings
 
 	A.Head = B.Head 
+	A.Face = B.Face 
 	A.Chest = B.Chest 
 	A.Back = B.Back
-
+	A.L_Hand = B.L_Hand
+	A.R_Hand = B.R_Hand
+	A.L_Hip = B.L_Hip
+	A.R_Hip = B.R_Hip
+	
 	A.Body_1 = B.Body_1 
 	A.Body_2 = B.Body_2
 	A.Body_3 = B.Body_3 

@@ -17,8 +17,14 @@ enum HEAD_ENUM {
 	Pumpkin_Head_Cute_1, 
 	Devil_Head, 
 	Witch_Head}
+enum FACE_ENUM {None}
 enum CHEST_ENUM {None,Trad_Pride_Bandanna,Trans_Pride_Bandanna}
 enum BACK_ENUM {None, Trad_Pride_Cape}
+enum L_HAND_ENUM {None}
+enum R_HAND_ENUM {None}
+enum L_HIP_ENUM {None, HipSkirt}
+enum R_HIP_ENUM {None, HipSkirt}
+
 
 
 
@@ -31,8 +37,14 @@ enum BACK_ENUM {None, Trad_Pride_Cape}
 @export var Wings : WING_ENUM = WING_ENUM.None
 
 @export var Head : HEAD_ENUM = HEAD_ENUM.None
+@export var Face : FACE_ENUM = FACE_ENUM.None
 @export var Chest : CHEST_ENUM = CHEST_ENUM.None
 @export var Back : BACK_ENUM = BACK_ENUM.None
+@export var L_Hand : L_HAND_ENUM = L_HAND_ENUM.None
+@export var R_Hand : R_HAND_ENUM = R_HAND_ENUM.None
+@export var L_Hip : L_HIP_ENUM = L_HIP_ENUM.None
+@export var R_Hip: R_HIP_ENUM = R_HIP_ENUM.None
+
 
 @export_color_no_alpha var Body_1 = Color8(0,0,0)
 @export_color_no_alpha var Body_2 = Color8(0,0,0)
@@ -182,7 +194,22 @@ func Regen_Character():
 	await get_tree().process_frame
 
 	var compiled = Core.AssetData.register_meshlist(
-	["Body",Core.AssetData.Eye_Slot[Eyes],Core.AssetData.Ear_Slot[Ears],Core.AssetData.Extra_Slot[Extra],Core.AssetData.Tail_Slot[Tail],Core.AssetData.Wing_Slot[Wings],Core.AssetData.Head_Slot[Head],Core.AssetData.Chest_Slot[Chest],Core.AssetData.Back_Slot[Back]],
+	["Body",
+	Core.AssetData.Eye_Slot[Eyes],
+	Core.AssetData.Ear_Slot[Ears]
+	,Core.AssetData.Extra_Slot[Extra],
+	Core.AssetData.Tail_Slot[Tail],
+	Core.AssetData.Wing_Slot[Wings],
+	
+	Core.AssetData.Head_Slot[Head],
+	Core.AssetData.Face_Slot[Face],
+	Core.AssetData.Chest_Slot[Chest],
+	Core.AssetData.Back_Slot[Back],
+	Core.AssetData.L_Hand_Slot[L_Hand],
+	Core.AssetData.R_Hand_Slot[R_Hand],
+	Core.AssetData.L_Hip_Slot[L_Hip],
+	Core.AssetData.R_Hip_Slot[R_Hip]
+	],
 	{"User":charmat}
 	)
 	var parent = Skeleton.get_parent()
