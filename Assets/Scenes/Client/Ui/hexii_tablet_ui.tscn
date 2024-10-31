@@ -158,10 +158,10 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 40.0
-offset_right = 493.0
-offset_bottom = 457.0
+offset_left = -54.0
+offset_top = -197.0
+offset_right = 400.0
+offset_bottom = 220.0
 texture = ExtResource("1_2xfh6")
 
 [node name="TextureRect" type="TextureRect" parent="Wallpaper"]

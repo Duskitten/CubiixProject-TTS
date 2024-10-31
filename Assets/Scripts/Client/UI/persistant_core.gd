@@ -17,6 +17,7 @@ var windowLocations = {
 }
 func _ready() -> void:
 ###### Signal Connections ######
+	$CanvasLayer/Transitioner.visible = true
 	$CanvasLayer/CrossHair.position = Vector2(get_viewport().size/2) - ($CanvasLayer/CrossHair.size/2)
 	#TitleScreen
 	#Hexii_Ui_Tablet_QuitButton.pressed.connect(QuitButton_Pressed.bind())
