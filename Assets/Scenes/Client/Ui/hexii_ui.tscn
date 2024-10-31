@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bmqym3jemx6x1"]
+[gd_scene load_steps=56 format=3 uid="uid://bmqym3jemx6x1"]
 
 [ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://Assets/Textures/UI/In-Game/Phone_Backing.png" id="1_bfryu"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="2_s0t65"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bq4ioqap8yndm" path="res://Assets/Textures/UI/In-Game/Phone_Backing_2.png" id="5_t6alf"]
 [ext_resource type="Texture2D" uid="uid://uh2xqm07w13p" path="res://Assets/Textures/UI/Titlescreen/Cubiix Project_Logo.png" id="5_uth72"]
 [ext_resource type="Texture2D" uid="uid://bwk8vkuif6lyi" path="res://Assets/Textures/UI/Titlescreen/Status_UI_Networking_Low.png" id="6_u31x2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3l8a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujkh3"]
 texture = ExtResource("1_bfryu")
@@ -255,11 +257,19 @@ _data = {
 layout_mode = 3
 anchors_preset = 0
 
+[node name="DragArea" type="Panel" parent="."]
+offset_left = 50.0
+offset_top = 42.0
+offset_right = 294.0
+offset_bottom = 434.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r3l8a")
+
 [node name="Overlay" type="Panel" parent="."]
 layout_mode = 1
 offset_right = 343.0
 offset_bottom = 637.0
 pivot_offset = Vector2(171, 232.16)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ujkh3")
 
 [node name="Screens" type="Panel" parent="Overlay"]

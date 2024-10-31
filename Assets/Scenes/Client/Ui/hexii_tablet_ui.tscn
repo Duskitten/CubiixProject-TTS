@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=68 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -48,6 +48,8 @@
 [ext_resource type="Texture2D" uid="uid://dvetg7kl43v08" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Revert_Hover.png" id="37_0p2ds"]
 [ext_resource type="Texture2D" uid="uid://rwu3a6sy6rbo" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/OK_Normal.png" id="38_8ahqu"]
 [ext_resource type="Texture2D" uid="uid://cu2ospe87sied" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/OK_Hover.png" id="39_ofy3w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
 
 [sub_resource type="Gradient" id="Gradient_pvti5"]
 
@@ -134,17 +136,25 @@ texture = ExtResource("1_wdvji")
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
-offset_left = 196.0
-offset_top = -26.0
-offset_right = 236.0
-offset_bottom = 14.0
+offset_left = 254.0
+offset_top = 32.0
+offset_right = 294.0
+offset_bottom = 72.0
+
+[node name="DragArea" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 28.0
+offset_right = 504.0
+offset_bottom = 516.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 94.0
-offset_right = 566.0
-offset_bottom = 511.0
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 493.0
+offset_bottom = 457.0
 texture = ExtResource("1_2xfh6")
 
 [node name="TextureRect" type="TextureRect" parent="Wallpaper"]
@@ -1870,10 +1880,9 @@ metadata/_edit_lock_ = true
 
 [node name="Overlay" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 48.0
-offset_right = 608.0
-offset_bottom = 588.0
+offset_left = -5.0
+offset_top = -6.0
+offset_right = 535.0
+offset_bottom = 534.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_43210")
-metadata/_edit_lock_ = true

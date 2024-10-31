@@ -184,7 +184,11 @@ func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
 	$Node3D/Player/Hub.rotation = Rotation
 	$Node3D/Core_Follow/Rot_Y.rotation = Rotation
 	$Node3D/Core_Follow/Rot_Y/Rot_X.rotation = Vector3(deg_to_rad(15),0,0)
-	
+
+var MousePos = Vector2.ZERO
+var TabletDragging = false
+var PhoneDragging = false
+
 func _process(delta: float) -> void:
 	if (($CanvasLayer/Hexii_Tablet_UI/Wallpaper.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && $CanvasLayer/Hexii_Tablet_UI.visible) || ($CanvasLayer/Hexii_UI/Overlay.get_global_rect().grow(-32).has_point(get_viewport().get_mouse_position()) && $CanvasLayer/Hexii_UI.visible)):
 		_on_area_2d_mouse_entered()
@@ -199,6 +203,29 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("chat") && $CanvasLayer/Hexii_UI.visible:
 			Hexii_Ui_Chat_TextInput.grab_focus()
 			
+		if InTablet_DragArea:
+			if Input.is_action_just_pressed("mouse_left"):
+				MousePos = get_viewport().get_mouse_position() - $CanvasLayer/Hexii_Tablet_UI.global_position
+				TabletDragging = true
+		if InPhone_DragArea:
+			if Input.is_action_just_pressed("mouse_left"):
+				MousePos = get_viewport().get_mouse_position() - $CanvasLayer/Hexii_UI.global_position
+				PhoneDragging = true
+				
+		if TabletDragging:
+			if Input.is_action_pressed("mouse_left"):
+				if Rect2(Vector2(20,20),Vector2(get_window().size)-Vector2(40,40)).has_point(get_viewport().get_mouse_position()):
+					$CanvasLayer/Hexii_Tablet_UI.position = get_viewport().get_mouse_position() - MousePos
+			if Input.is_action_just_released("mouse_left"):
+				TabletDragging = false
+				
+		if PhoneDragging:
+			if Input.is_action_pressed("mouse_left"):
+				if Rect2(Vector2(20,20),Vector2(get_window().size)-Vector2(40,40)).has_point(get_viewport().get_mouse_position()):
+					$CanvasLayer/Hexii_UI.position = get_viewport().get_mouse_position() - MousePos
+			if Input.is_action_just_released("mouse_left"):
+				PhoneDragging = false
+		
 	if TablockEnabled:
 		if Mouse_In_UI || Menu_Focused || $CanvasLayer/Hexii_Tablet_UI.visible:
 			if $CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport.MouseInside:
@@ -232,8 +259,8 @@ func _process(delta: float) -> void:
 @onready var Hexii_Ui_NullScreen_Anim =  Hexii_Ui.get_node("Overlay/Screens/Null_Screen/AnimationPlayer")
 
 @onready var Hexii_Ui_Tablet = $CanvasLayer/Hexii_Tablet_UI
-@onready var Hexii_Ui_Tablet_DevlogScreen_Anim = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/AnimationPlayer")
-@onready var Hexii_Ui_Tablet_SettingsScreen_Anim = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/AnimationPlayer")
+#@onready var Hexii_Ui_Tablet_DevlogScreen_Anim = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Devlog_Screen/AnimationPlayer")
+#@onready var Hexii_Ui_Tablet_SettingsScreen_Anim = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Settings_Screen/AnimationPlayer")
 @onready var Hexii_Ui_Tablet_Character = Hexii_Ui_Tablet.get_node("Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base")
 
 func _on_area_2d_mouse_entered() -> void:
@@ -945,16 +972,16 @@ func change_part(Core_Part:String, Part:int) -> void:
 #################################
 ###### Title Screen System ######
 #################################
-var Active_Hexii_Ui_Tablet_Screen_Anim = "Hexii_Ui_Tablet_NullScreen_Anim"
-@onready var Hexii_Ui_Tablet_NullScreen_Anim =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Null_Screen/AnimationPlayer")
-@onready var Hexii_Ui_Tablet_TitleButton =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/TitleButton")
-@onready var Hexii_Ui_Tablet_TitleScreen_Anim =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Title_Screen/AnimationPlayer")
-@onready var Hexii_Ui_Tablet_UpdateButton =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/UpdateButton")
-@onready var Hexii_Ui_Tablet_PlayButton =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/PlayButton")
-@onready var Hexii_Ui_Tablet_DevlogButton =   Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/DevlogButton")
-@onready var Hexii_Ui_Tablet_CommunityButton =   Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/CommunityButton")
-@onready var Hexii_Ui_Tablet_SettingsButton =   Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/SettingsButton")
-@onready var Hexii_Ui_Tablet_QuitButton =   Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/QuitButton")
+#var Active_Hexii_Ui_Tablet_Screen_Anim = "Hexii_Ui_Tablet_NullScreen_Anim"
+#@onready var Hexii_Ui_Tablet_NullScreen_Anim =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Null_Screen/AnimationPlayer")
+#@onready var Hexii_Ui_Tablet_TitleButton =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/TitleButton")
+#@onready var Hexii_Ui_Tablet_TitleScreen_Anim =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Title_Screen/AnimationPlayer")
+#@onready var Hexii_Ui_Tablet_UpdateButton =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/UpdateButton")
+#@onready var Hexii_Ui_Tablet_PlayButton =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/PlayButton")
+#@onready var Hexii_Ui_Tablet_DevlogButton =   Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/DevlogButton")
+#@onready var Hexii_Ui_Tablet_CommunityButton =   Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/CommunityButton")
+#@onready var Hexii_Ui_Tablet_SettingsButton =   Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/SettingsButton")
+#@onready var Hexii_Ui_Tablet_QuitButton =   Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Title_Bar/VBoxContainer/QuitButton")
 
 func QuitButton_Pressed():
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
@@ -967,7 +994,7 @@ func CommunityButton_Pressed():
 #################################
 @onready var Hexii_Ui_Tablet_CharacterButton =  Hexii_Ui_Tablet.get_node("Wallpaper/Control/HBoxContainer2/CharacterButton")
 @onready var Hexii_Ui_Tablet_JournalButton =  Hexii_Ui_Tablet.get_node("Wallpaper/Control/HBoxContainer2/JournalButton")
-@onready var Hexii_Ui_Tablet_CharacterScreen_Anim =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/AnimationPlayer")
+#@onready var Hexii_Ui_Tablet_CharacterScreen_Anim =  Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Character_Screen/AnimationPlayer")
 @onready var Hexii_Ui_Tablet_CharacterScreen =  Hexii_Ui_Tablet.get_node("Wallpaper/Character_Screen")
 @onready var Hexii_Ui_Tablet_JournalScreen =  Hexii_Ui_Tablet.get_node("Wallpaper/Journal_Screen")
 
@@ -978,7 +1005,7 @@ func CommunityButton_Pressed():
 #################################
 ###### Login Screen System ######
 #################################
-@onready var Hexii_Ui_Tablet_LoginScreen_Anim = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/AnimationPlayer")
+#@onready var Hexii_Ui_Tablet_LoginScreen_Anim = Hexii_Ui_Tablet.get_node("Overlay/Screens/Main_Panel/HBoxContainer/Panel/Login_Screen/AnimationPlayer")
 
 
 
@@ -1049,3 +1076,19 @@ func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	get_viewport().gui_release_focus()
+
+var InTablet_DragArea = false
+var InPhone_DragArea = false
+
+func _on_drag_area_mouse_entered() -> void:
+	InTablet_DragArea = true
+
+func _on_drag_area_mouse_exited() -> void:
+	InTablet_DragArea = false
+
+
+func _on_drag_text_mouse_entered() -> void:
+	InPhone_DragArea = true
+
+func _on_drag_text_mouse_exited() -> void:
+	InPhone_DragArea = false

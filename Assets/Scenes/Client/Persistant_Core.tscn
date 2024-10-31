@@ -238,10 +238,14 @@ script = ExtResource("1_crhm8")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VersionImage" parent="CanvasLayer" instance=ExtResource("3_vuaqi")]
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
 offset_left = 4.0
-offset_top = -596.0
+offset_top = 4.0
 offset_right = 112.0
-offset_bottom = -556.0
+offset_bottom = 44.0
+grow_vertical = 1
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("1_rvalq")]
 visible = false
@@ -320,6 +324,13 @@ offset_left = -18.0
 offset_top = 310.0
 offset_right = -18.0
 offset_bottom = 310.0
+
+[node name="DragArea" parent="CanvasLayer/Hexii_UI" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 244.0
+offset_bottom = 392.0
 
 [node name="Panel" parent="CanvasLayer/Hexii_UI/Overlay/Screens/Chat_Screen" index="0"]
 theme_override_styles/panel = SubResource("StyleBoxFlat_pbhpf")
@@ -518,20 +529,12 @@ Is_Player = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Node3D/Player/Hub/Cubiix_Model" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
 bones/9/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Cube" parent="Node3D/Player/Hub/Cubiix_Model/Skeleton3D" index="0"]
 layers = 1
@@ -558,6 +561,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.242
 current = true
 fov = 56.25
 
+[connection signal="mouse_entered" from="CanvasLayer/Hexii_Tablet_UI/DragArea" to="." method="_on_drag_area_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Hexii_Tablet_UI/DragArea" to="." method="_on_drag_area_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts/GridContainer/Head_Button" to="." method="_on_part_button_pressed" binds= ["Head"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts/GridContainer/Face_Button" to="." method="_on_part_button_pressed" binds= ["Face"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts/GridContainer/L_Hip_Button" to="." method="_on_part_button_pressed" binds= ["L_Hip"]]
@@ -647,6 +652,8 @@ fov = 56.25
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3" to="." method="_on_part_button_pressed" binds= ["Extra, Revert"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4" to="." method="_on_part_button_pressed" binds= ["Extra, Apply"]]
 [connection signal="meta_clicked" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Journal_Screen/Preview/Panel/VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="mouse_entered" from="CanvasLayer/Hexii_UI/DragArea" to="." method="_on_drag_text_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Hexii_UI/DragArea" to="." method="_on_drag_text_mouse_exited"]
 [connection signal="focus_entered" from="CanvasLayer/Hexii_UI/Overlay/Screens/Chat_Screen/Panel/LineEdit" to="." method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/Hexii_UI/Overlay/Screens/Chat_Screen/Panel/LineEdit" to="." method="_on_line_edit_focus_exited"]
 
