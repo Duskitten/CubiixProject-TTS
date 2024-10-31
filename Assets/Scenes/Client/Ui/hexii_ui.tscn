@@ -255,19 +255,28 @@ _data = {
 
 [node name="Hexii_UI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DragArea" type="Panel" parent="."]
-offset_left = 50.0
-offset_top = 42.0
-offset_right = 294.0
-offset_bottom = 434.0
+layout_mode = 0
+offset_left = -367.0
+offset_top = 27.0
+offset_right = -123.0
+offset_bottom = 419.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_r3l8a")
 
 [node name="Overlay" type="Panel" parent="."]
 layout_mode = 1
-offset_right = 343.0
-offset_bottom = 637.0
+offset_left = -417.0
+offset_top = -15.0
+offset_right = -74.0
+offset_bottom = 622.0
 pivot_offset = Vector2(171, 232.16)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ujkh3")
@@ -1267,6 +1276,216 @@ theme_override_font_sizes/font_size = 15
 text = "12:00 AM"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Home_Screen"]
+libraries = {
+"": ExtResource("3_irqxn")
+}
+
+[node name="Null_Screen" type="Control" parent="Overlay/Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.302917
+offset_bottom = 107.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Null_Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = -3.69678
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Panel3" type="Panel" parent="Overlay/Screens/Null_Screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 176)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qj8in")
+
+[node name="Panel2" type="Panel" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fh01u")
+
+[node name="Panel" type="Panel" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 80.0
+offset_right = -12.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u003p")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.994505
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel3/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_xykxo")
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 2
+size = Vector2i(216, 176)
+render_target_update_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel3/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.727)
+fov = 91.6
+far = 100.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel3/SubViewportContainer/SubViewport"]
+
+[node name="Phone_Default_Icon" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel3/SubViewportContainer/SubViewport" instance=ExtResource("3_tal58")]
+transform = Transform3D(0.910684, 0, 0.413104, 0, 1, 0, -0.413104, 0, 0.910684, 0, 0, 0)
+script = ExtResource("4_f4pqp")
+
+[node name="Panel4" type="Panel" parent="Overlay/Screens/Null_Screen/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ljodp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.629032
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(146, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_m2mur")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer/HBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer/HBoxContainer2/Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer/HBoxContainer2/Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(145.17, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 8
+columns = 9
+
+[node name="Button4" type="Button" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer/HBoxContainer2/Panel/ScrollContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.581033, 0.581033, 0.581033, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/icon_max_width = 0
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_fonts/font = ExtResource("2_s0t65")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_b76py")
+text = "?"
+
+[node name="Button5" type="Button" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer/HBoxContainer2/Panel/ScrollContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.317647, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0, 0.972549, 0.792157, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_s0t65")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ue23")
+text = "
+"
+
+[node name="Button6" type="Button" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer/HBoxContainer2/Panel/ScrollContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.317647, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0, 0.972549, 0.792157, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_s0t65")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ue23")
+text = "
+"
+
+[node name="Button7" type="Button" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/VBoxContainer/HBoxContainer2/Panel/ScrollContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.317647, 0.792157, 1)
+theme_override_colors/font_outline_color = Color(0, 0.972549, 0.792157, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_s0t65")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ue23")
+text = "
+"
+
+[node name="Panel5" type="Panel" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+offset_left = 66.0
+offset_top = 44.0
+offset_right = 151.0
+offset_bottom = 68.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bnbew")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/Panel5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Overlay/Screens/Null_Screen/VBoxContainer/Panel4/Panel5/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.97, 0.97, 0.97, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_s0t65")
+theme_override_font_sizes/font_size = 15
+text = "12:00 AM"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/Screens/Null_Screen"]
 libraries = {
 "": ExtResource("3_irqxn")
 }
