@@ -274,9 +274,10 @@ func _process(delta: float) -> void:
 		Idle_Timer += Delta
 		
 	if Is_Player:
+		shiftlock_Enabled = Core.Persistant_Core.TablockEnabled
 		if !Core.Persistant_Core.Menu_Focused:
-			input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-			input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+			input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+			input.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
 		else:
 			input = Vector2.ZERO
 			
@@ -344,7 +345,12 @@ func run_idle():
 
 func _input(event: InputEvent) -> void:
 	if Is_Player && !Core.Persistant_Core.Mouse_In_UI:
-		if (Input.is_action_pressed("mouse_right")||shiftlock_Enabled):
+		if (Input.is_action_pressed("mouse_right")||shiftlock_Enabled) && !Core.Persistant_Core.TablockBypass:
+			if event is InputEventMouseMotion && Camera != null:
+				Camera.get_parent().get_parent().get_parent().rotation.y -= event["relative"].x/200
+				Camera.get_parent().get_parent().rotation.x += event["relative"].y/200
+				reset_camera = false
+		elif Input.is_action_pressed("mouse_right") && Core.Persistant_Core.TablockBypass:
 			if event is InputEventMouseMotion && Camera != null:
 				Camera.get_parent().get_parent().get_parent().rotation.y -= event["relative"].x/200
 				Camera.get_parent().get_parent().rotation.x += event["relative"].y/200
@@ -354,12 +360,6 @@ func _input(event: InputEvent) -> void:
 			print("Haoi")
 		if Input.is_action_just_released("ui_scroll_up") && Camera != null:
 			CameraLength += 1.0
-		if Input.is_action_just_pressed("shiftlock"):
-			shiftlock_Enabled = !shiftlock_Enabled
-			if shiftlock_Enabled:
-				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
-			else:
-				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
 
 const walkspeed = .5
 const runspeed = 2

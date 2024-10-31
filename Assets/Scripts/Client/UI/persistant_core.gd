@@ -6,6 +6,9 @@ extends Node
 @onready var Transitioner_AnimationPlayer = Transitioner.get_node("AnimationPlayer")
 var Mouse_In_UI = false
 var Menu_Focused = false
+var TablockEnabled = false
+var TablockBypass = false
+var DragMode = false
 @onready var Player = $Node3D/Player
 
 var windowLocations = {
@@ -193,6 +196,34 @@ func _process(delta: float) -> void:
 			Hexii_Ui_Tablet.visible = !Hexii_Ui_Tablet.visible
 		if Input.is_action_just_pressed("chat_menu"):
 			Hexii_Ui.visible = !Hexii_Ui.visible
+		if Input.is_action_just_pressed("chat") && $CanvasLayer/Hexii_UI.visible:
+			Hexii_Ui_Chat_TextInput.grab_focus()
+			
+	if TablockEnabled:
+		if Mouse_In_UI || Menu_Focused || $CanvasLayer/Hexii_Tablet_UI.visible:
+			if $CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport.MouseInside:
+				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
+				TablockBypass = false
+				$CanvasLayer/CrossHair.visible = false
+			else:
+				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
+				TablockBypass = true
+				$CanvasLayer/CrossHair.visible = false
+		else:
+			Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
+			TablockBypass = false
+			$CanvasLayer/CrossHair.visible = true
+	else:
+		if $CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport.MouseInside:
+				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
+				TablockBypass = false
+				$CanvasLayer/CrossHair.visible = false
+		else:
+			Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
+			TablockBypass = false
+			$CanvasLayer/CrossHair.visible = false
+			
+		
 #############################
 ###### Hexii UI System ######
 #############################
@@ -215,14 +246,11 @@ func _on_area_2d_mouse_exited() -> void:
 var IsInBounds = false
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("shiftlock"):
-		$CanvasLayer/CrossHair.visible = !$CanvasLayer/CrossHair.visible
+	if Input.is_action_just_pressed("shiftlock") && !Mouse_In_UI:
+		TablockEnabled = !TablockEnabled
 
 var current_tablet_menu = null
 var window_lock = false
-
-
-
 
 func button_check(buttonID) -> void:
 	

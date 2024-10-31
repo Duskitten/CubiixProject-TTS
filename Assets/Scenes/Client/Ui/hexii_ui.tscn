@@ -1012,7 +1012,7 @@ theme = ExtResource("5_adsjc")
 theme_override_font_sizes/font_size = 13
 theme_override_styles/focus = SubResource("StyleBoxFlat_2cqsm")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2ollt")
-placeholder_text = "<Click to type>"
+placeholder_text = "Click or tap \"/\" to type"
 
 [node name="Template_Text" type="RichTextLabel" parent="Overlay/Screens/Chat_Screen/Panel"]
 visible = false
