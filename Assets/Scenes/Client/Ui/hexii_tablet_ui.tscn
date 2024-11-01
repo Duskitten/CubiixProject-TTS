@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=75 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -49,6 +49,12 @@
 [ext_resource type="Texture2D" uid="uid://rwu3a6sy6rbo" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/OK_Normal.png" id="38_8ahqu"]
 [ext_resource type="Texture2D" uid="uid://cu2ospe87sied" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/OK_Hover.png" id="39_ofy3w"]
 [ext_resource type="Texture2D" uid="uid://c7e1j3xjeun1b" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Backing.png" id="48_sm57n"]
+[ext_resource type="Texture2D" uid="uid://c1igl0rflf81y" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Settings_Normal.png" id="50_pr7j8"]
+[ext_resource type="Texture2D" uid="uid://c5fxwjegvpjo8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Settings_Hover2.png" id="51_60gyb"]
+[ext_resource type="Texture2D" uid="uid://c0lsf5kpkfnef" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Settings_Hover.png" id="51_vl0ai"]
+[ext_resource type="Texture2D" uid="uid://ckun66vags7xg" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Update_Normal.png" id="52_ix2dm"]
+[ext_resource type="Texture2D" uid="uid://da6vo0g7mrjhf" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Update_Hover.png" id="53_6pyjy"]
+[ext_resource type="Texture2D" uid="uid://bodepoqtdc4ew" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Update_Hover2.png" id="54_e8gcc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
 
@@ -157,6 +163,7 @@ offset_bottom = 278.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -54.0
 offset_top = -197.0
@@ -1660,7 +1667,7 @@ handle_input_locally = false
 msaa_3d = 2
 use_debanding = true
 size = Vector2i(132, 160)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Character_Editor" parent="Wallpaper/Character_Screen/SubViewportContainer/SubViewport" instance=ExtResource("4_ui7sq")]
 
@@ -1886,13 +1893,71 @@ texture = ExtResource("29_dbeuu")
 metadata/_edit_lock_ = true
 
 [node name="Wallpaper2" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -55.0
 offset_top = -198.0
 offset_right = 399.0
 offset_bottom = 231.0
 texture = ExtResource("48_sm57n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Wallpaper2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -181.0
+offset_right = 193.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Wallpaper2/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("50_pr7j8")
+texture_pressed = ExtResource("51_vl0ai")
+texture_hover = ExtResource("51_60gyb")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Wallpaper2/HBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 9
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureButton2" type="TextureButton" parent="Wallpaper2/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("52_ix2dm")
+texture_pressed = ExtResource("53_6pyjy")
+texture_hover = ExtResource("54_e8gcc")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Wallpaper2/HBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 9
+text = "Update
+Game"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="Overlay" type="Panel" parent="."]
 layout_mode = 0
