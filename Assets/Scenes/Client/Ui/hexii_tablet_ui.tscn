@@ -163,7 +163,6 @@ offset_bottom = 278.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -54.0
 offset_top = -197.0
@@ -1667,7 +1666,7 @@ handle_input_locally = false
 msaa_3d = 2
 use_debanding = true
 size = Vector2i(132, 160)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Character_Editor" parent="Wallpaper/Character_Screen/SubViewportContainer/SubViewport" instance=ExtResource("4_ui7sq")]
 
@@ -1893,6 +1892,7 @@ texture = ExtResource("29_dbeuu")
 metadata/_edit_lock_ = true
 
 [node name="Wallpaper2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -55.0
 offset_top = -198.0
