@@ -4,7 +4,8 @@
 # Godot-specific ignores
 .import/
 
-
+addons/godot-jolt/windows/~godot-jolt_windows-x64_editor.dll
+addons/godot-sqlite/bin/~libgdsqlite.windows.template_debug.x86_64.dll
 # Imported translations (automatically generated from CSV files)
 *.translation
 
