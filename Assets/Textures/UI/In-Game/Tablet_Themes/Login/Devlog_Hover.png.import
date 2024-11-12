@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbah032fyv5ei"
-path="res://.godot/imported/Color_Palette.png-9e47235f2cfc2a6d21d173a9cb6bb068.ctex"
+uid="uid://c6ydvow0hmt0n"
+path="res://.godot/imported/Devlog_Hover.png-ca39762a8faadf093a1560c31dc13ce0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mesh/Cubiix/Peices/Ears/Color_Palette.png"
-dest_files=["res://.godot/imported/Color_Palette.png-9e47235f2cfc2a6d21d173a9cb6bb068.ctex"]
+source_file="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Devlog_Hover.png"
+dest_files=["res://.godot/imported/Devlog_Hover.png-ca39762a8faadf093a1560c31dc13ce0.ctex"]
 
 [params]
 

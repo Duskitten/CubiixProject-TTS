@@ -28,44 +28,36 @@ func start_network():
 	NetworkThread.start(network_process)
 
 func network_process():
-	var CurrentTick :int = 0
-	var CurrentTime :int = Time.get_ticks_msec()
 	NetworkThread.set_thread_safety_checks_enabled(false)
 	while true:
 		if Core.Globals.KillThreads:
 				break
-		var Delta = Time.get_ticks_msec() - Tick_Prev
-		Tick_Prev = Time.get_ticks_msec()
-		Tick_Timer += Delta
 		
-		if Tick_Timer > 1000/60:
-			Current_Tick += 1
-			Tick_Timer = 0
-			if TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-				TCP.poll()
-				if TCP.get_available_bytes() > 0:
-					parse_data(TCP.get_var(false))
-				#send_data({"Test":"Hello from client"})
-				if !TrueConnect:
-					if FirstPass:
-						send_data({"Type":Core.Globals.Networking_Valid_Types.Ping})
-						FirstPass = false
-				elif TrueConnect:
-					if FirstPass:
-						send_data({"Type":Core.Globals.Networking_Valid_Types.Player_Request_Info})
-						FirstPass = false
-					if Local_Player != null && Local_Player.queue_network_moved:
-						Local_Player.queue_network_moved = false
-						send_data({"Type":Core.Globals.Networking_Valid_Types.Player_Move})
-	
-			elif TCP.get_status() == StreamPeerTCP.STATUS_CONNECTING:
-				TCP.poll()
-				if TCP.get_available_bytes() > 0:
-					parse_data(TCP.get_var(false))
-				
-			elif TCP.get_status() == StreamPeerTCP.STATUS_NONE:
-				break
+		if TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
+			TCP.poll()
+			if TCP.get_available_bytes() > 0:
+				parse_data(TCP.get_var(false))
+			#send_data({"Test":"Hello from client"})
+			if !TrueConnect:
+				if FirstPass:
+					send_data({"Type":Core.Globals.Networking_Valid_Types.Ping})
+					FirstPass = false
+			elif TrueConnect:
+				if FirstPass:
+					send_data({"Type":Core.Globals.Networking_Valid_Types.Player_Request_Info})
+					FirstPass = false
+				if Local_Player != null && Local_Player.queue_network_moved:
+					Local_Player.queue_network_moved = false
+					send_data({"Type":Core.Globals.Networking_Valid_Types.Player_Move})
+
+		elif TCP.get_status() == StreamPeerTCP.STATUS_CONNECTING:
+			TCP.poll()
+			if TCP.get_available_bytes() > 0:
+				parse_data(TCP.get_var(false))
 			
+		elif TCP.get_status() == StreamPeerTCP.STATUS_NONE:
+			break
+		
 	TCP.disconnect_from_host()
 	print("Killing Network Thread!")
 

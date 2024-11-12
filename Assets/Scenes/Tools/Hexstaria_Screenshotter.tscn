@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://baxtuakcmm8uq"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/test_zone/sub_viewport_Capture.gd" id="1_1syda"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e4tx0"]
+sky_top_color = Color(0.294954, 0.382988, 0.893109, 1)
+sky_horizon_color = Color(2.02149e-06, 0.715738, 0.67646, 1)
+ground_bottom_color = Color(0, 0.87451, 0.956863, 1)
+ground_horizon_color = Color(0, 0.87451, 0.956863, 1)
+sun_angle_max = 30.88
+sun_curve = 0.178379
+
+[sub_resource type="Sky" id="Sky_th6b4"]
+sky_material = SubResource("ProceduralSkyMaterial_e4tx0")
+
+[sub_resource type="Environment" id="Environment_4d62e"]
+background_mode = 2
+background_color = Color(0.758192, 0.758192, 0.758192, 1)
+sky = SubResource("Sky_th6b4")
+ambient_light_source = 3
+ambient_light_color = Color(0.295519, 0.36199, 0.642791, 1)
+ambient_light_sky_contribution = 0.38
+ambient_light_energy = 5.98
+reflected_light_source = 2
+tonemap_mode = 3
+ssao_enabled = true
+ssao_radius = 5.71
+ssao_power = 1.30582
+ssil_enabled = true
+glow_enabled = true
+glow_levels/1 = 16.0
+glow_levels/2 = 16.0
+glow_normalized = true
+glow_intensity = 1.0
+glow_blend_mode = 1
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.649065, 0.767865, 1, 1)
+fog_sun_scatter = 0.18
+fog_density = 0.1322
+fog_aerial_perspective = 0.667
+fog_sky_affect = 0.422
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_sky_affect = 0.0
+volumetric_fog_temporal_reprojection_enabled = false
+adjustment_enabled = true
+adjustment_saturation = 1.4
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ll24o"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 0.01
+dof_blur_far_transition = 600.38
+
+[node name="SubViewport" type="SubViewport"]
+size = Vector2i(2000, 600)
+render_target_update_mode = 4
+script = ExtResource("1_1syda")
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(0.377049, -1.63363e-09, 0.926193, -0.0270728, 0.999573, 0.0110212, -0.925798, -0.0292301, 0.376888, 128.959, 12.5504, -21.3278)
+environment = SubResource("Environment_4d62e")
+attributes = SubResource("CameraAttributesPractical_ll24o")
+fov = 41.1

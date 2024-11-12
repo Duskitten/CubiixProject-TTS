@@ -1098,3 +1098,18 @@ func _on_drag_text_mouse_entered() -> void:
 
 func _on_drag_text_mouse_exited() -> void:
 	InPhone_DragArea = false
+
+
+func _on_titlebutton_pressed(extra_arg_0: String) -> void:
+	match extra_arg_0:
+		"Social":
+			OS.shell_open("https://cubiixproject.xyz/")
+		"Update":
+			pass
+		_:
+			for i in $CanvasLayer/Hexii_Tablet_UI/Wallpaper2.get_children():
+				i.hide()
+			if extra_arg_0 == "Back":
+				get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Buttons").show()
+			else:
+				get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/"+extra_arg_0+"_Screen").show()

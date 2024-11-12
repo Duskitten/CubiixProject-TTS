@@ -2,77 +2,88 @@ extends Node
 
 var Model_Data_Assets = {
 	##Body
-	"Body":load("res://Assets/Mesh/Cubiix/Cubiix_Base.gltf").instantiate(),
+	"Body":"res://Assets/Mesh/Cubiix/Cubiix_Base.gltf",
 	##Eyes
-	"Eyes/Default":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Default.gltf").instantiate(),
-	"Eyes/Chonk":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Chonk.gltf").instantiate(),
-	"Eyes/Tri":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Tri.gltf").instantiate(),
-	"Eyes/Nat":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Nat.gltf").instantiate(),
-	"Eyes/Circle":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Circle.gltf").instantiate(),
-	"Eyes/Fox":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Fox.gltf").instantiate(),
-	"Eyes/Four":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Four.gltf").instantiate(),
-	"Eyes/Entity":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Entity.gltf").instantiate(),
-	"Eyes/Text":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Text.gltf").instantiate(),
-	"Eyes/Mouse":load("res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Mouse.gltf").instantiate(),
+	"Eyes/Default":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Default.gltf",
+	"Eyes/Chonk":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Chonk.gltf",
+	"Eyes/Tri":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Tri.gltf",
+	"Eyes/Nat":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Nat.gltf",
+	"Eyes/Circle":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Circle.gltf",
+	"Eyes/Fox":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Fox.gltf",
+	"Eyes/Four":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Four.gltf",
+	"Eyes/Entity":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Entity.gltf",
+	"Eyes/Text":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Text.gltf",
+	"Eyes/Mouse":"res://Assets/Mesh/Cubiix/Peices/Eyes/Eyes_Mouse.gltf",
 	##Ears
-	"Ears/Cat":load("res://Assets/Mesh/Cubiix/Peices/Ears/Cat_Ears.gltf").instantiate(),
-	"Ears/Fox":load("res://Assets/Mesh/Cubiix/Peices/Ears/Fox_Ears.gltf").instantiate(),
-	"Ears/Wolf":load("res://Assets/Mesh/Cubiix/Peices/Ears/Wolf_Ears.gltf").instantiate(),
-	"Ears/Goat":load("res://Assets/Mesh/Cubiix/Peices/Ears/Goat_Ears.gltf").instantiate(),
-	"Ears/Bee":load("res://Assets/Mesh/Cubiix/Peices/Ears/Bee_Ears.gltf").instantiate(),
-	"Ears/Moth":load("res://Assets/Mesh/Cubiix/Peices/Ears/Moth_Ears.gltf").instantiate(),
-	"Ears/Mouse":load("res://Assets/Mesh/Cubiix/Peices/Ears/Mouse_Ears.gltf").instantiate(),
-	"Ears/Alien":load("res://Assets/Mesh/Cubiix/Peices/Ears/Alien_Ears.gltf").instantiate(),
-	"Ears/Deer":load("res://Assets/Mesh/Cubiix/Peices/Ears/Deer_Ears.gltf").instantiate(),
-	"Ears/Entity":load("res://Assets/Mesh/Cubiix/Peices/Ears/Entity_Ears.gltf").instantiate(),
-	"Ears/Dog":load("res://Assets/Mesh/Cubiix/Peices/Ears/Dog_Ears.gltf").instantiate(),
-	"Ears/Bunny":load("res://Assets/Mesh/Cubiix/Peices/Ears/Bunny_Ears.gltf").instantiate(),
-	"Ears/Fluffy":load("res://Assets/Mesh/Cubiix/Peices/Ears/Fluffy_Ears.gltf").instantiate(),
+	"Ears/Cat":"res://Assets/Mesh/Cubiix/Peices/Ears/Cat_Ears.gltf",
+	"Ears/Fox":"res://Assets/Mesh/Cubiix/Peices/Ears/Fox_Ears.gltf",
+	"Ears/Wolf":"res://Assets/Mesh/Cubiix/Peices/Ears/Wolf_Ears.gltf",
+	"Ears/Goat":"res://Assets/Mesh/Cubiix/Peices/Ears/Goat_Ears.gltf",
+	"Ears/Bee":"res://Assets/Mesh/Cubiix/Peices/Ears/Bee_Ears.gltf",
+	"Ears/Moth":"res://Assets/Mesh/Cubiix/Peices/Ears/Moth_Ears.gltf",
+	"Ears/Mouse":"res://Assets/Mesh/Cubiix/Peices/Ears/Mouse_Ears.gltf",
+	"Ears/Alien":"res://Assets/Mesh/Cubiix/Peices/Ears/Alien_Ears.gltf",
+	"Ears/Deer":"res://Assets/Mesh/Cubiix/Peices/Ears/Deer_Ears.gltf",
+	"Ears/Entity":"res://Assets/Mesh/Cubiix/Peices/Ears/Entity_Ears.gltf",
+	"Ears/Dog":"res://Assets/Mesh/Cubiix/Peices/Ears/Dog_Ears.gltf",
+	"Ears/Bunny":"res://Assets/Mesh/Cubiix/Peices/Ears/Bunny_Ears.gltf",
+	"Ears/Fluffy":"res://Assets/Mesh/Cubiix/Peices/Ears/Fluffy_Ears.gltf",
 	##Extra
-	"Extra/Shark":load("res://Assets/Mesh/Cubiix/Peices/Extra/Shark_Extra.gltf").instantiate(),
-	"Extra/Nub":load("res://Assets/Mesh/Cubiix/Peices/Extra/Nub_Extra.gltf").instantiate(),
-	"Extra/Antler":load("res://Assets/Mesh/Cubiix/Peices/Extra/Antler_Extra.gltf").instantiate(),
-	"Extra/Ram":load("res://Assets/Mesh/Cubiix/Peices/Extra/Ram_Extra.gltf").instantiate(),
-	"Extra/Fish":load("res://Assets/Mesh/Cubiix/Peices/Extra/Fish_Extra.gltf").instantiate(),
-	"Extra/Narwhal":load("res://Assets/Mesh/Cubiix/Peices/Extra/Narwhal_Extra.gltf").instantiate(),
-	"Extra/Dragon":load("res://Assets/Mesh/Cubiix/Peices/Extra/Dragon_Extra.gltf").instantiate(),
+	"Extra/Shark":"res://Assets/Mesh/Cubiix/Peices/Extra/Shark_Extra.gltf",
+	"Extra/Nub":"res://Assets/Mesh/Cubiix/Peices/Extra/Nub_Extra.gltf",
+	"Extra/Antler":"res://Assets/Mesh/Cubiix/Peices/Extra/Antler_Extra.gltf",
+	"Extra/Ram":"res://Assets/Mesh/Cubiix/Peices/Extra/Ram_Extra.gltf",
+	"Extra/Fish":"res://Assets/Mesh/Cubiix/Peices/Extra/Fish_Extra.gltf",
+	"Extra/Narwhal":"res://Assets/Mesh/Cubiix/Peices/Extra/Narwhal_Extra.gltf",
+	"Extra/Dragon":"res://Assets/Mesh/Cubiix/Peices/Extra/Dragon_Extra.gltf",
 	##Wings
-	"Wings/Entity":load("res://Assets/Mesh/Cubiix/Peices/Wings/Entity_Wings.gltf").instantiate(),
-	"Wings/Angel":load("res://Assets/Mesh/Cubiix/Peices/Wings/Angel_Wings.gltf").instantiate(),
-	"Wings/Butterfly":load("res://Assets/Mesh/Cubiix/Peices/Wings/Butterfly_Wings.gltf").instantiate(),
-	"Wings/Wasp":load("res://Assets/Mesh/Cubiix/Peices/Wings/Wasp_Wings.gltf").instantiate(),
-	"Wings/Dragon":load("res://Assets/Mesh/Cubiix/Peices/Wings/Dragon_Wings.gltf").instantiate(),
+	"Wings/Entity":"res://Assets/Mesh/Cubiix/Peices/Wings/Entity_Wings.gltf",
+	"Wings/Angel":"res://Assets/Mesh/Cubiix/Peices/Wings/Angel_Wings.gltf",
+	"Wings/Butterfly":"res://Assets/Mesh/Cubiix/Peices/Wings/Butterfly_Wings.gltf",
+	"Wings/Wasp":"res://Assets/Mesh/Cubiix/Peices/Wings/Wasp_Wings.gltf",
+	"Wings/Dragon":"res://Assets/Mesh/Cubiix/Peices/Wings/Dragon_Wings.gltf",
 	##Tail
-	"Tails/Cat":load("res://Assets/Mesh/Cubiix/Peices/Tails/Cat_Tail.gltf").instantiate(),
-	"Tails/Fox":load("res://Assets/Mesh/Cubiix/Peices/Tails/Fox_Tail.gltf").instantiate(),
-	"Tails/Wolf":load("res://Assets/Mesh/Cubiix/Peices/Tails/Wolf_Tail.gltf").instantiate(),
-	"Tails/Bug":load("res://Assets/Mesh/Cubiix/Peices/Tails/Bug_Tail.gltf").instantiate(),
-	"Tails/Bee":load("res://Assets/Mesh/Cubiix/Peices/Tails/Bee_Tail.gltf").instantiate(),
-	"Tails/Moth":load("res://Assets/Mesh/Cubiix/Peices/Tails/Moth_Tail.gltf").instantiate(),
-	"Tails/Dog":load("res://Assets/Mesh/Cubiix/Peices/Tails/Dog_Tail.gltf").instantiate(),
-	"Tails/Mouse":load("res://Assets/Mesh/Cubiix/Peices/Tails/Mouse_Tail.gltf").instantiate(),
-	"Tails/Fluffy":load("res://Assets/Mesh/Cubiix/Peices/Tails/Fluffy_Tail.gltf").instantiate(),
-	"Tails/Shark":load("res://Assets/Mesh/Cubiix/Peices/Tails/Shark_Tail.gltf").instantiate(),
-	"Tails/Entity":load("res://Assets/Mesh/Cubiix/Peices/Tails/Entity_Tail.gltf").instantiate(),
-	"Tails/Bunny":load("res://Assets/Mesh/Cubiix/Peices/Tails/Bunny_Tail.gltf").instantiate(),
-	"Tails/Deer":load("res://Assets/Mesh/Cubiix/Peices/Tails/Deer_Tail.gltf").instantiate(),
-	"Tails/Dragon":load("res://Assets/Mesh/Cubiix/Peices/Tails/Dragon_Tail.gltf").instantiate(),
+	"Tails/Cat":"res://Assets/Mesh/Cubiix/Peices/Tails/Cat_Tail.gltf",
+	"Tails/Fox":"res://Assets/Mesh/Cubiix/Peices/Tails/Fox_Tail.gltf",
+	"Tails/Wolf":"res://Assets/Mesh/Cubiix/Peices/Tails/Wolf_Tail.gltf",
+	"Tails/Bug":"res://Assets/Mesh/Cubiix/Peices/Tails/Bug_Tail.gltf",
+	"Tails/Bee":"res://Assets/Mesh/Cubiix/Peices/Tails/Bee_Tail.gltf",
+	"Tails/Moth":"res://Assets/Mesh/Cubiix/Peices/Tails/Moth_Tail.gltf",
+	"Tails/Dog":"res://Assets/Mesh/Cubiix/Peices/Tails/Dog_Tail.gltf",
+	"Tails/Mouse":"res://Assets/Mesh/Cubiix/Peices/Tails/Mouse_Tail.gltf",
+	"Tails/Fluffy":"res://Assets/Mesh/Cubiix/Peices/Tails/Fluffy_Tail.gltf",
+	"Tails/Shark":"res://Assets/Mesh/Cubiix/Peices/Tails/Shark_Tail.gltf",
+	"Tails/Entity":"res://Assets/Mesh/Cubiix/Peices/Tails/Entity_Tail.gltf",
+	"Tails/Bunny":"res://Assets/Mesh/Cubiix/Peices/Tails/Bunny_Tail.gltf",
+	"Tails/Deer":"res://Assets/Mesh/Cubiix/Peices/Tails/Deer_Tail.gltf",
+	"Tails/Dragon":"res://Assets/Mesh/Cubiix/Peices/Tails/Dragon_Tail.gltf",
 	##Head Clothes
-	"Head_Clothes/Goggle_Test":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Goggle_Test.gltf").instantiate(),
-	"Head_Clothes/Orb_Test":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Orb_Test.gltf").instantiate(),
-	"Head_Clothes/DotMouse_Hat":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/DotMouse_Hat.gltf").instantiate(),
-	"Head_Clothes/Pumpkin_Head":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Pumpkin_Head.gltf").instantiate(),
-	"Head_Clothes/Devil_Head":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Devil_Head.gltf").instantiate(),
-	"Head_Clothes/Witch_Head":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Witch_Head.gltf").instantiate(),
+	"Head_Clothes/Goggle_Test":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Goggle_Test.gltf",
+	"Head_Clothes/Orb_Test":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Orb_Test.gltf",
+	"Head_Clothes/DotMouse_Hat":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/DotMouse_Hat.gltf",
+	"Head_Clothes/Pumpkin_Head":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Pumpkin_Head.gltf",
+	"Head_Clothes/Devil_Head":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Devil_Head.gltf",
+	"Head_Clothes/Witch_Head":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Witch_Head.gltf",
 	##Chest Clothes
-	"Chest_Clothes/Pride_Bandana":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf").instantiate(),
+	"Chest_Clothes/Pride_Bandana":"res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf",
 	##L_Hip Clothes
-	"L_Hip/HipSkirt":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_L/HipSkirt_L.gltf").instantiate(),
+	"L_Hip/HipSkirt":"res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_L/HipSkirt_L.gltf",
 	##R_Hip Clothes
-	"R_Hip/HipSkirt":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_R/HipSkirt_R.gltf").instantiate(),
+	"R_Hip/HipSkirt":"res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_R/HipSkirt_R.gltf",
 	##Back Clothes
-	"Back_Clothes/Cape_1":load("res://Assets/Mesh/Cubiix/Peices/Clothes_Back/Cape_1.gltf").instantiate(),
+	"Back_Clothes/Cape_1":"res://Assets/Mesh/Cubiix/Peices/Clothes_Back/Cape_1.gltf",
 }
+
+var InitThread:Thread
+signal FinishedLoad
+func _init() -> void:
+	InitThread = Thread.new()
+	InitThread.start(Init_ThreadRun)
+	
+func Init_ThreadRun():
+	for i in Model_Data_Assets.keys():
+		Model_Data_Assets[i] = load(Model_Data_Assets[i]).instantiate()
+	call_deferred("emit_signal","FinishedLoad")
 
 var Mesh_Data_Assets = {
 	##Body

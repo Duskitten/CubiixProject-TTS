@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfk27q3w8f8hh"
-path.s3tc="res://.godot/imported/Color_Palette.png-5a97ed4b2886fdd5fa2834b402d4da40.s3tc.ctex"
+uid="uid://bvvvncbxm3tm1"
+path="res://.godot/imported/Color_Palette.png-5a97ed4b2886fdd5fa2834b402d4da40.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Mesh/Cubiix/Peices/Eyes/Color_Palette.png"
-dest_files=["res://.godot/imported/Color_Palette.png-5a97ed4b2886fdd5fa2834b402d4da40.s3tc.ctex"]
+dest_files=["res://.godot/imported/Color_Palette.png-5a97ed4b2886fdd5fa2834b402d4da40.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

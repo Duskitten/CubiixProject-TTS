@@ -77,9 +77,28 @@ func network_process():
 			Peers[hash(newPeer["peer_obj"])] = newPeer.duplicate(true)
 			print("We Will Wait For Response.")
 			#send_data(newPeer["peer_obj"],{"Type":Core.Globals.Networking_Valid_Types.Player_Request_Info,"Content":"Hello, Who Are You?"})
-
-		if Tick_Timer > 1000/60:
+		
+		## So we need a plan of action here, the best way to handle this I think will be a call and response system.
+		## Essentially, the server will keep ticking with an open ended input
+		##
+		## Server Intakes at realtime
+		## Server sends snapshot command at tick speed
+		## This would constitute any entities in the world, such as Players, Items, Enemies, etc
+		## We need to pack this all into a single Dictionary to throw it across the network
+		##
+		## Client Returns Data after command (Position/Location/Rotations/Animations values etc)
+		## We essentially want to capture the majority of the player's state in terms of the actual
+		## Player Model, with sub commands for things like UI that can be returned at a later date
+		## Clients will be in an open loop and have no concept of a tick as they're responding on a 
+		## need-to-know basis
+		## 
+		## Then we just loop this I guess?
+		
+		
+		####Everything within the tick counter is for the actual server to send out.
+		if Tick_Timer > 1000/20:
 			Current_Tick += 1
+			print(Current_Tick)
 			Tick_Timer = 0
 			var accumulated_server_positions = {} ##User > Position/Rotation/Ect Data
 			for i in Peers.keys():
@@ -106,12 +125,25 @@ func network_process():
 				if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 					if Peers[i]["validated"]:
 						send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
+					#if peer.get_available_bytes() > 0:
+						#parse_data(i,n,peer.get_var(false))
+		
+		
+		####Everything Past here is "Returned" data from clients
+		for i in Peers.keys():
+			var n = Peers[i]["peer_obj"]
+			var peer = n.stream_peer
+			peer.poll()
+			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
+				if Peers[i]["validated"]:
+					#send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
 					if peer.get_available_bytes() > 0:
 						parse_data(i,n,peer.get_var(false))
 					
-				elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
-					Peers.erase(i)
-		
+			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
+				Peers.erase(i)
+			
+			
 		if Core.Globals.KillThreads:
 			break
 		

@@ -22,13 +22,17 @@ func _ready():
 		Dialogue_Handler = load("res://Assets/Scripts/Client/UI/DialogueBank.gd").new()
 		Persistant_Core = load("res://Assets/Scenes/Client/Persistant_Core.tscn").instantiate()
 		add_child(SceneData)
+		
 		add_child(Globals)
 		add_child(AssetData)
 		add_child(Client)
 		add_child(Dialogue_Handler)
 		get_parent().call_deferred("add_child", Persistant_Core)
-		SceneData.call_deferred("Swap_Scene","Hexstaria",{},true,"Spawn_Docks")
+		
+		await SceneData.FinishedLoad
 		await Persistant_Core.ready 
+		print("Haoi")
+		SceneData.call_deferred("Swap_Scene","Hexstaria",{},true,"Spawn_Docks")
 		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Tablet_TitleScreen_Anim","Exit","", false)
 		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)
 		

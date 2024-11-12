@@ -4,7 +4,8 @@ var Scenes = {
 	"Title":[
 		"res://Assets/Scenes/Client/Maps/Titlescreen.tscn", 
 		"TitleScreen",
-		"..."],
+		"...",
+		"res://Assets/Textures/UI/Map_Screenshots/screenshot_showcase.png"],
 	"Showcase":[
 		"res://Assets/Scenes/Client/Maps/Showcase.tscn", 
 		"Showcase", 
@@ -20,17 +21,31 @@ var Scenes = {
 		]
 }
 
+var InitThread:Thread
+signal FinishedLoad
+func _init() -> void:
+	InitThread = Thread.new()
+	InitThread.start(Init_ThreadRun)
+	
+func Init_ThreadRun():
+	for i in Scenes.keys():
+		Scenes[i][0] = load(Scenes[i][0]).instantiate()
+		Scenes[i][3] = load(Scenes[i][3])
+	
+	print("Haio")
+	call_deferred("emit_signal","FinishedLoad")
 
 func Swap_Scene(To_Scene:String,PassThrough:Dictionary = {}, SkipFade:bool = false, SpawnLocation:String = "") -> void:
 	Core.Persistant_Core.Transitioner.get_node("TextureRect/RichTextLabel").text = "[center][font_size=40] [b]"+Scenes[To_Scene][1]+"[/b][/font_size]\n"+Scenes[To_Scene][2]
-	Core.Persistant_Core.Transitioner.get_node("TextureRect").texture = load(Scenes[To_Scene][3])
+	Core.Persistant_Core.Transitioner.get_node("TextureRect").texture = Scenes[To_Scene][3]
 	if !SkipFade:
 		Core.Persistant_Core.Transitioner_AnimationPlayer.play_backwards("FadeOut")
 		await Core.Persistant_Core.Transitioner_AnimationPlayer.animation_finished
 	if get_tree().root.get_node("Main_Scene/Current_Scene").get_child_count() > 0:
-		get_tree().root.get_node("Main_Scene/Current_Scene").get_child(0).queue_free()
+		get_tree().root.get_node("Main_Scene/Current_Scene").remove_child(get_tree().root.get_node("Main_Scene/Current_Scene").get_child(0))
 		
-	var load_scene = load(Scenes[To_Scene][0]).instantiate()
+	var load_scene = Scenes[To_Scene][0]
+	print(load_scene)
 	
 	if SpawnLocation != "":
 		Core.Persistant_Core.SpawnAt(Scenes[To_Scene][4][SpawnLocation][0], Scenes[To_Scene][4][SpawnLocation][1])
@@ -38,5 +53,5 @@ func Swap_Scene(To_Scene:String,PassThrough:Dictionary = {}, SkipFade:bool = fal
 		Core.Persistant_Core.SpawnAt(Vector3.ZERO, Vector3.ZERO)
 	
 	get_tree().root.get_node("Main_Scene/Current_Scene").add_child(load_scene)
-	await get_tree().create_timer(2).timeout 
+	await load_scene.FinishedLoad
 	Core.Persistant_Core.Transitioner_AnimationPlayer.play("FadeOut")

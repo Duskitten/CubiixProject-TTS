@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbah032fyv5ei"
-path="res://.godot/imported/Color_Palette.png-9e47235f2cfc2a6d21d173a9cb6bb068.ctex"
+uid="uid://d1xgju8pdofcu"
+path="res://.godot/imported/Devlog_Normal.png-3135b443ec6012b5f5fa5f0bb5a446fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mesh/Cubiix/Peices/Ears/Color_Palette.png"
-dest_files=["res://.godot/imported/Color_Palette.png-9e47235f2cfc2a6d21d173a9cb6bb068.ctex"]
+source_file="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Devlog_Normal.png"
+dest_files=["res://.godot/imported/Devlog_Normal.png-3135b443ec6012b5f5fa5f0bb5a446fe.ctex"]
 
 [params]
 
