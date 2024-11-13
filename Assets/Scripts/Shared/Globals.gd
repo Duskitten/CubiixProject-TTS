@@ -1,12 +1,6 @@
 extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
-var ApiCalls = {
-	"getUser":"http://api.cubiixproject.xyz/user/getUser", #Input:userID Header #Get
-	"setUser":"http://api.cubiixproject.xyz/user/setUser", #Input:userID Header, userSecretCode Header #Post
-	"validateToken":"http://api.cubiixproject.xyz/user/validateToken", #Input:userToken Header #Post
-	"graphQl":"https://cubiixproject.xyz/graphql" #Input:Authorization Header
-}
 
 enum Networking_Valid_Types {
 	Ping,

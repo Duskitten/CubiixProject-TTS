@@ -1520,15 +1520,3 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_81w5k")
 libraries = {
 "": SubResource("AnimationLibrary_yiapa")
 }
-
-[node name="HTTPNodes" type="Node" parent="."]
-
-[node name="Update_Check" type="HTTPRequest" parent="HTTPNodes"]
-
-[node name="Update_Downloader" type="HTTPRequest" parent="HTTPNodes"]
-
-[node name="Login_Create" type="HTTPRequest" parent="HTTPNodes"]
-
-[node name="Login_Signin" type="HTTPRequest" parent="HTTPNodes"]
-
-[node name="API_Validate" type="HTTPRequest" parent="HTTPNodes"]

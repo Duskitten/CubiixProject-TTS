@@ -184,6 +184,7 @@ offset_bottom = 278.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -54.0
 offset_top = -197.0
@@ -1914,7 +1915,6 @@ texture = ExtResource("29_dbeuu")
 metadata/_edit_lock_ = true
 
 [node name="Wallpaper2" type="TextureRect" parent="."]
-visible = false
 texture_filter = 2
 layout_mode = 0
 offset_left = -55.0
@@ -2058,11 +2058,12 @@ offset_bottom = 409.0
 texture_normal = ExtResource("51_oo4pn")
 
 [node name="Login_Screen" type="Control" parent="Wallpaper2"]
+visible = false
 anchors_preset = 0
 offset_left = 71.0
-offset_top = 33.0
+offset_top = -5.0
 offset_right = 111.0
-offset_bottom = 73.0
+offset_bottom = 35.0
 pivot_offset = Vector2(158.98, 152.66)
 
 [node name="TextureRect2" type="TextureRect" parent="Wallpaper2/Login_Screen"]
@@ -2078,9 +2079,9 @@ texture = ExtResource("52_owp2v")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.425
-anchor_top = 0.125
+anchor_top = 0.0750382
 anchor_right = 0.425
-anchor_bottom = 0.125
+anchor_bottom = 0.0750382
 offset_left = -102.85
 offset_top = -9.0
 offset_right = -68.85
@@ -2113,9 +2114,10 @@ anchor_top = 0.85
 anchor_right = 5.525
 anchor_bottom = 5.525
 offset_left = 12.0
-offset_top = 177.0
+offset_top = 181.0
 offset_right = 53.0
-offset_bottom = 21.0
+offset_bottom = 25.0
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.59375, 0.59375, 0.59375, 1)
 theme_override_colors/font_color = Color(0.101563, 0.101563, 0.101563, 1)
 theme_override_fonts/font = ExtResource("22_u408p")
@@ -2123,6 +2125,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_ie6ih")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ie6ih")
 placeholder_text = "<username>"
 alignment = 1
+caret_blink = true
 
 [node name="Login3" type="LineEdit" parent="Wallpaper2/Login_Screen"]
 clip_contents = true
@@ -2132,9 +2135,10 @@ anchor_top = 0.85
 anchor_right = 5.525
 anchor_bottom = 5.525
 offset_left = 12.0
-offset_top = 211.0
+offset_top = 216.0
 offset_right = 53.0
-offset_bottom = 55.0
+offset_bottom = 60.0
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.59375, 0.59375, 0.59375, 1)
 theme_override_colors/font_color = Color(0.101563, 0.101563, 0.101563, 1)
 theme_override_fonts/font = ExtResource("22_u408p")
@@ -2142,6 +2146,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_ie6ih")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ie6ih")
 placeholder_text = "<password>"
 alignment = 1
+caret_blink = true
 secret = true
 
 [node name="Login4" type="LineEdit" parent="Wallpaper2/Login_Screen"]
@@ -2152,33 +2157,106 @@ anchor_top = 0.85
 anchor_right = 5.525
 anchor_bottom = 5.525
 offset_left = 12.0
-offset_top = 245.0
+offset_top = 251.0
 offset_right = 53.0
-offset_bottom = 89.0
+offset_bottom = 95.0
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.59375, 0.59375, 0.59375, 1)
 theme_override_colors/font_color = Color(0.101563, 0.101563, 0.101563, 1)
 theme_override_fonts/font = ExtResource("22_u408p")
 theme_override_styles/focus = SubResource("StyleBoxTexture_ie6ih")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ie6ih")
-placeholder_text = "<api.cubiixproject.xyz>"
+placeholder_text = "<cubiixproject.xyz>"
 alignment = 1
+caret_blink = true
+secret = true
+
+[node name="Login5" type="LineEdit" parent="Wallpaper2/Login_Screen"]
+clip_contents = true
+layout_mode = 2
+anchor_left = 0.6
+anchor_top = 0.85
+anchor_right = 5.525
+anchor_bottom = 5.525
+offset_left = 12.0
+offset_top = 286.0
+offset_right = 53.0
+offset_bottom = 130.0
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.59375, 0.59375, 0.59375, 1)
+theme_override_colors/font_color = Color(0.101563, 0.101563, 0.101563, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ie6ih")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ie6ih")
+placeholder_text = "<Default Auth>"
+alignment = 1
+caret_blink = true
 secret = true
 
 [node name="Continue" type="TextureButton" parent="Wallpaper2/Login_Screen"]
 layout_mode = 0
 offset_left = 342.0
-offset_top = 343.0
+offset_top = 381.0
 offset_right = 376.0
-offset_bottom = 376.0
+offset_bottom = 414.0
 texture_normal = ExtResource("55_dh241")
 
 [node name="Back" type="TextureButton" parent="Wallpaper2/Login_Screen"]
 layout_mode = 0
 offset_left = -67.0
-offset_top = 343.0
+offset_top = 381.0
 offset_right = -33.0
-offset_bottom = 376.0
+offset_bottom = 414.0
 texture_normal = ExtResource("51_oo4pn")
+
+[node name="Login_Screen2" type="Control" parent="Wallpaper2"]
+visible = false
+anchors_preset = 0
+offset_left = 71.0
+offset_top = -5.0
+offset_right = 111.0
+offset_bottom = 35.0
+pivot_offset = Vector2(158.98, 152.66)
+
+[node name="TextureRect2" type="TextureRect" parent="Wallpaper2/Login_Screen2"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 184.0
+offset_right = 297.0
+offset_bottom = 296.0
+mouse_filter = 2
+texture = ExtResource("52_owp2v")
+
+[node name="Label2" type="Label" parent="Wallpaper2/Login_Screen2/TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.0750382
+anchor_right = 0.425
+anchor_bottom = 0.0750382
+offset_left = -102.85
+offset_top = -9.0
+offset_right = -68.85
+offset_bottom = 6.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Login"
+metadata/_edit_use_anchors_ = true
+
+[node name="Preview" type="TextureRect" parent="Wallpaper2/Login_Screen2"]
+clip_contents = true
+layout_mode = 2
+anchor_left = 0.6
+anchor_top = 0.85
+anchor_right = 5.525
+anchor_bottom = 5.525
+offset_left = 2.0
+offset_top = 175.0
+offset_right = 65.0
+offset_bottom = 64.0
+texture = ExtResource("53_j0p4s")
 
 [node name="Settings_Screen" type="Control" parent="Wallpaper2"]
 visible = false
@@ -2369,7 +2447,6 @@ offset_bottom = 376.0
 texture_normal = ExtResource("51_oo4pn")
 
 [node name="Login_Buttons" type="HBoxContainer" parent="Wallpaper2"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2377,9 +2454,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -193.0
-offset_top = -181.0
+offset_top = -200.0
 offset_right = 193.0
-offset_bottom = -120.0
+offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 8
