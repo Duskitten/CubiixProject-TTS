@@ -47,7 +47,7 @@ void fragment() {
 			ROUGHNESS = Body2_roughness;
 			METALLIC = Body2_metallic;
 			}
-		
+
 		}
 	else if (int(albedo_tex.r) == int(1.0) && int(albedo_tex.g) != int(1.0)){
 

@@ -2169,7 +2169,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ie6ih")
 placeholder_text = "<cubiixproject.xyz>"
 alignment = 1
 caret_blink = true
-secret = true
 
 [node name="Login5" type="LineEdit" parent="Wallpaper2/Login_Screen"]
 clip_contents = true
@@ -2191,7 +2190,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ie6ih")
 placeholder_text = "<Default Auth>"
 alignment = 1
 caret_blink = true
-secret = true
 
 [node name="Continue" type="TextureButton" parent="Wallpaper2/Login_Screen"]
 layout_mode = 0

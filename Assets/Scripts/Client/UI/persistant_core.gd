@@ -1142,6 +1142,7 @@ func _parse_login():
 	get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").show()
 	var login_Query = {}
 	var login_URL = ""
+	var AUTH = ""
 	if $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true) == "":
 		URL = "cubiixproject.xyz"
 		API_URL = "https://api."+URL
@@ -1151,25 +1152,27 @@ func _parse_login():
 		"variables" : {"username":$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"password":$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,"strategy":"local"}
 		}
 		login_URL = URL + ApiCalls["graphQl"]
-		
+		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA"
+		var json = JSON.new()
+		Login_Signin.request(login_URL,
+			[AUTH,"Content-Type: application/json"]
+			,HTTPClient.METHOD_POST,
+			json.stringify(login_Query))
+	elif $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true).to_lower().begins_with("localhost"):
+		URL = "http://"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true).to_lower()
+		login_URL = URL
+		API_URL =  URL
+		API_Validate.request(login_URL + ApiCalls["validateToken"],["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+			"Content-Type: application/json"]
+			,HTTPClient.METHOD_POST,"")
 	else:
 		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text
 		API_URL = "https://api."+URL
 		URL = "https://"+URL
+		AUTH = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login5.text
 
 	
-	var AUTH = ""
-	if $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login5.text.strip_edges(true) == "":
-		##This is just the auth key for gamedev role on my wiki c:
-		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA"
-	else:
-		AUTH = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login5.text
-	
-	var json = JSON.new()
-	Login_Signin.request(login_URL,
-	[AUTH,"Content-Type: application/json"]
-	,HTTPClient.METHOD_POST,
-	json.stringify(login_Query))
+
 	
 	print("SentRequest")
 	
@@ -1193,6 +1196,8 @@ func login_request_completed(result, response_code, headers, body):
 			,HTTPClient.METHOD_POST,"")
 			Core.Globals.LocalUser["JWT"] = jwt
 			print(jwt)
+	elif URL == "localhost":
+		print("Localhost Login!")
 	else:
 		pass
 		##This will be parser for things that aren't using my wiki for login
@@ -1202,13 +1207,13 @@ func api_validate_completed(result, response_code, headers, body):
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	print(response)
-	if URL == "https://cubiixproject.xyz":
-		if response["status"] == 0:
-			Core.Globals.LocalUser["UserID"] = response["userID"]
-			Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
+	print("api Completed!")
+	if response["status"] == 0:
+		Core.Globals.LocalUser["UserID"] = response["userID"]
+		Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
 			#Core.Client.connect_to_server("localhost","5599")
-			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2.hide()
-			$CanvasLayer/Hexii_Tablet_UI/Wallpaper.show()
-		else:
-			get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen").show()
-			get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").hide()
+		$CanvasLayer/Hexii_Tablet_UI/Wallpaper2.hide()
+		$CanvasLayer/Hexii_Tablet_UI/Wallpaper.show()
+	else:
+		get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen").show()
+		get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").hide()
