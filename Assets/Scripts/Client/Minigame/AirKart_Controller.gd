@@ -25,7 +25,7 @@ var stored_velocity = Vector3.ZERO
 
 func _ready() -> void:
 	$Interact_Prompt.Interacted.connect(FlySetup)
-	set_physics_process(false)
+	#set_physics_process(false)
 	
 func _process(delta: float) -> void:
 	if has_player:

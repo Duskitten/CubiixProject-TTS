@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=31 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="10_i2prw"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="10_mbyra"]
 [ext_resource type="PackedScene" uid="uid://dctu4v4neanem" path="res://Assets/Scenes/Client/Minigame/cubiixi_game.tscn" id="11_y43yq"]
-[ext_resource type="PackedScene" uid="uid://m671gvpwynkg" path="res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_L/HipSkirt_L.gltf" id="13_mywxv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhpf"]
 bg_color = Color(0.137272, 0.0943, 0.23, 1)
@@ -299,16 +298,6 @@ offset_bottom = 222.0
 size = Vector2i(132, 158)
 script = ExtResource("5_ayhcd")
 
-[node name="Skeleton3D" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
-
 [node name="Cube" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
 surface_material_override/0 = null
 
@@ -350,10 +339,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -358.0
-offset_top = 36.0
-offset_right = -358.0
-offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -429,6 +414,7 @@ position = Vector2(-40, -11)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 2
 
 [node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -528,8 +514,6 @@ visible = false
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="HipSkirt_L" parent="Node3D" instance=ExtResource("13_mywxv")]
-
 [node name="Player" parent="Node3D" instance=ExtResource("10_i2prw")]
 Body_1 = Color(0.372549, 0.372549, 0.372549, 1)
 Body_2 = Color(0.776471, 0.776471, 0.776471, 1)
@@ -543,20 +527,12 @@ Is_Player = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Node3D/Player/Hub/Cubiix_Model" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
 bones/9/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Cube" parent="Node3D/Player/Hub/Cubiix_Model/Skeleton3D" index="0"]
 layers = 1
@@ -713,6 +689,5 @@ fov = 56.25
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor"]
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model"]
 [editable path="CanvasLayer/Hexii_UI"]
-[editable path="Node3D/HipSkirt_L"]
 [editable path="Node3D/Player"]
 [editable path="Node3D/Player/Hub/Cubiix_Model"]

@@ -33,7 +33,6 @@ func Init_ThreadRun():
 		Scenes[i][3] = load(Scenes[i][3])
 
 	call_deferred("emit_signal","FinishedLoad")
-	InitThread.wait_to_finish()
 
 func Swap_Scene(To_Scene:String,PassThrough:Dictionary = {}, SkipFade:bool = false, SpawnLocation:String = "") -> void:
 	Core.Persistant_Core.Transitioner.get_node("TextureRect/RichTextLabel").text = "[center][font_size=40] [b]"+Scenes[To_Scene][1]+"[/b][/font_size]\n"+Scenes[To_Scene][2]
