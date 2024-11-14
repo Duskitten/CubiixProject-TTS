@@ -23,7 +23,7 @@ var Scenes = {
 
 var InitThread:Thread
 signal FinishedLoad
-func _init() -> void:
+func runsetup() -> void:
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
 	
@@ -31,9 +31,9 @@ func Init_ThreadRun():
 	for i in Scenes.keys():
 		Scenes[i][0] = load(Scenes[i][0]).instantiate()
 		Scenes[i][3] = load(Scenes[i][3])
-	
-	print("Haio")
+
 	call_deferred("emit_signal","FinishedLoad")
+	InitThread.wait_to_finish()
 
 func Swap_Scene(To_Scene:String,PassThrough:Dictionary = {}, SkipFade:bool = false, SpawnLocation:String = "") -> void:
 	Core.Persistant_Core.Transitioner.get_node("TextureRect/RichTextLabel").text = "[center][font_size=40] [b]"+Scenes[To_Scene][1]+"[/b][/font_size]\n"+Scenes[To_Scene][2]

@@ -76,9 +76,11 @@ var Model_Data_Assets = {
 
 var InitThread:Thread
 signal FinishedLoad
-func _init() -> void:
+func runsetup() -> void:
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
+	
+	InitThread.wait_to_finish()
 	
 func Init_ThreadRun():
 	for i in Model_Data_Assets.keys():
