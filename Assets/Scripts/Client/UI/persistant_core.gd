@@ -1112,6 +1112,9 @@ func _on_drag_text_mouse_entered() -> void:
 func _on_drag_text_mouse_exited() -> void:
 	InPhone_DragArea = false
 
+@onready var login_username = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2
+@onready var login_password = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3
+@onready var login_UrlBox = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4
 
 func _on_titlebutton_pressed(extra_arg_0: String) -> void:
 	match extra_arg_0:
@@ -1120,7 +1123,7 @@ func _on_titlebutton_pressed(extra_arg_0: String) -> void:
 		"Update":
 			pass
 		"Continue_Login":
-			if $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text.strip_edges(true) != "" && $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text.strip_edges(true) != "":
+			if login_username.text.strip_edges(true) != "" && login_password.text.strip_edges(true) != "":
 				_parse_login()
 		_:
 			for i in $CanvasLayer/Hexii_Tablet_UI/Wallpaper2.get_children():
@@ -1139,18 +1142,19 @@ var ApiCalls = {
 }
 
 
+
 func _parse_login():
 	get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen").hide()
 	get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").show()
 	var login_Query = {}
 	var login_URL = ""
 	var AUTH = ""
-	if $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true) == "":
+	if login_UrlBox.text.strip_edges(true) == "":
 		URL = "cubiixproject.xyz"
 		API_URL = "https://api."+URL
 		login_Query = {
 		"query" : "mutation ($username:String!, $password:String!, $strategy:String!) {authentication {login (username : $username, password : $password, strategy : $strategy){responseResult{errorCode, message}, jwt}}}",
-		"variables" : {"username":$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"password":$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,"strategy":"local"}
+		"variables" : {"username":login_username.text,"password":login_password.text,"strategy":"local"}
 		}
 		login_URL = "https://" + URL + ApiCalls["graphQl"]
 		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA"
@@ -1159,18 +1163,18 @@ func _parse_login():
 			[AUTH,"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,
 			json.stringify(login_Query))
-	elif $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true).to_lower().begins_with("localhost"):
-		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.to_lower()
+	elif login_UrlBox.text.strip_edges(true).to_lower().begins_with("localhost"):
+		URL = login_UrlBox.text.to_lower()
 		login_URL = "http://"+URL+ ApiCalls["validateToken"]
 		API_URL = "http://"+URL
-		API_Validate.request(login_URL,["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+		API_Validate.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
 	else:
-		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.to_lower()
+		URL = login_UrlBox.text.to_lower()
 		API_URL = "https://api."+URL
 		login_URL = "https://api"+URL+ ApiCalls["validateToken"]
-		API_Validate.request(login_URL,["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+		API_Validate.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
 
@@ -1188,7 +1192,7 @@ func login_request_completed(result, response_code, headers, body):
 	var response = json.get_data()
 	print(response)
 	
-	if URL == "cubiixproject.xyz":
+	if response.has("data"):
 		if response["data"]["authentication"]["login"]["responseResult"]["errorCode"] != 0:
 			pass
 			#Hexii_Login_LoginText.text =  "[center][color=red]"  + response["data"]["authentication"]["login"]["responseResult"]["message"]
@@ -1200,6 +1204,13 @@ func login_request_completed(result, response_code, headers, body):
 			,HTTPClient.METHOD_POST,"")
 			Core.Globals.LocalUser["JWT"] = jwt
 			print(jwt)
+	elif response.has("status"):
+		if response["status"] == 0:
+			pass
+		else:
+			pass
+
+		
 
 func api_validate_completed(result, response_code, headers, body):
 	var json = JSON.new()
@@ -1221,32 +1232,32 @@ func _on_register_link_button_pressed() -> void:
 	var login_URL = ""
 	var AUTH = ""
 	
-	if $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true) == "":
+	if login_UrlBox.text.strip_edges(true) == "":
 		URL = "cubiixproject.xyz"
 		API_URL = "https://api."+URL
 		login_URL = "https://" + URL + ApiCalls["graphQl"]
 		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA"
 		login_Query = {
 			"query" : "mutation ($email:String!, $name:String!,$passwordRaw:String!, $providerKey:String!, $groups:[Int]!, $sendWelcomeEmail:Boolean!){ users{ create(email: $email, name:$name, passwordRaw: $passwordRaw ,providerKey:$providerKey, groups:$groups, sendWelcomeEmail: $sendWelcomeEmail){ responseResult{succeeded slug message} user{id}}}}",
-			"variables": {"email": $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text, "name": "","passwordRaw":$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text ,"providerKey": "local" ,  "groups": [3] ,"sendWelcomeEmail":false}
+			"variables": {"email": login_username.text, "name": "","passwordRaw":login_password.text ,"providerKey": "local" ,  "groups": [3] ,"sendWelcomeEmail":false}
 		}
 		var json = JSON.new()
 		Login_Create.request(login_URL,["Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA",
 		"Content-Type: application/json"]
 		,HTTPClient.METHOD_POST,
 		json.stringify(login_Query))
-	elif $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true).to_lower().begins_with("localhost"):
-		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.to_lower()
+	elif login_UrlBox.text.strip_edges(true).to_lower().begins_with("localhost"):
+		URL = login_UrlBox.text.to_lower()
 		login_URL = "http://"+URL+ApiCalls["registerUser"]
 		API_URL = "http://"+URL
-		Login_Create.request(login_URL,["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+		Login_Create.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
 	else:
-		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.to_lower()
+		URL = login_UrlBox.text.to_lower()
 		login_URL = "https://"+URL+ApiCalls["registerUser"]
 		API_URL = "https://api."+URL
-		Login_Create.request(login_URL,["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+		Login_Create.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
 
@@ -1256,7 +1267,15 @@ func register_request_completed(result, response_code, headers, body):
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	print(response)
-	#if response["data"]["users"]["create"]["responseResult"]["succeeded"] != true:
-		#Register_Text.text =  "[center][color=red]"  + response["data"]["users"]["create"]["responseResult"]["message"]
-	#else:
-		#Register_Text.text =  "[center][color=green]"  + response["data"]["users"]["create"]["responseResult"]["message"] +"\n Please return to login."
+	if response.has("data"):
+		if response["data"]["users"]["create"]["responseResult"]["succeeded"] != true:
+			pass
+			#Register_Text.text =  "[center][color=red]"  + response["data"]["users"]["create"]["responseResult"]["message"]
+		else:
+			pass
+			#Register_Text.text =  "[center][color=green]"  + response["data"]["users"]["create"]["responseResult"]["message"] +"\n Please return to login."
+	elif response.has("status"):
+		if response["status"] == 0:
+			pass
+		else:
+			pass
