@@ -29,6 +29,7 @@ func _ready() -> void:
 ###### Signal Connections ######
 	Login_Signin.request_completed.connect(self.login_request_completed)
 	API_Validate.request_completed.connect(self.api_validate_completed)
+	Login_Create.request_completed.connect(self.register_request_completed)
 	$CanvasLayer/Transitioner.visible = true
 	$CanvasLayer/CrossHair.position = Vector2(get_viewport().size/2) - ($CanvasLayer/CrossHair.size/2)
 	#TitleScreen
@@ -1133,7 +1134,8 @@ var ApiCalls = {
 	"getUser":"/user/getUser", #Input:userID Header #Get
 	"setUser":"/user/setUser", #Input:userID Header, userSecretCode Header #Post
 	"validateToken":"/user/validateToken", #Input:userToken Header #Post
-	"graphQl":"/graphql" #Input:Authorization Header
+	"graphQl":"/graphql", #Input:Authorization Header
+	"registerUser":"/user/registerUser" #Input:Username, Password
 }
 
 
@@ -1159,16 +1161,16 @@ func _parse_login():
 			json.stringify(login_Query))
 	elif $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true).to_lower().begins_with("localhost"):
 		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.to_lower()
-		login_URL = "http://"+URL
+		login_URL = "http://"+URL+ ApiCalls["validateToken"]
 		API_URL = "http://"+URL
-		API_Validate.request(login_URL + ApiCalls["validateToken"],["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+		API_Validate.request(login_URL,["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
 	else:
 		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.to_lower()
 		API_URL = "https://api."+URL
-		login_URL = "https://"+URL
-		API_Validate.request(API_URL + ApiCalls["validateToken"],["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+		login_URL = "https://api"+URL+ ApiCalls["validateToken"]
+		API_Validate.request(login_URL,["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
 
@@ -1213,3 +1215,48 @@ func api_validate_completed(result, response_code, headers, body):
 	else:
 		get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen").show()
 		get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").hide()
+
+func _on_register_link_button_pressed() -> void:
+	var login_Query = {}
+	var login_URL = ""
+	var AUTH = ""
+	
+	if $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true) == "":
+		URL = "cubiixproject.xyz"
+		API_URL = "https://api."+URL
+		login_URL = "https://" + URL + ApiCalls["graphQl"]
+		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA"
+		login_Query = {
+			"query" : "mutation ($email:String!, $name:String!,$passwordRaw:String!, $providerKey:String!, $groups:[Int]!, $sendWelcomeEmail:Boolean!){ users{ create(email: $email, name:$name, passwordRaw: $passwordRaw ,providerKey:$providerKey, groups:$groups, sendWelcomeEmail: $sendWelcomeEmail){ responseResult{succeeded slug message} user{id}}}}",
+			"variables": {"email": $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text, "name": "","passwordRaw":$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text ,"providerKey": "local" ,  "groups": [3] ,"sendWelcomeEmail":false}
+		}
+		var json = JSON.new()
+		Login_Create.request(login_URL,["Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA",
+		"Content-Type: application/json"]
+		,HTTPClient.METHOD_POST,
+		json.stringify(login_Query))
+	elif $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.strip_edges(true).to_lower().begins_with("localhost"):
+		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.to_lower()
+		login_URL = "http://"+URL+ApiCalls["registerUser"]
+		API_URL = "http://"+URL
+		Login_Create.request(login_URL,["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+			"Content-Type: application/json"]
+			,HTTPClient.METHOD_POST,"")
+	else:
+		URL = $CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login4.text.to_lower()
+		login_URL = "https://"+URL+ApiCalls["registerUser"]
+		API_URL = "https://api."+URL
+		Login_Create.request(login_URL,["userName:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login2.text,"userPassword:"+$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Login3.text,
+			"Content-Type: application/json"]
+			,HTTPClient.METHOD_POST,"")
+
+func register_request_completed(result, response_code, headers, body):
+	#print(result)
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+	var response = json.get_data()
+	print(response)
+	#if response["data"]["users"]["create"]["responseResult"]["succeeded"] != true:
+		#Register_Text.text =  "[center][color=red]"  + response["data"]["users"]["create"]["responseResult"]["message"]
+	#else:
+		#Register_Text.text =  "[center][color=green]"  + response["data"]["users"]["create"]["responseResult"]["message"] +"\n Please return to login."

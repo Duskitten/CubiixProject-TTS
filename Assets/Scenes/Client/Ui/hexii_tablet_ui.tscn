@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=98 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -61,10 +61,12 @@
 [ext_resource type="Texture2D" uid="uid://br0snmn0l5oc8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Inner.png" id="53_j0p4s"]
 [ext_resource type="Texture2D" uid="uid://tadav2nu6t7n" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Social_Hover.png" id="53_qahek"]
 [ext_resource type="Texture2D" uid="uid://bodepoqtdc4ew" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Update_Hover2.png" id="54_e8gcc"]
+[ext_resource type="Texture2D" uid="uid://4qytw1k6p2to" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Button.png" id="54_gdje6"]
 [ext_resource type="Texture2D" uid="uid://c12iiqa6we0i1" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Social_Hover2.png" id="54_y36e2"]
 [ext_resource type="Texture2D" uid="uid://x2qtauvdlmo3" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Bar.png" id="54_yo32u"]
-[ext_resource type="Texture2D" uid="uid://7yw5vaugpce3" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Continue.png" id="55_dh241"]
+[ext_resource type="Texture2D" uid="uid://bv4j342xx4cld" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Button_Register.png" id="55_sxe0o"]
 [ext_resource type="Texture2D" uid="uid://12wff82hsuju" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Settings_Backing.png" id="56_kp23b"]
+[ext_resource type="Texture2D" uid="uid://cwcqprrq2tl0a" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Loading_A.png" id="56_lscda"]
 [ext_resource type="Texture2D" uid="uid://cpcafbrf3h0xr" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Settings_Inner.png" id="57_b6ggu"]
 [ext_resource type="Texture2D" uid="uid://d1xgju8pdofcu" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Devlog_Normal.png" id="58_dr2lh"]
 [ext_resource type="Texture2D" uid="uid://dvy1dwcqccur8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Normal.png" id="58_rsrw1"]
@@ -156,6 +158,20 @@ thickness = 2
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ie6ih"]
 texture = ExtResource("54_yo32u")
 
+[sub_resource type="Animation" id="Animation_e5xir"]
+resource_name = "Loading"
+length = 0.533337
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_sy546"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlpkl"]
+_data = {
+"Loading": SubResource("Animation_e5xir"),
+"RESET": SubResource("Animation_sy546")
+}
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
 texture = ExtResource("1_wdvji")
 
@@ -173,7 +189,6 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_vertical_guides_ = [549.0]
 
 [node name="DragArea" type="Panel" parent="."]
 layout_mode = 0
@@ -2058,7 +2073,6 @@ offset_bottom = 409.0
 texture_normal = ExtResource("51_oo4pn")
 
 [node name="Login_Screen" type="Control" parent="Wallpaper2"]
-visible = false
 anchors_preset = 0
 offset_left = 71.0
 offset_top = -5.0
@@ -2114,9 +2128,9 @@ anchor_top = 0.85
 anchor_right = 5.525
 anchor_bottom = 5.525
 offset_left = 12.0
-offset_top = 181.0
+offset_top = 202.0
 offset_right = 53.0
-offset_bottom = 25.0
+offset_bottom = 46.0
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.59375, 0.59375, 0.59375, 1)
 theme_override_colors/font_color = Color(0.101563, 0.101563, 0.101563, 1)
@@ -2135,9 +2149,9 @@ anchor_top = 0.85
 anchor_right = 5.525
 anchor_bottom = 5.525
 offset_left = 12.0
-offset_top = 216.0
+offset_top = 237.0
 offset_right = 53.0
-offset_bottom = 60.0
+offset_bottom = 81.0
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.59375, 0.59375, 0.59375, 1)
 theme_override_colors/font_color = Color(0.101563, 0.101563, 0.101563, 1)
@@ -2157,9 +2171,9 @@ anchor_top = 0.85
 anchor_right = 5.525
 anchor_bottom = 5.525
 offset_left = 12.0
-offset_top = 251.0
+offset_top = 272.0
 offset_right = 53.0
-offset_bottom = 95.0
+offset_bottom = 116.0
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.59375, 0.59375, 0.59375, 1)
 theme_override_colors/font_color = Color(0.101563, 0.101563, 0.101563, 1)
@@ -2171,6 +2185,7 @@ alignment = 1
 caret_blink = true
 
 [node name="Login5" type="LineEdit" parent="Wallpaper2/Login_Screen"]
+visible = false
 clip_contents = true
 layout_mode = 2
 anchor_left = 0.6
@@ -2193,11 +2208,45 @@ caret_blink = true
 
 [node name="Continue" type="TextureButton" parent="Wallpaper2/Login_Screen"]
 layout_mode = 0
-offset_left = 342.0
+offset_left = 254.0
 offset_top = 381.0
-offset_right = 376.0
-offset_bottom = 414.0
-texture_normal = ExtResource("55_dh241")
+offset_right = 379.0
+offset_bottom = 416.0
+texture_normal = ExtResource("54_gdje6")
+
+[node name="Label" type="Label" parent="Wallpaper2/Login_Screen/Continue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.492188, 0.141837, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+text = "Login"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Register" type="TextureButton" parent="Wallpaper2/Login_Screen"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 381.0
+offset_right = 252.0
+offset_bottom = 416.0
+texture_normal = ExtResource("55_sxe0o")
+
+[node name="Label" type="Label" parent="Wallpaper2/Login_Screen/Register"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.492188, 0.192085, 0, 1)
+theme_override_fonts/font = ExtResource("22_u408p")
+text = "Register"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Back" type="TextureButton" parent="Wallpaper2/Login_Screen"]
 layout_mode = 0
@@ -2255,6 +2304,61 @@ offset_top = 175.0
 offset_right = 65.0
 offset_bottom = 64.0
 texture = ExtResource("53_j0p4s")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Wallpaper2/Login_Screen2/Preview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.597656, 0.439877, 1)
+theme_override_fonts/normal_font = ExtResource("22_u408p")
+bbcode_enabled = true
+text = "
+[center]Waiting for auth server..."
+
+[node name="Sprite2D" type="Sprite2D" parent="Wallpaper2/Login_Screen2/Preview"]
+modulate = Color(1, 0.882353, 1, 1)
+position = Vector2(127, 93)
+texture = ExtResource("56_lscda")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wallpaper2/Login_Screen2/Preview"]
+libraries = {
+"": SubResource("AnimationLibrary_hlpkl")
+}
+
+[node name="Response" type="TextureRect" parent="Wallpaper2/Login_Screen2"]
+clip_contents = true
+layout_mode = 2
+anchor_left = 0.6
+anchor_top = 0.85
+anchor_right = 5.525
+anchor_bottom = 5.525
+offset_left = 2.0
+offset_top = 175.0
+offset_right = 65.0
+offset_bottom = 64.0
+texture = ExtResource("53_j0p4s")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Wallpaper2/Login_Screen2/Response"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.597656, 0.439877, 1)
+theme_override_fonts/normal_font = ExtResource("22_u408p")
+bbcode_enabled = true
+text = "
+[center]Error:
+[color=red]AAAAAAAAA"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wallpaper2/Login_Screen2/Response"]
+libraries = {
+"": SubResource("AnimationLibrary_hlpkl")
+}
 
 [node name="Settings_Screen" type="Control" parent="Wallpaper2"]
 visible = false
@@ -2445,6 +2549,7 @@ offset_bottom = 376.0
 texture_normal = ExtResource("51_oo4pn")
 
 [node name="Login_Buttons" type="HBoxContainer" parent="Wallpaper2"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
