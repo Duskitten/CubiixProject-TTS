@@ -1157,7 +1157,7 @@ func _parse_login():
 		"variables" : {"username":login_username.text,"password":login_password.text,"strategy":"local"}
 		}
 		login_URL = "https://" + URL + ApiCalls["graphQl"]
-		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA"
+		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjUsImdycCI6NSwiaWF0IjoxNzMxODkyNzcwLCJleHAiOjE4MjY1NjU1NzAsImF1ZCI6InVybjpjdWJpaXhwcm9qZWN0Lnh5eiIsImlzcyI6InVybjp3aWtpLmpzIn0.AFfcQb0LMugPAcU_Gpg-vmv3O3b-Q3cAVtQRwka06Y53lzDMZCDmg7TzN1fsdI_vjbnZ2lAPKLoYB0gkYKRUpncJS9wOzZNgLrZ0Ho3Riu5K8AaUg1pHFvufGG0pjM7YHL92Cw8005dB55OrYMw67u-9ErqR68Q5qQSo3-DSwob_goTCJJ4c2kiPnomh8kE9nMV0e-_PofSoLzVfLx3fRdYoi8LUTgpdISpKmGMEO1E4nu2lL1Jk1E7JyzY5-VYfeyBsVBoUKiDAkECCfA9_3yqGW3DwuGVh2oL9-SqebuougopbeWuPOyw5cQ9c97OU3bAe01QS_CEh4eVFV3L8QQ"
 		var json = JSON.new()
 		Login_Signin.request(login_URL,
 			[AUTH,"Content-Type: application/json"]
@@ -1173,44 +1173,41 @@ func _parse_login():
 	else:
 		URL = login_UrlBox.text.to_lower()
 		API_URL = "https://api."+URL
-		login_URL = "https://api"+URL+ ApiCalls["validateToken"]
+		login_URL = "https://api."+URL+ ApiCalls["validateToken"]
 		API_Validate.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
-
 	
-
-	
-	print("SentRequest")
-	
-
+var jwt 
 ##This login card is specific to my wiki setup, not external auths
 func login_request_completed(result, response_code, headers, body):
-	print(result)
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	print(response)
-	
+	var login_URL = ""
 	if response.has("data"):
 		if response["data"]["authentication"]["login"]["responseResult"]["errorCode"] != 0:
 			pass
 			#Hexii_Login_LoginText.text =  "[center][color=red]"  + response["data"]["authentication"]["login"]["responseResult"]["message"]
 		else:
-			#Hexii_Login_LoginText.text =  "[center][color=green]"  + response["data"]["authentication"]["login"]["responseResult"]["message"]
-			var jwt = response["data"]["authentication"]["login"]["jwt"]
-			API_Validate.request(API_URL + ApiCalls["validateToken"],["userToken: "+jwt,
+			login_URL = API_URL+ ApiCalls["validateToken"]
+			print(login_URL)
+			jwt = response["data"]["authentication"]["login"]["jwt"]
+			
+			API_Validate.request(login_URL,["userToken: "+jwt,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
-			Core.Globals.LocalUser["JWT"] = jwt
-			print(jwt)
+			tryreset = true
+			
+			#Hexii_Login_LoginText.text =  "[center][color=green]"  + response["data"]["authentication"]["login"]["responseResult"]["message"]
 	elif response.has("status"):
 		if response["status"] == 0:
 			pass
 		else:
 			pass
 
-		
+var tryreset = true
 
 func api_validate_completed(result, response_code, headers, body):
 	var json = JSON.new()
@@ -1218,14 +1215,24 @@ func api_validate_completed(result, response_code, headers, body):
 	var response = json.get_data()
 	print(response)
 	print("api Completed!")
-	if response["status"] == 0:
-		Core.Globals.LocalUser["UserID"] = response["userID"]
-		Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
-		$CanvasLayer/Hexii_Tablet_UI/Wallpaper2.hide()
-		$CanvasLayer/Hexii_Tablet_UI/Wallpaper.show()
-	else:
-		get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen").show()
-		get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").hide()
+	if response != null:
+		if response["status"] == 0:
+			Core.Globals.LocalUser["UserID"] = response["userID"]
+			Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
+			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2.hide()
+			$CanvasLayer/Hexii_Tablet_UI/Wallpaper.show()
+			get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen").show()
+			get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").hide()
+		elif response["status"] == 2 && tryreset:
+			await get_tree().create_timer(1).timeout
+			tryreset = false
+			var login_URL = API_URL+ ApiCalls["validateToken"]
+			API_Validate.request(login_URL,["userToken: "+jwt,
+			"Content-Type: application/json"]
+			,HTTPClient.METHOD_POST,"")
+		else:
+			get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen").show()
+			get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").hide()
 
 func _on_register_link_button_pressed() -> void:
 	var login_Query = {}
@@ -1236,13 +1243,14 @@ func _on_register_link_button_pressed() -> void:
 		URL = "cubiixproject.xyz"
 		API_URL = "https://api."+URL
 		login_URL = "https://" + URL + ApiCalls["graphQl"]
-		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA"
+		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjUsImdycCI6NSwiaWF0IjoxNzMxODkyNzcwLCJleHAiOjE4MjY1NjU1NzAsImF1ZCI6InVybjpjdWJpaXhwcm9qZWN0Lnh5eiIsImlzcyI6InVybjp3aWtpLmpzIn0.AFfcQb0LMugPAcU_Gpg-vmv3O3b-Q3cAVtQRwka06Y53lzDMZCDmg7TzN1fsdI_vjbnZ2lAPKLoYB0gkYKRUpncJS9wOzZNgLrZ0Ho3Riu5K8AaUg1pHFvufGG0pjM7YHL92Cw8005dB55OrYMw67u-9ErqR68Q5qQSo3-DSwob_goTCJJ4c2kiPnomh8kE9nMV0e-_PofSoLzVfLx3fRdYoi8LUTgpdISpKmGMEO1E4nu2lL1Jk1E7JyzY5-VYfeyBsVBoUKiDAkECCfA9_3yqGW3DwuGVh2oL9-SqebuougopbeWuPOyw5cQ9c97OU3bAe01QS_CEh4eVFV3L8QQ"
 		login_Query = {
 			"query" : "mutation ($email:String!, $name:String!,$passwordRaw:String!, $providerKey:String!, $groups:[Int]!, $sendWelcomeEmail:Boolean!){ users{ create(email: $email, name:$name, passwordRaw: $passwordRaw ,providerKey:$providerKey, groups:$groups, sendWelcomeEmail: $sendWelcomeEmail){ responseResult{succeeded slug message} user{id}}}}",
-			"variables": {"email": login_username.text, "name": "","passwordRaw":login_password.text ,"providerKey": "local" ,  "groups": [3] ,"sendWelcomeEmail":false}
+			"variables": {"email": login_username.text, "name": login_username.text,"passwordRaw":login_password.text ,"providerKey": "local" ,  "groups": [3] ,"sendWelcomeEmail":false}
 		}
 		var json = JSON.new()
-		Login_Create.request(login_URL,["Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjQsImdycCI6NSwiaWF0IjoxNzE3NzczNTQ0LCJleHAiOjE3NDkzMzExNDQsImF1ZCI6InVybjp3aWtpLmpzIiwiaXNzIjoidXJuOndpa2kuanMifQ.h8JSWyuzToOokv9qmr7-tn4L0VA_1lrzknDlSmqvYuU-c02MqABXc5H-xvmVrdqeFuYOt7FoSPWCI70e7JbXj8cSnFQIn_4ZMB2h5yxNZLbHXNzaPILL2UiJB0ac6yesn-G74jI3WuxHtCS6NK2wtKwisJbJAJJOvyw_Aj4wrmJFviXp9N8krjrKCwBzfr3O_3ucOVoDBuUrUwnYzUQjSb0lxqw6EQSwt-OnaAHKNssBkjm1_eO5kco8JnatVf0pJ8N7KvbiuItZ8mPWyTCU0bviVWmLpTIyQs_J5lqIHLgpO_iczBk41oQpJyBbqfLyu8OXsUCjKF0eha2Y2UXlRA",
+		await get_tree().create_timer(1).timeout
+		Login_Create.request(login_URL,[AUTH,
 		"Content-Type: application/json"]
 		,HTTPClient.METHOD_POST,
 		json.stringify(login_Query))
@@ -1268,14 +1276,15 @@ func register_request_completed(result, response_code, headers, body):
 	var response = json.get_data()
 	print(response)
 	if response.has("data"):
-		if response["data"]["users"]["create"]["responseResult"]["succeeded"] != true:
-			pass
-			#Register_Text.text =  "[center][color=red]"  + response["data"]["users"]["create"]["responseResult"]["message"]
-		else:
-			pass
-			#Register_Text.text =  "[center][color=green]"  + response["data"]["users"]["create"]["responseResult"]["message"] +"\n Please return to login."
+		if response["data"]["users"]["create"].has("responseResult"):
+			if response["data"]["users"]["create"]["responseResult"]["succeeded"] != true:
+				pass
+				#Register_Text.text =  "[center][color=red]"  + response["data"]["users"]["create"]["responseResult"]["message"]
+			else:
+				_parse_login()
+				#Register_Text.text =  "[center][color=green]"  + response["data"]["users"]["create"]["responseResult"]["message"] +"\n Please return to login."
 	elif response.has("status"):
 		if response["status"] == 0:
-			pass
+			_parse_login()
 		else:
 			pass
