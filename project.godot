@@ -14,6 +14,7 @@ config/name="Cubiix Project: To The Stars"
 run/main_scene="res://Assets/Scenes/Shared/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [display]

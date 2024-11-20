@@ -80,12 +80,17 @@ func runsetup() -> void:
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
 	
-	InitThread.wait_to_finish()
 	
 func Init_ThreadRun():
 	for i in Model_Data_Assets.keys():
 		Model_Data_Assets[i] = load(Model_Data_Assets[i]).instantiate()
-	call_deferred("emit_signal","FinishedLoad")
+	
+	print(Model_Data_Assets)
+	call_deferred("Init_Finish")
+	
+func Init_Finish():
+	InitThread.wait_to_finish()
+	emit_signal("FinishedLoad")
 
 var Mesh_Data_Assets = {
 	##Body
@@ -1029,7 +1034,7 @@ var Mesh_Data_Assets = {
 	#Halloween Stuff
 	"Head_Clothes/Pumpkin_Head_Cute_1":{
 		"Name": "Pumpkin",
-		"Override_Model":Model_Data_Assets["Head_Clothes/Pumpkin_Head"],
+		"Override_Model":"Head_Clothes/Pumpkin_Head",
 		"Mesh_Node":"Armature/Skeleton3D/Pumpkin",
 		"MaterialID":"Pumpkin_Cute_1",
 		"Has_Blendshapes":false,
@@ -1061,7 +1066,7 @@ var Mesh_Data_Assets = {
 	##Chest Clothes
 	"Chest_Clothes/Trad_Pride_Bandanna":{
 		"Name": "LGBT Band",
-		"Override_Model":Model_Data_Assets["Chest_Clothes/Pride_Bandana"],
+		"Override_Model":"Chest_Clothes/Pride_Bandana",
 		"Mesh_Node":"Armature/Skeleton3D/Cube_001",
 		"MaterialID":"Trad_Pride_Bandana_Mat",
 		"Has_Blendshapes":false,
@@ -1072,7 +1077,7 @@ var Mesh_Data_Assets = {
 	},
 	"Chest_Clothes/Trans_Pride_Bandanna":{
 		"Name": "Trans Band",
-		"Override_Model":Model_Data_Assets["Chest_Clothes/Pride_Bandana"],
+		"Override_Model":"Chest_Clothes/Pride_Bandana",
 		"Mesh_Node":"Armature/Skeleton3D/Cube_001",
 		"MaterialID":"Trans_Pride_Bandana_Mat",
 		"Has_Blendshapes":false,
@@ -1084,7 +1089,7 @@ var Mesh_Data_Assets = {
 	##L_Hip Clothes
 	"L_Hip/HipSkirt":{
 		"Name": "Leaf Skirt",
-		"Override_Model":Model_Data_Assets["L_Hip/HipSkirt"],
+		"Override_Model":"L_Hip/HipSkirt",
 		"Mesh_Node":"HipSkirt/Skeleton3D/Hip_Skirt_L",
 		"MaterialID":"Tropic_1",
 		"Has_Blendshapes":false,
@@ -1096,7 +1101,7 @@ var Mesh_Data_Assets = {
 	##R_Hip Clothes
 	"R_Hip/HipSkirt":{
 		"Name": "Leaf Skirt",
-		"Override_Model":Model_Data_Assets["R_Hip/HipSkirt"],
+		"Override_Model":"R_Hip/HipSkirt",
 		"Mesh_Node":"HipSkirt/Skeleton3D/Hip_Skirt_R",
 		"MaterialID":"Tropic_1",
 		"Has_Blendshapes":false,
@@ -1108,7 +1113,7 @@ var Mesh_Data_Assets = {
 	##Back Clothes
 	"Back_Clothes/Trad_Pride_Cape":{
 		"Name": "LGBT Cape",
-		"Override_Model":Model_Data_Assets["Back_Clothes/Cape_1"],
+		"Override_Model":"Back_Clothes/Cape_1",
 		"Mesh_Node":"Cape_Armature/Skeleton3D/Cape",
 		"MaterialID":"Trad_Pride_Bandana_Mat",
 		"Has_Blendshapes":false,
@@ -1332,7 +1337,7 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 			if Mesh_Data_Assets[MeshSubList[i]].has("Override_Model"):
 				Meshes.append(
 					[
-						Mesh_Data_Assets[MeshSubList[i]]["Override_Model"].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]),
+						 Model_Data_Assets[Mesh_Data_Assets[MeshSubList[i]]["Override_Model"]].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]),
 					]
 					)
 			else:
@@ -1394,7 +1399,7 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 			if Mesh_Data_Assets[MeshSubList[i]].has("Override_Model"):
 				Meshes.append(
 					[
-						Mesh_Data_Assets[MeshSubList[i]]["Override_Model"].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
+						Model_Data_Assets[Mesh_Data_Assets[MeshSubList[i]]["Override_Model"]].get_node(Mesh_Data_Assets[MeshSubList[i]]["Mesh_Node"]).mesh,
 						SurfaceTool.new()
 					]
 					)

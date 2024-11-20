@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dt512nrj4i3jp"]
+[gd_scene load_steps=52 format=4 uid="uid://dt512nrj4i3jp"]
 
 [ext_resource type="PackedScene" uid="uid://cycideexy0qrf" path="res://Assets/Mesh/Maps/Island/Hexstaria_Map.gltf" id="1_ktnar"]
 [ext_resource type="Material" uid="uid://6evdtq7ae51" path="res://Assets/Materials/World/Hexstaria_Sand.tres" id="2_nvq3x"]
@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://6xen2wdpmgwi" path="res://Assets/Materials/World/Observatory_Shader_Material.tres" id="9_0frsw"]
 [ext_resource type="Material" uid="uid://38ul7ibenuiy" path="res://Assets/Materials/World/Hexstaria_GlowStone.tres" id="10_87eov"]
 [ext_resource type="Shader" uid="uid://dvr6esaiwjw0n" path="res://Assets/Shaders/Maps/Hexstaria_Lower_Water.tres" id="11_6dah5"]
+[ext_resource type="Material" uid="uid://dfc5kisbjc0y0" path="res://Assets/Materials/World/FishBooth_Shader_Material.tres" id="11_r3d2p"]
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/Maps/house_collider_manager.gd" id="12_qoi0r"]
 [ext_resource type="Shader" uid="uid://dkfqg56gfikfj" path="res://Assets/Shaders/Maps/Hexstaria_Grass.tres" id="13_ju3l1"]
 [ext_resource type="Material" uid="uid://cumjroo3v04g" path="res://Assets/Materials/World/Hexstaria_Leaf_Anim.tres" id="14_hf0jq"]
@@ -25,6 +26,16 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ry4jr"]
 render_priority = 0
 shader = ExtResource("8_1io6j")
+
+[sub_resource type="Gradient" id="Gradient_qmxr5"]
+offsets = PackedFloat32Array(0.215909, 0.295455, 0.602273)
+colors = PackedColorArray(0, 0, 0, 0.756863, 0, 0, 0, 0.756863, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cfobw"]
+gradient = SubResource("Gradient_qmxr5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i37dx"]
 size = Vector2(60, 60)
@@ -319,6 +330,18 @@ cast_shadow = 0
 surface_material_override/0 = ExtResource("2_nvq3x")
 surface_material_override/1 = ExtResource("10_87eov")
 
+[node name="FishBooth" parent="Hexstaria_Map" index="7"]
+surface_material_override/0 = ExtResource("11_r3d2p")
+
+[node name="Decal" type="Decal" parent="Hexstaria_Map/FishBooth" index="0"]
+transform = Transform3D(0.992847, -0.119392, 0, 0.119392, 0.992847, 0, 0, 0, 1, 0.832661, -0.703832, 0.443231)
+layers = 1048575
+size = Vector3(5, 5, 5)
+texture_albedo = SubResource("GradientTexture2D_cfobw")
+upper_fade = 1e-05
+lower_fade = 1.03526e-05
+cull_mask = 524289
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hexstaria_Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.086, -61.4106, -74.4702)
 layers = 524289
@@ -472,6 +495,7 @@ Is_Important = true
 
 [node name="Sprite3D" type="Sprite3D" parent="NPC/Ki"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58455, 0)
+layers = 0
 visibility_range_end = 15.0
 pixel_size = 0.001
 billboard = 1
@@ -481,7 +505,7 @@ texture_filter = 5
 texture = ExtResource("22_w3fra")
 
 [node name="Skim" parent="NPC" instance=ExtResource("20_kcdnm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80.3284, 0.370424, 158.381)
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 86.7483, 0.370424, 153.721)
 Extra = 1
 Tail = 10
 Body_1 = Color(0.309804, 0.309804, 0.4, 1)
@@ -494,6 +518,7 @@ Character = &"Skim"
 
 [node name="Sprite3D" type="Sprite3D" parent="NPC/Skim"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58455, 0)
+layers = 2
 visibility_range_end = 15.0
 pixel_size = 0.001
 billboard = 1

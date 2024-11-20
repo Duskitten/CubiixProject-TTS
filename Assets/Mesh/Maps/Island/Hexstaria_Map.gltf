@@ -14,7 +14,8 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7
 			]
 		}
 	],
@@ -98,6 +99,21 @@
 				-0.24604330956935883,
 				-0.06048903614282608,
 				-0.181494802236557
+			]
+		},
+		{
+			"mesh":7,
+			"name":"FishBooth",
+			"rotation":[
+				0,
+				-0.28112080693244934,
+				0,
+				0.9596723914146423
+			],
+			"translation":[
+				432.2582702636719,
+				2.028888702392578,
+				765.0462646484375
 			]
 		}
 	],
@@ -325,6 +341,20 @@
 					},
 					"indices":55,
 					"material":3
+				}
+			]
+		},
+		{
+			"name":"Cube",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":56,
+						"NORMAL":57,
+						"TEXCOORD_0":58
+					},
+					"indices":59,
+					"material":7
 				}
 			]
 		}
@@ -822,6 +852,40 @@
 			"componentType":5123,
 			"count":3645,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":56,
+			"componentType":5126,
+			"count":3067,
+			"max":[
+				11.50416088104248,
+				11.247830390930176,
+				12.702691078186035
+			],
+			"min":[
+				-4.511031150817871,
+				-1.4358147382736206,
+				-8.830405235290527
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":57,
+			"componentType":5126,
+			"count":3067,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":58,
+			"componentType":5126,
+			"count":3067,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":59,
+			"componentType":5123,
+			"count":4716,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -1160,6 +1224,30 @@
 			"byteLength":7290,
 			"byteOffset":1397428,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":36804,
+			"byteOffset":1404720,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":36804,
+			"byteOffset":1441524,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":24536,
+			"byteOffset":1478328,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":9432,
+			"byteOffset":1502864,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -1170,7 +1258,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":1404720,
+			"byteLength":1512296,
 			"uri":"Hexstaria_Map.bin"
 		}
 	]

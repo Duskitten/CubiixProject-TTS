@@ -553,7 +553,7 @@ func _on_color_text_change(new_text:String, type:String) -> void:
 			Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected,Color8(color.r8,color.g8,color.b8))
 		
 			
-	if Hexii_Ui_Tablet_Color_Container.get_node("Emission_Input/LineEdit").text.is_valid_html_color():
+		if Hexii_Ui_Tablet_Color_Container.get_node("Emission_Input/LineEdit").text.is_valid_html_color():
 			var color = Color(Hexii_Ui_Tablet_Color_Container.get_node("Emission_Input/LineEdit").text)
 			Hexii_Ui_Tablet_Color_Container.get_node("E_R/HSlider").value = color.r8
 			Hexii_Ui_Tablet_Color_Container.get_node("E_G/HSlider").value = color.g8
@@ -569,11 +569,12 @@ func _on_color_text_change(new_text:String, type:String) -> void:
 			int(Hexii_Ui_Tablet_Color_Container.get_node("G/LineEdit").text),
 			int(Hexii_Ui_Tablet_Color_Container.get_node("B/LineEdit").text)
 		)
+		print(color.r)
 		Hexii_Ui_Tablet_Color_Container.get_node("Hex_Input/LineEdit").text = color.to_html(false)
-		Hexii_Ui_Tablet_Color_Container.get_node("R/HSlider").value = color.r8
-		Hexii_Ui_Tablet_Color_Container.get_node("G/HSlider").value = color.g8
-		Hexii_Ui_Tablet_Color_Container.get_node("B/HSlider").value = color.b8
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected,Color8(color.r8,color.g8,color.b8))
+		Hexii_Ui_Tablet_Color_Container.get_node("R/HSlider").value = color.r
+		Hexii_Ui_Tablet_Color_Container.get_node("G/HSlider").value = color.g
+		Hexii_Ui_Tablet_Color_Container.get_node("B/HSlider").value = color.b
+		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected,Color8(int(color.r),int(color.g),int(color.b)))
 		
 		var colorEmiss = Color(
 			int(Hexii_Ui_Tablet_Color_Container.get_node("E_R/LineEdit").text),
@@ -581,15 +582,17 @@ func _on_color_text_change(new_text:String, type:String) -> void:
 			int(Hexii_Ui_Tablet_Color_Container.get_node("E_B/LineEdit").text)
 		)
 		Hexii_Ui_Tablet_Color_Container.get_node("Emission_Input/LineEdit").text = colorEmiss.to_html(false)
-		Hexii_Ui_Tablet_Color_Container.get_node("E_R/HSlider").value = colorEmiss.r8
-		Hexii_Ui_Tablet_Color_Container.get_node("E_G/HSlider").value = colorEmiss.g8
-		Hexii_Ui_Tablet_Color_Container.get_node("E_B/HSlider").value = colorEmiss.b8
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected+"_Emiss",Color8(color.r8,color.g8,color.b8))
+		Hexii_Ui_Tablet_Color_Container.get_node("E_R/HSlider").value = colorEmiss.r
+		Hexii_Ui_Tablet_Color_Container.get_node("E_G/HSlider").value = colorEmiss.g
+		Hexii_Ui_Tablet_Color_Container.get_node("E_B/HSlider").value = colorEmiss.b
+		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected+"_Emiss",Color8(int(colorEmiss.r),int(colorEmiss.g),int(colorEmiss.b)))
 		
 	Hexii_Ui_Tablet_Character_OBJ.Regen_Color()
+	update_values() 
 
 func _on_color_value_changed(value: float) -> void:
 	if !initialpress:
+		print("haoi")
 		$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
 		$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
 		var Metallic = Hexii_Ui_Tablet_Color_Container.get_node("M/HSlider").value

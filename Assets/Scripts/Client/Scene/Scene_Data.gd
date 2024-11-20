@@ -26,14 +26,15 @@ signal FinishedLoad
 func runsetup() -> void:
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
-	
+
 func Init_ThreadRun():
 	for i in Scenes.keys():
 		Scenes[i][0] = load(Scenes[i][0]).instantiate()
 		Scenes[i][3] = load(Scenes[i][3])
-
-	call_deferred("emit_signal","FinishedLoad")
-
+	call_deferred("Init_Finish")
+func Init_Finish():
+	InitThread.wait_to_finish()
+	emit_signal("FinishedLoad")
 func Swap_Scene(To_Scene:String,PassThrough:Dictionary = {}, SkipFade:bool = false, SpawnLocation:String = "") -> void:
 	Core.Persistant_Core.Transitioner.get_node("TextureRect/RichTextLabel").text = "[center][font_size=40] [b]"+Scenes[To_Scene][1]+"[/b][/font_size]\n"+Scenes[To_Scene][2]
 	Core.Persistant_Core.Transitioner.get_node("TextureRect").texture = Scenes[To_Scene][3]

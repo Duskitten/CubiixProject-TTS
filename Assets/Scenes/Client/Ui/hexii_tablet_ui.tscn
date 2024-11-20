@@ -199,7 +199,6 @@ offset_bottom = 278.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -54.0
 offset_top = -197.0
@@ -1930,6 +1929,7 @@ texture = ExtResource("29_dbeuu")
 metadata/_edit_lock_ = true
 
 [node name="Wallpaper2" type="TextureRect" parent="."]
+visible = false
 texture_filter = 2
 layout_mode = 0
 offset_left = -55.0

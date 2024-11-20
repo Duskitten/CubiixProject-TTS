@@ -46,15 +46,15 @@ enum R_HIP_ENUM {None, HipSkirt}
 @export var R_Hip: R_HIP_ENUM = R_HIP_ENUM.None
 
 
-@export_color_no_alpha var Body_1 = Color8(0,0,0)
-@export_color_no_alpha var Body_2 = Color8(0,0,0)
-@export_color_no_alpha var Body_3 = Color8(0,0,0)
-@export_color_no_alpha var Body_4 = Color8(0,0,0)
+@export_color_no_alpha var Body_1 = Color(0,0,0)
+@export_color_no_alpha var Body_2 = Color(0,0,0)
+@export_color_no_alpha var Body_3 = Color(0,0,0)
+@export_color_no_alpha var Body_4 = Color(0,0,0)
 
-@export_color_no_alpha var Body_1_Emiss = Color8(0,0,0)
-@export_color_no_alpha var Body_2_Emiss = Color8(0,0,0)
-@export_color_no_alpha var Body_3_Emiss = Color8(0,0,0)
-@export_color_no_alpha var Body_4_Emiss = Color8(0,0,0)
+@export_color_no_alpha var Body_1_Emiss = Color(0,0,0)
+@export_color_no_alpha var Body_2_Emiss = Color(0,0,0)
+@export_color_no_alpha var Body_3_Emiss = Color(0,0,0)
+@export_color_no_alpha var Body_4_Emiss = Color(0,0,0)
 
 @export var Body_1_Emiss_S = 1.0
 @export var Body_2_Emiss_S = 1.0
