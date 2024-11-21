@@ -434,7 +434,6 @@ position = Vector2(18, -40)
 rotation = 4.71239
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 1
 
 [node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -599,6 +598,8 @@ spring_length = -4.0
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.24216e-07, 0, -2.56473)
 current = true
 fov = 56.25
+
+[node name="Audio" type="Node3D" parent="Node3D"]
 
 [node name="HTTPNodes" type="Node" parent="."]
 

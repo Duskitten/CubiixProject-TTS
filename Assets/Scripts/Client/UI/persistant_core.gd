@@ -20,11 +20,16 @@ var TablockEnabled = false
 var TablockBypass = false
 var DragMode = false
 @onready var Player = $Node3D/Player
+@onready var AudioPlayer = $Node3D/Audio
 
 var windowLocations = {
 	"Character_Screen": Vector2(61,202),
 	"Journal_Screen": Vector2(199,202)
 }
+
+var Tick_Prev = 0
+var Tick_Timer = 0
+
 func _ready() -> void:
 ###### Signal Connections ######
 	Login_Signin.request_completed.connect(self.login_request_completed)
@@ -191,6 +196,8 @@ func _ready() -> void:
 		}
 	}
 	
+	AudioPlayer.add_child(CurrentAudioPlayer)
+	
 
 func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
 	$Node3D/Player.position = Location
@@ -264,7 +271,23 @@ func _process(delta: float) -> void:
 			TablockBypass = false
 			$CanvasLayer/CrossHair.visible = false
 			
-		
+	
+	var Delta = Time.get_ticks_msec() - Tick_Prev
+	Tick_Prev = Time.get_ticks_msec()
+	Tick_Timer += Delta
+	
+	if Tick_Timer > 1000/20:
+		Tick_Timer = 0
+		if AudioHost != null:
+			for i in AudioHost.get_children():
+				if i.name != "Audio":
+					if Player.global_position.distance_to(i.global_position) <= i.Tag_Radius && i.SongID != LastSong:
+						Transition_New_Song(i.SongID)
+	
+	
+	
+	
+	
 #############################
 ###### Hexii UI System ######
 #############################
@@ -1291,3 +1314,34 @@ func register_request_completed(result, response_code, headers, body):
 			_parse_login()
 		else:
 			pass
+			
+##################################
+###### Audio Manager System ######
+##################################
+var LastSong = ""
+var SongList = {
+	"FishShop":"res://Assets/Audio/World/FishinForCubes.ogg",
+	"Trinket":"res://Assets/Audio/World/Trinket.ogg"
+}
+
+var AudioHost = null
+
+var CurrentAudioPlayer:AudioStreamPlayer  = AudioStreamPlayer.new()
+var OldAudioPlayer:AudioStreamPlayer = null
+
+func Transition_New_Song(NewSongID:String) -> void:
+
+	LastSong = NewSongID
+	OldAudioPlayer = CurrentAudioPlayer
+	CurrentAudioPlayer = AudioStreamPlayer.new()
+	CurrentAudioPlayer.volume_db = -80
+	CurrentAudioPlayer.stream = load(SongList[NewSongID])
+	CurrentAudioPlayer.autoplay = true
+	AudioPlayer.add_child(CurrentAudioPlayer)
+	var AudioFader = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	var AudioFader2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	AudioFader.tween_property(CurrentAudioPlayer, "volume_db", 0, 1)
+	AudioFader2.tween_property(OldAudioPlayer, "volume_db", -80, 1)
+	AudioFader.play()
+	AudioFader2.play()
+	AudioFader2.tween_callback(OldAudioPlayer.queue_free)

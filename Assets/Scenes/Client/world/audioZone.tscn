@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://devrmc25i4qp4"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioSettings.gd" id="1_nm6ny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0ns2"]
+transparency = 1
+albedo_color = Color(0.112618, 1, 0, 0.34902)
+
+[node name="AudioZone" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.6586, 2.83922, 153.999)
+script = ExtResource("1_nm6ny")
+SongID = "song1"
+
+[node name="CollisionShape3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_y0ns2")

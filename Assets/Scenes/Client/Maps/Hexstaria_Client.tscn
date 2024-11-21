@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://dt512nrj4i3jp"]
+[gd_scene load_steps=54 format=4 uid="uid://dt512nrj4i3jp"]
 
 [ext_resource type="PackedScene" uid="uid://cycideexy0qrf" path="res://Assets/Mesh/Maps/Island/Hexstaria_Map.gltf" id="1_ktnar"]
 [ext_resource type="Material" uid="uid://6evdtq7ae51" path="res://Assets/Materials/World/Hexstaria_Sand.tres" id="2_nvq3x"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://bjh7kic6808a" path="res://Assets/Scenes/Client/Tools/Npc_Function.tscn" id="21_uc3kt"]
 [ext_resource type="Texture2D" uid="uid://dvwfqrpuntr1m" path="res://Assets/Textures/UI/In-Game/Exclaim.png" id="22_w3fra"]
 [ext_resource type="PackedScene" uid="uid://blcj1misofydm" path="res://Assets/Scenes/Client/Creatures/Goo Dino/Goo_Dino.tscn" id="23_g6sai"]
+[ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://Assets/Scenes/Client/world/audioZone.tscn" id="23_kf4ej"]
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="23_mc7q7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ry4jr"]
 render_priority = 0
@@ -577,6 +579,49 @@ texture = ExtResource("22_w3fra")
 
 [node name="Goo_Dino" parent="Enemies" instance=ExtResource("23_g6sai")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.49, 0.376751, 152.948)
+
+[node name="AudioZones" type="Node3D" parent="."]
+script = ExtResource("23_mc7q7")
+
+[node name="AudioZone" parent="AudioZones" instance=ExtResource("23_kf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.6586, 1.06208, 153.787)
+SongID = "FishShop"
+Tag_Radius = 4.32
+
+[node name="AudioZone2" parent="AudioZones" instance=ExtResource("23_kf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.9208, -0.347851, 167.046)
+SongID = "Trinket"
+Tag_Radius = 9.54
+
+[node name="AudioZone3" parent="AudioZones" instance=ExtResource("23_kf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.8728, -0.347851, 155.599)
+SongID = "Trinket"
+Tag_Radius = 9.54
+
+[node name="AudioZone4" parent="AudioZones" instance=ExtResource("23_kf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.4398, -0.347851, 144.898)
+SongID = "Trinket"
+Tag_Radius = 9.54
+
+[node name="AudioZone5" parent="AudioZones" instance=ExtResource("23_kf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.6857, -0.347851, 138.829)
+SongID = "Trinket"
+Tag_Radius = 9.54
+
+[node name="AudioZone6" parent="AudioZones" instance=ExtResource("23_kf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.4161, -0.347851, 146.603)
+SongID = "Trinket"
+Tag_Radius = 9.54
+
+[node name="AudioZone7" parent="AudioZones" instance=ExtResource("23_kf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.7569, -0.347851, 160.751)
+SongID = "Trinket"
+Tag_Radius = 9.54
+
+[node name="AudioZone8" parent="AudioZones" instance=ExtResource("23_kf4ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.059, -0.347851, 167.997)
+SongID = "Trinket"
+Tag_Radius = 9.54
 
 [connection signal="body_entered" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_entered" binds= ["House_1"]]
 [connection signal="body_exited" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_exited"]
