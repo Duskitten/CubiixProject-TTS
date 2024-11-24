@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bsf1ktvgxelg1" path="res://Assets/Textures/World/Hexstaria_Sand.png" id="1_l0isp"]
 
 [resource]
-albedo_color = Color(0.0941058, 0.789574, 0.777925, 1)
+albedo_color = Color(0.0996316, 0.835938, 0.823604, 1)
 albedo_texture = ExtResource("1_l0isp")
 metallic_specular = 0.0
 normal_texture = ExtResource("1_l0isp")

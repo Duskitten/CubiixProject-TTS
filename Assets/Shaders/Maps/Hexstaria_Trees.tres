@@ -18,10 +18,10 @@ operator = 2
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_hdn45"]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_qf3od"]
-constant = Color(2.88785e-07, 0.523276, 0.386587, 1)
+constant = Color(3.93484e-07, 0.660156, 0.487712, 1)
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_n0nql"]
-constant = Color(0.0537778, 0.233207, 0.251081, 1)
+constant = Color(0.086176, 0.373702, 0.402344, 1)
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_df54l"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
@@ -165,11 +165,11 @@ void fragment() {
 
 
 // ColorConstant:2
-	vec4 n_out2p0 = vec4(0.000000, 0.523276, 0.386587, 1.000000);
+	vec4 n_out2p0 = vec4(0.000000, 0.660156, 0.487712, 1.000000);
 
 
 // ColorConstant:3
-	vec4 n_out3p0 = vec4(0.053778, 0.233207, 0.251081, 1.000000);
+	vec4 n_out3p0 = vec4(0.086176, 0.373702, 0.402344, 1.000000);
 
 
 // VectorOp:12

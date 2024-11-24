@@ -1,10 +1,10 @@
 [gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://dkfqg56gfikfj"]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_qf3od"]
-constant = Color(1.20327e-07, 0.391164, 0.285703, 1)
+constant = Color(1.82772e-07, 0.613281, 0.447936, 1)
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_n0nql"]
-constant = Color(0.0341645, 0.109218, 0.121877, 1)
+constant = Color(0.0755549, 0.241536, 0.269531, 1)
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_df54l"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0.5, 0.5, 0.5, 0.5)]
@@ -103,11 +103,11 @@ void vertex() {
 
 void fragment() {
 // ColorConstant:2
-	vec4 n_out2p0 = vec4(0.000000, 0.391164, 0.285703, 1.000000);
+	vec4 n_out2p0 = vec4(0.000000, 0.613281, 0.447936, 1.000000);
 
 
 // ColorConstant:3
-	vec4 n_out3p0 = vec4(0.034164, 0.109218, 0.121877, 1.000000);
+	vec4 n_out3p0 = vec4(0.075555, 0.241536, 0.269531, 1.000000);
 
 
 // Texture2D:5

@@ -281,12 +281,16 @@ func _process(delta: float) -> void:
 		if AudioHost != null:
 			for i in AudioHost.get_children():
 				if i.name != "Audio":
-					if Player.global_position.distance_to(i.global_position) <= i.Tag_Radius && i.SongID != LastSong:
-						Transition_New_Song(i.SongID)
-	
-	
-	
-	
+					if Player.global_position.distance_to(i.global_position) <= i.Tag_Radius:
+						if !TracksOverlap.has(i):
+							TracksOverlap.append(i)
+					else:
+						if TracksOverlap.has(i):
+							TracksOverlap.erase(i)
+							
+			if TracksOverlap.back().SongID != LastSong:
+				Transition_New_Song(TracksOverlap.back().SongID)
+var TracksOverlap = []
 	
 #############################
 ###### Hexii UI System ######
@@ -1330,7 +1334,6 @@ var CurrentAudioPlayer:AudioStreamPlayer  = AudioStreamPlayer.new()
 var OldAudioPlayer:AudioStreamPlayer = null
 
 func Transition_New_Song(NewSongID:String) -> void:
-
 	LastSong = NewSongID
 	OldAudioPlayer = CurrentAudioPlayer
 	CurrentAudioPlayer = AudioStreamPlayer.new()

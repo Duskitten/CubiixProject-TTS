@@ -150,6 +150,7 @@ shape = SubResource("CapsuleShape3D_m8ql4")
 
 [node name="Decal" type="Decal" parent="Cubiix_Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)
+visible = false
 layers = 1048575
 size = Vector3(2, 5, 2)
 texture_albedo = SubResource("GradientTexture2D_8laqd")
@@ -185,6 +186,7 @@ far = 10.0
 
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)
+visible = false
 layers = 1048575
 size = Vector3(2, 5, 2)
 texture_albedo = SubResource("GradientTexture2D_gkhtr")
