@@ -49,8 +49,8 @@ shader = ExtResource("11_6dah5")
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_brind"]
 sky_top_color = Color(0.181868, 0.340841, 0.652344, 1)
 sky_horizon_color = Color(0.232597, 0.726563, 0.715721, 1)
-ground_bottom_color = Color(0.350535, 0.384663, 0.601563, 1)
-ground_horizon_color = Color(0.34902, 0.384314, 0.6, 1)
+ground_bottom_color = Color(0.371605, 0.481471, 0.617188, 1)
+ground_horizon_color = Color(0.372549, 0.482353, 0.615686, 1)
 sun_angle_max = 30.88
 sun_curve = 0.178379
 
@@ -64,7 +64,7 @@ sky = SubResource("Sky_b7qnr")
 ambient_light_source = 3
 ambient_light_color = Color(0.317026, 0.487417, 0.722656, 1)
 ambient_light_sky_contribution = 0.04
-tonemap_mode = 2
+tonemap_mode = 3
 ssao_power = 1.30582
 glow_enabled = true
 glow_levels/1 = 16.0
@@ -72,13 +72,13 @@ glow_levels/2 = 16.0
 glow_normalized = true
 glow_intensity = 1.0
 glow_blend_mode = 1
+fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.649065, 0.767865, 1, 1)
 fog_sun_scatter = 0.18
 fog_density = 0.1322
 fog_aerial_perspective = 0.667
 fog_sky_affect = 0.422
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_sky_affect = 0.0
 volumetric_fog_temporal_reprojection_enabled = false
@@ -334,8 +334,6 @@ camera_attributes = SubResource("CameraAttributesPractical_5achi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template"]
 transform = Transform3D(0.5, 0.482418, -0.719217, -2.62057e-09, 0.83048, 0.557049, 0.866025, -0.278524, 0.41524, 0.00469455, 0, 0.0278296)
-light_energy = 0.25
-shadow_enabled = true
 directional_shadow_mode = 0
 directional_shadow_split_1 = 0.03
 directional_shadow_split_2 = 0.1
@@ -402,6 +400,19 @@ shape = SubResource("SphereShape3D_ply31")
 
 [node name="Marker3D" type="Marker3D" parent="HouseCamColliders/House_1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20359, 0.241519, -0.54229)
+
+[node name="House_2" type="Area3D" parent="HouseCamColliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.475, 9.81739, -47.9144)
+collision_layer = 130
+collision_mask = 130
+monitorable = false
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HouseCamColliders/House_2"]
+shape = SubResource("SphereShape3D_ply31")
+
+[node name="Marker3D" type="Marker3D" parent="HouseCamColliders/House_2"]
+transform = Transform3D(0.989379, 0, -0.145358, 0, 1, 0, 0.145358, 0, 0.989379, 2.20359, 0.241519, 0.270218)
 
 [node name="Multimeshes" type="Node3D" parent="."]
 process_mode = 4
@@ -563,14 +574,15 @@ script = ExtResource("23_mc7q7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7409, -0.347851, 35.4477)
 SongID = "Trinket"
 Tag_Radius = 338.58
+metadata/_edit_lock_ = true
 
 [node name="ShopMusic" parent="AudioZones" instance=ExtResource("23_kf4ej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.6586, 1.06208, 153.787)
 SongID = "FishShop"
 Tag_Radius = 4.2
 
-[connection signal="body_entered" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_entered" binds= ["House_1"]]
 [connection signal="body_exited" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="HouseCamColliders/House_2" to="HouseCamColliders" method="_on_area_3d_body_exited"]
 
 [editable path="Hexstaria_Map"]
 [editable path="Multimeshes/Refs/Grass"]

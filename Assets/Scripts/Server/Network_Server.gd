@@ -105,8 +105,8 @@ func network_process():
 				if Peers[i]["validated"]:
 					if accumulated_server_positions.has(Peers[i]["room"]):
 						accumulated_server_positions[Peers[i]["room"]][i] = {
-							"Player_Position":Peers[i]["base_position"],
-							"Player_Rotation":Peers[i]["base_rotation"],
+							"Player_Position":Peers[i]["position"],
+							"Player_Rotation":Peers[i]["rotation"],
 							"Player_Model_Rotation":Peers[i]["model_rotation"]
 						}
 					else:

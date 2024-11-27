@@ -1,6 +1,10 @@
 extends Node3D
 
 
+func _ready() -> void:
+	for i in get_children():
+		i.body_entered.connect(_on_area_3d_body_entered.bind(i.name))
+
 func _on_area_3d_body_entered(body: Node3D, cam_target: String) -> void:
 	if body.is_in_group("Player"):
 		print("Haoi")

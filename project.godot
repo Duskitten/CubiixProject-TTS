@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-window/size/initial_position_type=2
 
 [editor_plugins]
 
@@ -215,6 +214,7 @@ chat={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 shading/overrides/force_vertex_shading=true
 shading/overrides/force_lambert_over_burley=true
 environment/ssao/blur_passes=4

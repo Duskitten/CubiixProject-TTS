@@ -80,12 +80,10 @@ func runsetup() -> void:
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
 	
-	
 func Init_ThreadRun():
 	for i in Model_Data_Assets.keys():
 		Model_Data_Assets[i] = load(Model_Data_Assets[i]).instantiate()
-	
-	print(Model_Data_Assets)
+
 	call_deferred("Init_Finish")
 	
 func Init_Finish():

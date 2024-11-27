@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b743ed8o4h5bc"]
+[gd_scene load_steps=4 format=3 uid="uid://b743ed8o4h5bc"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Shared/Core.gd" id="1_it4n2"]
+[ext_resource type="Texture2D" uid="uid://cj71t0hl6gk00" path="res://Assets/Textures/UI/MindVirus_LGBT3.png" id="2_huok0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssv2s"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Main_Scene" type="Node3D"]
 metadata/_edit_vertical_guides_ = [200.0, 600.0]
@@ -9,3 +13,31 @@ metadata/_edit_vertical_guides_ = [200.0, 600.0]
 script = ExtResource("1_it4n2")
 
 [node name="Current_Scene" type="Node" parent="."]
+
+[node name="Loading" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ssv2s")
+
+[node name="TextureRect" type="TextureRect" parent="Loading"]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -183.0
+offset_right = 183.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_huok0")
+expand_mode = 5
+stretch_mode = 5

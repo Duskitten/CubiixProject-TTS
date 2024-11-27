@@ -8,4 +8,3 @@ albedo_color = Color(0.920244, 0.512859, 0.416155, 1)
 albedo_texture = ExtResource("1_ckarg")
 metallic_specular = 0.0
 normal_texture = ExtResource("1_ymvd0")
-texture_filter = 4

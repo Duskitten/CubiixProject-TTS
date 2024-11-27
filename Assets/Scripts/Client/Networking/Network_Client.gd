@@ -32,23 +32,11 @@ func network_process():
 	while true:
 		if Core.Globals.KillThreads:
 				break
-		
+
 		if TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 			TCP.poll()
 			if TCP.get_available_bytes() > 0:
 				parse_data(TCP.get_var(false))
-			#send_data({"Test":"Hello from client"})
-			if !TrueConnect:
-				if FirstPass:
-					send_data({"Type":Core.Globals.Networking_Valid_Types.Ping})
-					FirstPass = false
-			elif TrueConnect:
-				if FirstPass:
-					send_data({"Type":Core.Globals.Networking_Valid_Types.Player_Request_Info})
-					FirstPass = false
-				if Local_Player != null && Local_Player.queue_network_moved:
-					Local_Player.queue_network_moved = false
-					send_data({"Type":Core.Globals.Networking_Valid_Types.Player_Move})
 
 		elif TCP.get_status() == StreamPeerTCP.STATUS_CONNECTING:
 			TCP.poll()
@@ -57,9 +45,8 @@ func network_process():
 			
 		elif TCP.get_status() == StreamPeerTCP.STATUS_NONE:
 			break
-		
+
 	TCP.disconnect_from_host()
-	print("Killing Network Thread!")
 
 func send_data(data:Dictionary):
 	#print("Sending Data!")

@@ -12,4 +12,3 @@ heightmap_flip_tangent = true
 heightmap_flip_binormal = true
 heightmap_texture = ExtResource("1_8qspf")
 heightmap_flip_texture = true
-texture_filter = 4

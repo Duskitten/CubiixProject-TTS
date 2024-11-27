@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6f10m4ay1nj7"
 path.s3tc="res://.godot/imported/Color_Palette.png-ec8f9b122141f94af574a2ccc8f111e0.s3tc.ctex"
+path.etc2="res://.godot/imported/Color_Palette.png-ec8f9b122141f94af574a2ccc8f111e0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Mesh/Maps/Island/Color_Palette.png"
-dest_files=["res://.godot/imported/Color_Palette.png-ec8f9b122141f94af574a2ccc8f111e0.s3tc.ctex"]
+dest_files=["res://.godot/imported/Color_Palette.png-ec8f9b122141f94af574a2ccc8f111e0.s3tc.ctex", "res://.godot/imported/Color_Palette.png-ec8f9b122141f94af574a2ccc8f111e0.etc2.ctex"]
 
 [params]
 
