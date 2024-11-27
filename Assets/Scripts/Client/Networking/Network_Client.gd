@@ -8,13 +8,13 @@ var Template_Packet = {
 	"Content":{}
 }
 
-var Local_Player = null
+enum Networking_Valid_Types {
+	Ping,
+	Player_Move,
+	Player_Request_Info
+}
 
-var Tick_Prev = 0
-var Tick_Timer = 0
-var Current_Tick = 0
-var FirstPass = true
-var TrueConnect = false
+var Local_Player = null
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
 	#
@@ -54,33 +54,20 @@ func send_data(data:Dictionary):
 	Packet["Type"] = data["Type"]
 	Packet["UserID"] = Core.Globals.LocalUser["UserID"]
 	match data["Type"]:
-		Core.Globals.Networking_Valid_Types.Ping:
-			Packet["Content"]["Ping"] = Time.get_unix_time_from_system()
-			print(Time.get_unix_time_from_system())
-		Core.Globals.Networking_Valid_Types.Player_Move:
-			Packet["Content"] = {
-				"Player_Position":Local_Player.global_position,
-				"Player_Rotation":Local_Player.global_rotation,
-				"Player_Model_Rotation":Local_Player.get_node("Hub").global_rotation
-				}
-		Core.Globals.Networking_Valid_Types.Player_Request_Info:
-			print("Hello?")
-			Packet["Content"] = {
-				"UserID": Core.Globals.LocalUser["UserID"],
-				"JWT": Core.Globals.LocalUser["JWT"]
-				}
+		Networking_Valid_Types.Ping:
+			Packet["Content"] = {}
+		Networking_Valid_Types.Player_Move:
+			Packet["Content"] = {}
+		Networking_Valid_Types.Player_Request_Info:
+			Packet["Content"] = {}
 	
 	TCP.put_var(Packet)
 	
 func parse_data(data:Dictionary):
 	match data["Type"]:
-		Core.Globals.Networking_Valid_Types.Ping:
+		Networking_Valid_Types.Ping:
 			print(round(data["Content"]),"MS Ping")
 			TCP.disconnect_from_host()
-			#
-		#Core.Globals.Networking_Valid_Types.Player_Request_Info:
-			##print(data)
-			#send_data({"Type":Core.Globals.Networking_Valid_Types.Player_Request_Info})
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
