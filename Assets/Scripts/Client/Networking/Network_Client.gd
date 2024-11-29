@@ -3,7 +3,7 @@ extends Node
 var NetworkThread = Thread.new()
 var TCP = StreamPeerTCP.new()
 var Template_Packet = {
-	"UserID":"",
+	"Username":"",
 	"Type":0,
 	"Content":{}
 }
@@ -14,60 +14,107 @@ enum Networking_Valid_Types {
 	Player_Request_Info
 }
 
+enum Networking_Mode {
+	Connecting,
+	Pinging
+}
+
+signal NextPing
+var LastPingTime = -1
+var disable_connect = false
+var connect_timer:Timer = Timer.new()
+
+var Current_Network_Mode:Networking_Mode = Networking_Mode.Pinging
+
 var Local_Player = null
 # Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#
-	#
-func connect_to_server(ip:String,port:String):
+func _ready() -> void:
+	add_child(connect_timer)
+	connect_timer.wait_time = 3
+	connect_timer.timeout.connect(disable_connection)
+	
+func connect_to_server(ip:String,port:String) -> void:
 	TCP.connect_to_host(ip,int(port))
+	connect_timer.start()
 	start_network()
 	#Core.SceneData.Swap_Scene("Showcase")
+
+func network_ping(serverlist:Array) -> void:
+	Current_Network_Mode = Networking_Mode.Pinging
+	
+	for i in serverlist:
+		LastPingTime = -1
+		disable_connect = false
+		connect_to_server(i.get_meta("ip"),i.get_meta("port"))
+		await NextPing
+		NetworkThread.wait_to_finish()
+		await get_tree().create_timer(2).timeout
+		i.get_node("TextureButton/Sprite2D/AnimationPlayer/AnimationTree").active = false
+		var Target = "Dead"
+		if LastPingTime <= 50 && LastPingTime >= 0:
+			Target = "Good"
+		elif LastPingTime <= 200 && LastPingTime >= 51:
+			Target = "Mid"
+		elif  LastPingTime >= 201:
+			Target = "Bad"
+		i.get_node("TextureButton/Sprite2D/AnimationPlayer").play(Target)
+	
+	for i in serverlist:
+		i.get_node("TextureButton").disabled = false
 
 func start_network():
 	NetworkThread.start(network_process)
 
 func network_process():
-	NetworkThread.set_thread_safety_checks_enabled(false)
 	while true:
 		if Core.Globals.KillThreads:
 				break
-
+		
+		TCP.poll()
 		if TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-			TCP.poll()
+			connect_timer.stop()
 			if TCP.get_available_bytes() > 0:
 				parse_data(TCP.get_var(false))
 
 		elif TCP.get_status() == StreamPeerTCP.STATUS_CONNECTING:
-			TCP.poll()
 			if TCP.get_available_bytes() > 0:
 				parse_data(TCP.get_var(false))
+			if disable_connect:
+				break
 			
 		elif TCP.get_status() == StreamPeerTCP.STATUS_NONE:
+			connect_timer.stop()
 			break
 
 	TCP.disconnect_from_host()
 
-func send_data(data:Dictionary):
+	call_deferred("emit_signal","NextPing")
+	
+
+func send_data(id:Networking_Valid_Types,data:Dictionary):
 	#print("Sending Data!")
 	var Packet = Template_Packet.duplicate()
-	Packet["Type"] = data["Type"]
-	Packet["UserID"] = Core.Globals.LocalUser["UserID"]
-	match data["Type"]:
-		Networking_Valid_Types.Ping:
-			Packet["Content"] = {}
-		Networking_Valid_Types.Player_Move:
-			Packet["Content"] = {}
-		Networking_Valid_Types.Player_Request_Info:
-			Packet["Content"] = {}
+	Packet["Type"] = id
+	Packet["Username"] = Core.Globals.LocalUser["Username"]
+	Packet["Content"] = data
 	
 	TCP.put_var(Packet)
 	
 func parse_data(data:Dictionary):
 	match data["Type"]:
 		Networking_Valid_Types.Ping:
-			print(round(data["Content"]),"MS Ping")
-			TCP.disconnect_from_host()
+			if data["Content"].has("Time"):
+				LastPingTime = data["Content"]["Time"] - Time.get_unix_time_from_system()
+				TCP.disconnect_from_host()
+			else:
+				match Current_Network_Mode:
+					Networking_Mode.Pinging:
+						send_data(Networking_Valid_Types.Ping,{"A":"Pinging","Time":Time.get_unix_time_from_system()})
+					Networking_Mode.Connecting:
+						send_data(Networking_Valid_Types.Ping,{"A":"Connect"})
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
+
+func disable_connection():
+	disable_connect = true

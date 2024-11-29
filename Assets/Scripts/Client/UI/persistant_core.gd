@@ -1248,11 +1248,16 @@ func api_validate_completed(result, response_code, headers, body):
 	if response != null:
 		if response["status"] == 0:
 			Core.Globals.LocalUser["UserID"] = response["userID"]
+			if URL.to_lower().begins_with("localhost"):
+				Core.Globals.LocalUser["Username"] = str(response["userID"])+"@"+"localhost"
+			else:
+				Core.Globals.LocalUser["Username"] = str(response["userID"])+"@"+URL
 			Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
-			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2.hide()
-			$CanvasLayer/Hexii_Tablet_UI/Wallpaper.show()
-			get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen").show()
-			get_node("CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2").hide()
+			
+			Core.Client.network_ping($CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer.get_children())
+			
+			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen.show()
+			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2.hide()
 		elif response["status"] == 2 && tryreset:
 			await get_tree().create_timer(1).timeout
 			tryreset = false

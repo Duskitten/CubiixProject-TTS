@@ -541,8 +541,8 @@ func _physics_process(delta: float) -> void:
 				$RayCast3D4/RailTimer.start()
 				$Hub.rotation = up_direction
 
-			if (Input.is_action_just_pressed("ui_left") || Input.is_action_just_pressed("ui_right")) && !HopCooldown && ActiveArea != null && !IsTransfering:
-					if  (Input.is_action_just_pressed("ui_left")):
+			if (Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")) && !HopCooldown && ActiveArea != null && !IsTransfering:
+					if  (Input.is_action_just_pressed("left")):
 						if AltRiding:
 							if ActiveArea.P_Right_Fixed != null:
 								movepoint = ActiveArea.P_Right_Fixed
@@ -551,7 +551,7 @@ func _physics_process(delta: float) -> void:
 							if ActiveArea.P_Left_Fixed  != null:
 								Flip_B = true
 								movepoint = ActiveArea.P_Left_Fixed
-					elif (Input.is_action_just_pressed("ui_right")):
+					elif (Input.is_action_just_pressed("right")):
 						if AltRiding:
 							if ActiveArea.P_Left_Fixed != null:
 								Flip_B = false

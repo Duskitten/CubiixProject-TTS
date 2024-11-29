@@ -36,6 +36,7 @@ func _ready():
 		await get_tree().create_timer(2).timeout
 		Persistant_Core.get_node("../Loading").hide()
 		print("Haoi")
+		#SceneData.call_deferred("Swap_Scene","Showcase",{},true,"")
 		SceneData.call_deferred("Swap_Scene","Hexstaria",{},true,"Spawn_Docks")
 		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Tablet_TitleScreen_Anim","Exit","", false)
 		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)

@@ -64,7 +64,7 @@ sky = SubResource("Sky_b7qnr")
 ambient_light_source = 3
 ambient_light_color = Color(0.317026, 0.487417, 0.722656, 1)
 ambient_light_sky_contribution = 0.04
-tonemap_mode = 3
+tonemap_mode = 2
 ssao_power = 1.30582
 glow_enabled = true
 glow_levels/1 = 16.0
@@ -334,6 +334,7 @@ camera_attributes = SubResource("CameraAttributesPractical_5achi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template"]
 transform = Transform3D(0.5, 0.482418, -0.719217, -2.62057e-09, 0.83048, 0.557049, 0.866025, -0.278524, 0.41524, 0.00469455, 0, 0.0278296)
+light_energy = 0.75
 directional_shadow_mode = 0
 directional_shadow_split_1 = 0.03
 directional_shadow_split_2 = 0.1

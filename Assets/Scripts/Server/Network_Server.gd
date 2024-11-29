@@ -26,7 +26,7 @@ var Template_User = {
 var Rooms = {}
 
 var Template_Packet = {
-	"UserID":"0",
+	"Username":"Server",
 	"Type":0,
 	"Content":""}
 
@@ -72,7 +72,7 @@ func network_process():
 			newPeer["peer_obj"] = peer
 			Peers[hash(newPeer["peer_obj"])] = newPeer.duplicate(true)
 			print("We Will Wait For Response.")
-			#send_data(newPeer["peer_obj"],{"Type":Core.Globals.Networking_Valid_Types.Player_Request_Info,"Content":"Hello, Who Are You?"})
+			send_data(peer,Networking_Valid_Types.Ping,{"Q":"Hello, Who Are You?"})
 		
 		## So we need a plan of action here, the best way to handle this I think will be a call and response system.
 		## Essentially, the server will keep ticking with an open ended input
@@ -109,13 +109,15 @@ func network_process():
 			var n = Peers[i]["peer_obj"]
 			var peer = n.stream_peer
 			peer.poll()
+			
+		#	print(peer.get_status())
+			
 			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-				if Peers[i]["validated"]:
-					#send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
-					if peer.get_available_bytes() > 0:
-						parse_data(i,n,peer.get_var(false))
-					
+				#send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
+				if peer.get_available_bytes() > 0:
+					parse_data(i,n,peer.get_var(false))
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
+				print("Removing!")
 				Peers.erase(i)
 
 		if Core.Globals.KillThreads:
@@ -123,25 +125,21 @@ func network_process():
 		
 	print("Killing Network Thread!")
 
-func send_data(peer:PacketPeerStream, data:Dictionary):
+func send_data(peer:PacketPeerStream, id:Networking_Valid_Types, data:Dictionary):
 	var Packet = Template_Packet.duplicate(true)
-	Packet["Type"] = data["Type"]
-	match data["Type"]:
-		Networking_Valid_Types.Player_Request_Info:
-			pass
-		Networking_Valid_Types.Ping:
-			pass
-		Networking_Valid_Types.Player_Move:
-			pass
-
+	Packet["Type"] = id
+	Packet["Content"] = data
 	peer.put_var(Packet)
-
-
 
 func parse_data(key:int, user:PacketPeerStream, data:Dictionary):
 	match data["Type"]:
 		Networking_Valid_Types.Ping:
-			pass
+			match data["Content"]["A"]:
+				"Pinging":
+					print("recieved ping!")
+					send_data(user,Networking_Valid_Types.Ping,{"A":"Time","Time":data["Content"]["Time"]})
+				"Connect":
+					pass
 		Networking_Valid_Types.Player_Request_Info:
 			pass
 		Networking_Valid_Types.Player_Move:

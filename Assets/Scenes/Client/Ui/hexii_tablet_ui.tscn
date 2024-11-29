@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=113 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -67,13 +67,18 @@
 [ext_resource type="Texture2D" uid="uid://bv4j342xx4cld" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Button_Register.png" id="55_sxe0o"]
 [ext_resource type="Texture2D" uid="uid://12wff82hsuju" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Settings_Backing.png" id="56_kp23b"]
 [ext_resource type="Texture2D" uid="uid://cwcqprrq2tl0a" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Loading_A.png" id="56_lscda"]
+[ext_resource type="Texture2D" uid="uid://c0hli58crm6g5" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Loading_B.png" id="56_vfo86"]
 [ext_resource type="Texture2D" uid="uid://cpcafbrf3h0xr" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Settings_Inner.png" id="57_b6ggu"]
 [ext_resource type="Texture2D" uid="uid://d1xgju8pdofcu" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Devlog_Normal.png" id="58_dr2lh"]
 [ext_resource type="Texture2D" uid="uid://dvy1dwcqccur8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Normal.png" id="58_rsrw1"]
 [ext_resource type="Texture2D" uid="uid://d0q3feel55rpj" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Hover.png" id="59_3x6gq"]
 [ext_resource type="Texture2D" uid="uid://c6ydvow0hmt0n" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Devlog_Hover.png" id="59_jpq8j"]
+[ext_resource type="Texture2D" uid="uid://brr6waocjrjos" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/ServerList_Inner.png" id="60_1piq4"]
 [ext_resource type="Texture2D" uid="uid://dbr8ps13krjvl" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Devlog_Hover2.png" id="60_58bpy"]
 [ext_resource type="Texture2D" uid="uid://b2w3co8o8in8s" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Login_Hover2.png" id="60_1626d"]
+[ext_resource type="Texture2D" uid="uid://f4n5rqt1sepx" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_bar.png" id="61_ga4pe"]
+[ext_resource type="Texture2D" uid="uid://cdfnrgo0w8so3" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_List.png" id="62_gb1sw"]
+[ext_resource type="Texture2D" uid="uid://bkn3510spy4im" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_bar_hover.png" id="62_t5rdf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
 
@@ -162,15 +167,192 @@ texture = ExtResource("54_yo32u")
 resource_name = "Loading"
 length = 0.533337
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.5708, 3.14159, 4.71239]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("56_lscda"), ExtResource("56_vfo86"), ExtResource("56_lscda"), ExtResource("56_vfo86"), ExtResource("56_lscda"), ExtResource("56_vfo86"), ExtResource("56_lscda"), ExtResource("56_vfo86")]
+}
 
 [sub_resource type="Animation" id="Animation_sy546"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("56_vfo86")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hlpkl"]
 _data = {
 "Loading": SubResource("Animation_e5xir"),
 "RESET": SubResource("Animation_sy546")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qknwu"]
+animation = &"Loading"
+
+[sub_resource type="Animation" id="Animation_drpp7"]
+resource_name = "Loading"
+length = 0.533337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 6]
+}
+
+[sub_resource type="Animation" id="Animation_qms8h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_kq43r"]
+resource_name = "Good"
+length = 0.0333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_4xt86"]
+resource_name = "Mid"
+length = 0.0333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_u6pmb"]
+resource_name = "Bad"
+length = 0.0333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_uotcv"]
+resource_name = "Off"
+length = 0.0333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_aribi"]
+resource_name = "Dead"
+length = 0.0333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ai85k"]
+_data = {
+"Bad": SubResource("Animation_u6pmb"),
+"Dead": SubResource("Animation_aribi"),
+"Good": SubResource("Animation_kq43r"),
+"Loading": SubResource("Animation_drpp7"),
+"Mid": SubResource("Animation_4xt86"),
+"Off": SubResource("Animation_uotcv"),
+"RESET": SubResource("Animation_qms8h")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_66yv2"]
+animation = &"Loading"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
 texture = ExtResource("1_wdvji")
@@ -199,6 +381,7 @@ offset_bottom = 278.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -54.0
 offset_top = -197.0
@@ -1929,7 +2112,6 @@ texture = ExtResource("29_dbeuu")
 metadata/_edit_lock_ = true
 
 [node name="Wallpaper2" type="TextureRect" parent="."]
-visible = false
 texture_filter = 2
 layout_mode = 0
 offset_left = -55.0
@@ -2073,6 +2255,7 @@ offset_bottom = 409.0
 texture_normal = ExtResource("51_oo4pn")
 
 [node name="Login_Screen" type="Control" parent="Wallpaper2"]
+visible = false
 anchors_preset = 0
 offset_left = 71.0
 offset_top = -5.0
@@ -2321,14 +2504,21 @@ text = "
 [node name="Sprite2D" type="Sprite2D" parent="Wallpaper2/Login_Screen2/Preview"]
 modulate = Color(1, 0.882353, 1, 1)
 position = Vector2(127, 93)
-texture = ExtResource("56_lscda")
+rotation = 1.5708
+texture = ExtResource("56_vfo86")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Wallpaper2/Login_Screen2/Preview"]
 libraries = {
 "": SubResource("AnimationLibrary_hlpkl")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="Wallpaper2/Login_Screen2/Preview/AnimationPlayer"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeAnimation_qknwu")
+anim_player = NodePath("..")
+
 [node name="Response" type="TextureRect" parent="Wallpaper2/Login_Screen2"]
+visible = false
 clip_contents = true
 layout_mode = 2
 anchor_left = 0.6
@@ -2354,11 +2544,6 @@ bbcode_enabled = true
 text = "
 [center]Error:
 [color=red]AAAAAAAAA"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Wallpaper2/Login_Screen2/Response"]
-libraries = {
-"": SubResource("AnimationLibrary_hlpkl")
-}
 
 [node name="Settings_Screen" type="Control" parent="Wallpaper2"]
 visible = false
@@ -2393,7 +2578,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("22_u408p")
 theme_override_font_sizes/font_size = 12
-text = "Login"
+text = "Settings"
 metadata/_edit_use_anchors_ = true
 
 [node name="Preview" type="TextureRect" parent="Wallpaper2/Settings_Screen"]
@@ -2422,7 +2607,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("22_u408p")
 theme_override_font_sizes/font_size = 16
-text = "Settings:"
+text = " "
 
 [node name="Control2" type="HSeparator" parent="Wallpaper2/Settings_Screen/Preview/VBoxContainer"]
 layout_mode = 2
@@ -2541,6 +2726,225 @@ I hope if you enjoy it, please do let me know on my [color=blue][url={\"OpenURL\
 fit_content = true
 
 [node name="Back" type="TextureButton" parent="Wallpaper2/Settings_Screen"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 343.0
+offset_right = -33.0
+offset_bottom = 376.0
+texture_normal = ExtResource("51_oo4pn")
+
+[node name="ServerList_Screen" type="Control" parent="Wallpaper2"]
+anchors_preset = 0
+offset_left = 71.0
+offset_top = 33.0
+offset_right = 111.0
+offset_bottom = 73.0
+pivot_offset = Vector2(158.98, 152.66)
+
+[node name="TextureRect2" type="TextureRect" parent="Wallpaper2/ServerList_Screen"]
+layout_mode = 2
+offset_left = -53.0
+offset_top = -17.0
+offset_right = 362.0
+offset_bottom = 320.0
+mouse_filter = 2
+texture = ExtResource("56_kp23b")
+
+[node name="Label2" type="Label" parent="Wallpaper2/ServerList_Screen/TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283976
+anchor_top = 0.041543
+anchor_right = 0.283976
+anchor_bottom = 0.041543
+offset_left = -102.85
+offset_top = -9.0
+offset_right = -68.85
+offset_bottom = 6.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 12
+text = "Server List"
+metadata/_edit_use_anchors_ = true
+
+[node name="Preview" type="TextureRect" parent="Wallpaper2/ServerList_Screen"]
+clip_contents = true
+layout_mode = 2
+anchor_left = 0.6
+anchor_top = 0.85
+anchor_right = 5.525
+anchor_bottom = 5.525
+offset_left = -66.0
+offset_top = -26.0
+offset_right = 130.0
+offset_bottom = 88.0
+texture = ExtResource("60_1piq4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper2/ServerList_Screen/Preview"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 123.0
+offset_bottom = 301.0
+theme_override_constants/separation = 2
+
+[node name="Label2" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 16
+text = " "
+
+[node name="Control2" type="HSeparator" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_o7lx1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_f3wu7")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("27_t3w3u")
+texture_pressed = ExtResource("27_t3w3u")
+texture_hover = ExtResource("28_duf7k")
+
+[node name="Label" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer/TextureButton3"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -1.0
+offset_right = 75.0
+offset_bottom = 22.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 10
+text = "Connect"
+
+[node name="TextureButton" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("27_t3w3u")
+texture_pressed = ExtResource("27_t3w3u")
+texture_hover = ExtResource("28_duf7k")
+
+[node name="Label" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer/TextureButton"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -1.0
+offset_right = 75.0
+offset_bottom = 22.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 10
+text = "Add Server"
+
+[node name="TextureButton2" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("27_t3w3u")
+texture_pressed = ExtResource("27_t3w3u")
+texture_hover = ExtResource("28_duf7k")
+
+[node name="Label" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer/TextureButton2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -1.0
+offset_right = 75.0
+offset_bottom = 22.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 10
+text = "Remove Server"
+
+[node name="Panel" type="ScrollContainer" parent="Wallpaper2/ServerList_Screen/Preview"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 3.0
+offset_right = 392.0
+offset_bottom = 302.0
+theme = ExtResource("2_f3wu7")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper2/ServerList_Screen/Preview/Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TemplateServer" type="HBoxContainer" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+metadata/port = "5599"
+metadata/ip = "localhost"
+
+[node name="TextureButton" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer"]
+self_modulate = Color(0.848155, 0.606573, 1, 1)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("61_ga4pe")
+texture_pressed = ExtResource("61_ga4pe")
+texture_hover = ExtResource("62_t5rdf")
+texture_disabled = ExtResource("61_ga4pe")
+
+[node name="Label2" type="RichTextLabel" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_right = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("31_3586r")
+theme_override_fonts/mono_font = ExtResource("31_3586r")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "[left]Default Local Server
+[font_size=10]localhost:5599"
+
+[node name="Label3" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 181.0
+offset_top = 2.0
+offset_right = -24.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 12
+text = "0/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer/TextureButton"]
+position = Vector2(242, 13)
+texture = ExtResource("62_gb1sw")
+hframes = 8
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer/TextureButton/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_ai85k")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer/TextureButton/Sprite2D/AnimationPlayer"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeAnimation_66yv2")
+anim_player = NodePath("..")
+
+[node name="Back" type="TextureButton" parent="Wallpaper2/ServerList_Screen"]
 layout_mode = 0
 offset_left = -67.0
 offset_top = 343.0

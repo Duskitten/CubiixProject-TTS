@@ -5,5 +5,6 @@ var Character_Storage_Data = {
 	"Rotation":Vector3.ZERO,
 	"Model_Rotation":Vector3.ZERO,
 	"Current_Animation":"",
+	"Current_Player":"",
 	"Disconnected":true
 }
