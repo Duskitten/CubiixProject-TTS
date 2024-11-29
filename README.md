@@ -18,3 +18,4 @@ Credits to external resources used currently in the project:
 -  [Godot JWT](https://github.com/fenix-hub/godot-engine.jwt/tree/main)
 -  [Kenney Prototype Textures](https://kenney.nl/assets/prototype-textures)
 -  [QRCode Generator](https://kenyoni-software.github.io/godot-addons/addons/qr_code/)
+-  [TV Boarder Shader (Heavily Modified)](https://godotshaders.com/shader/animated-tv-static-border-shader/)
