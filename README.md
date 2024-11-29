@@ -19,3 +19,5 @@ Credits to external resources used currently in the project:
 -  [Kenney Prototype Textures](https://kenney.nl/assets/prototype-textures)
 -  [QRCode Generator](https://kenyoni-software.github.io/godot-addons/addons/qr_code/)
 -  [TV Boarder Shader (Heavily Modified)](https://godotshaders.com/shader/animated-tv-static-border-shader/)
+-  [Glitch Shader](https://godotshaders.com/shader/glitch-effect-shader-for-godot-engine-4/)
+-  [GPU Trail](https://github.com/celyk/GPUTrail)
