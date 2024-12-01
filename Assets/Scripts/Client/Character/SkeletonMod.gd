@@ -37,7 +37,10 @@ func first_run():
 				DynBones_OldPos[x][y][z] = (Skeleton.global_transform * Skeleton.get_bone_global_pose(current_bone)).origin
 				DynBones_NodeTailsVal[x][y][z] = Vector3.ZERO
 				DynBones_CoreRot[x][y][z] = Skeleton.get_bone_pose_rotation(current_bone)
-				DynBones_RealTails[x][y][z] = (Skeleton.global_transform * Skeleton.get_bone_global_pose(Skeleton.get_bone_parent(current_bone))).affine_inverse() * ((Skeleton.global_transform * Skeleton.get_bone_global_pose(current_bone)) * Vector3.UP)
+				if Skeleton.get_bone_children(current_bone).size() > 0:
+					DynBones_RealTails[x][y][z] = (Skeleton.global_transform * Skeleton.get_bone_global_pose(Skeleton.get_bone_parent(current_bone))).affine_inverse() * ((Skeleton.global_transform * Skeleton.get_bone_global_pose(current_bone)) * Vector3(0,(Skeleton.global_transform * Skeleton.get_bone_global_pose(current_bone)).origin.distance_to((Skeleton.global_transform * Skeleton.get_bone_global_pose(Skeleton.get_bone_children(current_bone)[0])).origin),0))
+				else:
+					DynBones_RealTails[x][y][z] = (Skeleton.global_transform * Skeleton.get_bone_global_pose(Skeleton.get_bone_parent(current_bone))).affine_inverse() * ((Skeleton.global_transform * Skeleton.get_bone_global_pose(current_bone)) * Vector3(0,.2,0))
 	canrun = true
 		
 func _process_modification() -> void:

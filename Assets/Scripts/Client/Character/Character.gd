@@ -228,10 +228,9 @@ func Regen_Character():
 	Regen_Color()
 	
 	Anim_Tree.active = true
-	if Is_Player || Is_UI:
-		Skeleton.add_child(DynBones)
-		DynBones.DynBones_Register = DynBones_Register.duplicate(true)
-		DynBones.first_run()
+	Skeleton.add_child(DynBones)
+	DynBones.DynBones_Register = DynBones_Register.duplicate(true)
+	DynBones.first_run()
 	base_model.position = Vector3(0,0,0)
 	base_model.show()
 	CharSetup = true

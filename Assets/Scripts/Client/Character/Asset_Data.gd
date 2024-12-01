@@ -1434,11 +1434,15 @@ func merge_meshes(MeshList:Array,Materials:Array,TargetMesh:MeshInstance3D, Targ
 			Compiled_AABB = Meshes[i][0].get_aabb().merge(Compiled_AABB)
 			###Adjust Bone Index
 			var Key = Replace_Bone_Key[MeshSubList[i]]
+			print(Key)
+			var IgnoreList = []
 			if !Key.is_empty():
 				for K in Key:
 					for CC in Mesh_Commit[10].size():
 						if Mesh_Commit[Mesh.ARRAY_BONES][CC] == K[0]:
-							Mesh_Commit[Mesh.ARRAY_BONES][CC] = K[1]
+							if !IgnoreList.has(CC):
+								IgnoreList.append(CC)
+								Mesh_Commit[Mesh.ARRAY_BONES][CC] = K[1]
 #
 			for x in CoreMesh_Commit.size():
 				if x == 10:
