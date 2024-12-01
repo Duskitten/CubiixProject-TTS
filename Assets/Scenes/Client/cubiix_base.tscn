@@ -37,6 +37,7 @@ script = ExtResource("1_4skhm")
 [node name="Cubiix_Model" parent="Hub" instance=ExtResource("2_q4jtr")]
 
 [node name="Skeleton3D" parent="Hub/Cubiix_Model" index="0"]
+animate_physical_bones = false
 bones/0/position = Vector3(0, 0, 0)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/2/position = Vector3(0, 0.254852, 0)
