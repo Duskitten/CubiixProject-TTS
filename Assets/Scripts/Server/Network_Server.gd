@@ -41,12 +41,31 @@ enum Networking_Valid_Types {
 var Tick_Prev = 0
 var Tick_Timer = 0
 var Current_Tick = 0
+
+var server_template ="""{
+	\"Port\":5599,
+	\"MaxPlayers\":40,
+	\"ServerName\":\"TestServer\",
+	\"ServerColor\":\"#999634\"
+}"""
+
+var ServerData = {}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var Json = JSON.new()
-	print(OS.get_executable_path().get_base_dir()+"/server.json")
-	var file = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/server.json")
-	Json.parse(file)
+	#print(OS.get_executable_path().get_base_dir()+"/server.json")
+	var IsFile = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/server.json")
+	print(IsFile)
+	if !IsFile:
+		var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
+		NewFile.store_string(server_template)
+		NewFile.close()
+		
+	
+	var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/server.json")
+	Json.parse(JsonFile)
+	ServerData = Json.data
 	TCP.listen(Json.data["Port"])
 	start_network()
 	
@@ -137,9 +156,16 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary):
 			match data["Content"]["A"]:
 				"Pinging":
 					print("recieved ping!")
-					send_data(user,Networking_Valid_Types.Ping,{"A":"Time","Time":data["Content"]["Time"]})
+					send_data(user,Networking_Valid_Types.Ping,{
+						"A":"Time",
+						"Time":float(data["Content"]["Time"]),
+						"MaxPlayers":int(ServerData["MaxPlayers"]),
+						"CurrentPlayers":int(OrganizedPeers.size()),
+						"ServerName":str(ServerData["ServerName"]),
+						"ServerColor":str(ServerData["ServerColor"])
+						})
 				"Connect":
-					pass
+					print("Recieved connection ping!")
 		Networking_Valid_Types.Player_Request_Info:
 			pass
 		Networking_Valid_Types.Player_Move:
@@ -155,3 +181,6 @@ func gen_new_room(room:String) -> void:
 		Rooms[room] = Template_Room.duplicate(true)
 		for i in RoomSignals:
 			add_user_signal(room+i)
+		
+	
+	

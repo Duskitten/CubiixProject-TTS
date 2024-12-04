@@ -2886,7 +2886,6 @@ metadata/ip = "localhost"
 [node name="TextureButton" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer"]
 self_modulate = Color(0.848155, 0.606573, 1, 1)
 layout_mode = 2
-disabled = true
 texture_normal = ExtResource("61_ga4pe")
 texture_pressed = ExtResource("61_ga4pe")
 texture_hover = ExtResource("62_t5rdf")
@@ -2901,13 +2900,14 @@ offset_left = 15.0
 offset_right = -57.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/normal_font = ExtResource("31_3586r")
 theme_override_fonts/mono_font = ExtResource("31_3586r")
 theme_override_font_sizes/normal_font_size = 13
 bbcode_enabled = true
-text = "[left]Default Local Server
+text = "[left]Resolving Server...
 [font_size=10]localhost:5599"
 
 [node name="Label3" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer/TextureButton"]
@@ -2924,7 +2924,7 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 12
-text = "0/10"
+text = "?/?"
 horizontal_alignment = 1
 vertical_alignment = 1
 

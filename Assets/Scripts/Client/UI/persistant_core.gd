@@ -1179,6 +1179,13 @@ func _parse_login():
 	var login_Query = {}
 	var login_URL = ""
 	var AUTH = ""
+	var regex = RegEx.new()
+	regex.compile("((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\\.(xn--)?([a-z0-9\\._-]{1,61}|[a-z0-9-]{1,30})")
+	regex.search(login_UrlBox.text.strip_edges(true))
+	var result = regex.search(login_UrlBox.text)
+	
+	print(result)
+	
 	if login_UrlBox.text.strip_edges(true) == "":
 		URL = "cubiixproject.xyz"
 		API_URL = "https://api."+URL
@@ -1193,21 +1200,22 @@ func _parse_login():
 			[AUTH,"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,
 			json.stringify(login_Query))
-	elif login_UrlBox.text.strip_edges(true).to_lower().begins_with("localhost"):
-		URL = login_UrlBox.text.to_lower()
-		login_URL = "http://"+URL+ ApiCalls["validateToken"]
-		API_URL = "http://"+URL
-		API_Validate.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
-			"Content-Type: application/json"]
-			,HTTPClient.METHOD_POST,"")
-	else:
+
+	elif result:
 		URL = login_UrlBox.text.to_lower()
 		API_URL = "https://api."+URL
 		login_URL = "https://api."+URL+ ApiCalls["validateToken"]
 		API_Validate.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
-	
+	else:
+		print("Error Direct IP / LocalHost Not valid Domain")
+		#URL = login_UrlBox.text.to_lower()
+		#login_URL = "http://"+URL+ ApiCalls["validateToken"]
+		#API_URL = "http://"+URL
+		#API_Validate.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
+			#"Content-Type: application/json"]
+			#,HTTPClient.METHOD_POST,"")
 var jwt 
 ##This login card is specific to my wiki setup, not external auths
 func login_request_completed(result, response_code, headers, body):
@@ -1247,15 +1255,15 @@ func api_validate_completed(result, response_code, headers, body):
 	print("api Completed!")
 	if response != null:
 		if response["status"] == 0:
-			Core.Globals.LocalUser["UserID"] = response["userID"]
-			if URL.to_lower().begins_with("localhost"):
-				Core.Globals.LocalUser["Username"] = str(response["userID"])+"@"+"localhost"
-			else:
-				Core.Globals.LocalUser["Username"] = str(response["userID"])+"@"+URL
+			#if URL.to_lower().begins_with("localhost"):
+				#var upnp = UPNP.new()
+				#upnp.discover(2000, 2, "InternetGatewayDevice")
+				#Core.Globals.LocalUser["Username"] = str(response["userID"])+"@"+str(upnp.query_external_address())
+			#else:
+			Core.Globals.LocalUser["Username"] = str(response["userID"])
 			Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
-			
+			Core.Globals.LocalUser["URL"] = URL
 			Core.Client.network_ping($CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer.get_children())
-			
 			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen.show()
 			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2.hide()
 		elif response["status"] == 2 && tryreset:
@@ -1273,6 +1281,13 @@ func _on_register_link_button_pressed() -> void:
 	var login_Query = {}
 	var login_URL = ""
 	var AUTH = ""
+	var regex = RegEx.new()
+	regex.compile("((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\\.(xn--)?([a-z0-9\\._-]{1,61}|[a-z0-9-]{1,30})")
+	regex.search(login_UrlBox.text.strip_edges(true))
+	var result = regex.search(login_UrlBox.text)
+	
+	print(result)
+	
 	
 	if login_UrlBox.text.strip_edges(true) == "":
 		URL = "cubiixproject.xyz"
@@ -1289,20 +1304,21 @@ func _on_register_link_button_pressed() -> void:
 		"Content-Type: application/json"]
 		,HTTPClient.METHOD_POST,
 		json.stringify(login_Query))
-	elif login_UrlBox.text.strip_edges(true).to_lower().begins_with("localhost"):
-		URL = login_UrlBox.text.to_lower()
-		login_URL = "http://"+URL+ApiCalls["registerUser"]
-		API_URL = "http://"+URL
-		Login_Create.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
-			"Content-Type: application/json"]
-			,HTTPClient.METHOD_POST,"")
-	else:
+	elif result:
 		URL = login_UrlBox.text.to_lower()
 		login_URL = "https://"+URL+ApiCalls["registerUser"]
 		API_URL = "https://api."+URL
 		Login_Create.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
+	else:# login_UrlBox.text.strip_edges(true).to_lower().begins_with("localhost"):
+		print("Error Direct IP / LocalHost Not valid Domain")
+		#URL = login_UrlBox.text.to_lower()
+		#login_URL = "http://"+URL+ApiCalls["registerUser"]
+		#API_URL = "http://"+URL
+		#Login_Create.request(login_URL,["userName:"+login_username.text,"userPassword:"+login_password.text,
+			#"Content-Type: application/json"]
+			#,HTTPClient.METHOD_POST,"")
 
 func register_request_completed(result, response_code, headers, body):
 	#print(result)

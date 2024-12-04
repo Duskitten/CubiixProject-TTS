@@ -21,6 +21,7 @@ enum Networking_Mode {
 
 signal NextPing
 var LastPingTime = -1
+var ServerData = {}
 var disable_connect = false
 var connect_timer:Timer = Timer.new()
 
@@ -48,8 +49,9 @@ func network_ping(serverlist:Array) -> void:
 		connect_to_server(i.get_meta("ip"),i.get_meta("port"))
 		await NextPing
 		NetworkThread.wait_to_finish()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1).timeout
 		i.get_node("TextureButton/Sprite2D/AnimationPlayer/AnimationTree").active = false
+		print(LastPingTime)
 		var Target = "Dead"
 		if LastPingTime <= 50 && LastPingTime >= 0:
 			Target = "Good"
@@ -58,9 +60,14 @@ func network_ping(serverlist:Array) -> void:
 		elif  LastPingTime >= 201:
 			Target = "Bad"
 		i.get_node("TextureButton/Sprite2D/AnimationPlayer").play(Target)
-	
+		i.get_node("TextureButton").self_modulate = Color(str(ServerData["ServerColor"]))
+		i.get_node("TextureButton/Label2").text = "[left]"+str(ServerData["ServerName"])+"\n[font_size=10]localhost:5599"
+		i.get_node("TextureButton/Label3").text = str(ServerData["CurrentPlayers"])+"/"+str(ServerData["MaxPlayers"])
+
 	for i in serverlist:
 		i.get_node("TextureButton").disabled = false
+		
+	print("PingedServers!")
 
 func start_network():
 	NetworkThread.start(network_process)
@@ -72,7 +79,7 @@ func network_process():
 		
 		TCP.poll()
 		if TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-			connect_timer.stop()
+			connect_timer.call_deferred("stop")
 			if TCP.get_available_bytes() > 0:
 				parse_data(TCP.get_var(false))
 
@@ -83,7 +90,7 @@ func network_process():
 				break
 			
 		elif TCP.get_status() == StreamPeerTCP.STATUS_NONE:
-			connect_timer.stop()
+			connect_timer.call_deferred("stop")
 			break
 
 	TCP.disconnect_from_host()
@@ -104,14 +111,23 @@ func parse_data(data:Dictionary):
 	match data["Type"]:
 		Networking_Valid_Types.Ping:
 			if data["Content"].has("Time"):
-				LastPingTime = data["Content"]["Time"] - Time.get_unix_time_from_system()
+				LastPingTime = ceil(data["Content"]["Time"] - Time.get_unix_time_from_system())
+				ServerData = data["Content"]
 				TCP.disconnect_from_host()
 			else:
 				match Current_Network_Mode:
 					Networking_Mode.Pinging:
-						send_data(Networking_Valid_Types.Ping,{"A":"Pinging","Time":Time.get_unix_time_from_system()})
+						send_data(Networking_Valid_Types.Ping,
+						{"A":"Pinging",
+						"Time":Time.get_unix_time_from_system()
+						})
 					Networking_Mode.Connecting:
-						send_data(Networking_Valid_Types.Ping,{"A":"Connect"})
+						send_data(Networking_Valid_Types.Ping,
+						{"A":"Connect",
+						"Username":Core.Globals.LocalUser["Username"],
+						"UserSecretCode":Core.Globals.LocalUser["UserSecretCode"],
+						"URL":Core.Globals.LocalUser["URL"]
+						})
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()

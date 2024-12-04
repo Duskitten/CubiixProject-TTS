@@ -2,9 +2,8 @@ extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
 var LocalUser = {
-	"UserID":0,
+	"URL":"",
 	"UserSecretCode":"",
-	"JWT":"",
 	"Username":"",
 }
 
