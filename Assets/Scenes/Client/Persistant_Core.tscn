@@ -253,6 +253,9 @@ visible = false
 
 [node name="Hexii_Tablet_UI" parent="CanvasLayer" instance=ExtResource("5_d7p8w")]
 
+[node name="Wallpaper" parent="CanvasLayer/Hexii_Tablet_UI" index="1"]
+visible = true
+
 [node name="Character_Screen" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper" index="2"]
 visible = true
 pivot_offset = Vector2(232.08, 170.48)
@@ -298,6 +301,7 @@ offset_bottom = 222.0
 
 [node name="SubViewport" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer" index="0"]
 size = Vector2i(132, 158)
+render_target_update_mode = 4
 script = ExtResource("5_ayhcd")
 
 [node name="Skeleton3D" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model" index="0"]
@@ -329,6 +333,9 @@ press 1, or R!
 
 To close and open this menu, 
 press 2, or F!"
+
+[node name="Wallpaper2" parent="CanvasLayer/Hexii_Tablet_UI" index="2"]
+visible = false
 
 [node name="ServerList_Screen" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper2" index="4"]
 visible = false
@@ -377,6 +384,7 @@ libraries = {
 }
 
 [node name="Transitioner" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -545,34 +553,12 @@ Is_Player = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Node3D/Player/Hub/Cubiix_Model" index="0"]
-bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/2/position = Vector3(0, 0.254852, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/3/position = Vector3(-0.327326, 0.134334, 0)
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0, 0, 0, 1)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/position = Vector3(0.327326, 0.134334, 0)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/9/rotation = Quaternion(0, 0, 0, 1)
 bones/9/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(0, 0, 0, 1)
-bones/11/rotation = Quaternion(0, 0, 0, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/position = Vector3(0, 0.12722, 0)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/position = Vector3(0, 0.12722, 0)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Cube" parent="Node3D/Player/Hub/Cubiix_Model/Skeleton3D" index="0"]
 layers = 1

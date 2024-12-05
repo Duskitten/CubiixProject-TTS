@@ -226,7 +226,8 @@ func Regen_Character():
 	Model = base_model
 	
 	Regen_Color()
-	
+	if !Is_UI:
+		update_name(Name)
 	Anim_Tree.active = true
 	Skeleton.add_child(DynBones)
 	DynBones.DynBones_Register = DynBones_Register.duplicate(true)
@@ -261,6 +262,11 @@ var Look_At = null
 
 var NPC_Is_InterestPoint = false
 
+func update_name(text:String) -> void:
+	$CanvasLayer/Label.text = text
+	$CanvasLayer/Label.pivot_offset.x = $CanvasLayer/Label.size.x/2
+	$CanvasLayer/Label.pivot_offset.y = $CanvasLayer/Label.size.y
+
 func _process(delta: float) -> void:
 	var Camera2 = get_viewport().get_camera_3d()
 	
@@ -268,8 +274,19 @@ func _process(delta: float) -> void:
 		Camera = get_viewport().get_camera_3d()
 	else:
 		Camera = null
-	
 		
+	if !Is_UI:
+		var positioning = self.global_position + Vector3(0,1.5,0)
+		var distance = positioning.distance_to(get_viewport().get_camera_3d().global_position)/6
+	
+		if distance > 1.2 || Is_Player || distance < .5:
+			$CanvasLayer/Label.hide()
+		else:
+			$CanvasLayer/Label.show()
+			var distance_clamp = clampf(distance, .8, .9)
+			var scaling = Vector2(distance_clamp,distance_clamp)
+			$CanvasLayer/Label.scale = scaling
+			$CanvasLayer/Label.position = get_viewport().get_camera_3d().unproject_position(positioning) - $CanvasLayer/Label.size/2
 	Delta = Time.get_ticks_msec() - Tick_Prev
 	Tick_Prev = Time.get_ticks_msec()
 	Blink_Timer += Delta
