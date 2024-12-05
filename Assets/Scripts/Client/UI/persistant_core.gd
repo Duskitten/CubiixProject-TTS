@@ -197,7 +197,9 @@ func _ready() -> void:
 	}
 	
 	AudioPlayer.add_child(CurrentAudioPlayer)
-	
+
+
+
 
 func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
 	$Node3D/Player.position = Location

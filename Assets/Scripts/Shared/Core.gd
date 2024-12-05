@@ -15,10 +15,18 @@ var Server
 func _ready():
 	print(version)
 	if OS.has_feature("client") || OS.is_debug_build():
+		Update_LogoText("Booting MindVirus Engine...")
+		await get_tree().create_timer(1).timeout
+		Update_LogoText("Finding Client...")
+		await get_tree().create_timer(1).timeout
+		Update_LogoText("Initiating Asset Load...")
+		await get_tree().create_timer(1).timeout
 		SceneData = load("res://Assets/Scripts/Client/Scene/Scene_Data.gd").new()
+		SceneData.runsetup(self)
+		await SceneData.FinishedLoad
 		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
 		AssetData = load("res://Assets/Scripts/Client/Character/Asset_Data.gd").new()
-		AssetData.runsetup()
+		AssetData.runsetup(self)
 		await AssetData.FinishedLoad
 		Client = load("res://Assets/Scripts/Client/Networking/Network_Client.gd").new()
 		Dialogue_Handler = load("res://Assets/Scripts/Client/UI/DialogueBank.gd").new()
@@ -28,13 +36,15 @@ func _ready():
 		add_child(AssetData)
 		add_child(Client)
 		add_child(Dialogue_Handler)
+		
 		get_parent().call_deferred("add_child", Persistant_Core)
 		await Persistant_Core.ready
 		
-		SceneData.runsetup()
-		await SceneData.FinishedLoad
-		await get_tree().create_timer(2).timeout
-		Persistant_Core.get_node("../Loading").hide()
+		Update_LogoText("Load O.K. ...")
+		await get_tree().create_timer(1).timeout
+		Update_LogoText("Good Luck Have Fun! :3")
+		await get_tree().create_timer(1).timeout
+		get_node("../CanvasLayer/Loading").hide()
 		print("Haoi")
 		#SceneData.call_deferred("Swap_Scene","Showcase",{},true,"")
 		SceneData.call_deferred("Swap_Scene","Hexstaria",{},true,"Spawn_Docks")
@@ -46,6 +56,10 @@ func _ready():
 		add_child(Globals)
 		Server = load("res://Assets/Scripts/Server/Network_Server.gd").new()
 		add_child(Server)
+		
+		
+func Update_LogoText(text:String) -> void:
+	get_node("../CanvasLayer/Loading/TextureRect/Label").text = text
 	#Create an HTTP request node and connect its completion signal.
 	#var http_request = HTTPRequest.new()
 	#add_child(http_request)

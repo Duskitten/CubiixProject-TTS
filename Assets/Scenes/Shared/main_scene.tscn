@@ -14,7 +14,10 @@ script = ExtResource("1_it4n2")
 
 [node name="Current_Scene" type="Node" parent="."]
 
-[node name="Loading" type="Panel" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Loading" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,7 +27,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ssv2s")
 
-[node name="TextureRect" type="TextureRect" parent="Loading"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Loading"]
 texture_filter = 4
 layout_mode = 1
 anchors_preset = 8
@@ -41,3 +44,16 @@ grow_vertical = 2
 texture = ExtResource("2_huok0")
 expand_mode = 5
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Loading/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.5
+offset_top = -23.0
+offset_right = 64.5
+grow_horizontal = 2
+grow_vertical = 0

@@ -23,14 +23,21 @@ var Scenes = {
 
 var InitThread:Thread
 signal FinishedLoad
-func runsetup() -> void:
+func runsetup(CoreNode) -> void:
+	Core = CoreNode
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
 
 func Init_ThreadRun():
+	var assetcount = Scenes.keys().size()
+	var currentAsset = 0
 	for i in Scenes.keys():
+		currentAsset += 1
 		Scenes[i][0] = load(Scenes[i][0]).instantiate()
 		Scenes[i][3] = load(Scenes[i][3])
+		Core.call_deferred("Update_LogoText","Loading Maps: "+str(currentAsset)+"/"+str(assetcount))
+		await Core.get_tree().process_frame
+
 	call_deferred("Init_Finish")
 
 func Init_Finish():

@@ -76,14 +76,20 @@ var Model_Data_Assets = {
 
 var InitThread:Thread
 signal FinishedLoad
-func runsetup() -> void:
+func runsetup(CoreNode) -> void:
+	Core = CoreNode
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
 	
 func Init_ThreadRun():
+	var assetcount = Model_Data_Assets.keys().size()
+	var currentAsset = 0
 	for i in Model_Data_Assets.keys():
+		currentAsset += 1
 		Model_Data_Assets[i] = load(Model_Data_Assets[i]).instantiate()
-
+		Core.call_deferred("Update_LogoText","Loading Character Assets: "+str(currentAsset)+"/"+str(assetcount))
+		await Core.get_tree().process_frame
+		
 	call_deferred("Init_Finish")
 	
 func Init_Finish():
