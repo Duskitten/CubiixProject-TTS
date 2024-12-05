@@ -24,7 +24,7 @@ window/size/viewport_height=600
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/EasySpaceNodes/plugin.cfg", "res://addons/GPUTrails/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/jwt/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
+enabled=PackedStringArray("res://addons/EasySpaceNodes/plugin.cfg", "res://addons/GPUTrails/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/jwt/plugin.cfg")
 
 [file_customization]
 
@@ -215,6 +215,8 @@ chat={
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/directional_shadow/16_bits=false
 shading/overrides/force_vertex_shading=true
 shading/overrides/force_lambert_over_burley=true
 environment/ssao/blur_passes=4

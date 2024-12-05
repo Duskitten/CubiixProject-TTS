@@ -267,6 +267,8 @@ func update_name(text:String) -> void:
 	$CanvasLayer/Label.pivot_offset.x = $CanvasLayer/Label.size.x/2
 	$CanvasLayer/Label.pivot_offset.y = $CanvasLayer/Label.size.y
 
+var nameOverride = false
+
 func _process(delta: float) -> void:
 	var Camera2 = get_viewport().get_camera_3d()
 	
@@ -279,7 +281,7 @@ func _process(delta: float) -> void:
 		var positioning = self.global_position + Vector3(0,1.5,0)
 		var distance = positioning.distance_to(get_viewport().get_camera_3d().global_position)/6
 	
-		if distance > 1.2 || Is_Player || distance < .5:
+		if distance > 1.2 || Is_Player || distance < .5 || nameOverride:
 			$CanvasLayer/Label.hide()
 		else:
 			$CanvasLayer/Label.show()
@@ -731,3 +733,10 @@ func play_new_emote(EmoteID:String) -> bool:
 		return true
 	else:
 		return false
+
+
+func _on_visible_on_screen_notifier_3d_2_screen_entered() -> void:
+	nameOverride = false
+
+func _on_visible_on_screen_notifier_3d_2_screen_exited() -> void:
+	nameOverride = true
