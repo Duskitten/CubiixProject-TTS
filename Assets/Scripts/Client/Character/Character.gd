@@ -75,6 +75,7 @@ enum R_HIP_ENUM {None, HipSkirt}
 @export var Pronouns_A = ""
 @export var Pronouns_B = ""
 @export var Pronouns_C = ""
+@export_enum("Hexii","Nullvii","Octii","Tixii","Trii") var Faction = "Hexii"
 
 @export var Scale = 1.0
 
@@ -269,6 +270,7 @@ func update_name(text:String) -> void:
 	$CanvasLayer/Control/Label.text = text
 	$CanvasLayer/Control/Label.size = Vector2.ZERO
 	$CanvasLayer/Control/Label.position = -$CanvasLayer/Control/Label.size/2
+	$CanvasLayer/Control/TextureRect.texture = load("res://Assets/Textures/Faction_Icons/"+Faction+"_Logo_V2.png")
 	$CanvasLayer/Control/TextureRect.position.x = -$CanvasLayer/Control/TextureRect.size.x/2 
 
 var nameOverride = false

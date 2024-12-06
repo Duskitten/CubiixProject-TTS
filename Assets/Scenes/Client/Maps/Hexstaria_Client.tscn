@@ -481,6 +481,7 @@ Body_2 = Color(0.640625, 0.333535, 0.0492594, 1)
 Body_3 = Color(0.752941, 0.158561, 0.175416, 1)
 Body_4 = Color(0.752941, 0.156863, 0.176471, 1)
 Name = "Ki"
+Faction = "Trii"
 
 [node name="NPC_Function" parent="NPC/Ki" instance=ExtResource("21_uc3kt")]
 Character = &"Ki"
@@ -533,6 +534,7 @@ Body_2 = Color(0.321617, 0.648438, 0.544963, 1)
 Body_3 = Color(0.447059, 1, 0.909804, 1)
 Body_4 = Color(0.447059, 1, 0.909804, 1)
 Name = "Nat"
+Faction = "Octii"
 
 [node name="NPC_Function" parent="NPC/Nat" instance=ExtResource("21_uc3kt")]
 Character = &"Nat"
@@ -558,6 +560,7 @@ Body_2 = Color(0.542497, 0.574219, 0.56992, 1)
 Body_3 = Color(0.40917, 0.322917, 0.460938, 1)
 Body_4 = Color(0.407843, 0.321569, 0.462745, 1)
 Name = "Dusk"
+Faction = "Tixii"
 
 [node name="NPC_Function" parent="NPC/Dusk" instance=ExtResource("21_uc3kt")]
 Character = &"Dusk"
