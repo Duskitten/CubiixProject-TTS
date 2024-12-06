@@ -1262,9 +1262,9 @@ func api_validate_completed(result, response_code, headers, body):
 				#upnp.discover(2000, 2, "InternetGatewayDevice")
 				#Core.Globals.LocalUser["Username"] = str(response["userID"])+"@"+str(upnp.query_external_address())
 			#else:
-			Core.Globals.LocalUser["Username"] = str(response["userID"])
+			Core.Globals.LocalUser["Username"] = str(response["userID"]).to_lower()
 			Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
-			Core.Globals.LocalUser["URL"] = URL
+			Core.Globals.LocalUser["URL"] = URL.to_lower()
 			Core.Client.network_ping($CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer.get_children())
 			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen.show()
 			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen2.hide()
@@ -1360,6 +1360,7 @@ func Transition_New_Song(NewSongID:String) -> void:
 	LastSong = NewSongID
 	OldAudioPlayer = CurrentAudioPlayer
 	CurrentAudioPlayer = AudioStreamPlayer.new()
+	CurrentAudioPlayer.bus = &"Music"
 	CurrentAudioPlayer.volume_db = -80
 	CurrentAudioPlayer.stream = load(SongList[NewSongID])
 	CurrentAudioPlayer.autoplay = true

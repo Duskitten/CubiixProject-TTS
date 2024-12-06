@@ -3,9 +3,6 @@ extends Node
 var NetworkThread = Thread.new()
 var TCP = TCPServer.new()
 
-var Template_Room = {
-	"users":[]
-}
 var Peers = {}
 var PeerHash = []
 
@@ -13,16 +10,6 @@ var OrganizedPeers = {
 	
 }
 
-
-var Template_User = {
-	"room":"",
-	"uuid":"",
-	"peer_obj":null,
-	"validated":false,
-	"base_position":Vector3.ZERO,
-	"base_rotation":Vector3.ZERO,
-	"model_rotation":Vector3.ZERO,
-}
 var Rooms = {}
 
 var Template_Packet = {
@@ -87,9 +74,10 @@ func network_process():
 		if client:
 			var peer = PacketPeerStream.new()
 			peer.stream_peer = client
-			var newPeer = Template_User.duplicate(true)
-			newPeer["peer_obj"] = peer
-			Peers[hash(newPeer["peer_obj"])] = newPeer.duplicate(true)
+			var newPeer = ServerPlayer.new()
+			newPeer.Character_Storage_Data["peer_obj"] = peer
+			Peers[hash(newPeer["peer_obj"])] = newPeer
+			
 			print("We Will Wait For Response.")
 			send_data(peer,Networking_Valid_Types.Ping,{"Q":"Hello, Who Are You?"})
 		
@@ -117,7 +105,7 @@ func network_process():
 			var accumulated_server_positions = {} ##User > Position/Rotation/Ect Data
 
 			for i in Peers.keys():
-				var n = Peers[i]["peer_obj"]
+				var n = Peers[i].Character_Storage_Data["peer_obj"]
 				var peer = n.stream_peer
 				if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 					###This is where we'd like to send the player the entire tick.
@@ -125,7 +113,7 @@ func network_process():
 
 		####Everything Past here is "Returned" data from clients
 		for i in Peers.keys():
-			var n = Peers[i]["peer_obj"]
+			var n = Peers[i].Character_Storage_Data["peer_obj"]
 			var peer = n.stream_peer
 			peer.poll()
 			
@@ -134,7 +122,8 @@ func network_process():
 			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 				#send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
 				if peer.get_available_bytes() > 0:
-					parse_data(i,n,peer.get_var(false))
+					parse_data(i,n,peer.get_var(false),Peers[i],i)
+					
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
 				print("Removing!")
 				Peers.erase(i)
@@ -150,7 +139,7 @@ func send_data(peer:PacketPeerStream, id:Networking_Valid_Types, data:Dictionary
 	Packet["Content"] = data
 	peer.put_var(Packet)
 
-func parse_data(key:int, user:PacketPeerStream, data:Dictionary):
+func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerPlayer, peerid:int):
 	match data["Type"]:
 		Networking_Valid_Types.Ping:
 			match data["Content"]["A"]:
@@ -165,22 +154,35 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary):
 						"ServerColor":str(ServerData["ServerColor"])
 						})
 				"Connect":
-					print("Recieved connection ping!")
-		Networking_Valid_Types.Player_Request_Info:
-			pass
-		Networking_Valid_Types.Player_Move:
-			pass
+					###This is when we want a player to join!
+					if data["Content"]["URL"].to_lower() == "localhost":
+						print("Error: User Attempted to join using localhost domain.")
+						userobj.queue_free()
+						Peers.erase(peerid)
+					else:
+						userobj.Character_Storage_Data["Player_OBJ_IDName"] = str(hash(data["Content"]["Username"]+"@"+data["Content"]["URL"]))
+						userobj.name = userobj.Character_Storage_Data["Player_OBJ_IDName"]
+						Player_To_Room(userobj,"island_0")
+						print(data["Content"])
+						print("Recieved connection ping!")
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
 
 func gen_new_room(room:String) -> void:
 	if Rooms.has(room):
-		pass
+		print("Error: This Room ID Exists.")
 	else:
-		Rooms[room] = Template_Room.duplicate(true)
+		Rooms[room] = ServerRoom.new()
+		call_deferred("add_child",Rooms[room])
+		add_child(Rooms[room])
 		for i in RoomSignals:
-			add_user_signal(room+i)
-		
-	
-	
+			Rooms[room].add_user_signal(i)
+
+func Player_To_Room(userobj:ServerPlayer,room:String) -> void:
+	Rooms[room].call_deferred("add_child",userobj)
+	userobj.Character_Storage_Data["Current_Room"] = room
+
+func Player_RemoveFrom_Room(userobj:ServerPlayer,room:String) -> void:
+	Rooms[room].call_deferred("remove_child",userobj)
+	userobj.Character_Storage_Data["Current_Room"] = ""

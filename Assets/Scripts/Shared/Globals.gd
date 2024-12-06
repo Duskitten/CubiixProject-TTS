@@ -11,7 +11,7 @@ var KillThreads = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if OS.has_feature("client") || OS.is_debug_build():
+	if OS.has_feature("client"):
 		pass
 		
 	if OS.has_feature("server"):
@@ -21,7 +21,8 @@ func _ready() -> void:
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		KillThreads = true
-		Core.AssetData.thread_force_post()
+		if OS.has_feature("client"):
+			Core.AssetData.thread_force_post()
 		
 	
 

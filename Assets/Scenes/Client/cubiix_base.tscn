@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://daagacetbe7yf"]
+[gd_scene load_steps=8 format=3 uid="uid://daagacetbe7yf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Character.gd" id="1_4skhm"]
 [ext_resource type="PackedScene" uid="uid://cirw3ifxx1v8v" path="res://Assets/Scenes/Client/Characters/cubiix_model.tscn" id="2_q4jtr"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://Assets/Fonts/Jura/Jura-Bold.ttf" id="3_8a0h0"]
+[ext_resource type="Texture2D" uid="uid://dumxnfuj7qbe8" path="res://Assets/Textures/Faction_Icons/Hexii_Logo_V2.png" id="4_v74ih"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m8ql4"]
 margin = 0.4
@@ -41,7 +42,7 @@ enable_node_path = NodePath("../Hub")
 [node name="VisibleOnScreenNotifier3D2" type="VisibleOnScreenEnabler3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.491761, 0)
 enable_mode = 1
-enable_node_path = NodePath("../CanvasLayer/Label")
+enable_node_path = NodePath("../CanvasLayer/Control/Label")
 
 [node name="Hub" type="Node3D" parent="."]
 
@@ -104,8 +105,15 @@ one_shot = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -2
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-self_modulate = Color(1, 1, 1, 0.47451)
+[node name="Control" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.529412)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_right = 193.0
 offset_bottom = 30.0
 pivot_offset = Vector2(100, 30)
@@ -116,6 +124,15 @@ theme_override_font_sizes/font_size = 24
 text = "CharacterName"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -76.0
+offset_bottom = -12.0
+texture = ExtResource("4_v74ih")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_2_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D2" to="." method="_on_visible_on_screen_notifier_3d_2_screen_exited"]

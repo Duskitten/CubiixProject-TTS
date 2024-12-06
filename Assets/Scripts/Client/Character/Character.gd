@@ -121,6 +121,7 @@ func _ready() -> void:
 		Core.Client.Local_Player = self
 		Regen_Character()
 	elif Is_UI:
+		
 		pass
 	else:
 		self.remove_from_group("Player")
@@ -136,6 +137,7 @@ func _ready() -> void:
 			Tail = Core.AssetData.Tail_Slot.find(Core.AssetData.Tail_Slot.pick_random())
 			Wings = Core.AssetData.Wing_Slot.find(Core.AssetData.Wing_Slot.pick_random())
 		Regen_Character()
+	$Hub/Cubiix_Model/AnimationTree.active = true
 
 func Regen_Color():
 	charmat.set_shader_parameter("Body1",Body_1)
@@ -237,8 +239,9 @@ func Regen_Character():
 	CharSetup = true
 	if !Is_Player:
 		$Hub/Cubiix_Model/AnimationTree.set("parameters/NPC/blend_amount",1)
+	$Hub/Cubiix_Model/AnimationTree.active = false
 	await get_tree().create_timer(0.2).timeout
-	
+	$Hub/Cubiix_Model/AnimationTree.active = true
 	swapping = false
 	DynBones.emit_signal("RePositioned")
 	#if Is_Player:
@@ -263,9 +266,10 @@ var Look_At = null
 var NPC_Is_InterestPoint = false
 
 func update_name(text:String) -> void:
-	$CanvasLayer/Label.text = text
-	$CanvasLayer/Label.pivot_offset.x = $CanvasLayer/Label.size.x/2
-	$CanvasLayer/Label.pivot_offset.y = $CanvasLayer/Label.size.y
+	$CanvasLayer/Control/Label.text = text
+	$CanvasLayer/Control/Label.size = Vector2.ZERO
+	$CanvasLayer/Control/Label.position = -$CanvasLayer/Control/Label.size/2
+	$CanvasLayer/Control/TextureRect.position.x = -$CanvasLayer/Control/TextureRect.size.x/2 
 
 var nameOverride = false
 
@@ -282,13 +286,13 @@ func _process(delta: float) -> void:
 		var distance = positioning.distance_to(get_viewport().get_camera_3d().global_position)/6
 	
 		if distance > 1.2 || Is_Player || distance < .5 || nameOverride:
-			$CanvasLayer/Label.hide()
+			$CanvasLayer/Control.hide()
 		else:
-			$CanvasLayer/Label.show()
+			$CanvasLayer/Control.show()
 			var distance_clamp = clampf(distance, .8, .9)
 			var scaling = Vector2(distance_clamp,distance_clamp)
-			$CanvasLayer/Label.scale = scaling
-			$CanvasLayer/Label.position = get_viewport().get_camera_3d().unproject_position(positioning) - $CanvasLayer/Label.size/2
+			$CanvasLayer/Control.scale = scaling
+			$CanvasLayer/Control.position = get_viewport().get_camera_3d().unproject_position(positioning)
 	Delta = Time.get_ticks_msec() - Tick_Prev
 	Tick_Prev = Time.get_ticks_msec()
 	Blink_Timer += Delta
