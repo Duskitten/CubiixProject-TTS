@@ -28,32 +28,9 @@ enum Networking_Valid_Types {
 var Tick_Prev = 0
 var Tick_Timer = 0
 var Current_Tick = 0
-
-var server_template ="""{
-	\"Port\":5599,
-	\"MaxPlayers\":40,
-	\"ServerName\":\"TestServer\",
-	\"ServerColor\":\"#999634\"
-}"""
-
-var ServerData = {}
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var Json = JSON.new()
-	#print(OS.get_executable_path().get_base_dir()+"/server.json")
-	var IsFile = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/server.json")
-	print(IsFile)
-	if !IsFile:
-		var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
-		NewFile.store_string(server_template)
-		NewFile.close()
-		
-	
-	var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/server.json")
-	Json.parse(JsonFile)
-	ServerData = Json.data
-	TCP.listen(Json.data["Port"])
+	TCP.listen(Core.Globals.Data["Port"])
 	start_network()
 	
 func start_network():
@@ -76,7 +53,7 @@ func network_process():
 			peer.stream_peer = client
 			var newPeer = ServerPlayer.new()
 			newPeer.Character_Storage_Data["peer_obj"] = peer
-			Peers[hash(newPeer["peer_obj"])] = newPeer
+			Peers[hash(newPeer.Character_Storage_Data["peer_obj"])] = newPeer
 			
 			print("We Will Wait For Response.")
 			send_data(peer,Networking_Valid_Types.Ping,{"Q":"Hello, Who Are You?"})
@@ -148,10 +125,10 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 					send_data(user,Networking_Valid_Types.Ping,{
 						"A":"Time",
 						"Time":float(data["Content"]["Time"]),
-						"MaxPlayers":int(ServerData["MaxPlayers"]),
+						"MaxPlayers":int(Core.Globals.Data["MaxPlayers"]),
 						"CurrentPlayers":int(OrganizedPeers.size()),
-						"ServerName":str(ServerData["ServerName"]),
-						"ServerColor":str(ServerData["ServerColor"])
+						"ServerName":str(Core.Globals.Data["ServerName"]),
+						"ServerColor":str(Core.Globals.Data["ServerColor"])
 						})
 				"Connect":
 					###This is when we want a player to join!
@@ -162,7 +139,13 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 					else:
 						userobj.Character_Storage_Data["Player_OBJ_IDName"] = str(hash(data["Content"]["Username"]+"@"+data["Content"]["URL"]))
 						userobj.name = userobj.Character_Storage_Data["Player_OBJ_IDName"]
-						Player_To_Room(userobj,"island_0")
+						#Player_To_Room(userobj,"island_0")
+						validate_player(
+							userobj,
+							data["Content"]["Username"],
+							data["Content"]["UserSecretCode"],
+							data["Content"]["URL"]
+							)
 						print(data["Content"])
 						print("Recieved connection ping!")
 
@@ -175,7 +158,6 @@ func gen_new_room(room:String) -> void:
 	else:
 		Rooms[room] = ServerRoom.new()
 		call_deferred("add_child",Rooms[room])
-		add_child(Rooms[room])
 		for i in RoomSignals:
 			Rooms[room].add_user_signal(i)
 
@@ -186,3 +168,32 @@ func Player_To_Room(userobj:ServerPlayer,room:String) -> void:
 func Player_RemoveFrom_Room(userobj:ServerPlayer,room:String) -> void:
 	Rooms[room].call_deferred("remove_child",userobj)
 	userobj.Character_Storage_Data["Current_Room"] = ""
+
+			
+
+func validate_player(playernode:ServerPlayer,username:String, secret:String, url:String) -> void:
+	print("attempting to validate player")
+	var API_Validate = HTTPRequest.new()
+	API_Validate.request_completed.connect(api_validate_completed.bind(playernode,API_Validate))
+	call_deferred("add_child",API_Validate)
+	print(username)
+	print(secret)
+	await API_Validate.ready
+	API_Validate.request("https://api."+url+"/user/validateUser",["userID: \""+username+"\"","userSecretCode: \""+secret+"\"",
+	"Content-Type: application/json"]
+	,HTTPClient.METHOD_GET,"")
+
+func api_validate_completed(result, response_code, headers, body, playernode:ServerPlayer, httpnode:HTTPRequest):
+	httpnode.queue_free()
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+	var response = json.get_data()
+	print(response)
+	print("api Completed!")
+	if response != null:
+		if response["status"] == 0:
+			pass
+		else:
+			pass
+	else:
+		pass

@@ -10,5 +10,6 @@ var Character_Storage_Data = {
 	"Current_Animation":"",
 	"Current_Player":"",
 	"Disconnected":true,
-	"Peer_Obj":null
+	"Peer_Obj":null,
+	"Validated":false
 }

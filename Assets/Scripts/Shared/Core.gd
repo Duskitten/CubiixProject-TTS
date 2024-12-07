@@ -14,7 +14,7 @@ var Server
 
 func _ready():
 	print(version)
-	if OS.has_feature("client") || OS.is_debug_build():
+	if OS.has_feature("client"): #|| OS.is_debug_build():
 		Update_LogoText("Booting MindVirus Engine...")
 		await get_tree().create_timer(1).timeout
 		Update_LogoText("Finding Client...")
@@ -54,6 +54,7 @@ func _ready():
 	if OS.has_feature("server"):
 		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
 		add_child(Globals)
+		await get_tree().create_timer(1).timeout
 		Server = load("res://Assets/Scripts/Server/Network_Server.gd").new()
 		add_child(Server)
 		

@@ -39,6 +39,12 @@ func connect_to_server(ip:String,port:String) -> void:
 	connect_timer.start()
 	start_network()
 	#Core.SceneData.Swap_Scene("Showcase")
+	
+func button_connect_to_server(ip:String,port:String) -> void:
+	Current_Network_Mode = Networking_Mode.Connecting
+	TCP.connect_to_host(ip,int(port))
+	connect_timer.start()
+	start_network()
 
 func network_ping(serverlist:Array) -> void:
 	Current_Network_Mode = Networking_Mode.Pinging
@@ -65,6 +71,7 @@ func network_ping(serverlist:Array) -> void:
 		i.get_node("TextureButton/Label3").text = str(ServerData["CurrentPlayers"])+"/"+str(ServerData["MaxPlayers"])
 
 	for i in serverlist:
+		i.get_node("TextureButton").pressed.connect(button_connect_to_server.bind(i.get_meta("ip"),i.get_meta("port")))
 		i.get_node("TextureButton").disabled = false
 		
 	print("PingedServers!")
