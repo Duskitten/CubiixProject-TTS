@@ -70,8 +70,7 @@ func _ready() -> void:
 	await Player.MeshFinished
 	
 	Hexii_Ui_Tablet_JournalButton.emit_signal("pressed")
-	
-	ApplyParts(Hexii_Ui_Tablet_Character,Player)
+	Core.Character_Gen.clone_char(Hexii_Ui_Tablet_Character,Player)
 			
 	
 	
@@ -397,56 +396,6 @@ func Hexii_UI_Transition(anim_1,  componentName, anim_2, component2Name, device:
 var current_colorselected = ""
 var initialpress = false
 
-func ApplyParts(A,B)-> void:
-	A.Eyes = B.Eyes
-	A.Ears = B.Ears 
-	A.Extra = B.Extra 
-	A.Tail = B.Tail 
-	A.Wings = B.Wings
-
-	A.Head = B.Head 
-	A.Face = B.Face 
-	A.Chest = B.Chest 
-	A.Back = B.Back
-	A.L_Hand = B.L_Hand
-	A.R_Hand = B.R_Hand
-	A.L_Hip = B.L_Hip
-	A.R_Hip = B.R_Hip
-	
-	A.Body_1 = B.Body_1 
-	A.Body_2 = B.Body_2
-	A.Body_3 = B.Body_3 
-	A.Body_4 = B.Body_4
-
-	A.Body_1_Emiss = B.Body_1_Emiss
-	A.Body_2_Emiss = B.Body_2_Emiss
-	A.Body_3_Emiss = B.Body_3_Emiss
-	A.Body_4_Emiss = B.Body_4_Emiss
-	
-	A.Body_1_Emiss_S  = B.Body_1_Emiss_S 
-	A.Body_2_Emiss_S  = B.Body_2_Emiss_S 
-	A.Body_3_Emiss_S  = B.Body_3_Emiss_S 
-	A.Body_4_Emiss_S  = B.Body_4_Emiss_S 
-	
-	A.Body_1_Roughness = B.Body_1_Roughness
-	A.Body_2_Roughness = B.Body_2_Roughness
-	A.Body_3_Roughness = B.Body_3_Roughness
-	A.Body_4_Roughness = B.Body_4_Roughness
-	
-	A.Body_1_Metallic  = B.Body_1_Metallic 
-	A.Body_2_Metallic  = B.Body_2_Metallic 
-	A.Body_3_Metallic  = B.Body_3_Metallic 
-	A.Body_4_Metallic  = B.Body_4_Metallic 
-	
-	A.Scale  = B.Scale
-	A.Name  = B.Name
-	
-	A.Pronouns_A  = B.Pronouns_A
-	A.Pronouns_B  = B.Pronouns_B
-	A.Pronouns_C  = B.Pronouns_C
-	
-	A.Regen_Character()
-
 func Hide_part_Menus()-> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker.hide()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options.hide()
@@ -476,12 +425,12 @@ func _on_part_button_pressed(PartData: String) -> void:
 			"Apply":
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.hide()
-				ApplyParts(Player,Hexii_Ui_Tablet_Character)
+				Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
 				
 			"Revert":
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.hide()
-				ApplyParts(Hexii_Ui_Tablet_Character,Player)
+				Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
 		
 	elif PartData.begins_with("Color, "):
 		var Asset = PartData.lstrip("Color, ")
@@ -746,263 +695,12 @@ var V1_ConversionPath = {}
 var V2_ConversionPath = {}
 
 func _on_load_button_pressed() -> void:
-	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text = ""
-	var json = JSON.new()
-	json.parse($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text)
-	
-	var data = json.data
-	var keyversion = 0
-	
-	if data == null:
-		data = str_to_var($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text)
-
-	if typeof(data) == TYPE_DICTIONARY:
-		
-		if keyversion == 0:
-			for i in V1_Keywords:
-				if data.has(i):
-					keyversion = 1
-					break
-		if keyversion == 0:
-			for i in V2_Keywords:
-				if data.has(i):
-					keyversion = 2
-					break
-					
-		if keyversion == 0:
-			for i in V3_Keywords:
-				if data.has(i):
-					keyversion = 3
-					break
-		
-		
-		match keyversion:
-			1:
-				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
-				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
-				print("Version 1 Save!")
-				Hexii_Ui_Tablet_Character_OBJ.Body_1_Roughness = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_2_Roughness = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_3_Roughness = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_4_Roughness = 1
-				
-				Hexii_Ui_Tablet_Character_OBJ.Body_1_Metallic = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_2_Metallic = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_3_Metallic = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_4_Metallic = 1
-				for i in data.keys():
-					match i:
-						"EarID":
-							if V1_ConversionPath.keys().has(data["EarID"]):
-								if V1_ConversionPath.keys().has(data["ExtraID"]):
-									if data["EarID"] == "Cubiix_Base:Shark_Fin" && data["ExtraID"] != "Cubiix_Base:Empty_Socket" :
-										$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text += "[color=red]Error: Extra Overlap (Sharkfin), Defaulting To ExtraID Value...\n"
-						
-								Hexii_Ui_Tablet_Character_OBJ.Ears = V1_ConversionPath[data["EarID"]]
-						"ExtraID":
-							if V1_ConversionPath.keys().has(data["ExtraID"]):
-								Hexii_Ui_Tablet_Character_OBJ.Extra = V1_ConversionPath[data["ExtraID"]]
-						"EyeCol":
-							if data["EyeCol"] is Color:
-								Hexii_Ui_Tablet_Character_OBJ.Body_3 = Color(0,0,0,1)
-								Hexii_Ui_Tablet_Character_OBJ.Body_4 = Color(0,0,0,1)
-								Hexii_Ui_Tablet_Character_OBJ.Body_3_Emiss = Color(data["EyeCol"].to_html(false))
-								Hexii_Ui_Tablet_Character_OBJ.Body_4_Emiss = Color(data["EyeCol"].to_html(false))
-								Hexii_Ui_Tablet_Character_OBJ.Body_3_Emiss_S = 1.0
-								Hexii_Ui_Tablet_Character_OBJ.Body_4_Emiss_S = 1.0
-						"EyeID":
-							if V1_ConversionPath.keys().has(data["EyeID"]):
-								Hexii_Ui_Tablet_Character_OBJ.Eyes = V1_ConversionPath[data["EyeID"]]
-						"GlowCol":
-							$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text += "[color=red]Error: GlowCol Defunct.\n"
-						"Height":
-							Hexii_Ui_Tablet_Character_OBJ.Scale = clampf(float(data["Height"])+ 1.0, 0.8, 1.2)
-						"PrimCol":
-							if data["PrimCol"] is Color:
-								Hexii_Ui_Tablet_Character_OBJ.Body_1 = Color(data["PrimCol"].to_html(false))
-								Hexii_Ui_Tablet_Character_OBJ.Body_1_Emiss = Color(0,0,0,1)
-								Hexii_Ui_Tablet_Character_OBJ.Body_1_Emiss_S = 0.0
-						"TailID":
-							if V1_ConversionPath.keys().has(data["TailID"]):
-								Hexii_Ui_Tablet_Character_OBJ.Tail = V1_ConversionPath[data["TailID"]]
-						"WingID":
-							if V1_ConversionPath.keys().has(data["WingID"]):
-								Hexii_Ui_Tablet_Character_OBJ.Wings = V1_ConversionPath[data["WingID"]]
-						"WireCol":
-							if data["WireCol"] is Color:
-								Hexii_Ui_Tablet_Character_OBJ.Body_2 = Color(0,0,0,1)
-								if data["WireCol"].r > 1.0 || data["WireCol"].g > 1.0 || data["WireCol"].b > 1.0:
-									var sortedValues = [snapped(data["WireCol"].r,0.01),snapped(data["WireCol"].g,0.01),snapped(data["WireCol"].b,0.01)]
-									var sortarray = sortedValues.duplicate(true)
-									var percentage = (sortarray[2] - 1) * 100
-									var newArray = [0,0,0]
-									for x in sortarray.size():
-										newArray[x] = sortedValues[x] / (percentage/100)
-									
-									print(newArray)
-										
-									data["WireCol"] = Color(newArray[0],newArray[1],newArray[2],1.0)
-									
-									$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text += "[color=red]Error: WireCol Too Intense, Lowering.\n"
-								Hexii_Ui_Tablet_Character_OBJ.Body_2_Emiss =  Color(data["WireCol"].to_html(false))
-								Hexii_Ui_Tablet_Character_OBJ.Body_2_Emiss_S = 1.0
-						"WireInnerCol":
-							$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/ErrorLog.text += "[color=red]Error: WireInnerCol Defunct.\n"
-						"Name":
-							pass
-			2:
-				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
-				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
-				print("Version 2 Save!")
-				Hexii_Ui_Tablet_Character_OBJ.Body_1_Roughness = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_2_Roughness = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_3_Roughness = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_4_Roughness = 1
-				
-				Hexii_Ui_Tablet_Character_OBJ.Body_1_Metallic = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_2_Metallic = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_3_Metallic = 1
-				Hexii_Ui_Tablet_Character_OBJ.Body_4_Metallic = 1
-				for i in data.keys():
-					match i:
-						"Color_Body":
-							Hexii_Ui_Tablet_Character_OBJ.Body_1 = Color(Color(str(data["Color_Body"])).to_html(false))
-							Hexii_Ui_Tablet_Character_OBJ.Body_1_Emiss = Color(0,0,0,1)
-							Hexii_Ui_Tablet_Character_OBJ.Body_1_Emiss_S = 0.0
-						"Color_BodyGlow":
-							Hexii_Ui_Tablet_Character_OBJ.Body_2 = Color(Color(str(data["Color_BodyGlow"])).to_html(false))
-							Hexii_Ui_Tablet_Character_OBJ.Body_2_Emiss = Color(Color(str(data["Color_BodyGlow"])).to_html(false))
-							Hexii_Ui_Tablet_Character_OBJ.Body_2_Emiss_S = 1
-						"Color_Eye_1":
-							Hexii_Ui_Tablet_Character_OBJ.Body_3 = Color(0,0,0,1)
-							Hexii_Ui_Tablet_Character_OBJ.Body_3_Emiss = Color(Color(str(data["Color_Eye_1"])).to_html(false))
-							Hexii_Ui_Tablet_Character_OBJ.Body_3_Emiss_S = 1
-						"Color_Eye_2":
-							Hexii_Ui_Tablet_Character_OBJ.Body_4 = Color(0,0,0,1)
-							Hexii_Ui_Tablet_Character_OBJ.Body_4_Emiss = Color(Color(str(data["Color_Eye_2"])).to_html(false))
-							Hexii_Ui_Tablet_Character_OBJ.Body_4_Emiss_S = 1
-						"Ears":
-							if V2_ConversionPath["Ears"].keys().has(data["Ears"]):
-								Hexii_Ui_Tablet_Character_OBJ.Ears =  V2_ConversionPath["Ears"][data["Ears"]]
-						"Extra":
-							if V2_ConversionPath["Extra"].keys().has(data["Extra"]):
-								Hexii_Ui_Tablet_Character_OBJ.Extra =  V2_ConversionPath["Extra"][data["Extra"]]
-						"Eyes":
-							if V2_ConversionPath["Eyes"].keys().has(data["Eyes"]):
-								Hexii_Ui_Tablet_Character_OBJ.Eyes =  V2_ConversionPath["Eyes"][data["Eyes"]]
-						"Size":
-							Hexii_Ui_Tablet_Character_OBJ.Scale = clampf(float(data["Size"])+ 1.0, 0.8, 1.2)
-						"Tail":
-							if V2_ConversionPath["Tail"].keys().has(data["Tail"]):
-								Hexii_Ui_Tablet_Character_OBJ.Tail =  V2_ConversionPath["Tail"][data["Tail"]]
-						"Wings":
-							if V2_ConversionPath["Wings"].keys().has(data["Wings"]):
-								Hexii_Ui_Tablet_Character_OBJ.Wings =  V2_ConversionPath["Wings"][data["Wings"]]
-						"Name":
-							pass
-			3:
-				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
-				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
-				print("Version 3 Save!")
-				for i in data.keys():
-					match i:
-						"B1":
-							Hexii_Ui_Tablet_Character_OBJ.Body_1 = Color(Color(str(data["B1"])).to_html(false))
-						"B2":
-							Hexii_Ui_Tablet_Character_OBJ.Body_2 = Color(Color(str(data["B2"])).to_html(false))
-						"B3":
-							Hexii_Ui_Tablet_Character_OBJ.Body_3 = Color(Color(str(data["B3"])).to_html(false))
-						"B4":
-							Hexii_Ui_Tablet_Character_OBJ.Body_4 = Color(Color(str(data["B4"])).to_html(false))
-						"B1E":
-							Hexii_Ui_Tablet_Character_OBJ.Body_1_Emiss = Color(Color(str(data["B1E"])).to_html(false))
-						"B2E":
-							Hexii_Ui_Tablet_Character_OBJ.Body_2_Emiss = Color(Color(str(data["B2E"])).to_html(false))
-						"B3E":
-							Hexii_Ui_Tablet_Character_OBJ.Body_3_Emiss = Color(Color(str(data["B3E"])).to_html(false))
-						"B4E":
-							Hexii_Ui_Tablet_Character_OBJ.Body_4_Emiss = Color(Color(str(data["B4E"])).to_html(false))
-						"B1ES":
-							Hexii_Ui_Tablet_Character_OBJ.Body_1_Emiss_S = clampf(float(data["B1ES"]), 0.0, 1.0)
-						"B2ES":
-							Hexii_Ui_Tablet_Character_OBJ.Body_2_Emiss_S = clampf(float(data["B2ES"]), 0.0, 1.0)
-						"B3ES":
-							Hexii_Ui_Tablet_Character_OBJ.Body_3_Emiss_S = clampf(float(data["B3ES"]), 0.0, 1.0)
-						"B4ES":
-							Hexii_Ui_Tablet_Character_OBJ.Body_4_Emiss_S = clampf(float(data["B4ES"]), 0.0, 1.0)
-						"B1R":
-							Hexii_Ui_Tablet_Character_OBJ.Body_1_Roughness = clampf(float(data["B1R"]), 0.0, 1.0)
-						"B2R":
-							Hexii_Ui_Tablet_Character_OBJ.Body_2_Roughness = clampf(float(data["B2R"]), 0.0, 1.0)
-						"B3R":
-							Hexii_Ui_Tablet_Character_OBJ.Body_3_Roughness = clampf(float(data["B3R"]), 0.0, 1.0)
-						"B4R":
-							Hexii_Ui_Tablet_Character_OBJ.Body_4_Roughness = clampf(float(data["B4R"]), 0.0, 1.0)
-						"B1M":
-							Hexii_Ui_Tablet_Character_OBJ.Body_1_Metallic = clampf(float(data["B1M"]), 0.0, 1.0)
-						"B2M":
-							Hexii_Ui_Tablet_Character_OBJ.Body_2_Metallic = clampf(float(data["B2M"]), 0.0, 1.0)
-						"B3M":
-							Hexii_Ui_Tablet_Character_OBJ.Body_3_Metallic = clampf(float(data["B3M"]), 0.0, 1.0)
-						"B4M":
-							Hexii_Ui_Tablet_Character_OBJ.Body_4_Metallic = clampf(float(data["B4M"]), 0.0, 1.0)
-						"T":
-							Hexii_Ui_Tablet_Character_OBJ.Tail = int(data["T"])
-						"W":
-							Hexii_Ui_Tablet_Character_OBJ.Wings = int(data["W"])
-						"EA":
-							Hexii_Ui_Tablet_Character_OBJ.Ears = int(data["EA"])
-						"EX":
-							Hexii_Ui_Tablet_Character_OBJ.Extra = int(data["EX"])
-						"EY":
-							Hexii_Ui_Tablet_Character_OBJ.Eyes = int(data["EY"])
-						"S":
-							Hexii_Ui_Tablet_Character_OBJ.Scale = clampf(float(data["S"]), 0.8, 1.2)
-						"N":
-							Hexii_Ui_Tablet_Character_OBJ.Name = str(data["N"])
-						"PA":
-							Hexii_Ui_Tablet_Character_OBJ.Pronouns_A = str(data["PA"])
-						"PB":
-							Hexii_Ui_Tablet_Character_OBJ.Pronouns_B = str(data["PB"])
-						"PC":
-							Hexii_Ui_Tablet_Character_OBJ.Pronouns_C = str(data["PC"])
-		Hexii_Ui_Tablet_Character_OBJ.Regen_Character()
+	Core.Character_Gen.generate_char_from_string($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text, Hexii_Ui_Tablet_Character_OBJ)
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
 
 func _on_export_button_pressed() -> void:
-	var V3Template = {
-"B1":Player.Body_1.to_html(false),
-"B2":Player.Body_2.to_html(false),
-"B3":Player.Body_3.to_html(false),
-"B4":Player.Body_4.to_html(false),
-"B1E":Player.Body_1_Emiss.to_html(false),
-"B2E":Player.Body_2_Emiss.to_html(false),
-"B3E":Player.Body_3_Emiss.to_html(false),
-"B4E":Player.Body_4_Emiss.to_html(false),
-"B1ES":Player.Body_1_Emiss_S,
-"B2ES":Player.Body_2_Emiss_S,
-"B3ES":Player.Body_3_Emiss_S,
-"B4ES":Player.Body_4_Emiss_S,
-"B1R":Player.Body_1_Roughness,
-"B2R":Player.Body_2_Roughness,
-"B3R":Player.Body_3_Roughness,
-"B4R":Player.Body_4_Roughness,
-"B1M":Player.Body_1_Metallic,
-"B2M":Player.Body_2_Metallic,
-"B3M":Player.Body_3_Metallic,
-"B4M":Player.Body_4_Metallic,
-"T":Player.Tail,
-"W":Player.Wings,
-"EA":Player.Ears,
-"EX":Player.Extra,
-"EY":Player.Eyes,
-"S":Player.Scale,
-"N":Player.Name,
-"PA":Player.Pronouns_A,
-"PB":Player.Pronouns_B,
-"PC":Player.Pronouns_C
-}
-	
-	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text = JSON.stringify(V3Template)
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text = Core.Character_Gen.export_char(Hexii_Ui_Tablet_Character_OBJ)
 
 func _on_namepanel_text_submitted(new_text: String, type: String) -> void:
 	Hexii_Ui_Tablet_Character_OBJ.set(type, new_text)

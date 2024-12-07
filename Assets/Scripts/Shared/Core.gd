@@ -8,6 +8,7 @@ var Globals
 var AssetData
 var Dialogue_Handler
 var Persistant_Core
+var Character_Gen
 
 var Client
 var Server
@@ -21,6 +22,7 @@ func _ready():
 		await get_tree().create_timer(1).timeout
 		Update_LogoText("Initiating Asset Load...")
 		await get_tree().create_timer(1).timeout
+		Character_Gen = load("res://Assets/Scripts/Client/Character/Character_Model_Data.gd").new()
 		SceneData = load("res://Assets/Scripts/Client/Scene/Scene_Data.gd").new()
 		SceneData.runsetup(self)
 		await SceneData.FinishedLoad

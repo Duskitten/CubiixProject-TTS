@@ -61,6 +61,8 @@ func _notification(what):
 		KillThreads = true
 		if OS.has_feature("client"):
 			Core.AssetData.thread_force_post()
+			#Core.Persistant_Core
+			
 		
 	
 

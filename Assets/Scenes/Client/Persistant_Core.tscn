@@ -411,7 +411,7 @@ texture_filter = 1
 position = Vector2(-11, 18)
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 3
+frame = 2
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
