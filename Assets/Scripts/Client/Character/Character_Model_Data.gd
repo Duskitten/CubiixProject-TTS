@@ -1,5 +1,138 @@
 extends Node
 
+
+
+func _ready() -> void:
+	var CharModel = load("res://Assets/Scenes/Client/cubiix_base.tscn")
+	V1_ConversionPath = {
+		"Cubiix_Base:Cat_Ears":CharModel.EAR_ENUM.Cat,
+		"Cubiix_Base:Fox_Ears":CharModel.EAR_ENUM.Fox,
+		"Cubiix_Base:Mouse_Ears":CharModel.EAR_ENUM.Mouse,
+		"Cubiix_Base:Bee_Ears":CharModel.EAR_ENUM.Bee,
+		"Cubiix_Base:Bunny_Ears":CharModel.EAR_ENUM.Bunny,
+		"Cubiix_Base:Deer_Ears":CharModel.EAR_ENUM.Deer,
+		"Cubiix_Base:Dog_Ears":CharModel.EAR_ENUM.Dog,
+		"Cubiix_Base:Fluffy_Ears":CharModel.EAR_ENUM.Fluffy,
+		"Cubiix_Base:Entity_Ears":CharModel.EAR_ENUM.Entity,
+		"Cubiix_Base:Moth1_Ears":CharModel.EAR_ENUM.Moth,
+		"Cubiix_Base:Moth2_Ears":CharModel.EAR_ENUM.Moth,
+		"Cubiix_Base:Alien_Ears":CharModel.EAR_ENUM.Alien,
+		"Cubiix_Base:Wolf_Ears":CharModel.EAR_ENUM.Wolf,
+		"Cubiix_Base:Goat_Ears":CharModel.EAR_ENUM.Goat,
+		
+		"Cubiix_Base:Shark_Fin":CharModel.EXTRA_ENUM.Shark,
+		"Cubiix_Base:Dragon_Extra":CharModel.EXTRA_ENUM.Dragon,
+		"Cubiix_Base:Narwal_Extra":CharModel.EXTRA_ENUM.Narwhal,
+		"Cubiix_Base:Deer_Extra":CharModel.EXTRA_ENUM.Nub,
+		"Cubiix_Base:Antlers_Extra":CharModel.EXTRA_ENUM.Antler,
+		"Cubiix_Base:Fish_Extra":CharModel.EXTRA_ENUM.Fish,
+		"Cubiix_Base:Ram_Extra":CharModel.EXTRA_ENUM.Ram,
+		
+		"Cubiix_Base:Cat_Tail":CharModel.TAIL_ENUM.Cat,
+		"Cubiix_Base:Fox_Tail":CharModel.TAIL_ENUM.Fox,
+		"Cubiix_Base:Mouse_Tail":CharModel.TAIL_ENUM.Mouse,
+		"Cubiix_Base:Shark_Tail":CharModel.TAIL_ENUM.Shark,
+		"Cubiix_Base:Bee_Tail":CharModel.TAIL_ENUM.Bee,
+		"Cubiix_Base:Bunny_Tail":CharModel.TAIL_ENUM.Bunny,
+		"Cubiix_Base:Dragon_Tail":CharModel.TAIL_ENUM.Dragon,
+		"Cubiix_Base:Deer_Tail":CharModel.TAIL_ENUM.Deer,
+		"Cubiix_Base:Dog_Tail":CharModel.TAIL_ENUM.Dog,
+		"Cubiix_Base:Fluffy_Tail":CharModel.TAIL_ENUM.Fluffy,
+		"Cubiix_Base:Moth_Tail":CharModel.TAIL_ENUM.Moth,
+		"Cubiix_Base:Entity_Tail":CharModel.TAIL_ENUM.Entity,
+		"Cubiix_Base:Bug_Tail":CharModel.TAIL_ENUM.Bug,
+		"Cubiix_Base:Wolf_Tail":CharModel.TAIL_ENUM.Wolf,
+		
+		"Cubiix_Base:Entity_Wings":CharModel.WING_ENUM.Entity,
+		"Cubiix_Base:Bee_Wings":CharModel.WING_ENUM.Wasp,
+		"Cubiix_Base:Dragon_Wings":CharModel.WING_ENUM.Dragon,
+		"Cubiix_Base:Angel_Wings":CharModel.WING_ENUM.Angel,
+		"Cubiix_Base:Moth_Wings":CharModel.WING_ENUM.Butterfly,
+		"Cubiix_Base:Butterfly_Wings":CharModel.WING_ENUM.Butterfly,
+		
+		"Cubiix_Base:Default_Eyes":CharModel.EYE_ENUM.Default,
+		"Cubiix_Base:Nat_Eyes":CharModel.EYE_ENUM.Nat,
+		"Cubiix_Base:Triangle_Eyes":CharModel.EYE_ENUM.Tri,
+		"Cubiix_Base:Circle_Eyes":CharModel.EYE_ENUM.Circle,
+		"Cubiix_Base:Mouse_Eyes":CharModel.EYE_ENUM.Mouse,
+		"Cubiix_Base:Text_Eyes":CharModel.EYE_ENUM.Text,
+		"Cubiix_Base:Fox_Eyes":CharModel.EYE_ENUM.Fox,
+		"Cubiix_Base:Four_Eyes":CharModel.EYE_ENUM.Four,
+		"Cubiix_Base:Chonk_Eyes":CharModel.EYE_ENUM.Chonk,
+		"Cubiix_Base:Entity_Eyes":CharModel.EYE_ENUM.Entity,
+		
+		"Cubiix_Base:Empty_Socket":0
+		}
+
+	V2_ConversionPath = {
+		"Ears":{
+			"None":0,
+			"Fox":CharModel.EAR_ENUM.Fox,
+			"Wolf":CharModel.EAR_ENUM.Wolf,
+			"Goat":CharModel.EAR_ENUM.Goat,
+			"Bee":CharModel.EAR_ENUM.Bee,
+			"Cat":CharModel.EAR_ENUM.Cat,
+			"Moth":CharModel.EAR_ENUM.Moth,
+			"Moth2":CharModel.EAR_ENUM.Moth,
+			"Mouse":CharModel.EAR_ENUM.Mouse,
+			"Alien":CharModel.EAR_ENUM.Alien,
+			"Deer":CharModel.EAR_ENUM.Deer,
+			"Entity":CharModel.EAR_ENUM.Entity,
+			"Dog":CharModel.EAR_ENUM.Dog,
+			"Bunny":CharModel.EAR_ENUM.Bunny,
+			"Fluffy":CharModel.EAR_ENUM.Fluffy
+		},
+		"Extra":{
+			"None":0,
+			"Shark":CharModel.EXTRA_ENUM.Shark,
+			"Antler":CharModel.EXTRA_ENUM.Antler,
+			"Ram":CharModel.EXTRA_ENUM.Ram,
+			"Fish":CharModel.EXTRA_ENUM.Fish,
+			"Narlwal":CharModel.EXTRA_ENUM.Narwhal,
+			"Dragon":CharModel.EXTRA_ENUM.Dragon,
+			"Nub":CharModel.EXTRA_ENUM.Nub
+		},
+		"Eyes":{
+			"Chonk":CharModel.EYE_ENUM.Chonk,
+			"Tri":CharModel.EYE_ENUM.Tri,
+			"Nat":CharModel.EYE_ENUM.Nat,
+			"Default":CharModel.EYE_ENUM.Default,
+			"Circle":CharModel.EYE_ENUM.Circle,
+			"Fox":CharModel.EYE_ENUM.Fox,
+			"Mouse":CharModel.EYE_ENUM.Nat,
+			"Four":CharModel.EYE_ENUM.Four,
+			"Entity":CharModel.EYE_ENUM.Entity,
+			"Text":CharModel.EYE_ENUM.Text
+		},
+		"Tail":{
+			"None":0,
+			"Fox":CharModel.TAIL_ENUM.Fox,
+			"Wolf":CharModel.TAIL_ENUM.Wolf,
+			"Bug":CharModel.TAIL_ENUM.Bug,
+			"Bee":CharModel.TAIL_ENUM.Bee,
+			"Moth":CharModel.TAIL_ENUM.Moth,
+			"Dog":CharModel.TAIL_ENUM.Dog,
+			"Mouse":CharModel.TAIL_ENUM.Mouse,
+			"Fluffy":CharModel.TAIL_ENUM.Fluffy,
+			"Cat":CharModel.TAIL_ENUM.Cat,
+			"Shark":CharModel.TAIL_ENUM.Shark,
+			"Entity":CharModel.TAIL_ENUM.Entity,
+			"Bunny":CharModel.TAIL_ENUM.Bunny,
+			"Deer":CharModel.TAIL_ENUM.Deer,
+			"Dragon":CharModel.TAIL_ENUM.Dragon
+		},
+		"Wings":{
+			"None":0,
+			"Entity":CharModel.WING_ENUM.Entity,
+			"Angel":CharModel.WING_ENUM.Angel,
+			"Butterfly":CharModel.WING_ENUM.Butterfly,
+			"Bee":CharModel.WING_ENUM.Wasp,
+			"Dragon":CharModel.WING_ENUM.Dragon,
+			"Moth":CharModel.WING_ENUM.Butterfly
+		}
+	}
+
+
 func export_char(character:Node3D) -> String:
 	var V3Template = {
 	"B1":character.Body_1.to_html(false),

@@ -11,7 +11,8 @@ var Template_Packet = {
 enum Networking_Valid_Types {
 	Ping,
 	Player_Move,
-	Player_Request_Info
+	Player_Request_Info,
+	Error
 }
 
 enum Networking_Mode {
@@ -41,6 +42,7 @@ func connect_to_server(ip:String,port:String) -> void:
 	#Core.SceneData.Swap_Scene("Showcase")
 	
 func button_connect_to_server(ip:String,port:String) -> void:
+	Core.Persistant_Core.loading_server()
 	Current_Network_Mode = Networking_Mode.Connecting
 	TCP.connect_to_host(ip,int(port))
 	connect_timer.start()
@@ -65,10 +67,16 @@ func network_ping(serverlist:Array) -> void:
 			Target = "Mid"
 		elif  LastPingTime >= 201:
 			Target = "Bad"
+
 		i.get_node("TextureButton/Sprite2D/AnimationPlayer").play(Target)
-		i.get_node("TextureButton").self_modulate = Color(str(ServerData["ServerColor"]))
-		i.get_node("TextureButton/Label2").text = "[left]"+str(ServerData["ServerName"])+"\n[font_size=10]localhost:5599"
-		i.get_node("TextureButton/Label3").text = str(ServerData["CurrentPlayers"])+"/"+str(ServerData["MaxPlayers"])
+		if Target != "Dead":
+			i.get_node("TextureButton").self_modulate = Color(str(ServerData["ServerColor"]))
+			i.get_node("TextureButton/Label2").text = "[left]"+str(ServerData["ServerName"])+"\n[font_size=10]localhost:5599"
+			i.get_node("TextureButton/Label3").text = str(ServerData["CurrentPlayers"])+"/"+str(ServerData["MaxPlayers"])
+		else:
+			i.get_node("TextureButton").self_modulate = Color(1,0,0,1)
+			i.get_node("TextureButton/Label3").text = str("?")+"/"+str("?")
+			i.get_node("TextureButton/Label2").text = "[left]"+str("Server Offline...")+"\n[font_size=10]localhost:5599"
 
 	for i in serverlist:
 		i.get_node("TextureButton").pressed.connect(button_connect_to_server.bind(i.get_meta("ip"),i.get_meta("port")))
@@ -97,11 +105,14 @@ func network_process():
 				break
 			
 		elif TCP.get_status() == StreamPeerTCP.STATUS_NONE:
+			match Current_Network_Mode:
+				Networking_Mode.Connecting:
+					Core.Persistant_Core.show_error("Error: Server Timed Out.")
+					Core.Persistant_Core.show_last_room_before_error(10)
 			connect_timer.call_deferred("stop")
 			break
 
 	TCP.disconnect_from_host()
-
 	call_deferred("emit_signal","NextPing")
 	
 
@@ -135,9 +146,18 @@ func parse_data(data:Dictionary):
 						"UserSecretCode":Core.Globals.LocalUser["UserSecretCode"],
 						"URL":Core.Globals.LocalUser["URL"]
 						})
+		Networking_Valid_Types.Error:
+			TCP.disconnect_from_host()
+			Core.Persistant_Core.show_error(data["Content"]["Code"])
+			Core.Persistant_Core.show_last_room_before_error(1)
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
 
 func disable_connection():
+	connect_timer.call_deferred("stop")
+	match Current_Network_Mode:
+		Networking_Mode.Connecting:
+			Core.Persistant_Core.show_error("Error: Server Timed Out.")
+			Core.Persistant_Core.show_last_room_before_error(1)
 	disable_connect = true

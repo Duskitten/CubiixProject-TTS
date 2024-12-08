@@ -330,9 +330,6 @@ press 1, or R!
 To close and open this menu, 
 press 2, or F!"
 
-[node name="ServerList_Screen" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper2" index="4"]
-visible = false
-
 [node name="Login_Buttons" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper2" index="5"]
 visible = true
 
@@ -411,7 +408,6 @@ texture_filter = 1
 position = Vector2(-11, 18)
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 2
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -547,20 +543,12 @@ Is_Player = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Node3D/Player/Hub/Cubiix_Model" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
 bones/9/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Cube" parent="Node3D/Player/Hub/Cubiix_Model/Skeleton3D" index="0"]
 layers = 1
@@ -673,8 +661,8 @@ fov = 56.25
 [connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Name_Input4/LineEdit" to="." method="_on_namepanel_text_submitted" binds= ["Pronouns_C"]]
 [connection signal="focus_entered" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit" to="." method="_on_line_edit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit" to="." method="_on_line_edit_focus_exited"]
-[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit" to="." method="_on_code_line_text_submitted"]
+[connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Button_1/LineEdit" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Button_2/LineEdit" to="." method="_on_export_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton" to="." method="_on_part_button_pressed" binds= ["Ear"]]
@@ -704,6 +692,7 @@ fov = 56.25
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Continue" to="." method="_on_titlebutton_pressed" binds= ["Continue_Login"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Register" to="." method="_on_register_link_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen/Back" to="." method="_on_titlebutton_pressed" binds= ["Back"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Transition_Screen/Back" to="." method="_on_transition_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Settings_Screen/Back" to="." method="_on_titlebutton_pressed" binds= ["Back"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Buttons/TextureButton4" to="." method="_on_titlebutton_pressed" binds= ["Settings"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Buttons/TextureButton2" to="." method="_on_titlebutton_pressed" binds= ["Update"]]

@@ -26,7 +26,7 @@ enum L_HIP_ENUM {None, HipSkirt}
 enum R_HIP_ENUM {None, HipSkirt}
 
 
-
+@export var character_string : String = ""
 
 @export var Randomize : bool
 
@@ -120,7 +120,7 @@ var Is_Grinding = false
 func _ready() -> void:
 	if Is_Player:
 		Core.Client.Local_Player = self
-		Regen_Character()
+	#	Regen_Character()
 	elif Is_UI:
 		
 		pass
@@ -137,8 +137,9 @@ func _ready() -> void:
 			Extra = Core.AssetData.Extra_Slot.find(Core.AssetData.Extra_Slot.pick_random())
 			Tail = Core.AssetData.Tail_Slot.find(Core.AssetData.Tail_Slot.pick_random())
 			Wings = Core.AssetData.Wing_Slot.find(Core.AssetData.Wing_Slot.pick_random())
+	if !Is_UI:
 		Regen_Character()
-	$Hub/Cubiix_Model/AnimationTree.active = true
+	#$Hub/Cubiix_Model/AnimationTree.active = true
 
 func Regen_Color():
 	charmat.set_shader_parameter("Body1",Body_1)

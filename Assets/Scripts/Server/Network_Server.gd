@@ -22,7 +22,8 @@ var RoomSignals = ["_connected","_disconnected","_spawn_player"]
 enum Networking_Valid_Types {
 	Ping,
 	Player_Move,
-	Player_Request_Info
+	Player_Request_Info,
+	Error
 }
 
 var Tick_Prev = 0
@@ -133,10 +134,16 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 				"Connect":
 					###This is when we want a player to join!
 					if data["Content"]["URL"].to_lower() == "localhost":
-						print("Error: User Attempted to join using localhost domain.")
+						send_data(user,Networking_Valid_Types.Error,{})
 						userobj.queue_free()
 						Peers.erase(peerid)
 					else:
+						for i in Peers.keys():
+							if Peers[i].Character_Storage_Data["Player_OBJ_IDName"] == str(hash(data["Content"]["Username"]+"@"+data["Content"]["URL"])):
+								send_data(userobj.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: User already in server."})
+								return
+						
+						
 						userobj.Character_Storage_Data["Player_OBJ_IDName"] = str(hash(data["Content"]["Username"]+"@"+data["Content"]["URL"]))
 						userobj.name = userobj.Character_Storage_Data["Player_OBJ_IDName"]
 						#Player_To_Room(userobj,"island_0")
@@ -194,6 +201,6 @@ func api_validate_completed(result, response_code, headers, body, playernode:Ser
 		if response["status"] == 0:
 			pass
 		else:
-			pass
+			send_data(playernode.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: User Authentication Error."})
 	else:
-		pass
+		send_data(playernode.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: Authentication Server Error."})
