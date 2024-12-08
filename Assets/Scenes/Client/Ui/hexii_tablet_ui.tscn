@@ -2440,6 +2440,7 @@ offset_bottom = 414.0
 texture_normal = ExtResource("51_oo4pn")
 
 [node name="Transition_Screen" type="Control" parent="Wallpaper2"]
+visible = false
 anchors_preset = 0
 offset_left = 71.0
 offset_top = -5.0

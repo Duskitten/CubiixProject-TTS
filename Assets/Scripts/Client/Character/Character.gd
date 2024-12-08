@@ -116,6 +116,8 @@ var Is_Sitting  = false
 var Is_Piloting = false
 var Is_Grinding = false
 
+var global_pos = Vector3.ZERO
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if Is_Player:
@@ -326,6 +328,7 @@ func _process(delta: float) -> void:
 		Idle_Timer += Delta
 		
 	if Is_Player:
+		global_pos = global_position
 		shiftlock_Enabled = Core.Persistant_Core.TablockEnabled
 		if !Core.Persistant_Core.Menu_Focused:
 			input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))

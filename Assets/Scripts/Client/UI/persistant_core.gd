@@ -913,6 +913,7 @@ var panelcode = 0
 
 func show_last_room_before_error(code:int):
 	panelcode = code
+	
 
 func _on_transition_back_pressed() -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Transition_Screen/Back.hide()
@@ -926,3 +927,9 @@ func _on_transition_back_pressed() -> void:
 			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen.show()
 		_:
 			$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Buttons.show()
+
+func show_play_screen() -> void:
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper.show()
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2.hide()
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Transition_Screen.hide()
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen.show()

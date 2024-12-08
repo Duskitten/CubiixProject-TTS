@@ -3,16 +3,15 @@ extends Node
 var NetworkThread = Thread.new()
 var TCP = StreamPeerTCP.new()
 var Template_Packet = {
-	"Username":"",
 	"Type":0,
 	"Content":{}
 }
 
 enum Networking_Valid_Types {
 	Ping,
-	Player_Move,
-	Player_Request_Info,
-	Error
+	Tick_Packet,
+	Error,
+	Client_Packet
 }
 
 enum Networking_Mode {
@@ -120,9 +119,16 @@ func send_data(id:Networking_Valid_Types,data:Dictionary):
 	#print("Sending Data!")
 	var Packet = Template_Packet.duplicate()
 	Packet["Type"] = id
-	Packet["Username"] = Core.Globals.LocalUser["Username"]
 	Packet["Content"] = data
-	
+	match id:
+		Networking_Valid_Types.Client_Packet:
+
+			Packet["Content"]["PlayerData"] = {
+				"Position" : Core.Persistant_Core.Player.global_position,
+				"Rotation" : Core.Persistant_Core.Player.global_rotation,
+				"Model_Rotation" : Core.Persistant_Core.Player.get_node("Hub").global_rotation,
+				"Current_Animation" : Core.Persistant_Core.Player.get_node("Hub/Cubiix_Model/AnimationTree").get("parameters/Player_State/playback").get_current_node(),
+			}
 	TCP.put_var(Packet)
 	
 func parse_data(data:Dictionary):
@@ -150,7 +156,13 @@ func parse_data(data:Dictionary):
 			TCP.disconnect_from_host()
 			Core.Persistant_Core.show_error(data["Content"]["Code"])
 			Core.Persistant_Core.show_last_room_before_error(1)
+		Networking_Valid_Types.Tick_Packet:
+			if data["Content"].has("Unlock_Screen"):
+				Core.Persistant_Core.call_deferred("show_play_screen")
 
+			call_deferred("send_data",Networking_Valid_Types.Client_Packet,{})
+			
+			
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
 

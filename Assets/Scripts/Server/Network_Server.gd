@@ -13,7 +13,6 @@ var OrganizedPeers = {
 var Rooms = {}
 
 var Template_Packet = {
-	"Username":"Server",
 	"Type":0,
 	"Content":""}
 
@@ -21,9 +20,9 @@ var RoomSignals = ["_connected","_disconnected","_spawn_player"]
 
 enum Networking_Valid_Types {
 	Ping,
-	Player_Move,
-	Player_Request_Info,
-	Error
+	Tick_Packet,
+	Error,
+	Client_Packet
 }
 
 var Tick_Prev = 0
@@ -81,13 +80,31 @@ func network_process():
 			Current_Tick += 1
 			Tick_Timer = 0
 			var accumulated_server_positions = {} ##User > Position/Rotation/Ect Data
-
+				
+			for room in Rooms.keys():
+				accumulated_server_positions[room] = {}
+				for Player in Rooms[room].Room_Storage_Data["Players"]:
+					accumulated_server_positions[room][Player.Character_Storage_Data["Player_OBJ_IDName"]] = {
+						"Position":Player.Character_Storage_Data["Position"],
+						"Rotation":Player.Character_Storage_Data["Rotation"],
+						"Model_Rotation":Player.Character_Storage_Data["Model_Rotation"],
+						"Current_Animation":Player.Character_Storage_Data["Current_Animation"]
+					}
+					
+				
+				
 			for i in Peers.keys():
 				var n = Peers[i].Character_Storage_Data["peer_obj"]
 				var peer = n.stream_peer
 				if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
+					if Peers[i].Character_Storage_Data["Current_Room"] != "":
+						var dupePacket = accumulated_server_positions[Peers[i].Character_Storage_Data["Current_Room"]].duplicate(true)
+						dupePacket.erase(Peers[i].Character_Storage_Data["Player_OBJ_IDName"])
+						
+						Peers[i].Current_Saved_Packet["Character_Update"] = dupePacket
+						send_data(n,Networking_Valid_Types.Tick_Packet,Peers[i].Current_Saved_Packet, Peers[i])
+					
 					###This is where we'd like to send the player the entire tick.
-					pass
 
 		####Everything Past here is "Returned" data from clients
 		for i in Peers.keys():
@@ -100,7 +117,7 @@ func network_process():
 			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 				#send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
 				if peer.get_available_bytes() > 0:
-					parse_data(i,n,peer.get_var(false),Peers[i],i)
+					call_deferred("parse_data",i,n,peer.get_var(false),Peers[i],i)
 					
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
 				print("Removing!")
@@ -111,11 +128,14 @@ func network_process():
 		
 	print("Killing Network Thread!")
 
-func send_data(peer:PacketPeerStream, id:Networking_Valid_Types, data:Dictionary):
+func send_data(peer:PacketPeerStream, id:Networking_Valid_Types, data:Dictionary, userobj:ServerPlayer = null):
 	var Packet = Template_Packet.duplicate(true)
 	Packet["Type"] = id
 	Packet["Content"] = data
 	peer.put_var(Packet)
+	match id:
+		Networking_Valid_Types.Tick_Packet:
+			userobj.Current_Saved_Packet = {}
 
 func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerPlayer, peerid:int):
 	match data["Type"]:
@@ -146,7 +166,6 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 						
 						userobj.Character_Storage_Data["Player_OBJ_IDName"] = str(hash(data["Content"]["Username"]+"@"+data["Content"]["URL"]))
 						userobj.name = userobj.Character_Storage_Data["Player_OBJ_IDName"]
-						#Player_To_Room(userobj,"island_0")
 						validate_player(
 							userobj,
 							data["Content"]["Username"],
@@ -155,6 +174,11 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 							)
 						print(data["Content"])
 						print("Recieved connection ping!")
+		Networking_Valid_Types.Client_Packet:
+			if data["Content"].has("PlayerData"):
+				print(data["Content"]["PlayerData"])
+				userobj.Character_Storage_Data["Position"] = data["Content"]["PlayerData"]["Position"]
+				userobj.call_deferred("set_global_position",userobj.Character_Storage_Data["Position"])
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
@@ -166,22 +190,24 @@ func gen_new_room(room:String) -> void:
 		Rooms[room] = ServerRoom.new()
 		call_deferred("add_child",Rooms[room])
 		for i in RoomSignals:
-			Rooms[room].add_user_signal(i)
+			self.add_user_signal(room+i)
 
 func Player_To_Room(userobj:ServerPlayer,room:String) -> void:
+	Rooms[room].Room_Storage_Data["Players"].append(userobj)
 	Rooms[room].call_deferred("add_child",userobj)
 	userobj.Character_Storage_Data["Current_Room"] = room
 
 func Player_RemoveFrom_Room(userobj:ServerPlayer,room:String) -> void:
 	Rooms[room].call_deferred("remove_child",userobj)
+	Rooms[room].Room_Storage_Data["Players"].remove(userobj)
 	userobj.Character_Storage_Data["Current_Room"] = ""
 
 			
 
-func validate_player(playernode:ServerPlayer,username:String, secret:String, url:String) -> void:
+func validate_player(userobj:ServerPlayer,username:String, secret:String, url:String) -> void:
 	print("attempting to validate player")
 	var API_Validate = HTTPRequest.new()
-	API_Validate.request_completed.connect(api_validate_completed.bind(playernode,API_Validate))
+	API_Validate.request_completed.connect(api_validate_completed.bind(userobj,API_Validate))
 	call_deferred("add_child",API_Validate)
 	print(username)
 	print(secret)
@@ -190,7 +216,7 @@ func validate_player(playernode:ServerPlayer,username:String, secret:String, url
 	"Content-Type: application/json"]
 	,HTTPClient.METHOD_GET,"")
 
-func api_validate_completed(result, response_code, headers, body, playernode:ServerPlayer, httpnode:HTTPRequest):
+func api_validate_completed(result, response_code, headers, body, userobj:ServerPlayer, httpnode:HTTPRequest):
 	httpnode.queue_free()
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
@@ -199,8 +225,9 @@ func api_validate_completed(result, response_code, headers, body, playernode:Ser
 	print("api Completed!")
 	if response != null:
 		if response["status"] == 0:
-			pass
+			userobj.Current_Saved_Packet["Unlock_Screen"] = true
+			Player_To_Room(userobj,"island_0")
 		else:
-			send_data(playernode.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: User Authentication Error."})
+			send_data(userobj.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: User Authentication Error."})
 	else:
-		send_data(playernode.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: Authentication Server Error."})
+		send_data(userobj.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: Authentication Server Error."})
