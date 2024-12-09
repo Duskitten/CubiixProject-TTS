@@ -84,6 +84,7 @@ var Skeleton_Values = {}
 
 var CharSetup = false
 @export var Is_Player = false
+@export var Is_Networked = false
 @export var Is_UI = false
 @export var Generate = false
 
@@ -116,13 +117,21 @@ var Is_Sitting  = false
 var Is_Piloting = false
 var Is_Grinding = false
 
-var global_pos = Vector3.ZERO
+var TargetPos : Vector3 = Vector3.ZERO
+var TargetRot : Vector3 = Vector3.ZERO
+var TargetHubRot : Vector3 = Vector3.ZERO
+var TargetAnim : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if Is_Player:
 		Core.Client.Local_Player = self
 	#	Regen_Character()
+	elif Is_Networked:
+		$CollisionShape3D.queue_free()
+		$RayCast3D.queue_free()
+		$RayCast3D2.queue_free()
+		$RayCast3D3.queue_free()
 	elif Is_UI:
 		
 		pass
@@ -328,7 +337,6 @@ func _process(delta: float) -> void:
 		Idle_Timer += Delta
 		
 	if Is_Player:
-		global_pos = global_position
 		shiftlock_Enabled = Core.Persistant_Core.TablockEnabled
 		if !Core.Persistant_Core.Menu_Focused:
 			input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -709,6 +717,11 @@ func _physics_process(delta: float) -> void:
 			queue_network_moved = true
 		
 		input_old = input
+	elif !Is_Player && Is_Networked:
+		global_position = global_position.lerp(TargetPos,0.25)
+		global_rotation = Vector3(lerp_angle(global_rotation.x,TargetRot.x,0.25),lerp_angle(global_rotation.y,TargetRot.y,0.25),lerp_angle(global_rotation.z,TargetRot.z,0.25))
+		$Hub.rotation = Vector3(lerp_angle($Hub.rotation.x,TargetHubRot.x,0.25),lerp_angle($Hub.rotation.y,TargetHubRot.y,0.25),lerp_angle($Hub.rotation.z,TargetHubRot.z,0.25))
+		
 		
 func align_up(node_basis, normal, slerptime):
 	var result = Basis()
@@ -750,3 +763,9 @@ func _on_visible_on_screen_notifier_3d_2_screen_entered() -> void:
 
 func _on_visible_on_screen_notifier_3d_2_screen_exited() -> void:
 	nameOverride = true
+
+func set_network_val(Dict:Dictionary) -> void:
+	TargetPos = Dict["Position"]
+	TargetRot = Dict["Rotation"]
+	TargetHubRot = Dict["Model_Rotation"]
+	TargetAnim = Dict["Current_Animation"]

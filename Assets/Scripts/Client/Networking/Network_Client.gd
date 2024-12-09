@@ -28,6 +28,15 @@ var connect_timer:Timer = Timer.new()
 var Current_Network_Mode:Networking_Mode = Networking_Mode.Pinging
 
 var Local_Player = null
+
+var templatechar = {
+	"Node":null
+}
+
+var char_data = {
+	
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_child(connect_timer)
@@ -129,7 +138,9 @@ func send_data(id:Networking_Valid_Types,data:Dictionary):
 				"Current_Animation" : Core.Persistant_Core.Player.get_node("Hub/Cubiix_Model/AnimationTree").get("parameters/Player_State/playback").get_current_node(),
 			}
 	TCP.put_var(Packet)
-	
+
+				
+
 func parse_data(data:Dictionary):
 	match data["Type"]:
 		Networking_Valid_Types.Ping:
@@ -161,9 +172,23 @@ func parse_data(data:Dictionary):
 				Core.Persistant_Core.call_deferred("show_play_screen")
 			if data["Content"].has("Character_Update"):
 				for i in data["Content"]["Character_Update"]:
+					if char_data.has(i):
+						char_data[i]["Node"].call_deferred("set_network_val", data["Content"]["Character_Update"][i])
+
+				call_deferred("send_data",Networking_Valid_Types.Client_Packet,{})
+			if data["Content"].has("Spawn_Players"):
+				for i in data["Content"]["Spawn_Players"]:
+					var newplayer = load("res://Assets/Scenes/Client/cubiix_base.tscn").instantiate()
+					#newplayer.hide()
+					newplayer.name = i
+					newplayer.Is_Networked = true
+					char_data[i] = templatechar.duplicate(true)
+					char_data[i]["Node"] = newplayer
+					Core.Persistant_Core.get_node("Node3D/Network_Players").call_deferred("add_child", newplayer)
+					
+			if data["Content"].has("Despawn_Players"):
+				for i in data["Content"]["Spawn_Players"]:
 					pass
-			call_deferred("send_data",Networking_Valid_Types.Client_Packet,{})
-			
 			
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()

@@ -21,6 +21,7 @@ var TablockBypass = false
 var DragMode = false
 @onready var Player = $Node3D/Player
 @onready var AudioPlayer = $Node3D/Audio
+@onready var NetworkFolder = $Node3D/Network_Players
 
 var windowLocations = {
 	"Character_Screen": Vector2(61,202),

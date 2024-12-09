@@ -177,7 +177,11 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 			if data["Content"].has("PlayerData"):
 			#	print(data["Content"]["PlayerData"])
 				userobj.Character_Storage_Data["Position"] = data["Content"]["PlayerData"]["Position"]
+				userobj.Character_Storage_Data["Rotation"] = data["Content"]["PlayerData"]["Rotation"]
+				userobj.Character_Storage_Data["Model_Rotation"] = data["Content"]["PlayerData"]["Model_Rotation"]
+				userobj.Character_Storage_Data["Current_Animation"] = data["Content"]["PlayerData"]["Current_Animation"]
 				userobj.call_deferred("set_global_position",userobj.Character_Storage_Data["Position"])
+				userobj.call_deferred("set_global_rotation",userobj.Character_Storage_Data["Model_Rotation"])
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
@@ -192,10 +196,14 @@ func gen_new_room(room:String) -> void:
 			self.add_user_signal(room+i)
 
 func Player_To_Room(userobj:ServerPlayer,room:String) -> void:
+	for i in Rooms[room].Room_Storage_Data["Players"]:
+		userobj.room_connect(i.Character_Storage_Data["Player_OBJ_IDName"])
+	
 	Rooms[room].Room_Storage_Data["Players"].append(userobj)
 	Rooms[room].call_deferred("add_child",userobj)
 	userobj.Character_Storage_Data["Current_Room"] = room
 	emit_signal(room+RoomSignals[0],userobj.Character_Storage_Data["Player_OBJ_IDName"])
+	
 	for i in RoomSignals:
 		connect(room+i,Callable(userobj,"room"+i))
 
