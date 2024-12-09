@@ -122,7 +122,6 @@ func send_data(id:Networking_Valid_Types,data:Dictionary):
 	Packet["Content"] = data
 	match id:
 		Networking_Valid_Types.Client_Packet:
-
 			Packet["Content"]["PlayerData"] = {
 				"Position" : Core.Persistant_Core.Player.global_position,
 				"Rotation" : Core.Persistant_Core.Player.global_rotation,
@@ -157,9 +156,12 @@ func parse_data(data:Dictionary):
 			Core.Persistant_Core.show_error(data["Content"]["Code"])
 			Core.Persistant_Core.show_last_room_before_error(1)
 		Networking_Valid_Types.Tick_Packet:
+			print(data["Content"])
 			if data["Content"].has("Unlock_Screen"):
 				Core.Persistant_Core.call_deferred("show_play_screen")
-
+			if data["Content"].has("Character_Update"):
+				for i in data["Content"]["Character_Update"]:
+					pass
 			call_deferred("send_data",Networking_Valid_Types.Client_Packet,{})
 			
 			

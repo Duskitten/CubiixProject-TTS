@@ -15,4 +15,17 @@ var Character_Storage_Data = {
 }
 
 var Current_Saved_Packet = {
+	"Spawn_Players" : [],
+	"Despawn_Players" : []
 }
+
+var Current_Saved_Packet_Template = {
+	"Spawn_Players" : [],
+	"Despawn_Players" : []
+}
+
+func room_connect(userID:String) -> void:
+	Current_Saved_Packet["Spawn_Players"].append(userID)
+	
+func room_disconnect(userID:String) -> void:
+	Current_Saved_Packet["Despawn_Players"].append(userID)

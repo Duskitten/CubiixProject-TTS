@@ -16,7 +16,7 @@ var Template_Packet = {
 	"Type":0,
 	"Content":""}
 
-var RoomSignals = ["_connected","_disconnected","_spawn_player"]
+var RoomSignals = ["_connect","_disconnect"]
 
 enum Networking_Valid_Types {
 	Ping,
@@ -121,6 +121,8 @@ func network_process():
 					
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
 				print("Removing!")
+				if Peers[i].Character_Storage_Data["Current_Room"] != "":
+					Player_RemoveFrom_Room(Peers[i],Peers[i].Character_Storage_Data["Current_Room"])
 				Peers.erase(i)
 
 		if Core.Globals.KillThreads:
@@ -135,7 +137,7 @@ func send_data(peer:PacketPeerStream, id:Networking_Valid_Types, data:Dictionary
 	peer.put_var(Packet)
 	match id:
 		Networking_Valid_Types.Tick_Packet:
-			userobj.Current_Saved_Packet = {}
+			userobj.Current_Saved_Packet = userobj.Current_Saved_Packet_Template.duplicate(true)
 
 func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerPlayer, peerid:int):
 	match data["Type"]:
@@ -163,7 +165,6 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 								send_data(userobj.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: User already in server."})
 								return
 						
-						
 						userobj.Character_Storage_Data["Player_OBJ_IDName"] = str(hash(data["Content"]["Username"]+"@"+data["Content"]["URL"]))
 						userobj.name = userobj.Character_Storage_Data["Player_OBJ_IDName"]
 						validate_player(
@@ -172,11 +173,9 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 							data["Content"]["UserSecretCode"],
 							data["Content"]["URL"]
 							)
-						print(data["Content"])
-						print("Recieved connection ping!")
 		Networking_Valid_Types.Client_Packet:
 			if data["Content"].has("PlayerData"):
-				print(data["Content"]["PlayerData"])
+			#	print(data["Content"]["PlayerData"])
 				userobj.Character_Storage_Data["Position"] = data["Content"]["PlayerData"]["Position"]
 				userobj.call_deferred("set_global_position",userobj.Character_Storage_Data["Position"])
 
@@ -196,13 +195,18 @@ func Player_To_Room(userobj:ServerPlayer,room:String) -> void:
 	Rooms[room].Room_Storage_Data["Players"].append(userobj)
 	Rooms[room].call_deferred("add_child",userobj)
 	userobj.Character_Storage_Data["Current_Room"] = room
+	emit_signal(room+RoomSignals[0],userobj.Character_Storage_Data["Player_OBJ_IDName"])
+	for i in RoomSignals:
+		connect(room+i,Callable(userobj,"room"+i))
 
 func Player_RemoveFrom_Room(userobj:ServerPlayer,room:String) -> void:
 	Rooms[room].call_deferred("remove_child",userobj)
-	Rooms[room].Room_Storage_Data["Players"].remove(userobj)
+	Rooms[room].Room_Storage_Data["Players"].erase(userobj)
 	userobj.Character_Storage_Data["Current_Room"] = ""
+	for i in RoomSignals:
+		disconnect(room+i,Callable(userobj,"room"+i))
 
-			
+	emit_signal(room+RoomSignals[1],userobj.Character_Storage_Data["Player_OBJ_IDName"])
 
 func validate_player(userobj:ServerPlayer,username:String, secret:String, url:String) -> void:
 	print("attempting to validate player")

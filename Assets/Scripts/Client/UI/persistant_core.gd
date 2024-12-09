@@ -737,30 +737,34 @@ func login_request_completed(result, response_code, headers, body):
 	var response = json.get_data()
 	print(response)
 	var login_URL = ""
-	if response.has("data"):
-		if response["data"]["authentication"]["login"]["responseResult"]["errorCode"] != 0:
-			Core.Persistant_Core.show_error("Error: Failed To Login.")
-			Core.Persistant_Core.show_last_room_before_error(0)
-			#Hexii_Login_LoginText.text =  "[center][color=red]"  + response["data"]["authentication"]["login"]["responseResult"]["message"]
+	if response != null:
+		if response.has("data"):
+			if response["data"]["authentication"]["login"]["responseResult"]["errorCode"] != 0:
+				Core.Persistant_Core.show_error("Error: User Login Error.")
+				Core.Persistant_Core.show_last_room_before_error(0)
+				#Hexii_Login_LoginText.text =  "[center][color=red]"  + response["data"]["authentication"]["login"]["responseResult"]["message"]
+			else:
+				login_URL = API_URL+ ApiCalls["validateToken"]
+				print(login_URL)
+				jwt = response["data"]["authentication"]["login"]["jwt"]
+				
+				API_Validate.request(login_URL,["userToken: "+jwt,
+				"Content-Type: application/json"]
+				,HTTPClient.METHOD_POST,"")
+				tryreset = true
+				
+				#Hexii_Login_LoginText.text =  "[center][color=green]"  + response["data"]["authentication"]["login"]["responseResult"]["message"]
+		elif response.has("status"):
+			if response["status"] == 0:
+				pass
+			else:
+				Core.Persistant_Core.show_error("Error: User Login Error.")
+				Core.Persistant_Core.show_last_room_before_error(0)
 		else:
-			login_URL = API_URL+ ApiCalls["validateToken"]
-			print(login_URL)
-			jwt = response["data"]["authentication"]["login"]["jwt"]
-			
-			API_Validate.request(login_URL,["userToken: "+jwt,
-			"Content-Type: application/json"]
-			,HTTPClient.METHOD_POST,"")
-			tryreset = true
-			
-			#Hexii_Login_LoginText.text =  "[center][color=green]"  + response["data"]["authentication"]["login"]["responseResult"]["message"]
-	elif response.has("status"):
-		if response["status"] == 0:
-			pass
-		else:
-			Core.Persistant_Core.show_error("Error: Failed To Login.")
+			Core.Persistant_Core.show_error("Error: No Server Response.")
 			Core.Persistant_Core.show_last_room_before_error(0)
 	else:
-		Core.Persistant_Core.show_error("Error: Failed To Login.")
+		Core.Persistant_Core.show_error("Error: Check SSL Cert.")
 		Core.Persistant_Core.show_last_room_before_error(0)
 
 var tryreset = true
@@ -792,7 +796,7 @@ func api_validate_completed(result, response_code, headers, body):
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
 		else:
-			Core.Persistant_Core.show_error("Error: Failed To Login.")
+			Core.Persistant_Core.show_error("Error: User Failed To Validate.")
 			Core.Persistant_Core.show_last_room_before_error(0)
 
 func _on_register_link_button_pressed() -> void:
