@@ -78,6 +78,7 @@ surface_material_override/0 = null
 
 [node name="AnimationTree" parent="Hub/Cubiix_Model" index="2"]
 parameters/Blend2/blend_amount = 0
+parameters/Blend_Networked/blend_amount = 0
 parameters/Hand_Controller_R/blend_amount = 0
 
 [node name="Items" type="Node3D" parent="Hub"]

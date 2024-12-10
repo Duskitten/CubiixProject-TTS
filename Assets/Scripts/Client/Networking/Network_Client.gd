@@ -131,12 +131,15 @@ func send_data(id:Networking_Valid_Types,data:Dictionary):
 	Packet["Content"] = data
 	match id:
 		Networking_Valid_Types.Client_Packet:
-			Packet["Content"]["PlayerData"] = {
-				"Position" : Core.Persistant_Core.Player.global_position,
-				"Rotation" : Core.Persistant_Core.Player.global_rotation,
-				"Model_Rotation" : Core.Persistant_Core.Player.get_node("Hub").global_rotation,
-				"Current_Animation" : Core.Persistant_Core.Player.get_node("Hub/Cubiix_Model/AnimationTree").get("parameters/Player_State/playback").get_current_node(),
-			}
+			if Packet["Content"].has("PlayerData"):
+				Packet["Content"]["PlayerData"] = {
+					"Position" : Core.Persistant_Core.Player.global_position,
+					"Rotation" : Core.Persistant_Core.Player.global_rotation,
+					"Model_Rotation" : Core.Persistant_Core.Player.get_node("Hub").global_rotation,
+					"Current_Animation" : str(Core.Persistant_Core.Player.get_node("Hub/Cubiix_Model/AnimationTree").get("parameters/Player_State/playback").get_current_node()),
+				}
+			if Packet["Content"].has("Update_PlayerChar"):
+				Packet["Content"]["Update_PlayerChar"] = Core.Character_Gen.export_char(Core.Persistant_Core.Player)
 	TCP.put_var(Packet)
 
 				
@@ -175,7 +178,7 @@ func parse_data(data:Dictionary):
 					if char_data.has(i):
 						char_data[i]["Node"].call_deferred("set_network_val", data["Content"]["Character_Update"][i])
 
-				call_deferred("send_data",Networking_Valid_Types.Client_Packet,{})
+				call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"PlayerData":{}})
 			if data["Content"].has("Spawn_Players"):
 				for i in data["Content"]["Spawn_Players"]:
 					var newplayer = load("res://Assets/Scenes/Client/cubiix_base.tscn").instantiate()
@@ -187,8 +190,15 @@ func parse_data(data:Dictionary):
 					Core.Persistant_Core.get_node("Node3D/Network_Players").call_deferred("add_child", newplayer)
 					
 			if data["Content"].has("Despawn_Players"):
-				for i in data["Content"]["Spawn_Players"]:
-					pass
+				for i in data["Content"]["Despawn_Players"]:
+					if char_data.has(i):
+						char_data[i]["Node"].call_deferred("queue_free")
+						char_data.erase(i)
+						
+			if data["Content"].has("Update_Players"):
+				for i in data["Content"]["Update_Players"]:
+					if char_data.has(i):
+						char_data[i]["Node"].call_deferred("queue_char_update",data["Content"]["Update_Players"][i])
 			
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()

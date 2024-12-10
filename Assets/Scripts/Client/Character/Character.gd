@@ -27,6 +27,7 @@ enum R_HIP_ENUM {None, HipSkirt}
 
 
 @export var character_string : String = ""
+var chardirty = false
 
 @export var Randomize : bool
 
@@ -132,6 +133,7 @@ func _ready() -> void:
 		$RayCast3D.queue_free()
 		$RayCast3D2.queue_free()
 		$RayCast3D3.queue_free()
+		$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend_Networked/blend_amount",1.0)
 	elif Is_UI:
 		
 		pass
@@ -178,11 +180,12 @@ func Adjust_Scale():
 	Model.scale = Vector3(Scale,Scale,Scale)
 
 func Regen_Character():
+	swapping = true
 	CharSetup = false
 	for i in stored_items.keys():
 		stored_items[i]["object"].hide()
 	
-	swapping = true
+
 	Model.name = "replaceMe"
 	var base_model = Core.AssetData.Cubiix_Model.duplicate(true)
 	base_model.hide()
@@ -250,8 +253,10 @@ func Regen_Character():
 	base_model.position = Vector3(0,0,0)
 	base_model.show()
 	CharSetup = true
-	if !Is_Player:
+	if !Is_Player && !Is_Networked:
 		$Hub/Cubiix_Model/AnimationTree.set("parameters/NPC/blend_amount",1)
+	if Is_Networked:
+		$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend_Networked/blend_amount",1.0)
 	$Hub/Cubiix_Model/AnimationTree.active = false
 	await get_tree().create_timer(0.2).timeout
 	$Hub/Cubiix_Model/AnimationTree.active = true
@@ -288,6 +293,10 @@ func update_name(text:String) -> void:
 var nameOverride = false
 
 func _process(delta: float) -> void:
+	if chardirty && !swapping:
+		chardirty = false
+		Core.Character_Gen.generate_char_from_string(character_string,self)
+	
 	var Camera2 = get_viewport().get_camera_3d()
 	
 	if Camera2.is_in_group("PlayerCamera"):
@@ -769,3 +778,7 @@ func set_network_val(Dict:Dictionary) -> void:
 	TargetRot = Dict["Rotation"]
 	TargetHubRot = Dict["Model_Rotation"]
 	TargetAnim = Dict["Current_Animation"]
+
+func queue_char_update(newchar:String):
+	character_string = newchar
+	chardirty = true

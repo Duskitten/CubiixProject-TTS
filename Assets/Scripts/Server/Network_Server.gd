@@ -16,7 +16,7 @@ var Template_Packet = {
 	"Type":0,
 	"Content":""}
 
-var RoomSignals = ["_connect","_disconnect"]
+var RoomSignals = ["_connect","_disconnect","_update_character"]
 
 enum Networking_Valid_Types {
 	Ping,
@@ -175,13 +175,16 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 							)
 		Networking_Valid_Types.Client_Packet:
 			if data["Content"].has("PlayerData"):
-			#	print(data["Content"]["PlayerData"])
 				userobj.Character_Storage_Data["Position"] = data["Content"]["PlayerData"]["Position"]
 				userobj.Character_Storage_Data["Rotation"] = data["Content"]["PlayerData"]["Rotation"]
 				userobj.Character_Storage_Data["Model_Rotation"] = data["Content"]["PlayerData"]["Model_Rotation"]
 				userobj.Character_Storage_Data["Current_Animation"] = data["Content"]["PlayerData"]["Current_Animation"]
 				userobj.call_deferred("set_global_position",userobj.Character_Storage_Data["Position"])
 				userobj.call_deferred("set_global_rotation",userobj.Character_Storage_Data["Model_Rotation"])
+			if data["Content"].has("Update_PlayerChar"):
+				if userobj.Character_Storage_Data["Current_Room"] != "":
+					emit_signal(userobj.Character_Storage_Data["Current_Room"]+RoomSignals[2],data["Content"]["Update_PlayerChar"])
+					userobj.Character_Storage_Data["Core_Character"] = data["Content"]["Update_PlayerChar"]
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
@@ -198,11 +201,14 @@ func gen_new_room(room:String) -> void:
 func Player_To_Room(userobj:ServerPlayer,room:String) -> void:
 	for i in Rooms[room].Room_Storage_Data["Players"]:
 		userobj.room_connect(i.Character_Storage_Data["Player_OBJ_IDName"])
+		userobj.room_update_character(i.Character_Storage_Data["Player_OBJ_IDName"],i.Character_Storage_Data["Core_Character"])
 	
 	Rooms[room].Room_Storage_Data["Players"].append(userobj)
 	Rooms[room].call_deferred("add_child",userobj)
 	userobj.Character_Storage_Data["Current_Room"] = room
+	
 	emit_signal(room+RoomSignals[0],userobj.Character_Storage_Data["Player_OBJ_IDName"])
+	emit_signal(room+RoomSignals[2],userobj.Character_Storage_Data["Player_OBJ_IDName"],userobj.Character_Storage_Data["Core_Character"])
 	
 	for i in RoomSignals:
 		connect(room+i,Callable(userobj,"room"+i))
@@ -213,6 +219,9 @@ func Player_RemoveFrom_Room(userobj:ServerPlayer,room:String) -> void:
 	userobj.Character_Storage_Data["Current_Room"] = ""
 	for i in RoomSignals:
 		disconnect(room+i,Callable(userobj,"room"+i))
+	
+	for i in Rooms[room].Room_Storage_Data["Players"]:
+		userobj.room_disconnect(i.Character_Storage_Data["Player_OBJ_IDName"])
 
 	emit_signal(room+RoomSignals[1],userobj.Character_Storage_Data["Player_OBJ_IDName"])
 

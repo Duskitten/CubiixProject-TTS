@@ -313,6 +313,9 @@ bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 [node name="Cube" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
 surface_material_override/0 = null
 
+[node name="AnimationTree" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model" index="2"]
+parameters/Blend_Networked/blend_amount = 0
+
 [node name="Button3" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer" index="2"]
 visible = false
 
