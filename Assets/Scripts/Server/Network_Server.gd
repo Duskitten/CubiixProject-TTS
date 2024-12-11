@@ -104,14 +104,18 @@ func network_process():
 						dupePacket.erase(Peers[i].Character_Storage_Data["Player_OBJ_IDName"])
 						Peers[i].Current_Saved_Packet["Character_Update"] = dupePacket
 						var send_packet = false
-						for z in Peers[i].Current_Saved_Packet:
-							if typeof(z) == TYPE_ARRAY || typeof(z) ==  TYPE_DICTIONARY:
-								if !z.is_empty():
+						for z in Peers[i].Current_Saved_Packet.keys():
+							if typeof(Peers[i].Current_Saved_Packet[z]) == TYPE_ARRAY:
+								if !Peers[i].Current_Saved_Packet[z].is_empty():
+									send_packet = true
+							elif typeof(Peers[i].Current_Saved_Packet[z]) == TYPE_DICTIONARY:
+								if !Peers[i].Current_Saved_Packet[z].size() == 0:
 									send_packet = true
 							else:
 								send_packet = true
 						
 						if send_packet:
+							print(Peers[i].Current_Saved_Packet)
 							send_data(n,Networking_Valid_Types.Tick_Packet,Peers[i].Current_Saved_Packet, Peers[i])
 						else:
 							send_data(n,Networking_Valid_Types.Tick_Packet,{"Character_Update":{}}, Peers[i])

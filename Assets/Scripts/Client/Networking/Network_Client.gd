@@ -30,7 +30,11 @@ var Current_Network_Mode:Networking_Mode = Networking_Mode.Pinging
 var Local_Player = null
 
 var templatechar = {
-	"Node":null
+	"Node":null,
+	"Position":Vector3.ZERO,
+	"Rotation":Vector3.ZERO,
+	"Model_Rotation":Vector3.ZERO,
+	"Current_Animation":Vector3.ZERO
 }
 
 var char_data = {
@@ -174,12 +178,7 @@ func parse_data(data:Dictionary):
 			#print(data["Content"])
 			if data["Content"].has("Unlock_Screen"):
 				Core.Persistant_Core.call_deferred("show_play_screen")
-			if data["Content"].has("Character_Update"):
-				for i in data["Content"]["Character_Update"]:
-					if char_data.has(i):
-						char_data[i]["Node"].call_deferred("set_network_val", data["Content"]["Character_Update"][i])
-
-				call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"PlayerData":{}})
+			
 			if data["Content"].has("Spawn_Players"):
 				for i in data["Content"]["Spawn_Players"]:
 					var newplayer = load("res://Assets/Scenes/Client/cubiix_base.tscn").instantiate()
@@ -189,21 +188,24 @@ func parse_data(data:Dictionary):
 					char_data[i] = templatechar.duplicate(true)
 					char_data[i]["Node"] = newplayer
 					Core.Persistant_Core.get_node("Node3D/Network_Players").call_deferred("add_child", newplayer)
-			
 					
 			if data["Content"].has("Despawn_Players"):
 				for i in data["Content"]["Despawn_Players"]:
 					if char_data.has(i):
 						char_data[i]["Node"].call_deferred("queue_free")
 						char_data.erase(i)
-			
 
-			
 			if data["Content"].has("Update_Players"):
 				for i in data["Content"]["Update_Players"]:
 					print(char_data.has(i))
 					if char_data.has(i):
 						char_data[i]["Node"].call_deferred("queue_char_update",data["Content"]["Update_Players"][i])
+						
+			if data["Content"].has("Character_Update"):
+				for i in data["Content"]["Character_Update"]:
+					if char_data.has(i):
+						char_data[i]["Node"].call_deferred("set_network_val", data["Content"]["Character_Update"][i])
+				call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"PlayerData":{}})
 			
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
