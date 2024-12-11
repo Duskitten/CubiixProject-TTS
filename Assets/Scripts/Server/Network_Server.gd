@@ -84,13 +84,14 @@ func network_process():
 			for room in Rooms.keys():
 				accumulated_server_positions[room] = {}
 				for Player in Rooms[room].Room_Storage_Data["Players"]:
-					accumulated_server_positions[room][Player.Character_Storage_Data["Player_OBJ_IDName"]] = {
-						"Position":Player.Character_Storage_Data["Position"],
-						"Rotation":Player.Character_Storage_Data["Rotation"],
-						"Model_Rotation":Player.Character_Storage_Data["Model_Rotation"],
-						"Current_Animation":Player.Character_Storage_Data["Current_Animation"]
-					}
-					
+					if Player.Character_Storage_Data["DirtyUpdate"]:
+						accumulated_server_positions[room][Player.Character_Storage_Data["Player_OBJ_IDName"]] = {
+								"Position":Player.Character_Storage_Data["Position"],
+								"Rotation":Player.Character_Storage_Data["Rotation"],
+								"Model_Rotation":Player.Character_Storage_Data["Model_Rotation"],
+								"Current_Animation":Player.Character_Storage_Data["Current_Animation"]
+						}
+						Player.Character_Storage_Data["DirtyUpdate"] = false
 				
 				
 			for i in Peers.keys():
@@ -99,11 +100,23 @@ func network_process():
 				if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 					if Peers[i].Character_Storage_Data["Current_Room"] != "":
 						var dupePacket = accumulated_server_positions[Peers[i].Character_Storage_Data["Current_Room"]].duplicate(true)
+						dupePacket.merge(Peers[i].PosOverride, true)
 						dupePacket.erase(Peers[i].Character_Storage_Data["Player_OBJ_IDName"])
-						
 						Peers[i].Current_Saved_Packet["Character_Update"] = dupePacket
-						send_data(n,Networking_Valid_Types.Tick_Packet,Peers[i].Current_Saved_Packet, Peers[i])
+						var send_packet = false
+						for z in Peers[i].Current_Saved_Packet:
+							if typeof(z) == TYPE_ARRAY || typeof(z) ==  TYPE_DICTIONARY:
+								if !z.is_empty():
+									send_packet = true
+							else:
+								send_packet = true
+						
+						if send_packet:
+							send_data(n,Networking_Valid_Types.Tick_Packet,Peers[i].Current_Saved_Packet, Peers[i])
+						else:
+							send_data(n,Networking_Valid_Types.Tick_Packet,{"Character_Update":{}}, Peers[i])
 					
+						Peers[i].PosOverride = {}
 					###This is where we'd like to send the player the entire tick.
 
 		####Everything Past here is "Returned" data from clients
@@ -175,16 +188,31 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 							)
 		Networking_Valid_Types.Client_Packet:
 			if data["Content"].has("PlayerData"):
+				userobj.Character_Storage_Data["Old_Position"] = userobj.Character_Storage_Data["Position"]
+				userobj.Character_Storage_Data["Old_Rotation"] = userobj.Character_Storage_Data["Rotation"]
+				userobj.Character_Storage_Data["Old_Model_Rotation"] = userobj.Character_Storage_Data["Model_Rotation"]
+				userobj.Character_Storage_Data["Old_Current_Animation"] = userobj.Character_Storage_Data["Current_Animation"]
+				
 				userobj.Character_Storage_Data["Position"] = data["Content"]["PlayerData"]["Position"]
 				userobj.Character_Storage_Data["Rotation"] = data["Content"]["PlayerData"]["Rotation"]
 				userobj.Character_Storage_Data["Model_Rotation"] = data["Content"]["PlayerData"]["Model_Rotation"]
 				userobj.Character_Storage_Data["Current_Animation"] = data["Content"]["PlayerData"]["Current_Animation"]
 				userobj.call_deferred("set_global_position",userobj.Character_Storage_Data["Position"])
 				userobj.call_deferred("set_global_rotation",userobj.Character_Storage_Data["Model_Rotation"])
-			if data["Content"].has("Update_PlayerChar"):
+				
+				if (userobj.Character_Storage_Data["Old_Position"] != userobj.Character_Storage_Data["Position"] ||
+				userobj.Character_Storage_Data["Old_Rotation"] != userobj.Character_Storage_Data["Rotation"] ||
+				userobj.Character_Storage_Data["Old_Model_Rotation"] != userobj.Character_Storage_Data["Model_Rotation"] ||
+				userobj.Character_Storage_Data["Old_Current_Animation"] != userobj.Character_Storage_Data["Current_Animation"]):
+					userobj.Character_Storage_Data["DirtyUpdate"] = true
+					
+				
+				
+			if data["Content"].has("Update_Model"):
 				if userobj.Character_Storage_Data["Current_Room"] != "":
-					emit_signal(userobj.Character_Storage_Data["Current_Room"]+RoomSignals[2],data["Content"]["Update_PlayerChar"])
-					userobj.Character_Storage_Data["Core_Character"] = data["Content"]["Update_PlayerChar"]
+					emit_signal(userobj.Character_Storage_Data["Current_Room"]+RoomSignals[2],userobj.Character_Storage_Data["Player_OBJ_IDName"],data["Content"]["Update_Model"])
+					print(data["Content"]["Update_Model"])
+					userobj.Character_Storage_Data["Core_Character"] = data["Content"]["Update_Model"]
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
@@ -200,8 +228,12 @@ func gen_new_room(room:String) -> void:
 
 func Player_To_Room(userobj:ServerPlayer,room:String) -> void:
 	for i in Rooms[room].Room_Storage_Data["Players"]:
+		i.Character_Storage_Data["DirtyUpdate"] = true
+		userobj.pos_overrider(i.Character_Storage_Data["Player_OBJ_IDName"], i)
 		userobj.room_connect(i.Character_Storage_Data["Player_OBJ_IDName"])
 		userobj.room_update_character(i.Character_Storage_Data["Player_OBJ_IDName"],i.Character_Storage_Data["Core_Character"])
+	
+	userobj.Character_Storage_Data["DirtyUpdate"] = true
 	
 	Rooms[room].Room_Storage_Data["Players"].append(userobj)
 	Rooms[room].call_deferred("add_child",userobj)

@@ -774,6 +774,7 @@ func _on_visible_on_screen_notifier_3d_2_screen_exited() -> void:
 	nameOverride = true
 
 func set_network_val(Dict:Dictionary) -> void:
+	#print(Dict)
 	TargetPos = Dict["Position"]
 	TargetRot = Dict["Rotation"]
 	TargetHubRot = Dict["Model_Rotation"]

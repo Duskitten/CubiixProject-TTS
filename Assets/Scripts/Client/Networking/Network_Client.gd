@@ -101,24 +101,25 @@ func network_process():
 				break
 		
 		TCP.poll()
-		if TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-			connect_timer.call_deferred("stop")
-			if TCP.get_available_bytes() > 0:
-				parse_data(TCP.get_var(false))
+		match TCP.get_status():
+			StreamPeerTCP.STATUS_CONNECTED:
+				connect_timer.call_deferred("stop")
+				if TCP.get_available_bytes() > 0:
+					parse_data(TCP.get_var(false))
 
-		elif TCP.get_status() == StreamPeerTCP.STATUS_CONNECTING:
-			if TCP.get_available_bytes() > 0:
-				parse_data(TCP.get_var(false))
-			if disable_connect:
+			StreamPeerTCP.STATUS_CONNECTING:
+				if TCP.get_available_bytes() > 0:
+					parse_data(TCP.get_var(false))
+				if disable_connect:
+					break
+				
+			StreamPeerTCP.STATUS_NONE:
+				match Current_Network_Mode:
+					Networking_Mode.Connecting:
+						Core.Persistant_Core.show_error("Error: Server Timed Out.")
+						Core.Persistant_Core.show_last_room_before_error(10)
+				connect_timer.call_deferred("stop")
 				break
-			
-		elif TCP.get_status() == StreamPeerTCP.STATUS_NONE:
-			match Current_Network_Mode:
-				Networking_Mode.Connecting:
-					Core.Persistant_Core.show_error("Error: Server Timed Out.")
-					Core.Persistant_Core.show_last_room_before_error(10)
-			connect_timer.call_deferred("stop")
-			break
 
 	TCP.disconnect_from_host()
 	call_deferred("emit_signal","NextPing")
@@ -138,8 +139,8 @@ func send_data(id:Networking_Valid_Types,data:Dictionary):
 					"Model_Rotation" : Core.Persistant_Core.Player.get_node("Hub").global_rotation,
 					"Current_Animation" : str(Core.Persistant_Core.Player.get_node("Hub/Cubiix_Model/AnimationTree").get("parameters/Player_State/playback").get_current_node()),
 				}
-			if Packet["Content"].has("Update_PlayerChar"):
-				Packet["Content"]["Update_PlayerChar"] = Core.Character_Gen.export_char(Core.Persistant_Core.Player)
+			if Packet["Content"].has("Update_Model"):
+				Packet["Content"]["Update_Model"] = Core.Character_Gen.export_char(Core.Persistant_Core.Player)
 	TCP.put_var(Packet)
 
 				
@@ -170,7 +171,7 @@ func parse_data(data:Dictionary):
 			Core.Persistant_Core.show_error(data["Content"]["Code"])
 			Core.Persistant_Core.show_last_room_before_error(1)
 		Networking_Valid_Types.Tick_Packet:
-			print(data["Content"])
+			#print(data["Content"])
 			if data["Content"].has("Unlock_Screen"):
 				Core.Persistant_Core.call_deferred("show_play_screen")
 			if data["Content"].has("Character_Update"):
@@ -188,15 +189,19 @@ func parse_data(data:Dictionary):
 					char_data[i] = templatechar.duplicate(true)
 					char_data[i]["Node"] = newplayer
 					Core.Persistant_Core.get_node("Node3D/Network_Players").call_deferred("add_child", newplayer)
+			
 					
 			if data["Content"].has("Despawn_Players"):
 				for i in data["Content"]["Despawn_Players"]:
 					if char_data.has(i):
 						char_data[i]["Node"].call_deferred("queue_free")
 						char_data.erase(i)
-						
+			
+
+			
 			if data["Content"].has("Update_Players"):
 				for i in data["Content"]["Update_Players"]:
+					print(char_data.has(i))
 					if char_data.has(i):
 						char_data[i]["Node"].call_deferred("queue_char_update",data["Content"]["Update_Players"][i])
 			
@@ -210,3 +215,6 @@ func disable_connection():
 			Core.Persistant_Core.show_error("Error: Server Timed Out.")
 			Core.Persistant_Core.show_last_room_before_error(1)
 	disable_connect = true
+
+func char_update() -> void:
+	call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"Update_Model":""})

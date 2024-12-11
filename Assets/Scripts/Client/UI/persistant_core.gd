@@ -295,6 +295,8 @@ func _on_part_button_pressed(PartData: String) -> void:
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.hide()
 				Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
+				if Core.Client.TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
+					Core.Client.char_update()
 				
 			"Revert":
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
