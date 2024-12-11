@@ -1,9 +1,9 @@
 extends Node
-
+@onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
 
 func _ready() -> void:
-	var CharModel = load("res://Assets/Scenes/Client/cubiix_base.tscn")
+	var CharModel = load("res://Assets/Scenes/Client/cubiix_base.tscn").instantiate()
 	V1_ConversionPath = {
 		"Cubiix_Base:Cat_Ears":CharModel.EAR_ENUM.Cat,
 		"Cubiix_Base:Fox_Ears":CharModel.EAR_ENUM.Fox,
@@ -131,7 +131,8 @@ func _ready() -> void:
 			"Moth":CharModel.WING_ENUM.Butterfly
 		}
 	}
-
+	
+	CharModel.queue_free()
 
 func export_char(character:Node3D) -> String:
 	var V3Template = {
@@ -498,3 +499,39 @@ func generate_char_from_string(Data:String,Target:Node3D) -> void:
 						"PC":
 							Target.Pronouns_C = str(data["PC"])
 	Target.Regen_Character()
+
+var template_accessory_dict = {
+	"Head_Slot":"",
+	"Face_Slot":"",
+	"Chest_Slot":"",
+	"Back_Slot":"",
+	"L_Hip_Slot":"",
+	"R_Hip_Slot":"",
+	"L_Hand_Slot":"",
+	"R_Hand_Slot":""
+}
+
+func get_accessory_data(Target:Node3D) -> String:
+	var newtemplate = template_accessory_dict.duplicate(true)
+	newtemplate["Head_Slot"] = Core.AssetData.Head_Slot[Target.Head]
+	newtemplate["Face_Slot"] = Core.AssetData.Face_Slot[Target.Face]
+	newtemplate["Chest_Slot"] = Core.AssetData.Chest_Slot[Target.Chest]
+	newtemplate["Back_Slot"] = Core.AssetData.Back_Slot[Target.Back]
+	newtemplate["L_Hip_Slot"] = Core.AssetData.L_Hip_Slot[Target.L_Hip]
+	newtemplate["R_Hip_Slot"] = Core.AssetData.R_Hip_Slot[Target.R_Hip]
+	newtemplate["L_Hand_Slot"] = Core.AssetData.L_Hand_Slot[Target.L_Hand]
+	newtemplate["R_Hand_Slot"] = Core.AssetData.R_Hand_Slot[Target.R_Hand]
+
+	return JSON.stringify(newtemplate)
+	
+func set_accessory_data(acc_string:String,Target:Node3D) -> void:
+	var data = JSON.parse_string(acc_string)
+	Target.Head = Core.AssetData.Head_Slot.find(data["Head_Slot"])
+	Target.Face = Core.AssetData.Face_Slot.find(data["Face_Slot"])
+	Target.Chest = Core.AssetData.Head_Slot.find(data["Chest_Slot"])
+	Target.Back = Core.AssetData.Head_Slot.find(data["Back_Slot"])
+	Target.L_Hip = Core.AssetData.L_Hip_Slot.find(data["L_Hip_Slot"])
+	Target.R_Hip = Core.AssetData.R_Hip_Slot.find(data["R_Hip_Slot"])
+	Target.L_Hand = Core.AssetData.L_Hand_Slot.find(data["L_Hand_Slot"])
+	Target.R_Hand = Core.AssetData.R_Hand_Slot.find(data["R_Hand_Slot"])
+	

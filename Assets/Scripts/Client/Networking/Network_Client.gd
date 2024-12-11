@@ -144,7 +144,10 @@ func send_data(id:Networking_Valid_Types,data:Dictionary):
 					"Current_Animation" : str(Core.Persistant_Core.Player.get_node("Hub/Cubiix_Model/AnimationTree").get("parameters/Player_State/playback").get_current_node()),
 				}
 			if Packet["Content"].has("Update_Model"):
-				Packet["Content"]["Update_Model"] = Core.Character_Gen.export_char(Core.Persistant_Core.Player)
+				Packet["Content"]["Update_Model"] = {
+					"Character": Core.Character_Gen.export_char(Core.Persistant_Core.Hexii_Ui_Tablet_Character),
+					"Accessories" : Core.Character_Gen.get_accessory_data(Core.Persistant_Core.Hexii_Ui_Tablet_Character)
+					}
 	TCP.put_var(Packet)
 
 				
@@ -206,6 +209,16 @@ func parse_data(data:Dictionary):
 					if char_data.has(i):
 						char_data[i]["Node"].call_deferred("set_network_val", data["Content"]["Character_Update"][i])
 				call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"PlayerData":{}})
+				
+			if data["Content"].has("Accessory_Response"):
+				match data["Content"]["Accessory_Response"]["response"]:
+					"update_list":
+						print(data["Content"]["Accessory_Response"]["data"])
+						Core.Persistant_Core.Currently_Unlocked_Assets = JSON.parse_string(data["Content"]["Accessory_Response"]["data"])
+						Core.Persistant_Core.call_deferred("emit_signal","Accessory_Response")
+			
+			if data["Content"].has("Update_Self"):
+				Core.Persistant_Core.Player.call_deferred("queue_char_update",data["Content"]["Update_Self"])
 			
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
@@ -220,3 +233,6 @@ func disable_connection():
 
 func char_update() -> void:
 	call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"Update_Model":""})
+
+func update_charlist() -> void:
+	call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"Accessory_Response":"update_list"})

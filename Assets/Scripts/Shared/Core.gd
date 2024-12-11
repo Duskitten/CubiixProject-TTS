@@ -23,6 +23,7 @@ func _ready():
 		Update_LogoText("Initiating Asset Load...")
 		await get_tree().create_timer(1).timeout
 		Character_Gen = load("res://Assets/Scripts/Client/Character/Character_Model_Data.gd").new()
+		
 		SceneData = load("res://Assets/Scripts/Client/Scene/Scene_Data.gd").new()
 		SceneData.runsetup(self)
 		await SceneData.FinishedLoad
@@ -38,6 +39,7 @@ func _ready():
 		add_child(AssetData)
 		add_child(Client)
 		add_child(Dialogue_Handler)
+		add_child(Character_Gen)
 		
 		get_parent().call_deferred("add_child", Persistant_Core)
 		await Persistant_Core.ready

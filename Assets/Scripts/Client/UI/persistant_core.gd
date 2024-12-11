@@ -271,6 +271,10 @@ func Hide_part_Menus()-> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker.hide()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader.hide()
 
+signal Accessory_Response
+signal Accessory_Update
+var Currently_Unlocked_Assets = {}
+
 func _on_part_button_pressed(PartData: String) -> void:
 	get_viewport().gui_release_focus()
 	
@@ -294,9 +298,11 @@ func _on_part_button_pressed(PartData: String) -> void:
 			"Apply":
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.hide()
-				Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
+				
 				if Core.Client.TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 					Core.Client.char_update()
+				else:
+					Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
 				
 			"Revert":
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
@@ -332,64 +338,83 @@ func _on_part_button_pressed(PartData: String) -> void:
 		$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options.show()
 		for i in $CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.get_children():
 			i.queue_free()
-
-		for i in Core.AssetData.get(PartData+"_Slot"):
-			var x:String = i
-			var New_Part = Hexii_Ui_Tablet_Character_Template_Part.duplicate()
 			
-			var main_texture = null
-			
-			if i == "":
-				if PartData != "Extra":
-					i = PartData+"s/None"
-					main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+i.replace("/","_")+".png")
-				else:
-					i = PartData+"/None"
-					main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+i.replace("/","_")+".png")
-			else:
-				if PartData != "Extra":
-					main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+x.replace("/","_")+".png")
-				else:
-					main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+x.replace("/","_")+".png")
-			
-			if main_texture != null:
-				
-				var new_main_text = main_texture.get_image()
-				(new_main_text as Image).adjust_bcs(0.8,0.8,1)
-				
-				(New_Part as TextureButton).texture_normal = ImageTexture.create_from_image(new_main_text)
-				(New_Part as TextureButton).texture_pressed = ImageTexture.create_from_image(new_main_text)
-				var newtexture = main_texture.duplicate()
-				var modTexture = newtexture.get_image()
-				(modTexture as Image).adjust_bcs(0.9,0.9,1)
-				
-				var backTexture = Image.create_empty(80,80,false,Image.FORMAT_RGBA8)
-				backTexture.fill(Color(.2,.2,.2,.25))
-				backTexture.blend_rect(modTexture,Rect2i(0,0,80,80),Vector2i.ZERO)
-				
-				newtexture = ImageTexture.create_from_image(backTexture)
-				(New_Part as TextureButton).texture_hover = newtexture
-				
-			if (i as String).ends_with("None"):
-				New_Part.get_node("Label").text = "None."+PartData.to_lower()
-			else:
-				New_Part.get_node("Label").text = Core.AssetData.Mesh_Data_Assets[i]["Name"]+"."+PartData.to_lower()
-				
-			#if PartData == "Ear" || PartData == "Wing" || PartData == "Extra" || PartData == "Eye" || PartData == "Tail":
-				
-			var pt = Core.AssetData.get(PartData+"_Slot")
-			var n = PartData
-			if PartData == "Ear" || PartData == "Wing" || PartData == "Eye":
-				n = PartData+"s"
-			if (i as String).ends_with("None"):
-				New_Part.pressed.connect(change_part.bind(n,0))
-			else:
-				New_Part.pressed.connect(change_part.bind(n,pt.find(i)))
-					
-				
-			$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.add_child(New_Part)
-			New_Part.visible = true
+		if Core.Client.TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED && (
+			PartData == "Back" || 
+			PartData == "Chest" || 
+			PartData == "Face" || 
+			PartData == "Head" || 
+			PartData == "L_Hand" || 
+			PartData == "R_Hand" || 
+			PartData == "L_Hip" || 
+			PartData == "R_Hip"
+			):
+			Core.Client.update_charlist()
+			await Accessory_Response
+			for i in Currently_Unlocked_Assets[PartData+"_Slot"]:
+				generate_new_CharUI_asset(i, PartData)
+		else:
+			for i in Core.AssetData.get(PartData+"_Slot"):
+				generate_new_CharUI_asset(i, PartData)
 			#print(i)
+
+func generate_new_CharUI_asset(i, PartData) -> void:
+	var x:String = i
+	var New_Part = Hexii_Ui_Tablet_Character_Template_Part.duplicate()
+	
+	var main_texture = null
+	
+	if i == "":
+		if PartData != "Extra":
+			i = PartData+"s/None"
+			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+i.replace("/","_")+".png")
+		else:
+			i = PartData+"/None"
+			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+i.replace("/","_")+".png")
+	else:
+		if PartData != "Extra":
+			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+x.replace("/","_")+".png")
+		else:
+			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+x.replace("/","_")+".png")
+	
+	if main_texture != null:
+		
+		var new_main_text = main_texture.get_image()
+		(new_main_text as Image).adjust_bcs(0.8,0.8,1)
+		
+		(New_Part as TextureButton).texture_normal = ImageTexture.create_from_image(new_main_text)
+		(New_Part as TextureButton).texture_pressed = ImageTexture.create_from_image(new_main_text)
+		var newtexture = main_texture.duplicate()
+		var modTexture = newtexture.get_image()
+		(modTexture as Image).adjust_bcs(0.9,0.9,1)
+		
+		var backTexture = Image.create_empty(80,80,false,Image.FORMAT_RGBA8)
+		backTexture.fill(Color(.2,.2,.2,.25))
+		backTexture.blend_rect(modTexture,Rect2i(0,0,80,80),Vector2i.ZERO)
+		
+		newtexture = ImageTexture.create_from_image(backTexture)
+		(New_Part as TextureButton).texture_hover = newtexture
+		
+	if (i as String).ends_with("None"):
+		New_Part.get_node("Label").text = "None."+PartData.to_lower()
+	else:
+		New_Part.get_node("Label").text = Core.AssetData.Mesh_Data_Assets[i]["Name"]+"."+PartData.to_lower()
+		
+	#if PartData == "Ear" || PartData == "Wing" || PartData == "Extra" || PartData == "Eye" || PartData == "Tail":
+		
+	var pt = Core.AssetData.get(PartData+"_Slot")
+	var n = PartData
+	if PartData == "Ear" || PartData == "Wing" || PartData == "Eye":
+		n = PartData+"s"
+	if (i as String).ends_with("None"):
+		New_Part.pressed.connect(change_part.bind(n,0))
+	else:
+		New_Part.pressed.connect(change_part.bind(n,pt.find(i)))
+			
+		
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.add_child(New_Part)
+	New_Part.visible = true
+
 
 func _on_color_text_change(new_text:String, type:String) -> void:
 	get_viewport().gui_release_focus()

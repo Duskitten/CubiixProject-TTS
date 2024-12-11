@@ -27,6 +27,7 @@ enum R_HIP_ENUM {None, HipSkirt}
 
 
 @export var character_string : String = ""
+@export var accessories_string : String = ""
 var chardirty = false
 
 @export var Randomize : bool
@@ -295,6 +296,7 @@ var nameOverride = false
 func _process(delta: float) -> void:
 	if chardirty && !swapping:
 		chardirty = false
+		Core.Character_Gen.set_accessory_data(accessories_string,self)
 		Core.Character_Gen.generate_char_from_string(character_string,self)
 	
 	var Camera2 = get_viewport().get_camera_3d()
@@ -780,6 +782,7 @@ func set_network_val(Dict:Dictionary) -> void:
 	TargetHubRot = Dict["Model_Rotation"]
 	TargetAnim = Dict["Current_Animation"]
 
-func queue_char_update(newchar:String):
-	character_string = newchar
+func queue_char_update(newchar:Dictionary):
+	character_string = newchar["Character"]
+	accessories_string = newchar["Accessories"]
 	chardirty = true

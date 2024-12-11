@@ -209,15 +209,23 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 				userobj.Character_Storage_Data["Old_Model_Rotation"] != userobj.Character_Storage_Data["Model_Rotation"] ||
 				userobj.Character_Storage_Data["Old_Current_Animation"] != userobj.Character_Storage_Data["Current_Animation"]):
 					userobj.Character_Storage_Data["DirtyUpdate"] = true
-					
-				
-				
+
 			if data["Content"].has("Update_Model"):
 				if userobj.Character_Storage_Data["Current_Room"] != "":
+					var Data = data["Content"]["Update_Model"]
+					data["Content"]["Update_Model"]["Accessories"] = userobj.validate_accessories(Data["Accessories"])
 					emit_signal(userobj.Character_Storage_Data["Current_Room"]+RoomSignals[2],userobj.Character_Storage_Data["Player_OBJ_IDName"],data["Content"]["Update_Model"])
-					print(data["Content"]["Update_Model"])
 					userobj.Character_Storage_Data["Core_Character"] = data["Content"]["Update_Model"]
-
+					userobj.Current_Saved_Packet["Update_Self"] = data["Content"]["Update_Model"]
+					
+			if data["Content"].has("Accessory_Response"):
+				match data["Content"]["Accessory_Response"]:
+					"update_list":
+						userobj.Current_Saved_Packet["Accessory_Response"] = {
+							"response":"update_list",
+							"data":JSON.stringify(userobj.Unlocked_Accessory_Data)
+						}
+						
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
 
