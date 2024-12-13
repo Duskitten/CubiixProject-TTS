@@ -64,6 +64,7 @@ var Model_Data_Assets = {
 	"Head_Clothes/Pumpkin_Head":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Pumpkin_Head.gltf",
 	"Head_Clothes/Devil_Head":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Devil_Head.gltf",
 	"Head_Clothes/Witch_Head":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Witch_Head.gltf",
+	"Head_Clothes/Generic_Helmet":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Generic_Helmet.gltf",
 	##Chest Clothes
 	"Chest_Clothes/Pride_Bandana":"res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf",
 	##L_Hip Clothes
@@ -1007,6 +1008,7 @@ var Mesh_Data_Assets = {
 	##Head Clothes
 	"Head_Clothes/Goggle_Test":{
 		"Name": "Goggles",
+		"Eye_Override":false,
 		"Mesh_Node":"Armature/Skeleton3D/Cube_002",
 		"MaterialID":"Goggle_Test_Mat",
 		"Has_Blendshapes":true,
@@ -1017,6 +1019,7 @@ var Mesh_Data_Assets = {
 	},
 	"Head_Clothes/Orb_Test":{
 		"Name": "Orb",
+		"Eye_Override":false,
 		"Mesh_Node":"Armature/Skeleton3D/Icosphere",
 		"MaterialID":"Orb_Test_Mat",
 		"Has_Blendshapes":false,
@@ -1027,6 +1030,7 @@ var Mesh_Data_Assets = {
 	},
 	"Head_Clothes/DotMouse_Hat":{
 		"Name": "Dotmouse",
+		"Eye_Override":false,
 		"Mesh_Node":"Armature/Skeleton3D/DotMouseHat",
 		"MaterialID":"DotMouse_Hat_Mat",
 		"Has_Blendshapes":false,
@@ -1035,9 +1039,21 @@ var Mesh_Data_Assets = {
 		"Data":[],
 		"BlendData":{},
 	},
+	"Head_Clothes/Generic_Helmet":{
+		"Name": "Helmet",
+		"Eye_Override":true,
+		"Mesh_Node":"Armature/Skeleton3D/Generic_Helmet",
+		"MaterialID":"Medieval_Mat",
+		"Has_Blendshapes":true,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
 	#Halloween Stuff
 	"Head_Clothes/Pumpkin_Head_Cute_1":{
 		"Name": "Pumpkin",
+		"Eye_Override":false,
 		"Override_Model":"Head_Clothes/Pumpkin_Head",
 		"Mesh_Node":"Armature/Skeleton3D/Pumpkin",
 		"MaterialID":"Pumpkin_Cute_1",
@@ -1049,6 +1065,7 @@ var Mesh_Data_Assets = {
 	},
 	"Head_Clothes/Devil_Head":{
 		"Name": "Devil",
+		"Eye_Override":false,
 		"Mesh_Node":"Armature/Skeleton3D/Devil",
 		"MaterialID":"Devil_Cute_1",
 		"Has_Blendshapes":false,
@@ -1059,6 +1076,7 @@ var Mesh_Data_Assets = {
 	},
 	"Head_Clothes/Witch_Head":{
 		"Name": "Witch",
+		"Eye_Override":false,
 		"Mesh_Node":"Armature/Skeleton3D/Witch",
 		"MaterialID":"Witch_Cute_1",
 		"Has_Blendshapes":false,
@@ -1146,6 +1164,7 @@ var Material_Data_Assets = {
 	"DotMouse_Hat_Mat":load("res://Assets/Materials/Characters/Accessories/DotMouse_Hat_Mat.tres"),
 	"Trad_Pride_Bandana_Mat":load("res://Assets/Materials/Characters/Accessories/Trad_Pride_Bandana_Mat.tres"),
 	"Trans_Pride_Bandana_Mat":load("res://Assets/Materials/Characters/Accessories/Trans_Pride_Bandana_Mat.tres"),
+	"Medieval_Mat":load("res://Assets/Materials/Characters/Accessories/Medieval_Shader_Material.tres"),
 	#Halloween Stuff
 	"Pumpkin_Cute_1":load("res://Assets/Materials/Characters/Accessories/Pumpkin_Cute_1_Mat.tres"),
 	"Devil_Cute_1":load("res://Assets/Materials/Characters/Accessories/Devil_Cute_1_Mat.tres"),
@@ -1227,7 +1246,8 @@ var Head_Slot = [
 	#Halloween Stuff
 	"Head_Clothes/Pumpkin_Head_Cute_1",
 	"Head_Clothes/Devil_Head",
-	"Head_Clothes/Witch_Head"]
+	"Head_Clothes/Witch_Head",
+	"Head_Clothes/Generic_Helmet"]
 var Face_Slot = [
 	"",]
 var Chest_Slot = [
@@ -1296,17 +1316,28 @@ func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary) -> Dictiona
 	#Here we're going to sort the meshes we would like to use!
 	var unCompiledMeshList = []
 	var unCompiledMeshListKey = []
+	var EyeOverride = false
+	
+	for i in MeshList:
+		if i != "":
+			if Mesh_Data_Assets[i].has("Eye_Override"):
+				if Mesh_Data_Assets[i]["Eye_Override"]:
+					EyeOverride = true
+					
+	if EyeOverride:
+		for i in MeshList:
+			if i.begins_with("Eyes"):
+				MeshList.erase(i)
 	
 	##Here we sort based on the material
 	for i in MeshList:
 		if i != "":
-			
 			if !unCompiledMeshListKey.has(Mesh_Data_Assets[i]["MaterialID"]):
 				unCompiledMeshListKey.append(Mesh_Data_Assets[i]["MaterialID"])
 				unCompiledMeshList.append([i])
+				
 			else:
 				unCompiledMeshList[unCompiledMeshListKey.find(Mesh_Data_Assets[i]["MaterialID"])].append(i)
-
 	##Generate the framework
 	var CompiledMeshList = {
 		"MeshList":unCompiledMeshList,

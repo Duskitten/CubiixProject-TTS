@@ -924,7 +924,7 @@ func Transition_New_Song(NewSongID:String) -> void:
 	AudioFader2.tween_callback(OldAudioPlayer.queue_free)
 
 func show_error(Error:String):
-	$CanvasLayer/Hexii_Tablet_UI.show()
+	$CanvasLayer/Hexii_Tablet_UI.show()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper.hide()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2.show()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Login_Screen.hide()

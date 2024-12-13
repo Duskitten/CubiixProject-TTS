@@ -236,3 +236,6 @@ func char_update() -> void:
 
 func update_charlist() -> void:
 	call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"Accessory_Response":"update_list"})
+
+func send_chat_messege(target:String, message:String) -> void:
+	call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"Message":{"target":target,"message":message}})
