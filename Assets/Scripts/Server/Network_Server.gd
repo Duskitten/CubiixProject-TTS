@@ -182,7 +182,7 @@ func parse_data(key:int, user:PacketPeerStream, data:Dictionary, userobj:ServerP
 								send_data(userobj.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: User already in server."})
 								return
 						
-						userobj.Character_Storage_Data["Player_OBJ_IDName"] = str(data["Content"]["Username"]+"@"+data["Content"]["URL"]).replace("@","_").replace(".","_").replace("/","_").replace("\\","_").replace("\"","_").replace(":","_")
+						userobj.Character_Storage_Data["Player_OBJ_IDName"] = str(hash(data["Content"]["Username"]+"@"+data["Content"]["URL"]))
 						userobj.name = userobj.Character_Storage_Data["Player_OBJ_IDName"]
 						
 						
