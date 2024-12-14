@@ -1042,8 +1042,15 @@ var Mesh_Data_Assets = {
 	"Head_Clothes/Generic_Helmet":{
 		"Name": "Helmet",
 		"Eye_Override":true,
+		"Mat_Overrides":{
+			"Body1" : ["#5f5039","#000", 0, 1],
+			"Body2" : ["#c5734c","#000", 0, 1],
+			"Body3" : "Body3",
+			"Body4" : "Body4",
+			
+		},
 		"Mesh_Node":"Armature/Skeleton3D/Generic_Helmet",
-		"MaterialID":"Medieval_Mat",
+		"MaterialID":"User_Custom_Head",
 		"Has_Blendshapes":true,
 		"Has_Bones":false,
 		"Has_DynBones":false,
@@ -1312,7 +1319,7 @@ func gen_thread_run():
 func _exit_tree() -> void:
 	MeshGenThread.wait_to_finish()
 	
-func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary) -> Dictionary:
+func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary, node:Node3D) -> Dictionary:
 	#Here we're going to sort the meshes we would like to use!
 	var unCompiledMeshList = []
 	var unCompiledMeshListKey = []
@@ -1335,9 +1342,36 @@ func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary) -> Dictiona
 			if !unCompiledMeshListKey.has(Mesh_Data_Assets[i]["MaterialID"]):
 				unCompiledMeshListKey.append(Mesh_Data_Assets[i]["MaterialID"])
 				unCompiledMeshList.append([i])
-				
 			else:
 				unCompiledMeshList[unCompiledMeshListKey.find(Mesh_Data_Assets[i]["MaterialID"])].append(i)
+	
+	for i in MeshList:
+		if i != "":
+			var materialID = Mesh_Data_Assets[i]["MaterialID"]
+			if Mesh_Data_Assets[i].has("Mat_Overrides"):
+				for x in Mesh_Data_Assets[i]["Mat_Overrides"].keys():
+					print(x)
+					match typeof(Mesh_Data_Assets[i]["Mat_Overrides"][x]):
+						TYPE_ARRAY:
+							node.custom_locks[materialID][1][x] = ""
+							OverrideMaterials[materialID].set("shader_parameter/"+x, Color(Mesh_Data_Assets[i]["Mat_Overrides"][x][0]))
+							OverrideMaterials[materialID].set("shader_parameter/"+"emiss_"+x, Color(Mesh_Data_Assets[i]["Mat_Overrides"][x][1]))
+							OverrideMaterials[materialID].set("shader_parameter/"+x+"_metallic", Mesh_Data_Assets[i]["Mat_Overrides"][x][2])
+							OverrideMaterials[materialID].set("shader_parameter/"+x+"_roughness", Mesh_Data_Assets[i]["Mat_Overrides"][x][3])
+						TYPE_STRING:
+							if OverrideMaterials.has("User"):
+								node.custom_locks[materialID][1][x] = Mesh_Data_Assets[i]["Mat_Overrides"][x]
+								OverrideMaterials[materialID].set("shader_parameter/"+x, OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Overrides"][x]))
+								OverrideMaterials[materialID].set("shader_parameter/"+"emiss_"+x, OverrideMaterials["User"].get("shader_parameter/"+"emiss_"+Mesh_Data_Assets[i]["Mat_Overrides"][x]))
+								OverrideMaterials[materialID].set("shader_parameter/"+x+"_metallic", OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Overrides"][x]+"_metallic"))
+								OverrideMaterials[materialID].set("shader_parameter/"+x+"_roughness",  OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Overrides"][x]+"_roughness"))
+			else:
+				if node.custom_locks.has(materialID):
+					for x in node.custom_locks[materialID][1].keys():
+						node.custom_locks[materialID][1][x] = ""
+					
+				
+				
 	##Generate the framework
 	var CompiledMeshList = {
 		"MeshList":unCompiledMeshList,

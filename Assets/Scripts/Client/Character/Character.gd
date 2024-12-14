@@ -2,6 +2,25 @@ extends CharacterBody3D
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
 var charmat = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+var custommat_head = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+var custommat_face = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+var custommat_chest = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+var custommat_back = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+var custommat_l_hand = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+var custommat_r_hand = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+var custommat_l_hip = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+var custommat_r_hip = load("res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres").duplicate()
+
+var custom_locks = {
+	"User_Custom_Head":[custommat_head,{"Body1":"","Body2":"","Body3":"","Body4":""}],
+	"User_Custom_Face":[custommat_face,{"Body1":"","Body2":"","Body3":"","Body4":""}],
+	"User_Custom_Chest":[custommat_chest,{"Body1":"","Body2":"","Body3":"","Body4":""}],
+	"User_Custom_Back":[custommat_back,{"Body1":"","Body2":"","Body3":"","Body4":""}],
+	"User_Custom_L_Hand":[custommat_l_hand,{"Body1":"","Body2":"","Body3":"","Body4":""}],
+	"User_Custom_R_Hand":[custommat_r_hand,{"Body1":"","Body2":"","Body3":"","Body4":""}],
+	"User_Custom_L_Hip":[custommat_l_hip,{"Body1":"","Body2":"","Body3":"","Body4":""}],
+	"User_Custom_R_Hip":[custommat_r_hip,{"Body1":"","Body2":"","Body3":"","Body4":""}],
+}
 
 enum EYE_ENUM {Default,Chonk,Tri,Nat,Circle,Fox,Four,Entity,Text,Mouse}
 enum EAR_ENUM {None,Cat, Fox, Wolf, Goat, Bee, Moth,Mouse,Alien,Deer, Entity, Dog, Bunny, Fluffy}
@@ -177,6 +196,16 @@ func Regen_Color():
 	charmat.set_shader_parameter("Body4_metallic",Body_4_Metallic)
 	charmat.set_shader_parameter("Body4_roughness",Body_4_Roughness)
 	
+	for i in custom_locks.keys():
+		for x in custom_locks[i][1].keys():
+			if custom_locks[i][1][x] != "":
+				custom_locks[i][0].set("shader_parameter/"+x, charmat.get("shader_parameter/"+custom_locks[i][1][x]))
+				custom_locks[i][0].set("shader_parameter/"+"emiss_"+x, charmat.get("shader_parameter/"+"emiss_"+custom_locks[i][1][x]))
+				custom_locks[i][0].set("shader_parameter/"+x+"_metallic", charmat.get("shader_parameter/"+custom_locks[i][1][x]))
+				custom_locks[i][0].set("shader_parameter/"+x+"_roughness",  charmat.get("shader_parameter/"+custom_locks[i][1][x]))
+						
+	
+	
 func Adjust_Scale():
 	Model.scale = Vector3(Scale,Scale,Scale)
 
@@ -229,7 +258,17 @@ func Regen_Character():
 	Core.AssetData.L_Hip_Slot[L_Hip],
 	Core.AssetData.R_Hip_Slot[R_Hip]
 	],
-	{"User":charmat}
+	{
+		"User":charmat,
+		"User_Custom_Head":custommat_head,
+		"User_Custom_Face":custommat_face,
+		"User_Custom_Chest":custommat_chest,
+		"User_Custom_Back":custommat_back,
+		"User_Custom_L_Hand":custommat_l_hand,
+		"User_Custom_R_Hand":custommat_r_hand,
+		"User_Custom_L_Hip":custommat_l_hip,
+		"User_Custom_R_Hip":custommat_r_hip},
+	self
 	)
 	var parent = Skeleton.get_parent()
 	
