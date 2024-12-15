@@ -65,6 +65,8 @@ var Model_Data_Assets = {
 	"Head_Clothes/Devil_Head":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Devil_Head.gltf",
 	"Head_Clothes/Witch_Head":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Witch_Head.gltf",
 	"Head_Clothes/Generic_Helmet":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Generic_Helmet.gltf",
+	##Face Clothes
+	"Face_Clothes/Nerd_Glasses":"res://Assets/Mesh/Cubiix/Peices/Clothes_Face/Nerd_Glasses.gltf",
 	##Chest Clothes
 	"Chest_Clothes/Pride_Bandana":"res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf",
 	##L_Hip Clothes
@@ -1092,6 +1094,25 @@ var Mesh_Data_Assets = {
 		"Data":[],
 		"BlendData":{},
 	},
+	##Face Clothes
+	"Face_Clothes/Nerd_Glasses":{
+		"Name": "Nerd Glasses",
+		"Eye_Override":true,
+		"Mat_Overrides":{
+			"Body1" : ["#000000","#000", 0, 1],
+			"Body2" : ["#000000","#000", 0, 1],
+			"Body3" : "Body3",
+			"Body4" : "Body4",
+			
+		},
+		"Mesh_Node":"Armature/Skeleton3D/Nerd_Glasses",
+		"MaterialID":"User_Custom_Face",
+		"Has_Blendshapes":true,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
 	##Chest Clothes
 	"Chest_Clothes/Trad_Pride_Bandanna":{
 		"Name": "LGBT Band",
@@ -1256,7 +1277,7 @@ var Head_Slot = [
 	"Head_Clothes/Witch_Head",
 	"Head_Clothes/Generic_Helmet"]
 var Face_Slot = [
-	"",]
+	"","Face_Clothes/Nerd_Glasses"]
 var Chest_Slot = [
 	"",
 	"Chest_Clothes/Trad_Pride_Bandanna",
