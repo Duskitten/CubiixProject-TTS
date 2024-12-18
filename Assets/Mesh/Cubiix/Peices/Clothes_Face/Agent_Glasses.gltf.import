@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bct06x520b8we"
-path="res://.godot/imported/Cubiix_Base.gltf-154aa9af21f7a6a979bff73ba924c464.scn"
+uid="uid://nb5bt708di8p"
+path="res://.godot/imported/Agent_Glasses.gltf-b5048df69a68ce3b9778ec6ef638f922.scn"
 
 [deps]
 
-source_file="res://Assets/Mesh/Cubiix/Cubiix_Base.gltf"
-dest_files=["res://.godot/imported/Cubiix_Base.gltf-154aa9af21f7a6a979bff73ba924c464.scn"]
+source_file="res://Assets/Mesh/Cubiix/Peices/Clothes_Face/Agent_Glasses.gltf"
+dest_files=["res://.godot/imported/Agent_Glasses.gltf-b5048df69a68ce3b9778ec6ef638f922.scn"]
 
 [params]
 
@@ -23,7 +23,7 @@ meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
-meshes/force_disable_compression=true
+meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
@@ -31,13 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Material": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -90,3 +90,6 @@ func _http_request_completed(result, response_code, headers, body):
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	pass
+
+func enable_singleplayer():
+	Persistant_Core.show_play_screen()

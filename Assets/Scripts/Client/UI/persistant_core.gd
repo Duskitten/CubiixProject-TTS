@@ -688,6 +688,8 @@ func _on_drag_text_mouse_exited() -> void:
 
 func _on_titlebutton_pressed(extra_arg_0: String) -> void:
 	match extra_arg_0:
+		"Single":
+			Core.enable_singleplayer()
 		"Social":
 			OS.shell_open("https://cubiixproject.xyz/")
 		"Update":

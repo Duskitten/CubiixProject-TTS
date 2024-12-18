@@ -27,8 +27,8 @@ var Character_Storage_Data = {
 }
 
 var Unlocked_Accessory_Data = {
-	"Head_Slot":["","Head_Clothes/DotMouse_Hat","Head_Clothes/Generic_Helmet"],
-	"Face_Slot":["","Face_Clothes/Nerd_Glasses"],
+	"Head_Slot":["","Head_Clothes/DotMouse_Hat","Head_Clothes/Generic_Helmet","Head_Clothes/MC_Deimos_Visor"],
+	"Face_Slot":["","Face_Clothes/Nerd_Glasses","Face_Clothes/MC_Agent_Glasses"],
 	"Chest_Slot":[""],
 	"Back_Slot":[""],
 	"L_Hip_Slot":[""],

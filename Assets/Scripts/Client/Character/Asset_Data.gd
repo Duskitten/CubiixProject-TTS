@@ -67,6 +67,7 @@ var Model_Data_Assets = {
 	"Head_Clothes/Generic_Helmet":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Generic_Helmet.gltf",
 	##Face Clothes
 	"Face_Clothes/Nerd_Glasses":"res://Assets/Mesh/Cubiix/Peices/Clothes_Face/Nerd_Glasses.gltf",
+
 	##Chest Clothes
 	"Chest_Clothes/Pride_Bandana":"res://Assets/Mesh/Cubiix/Peices/Clothes_Chest/Pride_Bandana.gltf",
 	##L_Hip Clothes
@@ -75,6 +76,11 @@ var Model_Data_Assets = {
 	"R_Hip/HipSkirt":"res://Assets/Mesh/Cubiix/Peices/Clothes_Hip_R/HipSkirt_R.gltf",
 	##Back Clothes
 	"Back_Clothes/Cape_1":"res://Assets/Mesh/Cubiix/Peices/Clothes_Back/Cape_1.gltf",
+	
+	
+	#Madness Stuff:
+	"Face_Clothes/MC_Agent_Glasses":"res://Assets/Mesh/Cubiix/Peices/Clothes_Face/Agent_Glasses.gltf",
+	"Head_Clothes/MC_Deimos_Visor":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Deimos_Visor.gltf",
 }
 
 var InitThread:Thread
@@ -1098,7 +1104,7 @@ var Mesh_Data_Assets = {
 	"Face_Clothes/Nerd_Glasses":{
 		"Name": "Nerd Glasses",
 		"Eye_Override":true,
-		"Mat_Overrides":{
+		"Mat_Base_Overrides":{
 			"Body1" : ["#000000","#000", 0, 1],
 			"Body2" : ["#000000","#000", 0, 1],
 			"Body3" : "Body3",
@@ -1184,6 +1190,47 @@ var Mesh_Data_Assets = {
 			}
 		}
 	},
+	
+	#Madness Stuff:
+	"Face_Clothes/MC_Agent_Glasses":{
+		"Name": "L33t Specs",
+		"Eye_Override":true,
+		"Mat_Base_Overrides":{
+			"Body1" : ["#000000","#000", 0, 1],
+			"Body2" : ["#000000","#000", 0, 1],
+			"Body3" : "Body3",
+			"Body4" : "Body4",
+			
+		},
+		"Mat_Hard_Overrides":{
+			"has_alpha":true,
+			"Body1_alpha" : 1,
+			"Body2_alpha" : 1,
+			"Body3_alpha" : 0.5,
+			"Body4_alpha" : 0.5,
+
+		},
+		"Mesh_Node":"Armature/Skeleton3D/Agent_Glasses",
+		"MaterialID":"User_Custom_Face",
+		"Has_Blendshapes":true,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
+	"Head_Clothes/MC_Deimos_Visor":{
+		"Name": "De1m0s Hat",
+		"Eye_Override":false,
+		"Mesh_Node":"Armature/Skeleton3D/DeimosHat",
+		"MaterialID":"MC_Deimos_Mat",
+		"Has_Blendshapes":false,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
+	
+	
 }
 
 
@@ -1197,7 +1244,8 @@ var Material_Data_Assets = {
 	"Pumpkin_Cute_1":load("res://Assets/Materials/Characters/Accessories/Pumpkin_Cute_1_Mat.tres"),
 	"Devil_Cute_1":load("res://Assets/Materials/Characters/Accessories/Devil_Cute_1_Mat.tres"),
 	"Witch_Cute_1":load("res://Assets/Materials/Characters/Accessories/Witch_Cute_1_Mat.tres"),
-	"Tropic_1":load("res://Assets/Materials/Characters/Accessories/Tropic_Shader_Material.tres")
+	"Tropic_1":load("res://Assets/Materials/Characters/Accessories/Tropic_Shader_Material.tres"),
+	"MC_Deimos_Mat":load("res://Assets/Materials/Characters/Accessories/Deimos_Shader_Material.tres")
 }
 #--
 var Cubiix_Model = load("res://Assets/Scenes/Client/Characters/cubiix_model.tscn").instantiate()
@@ -1275,9 +1323,12 @@ var Head_Slot = [
 	"Head_Clothes/Pumpkin_Head_Cute_1",
 	"Head_Clothes/Devil_Head",
 	"Head_Clothes/Witch_Head",
-	"Head_Clothes/Generic_Helmet"]
+	"Head_Clothes/Generic_Helmet",
+	"Head_Clothes/MC_Deimos_Visor",]
 var Face_Slot = [
-	"","Face_Clothes/Nerd_Glasses"]
+	"",
+	"Face_Clothes/Nerd_Glasses",
+	"Face_Clothes/MC_Agent_Glasses"]
 var Chest_Slot = [
 	"",
 	"Chest_Clothes/Trad_Pride_Bandanna",
@@ -1369,29 +1420,33 @@ func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary, node:Node3D
 	for i in MeshList:
 		if i != "":
 			var materialID = Mesh_Data_Assets[i]["MaterialID"]
-			if Mesh_Data_Assets[i].has("Mat_Overrides"):
-				for x in Mesh_Data_Assets[i]["Mat_Overrides"].keys():
+			if Mesh_Data_Assets[i].has("Mat_Base_Overrides"):
+				for x in Mesh_Data_Assets[i]["Mat_Base_Overrides"].keys():
 					print(x)
-					match typeof(Mesh_Data_Assets[i]["Mat_Overrides"][x]):
+					match typeof(Mesh_Data_Assets[i]["Mat_Base_Overrides"][x]):
 						TYPE_ARRAY:
 							node.custom_locks[materialID][1][x] = ""
-							OverrideMaterials[materialID].set("shader_parameter/"+x, Color(Mesh_Data_Assets[i]["Mat_Overrides"][x][0]))
-							OverrideMaterials[materialID].set("shader_parameter/"+"emiss_"+x, Color(Mesh_Data_Assets[i]["Mat_Overrides"][x][1]))
-							OverrideMaterials[materialID].set("shader_parameter/"+x+"_metallic", Mesh_Data_Assets[i]["Mat_Overrides"][x][2])
-							OverrideMaterials[materialID].set("shader_parameter/"+x+"_roughness", Mesh_Data_Assets[i]["Mat_Overrides"][x][3])
+							OverrideMaterials[materialID].set("shader_parameter/"+x, Color(Mesh_Data_Assets[i]["Mat_Base_Overrides"][x][0]))
+							OverrideMaterials[materialID].set("shader_parameter/"+"emiss_"+x, Color(Mesh_Data_Assets[i]["Mat_Base_Overrides"][x][1]))
+							OverrideMaterials[materialID].set("shader_parameter/"+x+"_metallic", Mesh_Data_Assets[i]["Mat_Base_Overrides"][x][2])
+							OverrideMaterials[materialID].set("shader_parameter/"+x+"_roughness", Mesh_Data_Assets[i]["Mat_Base_Overrides"][x][3])
 						TYPE_STRING:
 							if OverrideMaterials.has("User"):
-								node.custom_locks[materialID][1][x] = Mesh_Data_Assets[i]["Mat_Overrides"][x]
-								OverrideMaterials[materialID].set("shader_parameter/"+x, OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Overrides"][x]))
-								OverrideMaterials[materialID].set("shader_parameter/"+"emiss_"+x, OverrideMaterials["User"].get("shader_parameter/"+"emiss_"+Mesh_Data_Assets[i]["Mat_Overrides"][x]))
-								OverrideMaterials[materialID].set("shader_parameter/"+x+"_metallic", OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Overrides"][x]+"_metallic"))
-								OverrideMaterials[materialID].set("shader_parameter/"+x+"_roughness",  OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Overrides"][x]+"_roughness"))
+								node.custom_locks[materialID][1][x] = Mesh_Data_Assets[i]["Mat_Base_Overrides"][x]
+								OverrideMaterials[materialID].set("shader_parameter/"+x, OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Base_Overrides"][x]))
+								OverrideMaterials[materialID].set("shader_parameter/"+"emiss_"+x, OverrideMaterials["User"].get("shader_parameter/"+"emiss_"+Mesh_Data_Assets[i]["Mat_Base_Overrides"][x]))
+								OverrideMaterials[materialID].set("shader_parameter/"+x+"_metallic", OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Base_Overrides"][x]+"_metallic"))
+								OverrideMaterials[materialID].set("shader_parameter/"+x+"_roughness",  OverrideMaterials["User"].get("shader_parameter/"+Mesh_Data_Assets[i]["Mat_Base_Overrides"][x]+"_roughness"))
 			else:
 				if node.custom_locks.has(materialID):
 					for x in node.custom_locks[materialID][1].keys():
 						node.custom_locks[materialID][1][x] = ""
-					
-				
+		
+			if Mesh_Data_Assets[i].has("Mat_Hard_Overrides"):
+				for x in Mesh_Data_Assets[i]["Mat_Hard_Overrides"].keys():
+					if x == "has_alpha":
+						OverrideMaterials[materialID].render_priority = 100
+					OverrideMaterials[materialID].set("shader_parameter/"+x, Mesh_Data_Assets[i]["Mat_Hard_Overrides"][x])
 				
 	##Generate the framework
 	var CompiledMeshList = {

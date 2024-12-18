@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=116 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -79,6 +79,9 @@
 [ext_resource type="Texture2D" uid="uid://f4n5rqt1sepx" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_bar.png" id="61_ga4pe"]
 [ext_resource type="Texture2D" uid="uid://cdfnrgo0w8so3" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_List.png" id="62_gb1sw"]
 [ext_resource type="Texture2D" uid="uid://bkn3510spy4im" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_bar_hover.png" id="62_t5rdf"]
+[ext_resource type="Texture2D" uid="uid://21ntbee3xvtg" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Offline_Normal.png" id="79_0m4it"]
+[ext_resource type="Texture2D" uid="uid://db82m562xi1p4" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Offline_Hover.png" id="80_py20x"]
+[ext_resource type="Texture2D" uid="uid://bw15s0r50tq1s" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Offline_Hover2.png" id="81_0hus2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
 
@@ -2966,7 +2969,6 @@ offset_bottom = 376.0
 texture_normal = ExtResource("51_oo4pn")
 
 [node name="Login_Buttons" type="HBoxContainer" parent="Wallpaper2"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -3007,6 +3009,7 @@ vertical_alignment = 2
 autowrap_mode = 3
 
 [node name="TextureButton2" type="TextureButton" parent="Wallpaper2/Login_Buttons"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("52_ix2dm")
 texture_pressed = ExtResource("53_6pyjy")
@@ -3096,8 +3099,32 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("22_u408p")
 theme_override_font_sizes/font_size = 13
-text = "Login
- "
+text = "Multi
+Player"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="TextureButton7" type="TextureButton" parent="Wallpaper2/Login_Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("79_0m4it")
+texture_pressed = ExtResource("80_py20x")
+texture_hover = ExtResource("81_0hus2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Wallpaper2/Login_Buttons/TextureButton7"]
+custom_minimum_size = Vector2(0, 106.98)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("22_u408p")
+theme_override_font_sizes/font_size = 13
+text = "Single
+Player"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3

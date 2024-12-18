@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bct06x520b8we"
-path="res://.godot/imported/Cubiix_Base.gltf-154aa9af21f7a6a979bff73ba924c464.scn"
+uid="uid://ngvs44o4g11d"
+path="res://.godot/imported/Deimos_Visor.gltf-1385643e027b6eaa459160a5eb1db0a9.scn"
 
 [deps]
 
-source_file="res://Assets/Mesh/Cubiix/Cubiix_Base.gltf"
-dest_files=["res://.godot/imported/Cubiix_Base.gltf-154aa9af21f7a6a979bff73ba924c464.scn"]
+source_file="res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Deimos_Visor.gltf"
+dest_files=["res://.godot/imported/Deimos_Visor.gltf-1385643e027b6eaa459160a5eb1db0a9.scn"]
 
 [params]
 
@@ -31,13 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Material": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

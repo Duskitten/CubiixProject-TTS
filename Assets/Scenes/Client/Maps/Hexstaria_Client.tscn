@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://dt512nrj4i3jp"]
+[gd_scene load_steps=54 format=4 uid="uid://dt512nrj4i3jp"]
 
 [ext_resource type="PackedScene" uid="uid://cycideexy0qrf" path="res://Assets/Mesh/Maps/Island/Hexstaria_Map.gltf" id="1_ktnar"]
 [ext_resource type="Material" uid="uid://6evdtq7ae51" path="res://Assets/Materials/World/Hexstaria_Sand.tres" id="2_nvq3x"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://blcj1misofydm" path="res://Assets/Scenes/Client/Creatures/Goo Dino/Goo_Dino.tscn" id="23_g6sai"]
 [ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://Assets/Scenes/Client/world/audioZone.tscn" id="23_kf4ej"]
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="23_mc7q7"]
-[ext_resource type="PackedScene" uid="uid://dxypq7p50msxw" path="res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Generic_Helmet.gltf" id="25_gihng"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ry4jr"]
 render_priority = 0
@@ -600,12 +599,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.6586, 1.06208, 153.787)
 SongID = "FishShop"
 Tag_Radius = 4.2
 
-[node name="Generic_Helmet2" parent="." instance=ExtResource("25_gihng")]
-
 [connection signal="body_exited" from="HouseCamColliders/House_1" to="HouseCamColliders" method="_on_area_3d_body_exited"]
 [connection signal="body_exited" from="HouseCamColliders/House_2" to="HouseCamColliders" method="_on_area_3d_body_exited"]
 
 [editable path="Hexstaria_Map"]
 [editable path="Multimeshes/Refs/Grass"]
 [editable path="Multimeshes/Refs/Tree2"]
-[editable path="Generic_Helmet2"]
