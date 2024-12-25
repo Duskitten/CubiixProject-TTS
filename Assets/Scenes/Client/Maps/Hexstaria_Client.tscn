@@ -26,7 +26,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="23_mc7q7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ry4jr"]
-render_priority = 0
+render_priority = 2
 shader = ExtResource("8_1io6j")
 
 [sub_resource type="Gradient" id="Gradient_qmxr5"]
@@ -62,7 +62,7 @@ background_mode = 2
 background_color = Color(0.758192, 0.758192, 0.758192, 1)
 sky = SubResource("Sky_b7qnr")
 ambient_light_source = 3
-ambient_light_color = Color(0.317026, 0.487417, 0.722656, 1)
+ambient_light_color = Color(0.691341, 0.851563, 0.838842, 1)
 ambient_light_sky_contribution = 0.04
 tonemap_mode = 2
 ssao_power = 1.30582
@@ -488,7 +488,8 @@ Name = "Ki"
 Faction = "Trii"
 
 [node name="NPC_Function" parent="NPC/Ki" instance=ExtResource("21_uc3kt")]
-Character = &"Ki"
+Character = "Ki"
+LineStart = "Init"
 Is_Important = true
 
 [node name="Sprite3D" type="Sprite3D" parent="NPC/Ki"]
@@ -514,7 +515,6 @@ Body_4 = Color(0, 1, 1, 1)
 Name = "Skim"
 
 [node name="NPC_Function" parent="NPC/Skim" instance=ExtResource("21_uc3kt")]
-Character = &"Skim"
 
 [node name="Sprite3D" type="Sprite3D" parent="NPC/Skim"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58455, 0)
@@ -541,7 +541,6 @@ Name = "Nat"
 Faction = "Octii"
 
 [node name="NPC_Function" parent="NPC/Nat" instance=ExtResource("21_uc3kt")]
-Character = &"Nat"
 
 [node name="Sprite3D" type="Sprite3D" parent="NPC/Nat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58455, 0)
@@ -567,7 +566,6 @@ Name = "Dusk"
 Faction = "Tixii"
 
 [node name="NPC_Function" parent="NPC/Dusk" instance=ExtResource("21_uc3kt")]
-Character = &"Dusk"
 
 [node name="Sprite3D" type="Sprite3D" parent="NPC/Dusk"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58455, 0)

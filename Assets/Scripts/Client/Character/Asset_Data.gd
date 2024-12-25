@@ -80,6 +80,7 @@ var Model_Data_Assets = {
 	
 	#Madness Stuff:
 	"Face_Clothes/MC_Agent_Glasses":"res://Assets/Mesh/Cubiix/Peices/Clothes_Face/Agent_Glasses.gltf",
+	"Face_Clothes/MC_Engineer_Mask":"res://Assets/Mesh/Cubiix/Peices/Clothes_Face/Engineer_Mask.gltf",
 	"Head_Clothes/MC_Deimos_Visor":"res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Deimos_Visor.gltf",
 }
 
@@ -1204,13 +1205,39 @@ var Mesh_Data_Assets = {
 		},
 		"Mat_Hard_Overrides":{
 			"has_alpha":true,
-			"Body1_alpha" : 1,
-			"Body2_alpha" : 1,
+			"Body1_alpha" : 1.0,
+			"Body2_alpha" : 1.0,
 			"Body3_alpha" : 0.5,
 			"Body4_alpha" : 0.5,
 
 		},
 		"Mesh_Node":"Armature/Skeleton3D/Agent_Glasses",
+		"MaterialID":"User_Custom_Face",
+		"Has_Blendshapes":true,
+		"Has_Bones":false,
+		"Has_DynBones":false,
+		"Data":[],
+		"BlendData":{},
+	},
+	"Face_Clothes/MC_Engineer_Mask":{
+		"Name": "A.P.T. Mask",
+		"Eye_Override":true,
+		"Mat_Base_Overrides":{
+			"Body1" : ["#535353","#000", 0.5, 0.5],
+			"Body2" : ["#939393","#000", 0.5, 0.5],
+			"Body3" : "Body3",
+			"Body4" : ["#c1c1c1","#000", 0.5, 0.5],
+			
+		},
+		"Mat_Hard_Overrides":{
+			"has_alpha":true,
+			"Body1_alpha" : 1.0,
+			"Body2_alpha" : 1.0,
+			"Body3_alpha" : 0.5,
+			"Body4_alpha" : 1.0,
+
+		},
+		"Mesh_Node":"Armature/Skeleton3D/Engineer_Mask",
 		"MaterialID":"User_Custom_Face",
 		"Has_Blendshapes":true,
 		"Has_Bones":false,
@@ -1249,6 +1276,7 @@ var Material_Data_Assets = {
 }
 #--
 var Cubiix_Model = load("res://Assets/Scenes/Client/Characters/cubiix_model.tscn").instantiate()
+var Cubiix_Anim_Model = load("res://Assets/Scenes/Client/Characters/cubiix_animation_model.tscn").instantiate()
 #--
 var Eye_Slot = [
 	"Eyes/Default",
@@ -1328,7 +1356,8 @@ var Head_Slot = [
 var Face_Slot = [
 	"",
 	"Face_Clothes/Nerd_Glasses",
-	"Face_Clothes/MC_Agent_Glasses"]
+	"Face_Clothes/MC_Agent_Glasses",
+	"Face_Clothes/MC_Engineer_Mask"]
 var Chest_Slot = [
 	"",
 	"Chest_Clothes/Trad_Pride_Bandanna",

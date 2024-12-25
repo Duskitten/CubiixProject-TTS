@@ -526,12 +526,24 @@ func get_accessory_data(Target:Node3D) -> String:
 	
 func set_accessory_data(acc_string:String,Target:Node3D) -> void:
 	var data = JSON.parse_string(acc_string)
-	Target.Head = Core.AssetData.Head_Slot.find(data["Head_Slot"])
-	Target.Face = Core.AssetData.Face_Slot.find(data["Face_Slot"])
-	Target.Chest = Core.AssetData.Head_Slot.find(data["Chest_Slot"])
-	Target.Back = Core.AssetData.Head_Slot.find(data["Back_Slot"])
-	Target.L_Hip = Core.AssetData.L_Hip_Slot.find(data["L_Hip_Slot"])
-	Target.R_Hip = Core.AssetData.R_Hip_Slot.find(data["R_Hip_Slot"])
-	Target.L_Hand = Core.AssetData.L_Hand_Slot.find(data["L_Hand_Slot"])
-	Target.R_Hand = Core.AssetData.R_Hand_Slot.find(data["R_Hand_Slot"])
+	for i in data.keys():
+		match i:
+			"Head_Slot":
+				Target.Head = Core.AssetData.Head_Slot.find(data["Head_Slot"])
+			"Face_Slot":
+				Target.Face = Core.AssetData.Face_Slot.find(data["Face_Slot"])
+			"Chest_Slot":
+				Target.Chest = Core.AssetData.Head_Slot.find(data["Chest_Slot"])
+			"Back_Slot":
+				Target.Back = Core.AssetData.Head_Slot.find(data["Back_Slot"])
+			"L_Hip_Slot":
+				Target.L_Hip = Core.AssetData.L_Hip_Slot.find(data["L_Hip_Slot"])
+			"R_Hip_Slot":
+				Target.R_Hip = Core.AssetData.R_Hip_Slot.find(data["R_Hip_Slot"])
+			"L_Hand_Slot":
+				Target.L_Hand = Core.AssetData.L_Hand_Slot.find(data["L_Hand_Slot"])
+			"R_Hand_Slot":
+				Target.R_Hand = Core.AssetData.R_Hand_Slot.find(data["R_Hand_Slot"])
+	
+	
 	

@@ -1,7 +1,7 @@
 extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
-@onready var Dialogue = $CanvasLayer/Dialogue
+
 @onready var Transitioner = $CanvasLayer/Transitioner
 @onready var Transitioner_AnimationPlayer = Transitioner.get_node("AnimationPlayer")
 
@@ -967,3 +967,11 @@ func show_play_screen() -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2.hide()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/Transition_Screen.hide()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper2/ServerList_Screen.show()
+
+#############################
+###### Dialogue System ######
+#############################
+@onready var Dialogue = $CanvasLayer/Dialogue
+
+func run_dialogue(LineStart:Array) -> void:
+	pass

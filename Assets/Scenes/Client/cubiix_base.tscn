@@ -76,6 +76,9 @@ bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 layers = 524289
 surface_material_override/0 = null
 
+[node name="LookAtBone" parent="Hub/Cubiix_Model/Skeleton3D" index="4"]
+Use_BoneName = ""
+
 [node name="AnimationTree" parent="Hub/Cubiix_Model" index="2"]
 parameters/Blend2/blend_amount = 0
 parameters/Blend_Networked/blend_amount = 0
@@ -84,7 +87,7 @@ parameters/Hand_Controller_R/blend_amount = 0
 [node name="Items" type="Node3D" parent="Hub"]
 
 [node name="Follow_Point" type="Node3D" parent="Hub"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

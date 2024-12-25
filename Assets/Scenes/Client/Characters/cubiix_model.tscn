@@ -1,10 +1,11 @@
-[gd_scene load_steps=86 format=4 uid="uid://cirw3ifxx1v8v"]
+[gd_scene load_steps=87 format=4 uid="uid://cirw3ifxx1v8v"]
 
 [ext_resource type="Texture2D" uid="uid://ef6dpy4dl3nl" path="res://Assets/Mesh/Cubiix/Color_Palette.png" id="1_5ro10"]
 [ext_resource type="Material" uid="uid://da55ukgpbvpxn" path="res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres" id="2_2760a"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://66yh8wx1jq5e" path="res://Assets/Animations/PlayerStateMachine.tres" id="3_85fqt"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cwaik7ippqh75" path="res://Assets/Animations/NPCStateMachine.tres" id="3_ah4lj"]
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Attachment_Point.gd" id="3_gfb7b"]
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Skeleton_Mod_LookAt.gd" id="4_32qfx"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c305l0w7rfyuj" path="res://Assets/Animations/Hand_Right_StateMachine.tres" id="4_mb65t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10u2h"]
@@ -4362,7 +4363,7 @@ bones/0/name = "Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 bones/0/enabled = true
-bones/0/position = Vector3(0, -0.000398678, 0)
+bones/0/position = Vector3(0, 0.0111838, 0)
 bones/0/rotation = Quaternion(0, -0.133753, 0, 0.991015)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Chest"
@@ -4376,14 +4377,14 @@ bones/2/name = "Head"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254852, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(0, 0.259048, 0)
+bones/2/position = Vector3(0, 0.261892, 0)
 bones/2/rotation = Quaternion(0.000280363, 0.133965, -0.000211318, 0.990986)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Palm_R"
 bones/3/parent = 1
 bones/3/rest = Transform3D(1.19209e-07, -1, -1.86265e-09, 0.998923, 1.19209e-07, -0.0464055, 0.0464055, 1.86265e-09, 0.998923, -0.327326, 0.134334, 0)
 bones/3/enabled = true
-bones/3/position = Vector3(-0.304417, 0.0681276, -0.0062985)
+bones/3/position = Vector3(-0.304417, 0.0776034, -0.0062985)
 bones/3/rotation = Quaternion(0.0104593, -0.0207185, 0.892455, 0.450538)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Middle_R"
@@ -4418,7 +4419,7 @@ bones/8/name = "Palm_L"
 bones/8/parent = 1
 bones/8/rest = Transform3D(1.19209e-07, 1, 1.86265e-09, -0.998923, 1.19209e-07, -0.0464055, -0.0464055, 1.86265e-09, 0.998923, 0.327326, 0.134334, 0)
 bones/8/enabled = true
-bones/8/position = Vector3(0.332064, 0.0722929, -0.022304)
+bones/8/position = Vector3(0.332064, 0.0730719, -0.022304)
 bones/8/rotation = Quaternion(0.0079604, 0.0218011, -0.939087, 0.342895)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "Middle_L"
@@ -4467,8 +4468,8 @@ bones/15/name = "Foot_R"
 bones/15/parent = 14
 bones/15/rest = Transform3D(0, -1, -7.54979e-08, 1, 0, -8.74228e-08, 8.74228e-08, -7.54979e-08, 1, 0, 0.12722, 0)
 bones/15/enabled = true
-bones/15/position = Vector3(6.05109e-05, 0.12722, -0.00065514)
-bones/15/rotation = Quaternion(0.00114795, 0.00114789, 0.707106, 0.707106)
+bones/15/position = Vector3(-0.00169747, 0.12722, 0.0183782)
+bones/15/rotation = Quaternion(-0.0321914, -0.0321915, 0.706374, 0.706374)
 bones/15/scale = Vector3(1, 0.999999, 1)
 bones/16/name = "Leg_L"
 bones/16/parent = 0
@@ -4481,8 +4482,8 @@ bones/17/name = "Foot_L"
 bones/17/parent = 16
 bones/17/rest = Transform3D(0, 1, 7.54979e-08, -1, 0, -8.74228e-08, -8.74228e-08, -7.54979e-08, 1, 0, 0.12722, 0)
 bones/17/enabled = true
-bones/17/position = Vector3(-6.21413e-05, 0.12722, -0.000738007)
-bones/17/rotation = Quaternion(0.00104701, -0.00104695, -0.707106, 0.707106)
+bones/17/position = Vector3(0.00174321, 0.12722, 0.0207028)
+bones/17/rotation = Quaternion(-0.0293626, 0.0293627, -0.706497, 0.706497)
 bones/17/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Skeleton3D"]
@@ -4536,6 +4537,27 @@ active = true
 influence = 1.0
 script = ExtResource("3_gfb7b")
 target_bone = "Palm_R"
+
+[node name="LookAtBone" type="SkeletonModifier3D" parent="Skeleton3D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("4_32qfx")
+Use_BoneName = "Head"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")

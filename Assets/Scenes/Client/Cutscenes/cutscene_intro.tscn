@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyk6utwqw1uwx"]
+
+[ext_resource type="PackedScene" uid="uid://c0ig3yk264u3b" path="res://Assets/Scenes/Client/cubiix_anim_base.tscn" id="1_1jmmo"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Other/FilmShader.gdshader" id="2_uo1fb"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_y4in0"]
+rayleigh_coefficient = 1.0
+rayleigh_color = Color(0.09599, 0.23755, 0.519531, 1)
+mie_coefficient = 0.0
+mie_color = Color(0.35415, 0.781686, 0.812, 1)
+ground_color = Color(0.0959728, 0.0889515, 0.1, 1)
+energy_multiplier = 5.0
+
+[sub_resource type="Sky" id="Sky_an3ng"]
+sky_material = SubResource("PhysicalSkyMaterial_y4in0")
+
+[sub_resource type="Environment" id="Environment_yo4n5"]
+background_mode = 1
+sky = SubResource("Sky_an3ng")
+ambient_light_source = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0bsdg"]
+shader = ExtResource("2_uo1fb")
+
+[node name="Test_Scene" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(250, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(125, 100)
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+own_world_3d = true
+handle_input_locally = false
+msaa_3d = 2
+use_debanding = true
+size = Vector2i(250, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.78421)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.965926, 0, -0.258819, 0.25, 0.258819, 0.933013, 0.0669873, -0.965926, 0.25, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_yo4n5")
+
+[node name="Cubiix_Base" parent="CanvasLayer/SubViewportContainer/SubViewport" instance=ExtResource("1_1jmmo")]
+character_string = "{\"B1\":\"000000\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.46,\"B1R\":0.45,\"B2\":\"b291c6\",\"B2E\":\"3878ed\",\"B2ES\":0.61,\"B2M\":0,\"B2R\":0.97,\"B3\":\"e879ee\",\"B3E\":\"e879ee\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"e879ee\",\"B4E\":\"e879ee\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":1,\"EX\":0,\"EY\":0,\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":1,\"W\":2}"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/SubViewportContainer"]
+material = SubResource("ShaderMaterial_0bsdg")
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 2

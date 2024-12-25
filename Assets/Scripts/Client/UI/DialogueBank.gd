@@ -1,23 +1,28 @@
 extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 var Dialogue = {
+	##Core Characters
 	"Dusk" : {
 		##Text, End, Next Line, character
-		0 : ["Oh, Hello.", true, 0, ""]
+		"Init" : ["Oh, Hello.", true, ["Init", "Dusk"]]
 	},
 	"Nat" : {
-		0 : ["Oh, Hello.", true, 0, ""]
+		"Init" : ["Oh, Hello.", true, ["Init", "Nat"]]
 	},
 	"Ki" : {
-		0 : ["Ah! Hello! I'm Ki!", false, 1, "Ki"],
-		1 : ["I'm the resident tourguide of Hexstaria!", true, 0, ""]
+		"Init" : ["Ah! Hello! I'm Ki!", false, ["Follow", "Ki"]],
+		"Follow" : ["I'm the resident tourguide of Hexstaria!", true, ["Init", "Ki"]]
 	},
-	"Fishark" : {
-		0 : ["Oh, Hello.", true, 0, ""]
+	"Skim" : {
+		"Init" : ["Oh, Hello.", true, ["Init", "Skim"]]
 	},
+	##---
+	##Random Gen NPC
 	
+	##---
 	##Outsiders
 	"Ireno" : {
-		0 : ["Can death be sleep when life is but a dream?", true, 0, ""]
+		"Init" : ["Can death be sleep when life is but a dream?", true, ["Init", "Ireno"]]
 	},
+	##---
 }

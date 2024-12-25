@@ -298,7 +298,11 @@ func Regen_Character():
 	if Is_Networked:
 		$Hub/Cubiix_Model/AnimationTree.set("parameters/Blend_Networked/blend_amount",1.0)
 	$Hub/Cubiix_Model/AnimationTree.active = false
+	
 	await get_tree().create_timer(0.2).timeout
+	$Hub/Cubiix_Model/Skeleton3D/LookAtBone.set_script(load("res://Assets/Scripts/Client/Character/Skeleton_Mod_LookAt.gd"))
+	$Hub/Cubiix_Model/Skeleton3D/LookAtBone.Use_BoneName = "Head"
+	$Hub/Cubiix_Model/Skeleton3D/LookAtBone.setup()
 	$Hub/Cubiix_Model/AnimationTree.active = true
 	swapping = false
 	DynBones.emit_signal("RePositioned")
@@ -337,6 +341,9 @@ func _process(delta: float) -> void:
 		chardirty = false
 		Core.Character_Gen.set_accessory_data(accessories_string,self)
 		Core.Character_Gen.generate_char_from_string(character_string,self)
+	
+	if !swapping:
+		Anim_Tree.get("parameters/playback")
 	
 	var Camera2 = get_viewport().get_camera_3d()
 	
@@ -475,7 +482,7 @@ func _input(event: InputEvent) -> void:
 			CameraLength += 1.0
 
 const walkspeed = .5
-const runspeed = 2
+const runspeed = 3
 
 var speed = 3
 var jumpspeed = 6
