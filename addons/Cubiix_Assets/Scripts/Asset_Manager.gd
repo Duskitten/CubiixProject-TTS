@@ -1,0 +1,254 @@
+extends Node
+
+var mod_files = []
+var mods = {}
+var assets = {}
+
+signal load_finished
+signal assets_loaded
+
+func _ready():
+	get_parent().Assets = self
+	scan_for_mods("res://addons/Cubiix_Assets/Mods/")
+	scan_for_mods(OS.get_executable_path().get_base_dir() + "/Mods/")
+	compile_mod_assets()
+	await self.load_finished
+	load_mod_assets()
+	await self.load_finished
+	print(assets)
+	emit_signal("assets_loaded")
+	generate_character_mesh(["CoreAssets/Base_Model","CoreAssets/Eyes_Default"],$"../Hub/Cubiix_Model/Armature/Skeleton3D/MeshInstance3D",$"../Hub/Cubiix_Model/Armature/Skeleton3D",$"../Hub")
+	
+func scan_for_mods(location:String) -> void:
+	var dir = DirAccess.open(location)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				scan_for_mods(location + file_name)
+			else:
+				if file_name == "Mod.json":
+					mod_files.append(location+"/"+file_name)
+					break
+			file_name = dir.get_next()
+
+func compile_mod_assets() -> void:
+	for i in mod_files:
+		var file = FileAccess.open(i, FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		var modarray = {
+			"ModID":"",
+			"ModName":"",
+			"ModDesc":""
+		}
+		if content.has("ModID"):
+			for x in content.keys():
+				match x:
+					"ModID", "ModName", "ModDesc":
+						modarray[x] = content[x]
+			mods[content["ModID"]] = modarray
+			if content.has("Assets"):
+				for n in content["Assets"].keys():
+					for x in content["Assets"][n].keys():
+						if content["Assets"][n][x].has("Path"):
+							content["Assets"][n][x]["Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Path"]
+				assets[content["ModID"]] = content["Assets"]
+		else:
+			print("Error: Invalid Mod")
+	await get_tree().process_frame
+	emit_signal("load_finished")
+
+func load_mod_assets() -> void:
+	for i in assets.keys():
+		for x in assets[i].keys():
+			for y in assets[i][x]:
+				if assets[i][x][y].has("Path"):
+					assets[i][x][y]["Node"] = load(assets[i][x][y]["Path"]).instantiate()
+	await get_tree().process_frame
+	emit_signal("load_finished")
+
+func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
+	
+	##This will replace the final model
+	var Final_Mesh : ArrayMesh = ArrayMesh.new()
+	
+	## This is for the skeleton later for our bound stuff.
+	var TargetSkin : Skin = TargetMesh.skin.duplicate(true)
+	
+	## This is for keeping track of the blendshapes themselves if they need to exist.
+	var Blendshape_Key : Array = []
+	
+	## This is for the bones we will need to replace after we create merge into a singular skeleton 
+	## So that the vertex are bound correctly
+	var Replace_Bone_Key : Dictionary = {}
+	
+	##This is for our dynamic bones when we finish loading the character
+	var DynBoneList : Dictionary  = {}
+	
+	## This is pretty important, it's what will allow us to have a bounding box for the character
+	var Compiled_AABB : AABB = AABB()
+	
+	## The key of this is as follows:
+		## Mesh Validator (We need to see if it exists)
+		## Mesh Initial Compile (This will set up our blendshapes, Skeleton, etc.)
+		## Bone Re-Adjustment and compilation of mesh itself.
+		## Blendshape Compilation
+	
+	## 1. Mesh Validator
+	## So first we're going to validate all the models exist properly and compile them here.
+	var Asset_List = {}
+	
+	for AssetID in AssetIDList:
+		var AssetParts = AssetID.split("/")
+		if assets.has(AssetParts[0]) &&\
+			assets[AssetParts[0]].has("Models") &&\
+		 	assets[AssetParts[0]]["Models"].has(AssetParts[1]) &&\
+			assets[AssetParts[0]]["Models"][AssetParts[1]].has("Node"):
+				Asset_List[AssetID] = assets[AssetParts[0]]["Models"][AssetParts[1]]
+				
+	## 2. Mesh Initial Compile 
+	## From here we're going to begin parsing through what we need, adding bones to a skeleton, etc.
+	for Asset in Asset_List.keys():
+		var DynBones = {}
+		Replace_Bone_Key[Asset] = []
+		var mesh = Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"]).mesh
+		var node = Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"])
+		var nodeskeleton = node.get_parent()
+		
+		## This is where we add blendshape count for later
+		if Asset_List[Asset].has("Has_Blendshapes"):
+			for blendshape in mesh.get_blend_shape_count():
+				Final_Mesh.call_deferred("add_blend_shape",mesh.get_blend_shape_name(blendshape))
+				Blendshape_Key.append(mesh.get_blend_shape_name(blendshape))
+		
+		## This is where we add the dynbone list for later
+		if Asset_List[Asset].has("Has_Dynbones"):
+			DynBones = Asset_List[Asset]["DynBone_Data"]["DynBone_Sets"].duplicate(true)
+		
+		## This is where we initially build the skeleton we will need + 
+		if TargetSkeleton != null:
+			for Bone in nodeskeleton.get_bone_count():
+				var BoneName = nodeskeleton.get_bone_name(Bone)
+				var Ms_Bone_Location = nodeskeleton.find_bone(BoneName)
+				if TargetSkeleton.find_bone(BoneName) == -1:
+					var Sk_Bone_Location = TargetSkeleton.add_bone(BoneName)
+					var Sk_Bone_Parent = nodeskeleton.get_bone_name(nodeskeleton.get_bone_parent(Ms_Bone_Location))
+					var Sk_Bone_Parent_Location = TargetSkeleton.find_bone(Sk_Bone_Parent)
+					TargetSkeleton.call_deferred("set_bone_parent",Sk_Bone_Location,Sk_Bone_Parent_Location)
+					TargetSkeleton.call_deferred("set_bone_pose",Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
+					TargetSkeleton.call_deferred("set_bone_rest",Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
+					TargetSkin.call_deferred("add_named_bind",BoneName,node.skin.get_bind_pose(Bone))
+					Replace_Bone_Key[Asset].append([Ms_Bone_Location,Sk_Bone_Location])
+					if Asset_List[Asset].has("Has_Dynbones"):
+						if MainNode != null:
+							for x in DynBones.keys():
+								for y in DynBones[x].size():
+									if str(DynBones[x][y]) == BoneName:
+										DynBones[x][y] = Sk_Bone_Location
+										
+		if Asset_List[Asset].has("Has_Dynbones"):
+			DynBoneList[Asset_List[Asset]] = DynBones
+
+	if MainNode != null:
+		MainNode.DynBones_Register = DynBoneList
+	
+	
+	## 3. 
+	var CoreMesh_Commit = [PackedVector3Array(),PackedVector3Array(),PackedFloat32Array(),null,PackedVector2Array(),null,null,null,null,null,PackedInt32Array(),PackedFloat32Array(),PackedInt32Array()]
+	var Bone_Rewrite = PackedInt32Array()
+	var st = SurfaceTool.new()
+	var Meshes = {}
+	for Asset in Asset_List.keys():
+		var mesh = [
+			Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"]).mesh,
+			SurfaceTool.new()
+		]
+		Meshes[Asset] = mesh
+		mesh[1].append_from(mesh[0],0,Transform3D())
+		mesh[1] = mesh[1].commit_to_arrays()
+		var Mesh_Commit = mesh[1]
+		st.append_from(mesh[0],0,Transform3D())
+		Compiled_AABB = mesh[0].get_aabb().merge(Compiled_AABB)
+		var Key = Replace_Bone_Key[Asset]
+		var IgnoreList = []
+		if !Key.is_empty():
+			for K in Key:
+				for CC in Mesh_Commit[10].size():
+					if Mesh_Commit[Mesh.ARRAY_BONES][CC] == K[0]:
+						if !IgnoreList.has(CC):
+							IgnoreList.append(CC)
+							Mesh_Commit[Mesh.ARRAY_BONES][CC] = K[1]
+		
+		for x in CoreMesh_Commit.size():
+				if x == 10:
+					Bone_Rewrite.append_array(Mesh_Commit[x])
+					
+	CoreMesh_Commit = st.commit_to_arrays()
+	CoreMesh_Commit[10] = Bone_Rewrite
+	
+	
+	
+	var Blendshapes = []
+	Blendshapes.resize(Blendshape_Key.size())
+	
+	for Asset in Asset_List.keys():
+		var mesh = Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"]).mesh
+		var node = Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"])
+		
+		if Asset_List[Asset].has("Has_Blendshapes"):
+				#print("Mesh: ",MeshSubList[i]," has Blendshapes")
+				for b in Meshes[Asset][0].get_blend_shape_count():
+					##Compile Blended Mesh
+					var New_Blend_Array
+					var Blend_Name = Meshes[Asset][0].get_blend_shape_name(b)
+					
+					var New_Blend_Array_Tool = SurfaceTool.new()
+					New_Blend_Array_Tool.create_from_blend_shape(Meshes[Asset][0],0,Blend_Name)
+					New_Blend_Array = New_Blend_Array_Tool.commit_to_arrays()
+	
+					var Blend_Array_Compiled = [New_Blend_Array[0],Meshes[Asset][1][1],Meshes[Asset][1][2]]
+					##Remove the values to get raw changed value
+					for x in Blend_Array_Compiled[0].size():
+						Blend_Array_Compiled[0][x] -= Meshes[Asset][1][0][x]
+					
+					var Compiled_Blend_Array = [PackedVector3Array(),PackedVector3Array(),PackedFloat32Array()]
+						
+					for m in Asset_List.keys():
+						if Asset == m:
+							Compiled_Blend_Array[0].append_array(Blend_Array_Compiled[0])
+							Compiled_Blend_Array[1].append_array(Blend_Array_Compiled[1])
+							Compiled_Blend_Array[2].append_array(Blend_Array_Compiled[2])
+						else:
+							##Zero out mesh as we dont want it to interact with blendshape, but RETAIN normals and tangents
+							var newpackedVec3 = PackedVector3Array()
+							newpackedVec3.resize(Meshes[m][1][0].size())
+							Compiled_Blend_Array[0].append_array(newpackedVec3)
+							Compiled_Blend_Array[1].append_array(Meshes[m][1][1])
+							Compiled_Blend_Array[2].append_array(Meshes[m][1][2])
+							
+					Blendshapes[Blendshape_Key.find(Meshes[Asset][0].get_blend_shape_name(b))] = Compiled_Blend_Array
+					
+		for n in (Blendshapes.size()):
+			var empty_blendshape = [PackedVector3Array(),PackedVector3Array(),PackedFloat32Array()]
+			for m in Asset_List.keys():
+				var newpackedVec3 = PackedVector3Array()
+				newpackedVec3.resize(Meshes[m][1][0].size())
+
+				empty_blendshape[0].append_array(newpackedVec3)
+				empty_blendshape[1].append_array(Meshes[m][1][1])
+				empty_blendshape[2].append_array(Meshes[m][1][2])
+			if Blendshapes[n] == null:
+				Blendshapes[n] = empty_blendshape
+
+	Final_Mesh.call_deferred("add_surface_from_arrays", Mesh.PRIMITIVE_TRIANGLES,CoreMesh_Commit,Blendshapes)
+				
+	TargetMesh.call_deferred("set_mesh",Final_Mesh)
+	TargetMesh.call_deferred("set_skin",TargetSkin)
+	#print(Compiled_AABB)
+	TargetMesh.set_custom_aabb(Compiled_AABB)
+	##Apply materials to mesh surfaces as required
+	
+	TargetMesh.call_deferred("set_surface_override_material",0,MainNode.New_Shader)
+	#MainNode.call_deferred("emit_signal","MeshFinished")
+	#thread_force_post()

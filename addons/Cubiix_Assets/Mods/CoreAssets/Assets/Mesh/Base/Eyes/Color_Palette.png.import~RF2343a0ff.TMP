@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxt2w40tgjh3a"
-path="res://.godot/imported/Color_Palette.png-9d58bd0cd06ae2750e5a6abf035e87fe.ctex"
+uid="uid://ctge5cfyx6tiv"
+path="res://.godot/imported/Color_Palette.png-596e323b1289b92430d983bfd074704b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mesh/Cubiix/Peices/Clothes_Head/Color_Palette.png"
-dest_files=["res://.godot/imported/Color_Palette.png-9d58bd0cd06ae2750e5a6abf035e87fe.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/CoreAssets/Assets/Mesh/Base/Eyes/Color_Palette.png"
+dest_files=["res://.godot/imported/Color_Palette.png-596e323b1289b92430d983bfd074704b.ctex"]
 
 [params]
 

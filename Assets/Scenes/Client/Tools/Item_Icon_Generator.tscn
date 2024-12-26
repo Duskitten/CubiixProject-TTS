@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://2egoundocn2y"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Character/asset_icon_generator.gd" id="1_eev8m"]
-[ext_resource type="PackedScene" uid="uid://bct06x520b8we" path="res://Assets/Mesh/Cubiix/Cubiix_Base.gltf" id="2_h4jl1"]
+[ext_resource type="PackedScene" path="res://Assets/Mesh/Cubiix/Cubiix_Base.gltf" id="2_h4jl1"]
 [ext_resource type="Material" uid="uid://da55ukgpbvpxn" path="res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres" id="3_dp6vp"]
 
 [sub_resource type="Environment" id="Environment_2yyoj"]

@@ -1,0 +1,18 @@
+{
+	"ModID" : "CoreAssets",
+	"ModName" : "Cubiix Core Assets",
+	"ModDesc" : "A collection of default assets for the cubiix to function.\\nThis includes only the basic models, such as the body, eyes, ears, etc.",
+	"Assets" : {
+		"Models":{
+			"Base_Model":{
+				"Path" : "Assets/Mesh/Base/Cubiix_Base.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Cube"
+			},
+			"Eyes_Default":{
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Default.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Default",
+				"Has_Blendshapes":true
+			},
+		}
+	}
+}

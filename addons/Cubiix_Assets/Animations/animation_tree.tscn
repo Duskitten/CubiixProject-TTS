@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvdiduae8dn2m"]
+
+[ext_resource type="AnimationNodeStateMachine" uid="uid://e02pl321j1j5" path="res://addons/Cubiix_Assets/Animations/state_machine.tres" id="1_n0kq7"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cs34u"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gwx0t"]
+graph_offset = Vector2(-671, -40)
+nodes/AnimationNodeStateMachine/node = ExtResource("1_n0kq7")
+nodes/AnimationNodeStateMachine/position = Vector2(-380, 20)
+"nodes/AnimationNodeStateMachine 2/node" = ExtResource("1_n0kq7")
+"nodes/AnimationNodeStateMachine 2/position" = Vector2(-314.6, 231.11)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_cs34u")
+nodes/Blend2/position = Vector2(1.21, 7.26)
+node_connections = [&"Blend2", 0, &"AnimationNodeStateMachine", &"Blend2", 1, &"AnimationNodeStateMachine 2", &"output", 0, &"Blend2"]
+
+[node name="AnimationTree" type="AnimationTree"]
+tree_root = SubResource("AnimationNodeBlendTree_gwx0t")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Blend2/blend_amount = 0

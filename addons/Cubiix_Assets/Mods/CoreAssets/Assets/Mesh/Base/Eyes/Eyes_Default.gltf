@@ -241,15 +241,15 @@
 			"name":"Hips"
 		},
 		{
+			"mesh":0,
+			"name":"Eyes_Default",
+			"skin":0
+		},
+		{
 			"children":[
 				17
 			],
 			"name":"Armature"
-		},
-		{
-			"mesh":0,
-			"name":"Cube",
-			"skin":0
 		}
 	],
 	"materials":[
@@ -274,7 +274,13 @@
 	],
 	"meshes":[
 		{
-			"name":"Cube",
+			"extras":{
+				"targetNames":[
+					"Blink_L",
+					"Blink_R"
+				]
+			},
+			"name":"Plane",
 			"primitives":[
 				{
 					"attributes":{
@@ -285,8 +291,22 @@
 						"WEIGHTS_0":4
 					},
 					"indices":5,
-					"material":0
+					"material":0,
+					"targets":[
+						{
+							"POSITION":6,
+							"NORMAL":7
+						},
+						{
+							"POSITION":8,
+							"NORMAL":9
+						}
+					]
 				}
+			],
+			"weights":[
+				0,
+				0
 			]
 		}
 	],
@@ -309,7 +329,7 @@
 	],
 	"skins":[
 		{
-			"inverseBindMatrices":6,
+			"inverseBindMatrices":10,
 			"joints":[
 				17,
 				11,
@@ -337,51 +357,93 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":1244,
+			"count":8,
 			"max":[
-				3.503678321838379,
-				4.522403717041016,
-				1.121894121170044
+				0.6632966995239258,
+				4.195896148681641,
+				1.0733776092529297
 			],
 			"min":[
-				-3.503678321838379,
-				0,
-				-1
+				-0.6632966995239258,
+				2.8062896728515625,
+				1.0733774900436401
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":1244,
+			"count":8,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":1244,
+			"count":8,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5121,
-			"count":1244,
+			"count":8,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":1244,
+			"count":8,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":5,
 			"componentType":5123,
-			"count":1920,
+			"count":12,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":6,
+			"componentType":5126,
+			"count":8,
+			"max":[
+				0.15471726655960083,
+				0.5211024284362793,
+				0
+			],
+			"min":[
+				-0.15471726655960083,
+				-0.5211024284362793,
+				-1.1920928955078125e-07
+			],
+			"type":"VEC3"
+		},
+		{
+			"componentType":5126,
+			"count":8,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":7,
+			"componentType":5126,
+			"count":8,
+			"max":[
+				0.15471726655960083,
+				0.5211024284362793,
+				0
+			],
+			"min":[
+				-0.15471726655960083,
+				-0.5211024284362793,
+				-1.1920928955078125e-07
+			],
+			"type":"VEC3"
+		},
+		{
+			"componentType":5126,
+			"count":8,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":8,
 			"componentType":5126,
 			"count":18,
 			"type":"MAT4"
@@ -390,44 +452,56 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":14928,
+			"byteLength":96,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":14928,
-			"byteOffset":14928,
+			"byteLength":96,
+			"byteOffset":96,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":9952,
-			"byteOffset":29856,
+			"byteLength":64,
+			"byteOffset":192,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4976,
-			"byteOffset":39808,
+			"byteLength":32,
+			"byteOffset":256,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":19904,
-			"byteOffset":44784,
+			"byteLength":128,
+			"byteOffset":288,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3840,
-			"byteOffset":64688,
+			"byteLength":24,
+			"byteOffset":416,
 			"target":34963
 		},
 		{
 			"buffer":0,
+			"byteLength":96,
+			"byteOffset":440,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":96,
+			"byteOffset":536,
+			"target":34962
+		},
+		{
+			"buffer":0,
 			"byteLength":1152,
-			"byteOffset":68528
+			"byteOffset":632
 		}
 	],
 	"samplers":[
@@ -438,8 +512,8 @@
 	],
 	"buffers":[
 		{
-			"byteLength":69680,
-			"uri":"Cubiix_Base.bin"
+			"byteLength":1784,
+			"uri":"Eyes_Default.bin"
 		}
 	]
 }
