@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.43",
+		"generator":"Khronos glTF Blender I/O v4.3.47",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -8,8 +8,8 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				20,
-				21
+				21,
+				22
 			]
 		}
 	],
@@ -264,17 +264,26 @@
 			]
 		},
 		{
+			"name":"Bone",
+			"translation":[
+				0,
+				1.2000000476837158,
+				0
+			]
+		},
+		{
 			"children":[
 				13,
 				14,
 				16,
-				18
+				18,
+				19
 			],
 			"name":"Hips"
 		},
 		{
 			"children":[
-				19
+				20
 			],
 			"name":"Goat_Ear_Armature"
 		},
@@ -287,13 +296,20 @@
 	"materials":[
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				1,
+				1
+			],
+			"emissiveTexture":{
+				"index":0
+			},
 			"name":"Material",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":0
+					"index":1
 				},
-				"metallicFactor":0,
-				"roughnessFactor":0.6102362275123596
+				"metallicFactor":0
 			}
 		}
 	],
@@ -319,20 +335,24 @@
 		{
 			"sampler":0,
 			"source":0
+		},
+		{
+			"sampler":0,
+			"source":0
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Color_Palette",
-			"uri":"Color_Palette.png"
+			"name":"Shader_TestStrip",
+			"uri":"Shader_TestStrip.png"
 		}
 	],
 	"skins":[
 		{
 			"inverseBindMatrices":6,
 			"joints":[
-				19,
+				20,
 				13,
 				2,
 				0,
@@ -351,7 +371,8 @@
 				16,
 				15,
 				18,
-				17
+				17,
+				19
 			],
 			"name":"Goat_Ear_Armature"
 		}
@@ -406,7 +427,7 @@
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":20,
+			"count":21,
 			"type":"MAT4"
 		}
 	],
@@ -449,7 +470,7 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":1280,
+			"byteLength":1344,
 			"byteOffset":5696
 		}
 	],
@@ -461,7 +482,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":6976,
+			"byteLength":7040,
 			"uri":"Goat_Ears.bin"
 		}
 	]

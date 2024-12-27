@@ -8,10 +8,743 @@
 				"Path" : "Assets/Mesh/Base/Cubiix_Base.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Cube"
 			},
+
+
+			"Eyes_Chonk":{
+				"Name":"Chonk",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Chonk.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Chonk",
+				"Has_Blendshapes":true
+			},
+			"Eyes_Circle":{
+				"Name":"Circle",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Circle.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Circle",
+				"Has_Blendshapes":true
+			},
 			"Eyes_Default":{
+				"Name":"Default",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Default.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Default",
 				"Has_Blendshapes":true
+			},
+			"Eyes_Entity":{
+				"Name":"Entity",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Entity.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Entity",
+				"Has_Blendshapes":true
+			},
+			"Eyes_Four":{
+				"Name":"Four",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Four.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Four",
+				"Has_Blendshapes":true
+			},
+			"Eyes_Fox":{
+				"Name":"Fox",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Fox.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Fox",
+				"Has_Blendshapes":true
+			},
+			"Eyes_Mouse":{
+				"Name":"Mouse",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Mouse.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Mouse",
+				"Has_Blendshapes":true
+			},
+			"Eyes_Nat":{
+				"Name":"Nat",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Nat.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Nat",
+				"Has_Blendshapes":true
+			},
+			"Eyes_Text":{
+				"Name":"Text",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Text.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Text",
+				"Has_Blendshapes":true
+			},
+			"Eyes_Tri":{
+				"Name":"Tri",
+				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Tri.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Eyes_Tri",
+				"Has_Blendshapes":true
+			},
+
+
+
+
+			"Ears_Cat":{
+				"Name":"Cat",
+				"Path" : "Assets/Mesh/Base/Ears/Cat_Ears.gltf",
+				"Mesh_Path":"Cat_Ear_Armature/Skeleton3D/Cat_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Cat_Ear_L":["Ear_L"],
+						"Cat_Ear_R":["Ear_R"]
+					},
+					"DynBone_Settings":{
+						"Cat_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Cat_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Fox":{
+				"Name":"Fox",
+				"Path" : "Assets/Mesh/Base/Ears/Fox_Ears.gltf",
+				"Mesh_Path":"Fox_Ear_Armature/Skeleton3D/Fox_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Fox_Ear_L":["Ear_L"],
+						"Fox_Ear_R":["Ear_R"]
+					},
+					"DynBone_Settings":{
+						"Fox_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Fox_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Wolf":{
+				"Name":"Wolf",
+				"Path" : "Assets/Mesh/Base/Ears/Wolf_Ears.gltf",
+				"Mesh_Path":"Wolf_Ear_Armature/Skeleton3D/Wolf_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Wolf_Ear_L":["Ear_L"],
+						"Wolf_Ear_R":["Ear_R"]
+					},
+					"DynBone_Settings":{
+						"Wolf_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Wolf_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Goat":{
+				"Name":"Goat",
+				"Path" : "Assets/Mesh/Base/Ears/Goat_Ears.gltf",
+				"Mesh_Path":"Goat_Ear_Armature/Skeleton3D/Goat_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Goat_Ear_L":["Ear_L"],
+						"Goat_Ear_R":["Ear_R"]
+					},
+					"DynBone_Settings":{
+						"Goat_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Goat_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Bee":{
+				"Name":"Bee",
+				"Path" : "Assets/Mesh/Base/Ears/Bee_Ears.gltf",
+				"Mesh_Path":"Bee_Ear_Armature/Skeleton3D/Bee_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Bee_Ear_L":["Ear_L","Ear_L.001","Ear_L.002","Ear_L.003","Ear_L.004","Ear_L.005"],
+						"Bee_Ear_R":["Ear_R","Ear_R.001","Ear_R.002","Ear_R.003","Ear_R.004","Ear_R.005"]
+					},
+					"DynBone_Settings":{
+						"Bee_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Bee_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Moth":{
+				"Name":"Moth",
+				"Path" : "Assets/Mesh/Base/Ears/Moth_Ears.gltf",
+				"Mesh_Path":"Moth_Ear_Armature/Skeleton3D/Moth_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Moth_Ear_L":["Ear_L","Ear_L.001","Ear_L.002","Ear_L.003","Ear_L.004","Ear_L.005"],
+						"Moth_Ear_R":["Ear_R","Ear_R.001","Ear_R.002","Ear_R.003","Ear_R.004","Ear_R.005"]
+					},
+					"DynBone_Settings":{
+						"Moth_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Moth_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Mouse":{
+				"Name":"Mouse",
+				"Path" : "Assets/Mesh/Base/Ears/Mouse_Ears.gltf",
+				"Mesh_Path":"Mouse_Ear_Armature/Skeleton3D/Mouse_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Mouse_Ear_L":["Ear_L"],
+						"Mouse_Ear_R":["Ear_R"]
+					},
+					"DynBone_Settings":{
+						"Mouse_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Mouse_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Alien":{
+				"Name":"Alien",
+				"Path" : "Assets/Mesh/Base/Ears/Alien_Ears.gltf",
+				"Mesh_Path":"Alien_Ear_Armature/Skeleton3D/Alien_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Alien_Ear_L":["Ear_L","Ear_L.001"],
+						"Alien_Ear_R":["Ear_R","Ear_R.001"]
+					},
+					"DynBone_Settings":{
+						"Alien_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Alien_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Deer":{
+				"Name":"Deer",
+				"Path" : "Assets/Mesh/Base/Ears/Deer_Ears.gltf",
+				"Mesh_Path":"Deer_Ear_Armature/Skeleton3D/Deer_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Deer_Ear_L":["Ear_L"],
+						"Deer_Ear_R":["Ear_R"]
+					},
+					"DynBone_Settings":{
+						"Deer_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Deer_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Entity":{
+				"Name":"Entity",
+				"Path" : "Assets/Mesh/Base/Ears/Entity_Ears.gltf",
+				"Mesh_Path":"Entity_Ear_Armature/Skeleton3D/Entity_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Entity_Ear_L":["Ear_L"],
+						"Entity_Ear_R":["Ear_R"]
+					},
+					"DynBone_Settings":{
+						"Entity_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Entity_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Dog":{
+				"Name":"Dog",
+				"Path" : "Assets/Mesh/Base/Ears/Dog_Ears.gltf",
+				"Mesh_Path":"Dog_Ear_Armature/Skeleton3D/Dog_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Dog_Ear_L":["Ear_L","Ear_L.001","Ear_L.002"],
+						"Dog_Ear_R":["Ear_R","Ear_R.001","Ear_R.002"]
+					},
+					"DynBone_Settings":{
+						"Dog_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Dog_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Bunny":{
+				"Name":"Bunny",
+				"Path" : "Assets/Mesh/Base/Ears/Bunny_Ears.gltf",
+				"Mesh_Path":"Bunny_Ear_Armature/Skeleton3D/Bunny_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Bunny_Ear_L":["Ear_L","Ear_L.001","Ear_L.002"],
+						"Bunny_Ear_R":["Ear_R","Ear_R.001","Ear_R.002"]
+					},
+					"DynBone_Settings":{
+						"Bunny_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Bunny_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Ears_Fluffy":{
+				"Name":"Fluffy",
+				"Path" : "Assets/Mesh/Base/Ears/Fluffy_Ears.gltf",
+				"Mesh_Path":"Fluffy_Ear_Armature/Skeleton3D/Fluffy_Ears",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Fluffy_Ear_L":["Ear_L","Ear_L.001","Ear_L.002"],
+						"Fluffy_Ear_R":["Ear_R","Ear_R.001","Ear_R.002"]
+					},
+					"DynBone_Settings":{
+						"Fluffy_Ear_L":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						},
+						"Fluffy_Ear_R":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+
+
+			"Extra_Antler":{
+				"Name":"Antler",
+				"Path" : "Assets/Mesh/Base/Extra/Antler_Extra.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Antler_Extra",
+			},
+			"Extra_Dragon":{
+				"Name":"Dragon",
+				"Path" : "Assets/Mesh/Base/Extra/Dragon_Extra.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Dragon_Extra",
+			},
+			"Extra_Fish":{
+				"Name":"Fish",
+				"Path" : "Assets/Mesh/Base/Extra/Fish_Extra.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Fish_Extra",
+			},
+			"Extra_Narwhal":{
+				"Name":"Narwhal",
+				"Path" : "Assets/Mesh/Base/Extra/Narwhal_Extra.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Narwhal_Extra",
+			},
+			"Extra_Nub":{
+				"Name":"Nub",
+				"Path" : "Assets/Mesh/Base/Extra/Nub_Extra.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Nub_Extra",
+			},
+			"Extra_Ram":{
+				"Name":"Ram",
+				"Path" : "Assets/Mesh/Base/Extra/Ram_Extra.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Ram_Extra",
+			},
+			"Extra_Shark":{
+				"Name":"Shark",
+				"Path" : "Assets/Mesh/Base/Extra/Shark_Extra.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Shark_Extra",
+			},
+
+
+
+			"Wings_Entity":{
+				"Name":"Entity",
+				"Path" : "Assets/Mesh/Base/Wings/Entity_Wings.gltf",
+				"Mesh_Path":"Entity_Wings_Armature/Skeleton3D/Entity_Wings",
+			},
+			"Wings_Angel":{
+				"Name":"Angel",
+				"Path" : "Assets/Mesh/Base/Wings/Angel_Wings.gltf",
+				"Mesh_Path":"Angel_Wings_Armature/Skeleton3D/Angel_Wings",
+			},
+			"Wings_Butterfly":{
+				"Name":"Butterfly",
+				"Path" : "Assets/Mesh/Base/Wings/Butterfly_Wings.gltf",
+				"Mesh_Path":"Angel_Wings_Armature/Skeleton3D/Butterfly_Wings",
+			},
+			"Wings_Wasp":{
+				"Name":"Wasp",
+				"Path" : "Assets/Mesh/Base/Wings/Wasp_Wings.gltf",
+				"Mesh_Path":"Wasp_Wings_Armature/Skeleton3D/Wasp_Wings",
+			},
+			"Wings_Dragon":{
+				"Name":"Dragon",
+				"Path" : "Assets/Mesh/Base/Wings/Dragon_Wings.gltf",
+				"Mesh_Path":"Dragon_Wings_Armature/Skeleton3D/Dragon_Wings",
+			},
+
+
+
+			"Tails_Cat":{
+				"Name":"Cat",
+				"Path" : "Assets/Mesh/Base/Tails/Cat_Tail.gltf",
+				"Mesh_Path":"Cat_Tail_Armature/Skeleton3D/Cat_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Cat_Tail":["Tail","Tail.001","Tail.002"]
+					},
+					"DynBone_Settings":{
+						"Cat_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Fox":{
+				"Name":"Fox",
+				"Path" : "Assets/Mesh/Base/Tails/Fox_Tail.gltf",
+				"Mesh_Path":"Fox_Tail_Armature/Skeleton3D/Fox_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Fox_Tail":["Tail","Tail.001","Tail.002","Tail.003","Tail.004","Tail.005"]
+					},
+					"DynBone_Settings":{
+						"Fox_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Wolf":{
+				"Name":"Wolf",
+				"Path" : "Assets/Mesh/Base/Tails/Wolf_Tail.gltf",
+				"Mesh_Path":"Wolf_Tail_Armature/Skeleton3D/Wolf_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Wolf_Tail":["Tail","Tail.001","Tail.002","Tail.003","Tail.004","Tail.005"]
+						},
+					"DynBone_Settings":{
+						"Wolf_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Bug":{
+				"Name":"Bug",
+				"Path" : "Assets/Mesh/Base/Tails/Bug_Tail.gltf",
+				"Mesh_Path":"Bug_Tail_Armature/Skeleton3D/Bug_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Bug_Tail":["Tail","Tail.001","Tail.002","Tail.003"]
+					},
+					"DynBone_Settings":{
+						"Bug_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Bee":{
+				"Name":"Bee",
+				"Path" : "Assets/Mesh/Base/Tails/Bee_Tail.gltf",
+				"Mesh_Path":"Bee_Tail_Armature/Skeleton3D/Bee_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Bee_Tail":["Tail","Tail.001","Tail.002","Tail.003","Tail.004"]
+					},
+					"DynBone_Settings":{
+						"Bee_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Moth":{
+				"Name":"Moth",
+				"Path" : "Assets/Mesh/Base/Tails/Moth_Tail.gltf",
+				"Mesh_Path":"Moth_Tail_Armature/Skeleton3D/Moth_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Moth_Tail":["Tail","Tail.001","Tail.002","Tail.003","Tail.004","Tail.005","Tail.006"]
+					},
+					"DynBone_Settings":{
+						"Moth_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Dog":{
+				"Name":"Dog",
+				"Path" : "Assets/Mesh/Base/Tails/Dog_Tail.gltf",
+				"Mesh_Path":"Dog_Tail_Armature/Skeleton3D/Dog_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Dog_Tail":["Tail","Tail.001","Tail.002","Tail.003","Tail.004","Tail.005","Tail.006"]
+					},
+					"DynBone_Settings":{
+						"Dog_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Dog":{
+				"Name":"Mouse",
+				"Path" : "Assets/Mesh/Base/Tails/Mouse_Tail.gltf",
+				"Mesh_Path":"Mouse_Tail_Armature/Skeleton3D/Mouse_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Mouse_Tail":["Tail","Tail.001","Tail.002"]
+					},
+					"DynBone_Settings":{
+						"Mouse_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Fluffy":{
+				"Name":"Fluffy",
+				"Path" : "Assets/Mesh/Base/Tails/Fluffy_Tail.gltf",
+				"Mesh_Path":"Fluffy_Tail_Armature/Skeleton3D/Fluffy_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Fluffy_Tail":["Tail","Tail.001","Tail.002","Tail.003","Tail.004","Tail.005"]
+					},
+					"DynBone_Settings":{
+						"Fluffy_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Shark":{
+				"Name":"Shark",
+				"Path" : "Assets/Mesh/Base/Tails/Shark_Tail.gltf",
+				"Mesh_Path":"Shark_Tail_Armature/Skeleton3D/Shark_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Shark_Tail":["Tail","Tail.001","Tail.002"]
+					},
+					"DynBone_Settings":{
+						"Shark_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Entity":{
+				"Name":"Entity",
+				"Path" : "Assets/Mesh/Base/Tails/Entity_Tail.gltf",
+				"Mesh_Path":"Entity_Tail_Armature/Skeleton3D/Entity_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Entity_Tail":["Tail","Tail.001"]
+					},
+					"DynBone_Settings":{
+						"Entity_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Bunny":{
+				"Name":"Bunny",
+				"Path" : "Assets/Mesh/Base/Tails/Bunny_Tail.gltf",
+				"Mesh_Path":"Bunny_Tail_Armature/Skeleton3D/Bunny_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Bunny_Tail":["Tail","Tail.001"]
+					},
+					"DynBone_Settings":{
+						"Bunny_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Deer":{
+				"Name":"Deer",
+				"Path" : "Assets/Mesh/Base/Tails/Deer_Tail.gltf",
+				"Mesh_Path":"Deer_Tail_Armature/Skeleton3D/Deer_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Deer_Tail":["Tail","Tail.001","Tail.002","Tail.003","Tail.004"]
+					},
+					"DynBone_Settings":{
+						"Deer_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
+			},
+			"Tails_Dragon":{
+				"Name":"Dragon",
+				"Path" : "Assets/Mesh/Base/Tails/Dragon_Tail.gltf",
+				"Mesh_Path":"Dragon_Tail_Armature/Skeleton3D/Dragon_Tail",
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"Dragon_Tail":["Tail","Tail.001","Tail.002","Tail.003","Tail.004","Tail.005"]
+					},
+					"DynBone_Settings":{
+						"Dragon_Tail":{
+							"osc_ps":19,
+							"dampening": 0.1,
+							"damp_time":0.5,
+							"extension_damp_time":0.3,
+						}
+					}
+				}
 			},
 		}
 	}

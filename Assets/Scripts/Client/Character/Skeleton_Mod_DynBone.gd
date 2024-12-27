@@ -47,7 +47,7 @@ func _process_modification() -> void:
 	if canrun:
 		for x in DynBones_Register:
 			for y in DynBones_Register[x]:
-				var settings = Core.AssetData.Mesh_Data_Assets[x]["DynBone_Data"]["DynBone_Settings"][y]
+				var settings = x["DynBone_Data"]["DynBone_Settings"][y]
 				var damp_ratio = log(settings["dampening"]) / (-settings["osc_ps"] * settings["damp_time"])
 				for z in DynBones_Register[x][y].size():
 					var delta = Time.get_ticks_msec()/1000.0 - olddelta

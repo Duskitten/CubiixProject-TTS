@@ -1,11 +1,8 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.43",
+		"generator":"Khronos glTF Blender I/O v4.3.47",
 		"version":"2.0"
 	},
-	"extensionsUsed":[
-		"KHR_materials_emissive_strength"
-	],
 	"scene":0,
 	"scenes":[
 		{
@@ -323,19 +320,12 @@
 			"emissiveTexture":{
 				"index":0
 			},
-			"extensions":{
-				"KHR_materials_emissive_strength":{
-					"emissiveStrength":1.5
-				}
-			},
 			"name":"Material",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0,
-					0,
-					0,
-					1
-				]
+				"baseColorTexture":{
+					"index":1
+				},
+				"metallicFactor":0
 			}
 		}
 	],
@@ -361,13 +351,17 @@
 		{
 			"sampler":0,
 			"source":0
+		},
+		{
+			"sampler":0,
+			"source":0
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Color_Palette",
-			"uri":"Color_Palette.png"
+			"name":"Shader_TestStrip",
+			"uri":"Shader_TestStrip.png"
 		}
 	],
 	"skins":[
@@ -403,7 +397,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":1468,
+			"count":1460,
 			"max":[
 				2.106616973876953,
 				3.8576250076293945,
@@ -419,25 +413,25 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":1468,
+			"count":1460,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":1468,
+			"count":1460,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5121,
-			"count":1468,
+			"count":1460,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":1468,
+			"count":1460,
 			"type":"VEC4"
 		},
 		{
@@ -456,44 +450,44 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":17616,
+			"byteLength":17520,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":17616,
-			"byteOffset":17616,
+			"byteLength":17520,
+			"byteOffset":17520,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":11744,
-			"byteOffset":35232,
+			"byteLength":11680,
+			"byteOffset":35040,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":5872,
-			"byteOffset":46976,
+			"byteLength":5840,
+			"byteOffset":46720,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":23488,
-			"byteOffset":52848,
+			"byteLength":23360,
+			"byteOffset":52560,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":5352,
-			"byteOffset":76336,
+			"byteOffset":75920,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1344,
-			"byteOffset":81688
+			"byteOffset":81272
 		}
 	],
 	"samplers":[
@@ -504,7 +498,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":83032,
+			"byteLength":82616,
 			"uri":"Dragon_Wings.bin"
 		}
 	]

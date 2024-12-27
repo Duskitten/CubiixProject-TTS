@@ -1,11 +1,8 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.43",
+		"generator":"Khronos glTF Blender I/O v4.3.47",
 		"version":"2.0"
 	},
-	"extensionsUsed":[
-		"KHR_materials_emissive_strength"
-	],
 	"scene":0,
 	"scenes":[
 		{
@@ -266,19 +263,12 @@
 			"emissiveTexture":{
 				"index":0
 			},
-			"extensions":{
-				"KHR_materials_emissive_strength":{
-					"emissiveStrength":1.5
-				}
-			},
 			"name":"Material",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0,
-					0,
-					0,
-					1
-				]
+				"baseColorTexture":{
+					"index":1
+				},
+				"metallicFactor":0
 			}
 		}
 	],
@@ -304,13 +294,17 @@
 		{
 			"sampler":0,
 			"source":0
+		},
+		{
+			"sampler":0,
+			"source":0
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Color_Palette",
-			"uri":"Color_Palette.png"
+			"name":"Shader_TestStrip",
+			"uri":"Shader_TestStrip.png"
 		}
 	],
 	"skins":[

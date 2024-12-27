@@ -1,11 +1,8 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.43",
+		"generator":"Khronos glTF Blender I/O v4.3.47",
 		"version":"2.0"
 	},
-	"extensionsUsed":[
-		"KHR_materials_emissive_strength"
-	],
 	"scene":0,
 	"scenes":[
 		{
@@ -323,19 +320,12 @@
 			"emissiveTexture":{
 				"index":0
 			},
-			"extensions":{
-				"KHR_materials_emissive_strength":{
-					"emissiveStrength":1.5
-				}
-			},
 			"name":"Material",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					0,
-					0,
-					0,
-					1
-				]
+				"baseColorTexture":{
+					"index":1
+				},
+				"metallicFactor":0
 			}
 		}
 	],
@@ -361,13 +351,17 @@
 		{
 			"sampler":0,
 			"source":0
+		},
+		{
+			"sampler":0,
+			"source":0
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Color_Palette",
-			"uri":"Color_Palette.png"
+			"name":"Shader_TestStrip",
+			"uri":"Shader_TestStrip.png"
 		}
 	],
 	"skins":[
@@ -403,14 +397,14 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":2702,
+			"count":2668,
 			"max":[
-				1.6379674673080444,
+				1.6290596723556519,
 				3.5132761001586914,
 				-0.9221535325050354
 			],
 			"min":[
-				-1.6379674673080444,
+				-1.633540153503418,
 				1.5562061071395874,
 				-3.646364688873291
 			],
@@ -419,31 +413,31 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":2702,
+			"count":2668,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":2702,
+			"count":2668,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5121,
-			"count":2702,
+			"count":2668,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":2702,
+			"count":2668,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":5,
 			"componentType":5123,
-			"count":3936,
+			"count":3900,
 			"type":"SCALAR"
 		},
 		{
@@ -456,44 +450,44 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":32424,
+			"byteLength":32016,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":32424,
-			"byteOffset":32424,
+			"byteLength":32016,
+			"byteOffset":32016,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":21616,
-			"byteOffset":64848,
+			"byteLength":21344,
+			"byteOffset":64032,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":10808,
-			"byteOffset":86464,
+			"byteLength":10672,
+			"byteOffset":85376,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":43232,
-			"byteOffset":97272,
+			"byteLength":42688,
+			"byteOffset":96048,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":7872,
-			"byteOffset":140504,
+			"byteLength":7800,
+			"byteOffset":138736,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1344,
-			"byteOffset":148376
+			"byteOffset":146536
 		}
 	],
 	"samplers":[
@@ -504,7 +498,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":149720,
+			"byteLength":147880,
 			"uri":"Angel_Wings.bin"
 		}
 	]

@@ -3,17 +3,22 @@
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_Generator.gd" id="1_kx318"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_ScriptLoader.gd" id="1_ro8ye"]
 [ext_resource type="AnimationLibrary" uid="uid://cd6jvxjrkh3dd" path="res://addons/Cubiix_Assets/Animations/Cubiix_Animation_Library_TTS.tres" id="2_co7dk"]
-[ext_resource type="PackedScene" uid="uid://bvdiduae8dn2m" path="res://addons/Cubiix_Assets/Animations/animation_tree.tscn" id="4_7b2wp"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd" id="4_h4fe1"]
 
 [sub_resource type="Skin" id="Skin_xqg4r"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbwti"]
+animation = &"TTS_Anim/Walk"
+
 [node name="Cubiix_Character" type="CharacterBody3D"]
 script = ExtResource("1_ro8ye")
 
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("4_h4fe1")
+
 [node name="Hub" type="Node3D" parent="."]
 script = ExtResource("1_kx318")
-Shader_Color = PackedColorArray(1, 1, 1, 1, 1, 0.509804, 0.509804, 1, 0.792969, 0, 0.015347, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Shader_Color = PackedColorArray(0.992157, 1, 1, 1, 1, 0, 0.983937, 1, 0.562057, 0.792969, 0.141102, 1, 0.0436466, 0.139718, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 Shader_Emission = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 Shader_Metallic = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 Shader_Roughness = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -37,13 +42,12 @@ libraries = {
 }
 movie_quit_on_finish = true
 
-[node name="AnimationTree" parent="Hub/Animations" instance=ExtResource("4_7b2wp")]
-
-[node name="Node3D" type="Node3D" parent="."]
-script = ExtResource("4_h4fe1")
+[node name="AnimationTree" type="AnimationTree" parent="Hub/Animations"]
+tree_root = SubResource("AnimationNodeAnimation_cbwti")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575631, 0.900602)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1, 0.622696, 1.08104)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)

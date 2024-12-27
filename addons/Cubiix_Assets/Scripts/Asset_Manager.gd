@@ -3,11 +3,19 @@ extends Node
 var mod_files = []
 var mods = {}
 var assets = {}
+var compiled_assets = {}
+
+var Eye_ID = []
+var Ear_ID = []
+var Extra_ID = []
+var Tail_ID = []
+var Wing_ID = []
 
 signal load_finished
 signal assets_loaded
 
 func _ready():
+	await get_parent().ready
 	get_parent().Assets = self
 	scan_for_mods("res://addons/Cubiix_Assets/Mods/")
 	scan_for_mods(OS.get_executable_path().get_base_dir() + "/Mods/")
@@ -15,9 +23,8 @@ func _ready():
 	await self.load_finished
 	load_mod_assets()
 	await self.load_finished
-	print(assets)
 	emit_signal("assets_loaded")
-	generate_character_mesh(["CoreAssets/Base_Model","CoreAssets/Eyes_Default"],$"../Hub/Cubiix_Model/Armature/Skeleton3D/MeshInstance3D",$"../Hub/Cubiix_Model/Armature/Skeleton3D",$"../Hub")
+	
 	
 func scan_for_mods(location:String) -> void:
 	var dir = DirAccess.open(location)
@@ -64,9 +71,18 @@ func load_mod_assets() -> void:
 		for x in assets[i].keys():
 			for y in assets[i][x]:
 				if assets[i][x][y].has("Path"):
-					assets[i][x][y]["Node"] = load(assets[i][x][y]["Path"]).instantiate()
+					if compiled_assets.keys().has(assets[i][x][y]["Path"]):
+						assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
+					else:
+						compiled_assets[assets[i][x][y]["Path"]] = load(assets[i][x][y]["Path"]).instantiate()
+						assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 	await get_tree().process_frame
+	#print(compiled_assets)
 	emit_signal("load_finished")
+
+func queue_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
+	pass
+	
 
 func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
 	
@@ -123,7 +139,7 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 				Blendshape_Key.append(mesh.get_blend_shape_name(blendshape))
 		
 		## This is where we add the dynbone list for later
-		if Asset_List[Asset].has("Has_Dynbones"):
+		if Asset_List[Asset].has("Has_DynBones"):
 			DynBones = Asset_List[Asset]["DynBone_Data"]["DynBone_Sets"].duplicate(true)
 		
 		## This is where we initially build the skeleton we will need + 
@@ -140,19 +156,18 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 					TargetSkeleton.call_deferred("set_bone_rest",Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
 					TargetSkin.call_deferred("add_named_bind",BoneName,node.skin.get_bind_pose(Bone))
 					Replace_Bone_Key[Asset].append([Ms_Bone_Location,Sk_Bone_Location])
-					if Asset_List[Asset].has("Has_Dynbones"):
+					if Asset_List[Asset].has("Has_DynBones"):
 						if MainNode != null:
 							for x in DynBones.keys():
 								for y in DynBones[x].size():
 									if str(DynBones[x][y]) == BoneName:
 										DynBones[x][y] = Sk_Bone_Location
 										
-		if Asset_List[Asset].has("Has_Dynbones"):
+		if Asset_List[Asset].has("Has_DynBones"):
 			DynBoneList[Asset_List[Asset]] = DynBones
 
 	if MainNode != null:
 		MainNode.DynBones_Register = DynBoneList
-	
 	
 	## 3. 
 	var CoreMesh_Commit = [PackedVector3Array(),PackedVector3Array(),PackedFloat32Array(),null,PackedVector2Array(),null,null,null,null,null,PackedInt32Array(),PackedFloat32Array(),PackedInt32Array()]
@@ -250,5 +265,5 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	##Apply materials to mesh surfaces as required
 	
 	TargetMesh.call_deferred("set_surface_override_material",0,MainNode.New_Shader)
-	#MainNode.call_deferred("emit_signal","MeshFinished")
+	MainNode.call_deferred("emit_signal","Mesh_Finished")
 	#thread_force_post()

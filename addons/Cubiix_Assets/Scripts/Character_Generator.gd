@@ -24,7 +24,10 @@ extends Node3D
 
 ## This pattern should hopefully not be too dissimilar to the current one, and allow for all assets to share 1 material.
 ## Which will hopefully drop drawcalls even lower.
-@export var Shader_Color : PackedColorArray
+@export var Shader_Color : PackedColorArray :
+	set(val):
+		Shader_Color = val
+		generate_colors()
 @export var Shader_Emission : PackedColorArray
 @export_range(0,1) var Shader_Metallic : PackedFloat32Array
 @export_range(0,1) var Shader_Roughness : PackedFloat32Array
@@ -50,15 +53,30 @@ var Acc_L_Hip = ""
 var Acc_R_Hip = ""
 
 var DynBones_Register = {}
-
+signal Mesh_Finished
+var DynBones : DynBone
 func _ready() -> void:
+	await get_parent().ready
+	await get_parent().Assets.assets_loaded
 	generate_character()
 
-func generate_character() -> void:
+func generate_colors() -> void:
 	New_Shader.set_shader_parameter("Body_Color", Shader_Color)
 	New_Shader.set_shader_parameter("Body_Emission", Shader_Emission)
 	New_Shader.set_shader_parameter("Body_Metallic", Shader_Metallic)
 	New_Shader.set_shader_parameter("Body_Roughness", Shader_Roughness)
 	New_Shader.set_shader_parameter("Body_Emission_Str", Shader_Emission_Strength)
 	New_Shader.set_shader_parameter("Body_Alpha", Shader_Alpha)
-	
+
+func generate_character() -> void:
+	generate_colors()
+	get_parent().Assets.generate_character_mesh(["CoreAssets/Base_Model","CoreAssets/Eyes_Tri", "CoreAssets/Extra_Antler", "CoreAssets/Ears_Bee", "CoreAssets/Tails_Dragon"],$"Cubiix_Model/Armature/Skeleton3D/MeshInstance3D",$"Cubiix_Model/Armature/Skeleton3D",self)
+	await Mesh_Finished
+	DynBones = DynBone.new()
+	$Cubiix_Model/Armature/Skeleton3D.add_child(DynBones)
+	DynBones.DynBones_Register = DynBones_Register.duplicate(true)
+	DynBones.first_run()
+	$Animations/AnimationTree.active = false
+	await get_tree().create_timer(0.2).timeout
+	$Animations/AnimationTree.active = true
+	DynBones.emit_signal("RePositioned")

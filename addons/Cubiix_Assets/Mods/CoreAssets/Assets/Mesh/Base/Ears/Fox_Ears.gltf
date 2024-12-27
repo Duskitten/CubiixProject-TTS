@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.0.43",
+		"generator":"Khronos glTF Blender I/O v4.3.47",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -297,13 +297,20 @@
 	"materials":[
 		{
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				1,
+				1
+			],
+			"emissiveTexture":{
+				"index":0
+			},
 			"name":"Material",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":0
+					"index":1
 				},
-				"metallicFactor":0,
-				"roughnessFactor":0.6102362275123596
+				"metallicFactor":0
 			}
 		}
 	],
@@ -329,13 +336,17 @@
 		{
 			"sampler":0,
 			"source":0
+		},
+		{
+			"sampler":0,
+			"source":0
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Color_Palette",
-			"uri":"Color_Palette.png"
+			"name":"Shader_TestStrip",
+			"uri":"Shader_TestStrip.png"
 		}
 	],
 	"skins":[
@@ -370,7 +381,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":108,
+			"count":88,
 			"max":[
 				1.5105880498886108,
 				5.696575164794922,
@@ -386,25 +397,25 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":108,
+			"count":88,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":108,
+			"count":88,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5121,
-			"count":108,
+			"count":88,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":108,
+			"count":88,
 			"type":"VEC4"
 		},
 		{
@@ -423,44 +434,44 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":1296,
+			"byteLength":1056,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1296,
-			"byteOffset":1296,
+			"byteLength":1056,
+			"byteOffset":1056,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":864,
-			"byteOffset":2592,
+			"byteLength":704,
+			"byteOffset":2112,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":432,
-			"byteOffset":3456,
+			"byteLength":352,
+			"byteOffset":2816,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1728,
-			"byteOffset":3888,
+			"byteLength":1408,
+			"byteOffset":3168,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":360,
-			"byteOffset":5616,
+			"byteOffset":4576,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1280,
-			"byteOffset":5976
+			"byteOffset":4936
 		}
 	],
 	"samplers":[
@@ -471,7 +482,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":7256,
+			"byteLength":6216,
 			"uri":"Fox_Ears.bin"
 		}
 	]
