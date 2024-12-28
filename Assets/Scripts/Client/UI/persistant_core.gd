@@ -80,7 +80,7 @@ func _ready() -> void:
 
 func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
 	Player.position = Location
-	Player.CameraLength = -4.0
+	#Player.CameraLength = -4.0
 	$Node3D/Player/Hub.rotation = Rotation
 	$Node3D/Core_Follow/Rot_Y.rotation = Rotation
 	$Node3D/Core_Follow/Rot_Y/Rot_X.rotation = Vector3(deg_to_rad(15),0,0)

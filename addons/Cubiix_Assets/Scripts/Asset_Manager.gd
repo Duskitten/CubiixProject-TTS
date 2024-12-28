@@ -1,5 +1,12 @@
 extends Node
 
+## How to load:
+	#AssetData = load("res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd").new()
+	#AssetData.runsetup()
+	#AssetData.name = "AssetData"
+	#await AssetData.FinishedLoad
+	#add_child(AssetData)
+
 var mod_files = []
 var mods = {}
 var assets = {}
@@ -76,15 +83,51 @@ func load_mod_assets() -> void:
 					if compiled_assets.keys().has(assets[i][x][y]["Path"]):
 						assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 					else:
-						compiled_assets[assets[i][x][y]["Path"]] = load(assets[i][x][y]["Path"]).instantiate()
-						assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
+						if x != "Scripts":
+							compiled_assets[assets[i][x][y]["Path"]] = load(assets[i][x][y]["Path"]).instantiate()
+							assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 						
 	call_deferred("emit_signal","load_finished")
 
-func queue_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
-	pass
-	
+var MeshRenderQueue = []
+var MeshGenThread = Thread.new()
+var MeshGenSemaphore = Semaphore.new()
+var KillThreads = false
 
+
+	
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		KillThreads = true
+		
+func _exit_tree() -> void:
+	MeshGenThread.wait_to_finish()
+
+func thread_force_post():
+	MeshGenSemaphore.post()
+
+func _ready() -> void:
+	MeshGenThread.start(gen_thread_run)
+	thread_force_post()
+
+func gen_thread_run():
+	while true:
+		MeshGenSemaphore.wait()
+		if KillThreads:
+			break
+		
+		var Queue = MeshRenderQueue.pop_front()
+		if Queue != null:
+			generate_character_mesh(Queue[0],Queue[1],Queue[2],Queue[3])
+		else:
+			thread_force_post()
+		
+	print("Killing Mesh Thread!")
+	
+	
+func queue_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
+	MeshRenderQueue.call_deferred("append",[AssetIDList,TargetMesh,TargetSkeleton,MainNode])
+	
 func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
 	
 	##This will replace the final model
@@ -268,3 +311,13 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	TargetMesh.call_deferred("set_surface_override_material",0,MainNode.New_Shader)
 	MainNode.call_deferred("emit_signal","Mesh_Finished")
 	#thread_force_post()
+
+func find_script(ID:String, ApplyNode:Node3D, ParentNode:Node3D) -> void:
+	var path = ""
+	var AssetParts = ID.split("/")
+	if assets.has(AssetParts[0]) &&\
+		assets[AssetParts[0]].has("Scripts") &&\
+		assets[AssetParts[0]]["Scripts"].has(AssetParts[1]) &&\
+		assets[AssetParts[0]]["Scripts"][AssetParts[1]].has("Path"):
+			ApplyNode.set_script(load(assets[AssetParts[0]]["Scripts"][AssetParts[1]]["Path"]))
+			ApplyNode.name = AssetParts[1]

@@ -53,10 +53,9 @@ var DynBones_Register = {}
 signal Mesh_Finished
 var DynBones : DynBone
 func _ready() -> void:
-	await get_parent().ready
-	await get_parent().Assets.assets_loaded
+	await get_parent().Loaded
 	generate_character()
-
+	
 func generate_colors() -> void:
 	New_Shader.set_shader_parameter("Body_Color", Shader_Color)
 	New_Shader.set_shader_parameter("Body_Emission", Shader_Emission)

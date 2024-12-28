@@ -1414,9 +1414,7 @@ func gen_thread_run():
 			thread_force_post()
 		
 	print("Killing Mesh Thread!")
-	
-func _exit_tree() -> void:
-	MeshGenThread.wait_to_finish()
+
 	
 func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary, node:Node3D) -> Dictionary:
 	#Here we're going to sort the meshes we would like to use!

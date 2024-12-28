@@ -170,8 +170,8 @@ func _ready() -> void:
 			Extra = Core.AssetData.Extra_Slot.find(Core.AssetData.Extra_Slot.pick_random())
 			Tail = Core.AssetData.Tail_Slot.find(Core.AssetData.Tail_Slot.pick_random())
 			Wings = Core.AssetData.Wing_Slot.find(Core.AssetData.Wing_Slot.pick_random())
-	if !Is_UI:
-		Regen_Character()
+	#if !Is_UI:
+		#Regen_Character()
 	#$Hub/Cubiix_Model/AnimationTree.active = true
 
 func Regen_Color():

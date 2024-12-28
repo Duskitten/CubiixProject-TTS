@@ -14,8 +14,8 @@
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c305l0w7rfyuj" path="res://Assets/Animations/Hand_Right_StateMachine.tres" id="7_1ejcm"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cwaik7ippqh75" path="res://Assets/Animations/NPCStateMachine.tres" id="8_1oacx"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://66yh8wx1jq5e" path="res://Assets/Animations/PlayerStateMachine.tres" id="9_417dd"]
-[ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="10_i2prw"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="10_mbyra"]
+[ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="16_t4xvr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10u2h"]
 resource_name = "Material"
@@ -4788,7 +4788,6 @@ position = Vector2(18, -40)
 rotation = 4.71239
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 1
 
 [node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -4796,6 +4795,7 @@ position = Vector2(-11, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 2
 
 [node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -4878,60 +4878,9 @@ expand_mode = 5
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="Player" parent="Node3D" instance=ExtResource("10_i2prw")]
-Body_1 = Color(0.372549, 0.372549, 0.372549, 1)
-Body_2 = Color(0.776471, 0.776471, 0.776471, 1)
-Body_3 = Color(0.798314, 0.542604, 0.363722, 1)
-Body_4 = Color(0.8, 0.541176, 0.364706, 1)
-Body_3_Emiss = Color(0.8, 0.541176, 0.364706, 1)
-Body_4_Emiss = Color(0.8, 0.541176, 0.364706, 1)
-Is_Player = true
-
-[node name="Hub" parent="Node3D/Player" index="3"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
-
-[node name="Skeleton3D" parent="Node3D/Player/Hub/Cubiix_Model" index="0"]
-bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/2/position = Vector3(0, 0.254852, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/3/position = Vector3(-0.327326, 0.134334, 0)
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
-bones/5/rotation = Quaternion(0, 0, 0, 1)
-bones/6/rotation = Quaternion(0, 0, 0, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/8/position = Vector3(0.327326, 0.134334, 0)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/9/rotation = Quaternion(0, 0, 0, 1)
-bones/10/rotation = Quaternion(0, 0, 0, 1)
-bones/11/rotation = Quaternion(0, 0, 0, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/position = Vector3(0, 0.12722, 0)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/position = Vector3(0, 0.12722, 0)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
-
-[node name="Cube" parent="Node3D/Player/Hub/Cubiix_Model/Skeleton3D" index="0"]
-layers = 1
-mesh = SubResource("ArrayMesh_161gf")
-skin = SubResource("Skin_gea7w")
-
-[node name="AnimationPlayer" parent="Node3D/Player/Hub/Cubiix_Model" index="1"]
-libraries = {
-"": SubResource("AnimationLibrary_6kcx7")
-}
-
-[node name="AnimationTree" parent="Node3D/Player/Hub/Cubiix_Model" index="2"]
-tree_root = SubResource("AnimationNodeBlendTree_dllpe")
-
-[node name="RayCast3D" parent="Node3D/Player" index="5"]
-target_position = Vector3(0, -0.27, 0)
-
-[node name="RayCast3D2" parent="Node3D/Player" index="6"]
-target_position = Vector3(0, -0.27, 0)
+[node name="Player" parent="Node3D" instance=ExtResource("16_t4xvr")]
+Load_Script_ID = Array[String](["TTSAssets/Character_Controller", "TTSAssets/Camera_Controller"])
+Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
 
 [node name="Core_Follow" type="Node3D" parent="Node3D"]
 
@@ -5085,5 +5034,3 @@ fov = 56.25
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor"]
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model"]
 [editable path="CanvasLayer/Hexii_UI"]
-[editable path="Node3D/Player"]
-[editable path="Node3D/Player/Hub/Cubiix_Model"]
