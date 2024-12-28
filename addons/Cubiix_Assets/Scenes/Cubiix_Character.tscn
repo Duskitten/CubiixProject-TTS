@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://co7v5bt8xi81"]
+[gd_scene load_steps=6 format=3 uid="uid://co7v5bt8xi81"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_Generator.gd" id="1_kx318"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_ScriptLoader.gd" id="1_ro8ye"]
 [ext_resource type="AnimationLibrary" uid="uid://cd6jvxjrkh3dd" path="res://addons/Cubiix_Assets/Animations/Cubiix_Animation_Library_TTS.tres" id="2_co7dk"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd" id="4_h4fe1"]
 
 [sub_resource type="Skin" id="Skin_xqg4r"]
 
@@ -12,9 +11,6 @@ animation = &"TTS_Anim/Walk"
 
 [node name="Cubiix_Character" type="CharacterBody3D"]
 script = ExtResource("1_ro8ye")
-
-[node name="Node3D" type="Node3D" parent="."]
-script = ExtResource("4_h4fe1")
 
 [node name="Hub" type="Node3D" parent="."]
 script = ExtResource("1_kx318")

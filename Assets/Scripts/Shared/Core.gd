@@ -27,9 +27,10 @@ func _ready():
 		SceneData = load("res://Assets/Scripts/Client/Scene/Scene_Data.gd").new()
 		SceneData.runsetup(self)
 		await SceneData.FinishedLoad
+		Update_LogoText("Loading Asset Data...")
 		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
-		AssetData = load("res://Assets/Scripts/Client/Character/Asset_Data.gd").new()
-		AssetData.runsetup(self)
+		AssetData = load("res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd").new()
+		AssetData.runsetup()
 		await AssetData.FinishedLoad
 		Client = load("res://Assets/Scripts/Client/Networking/Network_Client.gd").new()
 		Dialogue_Handler = load("res://Assets/Scripts/Client/UI/DialogueBank.gd").new()
@@ -41,8 +42,8 @@ func _ready():
 		add_child(Dialogue_Handler)
 		add_child(Character_Gen)
 		
-		get_parent().call_deferred("add_child", Persistant_Core)
-		await Persistant_Core.ready
+		#get_parent().call_deferred("add_child", Persistant_Core)
+		#await Persistant_Core.ready
 		
 		Update_LogoText("Load O.K. ...")
 		await get_tree().create_timer(1).timeout
@@ -51,9 +52,9 @@ func _ready():
 		get_node("../CanvasLayer/Loading").hide()
 		print("Haoi")
 		#SceneData.call_deferred("Swap_Scene","Showcase",{},true,"")
-		SceneData.call_deferred("Swap_Scene","Hexstaria",{},true,"Spawn_Docks")
-		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Tablet_TitleScreen_Anim","Exit","", false)
-		Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)
+		#SceneData.call_deferred("Swap_Scene","Hexstaria",{},true,"Spawn_Docks")
+		#Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Tablet_TitleScreen_Anim","Exit","", false)
+		#Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)
 		
 	if OS.has_feature("server"):
 		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()

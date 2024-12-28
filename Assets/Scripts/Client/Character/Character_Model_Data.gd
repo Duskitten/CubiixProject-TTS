@@ -63,7 +63,6 @@ func _ready() -> void:
 		
 		"Cubiix_Base:Empty_Socket":0
 		}
-
 	V2_ConversionPath = {
 		"Ears":{
 			"None":0,

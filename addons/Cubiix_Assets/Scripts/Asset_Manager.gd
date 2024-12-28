@@ -5,25 +5,28 @@ var mods = {}
 var assets = {}
 var compiled_assets = {}
 
-var Eye_ID = []
-var Ear_ID = []
-var Extra_ID = []
-var Tail_ID = []
-var Wing_ID = []
-
+signal FinishedLoad
 signal load_finished
-signal assets_loaded
 
-func _ready():
-	await get_parent().ready
-	get_parent().Assets = self
+var InitThread:Thread
+
+func runsetup():
+	InitThread = Thread.new()
+	InitThread.start(Init_ThreadRun)
+	
+	
+func Init_ThreadRun():
 	scan_for_mods("res://addons/Cubiix_Assets/Mods/")
 	scan_for_mods(OS.get_executable_path().get_base_dir() + "/Mods/")
 	compile_mod_assets()
 	await self.load_finished
 	load_mod_assets()
 	await self.load_finished
-	emit_signal("assets_loaded")
+	call_deferred("Init_Finish")
+	
+func Init_Finish():
+	InitThread.wait_to_finish()
+	emit_signal("FinishedLoad")
 	
 	
 func scan_for_mods(location:String) -> void:
@@ -63,8 +66,7 @@ func compile_mod_assets() -> void:
 				assets[content["ModID"]] = content["Assets"]
 		else:
 			print("Error: Invalid Mod")
-	await get_tree().process_frame
-	emit_signal("load_finished")
+	call_deferred("emit_signal","load_finished")
 
 func load_mod_assets() -> void:
 	for i in assets.keys():
@@ -76,9 +78,8 @@ func load_mod_assets() -> void:
 					else:
 						compiled_assets[assets[i][x][y]["Path"]] = load(assets[i][x][y]["Path"]).instantiate()
 						assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
-	await get_tree().process_frame
-	#print(compiled_assets)
-	emit_signal("load_finished")
+						
+	call_deferred("emit_signal","load_finished")
 
 func queue_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
 	pass

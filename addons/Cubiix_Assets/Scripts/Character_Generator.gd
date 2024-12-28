@@ -24,10 +24,7 @@ extends Node3D
 
 ## This pattern should hopefully not be too dissimilar to the current one, and allow for all assets to share 1 material.
 ## Which will hopefully drop drawcalls even lower.
-@export var Shader_Color : PackedColorArray :
-	set(val):
-		Shader_Color = val
-		generate_colors()
+@export var Shader_Color : PackedColorArray
 @export var Shader_Emission : PackedColorArray
 @export_range(0,1) var Shader_Metallic : PackedFloat32Array
 @export_range(0,1) var Shader_Roughness : PackedFloat32Array
@@ -37,11 +34,11 @@ extends Node3D
 var New_Shader = load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres").duplicate(true)
 
 ##For Asset ID Purposes of what asset to use.
-var Base_Eyes = 0
-var Base_Ears = 0
-var Base_Extras = 0
-var Base_Tails = 0
-var Base_Wings = 0
+var Base_Eyes = ""
+var Base_Ears = ""
+var Base_Extras = ""
+var Base_Tails = ""
+var Base_Wings = ""
 
 var Acc_Head = ""
 var Acc_Face = ""

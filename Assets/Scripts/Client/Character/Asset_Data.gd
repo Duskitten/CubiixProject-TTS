@@ -1256,8 +1256,6 @@ var Mesh_Data_Assets = {
 		"Data":[],
 		"BlendData":{},
 	},
-	
-	
 }
 
 
