@@ -192,7 +192,8 @@ func _on_area_2d_mouse_exited() -> void:
 
 var IsInBounds = false
 
-func _input(event: InputEvent) -> void:
+# DM:> Changing it from _input to _unhandled_key_input, fixes the bug where the tab lock mode gets ignore when the player moves the mouse cursor.
+func _unhandled_key_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shiftlock") && !Mouse_In_UI:
 		TablockEnabled = !TablockEnabled
 
