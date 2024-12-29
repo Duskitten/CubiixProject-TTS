@@ -1,13 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://co7v5bt8xi81"]
+[gd_scene load_steps=6 format=3 uid="uid://co7v5bt8xi81"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_Generator.gd" id="1_kx318"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_ScriptLoader.gd" id="1_ro8ye"]
-[ext_resource type="AnimationLibrary" uid="uid://cd6jvxjrkh3dd" path="res://addons/Cubiix_Assets/Animations/Cubiix_Animation_Library_TTS.tres" id="2_co7dk"]
 
 [sub_resource type="Skin" id="Skin_xqg4r"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbwti"]
-animation = &"TTS_Anim/Walk"
 
 [sub_resource type="Gradient" id="Gradient_re31o"]
 interpolation_mode = 2
@@ -42,18 +38,6 @@ Shader_Alpha = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hub/Cubiix_Model/Armature/Skeleton3D"]
 skin = SubResource("Skin_xqg4r")
-
-[node name="Animations" type="Node3D" parent="Hub"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Hub/Animations"]
-libraries = {
-"TTS_Anim": ExtResource("2_co7dk")
-}
-movie_quit_on_finish = true
-
-[node name="AnimationTree" type="AnimationTree" parent="Hub/Animations"]
-tree_root = SubResource("AnimationNodeAnimation_cbwti")
-anim_player = NodePath("../AnimationPlayer")
 
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)

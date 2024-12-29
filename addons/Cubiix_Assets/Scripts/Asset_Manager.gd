@@ -136,7 +136,7 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	var Final_Mesh : ArrayMesh = ArrayMesh.new()
 	
 	## This is for the skeleton later for our bound stuff.
-	var TargetSkin : Skin = TargetMesh.skin.duplicate(true)
+	var TargetSkin : Skin = Skin.new()
 	
 	## This is for keeping track of the blendshapes themselves if they need to exist.
 	var Blendshape_Key : Array = []
@@ -323,3 +323,13 @@ func find_script(ID:String, ApplyNode:Node3D, ParentNode:Node3D) -> void:
 		assets[AssetParts[0]]["Scripts"][AssetParts[1]].has("Path"):
 			ApplyNode.set_script(load(assets[AssetParts[0]]["Scripts"][AssetParts[1]]["Path"]))
 			ApplyNode.name = AssetParts[1]
+
+func find_animation(ID:String, ApplyNode:Node3D) -> void:
+	var path = ""
+	var AssetParts = ID.split("/")
+	if assets.has(AssetParts[0]) &&\
+		assets[AssetParts[0]].has("Animations") &&\
+		assets[AssetParts[0]]["Animations"].has(AssetParts[1]) &&\
+		assets[AssetParts[0]]["Animations"][AssetParts[1]].has("Node"):
+			print("Hello New Child!")
+			ApplyNode.add_child(assets[AssetParts[0]]["Animations"][AssetParts[1]]["Node"].duplicate(true))

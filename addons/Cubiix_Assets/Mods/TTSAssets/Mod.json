@@ -16,6 +16,10 @@
 			}
 		},
 		"Materials":{},
-		"Animations":{}
+		"Animations":{
+			"TTS_Player_Anims":{
+				"Path":"Assets/Animations/TTS_Animations.tscn"
+			}
+		}
 	}
 }

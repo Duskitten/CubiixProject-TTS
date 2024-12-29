@@ -88,6 +88,11 @@ func generate_colors() -> void:
 
 func generate_character() -> void:
 	generate_colors()
+	var Skeleton = Skeleton3D.new()
+	Skeleton.name = "Skeleton3D"
+	var MeshInstance = MeshInstance3D.new()
+	MeshInstance.name = "MeshInstance3D"
+	Skeleton.add_child(MeshInstance)
 	get_parent().Assets.generate_character_mesh([
 		"CoreAssets/Base_Model",
 		Base_Eyes,
@@ -103,15 +108,22 @@ func generate_character() -> void:
 		Acc_R_Hand,
 		Acc_L_Hip,
 		Acc_R_Hip,],
-		$"Cubiix_Model/Armature/Skeleton3D/MeshInstance3D",
-		$"Cubiix_Model/Armature/Skeleton3D",
+		MeshInstance,
+		Skeleton,
 		self)
 	await Mesh_Finished
+	if get_node_or_null("Animations") != null:
+		$Animations/AnimationTree.active = false
+	$Cubiix_Model/Armature/Skeleton3D.queue_free()
+	await get_tree().process_frame
+	$Cubiix_Model/Armature.add_child(Skeleton)
 	DynBones = DynBone.new()
-	$Cubiix_Model/Armature/Skeleton3D.add_child(DynBones)
+	Skeleton.add_child(DynBones)
+	#add_child(load("res://addons/Cubiix_Assets/Animations/TTS_Animations.tscn").instantiate())
+	
+	if get_node_or_null("Animations") != null:
+		$Animations/AnimationTree.active = true
+	
 	DynBones.DynBones_Register = DynBones_Register.duplicate(true)
 	DynBones.first_run()
-	$Animations/AnimationTree.active = false
-	await get_tree().create_timer(0.2).timeout
-	$Animations/AnimationTree.active = true
-	DynBones.emit_signal("RePositioned")
+	DynBones.call_deferred("emit_signal","RePositioned")

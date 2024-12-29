@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=18 format=3 uid="uid://cd6jvxjrkh3dd"]
+[gd_scene load_steps=20 format=3 uid="uid://j8saiypl2nqh"]
 
 [sub_resource type="Animation" id="Animation_crlt6"]
 resource_name = "Customizing"
@@ -257,6 +257,18 @@ tracks/35/path = NodePath("../Cubiix_Model/Armature/Skeleton3D:Foot_L")
 tracks/35/interp = 2
 tracks/35/loop_wrap = true
 tracks/35/keys = PackedFloat32Array(0, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107, 0.666667, 1, -0.0296907, 0.0296908, -0.706483, 0.706483, 1, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107, 1.66667, 1, -0.0296907, 0.0296908, -0.706483, 0.706483)
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("../Armature/Skeleton3D:motion_scale")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_rjias"]
 resource_name = "Drive"
@@ -3931,7 +3943,7 @@ tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = PackedFloat32Array(0, 1, 4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
-[resource]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yp2tw"]
 _data = {
 "Customizing": SubResource("Animation_crlt6"),
 "Drive": SubResource("Animation_rjias"),
@@ -3951,3 +3963,18 @@ _data = {
 "Walk": SubResource("Animation_1omhp"),
 "Wooble": SubResource("Animation_aeuoc")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbwti"]
+animation = &"Idle"
+
+[node name="Animations" type="Node3D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yp2tw")
+}
+movie_quit_on_finish = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeAnimation_cbwti")
+anim_player = NodePath("../AnimationPlayer")

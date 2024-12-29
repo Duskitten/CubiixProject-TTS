@@ -1,52 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://c476y3oq2ygq6"]
+[gd_scene load_steps=9 format=3 uid="uid://c476y3oq2ygq6"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Character.gd" id="1_enbgk"]
-[ext_resource type="PackedScene" uid="uid://cirw3ifxx1v8v" path="res://Assets/Scenes/Client/Characters/cubiix_model.tscn" id="2_v6ccf"]
-[ext_resource type="Shader" uid="uid://qw8xxswsw5c8" path="res://Assets/Shaders/Characters/Cubiix_Shader_Material.tres" id="3_m1qu1"]
-[ext_resource type="Texture2D" uid="uid://rad00hl5f0fm" path="res://Assets/Mesh/Cubiix/Color_Palette_Mask.png" id="4_eigcd"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hoj5a"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("3_m1qu1")
-shader_parameter/has_metallic = true
-shader_parameter/Body1 = Color(0.372549, 0.372549, 0.372549, 1)
-shader_parameter/emiss_Body1 = Color(0, 0, 0, 1)
-shader_parameter/Body1_metallic = 0.0
-shader_parameter/Body1_roughness = 1.0
-shader_parameter/Body2 = Color(0.776471, 0.776471, 0.776471, 1)
-shader_parameter/emiss_Body2 = Color(0, 0, 0, 1)
-shader_parameter/Body2_metallic = 0.0
-shader_parameter/Body2_roughness = 1.0
-shader_parameter/Body3 = Color(0.643843, 0.343793, 0.8, 1)
-shader_parameter/emiss_Body3 = Color(0.643137, 0.345098, 0.8, 1)
-shader_parameter/Body3_metallic = 0.0
-shader_parameter/Body3_roughness = 1.0
-shader_parameter/Body4 = Color(0.643137, 0.345098, 0.8, 1)
-shader_parameter/emiss_Body4 = Color(0.643137, 0.345098, 0.8, 1)
-shader_parameter/Body4_metallic = 0.0
-shader_parameter/Body4_roughness = 1.0
-shader_parameter/distance_fade_min = 0.0
-shader_parameter/distance_fade_max = 0.0
-shader_parameter/distance_fade_glow = 0.0
-shader_parameter/distance_transitioning = false
-shader_parameter/texture_albedo = ExtResource("4_eigcd")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m8ql4"]
-margin = 0.4
-radius = 0.202349
-height = 0.734779
-
-[sub_resource type="Gradient" id="Gradient_rryif"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.161435, 0.29148)
-colors = PackedColorArray(0.582031, 0.582031, 0.582031, 1, 0.580392, 0.580392, 0.580392, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8laqd"]
-gradient = SubResource("Gradient_rryif")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 1)
+[ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="1_suc35"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kp3qj"]
 size = Vector2(5.66, 5.66)
@@ -84,79 +38,8 @@ fill_to = Vector2(1, 1)
 
 [node name="Character_Editor" type="Node3D"]
 
-[node name="Cubiix_Base" type="CharacterBody3D" parent="." groups=["Player"]]
-collision_layer = 130
-collision_mask = 130
-slide_on_ceiling = false
-wall_min_slide_angle = 0.0
-floor_stop_on_slope = false
-floor_block_on_wall = false
-platform_floor_layers = 1
-platform_wall_layers = 1
-script = ExtResource("1_enbgk")
-Body_1 = Color(0.730469, 0.250963, 0.261863, 1)
-Body_2 = Color(0.546875, 0.546875, 0.546875, 1)
-Body_3 = Color(0, 0.763226, 0.808594, 1)
-Body_4 = Color(0, 0.764706, 0.807843, 1)
-Is_UI = true
-
-[node name="Hub" type="Node3D" parent="Cubiix_Base"]
-
-[node name="Cubiix_Model" parent="Cubiix_Base/Hub" instance=ExtResource("2_v6ccf")]
-
-[node name="Skeleton3D" parent="Cubiix_Base/Hub/Cubiix_Model" index="0"]
-bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/2/position = Vector3(0, 0.254852, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/3/position = Vector3(-0.327326, 0.134334, 0)
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
-bones/5/rotation = Quaternion(0, 0, 0, 1)
-bones/6/rotation = Quaternion(0, 0, 0, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/8/position = Vector3(0.327326, 0.134334, 0)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/9/rotation = Quaternion(0, 0, 0, 1)
-bones/10/rotation = Quaternion(0, 0, 0, 1)
-bones/11/rotation = Quaternion(0, 0, 0, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/position = Vector3(0, 0.12722, 0)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/position = Vector3(0, 0.12722, 0)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
-
-[node name="Cube" parent="Cubiix_Base/Hub/Cubiix_Model/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_hoj5a")
-
-[node name="AnimationTree" parent="Cubiix_Base/Hub/Cubiix_Model" index="2"]
-parameters/Blend2/blend_amount = 0
-
-[node name="Items" type="Node3D" parent="Cubiix_Base/Hub"]
-
-[node name="Follow_Point" type="Node3D" parent="Cubiix_Base/Hub"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
-
-[node name="Head" type="Node3D" parent="Cubiix_Base/Hub"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494852, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cubiix_Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_m8ql4")
-
-[node name="Marker3D" type="Marker3D" parent="Cubiix_Base"]
-
-[node name="Decal" type="Decal" parent="Cubiix_Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)
-visible = false
-layers = 1048575
-size = Vector3(2, 5, 2)
-texture_albedo = SubResource("GradientTexture2D_8laqd")
-upper_fade = 1e-05
-lower_fade = 1.03526e-05
-cull_mask = 524288
+[node name="Cubiix_Base" parent="." instance=ExtResource("1_suc35")]
+Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 524295
@@ -194,4 +77,4 @@ upper_fade = 1e-05
 lower_fade = 1.03526e-05
 cull_mask = 524288
 
-[editable path="Cubiix_Base/Hub/Cubiix_Model"]
+[editable path="Cubiix_Base"]

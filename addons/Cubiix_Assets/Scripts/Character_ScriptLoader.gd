@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var Load_Script_Passthrough: Array[Dictionary]
 
 ## Direct Path to our Assets/Modloading stuff.
+@export var Animation_Path = ""
 @export var Assets_Path = ""
 var Assets
 
@@ -28,5 +29,8 @@ func _ready() -> void:
 			var NewNode = Node3D.new()
 			Assets.find_script(i,NewNode,self)
 			call_deferred("add_child",NewNode)
+	if Animation_Path != "":
+		Assets.find_animation(Animation_Path,$Hub)
+
 	call_deferred("emit_signal","ScriptLoaded")
 	Assets.Tools.generate_character_from_string(Character_String,Hub)
