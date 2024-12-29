@@ -31,30 +31,52 @@ extends Node3D
 @export_range(0,1) var Shader_Emission_Strength : PackedFloat32Array
 @export_range(0,1) var Shader_Alpha : PackedFloat32Array
 
-var New_Shader = load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres").duplicate(true)
+## Just a nice little key so I dont have to memorize stuff
+var Keylist = {
+	"Body":{"Body1":0,"Body2":2,"Eye1":1,"Eye2":3},
+	"Head":[4,6,5,7],
+	"Face":[8,10,9,11],
+	"Chest":[12,14,13,15],
+	"Back":[16,18,17,19],
+	"L_Hand":[20,22,21,23],
+	"R_Hand":[24,26,25,27],
+	"L_Hip":[28,30,29,31],
+	"R_Hip":[32,34,33,35],
+}
+
+var New_Shader:Material = load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres").duplicate(true)
 
 ##For Asset ID Purposes of what asset to use.
-var Base_Eyes = ""
-var Base_Ears = ""
-var Base_Extras = ""
-var Base_Tails = ""
-var Base_Wings = ""
+var Base_Eyes:String  = ""
+var Base_Ears:String  = ""
+var Base_Extras:String  = ""
+var Base_Tails:String  = ""
+var Base_Wings:String  = ""
 
-var Acc_Head = ""
-var Acc_Face = ""
-var Acc_Chest = ""
-var Acc_Back = ""
-var Acc_L_Hand = ""
-var Acc_R_Hand = ""
-var Acc_L_Hip = ""
-var Acc_R_Hip = ""
+var Acc_Head:String  = ""
+var Acc_Face:String  = ""
+var Acc_Chest:String  = ""
+var Acc_Back:String  = ""
+var Acc_L_Hand:String  = ""
+var Acc_R_Hand:String  = ""
+var Acc_L_Hip:String  = ""
+var Acc_R_Hip:String  = ""
+
+var Name:String  = ""
+var Pronouns_A:String  = ""
+var Pronouns_B:String  = ""
+var Pronouns_C:String = ""
+var Faction:int = 1
+
+var Scale:float = 1
 
 var DynBones_Register = {}
 signal Mesh_Finished
 var DynBones : DynBone
 func _ready() -> void:
-	await get_parent().Loaded
-	generate_character()
+	pass
+	#await get_parent().Loaded
+	#generate_character()
 	
 func generate_colors() -> void:
 	New_Shader.set_shader_parameter("Body_Color", Shader_Color)
@@ -66,7 +88,24 @@ func generate_colors() -> void:
 
 func generate_character() -> void:
 	generate_colors()
-	get_parent().Assets.generate_character_mesh(["CoreAssets/Base_Model","CoreAssets/Eyes_Tri", "CoreAssets/Extra_Antler", "CoreAssets/Ears_Bee", "CoreAssets/Tails_Dragon"],$"Cubiix_Model/Armature/Skeleton3D/MeshInstance3D",$"Cubiix_Model/Armature/Skeleton3D",self)
+	get_parent().Assets.generate_character_mesh([
+		"CoreAssets/Base_Model",
+		Base_Eyes,
+		Base_Ears,
+		Base_Extras, 
+		Base_Tails,
+		Base_Wings,
+		Acc_Head,
+		Acc_Face,
+		Acc_Chest,
+		Acc_Back,
+		Acc_L_Hand,
+		Acc_R_Hand,
+		Acc_L_Hip,
+		Acc_R_Hip,],
+		$"Cubiix_Model/Armature/Skeleton3D/MeshInstance3D",
+		$"Cubiix_Model/Armature/Skeleton3D",
+		self)
 	await Mesh_Finished
 	DynBones = DynBone.new()
 	$Cubiix_Model/Armature/Skeleton3D.add_child(DynBones)

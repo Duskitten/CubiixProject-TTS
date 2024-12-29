@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://dt512nrj4i3jp"]
+[gd_scene load_steps=55 format=4 uid="uid://dt512nrj4i3jp"]
 
 [ext_resource type="PackedScene" uid="uid://cycideexy0qrf" path="res://Assets/Mesh/Maps/Island/Hexstaria_Map.gltf" id="1_ktnar"]
 [ext_resource type="Material" uid="uid://6evdtq7ae51" path="res://Assets/Materials/World/Hexstaria_Sand.tres" id="2_nvq3x"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://wpwc8e5vda2q" path="res://Assets/Scenes/Client/Minigame/AirKart.tscn" id="17_3icn6"]
 [ext_resource type="PackedScene" uid="uid://daagacetbe7yf" path="res://Assets/Scenes/Client/cubiix_base.tscn" id="20_kcdnm"]
 [ext_resource type="PackedScene" uid="uid://bjh7kic6808a" path="res://Assets/Scenes/Client/Tools/Npc_Function.tscn" id="21_uc3kt"]
+[ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="22_nmlpp"]
 [ext_resource type="Texture2D" uid="uid://dvwfqrpuntr1m" path="res://Assets/Textures/UI/In-Game/Exclaim.png" id="22_w3fra"]
 [ext_resource type="PackedScene" uid="uid://blcj1misofydm" path="res://Assets/Scenes/Client/Creatures/Goo Dino/Goo_Dino.tscn" id="23_g6sai"]
 [ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://Assets/Scenes/Client/world/audioZone.tscn" id="23_kf4ej"]
@@ -65,6 +66,7 @@ ambient_light_source = 3
 ambient_light_color = Color(0.691341, 0.851563, 0.838842, 1)
 ambient_light_sky_contribution = 0.04
 tonemap_mode = 2
+ssao_enabled = true
 ssao_power = 1.30582
 glow_enabled = true
 glow_levels/1 = 16.0
@@ -577,6 +579,12 @@ no_depth_test = true
 alpha_cut = 2
 texture_filter = 5
 texture = ExtResource("22_w3fra")
+
+[node name="Cubiix_Character" parent="NPC" instance=ExtResource("22_nmlpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9602, 0.406999, 158.412)
+Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
+Character_String = "{\"Color_Body\":\"ea0082\",\"Color_BodyGlow\":\"101424\",\"Color_Eye_1\":\"fff000\",\"Color_Eye_2\":\"0099e4\",\"Ears\":\"Bunny\",\"Extra\":\"None\",\"Eyes\":\"Text\",\"Name\":\"\",\"Size\":-0.1,\"Tail\":\"Bunny\",\"Wings\":\"None\"}"
+Accessory_String = "{}"
 
 [node name="Enemies" type="Node3D" parent="."]
 

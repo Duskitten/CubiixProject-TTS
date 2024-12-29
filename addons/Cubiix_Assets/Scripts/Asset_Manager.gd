@@ -17,7 +17,9 @@ signal load_finished
 
 var InitThread:Thread
 
+var Tools = cubiix_tool.new()
 func runsetup():
+	Tools.Assets = self
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
 	

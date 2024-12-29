@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://cirw3ifxx1v8v"]
+[gd_scene load_steps=70 format=4 uid="uid://cirw3ifxx1v8v"]
 
 [ext_resource type="Material" uid="uid://da55ukgpbvpxn" path="res://Assets/Materials/Characters/Cubiix_Base_Shader_Material.tres" id="2_2760a"]
 [ext_resource type="Material" uid="uid://4xfckmbyk8kc" path="res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres" id="2_dfnqa"]
@@ -376,6 +376,17 @@ nodes/Player_State/position = Vector2(-60, 20)
 nodes/output/position = Vector2(900, 180)
 node_connections = [&"Blend2", 0, &"Blend_Networked", &"Blend2", 1, &"Animation", &"Blend_Networked", 0, &"NPC", &"Blend_Networked", 1, &"Networked_State", &"Hand_Controller_R", 0, &"Blend2", &"Hand_Controller_R", 1, &"AnimationNodeStateMachine", &"NPC", 0, &"Player_State", &"NPC", 1, &"NPC_State", &"output", 0, &"Hand_Controller_R"]
 
+[sub_resource type="Gradient" id="Gradient_mxy3s"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.125561, 0.29148)
+colors = PackedColorArray(0, 0, 0, 0.502, 0, 0, 0, 0.501961, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hhw3d"]
+gradient = SubResource("Gradient_mxy3s")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
 [node name="Cubiix_Model" type="Node3D"]
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
@@ -599,3 +610,12 @@ parameters/Hand_Controller_R/blend_amount = 0.0
 parameters/NPC/blend_amount = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)
+layers = 1048575
+size = Vector3(2, 5, 2)
+texture_albedo = SubResource("GradientTexture2D_hhw3d")
+upper_fade = 1e-05
+lower_fade = 1.03526e-05
+cull_mask = 524288

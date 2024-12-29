@@ -10,13 +10,13 @@ margin = 0.4
 radius = 0.202349
 height = 0.734779
 
-[sub_resource type="Gradient" id="Gradient_re31o"]
+[sub_resource type="Gradient" id="Gradient_fawhr"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.125561, 0.29148)
 colors = PackedColorArray(0, 0, 0, 0.502, 0, 0, 0, 0.501961, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cvkc"]
-gradient = SubResource("Gradient_re31o")
+gradient = SubResource("Gradient_fawhr")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)

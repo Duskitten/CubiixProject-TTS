@@ -612,7 +612,7 @@
 					}
 				}
 			},
-			"Tails_Dog":{
+			"Tails_Mouse":{
 				"Name":"Mouse",
 				"Path" : "Assets/Mesh/Base/Tails/Mouse_Tail.gltf",
 				"Mesh_Path":"Mouse_Tail_Armature/Skeleton3D/Mouse_Tail",
@@ -749,67 +749,67 @@
 		"Override_Binds":{
 			"V3":{
 				"Eyes":[
-					"Eyes_Default",
-					"Eyes_Chonk",
-					"Eyes_Tri",
-					"Eyes_Nat",
-					"Eyes_Circle",
-					"Eyes_Fox",
-					"Eyes_Four",
-					"Eyes_Entity",
-					"Eyes_Text",
-					"Eyes_Mouse"
+					"CoreAssets/Eyes_Default",
+					"CoreAssets/Eyes_Chonk",
+					"CoreAssets/Eyes_Tri",
+					"CoreAssets/Eyes_Nat",
+					"CoreAssets/Eyes_Circle",
+					"CoreAssets/Eyes_Fox",
+					"CoreAssets/Eyes_Four",
+					"CoreAssets/Eyes_Entity",
+					"CoreAssets/Eyes_Text",
+					"CoreAssets/Eyes_Mouse"
 				],
 				"Ears":[
 					"",
-					"Ears_Cat",
-					"Ears_Fox",
-					"Ears_Wolf",
-					"Ears_Goat",
-					"Ears_Bee", 
-					"Ears_Moth",
-					"Ears_Mouse",
-					"Ears_Alien", 
-					"Ears_Deer", 
-					"Ears_Entity", 
-					"Ears_Dog", 
-					"Ears_Bunny", 
-					"Ears_Fluffy"
+					"CoreAssets/Ears_Cat",
+					"CoreAssets/Ears_Fox",
+					"CoreAssets/Ears_Wolf",
+					"CoreAssets/Ears_Goat",
+					"CoreAssets/Ears_Bee", 
+					"CoreAssets/Ears_Moth",
+					"CoreAssets/Ears_Mouse",
+					"CoreAssets/Ears_Alien", 
+					"CoreAssets/Ears_Deer", 
+					"CoreAssets/Ears_Entity", 
+					"CoreAssets/Ears_Dog", 
+					"CoreAssets/Ears_Bunny", 
+					"CoreAssets/Ears_Fluffy"
 				],
-				"Extra":[
+				"Extras":[
 					"",
-					"Extra_Shark",
-					"Extra_Nub",
-					"Extra_Antler",
-					"Extra_Ram",
-					"Extra_Fish",
-					"Extra_Narwhal",
-					"Extra_Dragon"
+					"CoreAssets/Extra_Shark",
+					"CoreAssets/Extra_Nub",
+					"CoreAssets/Extra_Antler",
+					"CoreAssets/Extra_Ram",
+					"CoreAssets/Extra_Fish",
+					"CoreAssets/Extra_Narwhal",
+					"CoreAssets/Extra_Dragon"
 				],
 				"Tails":[
 					"",
-					"Tails_Cat",
-					"Tails_Fox",
-					"Tails_Wolf",
-					"Tails_Bug",
-					"Tails_Bee",
-					"Tails_Moth",
-					"Tails_Dog",
-					"Tails_Mouse",
-					"Tails_Fluffy",
-					"Tails_Shark",
-					"Tails_Entity",
-					"Tails_Bunny",
-					"Tails_Deer",
-					"Tails_Dragon"
+					"CoreAssets/Tails_Cat",
+					"CoreAssets/Tails_Fox",
+					"CoreAssets/Tails_Wolf",
+					"CoreAssets/Tails_Bug",
+					"CoreAssets/Tails_Bee",
+					"CoreAssets/Tails_Moth",
+					"CoreAssets/Tails_Dog",
+					"CoreAssets/Tails_Mouse",
+					"CoreAssets/Tails_Fluffy",
+					"CoreAssets/Tails_Shark",
+					"CoreAssets/Tails_Entity",
+					"CoreAssets/Tails_Bunny",
+					"CoreAssets/Tails_Deer",
+					"CoreAssets/Tails_Dragon"
 				],
 				"Wings":[
 					"",
-					"Wings_Entity",
-					"Wings_Angel",
-					"Wings_Butterfly",
-					"Wings_Wasp",
-					"Wings_Dragon"
+					"CoreAssets/Wings_Entity",
+					"CoreAssets/Wings_Angel",
+					"CoreAssets/Wings_Butterfly",
+					"CoreAssets/Wings_Wasp",
+					"CoreAssets/Wings_Dragon"
 				]
 			},
 			"V2":{
@@ -842,7 +842,7 @@
 					"Bunny":"CoreAssets/Ears_Bunny", 
 					"Fluffy":"CoreAssets/Ears_Fluffy"
 				},
-				"Extra":{
+				"Extras":{
 					"None":"",
 					"Shark":"CoreAssets/Extra_Shark",
 					"Nub":"CoreAssets/Extra_Nub",
@@ -933,6 +933,65 @@
 				"Cubiix_Base:Bee_Wings":"CoreAssets/Wings_Wasp",
 				"Cubiix_Base:Dragon_Wings":"CoreAssets/Wings_Dragon"
 			}
+		},
+		"IDList":{
+			"V1":[
+				"EarID",
+				"ExtraID",
+				"EyeCol",
+				"EyeID",
+				"GlowCol",
+				"Height",
+				"PrimCol",
+				"TailID",
+				"WingID",
+				"WireCol",
+				"WireInnerCol"
+			],
+			"V2":[
+				"Color_Body",
+				"Color_BodyGlow",
+				"Color_Eye_1",
+				"Color_Eye_2",
+				"Ears",
+				"Extra",
+				"Eyes",
+				"Size",
+				"Tail",
+				"Wings"
+			],
+			"V3":[
+				"B1",
+				"B2",
+				"B3",
+				"B4",
+				"B1E",
+				"B2E",
+				"B3E",
+				"B4E",
+				"B1ES",
+				"B2ES",
+				"B3ES",
+				"B4ES",
+				"B1R",
+				"B2R",
+				"B3R",
+				"B4R",
+				"B1M",
+				"B2M",
+				"B3M",
+				"B4M",
+				"T",
+				"W",
+				"EA",
+				"EX",
+				"EY",
+				"S",
+				"N",
+				"PA",
+				"PB",
+				"PC"
+			]
 		},
 		"Maps":{
 		},
