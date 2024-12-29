@@ -68,10 +68,9 @@ func _ready() -> void:
 	#Chat
 	Hexii_Ui_Chat_TextInput.text_submitted.connect(send_text.bind())
 	
-	await Player.MeshFinished
-	
 	Hexii_Ui_Tablet_JournalButton.emit_signal("pressed")
-	Core.Character_Gen.clone_char(Hexii_Ui_Tablet_Character,Player)
+	
+	Core.AssetData.Tools.clone_character(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
 
 	AudioPlayer.add_child(CurrentAudioPlayer)
 

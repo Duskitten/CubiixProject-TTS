@@ -229,11 +229,11 @@ func generate_character_from_string(Data:String,Target:Node3D) -> void:
 			Target.generate_character()
 
 func clone_character(A:Node3D, B:Node3D) -> void:
-	B.Shader_Color = A.Shader_Color.duplicate(true)
-	B.Shader_Emission = A.Shader_Emission.duplicate(true)
-	B.Shader_Emission_Strength = A.Shader_Emission_Strength.duplicate(true)
-	B.Shader_Roughness = A.Shader_Roughness.duplicate(true)
-	B.Shader_Metallic = A.Shader_Metallic.duplicate(true)
+	B.Shader_Color = A.Shader_Color.duplicate()
+	B.Shader_Emission = A.Shader_Emission.duplicate()
+	B.Shader_Emission_Strength = A.Shader_Emission_Strength.duplicate()
+	B.Shader_Roughness = A.Shader_Roughness.duplicate()
+	B.Shader_Metallic = A.Shader_Metallic.duplicate()
 	B.Base_Tails = A.Base_Tails
 	B.Base_Wings = A.Base_Wings
 	B.Base_Ears = A.Base_Ears

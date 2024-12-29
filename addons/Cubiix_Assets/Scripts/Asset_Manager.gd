@@ -11,6 +11,7 @@ var mod_files = []
 var mods = {}
 var assets = {}
 var compiled_assets = {}
+var assets_tagged = {}
 
 signal FinishedLoad
 signal load_finished
@@ -72,9 +73,14 @@ func compile_mod_assets() -> void:
 					for x in content["Assets"][n].keys():
 						if content["Assets"][n][x].has("Path"):
 							content["Assets"][n][x]["Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Path"]
+						if content["Assets"][n][x].has("Tag"):
+							if !assets_tagged.has(content["Assets"][n][x]["Tag"]):
+								assets_tagged[content["Assets"][n][x]["Tag"]] = []
+							assets_tagged[content["Assets"][n][x]["Tag"]].append(content["ModID"]+"/"+x)
 				assets[content["ModID"]] = content["Assets"]
 		else:
 			print("Error: Invalid Mod")
+	print(assets_tagged)
 	call_deferred("emit_signal","load_finished")
 
 func load_mod_assets() -> void:

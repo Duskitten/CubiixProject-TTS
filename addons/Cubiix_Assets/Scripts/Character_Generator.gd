@@ -114,8 +114,8 @@ func generate_character() -> void:
 	await Mesh_Finished
 	if get_node_or_null("Animations") != null:
 		$Animations/AnimationTree.active = false
-	$Cubiix_Model/Armature/Skeleton3D.queue_free()
-	await get_tree().process_frame
+	if get_node_or_null("Cubiix_Model/Armature/Skeleton3D") != null:
+		$Cubiix_Model/Armature/Skeleton3D.free()
 	$Cubiix_Model/Armature.add_child(Skeleton)
 	DynBones = DynBone.new()
 	Skeleton.add_child(DynBones)
