@@ -81,6 +81,9 @@ func compile_mod_assets() -> void:
 		else:
 			print("Error: Invalid Mod")
 	print(assets_tagged)
+	for i in assets_tagged.keys():
+		assets_tagged[i].sort()
+
 	call_deferred("emit_signal","load_finished")
 
 func load_mod_assets() -> void:

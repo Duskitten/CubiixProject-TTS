@@ -9,12 +9,16 @@
 				"Path" : "Assets/Mesh/Base/Cubiix_Base.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Cube"
 			},
+			"Eyes_":{
+				"Tag":"Eyes",
+				"Name":"None",
+			},
 			"Eyes_Chonk":{
 				"Tag":"Eyes",
 				"Name":"Chonk",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Chonk.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Chonk",
-				"Has_Blendshapes":true
+				"Has_Blendshapes":true,
 			},
 			"Eyes_Circle":{
 				"Tag":"Eyes",
@@ -82,7 +86,10 @@
 
 
 
-
+			"Ears_":{
+				"Tag":"Ears",
+				"Name":"None",
+			},
 			"Ears_Cat":{
 				"Tag":"Ears",
 				"Name":"Cat",
@@ -436,6 +443,10 @@
 			},
 
 
+			"Extras_":{
+				"Tag":"Extras",
+				"Name":"None",
+			},
 			"Extra_Antler":{
 				"Tag":"Extras",
 				"Name":"Antler",
@@ -480,7 +491,10 @@
 			},
 
 
-
+			"Wings_":{
+				"Tag":"Wings",
+				"Name":"None",
+			},
 			"Wings_Entity":{
 				"Tag":"Wings",
 				"Name":"Entity",
@@ -513,7 +527,10 @@
 			},
 
 
-
+			"Tails_":{
+				"Tag":"Tails",
+				"Name":"None",
+			},
 			"Tails_Cat":{
 				"Tag":"Tails",
 				"Name":"Cat",
