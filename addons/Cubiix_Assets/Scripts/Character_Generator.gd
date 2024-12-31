@@ -82,7 +82,9 @@ func _ready() -> void:
 	pass
 	#await get_parent().Loaded
 	#generate_character()
-	
+func adjust_scale() -> void:
+	self.scale = Vector3(Scale,Scale,Scale)
+
 func generate_colors() -> void:
 	New_Shader.set_shader_parameter("Body_Color", Shader_Color)
 	New_Shader.set_shader_parameter("Body_Emission", Shader_Emission)
@@ -93,6 +95,7 @@ func generate_colors() -> void:
 
 func generate_character() -> void:
 	generate_colors()
+	adjust_scale()
 	var Skeleton = Skeleton3D.new()
 	Skeleton.name = "Skeleton3D"
 	var MeshInstance = MeshInstance3D.new()

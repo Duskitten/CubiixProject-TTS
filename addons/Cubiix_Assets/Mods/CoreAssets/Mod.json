@@ -534,7 +534,7 @@
 				"Name":"Butterfly",
 				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Butterfly.png",
 				"Path" : "Assets/Mesh/Base/Wings/Butterfly_Wings.gltf",
-				"Mesh_Path":"Angel_Wings_Armature/Skeleton3D/Butterfly_Wings",
+				"Mesh_Path":"Butterfly_Wings_Armature/Skeleton3D/Butterfly_Wings",
 			},
 			"Wings_Wasp":{
 				"Tag":"Wings",
@@ -848,6 +848,38 @@
 					}
 				}
 			},
+			"Head":{
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+			},
+			"Face":{
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+			},
+			"Chest":{
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+			},
+			"Back":{
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+			},
+			"L_Hip":{
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+			},
+			"R_Hip":{
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+			},
+			"L_Hand":{
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+			},
+			"R_Hand":{
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+			},
 		},
 		"Override_Binds":{
 			"V3":{
@@ -913,6 +945,30 @@
 					"CoreAssets/Wings_Butterfly",
 					"CoreAssets/Wings_Wasp",
 					"CoreAssets/Wings_Dragon"
+				],
+				"Head":[
+					"CoreAssets/Head"
+				],
+				"Face":[
+					"CoreAssets/Face"
+				],
+				"Chest":[
+					"CoreAssets/Chest"
+				],
+				"Back":[
+					"CoreAssets/Back"
+				],
+				"L_Hip":[
+					"CoreAssets/L_Hip"
+				],
+				"R_Hip":[
+					"CoreAssets/R_Hip"
+				],
+				"L_Hand":[
+					"CoreAssets/L_Hand"
+				],
+				"R_Hand":[
+					"CoreAssets/R_Hand"
 				]
 			},
 			"V2":{

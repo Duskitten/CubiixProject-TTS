@@ -302,12 +302,12 @@ func _on_part_button_pressed(PartData: String) -> void:
 				if Core.Client.TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 					Core.Client.char_update()
 				else:
-					Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
+					Core.AssetData.Tools.clone_character(Hexii_Ui_Tablet_Character.Hub,Player.Hub)
 				
 			"Revert":
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.hide()
-				Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
+				Core.AssetData.Tools.clone_character(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
 		
 	elif PartData.begins_with("Color, "):
 		var Asset = PartData.lstrip("Color, ")
@@ -387,7 +387,7 @@ func generate_new_CharUI_asset(i, PartData) -> void:
 		(New_Part as TextureButton).texture_hover = newtexture
 	
 	if Core.AssetData.assets[splitval[0]]["Models"][splitval[1]].has("Name"):
-		New_Part.get_node("Label").text = Core.AssetData.assets[splitval[0]]["Models"][splitval[1]]["Name"]+"."+PartData.to_lower()
+		New_Part.get_node("Label").text = Core.AssetData.assets[splitval[0]]["Models"][splitval[1]]["Name"]+"."+PartData.trim_suffix("s").to_lower()
 	else:
 		New_Part.get_node("Label").text = "UIA"+"."+PartData.to_lower()
 	#if PartData == "Ear" || PartData == "Wing" || PartData == "Extra" || PartData == "Eye" || PartData == "Tail":
@@ -401,6 +401,8 @@ func generate_new_CharUI_asset(i, PartData) -> void:
 	#else:
 	if PartData == "Ears" || PartData == "Wings" || PartData == "Extras" || PartData == "Eyes" || PartData == "Tails":
 		New_Part.pressed.connect(change_part.bind("Base_"+PartData,i))
+	else:
+		New_Part.pressed.connect(change_part.bind("Acc_"+PartData,i))
 			
 		
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.add_child(New_Part)
@@ -517,12 +519,12 @@ func update_values() -> void:
 	Hexii_Ui_Tablet_Color_Container.get_node("M/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(current_colorselected+"_Metallic"))
 
 func _on_load_button_pressed() -> void:
-	Core.Character_Gen.generate_char_from_string($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text, Hexii_Ui_Tablet_Character_OBJ)
+	Core.AssetData.Tools.generate_character_from_string($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text, Hexii_Ui_Tablet_Character_OBJ.Hub)
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
 
 func _on_export_button_pressed() -> void:
-	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text = Core.Character_Gen.export_char(Hexii_Ui_Tablet_Character_OBJ)
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Output/LineEdit.text = Core.AssetData.Tools.export_character(Hexii_Ui_Tablet_Character_OBJ.Hub)
 
 func _on_namepanel_text_submitted(new_text: String, type: String) -> void:
 	Hexii_Ui_Tablet_Character_OBJ.set(type, new_text)
@@ -530,8 +532,8 @@ func _on_namepanel_text_submitted(new_text: String, type: String) -> void:
 func _on_scale_value_changed(value: float) -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
-	Hexii_Ui_Tablet_Character_OBJ.Scale = value
-	Hexii_Ui_Tablet_Character_OBJ.Adjust_Scale()
+	Hexii_Ui_Tablet_Character_OBJ.Hub.Scale = value
+	Hexii_Ui_Tablet_Character_OBJ.Hub.adjust_scale()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/LineEdit.text = str(value)
 
 func _on_scale_text_submitted(new_text: String) -> void:

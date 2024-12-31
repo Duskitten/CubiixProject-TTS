@@ -400,7 +400,6 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 1
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -663,5 +662,4 @@ fov = 56.25
 [editable path="CanvasLayer/Hexii_Tablet_UI"]
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor"]
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base"]
-[editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model/Animations"]
 [editable path="CanvasLayer/Hexii_UI"]

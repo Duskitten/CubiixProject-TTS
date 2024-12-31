@@ -260,3 +260,39 @@ func clone_character(A:Node3D, B:Node3D) -> void:
 	B.Base_Eyes = A.Base_Eyes
 	B.Scale = A.Scale
 	B.generate_character()
+
+func export_character(Target:Node3D) -> String:
+	var V3Template = {
+	"B1":Target.Shader_Color[Target.Keylist["Body"]["Body1"]].to_html(false),
+	"B2":Target.Shader_Color[Target.Keylist["Body"]["Body2"]].to_html(false),
+	"B3":Target.Shader_Color[Target.Keylist["Body"]["Eye1"]].to_html(false),
+	"B4":Target.Shader_Color[Target.Keylist["Body"]["Eye2"]].to_html(false),
+	"B1E":Target.Shader_Emission[Target.Keylist["Body"]["Body1"]].to_html(false),
+	"B2E":Target.Shader_Emission[Target.Keylist["Body"]["Body2"]].to_html(false),
+	"B3E":Target.Shader_Emission[Target.Keylist["Body"]["Eye1"]].to_html(false),
+	"B4E":Target.Shader_Emission[Target.Keylist["Body"]["Eye2"]].to_html(false),
+	"B1ES":Target.Shader_Emission_Strength[Target.Keylist["Body"]["Body1"]],
+	"B2ES":Target.Shader_Emission_Strength[Target.Keylist["Body"]["Body2"]],
+	"B3ES":Target.Shader_Emission_Strength[Target.Keylist["Body"]["Eye1"]],
+	"B4ES":Target.Shader_Emission_Strength[Target.Keylist["Body"]["Eye2"]],
+	"B1R":Target.Shader_Roughness[Target.Keylist["Body"]["Body1"]],
+	"B2R":Target.Shader_Roughness[Target.Keylist["Body"]["Body2"]],
+	"B3R":Target.Shader_Roughness[Target.Keylist["Body"]["Eye1"]],
+	"B4R":Target.Shader_Roughness[Target.Keylist["Body"]["Eye2"]],
+	"B1M":Target.Shader_Metallic[Target.Keylist["Body"]["Body1"]],
+	"B2M":Target.Shader_Metallic[Target.Keylist["Body"]["Body2"]],
+	"B3M":Target.Shader_Metallic[Target.Keylist["Body"]["Eye1"]],
+	"B4M":Target.Shader_Metallic[Target.Keylist["Body"]["Eye2"]],
+	"T":Target.Base_Tails,
+	"W":Target.Base_Wings,
+	"EA":Target.Base_Ears,
+	"EX":Target.Base_Extras,
+	"EY":Target.Base_Eyes,
+	"S":Target.Scale,
+	"N":Target.Name,
+	"PA":Target.Pronouns_A,
+	"PB":Target.Pronouns_B,
+	"PC":Target.Pronouns_C
+	}
+	
+	return JSON.stringify(V3Template)
