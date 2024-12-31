@@ -24,12 +24,12 @@ extends Node3D
 
 ## This pattern should hopefully not be too dissimilar to the current one, and allow for all assets to share 1 material.
 ## Which will hopefully drop drawcalls even lower.
-@export var Shader_Color : PackedColorArray
-@export var Shader_Emission : PackedColorArray
-@export_range(0,1) var Shader_Metallic : PackedFloat32Array
-@export_range(0,1) var Shader_Roughness : PackedFloat32Array
-@export_range(0,1) var Shader_Emission_Strength : PackedFloat32Array
-@export_range(0,1) var Shader_Alpha : PackedFloat32Array
+@export var Shader_Color : Array[Color]
+@export var Shader_Emission : Array[Color]
+@export_range(0,1) var Shader_Metallic : Array[float]
+@export_range(0,1) var Shader_Roughness : Array[float]
+@export_range(0,1) var Shader_Emission_Strength : Array[float]
+@export_range(0,1) var Shader_Alpha : Array[float]
 
 ## Just a nice little key so I dont have to memorize stuff
 var Keylist = {
@@ -44,7 +44,7 @@ var Keylist = {
 	"R_Hip":[32,34,33,35],
 }
 
-var New_Shader:Material = load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres").duplicate(true)
+var New_Shader:Material
 
 ##For Asset ID Purposes of what asset to use.
 var Base_Eyes:String  = ""
@@ -79,7 +79,16 @@ var Animator_Tree:AnimationTree
 var old_animation:Array = ["Idle", 0.0]
 
 func _ready() -> void:
-	pass
+	New_Shader = load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres").duplicate(true)
+	Shader_Color.resize(36)
+	Shader_Emission.resize(36)
+	Shader_Metallic.resize(36)
+	Shader_Metallic.fill(0.0)
+	Shader_Roughness.resize(36)
+	Shader_Roughness.fill(1.0)
+	Shader_Emission_Strength.resize(36)
+	Shader_Alpha.resize(36)
+	Shader_Alpha.fill(1.0)
 	#await get_parent().Loaded
 	#generate_character()
 func adjust_scale() -> void:
@@ -94,7 +103,6 @@ func generate_colors() -> void:
 	New_Shader.set_shader_parameter("Body_Alpha", Shader_Alpha)
 
 func generate_character() -> void:
-	generate_colors()
 	adjust_scale()
 	var Skeleton = Skeleton3D.new()
 	Skeleton.name = "Skeleton3D"
@@ -120,6 +128,7 @@ func generate_character() -> void:
 		Skeleton,
 		self)
 	await Mesh_Finished
+	generate_colors()
 	if get_node_or_null("Animations") != null:
 		Animator = get_node_or_null("Animations/AnimationPlayer")
 		if Animator != null:

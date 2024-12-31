@@ -16,12 +16,29 @@
 			},
 			"Character_Preview":{
 				"Path":"Assets/Scripts/Character_Preview.gd"
+			},
+			"NPC_Controller":{
+				"Path":"Assets/Scripts/NPC_Controller.gd"
 			}
 		},
 		"Materials":{},
 		"Animations":{
 			"TTS_Player_Anims":{
 				"Path":"Assets/Animations/TTS_Animations.tscn"
+			}
+		},
+		"Dialogue":{
+			"Dusk":{
+				
+			},
+			"Nat":{
+				
+			},
+			"Ki":{
+				
+			},
+			"Skim":{
+				
 			}
 		}
 	}

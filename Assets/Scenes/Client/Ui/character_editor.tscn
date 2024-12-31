@@ -44,6 +44,14 @@ Load_Script_Passthrough = Array[Dictionary]([{}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
 Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
 
+[node name="Hub" parent="Cubiix_Base" index="0"]
+Shader_Color = Array[Color]([])
+Shader_Emission = Array[Color]([])
+Shader_Metallic = Array[Color]([])
+Shader_Roughness = Array[Color]([])
+Shader_Emission_Strength = Array[Color]([])
+Shader_Alpha = Array[Color]([])
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 524295
 mesh = SubResource("PlaneMesh_kp3qj")
@@ -81,4 +89,3 @@ lower_fade = 1.03526e-05
 cull_mask = 524288
 
 [editable path="Cubiix_Base"]
-[editable path="Cubiix_Base/Hub/Cubiix_Model/Animations"]

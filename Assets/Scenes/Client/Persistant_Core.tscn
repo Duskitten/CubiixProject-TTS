@@ -399,7 +399,6 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 3
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -421,6 +420,7 @@ position = Vector2(-11, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 3
 
 [node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1

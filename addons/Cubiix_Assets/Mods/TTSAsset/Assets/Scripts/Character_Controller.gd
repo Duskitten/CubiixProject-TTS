@@ -51,6 +51,9 @@ var falling = false
 var fall_timer = 0
 var forcingUp = false
 var AltJump = false
+var Fall_Delta = 0
+var Fall_Delta_Prev = 0
+var Fall_Tick = 0
 
 var Current_Animation = ""
 var IsEmoting = false
@@ -95,6 +98,7 @@ func setup():
 	Character.add_child(RayCast2)
 	Character.add_child(RayCast3)
 	Character.add_child(JumpTimer)
+	JumpTimer.timeout.connect(_on_jump_timer_timeout.bind())
 	Character.add_child(MoveMarker)
 	
 	await Character.get_node("Camera_Controller").CameraSetup
@@ -139,6 +143,9 @@ func _process(delta: float) -> void:
 	
 	
 func _physics_process(delta: float) -> void:
+	Fall_Delta = Time.get_ticks_msec() - Fall_Delta_Prev
+	Fall_Delta_Prev = Time.get_ticks_msec()
+	
 	if input != Vector2.ZERO:
 		if Camera != null: 
 			MoveMarker.rotation.y = atan2(-input.x,-input.y)+Camera_Y.transform.basis.get_euler().y
@@ -151,13 +158,17 @@ func _physics_process(delta: float) -> void:
 		fall_timer = 0
 		jumping = false
 		falling = false
+		Fall_Tick = 0
 		gravity_control = Vector3.ZERO
 	else:
 		gravity_control += (MoveMarker.global_transform.basis.y * 1) * (gravity/8)
 			
 		if Character.up_direction > gravity_control:
-			falling = true
-			
+			Fall_Tick += Fall_Delta
+			print(Fall_Tick)
+			if Fall_Tick > (300) || jumping:
+				falling = true
+
 		RayCast1.target_position = Vector3(0,-0.27,0)
 		RayCast2.target_position = Vector3(0,-0.27,0)
 		
@@ -167,7 +178,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			speed = runspeed
 			
-		if (Input.is_action_just_pressed("ui_jump") && !jumping) || (AltJump):
+		if (Input.is_action_just_pressed("ui_jump") && !jumping && !falling) || (AltJump):
 			JumpTimer.start()
 			jumping = true
 			gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
@@ -182,6 +193,10 @@ func _physics_process(delta: float) -> void:
 		JumpTimer.stop()
 		Character.position = Character.position.slerp(RayCast3.get_collision_point(),.5)
 		gravity_control += (MoveMarker.global_transform.basis.y * 1) * 0.2
+		
+	if Character.is_on_ceiling():
+		print("hai")
+		gravity_control += ((MoveMarker.global_transform.basis.y * 1) * (gravity/8)* 2.0)
 		
 	Character.velocity = compiled_velocity + gravity_control
 	Character.move_and_slide()
@@ -198,3 +213,8 @@ func align_up(node_basis, normal, slerptime):
 	
 	result = node_basis.slerp(result.orthonormalized(),slerptime)
 	return result
+
+func _on_jump_timer_timeout() -> void:
+	JumpTimer.stop()
+	jumping = false
+	falling = false

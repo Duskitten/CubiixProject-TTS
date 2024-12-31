@@ -346,7 +346,6 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	#print(Compiled_AABB)
 	TargetMesh.set_custom_aabb(Compiled_AABB)
 	##Apply materials to mesh surfaces as required
-	
 	TargetMesh.call_deferred("set_surface_override_material",0,MainNode.New_Shader)
 	MainNode.call_deferred("emit_signal","Mesh_Finished")
 	#thread_force_post()

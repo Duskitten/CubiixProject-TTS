@@ -9,6 +9,7 @@ var Camera_Y:Node3D
 var Camera_X:Node3D
 var Camera_Z:SpringArm3D
 var Camera:Camera3D
+var Sensitivity = 5
 
 signal CameraSetup
 
@@ -33,3 +34,9 @@ func _physics_process(delta: float) -> void:
 	if Camera_Core != null:
 		Camera_Core.transform = Camera_Core.transform.interpolate_with(get_parent().transform,0.15)
 		Camera_Y.position.y = 0.5
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		if Input.is_action_pressed("mouse_right"):
+			Camera_Y.rotation_degrees.y -= event.relative.x/Sensitivity
+			Camera_X.rotation_degrees.x += event.relative.y/Sensitivity
