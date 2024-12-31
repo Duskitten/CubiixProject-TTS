@@ -1,0 +1,28 @@
+{
+	"ModID" : "TTSAssets",
+	"ModName" : "Cubiix Project: To The Stars Assets",
+	"ModDesc" : "A Collection of assets tailored for Cubiix Project:TTS",
+	"ModAuthor" : "Duskitten/Selkspace",
+	"Assets" : {
+		"Models":{},
+		"Override_Binds":{},
+		"Maps":{},
+		"Scripts":{
+			"Character_Controller":{
+				"Path":"Assets/Scripts/Character_Controller.gd"
+			},
+			"Camera_Controller":{
+				"Path":"Assets/Scripts/Camera_Controller.gd"
+			},
+			"Character_Preview":{
+				"Path":"Assets/Scripts/Character_Preview.gd"
+			}
+		},
+		"Materials":{},
+		"Animations":{
+			"TTS_Player_Anims":{
+				"Path":"Assets/Animations/TTS_Animations.tscn"
+			}
+		}
+	}
+}

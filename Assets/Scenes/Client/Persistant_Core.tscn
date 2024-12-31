@@ -400,6 +400,7 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 1
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -508,7 +509,7 @@ Load_Script_ID = Array[String](["TTSAssets/Character_Controller", "TTSAssets/Cam
 Load_Script_Passthrough = Array[Dictionary]([{}, {}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
 Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
-Character_String = "{\"B1\":\"000000\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.46,\"B1R\":0.45,\"B2\":\"b291c6\",\"B2E\":\"3878ed\",\"B2ES\":0.61,\"B2M\":0,\"B2R\":0.97,\"B3\":\"e879ee\",\"B3E\":\"e879ee\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"e879ee\",\"B4E\":\"e879ee\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":1,\"EX\":0,\"EY\":0,\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":1,\"W\":2}"
+Character_String = "{\"B1\":\"000000\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.46,\"B1R\":0.45,\"B2\":\"b291c6\",\"B2E\":\"3878ed\",\"B2ES\":0.61,\"B2M\":0,\"B2R\":0.97,\"B3\":\"e879ee\",\"B3E\":\"e879ee\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"e879ee\",\"B4E\":\"e879ee\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":\"CoreAssets/Ears_Cat\",\"EX\":0,\"EY\":0,\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":1,\"W\":2}"
 
 [node name="Core_Follow" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 0, 0)
@@ -619,11 +620,11 @@ fov = 56.25
 [connection signal="text_submitted" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Button_1/LineEdit" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Button_2/LineEdit" to="." method="_on_export_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton" to="." method="_on_part_button_pressed" binds= ["Ear"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton2" to="." method="_on_part_button_pressed" binds= ["Extra"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton3" to="." method="_on_part_button_pressed" binds= ["Eye"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton4" to="." method="_on_part_button_pressed" binds= ["Wing"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton5" to="." method="_on_part_button_pressed" binds= ["Tail"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton" to="." method="_on_part_button_pressed" binds= ["Ears"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton2" to="." method="_on_part_button_pressed" binds= ["Extras"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton3" to="." method="_on_part_button_pressed" binds= ["Eyes"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton4" to="." method="_on_part_button_pressed" binds= ["Wings"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton5" to="." method="_on_part_button_pressed" binds= ["Tails"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton6" to="." method="_on_part_button_pressed" binds= ["Color, Body_1"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton7" to="." method="_on_part_button_pressed" binds= ["Color, Body_2"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton8" to="." method="_on_part_button_pressed" binds= ["Color, Body_3"]]
@@ -662,4 +663,5 @@ fov = 56.25
 [editable path="CanvasLayer/Hexii_Tablet_UI"]
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor"]
 [editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base"]
+[editable path="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport/Character_Editor/Cubiix_Base/Hub/Cubiix_Model/Animations"]
 [editable path="CanvasLayer/Hexii_UI"]

@@ -17,8 +17,8 @@ signal FinishedLoad
 signal load_finished
 
 var InitThread:Thread
-
 var Tools = cubiix_tool.new()
+
 func runsetup():
 	Tools.Assets = self
 	InitThread = Thread.new()
@@ -27,7 +27,8 @@ func runsetup():
 	
 func Init_ThreadRun():
 	scan_for_mods("res://addons/Cubiix_Assets/Mods/")
-	scan_for_mods(OS.get_executable_path().get_base_dir() + "/Mods/")
+	append_pck_mod(OS.get_executable_path().get_base_dir() + "/Mods/")
+	scan_for_mods("res://addons/Cubiix_Assets/Mods/")
 	compile_mod_assets()
 	await self.load_finished
 	load_mod_assets()
@@ -38,7 +39,20 @@ func Init_Finish():
 	InitThread.wait_to_finish()
 	emit_signal("FinishedLoad")
 	
-	
+func append_pck_mod(location:String) -> void:
+	var dir = DirAccess.open(location)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				scan_for_mods(location + file_name)
+			else:
+				if file_name.to_lower().ends_with(".pck"):
+					ProjectSettings.load_resource_pack(location+"/"+file_name)
+			file_name = dir.get_next()
+
+
 func scan_for_mods(location:String) -> void:
 	var dir = DirAccess.open(location)
 	if dir:
@@ -49,8 +63,9 @@ func scan_for_mods(location:String) -> void:
 				scan_for_mods(location + file_name)
 			else:
 				if file_name == "Mod.json":
-					mod_files.append(location+"/"+file_name)
-					break
+					if !mod_files.has(location+"/"+file_name):
+						mod_files.append(location+"/"+file_name)
+						break
 			file_name = dir.get_next()
 
 func compile_mod_assets() -> void:
@@ -62,7 +77,7 @@ func compile_mod_assets() -> void:
 			"ModName":"",
 			"ModDesc":""
 		}
-		if content.has("ModID"):
+		if content.has("ModID") && !mods.has(content["ModID"]):
 			for x in content.keys():
 				match x:
 					"ModID", "ModName", "ModDesc":
@@ -73,17 +88,27 @@ func compile_mod_assets() -> void:
 					for x in content["Assets"][n].keys():
 						if content["Assets"][n][x].has("Path"):
 							content["Assets"][n][x]["Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Path"]
-						if content["Assets"][n][x].has("Tag"):
-							if !assets_tagged.has(content["Assets"][n][x]["Tag"]):
+						if content["Assets"][n][x].has("Image_Preview"):
+							content["Assets"][n][x]["Image_Preview"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Image_Preview"]
+						if content["Assets"][n][x].has("Tag") && content["ModID"] != "CoreAssets":
+							if !assets_tagged.has(content["Assets"][n][x]["Tag"]) :
 								assets_tagged[content["Assets"][n][x]["Tag"]] = []
 							assets_tagged[content["Assets"][n][x]["Tag"]].append(content["ModID"]+"/"+x)
 				assets[content["ModID"]] = content["Assets"]
+			
+				if content["Assets"].has("Override_Binds") && content["ModID"] == "CoreAssets":
+					if content["Assets"]["Override_Binds"].has("V3"):
+						for xc in content["Assets"]["Override_Binds"]["V3"].keys():
+							if !assets_tagged.has(xc):
+								print(content["Assets"]["Override_Binds"]["V3"][xc])
+								assets_tagged[xc] = content["Assets"]["Override_Binds"]["V3"][xc]
+		
 		else:
-			print("Error: Invalid Mod")
-	print(assets_tagged)
-	for i in assets_tagged.keys():
-		assets_tagged[i].sort()
-
+			if content.has("ModID"):
+				print("Error: Conflicting Mod ID:"+content["ModID"])
+			else:
+				print("Error: Error Invalid Mod")
+	
 	call_deferred("emit_signal","load_finished")
 
 func load_mod_assets() -> void:
@@ -204,8 +229,11 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 				var Ms_Bone_Location = nodeskeleton.find_bone(BoneName)
 				if TargetSkeleton.find_bone(BoneName) == -1:
 					var Sk_Bone_Location = TargetSkeleton.add_bone(BoneName)
-					var Sk_Bone_Parent = nodeskeleton.get_bone_name(nodeskeleton.get_bone_parent(Ms_Bone_Location))
-					var Sk_Bone_Parent_Location = TargetSkeleton.find_bone(Sk_Bone_Parent)
+					var Sk_Bone_Parent = ""
+					var Sk_Bone_Parent_Location = -1
+					if nodeskeleton.get_bone_parent(Ms_Bone_Location) != -1:
+						Sk_Bone_Parent = nodeskeleton.get_bone_name(nodeskeleton.get_bone_parent(Ms_Bone_Location))
+						Sk_Bone_Parent_Location = TargetSkeleton.find_bone(Sk_Bone_Parent)
 					TargetSkeleton.call_deferred("set_bone_parent",Sk_Bone_Location,Sk_Bone_Parent_Location)
 					TargetSkeleton.call_deferred("set_bone_pose",Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
 					TargetSkeleton.call_deferred("set_bone_rest",Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
@@ -340,5 +368,4 @@ func find_animation(ID:String, ApplyNode:Node3D) -> void:
 		assets[AssetParts[0]].has("Animations") &&\
 		assets[AssetParts[0]]["Animations"].has(AssetParts[1]) &&\
 		assets[AssetParts[0]]["Animations"][AssetParts[1]].has("Node"):
-			print("Hello New Child!")
-			ApplyNode.add_child(assets[AssetParts[0]]["Animations"][AssetParts[1]]["Node"].duplicate(true))
+			ApplyNode.add_child(assets[AssetParts[0]]["Animations"][AssetParts[1]]["Node"].duplicate())

@@ -39,6 +39,9 @@ fill_to = Vector2(1, 1)
 [node name="Character_Editor" type="Node3D"]
 
 [node name="Cubiix_Base" parent="." instance=ExtResource("1_suc35")]
+Load_Script_ID = Array[String](["TTSAssets/Character_Preview"])
+Load_Script_Passthrough = Array[Dictionary]([{}])
+Animation_Path = "TTSAssets/TTS_Player_Anims"
 Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -78,3 +81,4 @@ lower_fade = 1.03526e-05
 cull_mask = 524288
 
 [editable path="Cubiix_Base"]
+[editable path="Cubiix_Base/Hub/Cubiix_Model/Animations"]

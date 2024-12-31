@@ -9,13 +9,10 @@
 				"Path" : "Assets/Mesh/Base/Cubiix_Base.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Cube"
 			},
-			"Eyes_":{
-				"Tag":"Eyes",
-				"Name":"None",
-			},
 			"Eyes_Chonk":{
 				"Tag":"Eyes",
 				"Name":"Chonk",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Chonk.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Chonk.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Chonk",
 				"Has_Blendshapes":true,
@@ -23,6 +20,7 @@
 			"Eyes_Circle":{
 				"Tag":"Eyes",
 				"Name":"Circle",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Circle.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Circle.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Circle",
 				"Has_Blendshapes":true
@@ -30,6 +28,7 @@
 			"Eyes_Default":{
 				"Tag":"Eyes",
 				"Name":"Default",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Default.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Default.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Default",
 				"Has_Blendshapes":true
@@ -37,6 +36,7 @@
 			"Eyes_Entity":{
 				"Tag":"Eyes",
 				"Name":"Entity",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Entity.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Entity.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Entity",
 				"Has_Blendshapes":true
@@ -44,6 +44,7 @@
 			"Eyes_Four":{
 				"Tag":"Eyes",
 				"Name":"Four",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Four.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Four.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Four",
 				"Has_Blendshapes":true
@@ -51,6 +52,7 @@
 			"Eyes_Fox":{
 				"Tag":"Eyes",
 				"Name":"Fox",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Fox.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Fox.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Fox",
 				"Has_Blendshapes":true
@@ -58,6 +60,7 @@
 			"Eyes_Mouse":{
 				"Tag":"Eyes",
 				"Name":"Mouse",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Mouse.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Mouse.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Mouse",
 				"Has_Blendshapes":true
@@ -65,6 +68,7 @@
 			"Eyes_Nat":{
 				"Tag":"Eyes",
 				"Name":"Nat",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Nat.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Nat.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Nat",
 				"Has_Blendshapes":true
@@ -72,6 +76,7 @@
 			"Eyes_Text":{
 				"Tag":"Eyes",
 				"Name":"Text",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Text.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Text.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Text",
 				"Has_Blendshapes":true
@@ -79,20 +84,19 @@
 			"Eyes_Tri":{
 				"Tag":"Eyes",
 				"Name":"Tri",
+				"Image_Preview":"Assets/Textures/Previews/Eyes/Eyes_Tri.png",
 				"Path" : "Assets/Mesh/Base/Eyes/Eyes_Tri.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Tri",
 				"Has_Blendshapes":true
 			},
-
-
-
-			"Ears_":{
-				"Tag":"Ears",
+			"Ears":{
 				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_None.png"
 			},
 			"Ears_Cat":{
 				"Tag":"Ears",
 				"Name":"Cat",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Cat.png",
 				"Path" : "Assets/Mesh/Base/Ears/Cat_Ears.gltf",
 				"Mesh_Path":"Cat_Ear_Armature/Skeleton3D/Cat_Ears",
 				"Has_DynBones":true,
@@ -120,6 +124,7 @@
 			"Ears_Fox":{
 				"Tag":"Ears",
 				"Name":"Fox",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Fox.png",
 				"Path" : "Assets/Mesh/Base/Ears/Fox_Ears.gltf",
 				"Mesh_Path":"Fox_Ear_Armature/Skeleton3D/Fox_Ears",
 				"Has_DynBones":true,
@@ -147,6 +152,7 @@
 			"Ears_Wolf":{
 				"Tag":"Ears",
 				"Name":"Wolf",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Wolf.png",
 				"Path" : "Assets/Mesh/Base/Ears/Wolf_Ears.gltf",
 				"Mesh_Path":"Wolf_Ear_Armature/Skeleton3D/Wolf_Ears",
 				"Has_DynBones":true,
@@ -174,6 +180,7 @@
 			"Ears_Goat":{
 				"Tag":"Ears",
 				"Name":"Goat",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Goat.png",
 				"Path" : "Assets/Mesh/Base/Ears/Goat_Ears.gltf",
 				"Mesh_Path":"Goat_Ear_Armature/Skeleton3D/Goat_Ears",
 				"Has_DynBones":true,
@@ -201,6 +208,7 @@
 			"Ears_Bee":{
 				"Tag":"Ears",
 				"Name":"Bee",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Bee.png",
 				"Path" : "Assets/Mesh/Base/Ears/Bee_Ears.gltf",
 				"Mesh_Path":"Bee_Ear_Armature/Skeleton3D/Bee_Ears",
 				"Has_DynBones":true,
@@ -228,6 +236,7 @@
 			"Ears_Moth":{
 				"Tag":"Ears",
 				"Name":"Moth",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Moth.png",
 				"Path" : "Assets/Mesh/Base/Ears/Moth_Ears.gltf",
 				"Mesh_Path":"Moth_Ear_Armature/Skeleton3D/Moth_Ears",
 				"Has_DynBones":true,
@@ -255,6 +264,7 @@
 			"Ears_Mouse":{
 				"Tag":"Ears",
 				"Name":"Mouse",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Mouse.png",
 				"Path" : "Assets/Mesh/Base/Ears/Mouse_Ears.gltf",
 				"Mesh_Path":"Mouse_Ear_Armature/Skeleton3D/Mouse_Ears",
 				"Has_DynBones":true,
@@ -282,6 +292,7 @@
 			"Ears_Alien":{
 				"Tag":"Ears",
 				"Name":"Alien",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Alien.png",
 				"Path" : "Assets/Mesh/Base/Ears/Alien_Ears.gltf",
 				"Mesh_Path":"Alien_Ear_Armature/Skeleton3D/Alien_Ears",
 				"Has_DynBones":true,
@@ -309,6 +320,7 @@
 			"Ears_Deer":{
 				"Tag":"Ears",
 				"Name":"Deer",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Deer.png",
 				"Path" : "Assets/Mesh/Base/Ears/Deer_Ears.gltf",
 				"Mesh_Path":"Deer_Ear_Armature/Skeleton3D/Deer_Ears",
 				"Has_DynBones":true,
@@ -336,6 +348,7 @@
 			"Ears_Entity":{
 				"Tag":"Ears",
 				"Name":"Entity",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Entity.png",
 				"Path" : "Assets/Mesh/Base/Ears/Entity_Ears.gltf",
 				"Mesh_Path":"Entity_Ear_Armature/Skeleton3D/Entity_Ears",
 				"Has_DynBones":true,
@@ -363,6 +376,7 @@
 			"Ears_Dog":{
 				"Tag":"Ears",
 				"Name":"Dog",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Dog.png",
 				"Path" : "Assets/Mesh/Base/Ears/Dog_Ears.gltf",
 				"Mesh_Path":"Dog_Ear_Armature/Skeleton3D/Dog_Ears",
 				"Has_DynBones":true,
@@ -390,6 +404,7 @@
 			"Ears_Bunny":{
 				"Tag":"Ears",
 				"Name":"Bunny",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Bunny.png",
 				"Path" : "Assets/Mesh/Base/Ears/Bunny_Ears.gltf",
 				"Mesh_Path":"Bunny_Ear_Armature/Skeleton3D/Bunny_Ears",
 				"Has_DynBones":true,
@@ -417,13 +432,14 @@
 			"Ears_Fluffy":{
 				"Tag":"Ears",
 				"Name":"Fluffy",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_Fluffy.png",
 				"Path" : "Assets/Mesh/Base/Ears/Fluffy_Ears.gltf",
 				"Mesh_Path":"Fluffy_Ear_Armature/Skeleton3D/Fluffy_Ears",
 				"Has_DynBones":true,
 				"DynBone_Data":{
 					"DynBone_Sets":{
-						"Fluffy_Ear_L":["Ear_L","Ear_L.001","Ear_L.002"],
-						"Fluffy_Ear_R":["Ear_R","Ear_R.001","Ear_R.002"]
+						"Fluffy_Ear_L":["Ear_L"],
+						"Fluffy_Ear_R":["Ear_R"]
 					},
 					"DynBone_Settings":{
 						"Fluffy_Ear_L":{
@@ -441,99 +457,107 @@
 					}
 				}
 			},
-
-
-			"Extras_":{
-				"Tag":"Extras",
+			"Extra":{
 				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_None.png",
 			},
 			"Extra_Antler":{
 				"Tag":"Extras",
 				"Name":"Antler",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_Antler.png",
 				"Path" : "Assets/Mesh/Base/Extra/Antler_Extra.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Antler_Extra",
 			},
 			"Extra_Dragon":{
 				"Tag":"Extras",
 				"Name":"Dragon",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_Dragon.png",
 				"Path" : "Assets/Mesh/Base/Extra/Dragon_Extra.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Dragon_Extra",
 			},
 			"Extra_Fish":{
 				"Tag":"Extras",
 				"Name":"Fish",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_Fish.png",
 				"Path" : "Assets/Mesh/Base/Extra/Fish_Extra.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Fish_Extra",
 			},
 			"Extra_Narwhal":{
 				"Tag":"Extras",
 				"Name":"Narwhal",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_Narwhal.png",
 				"Path" : "Assets/Mesh/Base/Extra/Narwhal_Extra.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Narwhal_Extra",
 			},
 			"Extra_Nub":{
 				"Tag":"Extras",
 				"Name":"Nub",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_Nub.png",
 				"Path" : "Assets/Mesh/Base/Extra/Nub_Extra.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Nub_Extra",
 			},
 			"Extra_Ram":{
 				"Tag":"Extras",
 				"Name":"Ram",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_Ram.png",
 				"Path" : "Assets/Mesh/Base/Extra/Ram_Extra.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Ram_Extra",
 			},
 			"Extra_Shark":{
 				"Tag":"Extras",
 				"Name":"Shark",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_Shark.png",
 				"Path" : "Assets/Mesh/Base/Extra/Shark_Extra.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Shark_Extra",
 			},
 
-
-			"Wings_":{
-				"Tag":"Wings",
+			"Wings":{
 				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_None.png",
 			},
 			"Wings_Entity":{
 				"Tag":"Wings",
 				"Name":"Entity",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
 				"Path" : "Assets/Mesh/Base/Wings/Entity_Wings.gltf",
 				"Mesh_Path":"Entity_Wings_Armature/Skeleton3D/Entity_Wings",
 			},
 			"Wings_Angel":{
 				"Tag":"Wings",
 				"Name":"Angel",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Angel.png",
 				"Path" : "Assets/Mesh/Base/Wings/Angel_Wings.gltf",
 				"Mesh_Path":"Angel_Wings_Armature/Skeleton3D/Angel_Wings",
 			},
 			"Wings_Butterfly":{
 				"Tag":"Wings",
 				"Name":"Butterfly",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Butterfly.png",
 				"Path" : "Assets/Mesh/Base/Wings/Butterfly_Wings.gltf",
 				"Mesh_Path":"Angel_Wings_Armature/Skeleton3D/Butterfly_Wings",
 			},
 			"Wings_Wasp":{
 				"Tag":"Wings",
 				"Name":"Wasp",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Wasp.png",
 				"Path" : "Assets/Mesh/Base/Wings/Wasp_Wings.gltf",
 				"Mesh_Path":"Wasp_Wings_Armature/Skeleton3D/Wasp_Wings",
 			},
 			"Wings_Dragon":{
 				"Tag":"Wings",
 				"Name":"Dragon",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Dragon.png",
 				"Path" : "Assets/Mesh/Base/Wings/Dragon_Wings.gltf",
 				"Mesh_Path":"Dragon_Wings_Armature/Skeleton3D/Dragon_Wings",
 			},
-
-
-			"Tails_":{
-				"Tag":"Tails",
+			"Tails":{
 				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"Tails_Cat":{
 				"Tag":"Tails",
 				"Name":"Cat",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Cat.png",
 				"Path" : "Assets/Mesh/Base/Tails/Cat_Tail.gltf",
 				"Mesh_Path":"Cat_Tail_Armature/Skeleton3D/Cat_Tail",
 				"Has_DynBones":true,
@@ -554,6 +578,7 @@
 			"Tails_Fox":{
 				"Tag":"Tails",
 				"Name":"Fox",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Fox.png",
 				"Path" : "Assets/Mesh/Base/Tails/Fox_Tail.gltf",
 				"Mesh_Path":"Fox_Tail_Armature/Skeleton3D/Fox_Tail",
 				"Has_DynBones":true,
@@ -574,6 +599,7 @@
 			"Tails_Wolf":{
 				"Tag":"Tails",
 				"Name":"Wolf",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Wolf.png",
 				"Path" : "Assets/Mesh/Base/Tails/Wolf_Tail.gltf",
 				"Mesh_Path":"Wolf_Tail_Armature/Skeleton3D/Wolf_Tail",
 				"Has_DynBones":true,
@@ -594,6 +620,7 @@
 			"Tails_Bug":{
 				"Tag":"Tails",
 				"Name":"Bug",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Bug.png",
 				"Path" : "Assets/Mesh/Base/Tails/Bug_Tail.gltf",
 				"Mesh_Path":"Bug_Tail_Armature/Skeleton3D/Bug_Tail",
 				"Has_DynBones":true,
@@ -614,6 +641,7 @@
 			"Tails_Bee":{
 				"Tag":"Tails",
 				"Name":"Bee",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Bee.png",
 				"Path" : "Assets/Mesh/Base/Tails/Bee_Tail.gltf",
 				"Mesh_Path":"Bee_Tail_Armature/Skeleton3D/Bee_Tail",
 				"Has_DynBones":true,
@@ -634,6 +662,7 @@
 			"Tails_Moth":{
 				"Tag":"Tails",
 				"Name":"Moth",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Moth.png",
 				"Path" : "Assets/Mesh/Base/Tails/Moth_Tail.gltf",
 				"Mesh_Path":"Moth_Tail_Armature/Skeleton3D/Moth_Tail",
 				"Has_DynBones":true,
@@ -654,6 +683,7 @@
 			"Tails_Dog":{
 				"Tag":"Tails",
 				"Name":"Dog",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Dog.png",
 				"Path" : "Assets/Mesh/Base/Tails/Dog_Tail.gltf",
 				"Mesh_Path":"Dog_Tail_Armature/Skeleton3D/Dog_Tail",
 				"Has_DynBones":true,
@@ -674,6 +704,7 @@
 			"Tails_Mouse":{
 				"Tag":"Tails",
 				"Name":"Mouse",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Mouse.png",
 				"Path" : "Assets/Mesh/Base/Tails/Mouse_Tail.gltf",
 				"Mesh_Path":"Mouse_Tail_Armature/Skeleton3D/Mouse_Tail",
 				"Has_DynBones":true,
@@ -694,6 +725,7 @@
 			"Tails_Fluffy":{
 				"Tag":"Tails",
 				"Name":"Fluffy",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Fluffy.png",
 				"Path" : "Assets/Mesh/Base/Tails/Fluffy_Tail.gltf",
 				"Mesh_Path":"Fluffy_Tail_Armature/Skeleton3D/Fluffy_Tail",
 				"Has_DynBones":true,
@@ -714,6 +746,7 @@
 			"Tails_Shark":{
 				"Tag":"Tails",
 				"Name":"Shark",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Shark.png",
 				"Path" : "Assets/Mesh/Base/Tails/Shark_Tail.gltf",
 				"Mesh_Path":"Shark_Tail_Armature/Skeleton3D/Shark_Tail",
 				"Has_DynBones":true,
@@ -734,6 +767,7 @@
 			"Tails_Entity":{
 				"Tag":"Tails",
 				"Name":"Entity",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Entity.png",
 				"Path" : "Assets/Mesh/Base/Tails/Entity_Tail.gltf",
 				"Mesh_Path":"Entity_Tail_Armature/Skeleton3D/Entity_Tail",
 				"Has_DynBones":true,
@@ -754,6 +788,7 @@
 			"Tails_Bunny":{
 				"Tag":"Tails",
 				"Name":"Bunny",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Bunny.png",
 				"Path" : "Assets/Mesh/Base/Tails/Bunny_Tail.gltf",
 				"Mesh_Path":"Bunny_Tail_Armature/Skeleton3D/Bunny_Tail",
 				"Has_DynBones":true,
@@ -774,6 +809,7 @@
 			"Tails_Deer":{
 				"Tag":"Tails",
 				"Name":"Deer",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Deer.png",
 				"Path" : "Assets/Mesh/Base/Tails/Deer_Tail.gltf",
 				"Mesh_Path":"Deer_Tail_Armature/Skeleton3D/Deer_Tail",
 				"Has_DynBones":true,
@@ -794,6 +830,7 @@
 			"Tails_Dragon":{
 				"Tag":"Tails",
 				"Name":"Dragon",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_Dragon.png",
 				"Path" : "Assets/Mesh/Base/Tails/Dragon_Tail.gltf",
 				"Mesh_Path":"Dragon_Tail_Armature/Skeleton3D/Dragon_Tail",
 				"Has_DynBones":true,
@@ -827,7 +864,7 @@
 					"CoreAssets/Eyes_Mouse"
 				],
 				"Ears":[
-					"",
+					"CoreAssets/Ears",
 					"CoreAssets/Ears_Cat",
 					"CoreAssets/Ears_Fox",
 					"CoreAssets/Ears_Wolf",
@@ -843,7 +880,7 @@
 					"CoreAssets/Ears_Fluffy"
 				],
 				"Extras":[
-					"",
+					"CoreAssets/Extra",
 					"CoreAssets/Extra_Shark",
 					"CoreAssets/Extra_Nub",
 					"CoreAssets/Extra_Antler",
@@ -853,7 +890,7 @@
 					"CoreAssets/Extra_Dragon"
 				],
 				"Tails":[
-					"",
+					"CoreAssets/Tails",
 					"CoreAssets/Tails_Cat",
 					"CoreAssets/Tails_Fox",
 					"CoreAssets/Tails_Wolf",
@@ -870,7 +907,7 @@
 					"CoreAssets/Tails_Dragon"
 				],
 				"Wings":[
-					"",
+					"CoreAssets/Wings",
 					"CoreAssets/Wings_Entity",
 					"CoreAssets/Wings_Angel",
 					"CoreAssets/Wings_Butterfly",
@@ -1066,6 +1103,6 @@
 		"Materials":{
 		},
 		"Animations":{
-		}
+		},
 	}
 }

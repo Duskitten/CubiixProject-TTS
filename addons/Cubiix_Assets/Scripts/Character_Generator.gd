@@ -73,6 +73,11 @@ var Scale:float = 1
 var DynBones_Register = {}
 signal Mesh_Finished
 var DynBones : DynBone
+
+var Animator:AnimationPlayer
+var Animator_Tree:AnimationTree
+var old_animation:Array = ["Idle", 0.0]
+
 func _ready() -> void:
 	pass
 	#await get_parent().Loaded
@@ -113,7 +118,9 @@ func generate_character() -> void:
 		self)
 	await Mesh_Finished
 	if get_node_or_null("Animations") != null:
-		$Animations/AnimationTree.active = false
+		Animator = get_node_or_null("Animations/AnimationPlayer")
+		if Animator != null:
+			Animator.active = false
 	if get_node_or_null("Cubiix_Model/Armature/Skeleton3D") != null:
 		$Cubiix_Model/Armature/Skeleton3D.free()
 	$Cubiix_Model/Armature.add_child(Skeleton)
@@ -121,9 +128,23 @@ func generate_character() -> void:
 	Skeleton.add_child(DynBones)
 	#add_child(load("res://addons/Cubiix_Assets/Animations/TTS_Animations.tscn").instantiate())
 	
-	if get_node_or_null("Animations") != null:
-		$Animations/AnimationTree.active = true
-	
 	DynBones.DynBones_Register = DynBones_Register.duplicate(true)
 	DynBones.first_run()
+	if Animator != null:
+		Animator.active = true
+		update_animation_bypass(old_animation)
+	await get_tree().create_timer(0.2).timeout
+	
 	DynBones.call_deferred("emit_signal","RePositioned")
+
+## This is where we update our animations
+func update_animation(animation:Array) -> void:
+	if animation != old_animation:
+		old_animation = animation
+		if Animator != null:
+			Animator.play(animation[0], animation[1])
+
+## This is where we update our animations on regen
+func update_animation_bypass(animation:Array) -> void:
+	if Animator != null:
+		Animator.play(animation[0], animation[1])

@@ -201,21 +201,40 @@ func generate_character_from_string(Data:String,Target:Node3D) -> void:
 					"B4M":
 						Target.Shader_Metallic[Target.Keylist["Body"]["Eye2"]] = clampf(float(data["B4M"]), 0.0, 1.0)
 					"T":
-						if int(data["T"]) < V3_ConversionPath["Tails"].size():
-							Target.Base_Tails = V3_ConversionPath["Tails"][int(data["T"])]
+						if data["T"] is float:
+							if int(data["T"]) < V3_ConversionPath["Tails"].size():
+								Target.Base_Tails = V3_ConversionPath["Tails"][int(data["T"])]
+						elif  data["T"] is String:
+							if Assets.assets_tagged["Tails"].has(data["T"]):
+								Target.Base_Tails = data["T"]
 					"W":
-						if int(data["W"]) < V3_ConversionPath["Wings"].size():
-							Target.Base_Wings = V3_ConversionPath["Wings"][int(data["W"])]
+						if data["W"] is float:
+							if int(data["W"]) < V3_ConversionPath["Wings"].size():
+								Target.Base_Wings = V3_ConversionPath["Wings"][int(data["W"])]
+						elif  data["W"] is String:
+							if Assets.assets_tagged["Wings"].has(data["W"]):
+								Target.Base_Wings = data["W"]
 					"EA":
-						if int(data["EA"]) < V3_ConversionPath["Ears"].size():
-							Target.Base_Ears = V3_ConversionPath["Ears"][int(data["EA"])]
+						if data["EA"] is float:
+							if int(data["EA"]) < V3_ConversionPath["Ears"].size():
+								Target.Base_Ears = V3_ConversionPath["Ears"][int(data["EA"])]
+						elif  data["EA"] is String:
+							if Assets.assets_tagged["Ears"].has(data["EA"]):
+								Target.Base_Ears = data["EA"]
 					"EX":
-						if int(data["EX"]) < V3_ConversionPath["Extras"].size():
-							Target.Base_Extras = V3_ConversionPath["Extras"][int(data["EX"])]
+						if data["EX"] is float:
+							if int(data["EX"]) < V3_ConversionPath["Extras"].size():
+								Target.Base_Extras = V3_ConversionPath["Extras"][int(data["EX"])]
+						elif  data["EX"] is String:
+							if Assets.assets_tagged["Extras"].has(data["EX"]):
+								Target.Base_Extras = data["EX"]
 					"EY":
-						if int(data["EY"]) < V3_ConversionPath["Eyes"].size():
-							print(V3_ConversionPath["Eyes"][int(data["EY"])])
-							Target.Base_Eyes = V3_ConversionPath["Eyes"][int(data["EY"])]
+						if data["EY"] is float:
+							if int(data["EY"]) < V3_ConversionPath["Eyes"].size():
+								Target.Base_Eyes = V3_ConversionPath["Eyes"][int(data["EY"])]
+						elif  data["EY"] is String:
+							if Assets.assets_tagged["Eyes"].has(data["EY"]):
+								Target.Base_Eyes = data["EY"]
 					"S":
 						Target.Scale = clampf(float(data["S"]), 0.8, 1.2)
 					"N":

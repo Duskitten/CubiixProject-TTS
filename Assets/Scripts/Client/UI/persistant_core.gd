@@ -351,34 +351,25 @@ func _on_part_button_pressed(PartData: String) -> void:
 			):
 			Core.Client.update_charlist()
 			await Accessory_Response
-			for i in Currently_Unlocked_Assets[PartData+"_Slot"]:
+			for i in Currently_Unlocked_Assets.assets_tagged[PartData]:
 				generate_new_CharUI_asset(i, PartData)
 		else:
-			for i in Core.AssetData.get(PartData+"_Slot"):
-				generate_new_CharUI_asset(i, PartData)
+			if Core.AssetData.assets_tagged.has(PartData):
+				print(Core.AssetData.assets_tagged[PartData])
+				for i in Core.AssetData.assets_tagged[PartData]:
+					generate_new_CharUI_asset(i, PartData)
 			#print(i)
 
 func generate_new_CharUI_asset(i, PartData) -> void:
 	var x:String = i
+	var splitval = i.split("/")
 	var New_Part = Hexii_Ui_Tablet_Character_Template_Part.duplicate()
 	
 	var main_texture = null
-	
-	if i == "":
-		if PartData != "Extra":
-			i = PartData+"s/None"
-			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+i.replace("/","_")+".png")
-		else:
-			i = PartData+"/None"
-			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+i.replace("/","_")+".png")
-	else:
-		if PartData != "Extra":
-			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+x.replace("/","_")+".png")
-		else:
-			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+x.replace("/","_")+".png")
+	if Core.AssetData.assets[splitval[0]]["Models"][splitval[1]].has("Image_Preview"):
+		main_texture = load(Core.AssetData.assets[splitval[0]]["Models"][splitval[1]]["Image_Preview"])
 	
 	if main_texture != null:
-		
 		var new_main_text = main_texture.get_image()
 		(new_main_text as Image).adjust_bcs(0.8,0.8,1)
 		
@@ -394,22 +385,22 @@ func generate_new_CharUI_asset(i, PartData) -> void:
 		
 		newtexture = ImageTexture.create_from_image(backTexture)
 		(New_Part as TextureButton).texture_hover = newtexture
-		
-	if (i as String).ends_with("None"):
-		New_Part.get_node("Label").text = "None."+PartData.to_lower()
+	
+	if Core.AssetData.assets[splitval[0]]["Models"][splitval[1]].has("Name"):
+		New_Part.get_node("Label").text = Core.AssetData.assets[splitval[0]]["Models"][splitval[1]]["Name"]+"."+PartData.to_lower()
 	else:
-		New_Part.get_node("Label").text = Core.AssetData.Mesh_Data_Assets[i]["Name"]+"."+PartData.to_lower()
-		
+		New_Part.get_node("Label").text = "UIA"+"."+PartData.to_lower()
 	#if PartData == "Ear" || PartData == "Wing" || PartData == "Extra" || PartData == "Eye" || PartData == "Tail":
 		
-	var pt = Core.AssetData.get(PartData+"_Slot")
-	var n = PartData
-	if PartData == "Ear" || PartData == "Wing" || PartData == "Eye":
-		n = PartData+"s"
-	if (i as String).ends_with("None"):
-		New_Part.pressed.connect(change_part.bind(n,0))
-	else:
-		New_Part.pressed.connect(change_part.bind(n,pt.find(i)))
+	#var pt = Core.AssetData.assets[splitval[0]]["Models"][splitval[1]]
+	#var n = PartData
+	#if PartData == "Ear" || PartData == "Wing" || PartData == "Eye":
+		#n = PartData+"s"
+	#if (i as String).ends_with("None"):
+		#New_Part.pressed.connect(change_part.bind(n,0))
+	#else:
+	if PartData == "Ears" || PartData == "Wings" || PartData == "Extras" || PartData == "Eyes" || PartData == "Tails":
+		New_Part.pressed.connect(change_part.bind("Base_"+PartData,i))
 			
 		
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.add_child(New_Part)
@@ -551,12 +542,11 @@ func _on_scale_text_submitted(new_text: String) -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/LineEdit.text = str(Hexii_Ui_Tablet_Character_OBJ.Scale)
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/HSlider.value = Hexii_Ui_Tablet_Character_OBJ.Scale
 
-func change_part(Core_Part:String, Part:int) -> void:
-	print(Core_Part," , ",Part)
+func change_part(Core_Part:String, Part:String) -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
-	Hexii_Ui_Tablet_Character_OBJ.set(Core_Part,Part)
-	Hexii_Ui_Tablet_Character_OBJ.Regen_Character()
+	Hexii_Ui_Tablet_Character_OBJ.Hub.set(Core_Part,Part)
+	Hexii_Ui_Tablet_Character_OBJ.Hub.generate_character()
 
 #################################
 ###### Title Screen System ######

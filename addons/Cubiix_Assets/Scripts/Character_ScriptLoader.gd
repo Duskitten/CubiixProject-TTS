@@ -16,6 +16,7 @@ var Assets
 ## These are space access, so we don't need to do 50 billion calls
 @onready var Hub = $Hub
 
+
 signal MeshFinished
 signal Loaded
 signal ScriptLoaded
