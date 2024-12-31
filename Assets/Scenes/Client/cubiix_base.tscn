@@ -10,13 +10,13 @@ margin = 0.4
 radius = 0.202349
 height = 0.734779
 
-[sub_resource type="Gradient" id="Gradient_re31o"]
+[sub_resource type="Gradient" id="Gradient_fawhr"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.125561, 0.29148)
 colors = PackedColorArray(0, 0, 0, 0.502, 0, 0, 0, 0.501961, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cvkc"]
-gradient = SubResource("Gradient_re31o")
+gradient = SubResource("Gradient_fawhr")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
@@ -49,28 +49,28 @@ enable_node_path = NodePath("../CanvasLayer/Control/Label")
 [node name="Cubiix_Model" parent="Hub" instance=ExtResource("2_q4jtr")]
 
 [node name="Skeleton3D" parent="Hub/Cubiix_Model" index="0"]
-bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/2/position = Vector3(0, 0.254852, 0)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/3/position = Vector3(-0.327326, 0.134334, 0)
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
-bones/5/rotation = Quaternion(0, 0, 0, 1)
-bones/6/rotation = Quaternion(0, 0, 0, 1)
-bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/8/position = Vector3(0.327326, 0.134334, 0)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/9/rotation = Quaternion(0, 0, 0, 1)
-bones/10/rotation = Quaternion(0, 0, 0, 1)
-bones/11/rotation = Quaternion(0, 0, 0, 1)
-bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/position = Vector3(0, 0.12722, 0)
-bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/position = Vector3(0, 0.12722, 0)
-bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+bones/0/position = Vector3(0, 0.0078975, 0)
+bones/0/rotation = Quaternion(0, -0.133753, 0, 0.991015)
+bones/2/position = Vector3(0, 0.255397, 0)
+bones/2/rotation = Quaternion(0.000280363, 0.133965, -0.000211318, 0.990986)
+bones/3/position = Vector3(-0.304417, 0.0559685, -0.0062985)
+bones/3/rotation = Quaternion(0.0104593, -0.0207185, 0.892455, 0.450538)
+bones/4/rotation = Quaternion(6.1018e-09, 3.85539e-09, 0.534153, 0.845388)
+bones/5/rotation = Quaternion(8.84005e-09, 6.83767e-09, 0.611824, 0.790994)
+bones/6/rotation = Quaternion(-8.53469e-09, 1.22238e-08, 0.546584, 0.837404)
+bones/7/rotation = Quaternion(0.51637, -0.158818, 0.393559, 0.743808)
+bones/8/position = Vector3(0.332064, 0.0552893, -0.022304)
+bones/8/rotation = Quaternion(0.0079604, 0.0218011, -0.939087, 0.342895)
+bones/9/rotation = Quaternion(1.72379e-09, 1.65706e-08, -0.537359, 0.843354)
+bones/10/rotation = Quaternion(4.20133e-09, 6.15304e-09, -0.563894, 0.825847)
+bones/11/rotation = Quaternion(8.65187e-09, 1.21322e-08, -0.580618, 0.814176)
+bones/12/rotation = Quaternion(0.529837, 0.105517, -0.315929, 0.779954)
+bones/14/rotation = Quaternion(-0.135534, -0.135534, 0.693996, 0.693996)
+bones/15/position = Vector3(-0.00119867, 0.12722, 0.0129778)
+bones/15/rotation = Quaternion(-0.022736, -0.0227361, 0.706741, 0.706741)
+bones/16/rotation = Quaternion(-0.0895667, 0.0895667, -0.701411, 0.701411)
+bones/17/position = Vector3(0.00123097, 0.12722, 0.0146193)
+bones/17/rotation = Quaternion(-0.0207374, 0.0207375, -0.706803, 0.706803)
 
 [node name="Cube" parent="Hub/Cubiix_Model/Skeleton3D" index="0"]
 layers = 524289

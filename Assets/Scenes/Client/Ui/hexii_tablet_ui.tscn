@@ -384,7 +384,6 @@ offset_bottom = 278.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -54.0
 offset_top = -197.0
@@ -475,7 +474,6 @@ texture_hover = ExtResource("14_lehqb")
 texture_focused = ExtResource("14_lehqb")
 
 [node name="Character_Screen" type="Control" parent="Wallpaper"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1630,6 +1628,29 @@ text = "Load Character"
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
 
+[node name="HSeparator4" type="HSeparator" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_rwf05")
+
+[node name="Code_Output" type="HBoxContainer" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
+layout_mode = 2
+
+[node name="LineEdit" type="RichTextLabel" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Output"]
+custom_minimum_size = Vector2(0, 110.78)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("31_3586r")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5vly2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a55ub")
+selection_enabled = true
+
+[node name="VSeparator3" type="VSeparator" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Output"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vqxjv")
+
 [node name="Button_2" type="HBoxContainer" parent="Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2"]
 layout_mode = 2
 
@@ -1889,7 +1910,7 @@ handle_input_locally = false
 msaa_3d = 2
 use_debanding = true
 size = Vector2i(132, 160)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Character_Editor" parent="Wallpaper/Character_Screen/SubViewportContainer/SubViewport" instance=ExtResource("4_ui7sq")]
 
@@ -2115,6 +2136,7 @@ texture = ExtResource("29_dbeuu")
 metadata/_edit_lock_ = true
 
 [node name="Wallpaper2" type="TextureRect" parent="."]
+visible = false
 texture_filter = 2
 layout_mode = 0
 offset_left = -55.0

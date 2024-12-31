@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://btfnbqwoxgdjm"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ylqe"]
+animation = &"TTS_Anim/Falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k68np"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_m8hvh"]
+states/TTS_Anim_Falling/node = SubResource("AnimationNodeAnimation_6ylqe")
+states/TTS_Anim_Falling/position = Vector2(361, 80)
+transitions = ["TTS_Anim_Falling", "End", SubResource("AnimationNodeStateMachineTransition_k68np")]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cs34u"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gwx0t"]
+nodes/AnimationNodeStateMachine/node = SubResource("AnimationNodeStateMachine_m8hvh")
+nodes/AnimationNodeStateMachine/position = Vector2(-380, 20)
+"nodes/AnimationNodeStateMachine 2/node" = SubResource("AnimationNodeStateMachine_m8hvh")
+"nodes/AnimationNodeStateMachine 2/position" = Vector2(-314.6, 231.11)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_cs34u")
+nodes/Blend2/position = Vector2(1.21, 7.26)
+node_connections = [&"Blend2", 0, &"AnimationNodeStateMachine", &"Blend2", 1, &"AnimationNodeStateMachine 2", &"output", 0, &"Blend2"]
+
+[node name="AnimationTree" type="AnimationTree"]
+tree_root = SubResource("AnimationNodeBlendTree_gwx0t")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Blend2/blend_amount = 0

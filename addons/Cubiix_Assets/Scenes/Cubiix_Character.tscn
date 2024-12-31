@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://co7v5bt8xi81"]
+
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_Generator.gd" id="1_kx318"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_ScriptLoader.gd" id="1_ro8ye"]
+
+[sub_resource type="Skin" id="Skin_xqg4r"]
+
+[sub_resource type="Gradient" id="Gradient_re31o"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.125561, 0.29148)
+colors = PackedColorArray(0, 0, 0, 0.502, 0, 0, 0, 0.501961, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4r4pt"]
+gradient = SubResource("Gradient_re31o")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="Cubiix_Character" type="CharacterBody3D"]
+collision_layer = 130
+collision_mask = 130
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_ro8ye")
+
+[node name="Hub" type="Node3D" parent="."]
+script = ExtResource("1_kx318")
+Shader_Color = PackedColorArray(0.992157, 1, 1, 1, 1, 0, 0.983937, 1, 0.562057, 0.792969, 0.141102, 1, 0.0436466, 0.139718, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Shader_Emission = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Shader_Metallic = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+Shader_Roughness = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+Shader_Emission_Strength = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+Shader_Alpha = PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="Cubiix_Model" type="Node3D" parent="Hub"]
+
+[node name="Armature" type="Node3D" parent="Hub/Cubiix_Model"]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="Hub/Cubiix_Model/Armature"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hub/Cubiix_Model/Armature/Skeleton3D"]
+skin = SubResource("Skin_xqg4r")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.12117, 0)
+layers = 1048575
+size = Vector3(2, 5, 2)
+texture_albedo = SubResource("GradientTexture2D_4r4pt")
+upper_fade = 1e-05
+lower_fade = 1.03526e-05
+cull_mask = 524288

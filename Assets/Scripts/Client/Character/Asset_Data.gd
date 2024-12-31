@@ -1256,8 +1256,6 @@ var Mesh_Data_Assets = {
 		"Data":[],
 		"BlendData":{},
 	},
-	
-	
 }
 
 
@@ -1416,9 +1414,7 @@ func gen_thread_run():
 			thread_force_post()
 		
 	print("Killing Mesh Thread!")
-	
-func _exit_tree() -> void:
-	MeshGenThread.wait_to_finish()
+
 	
 func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary, node:Node3D) -> Dictionary:
 	#Here we're going to sort the meshes we would like to use!
@@ -1451,7 +1447,6 @@ func register_meshlist(MeshList:Array, OverrideMaterials:Dictionary, node:Node3D
 			var materialID = Mesh_Data_Assets[i]["MaterialID"]
 			if Mesh_Data_Assets[i].has("Mat_Base_Overrides"):
 				for x in Mesh_Data_Assets[i]["Mat_Base_Overrides"].keys():
-					print(x)
 					match typeof(Mesh_Data_Assets[i]["Mat_Base_Overrides"][x]):
 						TYPE_ARRAY:
 							node.custom_locks[materialID][1][x] = ""

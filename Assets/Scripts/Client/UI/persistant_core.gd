@@ -68,10 +68,9 @@ func _ready() -> void:
 	#Chat
 	Hexii_Ui_Chat_TextInput.text_submitted.connect(send_text.bind())
 	
-	await Player.MeshFinished
-	
 	Hexii_Ui_Tablet_JournalButton.emit_signal("pressed")
-	Core.Character_Gen.clone_char(Hexii_Ui_Tablet_Character,Player)
+	
+	Core.AssetData.Tools.clone_character(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
 
 	AudioPlayer.add_child(CurrentAudioPlayer)
 
@@ -80,7 +79,7 @@ func _ready() -> void:
 
 func SpawnAt(Location:Vector3,Rotation:Vector3) -> void:
 	Player.position = Location
-	Player.CameraLength = -4.0
+	#Player.CameraLength = -4.0
 	$Node3D/Player/Hub.rotation = Rotation
 	$Node3D/Core_Follow/Rot_Y.rotation = Rotation
 	$Node3D/Core_Follow/Rot_Y/Rot_X.rotation = Vector3(deg_to_rad(15),0,0)
@@ -303,12 +302,12 @@ func _on_part_button_pressed(PartData: String) -> void:
 				if Core.Client.TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 					Core.Client.char_update()
 				else:
-					Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
+					Core.AssetData.Tools.clone_character(Hexii_Ui_Tablet_Character.Hub,Player.Hub)
 				
 			"Revert":
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.hide()
-				Core.Character_Gen.clone_char(Player,Hexii_Ui_Tablet_Character)
+				Core.AssetData.Tools.clone_character(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
 		
 	elif PartData.begins_with("Color, "):
 		var Asset = PartData.lstrip("Color, ")
@@ -316,8 +315,8 @@ func _on_part_button_pressed(PartData: String) -> void:
 		$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Color_Picker.show()
 		current_colorselected = Asset
 		
-		var color:Color = Hexii_Ui_Tablet_Character_OBJ.get(Asset)
-		var colorEmiss:Color = Hexii_Ui_Tablet_Character_OBJ.get(Asset+"_Emiss")
+		var color:Color = Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Color[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][Asset]]
+		var colorEmiss:Color = Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Emission[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][Asset]]
 		
 		print(colorEmiss)
 		
@@ -327,9 +326,9 @@ func _on_part_button_pressed(PartData: String) -> void:
 		Hexii_Ui_Tablet_Color_Container.get_node("Hex_Input/LineEdit").text = str(color.to_html(false))
 		Hexii_Ui_Tablet_Color_Container.get_node("Emission_Input/LineEdit").text = str(colorEmiss.to_html(false))
 
-		Hexii_Ui_Tablet_Color_Container.get_node("E_S/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(Asset+"_Emiss_S"))
-		Hexii_Ui_Tablet_Color_Container.get_node("RO/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(Asset+"_Roughness"))
-		Hexii_Ui_Tablet_Color_Container.get_node("M/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(Asset+"_Metallic"))
+		Hexii_Ui_Tablet_Color_Container.get_node("E_S/LineEdit").text = str( Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Emission_Strength[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][Asset]])
+		Hexii_Ui_Tablet_Color_Container.get_node("RO/LineEdit").text = str( Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Roughness[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][Asset]])
+		Hexii_Ui_Tablet_Color_Container.get_node("M/LineEdit").text = str( Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Metallic[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][Asset]])
 		initialpress = true
 		_on_color_text_change("", "Hex")
 		initialpress = false
@@ -352,34 +351,25 @@ func _on_part_button_pressed(PartData: String) -> void:
 			):
 			Core.Client.update_charlist()
 			await Accessory_Response
-			for i in Currently_Unlocked_Assets[PartData+"_Slot"]:
+			for i in Currently_Unlocked_Assets.assets_tagged[PartData]:
 				generate_new_CharUI_asset(i, PartData)
 		else:
-			for i in Core.AssetData.get(PartData+"_Slot"):
-				generate_new_CharUI_asset(i, PartData)
+			if Core.AssetData.assets_tagged.has(PartData):
+				print(Core.AssetData.assets_tagged[PartData])
+				for i in Core.AssetData.assets_tagged[PartData]:
+					generate_new_CharUI_asset(i, PartData)
 			#print(i)
 
 func generate_new_CharUI_asset(i, PartData) -> void:
 	var x:String = i
+	var splitval = i.split("/")
 	var New_Part = Hexii_Ui_Tablet_Character_Template_Part.duplicate()
 	
 	var main_texture = null
-	
-	if i == "":
-		if PartData != "Extra":
-			i = PartData+"s/None"
-			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+i.replace("/","_")+".png")
-		else:
-			i = PartData+"/None"
-			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+i.replace("/","_")+".png")
-	else:
-		if PartData != "Extra":
-			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"s/"+x.replace("/","_")+".png")
-		else:
-			main_texture = load("res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Item_Previews/"+PartData+"/"+x.replace("/","_")+".png")
+	if Core.AssetData.assets[splitval[0]]["Models"][splitval[1]].has("Image_Preview"):
+		main_texture = load(Core.AssetData.assets[splitval[0]]["Models"][splitval[1]]["Image_Preview"])
 	
 	if main_texture != null:
-		
 		var new_main_text = main_texture.get_image()
 		(new_main_text as Image).adjust_bcs(0.8,0.8,1)
 		
@@ -395,22 +385,24 @@ func generate_new_CharUI_asset(i, PartData) -> void:
 		
 		newtexture = ImageTexture.create_from_image(backTexture)
 		(New_Part as TextureButton).texture_hover = newtexture
-		
-	if (i as String).ends_with("None"):
-		New_Part.get_node("Label").text = "None."+PartData.to_lower()
+	
+	if Core.AssetData.assets[splitval[0]]["Models"][splitval[1]].has("Name"):
+		New_Part.get_node("Label").text = Core.AssetData.assets[splitval[0]]["Models"][splitval[1]]["Name"]+"."+PartData.trim_suffix("s").to_lower()
 	else:
-		New_Part.get_node("Label").text = Core.AssetData.Mesh_Data_Assets[i]["Name"]+"."+PartData.to_lower()
-		
+		New_Part.get_node("Label").text = "UIA"+"."+PartData.to_lower()
 	#if PartData == "Ear" || PartData == "Wing" || PartData == "Extra" || PartData == "Eye" || PartData == "Tail":
 		
-	var pt = Core.AssetData.get(PartData+"_Slot")
-	var n = PartData
-	if PartData == "Ear" || PartData == "Wing" || PartData == "Eye":
-		n = PartData+"s"
-	if (i as String).ends_with("None"):
-		New_Part.pressed.connect(change_part.bind(n,0))
+	#var pt = Core.AssetData.assets[splitval[0]]["Models"][splitval[1]]
+	#var n = PartData
+	#if PartData == "Ear" || PartData == "Wing" || PartData == "Eye":
+		#n = PartData+"s"
+	#if (i as String).ends_with("None"):
+		#New_Part.pressed.connect(change_part.bind(n,0))
+	#else:
+	if PartData == "Ears" || PartData == "Wings" || PartData == "Extras" || PartData == "Eyes" || PartData == "Tails":
+		New_Part.pressed.connect(change_part.bind("Base_"+PartData,i))
 	else:
-		New_Part.pressed.connect(change_part.bind(n,pt.find(i)))
+		New_Part.pressed.connect(change_part.bind("Acc_"+PartData,i))
 			
 		
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Options/ScrollContainer/GridContainer2.add_child(New_Part)
@@ -434,7 +426,7 @@ func _on_color_text_change(new_text:String, type:String) -> void:
 			Hexii_Ui_Tablet_Color_Container.get_node("R/LineEdit").text = str(color.r8)
 			Hexii_Ui_Tablet_Color_Container.get_node("G/LineEdit").text = str(color.g8)
 			Hexii_Ui_Tablet_Color_Container.get_node("B/LineEdit").text = str(color.b8)
-			Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected,Color8(color.r8,color.g8,color.b8))
+			Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Color[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = Color8(color.r8,color.g8,color.b8)
 		
 			
 		if Hexii_Ui_Tablet_Color_Container.get_node("Emission_Input/LineEdit").text.is_valid_html_color():
@@ -445,7 +437,7 @@ func _on_color_text_change(new_text:String, type:String) -> void:
 			Hexii_Ui_Tablet_Color_Container.get_node("E_R/LineEdit").text = str(color.r8)
 			Hexii_Ui_Tablet_Color_Container.get_node("E_G/LineEdit").text = str(color.g8)
 			Hexii_Ui_Tablet_Color_Container.get_node("E_B/LineEdit").text = str(color.b8)
-			Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected+"_Emiss",Color8(color.r8,color.g8,color.b8))
+			Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Emission[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = Color8(color.r8,color.g8,color.b8)
 		
 	elif type == "RGB":
 		var color = Color(
@@ -453,12 +445,11 @@ func _on_color_text_change(new_text:String, type:String) -> void:
 			int(Hexii_Ui_Tablet_Color_Container.get_node("G/LineEdit").text),
 			int(Hexii_Ui_Tablet_Color_Container.get_node("B/LineEdit").text)
 		)
-		print(color.r)
 		Hexii_Ui_Tablet_Color_Container.get_node("Hex_Input/LineEdit").text = color.to_html(false)
 		Hexii_Ui_Tablet_Color_Container.get_node("R/HSlider").value = color.r
 		Hexii_Ui_Tablet_Color_Container.get_node("G/HSlider").value = color.g
 		Hexii_Ui_Tablet_Color_Container.get_node("B/HSlider").value = color.b
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected,Color8(int(color.r),int(color.g),int(color.b)))
+		Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Color[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = Color8(int(color.r),int(color.g),int(color.b))
 		
 		var colorEmiss = Color(
 			int(Hexii_Ui_Tablet_Color_Container.get_node("E_R/LineEdit").text),
@@ -469,9 +460,9 @@ func _on_color_text_change(new_text:String, type:String) -> void:
 		Hexii_Ui_Tablet_Color_Container.get_node("E_R/HSlider").value = colorEmiss.r
 		Hexii_Ui_Tablet_Color_Container.get_node("E_G/HSlider").value = colorEmiss.g
 		Hexii_Ui_Tablet_Color_Container.get_node("E_B/HSlider").value = colorEmiss.b
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected+"_Emiss",Color8(int(colorEmiss.r),int(colorEmiss.g),int(colorEmiss.b)))
+		Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Emission[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = Color8(int(colorEmiss.r),int(colorEmiss.g),int(colorEmiss.b))
 		
-	Hexii_Ui_Tablet_Character_OBJ.Regen_Color()
+	Hexii_Ui_Tablet_Character_OBJ.Hub.generate_colors()
 	update_values() 
 
 func _on_color_value_changed(value: float) -> void:
@@ -491,21 +482,21 @@ func _on_color_value_changed(value: float) -> void:
 		var BE = int(Hexii_Ui_Tablet_Color_Container.get_node("E_B/HSlider").value)
 		var SE = Hexii_Ui_Tablet_Color_Container.get_node("E_S/HSlider").value
 		
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected,Color8(R,G,B))
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected+"_Emiss",Color8(RE,GE,BE))
+		Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Color[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = Color8(R,G,B)
+		Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Emission[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = Color8(RE,GE,BE)
 		
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected+"_Roughness",Roughness)
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected+"_Metallic",Metallic)
-		Hexii_Ui_Tablet_Character_OBJ.set(current_colorselected+"_Emiss_S",SE)
+		Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Roughness[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = Roughness
+		Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Metallic[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = Metallic
+		Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Emission_Strength[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]] = SE
 		
-		Hexii_Ui_Tablet_Character_OBJ.Regen_Color()
+		Hexii_Ui_Tablet_Character_OBJ.Hub.generate_colors()
 		update_values() 
 
 func update_values() -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
-	var color:Color = Hexii_Ui_Tablet_Character_OBJ.get(current_colorselected)
-	var colorEmiss:Color = Hexii_Ui_Tablet_Character_OBJ.get(current_colorselected+"_Emiss")
+	var color:Color = Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Color[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]]
+	var colorEmiss:Color = Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Emission[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]]
 	
 	Hexii_Ui_Tablet_Color_Container.get_node("Emiss_Color_Rect").color =  colorEmiss
 	Hexii_Ui_Tablet_Color_Container.get_node("Base_Color_Rect").color =  color
@@ -521,18 +512,18 @@ func update_values() -> void:
 	Hexii_Ui_Tablet_Color_Container.get_node("E_G/LineEdit").text = str(colorEmiss.g8)
 	Hexii_Ui_Tablet_Color_Container.get_node("E_B/LineEdit").text = str(colorEmiss.b8)
 	
-	Hexii_Ui_Tablet_Color_Container.get_node("E_S/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(current_colorselected+"_Emiss_S"))
+	Hexii_Ui_Tablet_Color_Container.get_node("E_S/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Emission_Strength[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]])
 	
-	Hexii_Ui_Tablet_Color_Container.get_node("RO/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(current_colorselected+"_Roughness"))
-	Hexii_Ui_Tablet_Color_Container.get_node("M/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.get(current_colorselected+"_Metallic"))
+	Hexii_Ui_Tablet_Color_Container.get_node("RO/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Roughness[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]])
+	Hexii_Ui_Tablet_Color_Container.get_node("M/LineEdit").text = str(Hexii_Ui_Tablet_Character_OBJ.Hub.Shader_Metallic[Hexii_Ui_Tablet_Character_OBJ.Hub.Keylist["Body"][current_colorselected]])
 
 func _on_load_button_pressed() -> void:
-	Core.Character_Gen.generate_char_from_string($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text, Hexii_Ui_Tablet_Character_OBJ)
+	Core.AssetData.Tools.generate_character_from_string($CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text, Hexii_Ui_Tablet_Character_OBJ.Hub)
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
 
 func _on_export_button_pressed() -> void:
-	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Input/LineEdit.text = Core.Character_Gen.export_char(Hexii_Ui_Tablet_Character_OBJ)
+	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Code_Loader/ScrollContainer_Color/GridContainer2/Code_Output/LineEdit.text = Core.AssetData.Tools.export_character(Hexii_Ui_Tablet_Character_OBJ.Hub)
 
 func _on_namepanel_text_submitted(new_text: String, type: String) -> void:
 	Hexii_Ui_Tablet_Character_OBJ.set(type, new_text)
@@ -540,8 +531,8 @@ func _on_namepanel_text_submitted(new_text: String, type: String) -> void:
 func _on_scale_value_changed(value: float) -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
-	Hexii_Ui_Tablet_Character_OBJ.Scale = value
-	Hexii_Ui_Tablet_Character_OBJ.Adjust_Scale()
+	Hexii_Ui_Tablet_Character_OBJ.Hub.Scale = value
+	Hexii_Ui_Tablet_Character_OBJ.Hub.adjust_scale()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/LineEdit.text = str(value)
 
 func _on_scale_text_submitted(new_text: String) -> void:
@@ -552,12 +543,11 @@ func _on_scale_text_submitted(new_text: String) -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/LineEdit.text = str(Hexii_Ui_Tablet_Character_OBJ.Scale)
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Name_Picker/ScrollContainer_Color/GridContainer2/Scale/HSlider.value = Hexii_Ui_Tablet_Character_OBJ.Scale
 
-func change_part(Core_Part:String, Part:int) -> void:
-	print(Core_Part," , ",Part)
+func change_part(Core_Part:String, Part:String) -> void:
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.show()
 	$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.show()
-	Hexii_Ui_Tablet_Character_OBJ.set(Core_Part,Part)
-	Hexii_Ui_Tablet_Character_OBJ.Regen_Character()
+	Hexii_Ui_Tablet_Character_OBJ.Hub.set(Core_Part,Part)
+	Hexii_Ui_Tablet_Character_OBJ.Hub.generate_character()
 
 #################################
 ###### Title Screen System ######

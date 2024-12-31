@@ -63,7 +63,6 @@ func _ready() -> void:
 		
 		"Cubiix_Base:Empty_Socket":0
 		}
-
 	V2_ConversionPath = {
 		"Ears":{
 			"None":0,
@@ -282,7 +281,6 @@ var V3_Keywords = [
 
 ##Since paths changed, we need to have a lookup index!
 var V1_ConversionPath = {}
-
 var V2_ConversionPath = {}
 func generate_char_from_string(Data:String,Target:Node3D) -> void:
 	var json = JSON.new()
@@ -381,11 +379,11 @@ func generate_char_from_string(Data:String,Target:Node3D) -> void:
 									
 									pass
 								Target.Body_2_Emiss =  Color(data["WireCol"].to_html(false))
-								Target.Body_2_Emiss_S = 1.0
+								Target.Body_2_Emiss_S = .8
 						"WireInnerCol":
 							pass
 						"Name":
-							pass
+							Target.Name = data["Name"]
 			2:
 				print("Version 2 Save!")
 				Target.Body_1_Roughness = 1
