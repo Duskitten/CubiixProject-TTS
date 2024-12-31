@@ -248,11 +248,31 @@ func generate_character_from_string(Data:String,Target:Node3D) -> void:
 			Target.generate_character()
 
 func clone_character(A:Node3D, B:Node3D) -> void:
-	B.Shader_Color = A.Shader_Color.duplicate()
-	B.Shader_Emission = A.Shader_Emission.duplicate()
-	B.Shader_Emission_Strength = A.Shader_Emission_Strength.duplicate()
-	B.Shader_Roughness = A.Shader_Roughness.duplicate()
-	B.Shader_Metallic = A.Shader_Metallic.duplicate()
+	B.Shader_Color[B.Keylist["Body"]["Body1"]] = A.Shader_Color[B.Keylist["Body"]["Body1"]]
+	B.Shader_Color[B.Keylist["Body"]["Body2"]] = A.Shader_Color[B.Keylist["Body"]["Body2"]]
+	B.Shader_Color[B.Keylist["Body"]["Eye1"]] = A.Shader_Color[B.Keylist["Body"]["Eye1"]]
+	B.Shader_Color[B.Keylist["Body"]["Eye2"]] = A.Shader_Color[B.Keylist["Body"]["Eye2"]]
+	
+	B.Shader_Emission[B.Keylist["Body"]["Body1"]] = A.Shader_Emission[B.Keylist["Body"]["Body1"]]
+	B.Shader_Emission[B.Keylist["Body"]["Body2"]] = A.Shader_Emission[B.Keylist["Body"]["Body2"]]
+	B.Shader_Emission[B.Keylist["Body"]["Eye1"]] = A.Shader_Emission[B.Keylist["Body"]["Eye1"]]
+	B.Shader_Emission[B.Keylist["Body"]["Eye2"]] = A.Shader_Emission[B.Keylist["Body"]["Eye2"]]
+	
+	B.Shader_Emission_Strength[B.Keylist["Body"]["Body1"]] = A.Shader_Emission_Strength[B.Keylist["Body"]["Body1"]]
+	B.Shader_Emission_Strength[B.Keylist["Body"]["Body2"]] = A.Shader_Emission_Strength[B.Keylist["Body"]["Body2"]]
+	B.Shader_Emission_Strength[B.Keylist["Body"]["Eye1"]] = A.Shader_Emission_Strength[B.Keylist["Body"]["Eye1"]]
+	B.Shader_Emission_Strength[B.Keylist["Body"]["Eye2"]] = A.Shader_Emission_Strength[B.Keylist["Body"]["Eye2"]]
+	
+	B.Shader_Roughness[B.Keylist["Body"]["Body1"]] = A.Shader_Roughness[B.Keylist["Body"]["Body1"]]
+	B.Shader_Roughness[B.Keylist["Body"]["Body2"]] = A.Shader_Roughness[B.Keylist["Body"]["Body2"]]
+	B.Shader_Roughness[B.Keylist["Body"]["Eye1"]] = A.Shader_Roughness[B.Keylist["Body"]["Eye1"]]
+	B.Shader_Roughness[B.Keylist["Body"]["Eye2"]] = A.Shader_Roughness[B.Keylist["Body"]["Eye2"]]
+	
+	B.Shader_Metallic[B.Keylist["Body"]["Body1"]] = A.Shader_Metallic[B.Keylist["Body"]["Body1"]]
+	B.Shader_Metallic[B.Keylist["Body"]["Body2"]] = A.Shader_Metallic[B.Keylist["Body"]["Body2"]]
+	B.Shader_Metallic[B.Keylist["Body"]["Eye1"]] = A.Shader_Metallic[B.Keylist["Body"]["Eye1"]]
+	B.Shader_Metallic[B.Keylist["Body"]["Eye2"]] = A.Shader_Metallic[B.Keylist["Body"]["Eye2"]]
+	
 	B.Base_Tails = A.Base_Tails
 	B.Base_Wings = A.Base_Wings
 	B.Base_Ears = A.Base_Ears

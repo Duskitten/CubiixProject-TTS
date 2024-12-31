@@ -251,7 +251,6 @@ grow_vertical = 1
 [node name="Hexii_Tablet_UI" parent="CanvasLayer" instance=ExtResource("5_d7p8w")]
 
 [node name="Character_Screen" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper" index="2"]
-visible = true
 pivot_offset = Vector2(232.08, 170.48)
 
 [node name="GridContainer" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Parts" index="0"]
@@ -400,6 +399,7 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 3
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -624,10 +624,10 @@ fov = 56.25
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton3" to="." method="_on_part_button_pressed" binds= ["Eyes"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton4" to="." method="_on_part_button_pressed" binds= ["Wings"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton5" to="." method="_on_part_button_pressed" binds= ["Tails"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton6" to="." method="_on_part_button_pressed" binds= ["Color, Body_1"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton7" to="." method="_on_part_button_pressed" binds= ["Color, Body_2"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton8" to="." method="_on_part_button_pressed" binds= ["Color, Body_3"]]
-[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton9" to="." method="_on_part_button_pressed" binds= ["Color, Body_4"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton6" to="." method="_on_part_button_pressed" binds= ["Color, Body1"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton7" to="." method="_on_part_button_pressed" binds= ["Color, Body2"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton8" to="." method="_on_part_button_pressed" binds= ["Color, Eye1"]]
+[connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/Preview/VBoxContainer/TextureButton9" to="." method="_on_part_button_pressed" binds= ["Color, Eye2"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button" to="." method="_on_part_button_pressed" binds= ["Extra, Detail"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button2" to="." method="_on_part_button_pressed" binds= ["Extra, Code"]]
 [connection signal="pressed" from="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3" to="." method="_on_part_button_pressed" binds= ["Extra, Revert"]]
