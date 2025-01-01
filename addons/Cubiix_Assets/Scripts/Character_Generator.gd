@@ -72,11 +72,15 @@ var Scale:float = 1
 
 var DynBones_Register = {}
 signal Mesh_Finished
-var DynBones : DynBone
+signal Skeleton_Added
+var DynBones : Cubiix_DynBone
 
 var Animator:AnimationPlayer
 var Animator_Tree:AnimationTree
 var old_animation:Array = ["Idle", 0.0]
+var Character_Skeleton
+
+var node_storage = []
 
 func _ready() -> void:
 	New_Shader = load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres").duplicate(true)
@@ -134,19 +138,32 @@ func generate_character() -> void:
 		if Animator != null:
 			Animator.active = false
 	if get_node_or_null("Cubiix_Model/Armature/Skeleton3D") != null:
+		if DynBones != null:
+			DynBones.free()
+		for i in Skeleton.get_children():
+			if i is Cubiix_LookAtBone:
+				node_storage.append(i)
+				Skeleton.remove_child(i)
 		$Cubiix_Model/Armature/Skeleton3D.free()
 	$Cubiix_Model/Armature.add_child(Skeleton)
-	DynBones = DynBone.new()
+	DynBones = Cubiix_DynBone.new()
 	Skeleton.add_child(DynBones)
 	#add_child(load("res://addons/Cubiix_Assets/Animations/TTS_Animations.tscn").instantiate())
 	
 	DynBones.DynBones_Register = DynBones_Register.duplicate(true)
 	DynBones.first_run()
+	Character_Skeleton = Skeleton
+	
+	for i in node_storage:
+		Skeleton.add_child(i)
+		if i is Cubiix_LookAtBone:
+			i.setup()
+		node_storage.erase(i)
 	if Animator != null:
 		Animator.active = true
 		update_animation_bypass(old_animation)
 	await get_tree().create_timer(0.2).timeout
-	
+	emit_signal("Skeleton_Added")
 	DynBones.call_deferred("emit_signal","RePositioned")
 
 ## This is where we update our animations

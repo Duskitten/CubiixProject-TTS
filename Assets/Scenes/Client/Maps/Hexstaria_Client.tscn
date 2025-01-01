@@ -333,9 +333,7 @@ camera_attributes = SubResource("CameraAttributesPractical_5achi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template"]
 transform = Transform3D(0.5, 0.482418, -0.719217, -2.62057e-09, 0.83048, 0.557049, 0.866025, -0.278524, 0.41524, 0.00469455, 0, 0.0278296)
-light_energy = 0.25
 light_bake_mode = 1
-shadow_enabled = true
 shadow_bias = 2.0
 shadow_blur = 5.0
 directional_shadow_mode = 0
@@ -491,7 +489,7 @@ Load_Script_ID = Array[String](["TTSAssets/NPC_Controller"])
 Load_Script_Passthrough = Array[Dictionary]([{}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
 Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
-Character_String = "{\"B1\":\"62d6ca\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.140000000596046,\"B1R\":1,\"B2\":\"00cb3e\",\"B2E\":\"008ecf\",\"B2ES\":0.5,\"B2M\":0,\"B2R\":1,\"B3\":\"000000\",\"B3E\":\"5cffff\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"000000\",\"B4E\":\"5cffff\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":\"CoreAssets/Ears_Mouse\",\"EX\":\"CoreAssets/Extra\",\"EY\":\"CoreAssets/Eyes_Nat\",\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":\"CoreAssets/Tails_Mouse\",\"W\":\"CoreAssets/Wings\"}"
+Character_String = "{\"B1\":\"49c8e3\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.1,\"B1R\":1,\"B2\":\"009e3e\",\"B2E\":\"00868b\",\"B2ES\":0.78,\"B2M\":0,\"B2R\":1,\"B3\":\"000000\",\"B3E\":\"afffff\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"000000\",\"B4E\":\"afffff\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":\"CoreAssets/Ears_Mouse\",\"EX\":\"CoreAssets/Extra\",\"EY\":\"CoreAssets/Eyes_Nat\",\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":\"CoreAssets/Tails_Mouse\",\"W\":\"CoreAssets/Wings\"}"
 
 [node name="Hub" parent="NPC/Nat" index="0"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -502,7 +500,7 @@ Load_Script_ID = Array[String](["TTSAssets/NPC_Controller"])
 Load_Script_Passthrough = Array[Dictionary]([{}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
 Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
-Character_String = "{\"B1\":\"000000\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.46,\"B1R\":0.45,\"B2\":\"b291c6\",\"B2E\":\"3878ed\",\"B2ES\":0.61,\"B2M\":0,\"B2R\":0.97,\"B3\":\"e879ee\",\"B3E\":\"e879ee\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"e879ee\",\"B4E\":\"e879ee\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":1,\"EX\":0,\"EY\":0,\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":1,\"W\":2}"
+Character_String = "{\"B1\":\"000000\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.46,\"B1R\":0.45,\"B2\":\"906eb8\",\"B2E\":\"385651\",\"B2ES\":0.2,\"B2M\":0,\"B2R\":0.9,\"B3\":\"e879ee\",\"B3E\":\"e879ee\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"e879ee\",\"B4E\":\"e879ee\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":\"CoreAssets/Ears_Cat\",\"EX\":\"CoreAssets/Extra\",\"EY\":\"CoreAssets/Eyes_Default\",\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":\"CoreAssets/Tails_Cat\",\"W\":\"CoreAssets/Wings_Angel\"}"
 
 [node name="Hub" parent="NPC/Dusk" index="0"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

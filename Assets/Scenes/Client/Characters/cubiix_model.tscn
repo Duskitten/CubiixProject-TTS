@@ -5,7 +5,7 @@
 [ext_resource type="AnimationNodeStateMachine" uid="uid://66yh8wx1jq5e" path="res://Assets/Animations/PlayerStateMachine.tres" id="3_85fqt"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cwaik7ippqh75" path="res://Assets/Animations/NPCStateMachine.tres" id="3_ah4lj"]
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Attachment_Point.gd" id="3_gfb7b"]
-[ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Skeleton_Mod_LookAt.gd" id="4_32qfx"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Skeleton_Mod_LookAt.gd" id="4_32qfx"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c305l0w7rfyuj" path="res://Assets/Animations/Hand_Right_StateMachine.tres" id="4_mb65t"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ldldd"]

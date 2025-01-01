@@ -99,6 +99,7 @@ func setup():
 	Character.add_child(RayCast3)
 	Character.add_child(JumpTimer)
 	JumpTimer.timeout.connect(_on_jump_timer_timeout.bind())
+	MoveMarker.name = "MoveMarker"
 	Character.add_child(MoveMarker)
 	
 	await Character.get_node("Camera_Controller").CameraSetup
@@ -165,7 +166,6 @@ func _physics_process(delta: float) -> void:
 			
 		if Character.up_direction > gravity_control:
 			Fall_Tick += Fall_Delta
-			print(Fall_Tick)
 			if Fall_Tick > (300) || jumping:
 				falling = true
 

@@ -406,6 +406,7 @@ position = Vector2(-40, -11)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 2
 
 [node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -420,7 +421,6 @@ position = Vector2(-11, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 3
 
 [node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -503,12 +503,12 @@ expand_mode = 5
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="Player" parent="Node3D" instance=ExtResource("16_t4xvr")]
+[node name="Player" parent="Node3D" groups=["Player"] instance=ExtResource("16_t4xvr")]
 Load_Script_ID = Array[String](["TTSAssets/Character_Controller", "TTSAssets/Camera_Controller"])
 Load_Script_Passthrough = Array[Dictionary]([{}, {}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
 Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
-Character_String = "{\"B1\":\"000000\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.46,\"B1R\":0.45,\"B2\":\"b291c6\",\"B2E\":\"3878ed\",\"B2ES\":0.61,\"B2M\":0,\"B2R\":0.97,\"B3\":\"e879ee\",\"B3E\":\"e879ee\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"e879ee\",\"B4E\":\"e879ee\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":\"CoreAssets/Ears_Cat\",\"EX\":0,\"EY\":0,\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":1,\"W\":2}"
+Character_String = "{\"B1\":\"9ec0bd\",\"B1E\":\"6e6c5f\",\"B1ES\":1,\"B1M\":0.7,\"B1R\":0,\"B2\":\"354c56\",\"B2E\":\"63665f\",\"B2ES\":1,\"B2M\":0,\"B2R\":1,\"B3\":\"ff7e00\",\"B3E\":\"ffb67c\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"ff7e00\",\"B4E\":\"ffb67c\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":\"CoreAssets/Ears\",\"EX\":\"CoreAssets/Extra\",\"EY\":\"CoreAssets/Eyes_Default\",\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":\"CoreAssets/Tails\",\"W\":\"CoreAssets/Wings\"}"
 
 [node name="Core_Follow" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 0, 0)

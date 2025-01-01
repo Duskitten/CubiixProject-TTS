@@ -234,7 +234,7 @@ func Regen_Character():
 		Skeleton.get_node("ProxyLeftHandPoint").queue_free()
 		Skeleton.get_node("ProxyRightHandPoint").queue_free()
 	MeshObj = Skeleton.get_node("Cube")
-	DynBones = DynBone.new()
+	DynBones = Cubiix_DynBone.new()
 	#for i in stored_items.keys():
 		#stored_items[i]["object"].external_skeleton = Skeleton.get_path()
 		#stored_items[i]["object"].bone_name = Core.AssetData.Item_Data_Assets[stored_items[i]["type"]]["target"]

@@ -1,4 +1,4 @@
-class_name DynBone
+class_name Cubiix_DynBone
 extends SkeletonModifier3D
 
 var DynBones_Register = {}

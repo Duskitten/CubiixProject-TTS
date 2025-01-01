@@ -285,8 +285,6 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	CoreMesh_Commit = st.commit_to_arrays()
 	CoreMesh_Commit[10] = Bone_Rewrite
 	
-	
-	
 	var Blendshapes = []
 	Blendshapes.resize(Blendshape_Key.size())
 	
@@ -348,7 +346,7 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	##Apply materials to mesh surfaces as required
 	TargetMesh.call_deferred("set_surface_override_material",0,MainNode.New_Shader)
 	MainNode.call_deferred("emit_signal","Mesh_Finished")
-	#thread_force_post()
+	thread_force_post()
 
 func find_script(ID:String, ApplyNode:Node3D, ParentNode:Node3D) -> void:
 	var path = ""

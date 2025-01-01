@@ -1,4 +1,4 @@
-class_name LookAtBone
+class_name Cubiix_LookAtBone
 extends SkeletonModifier3D
 
 @export var Target : Node3D = null
@@ -19,7 +19,7 @@ func setup() -> void:
 func _process_modification() -> void:
 	self.global_position = (get_skeleton().global_transform * get_skeleton().get_bone_global_pose(targetBone)).origin
 	if Target != null :
-		self.look_at(Target.global_position,Vector3(0,1,0),true)
+		self.look_at(Target.global_position+(Target.global_transform.basis.y * .5),Vector3(0,1,0),true)
 		self.rotation = Vector3(clampf(self.rotation.x,deg_to_rad(-45),deg_to_rad(45)),clampf(self.rotation.y,deg_to_rad(-45),deg_to_rad(45)),clampf(self.rotation.z,deg_to_rad(-45),deg_to_rad(45)))
 	elif Target == null:
 		if Alt_Pose != Basis():
