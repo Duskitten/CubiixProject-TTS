@@ -1,13 +1,50 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjh7kic6808a"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Client/Character/Npc_Function.gd" id="1_gscbr"]
+[sub_resource type="GDScript" id="GDScript_2h72r"]
+script/source = "extends Node3D
+var CanInteract = false
+@export var Character:String
+@export var LineStart:String
+@export var Is_Important:bool
+@onready var Core = get_node(\"/root/Main_Scene/CoreLoader\")
+
+func _ready() -> void:
+	$Look_At_Range.body_entered.connect(Look_At_Range_Enter)
+	$Look_At_Range.body_exited.connect(Look_At_Range_Exit)
+	if Is_Important:
+		get_parent().NPC_Is_InterestPoint = true
+
+func _process(delta: float) -> void:
+	if CanInteract:
+		if Input.is_action_just_pressed(\"interact\"):
+			if Character.strip_edges(true) != \"\" && Core.Dialogue_Handler.Dialogue.keys().has(Character):
+				print(\"NPC: OK\")
+				if LineStart.strip_edges(true) != \"\" && Core.Dialogue_Handler.Dialogue[Character].has(LineStart):
+					print(\"Dialogue: OK\")
+				else:
+					print(\"Error: No NPC Dialogue Found\")
+			else:
+				print(\"Error: No NPC Found\")
+	
+func Look_At_Range_Enter(Body:Node3D):
+	if Body.is_in_group(\"Player\"):
+		print(\"Looking!\")
+		CanInteract = true
+		get_parent().get_node(\"Hub/Cubiix_Model/Skeleton3D/LookAtBone\").Target = Body.get_node(\"Hub/Follow_Point\")
+	
+func Look_At_Range_Exit(Body:Node3D):
+	if Body.is_in_group(\"Player\"):
+		print(\"Defaulting!\")
+		CanInteract = false
+		get_parent().get_node(\"Hub/Cubiix_Model/Skeleton3D/LookAtBone\").Target = null
+"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v5r17"]
 radius = 1.83338
 
 [node name="NPC_Function" type="Node3D"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
-script = ExtResource("1_gscbr")
+script = SubResource("GDScript_2h72r")
 
 [node name="Look_At_Range" type="Area3D" parent="."]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0.419477, 0)

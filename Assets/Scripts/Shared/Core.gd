@@ -22,28 +22,21 @@ func _ready():
 		await get_tree().create_timer(1).timeout
 		Update_LogoText("Initiating Asset Load...")
 		await get_tree().create_timer(1).timeout
-		Character_Gen = load("res://Assets/Scripts/Client/Character/Character_Model_Data.gd").new()
-		
-		SceneData = load("res://Assets/Scripts/Client/Scene/Scene_Data.gd").new()
-		SceneData.runsetup(self)
-		await SceneData.FinishedLoad
-		Update_LogoText("Loading Asset Data...")
-		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
 		AssetData = load("res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd").new()
 		AssetData.runsetup()
+		Update_LogoText("Loading Asset Data...")
 		AssetData.name = "AssetData"
 		await AssetData.FinishedLoad
-		add_child(AssetData)
-		
+		SceneData = load("res://addons/Cubiix_Assets/Scripts/Scene_Loader.gd").new()
+		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
 		Client = load("res://Assets/Scripts/Client/Networking/Network_Client.gd").new()
 		Dialogue_Handler = load("res://Assets/Scripts/Client/UI/DialogueBank.gd").new()
 		Persistant_Core = load("res://Assets/Scenes/Client/Persistant_Core.tscn").instantiate()
+		add_child(AssetData)
 		add_child(SceneData)
 		add_child(Globals)
 		add_child(Client)
 		add_child(Dialogue_Handler)
-		add_child(Character_Gen)
-		
 		get_parent().call_deferred("add_child", Persistant_Core)
 		await Persistant_Core.ready
 		
@@ -54,7 +47,7 @@ func _ready():
 		get_node("../CanvasLayer/Loading").hide()
 		print("Haoi")
 		#SceneData.call_deferred("Swap_Scene","Showcase",{},true,"")
-		SceneData.call_deferred("Swap_Scene","Hexstaria",{},true,"Spawn_Docks")
+		SceneData.call_deferred("load_scene","TTSAssets/Hexstaria_V2",{},true,"")
 		#Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Tablet_TitleScreen_Anim","Exit","", false)
 		#Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)
 		

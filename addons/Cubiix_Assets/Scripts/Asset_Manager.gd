@@ -86,21 +86,27 @@ func compile_mod_assets() -> void:
 			if content.has("Assets"):
 				for n in content["Assets"].keys():
 					for x in content["Assets"][n].keys():
+						
 						if content["Assets"][n][x].has("Path"):
 							content["Assets"][n][x]["Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Path"]
+						if content["Assets"][n][x].has("Server_Path"):
+							content["Assets"][n][x]["Server_Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Server_Path"]
+						if content["Assets"][n][x].has("Client_Path"):
+							content["Assets"][n][x]["Client_Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Client_Path"]
 						if content["Assets"][n][x].has("Image_Preview"):
 							content["Assets"][n][x]["Image_Preview"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Image_Preview"]
 						if content["Assets"][n][x].has("Tag") && content["ModID"] != "CoreAssets":
 							if !assets_tagged.has(content["Assets"][n][x]["Tag"]) :
 								assets_tagged[content["Assets"][n][x]["Tag"]] = []
 							assets_tagged[content["Assets"][n][x]["Tag"]].append(content["ModID"]+"/"+x)
+						#print(content["Assets"][n][x])
 				assets[content["ModID"]] = content["Assets"]
 			
 				if content["Assets"].has("Override_Binds") && content["ModID"] == "CoreAssets":
 					if content["Assets"]["Override_Binds"].has("V3"):
 						for xc in content["Assets"]["Override_Binds"]["V3"].keys():
 							if !assets_tagged.has(xc):
-								print(content["Assets"]["Override_Binds"]["V3"][xc])
+								#print(content["Assets"]["Override_Binds"]["V3"][xc])
 								assets_tagged[xc] = content["Assets"]["Override_Binds"]["V3"][xc]
 		
 		else:
@@ -366,3 +372,13 @@ func find_animation(ID:String, ApplyNode:Node3D) -> void:
 		assets[AssetParts[0]]["Animations"].has(AssetParts[1]) &&\
 		assets[AssetParts[0]]["Animations"][AssetParts[1]].has("Node"):
 			ApplyNode.add_child(assets[AssetParts[0]]["Animations"][AssetParts[1]]["Node"].duplicate())
+
+func find_map(ID:String) -> Dictionary:
+	var path = ""
+	var AssetParts = ID.split("/")
+	if assets.has(AssetParts[0]) &&\
+		assets[AssetParts[0]].has("Maps") &&\
+		assets[AssetParts[0]]["Maps"].has(AssetParts[1]):
+			return assets[AssetParts[0]]["Maps"][AssetParts[1]]
+	
+	return {}

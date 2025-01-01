@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyk6utwqw1uwx"]
+[gd_scene load_steps=6 format=3 uid="uid://dyk6utwqw1uwx"]
 
-[ext_resource type="PackedScene" uid="uid://c0ig3yk264u3b" path="res://Assets/Scenes/Client/cubiix_anim_base.tscn" id="1_1jmmo"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Other/FilmShader.gdshader" id="2_uo1fb"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_y4in0"]
@@ -59,9 +58,6 @@ transform = Transform3D(0.965926, 0, -0.258819, 0.25, 0.258819, 0.933013, 0.0669
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_yo4n5")
-
-[node name="Cubiix_Base" parent="CanvasLayer/SubViewportContainer/SubViewport" instance=ExtResource("1_1jmmo")]
-character_string = "{\"B1\":\"000000\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.46,\"B1R\":0.45,\"B2\":\"b291c6\",\"B2E\":\"3878ed\",\"B2ES\":0.61,\"B2M\":0,\"B2R\":0.97,\"B3\":\"e879ee\",\"B3E\":\"e879ee\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"e879ee\",\"B4E\":\"e879ee\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":1,\"EX\":0,\"EY\":0,\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":1,\"W\":2}"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/SubViewportContainer"]
 material = SubResource("ShaderMaterial_0bsdg")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=31 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/persistant_core.gd" id="1_crhm8"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="1_rvalq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/Slide_Char.gd" id="5_ayhcd"]
 [ext_resource type="PackedScene" uid="uid://hrgnkcktrbta" path="res://Assets/Scenes/Client/Ui/hexii_tablet_ui.tscn" id="5_d7p8w"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="10_mbyra"]
+[ext_resource type="PackedScene" uid="uid://c8l72w6pr35nv" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Maps/Server/hexstaria_v2.tscn" id="13_2ihcm"]
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="16_t4xvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhpf"]
@@ -285,9 +286,6 @@ offset_bottom = 0.360001
 [node name="Name_Picker" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen" index="3"]
 visible = true
 
-[node name="Code_Loader" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen" index="4"]
-visible = false
-
 [node name="SubViewportContainer" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen" index="6"]
 offset_top = 64.0
 offset_bottom = 222.0
@@ -406,7 +404,6 @@ position = Vector2(-40, -11)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 2
 
 [node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -428,6 +425,7 @@ position = Vector2(-40, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transitioner/Control"]
 libraries = {
@@ -529,6 +527,9 @@ fov = 56.25
 [node name="Audio" type="Node3D" parent="Node3D"]
 
 [node name="Network_Players" type="Node3D" parent="Node3D"]
+
+[node name="Hexstaria_V2" parent="Node3D" instance=ExtResource("13_2ihcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="HTTPNodes" type="Node" parent="."]
 

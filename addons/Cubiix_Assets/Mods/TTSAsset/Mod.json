@@ -6,7 +6,16 @@
 	"Assets" : {
 		"Models":{},
 		"Override_Binds":{},
-		"Maps":{},
+		"Maps":{
+			"Hexstaria_V2":{
+				"Server_Path":"Assets/Maps/Server/hexstaria_v2.tscn",
+				"Client_Path":"Assets/Maps/Client/hexstaria_v2.tscn",
+				"Name":"Hexstaria",
+				"Description":"The home of the Cubiix.",
+				"Preview_Image":"",
+				"Spawn_Locations":{}
+			}
+		},
 		"Scripts":{
 			"Character_Controller":{
 				"Path":"Assets/Scripts/Character_Controller.gd"

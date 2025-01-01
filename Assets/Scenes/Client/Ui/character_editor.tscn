@@ -44,25 +44,10 @@ Load_Script_Passthrough = Array[Dictionary]([{}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
 Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
 
-[node name="Hub" parent="Cubiix_Base" index="0"]
-Shader_Color = Array[Color]([])
-Shader_Emission = Array[Color]([])
-Shader_Metallic = Array[Color]([])
-Shader_Roughness = Array[Color]([])
-Shader_Emission_Strength = Array[Color]([])
-Shader_Alpha = Array[Color]([])
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 524295
 mesh = SubResource("PlaneMesh_kp3qj")
 surface_material_override/0 = SubResource("StandardMaterial3D_kr5cl")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, 0, -0.965926, 0.258819, 0, 0, 0)
-shadow_opacity = 0.83
-shadow_blur = 0.0
-directional_shadow_mode = 0
-directional_shadow_max_distance = 4.0
 
 [node name="Y" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76429, 0)
@@ -87,5 +72,19 @@ texture_albedo = SubResource("GradientTexture2D_gkhtr")
 upper_fade = 1e-05
 lower_fade = 1.03526e-05
 cull_mask = 524288
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, 0.482418, -0.719217, -2.62057e-09, 0.83048, 0.557049, 0.866025, -0.278524, 0.41524, 0.00469455, 0, 0.0278296)
+light_bake_mode = 1
+shadow_bias = 2.0
+shadow_blur = 5.0
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.03
+directional_shadow_split_2 = 0.1
+directional_shadow_split_3 = 0.3
+directional_shadow_fade_start = 0.622
+directional_shadow_max_distance = 25.0
+directional_shadow_pancake_size = 60.0
+sky_mode = 1
 
 [editable path="Cubiix_Base"]

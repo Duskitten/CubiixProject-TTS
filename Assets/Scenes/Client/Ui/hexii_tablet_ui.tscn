@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=119 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dkji8bodqlyhv" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character.png" id="20_06l3h"]
 [ext_resource type="Texture2D" uid="uid://d28iijjfc87s8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Button_Small_Item_Hover.png" id="20_7wift"]
 [ext_resource type="Texture2D" uid="uid://dunyn1pah5lx6" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Windows/Character_big_2.png" id="21_kdt3d"]
+[ext_resource type="Texture2D" uid="uid://b0kivm044liqc" path="res://addons/Cubiix_Assets/Mods/CoreAssets/Assets/Textures/Previews/Unknown_Asset_Image.png" id="22_88n8k"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://Assets/Fonts/Jura/Jura-Bold.ttf" id="22_u408p"]
 [ext_resource type="Texture2D" uid="uid://dumxnfuj7qbe8" path="res://Assets/Textures/Faction_Icons/Hexii_Logo_V2.png" id="23_u1vjt"]
 [ext_resource type="Texture2D" uid="uid://b2ddrpax5ek4w" path="res://Assets/Textures/Faction_Icons/Trii_Logo_V2.png" id="24_vrbsv"]
@@ -84,13 +85,6 @@
 [ext_resource type="Texture2D" uid="uid://bw15s0r50tq1s" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Offline_Hover2.png" id="81_0hus2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
-
-[sub_resource type="Gradient" id="Gradient_pvti5"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_748mb"]
-gradient = SubResource("Gradient_pvti5")
-width = 80
-height = 80
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_rwf05"]
 color = Color(1, 1, 1, 1)
@@ -162,6 +156,47 @@ grow_begin = 3.0
 thickness = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpvvo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_brind"]
+sky_top_color = Color(0.181868, 0.340841, 0.652344, 1)
+sky_horizon_color = Color(0.232597, 0.726563, 0.715721, 1)
+ground_bottom_color = Color(0.371605, 0.481471, 0.617188, 1)
+ground_horizon_color = Color(0.372549, 0.482353, 0.615686, 1)
+sun_angle_max = 30.88
+sun_curve = 0.178379
+
+[sub_resource type="Sky" id="Sky_b7qnr"]
+sky_material = SubResource("ProceduralSkyMaterial_brind")
+
+[sub_resource type="Environment" id="Environment_6dd82"]
+background_mode = 2
+background_color = Color(0.758192, 0.758192, 0.758192, 1)
+sky = SubResource("Sky_b7qnr")
+ambient_light_source = 3
+ambient_light_color = Color(0.691341, 0.851563, 0.838842, 1)
+ambient_light_sky_contribution = 0.04
+tonemap_mode = 2
+ssao_enabled = true
+ssao_power = 1.30582
+glow_enabled = true
+glow_levels/1 = 16.0
+glow_levels/2 = 16.0
+glow_normalized = true
+glow_intensity = 1.0
+glow_blend_mode = 1
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.649065, 0.767865, 1, 1)
+fog_sun_scatter = 0.18
+fog_density = 0.1322
+fog_aerial_perspective = 0.667
+fog_sky_affect = 0.422
+volumetric_fog_density = 0.0
+volumetric_fog_sky_affect = 0.0
+volumetric_fog_temporal_reprojection_enabled = false
+
+[sub_resource type="World3D" id="World3D_cri5n"]
+environment = SubResource("Environment_6dd82")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ie6ih"]
 texture = ExtResource("54_yo32u")
@@ -677,7 +712,6 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Options" type="TextureRect" parent="Wallpaper/Character_Screen"]
-visible = false
 clip_contents = true
 layout_mode = 2
 offset_left = 244.0
@@ -694,9 +728,9 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 84.0
 offset_bottom = 101.12
-texture_normal = SubResource("GradientTexture2D_748mb")
-texture_pressed = ExtResource("19_vuf1e")
-texture_hover = ExtResource("20_7wift")
+texture_normal = ExtResource("22_88n8k")
+texture_pressed = ExtResource("22_88n8k")
+texture_hover = ExtResource("22_88n8k")
 
 [node name="Label" type="Label" parent="Wallpaper/Character_Screen/Options/Template_Button"]
 layout_mode = 1
@@ -1529,6 +1563,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_x1ojy")
 
 [node name="Code_Loader" type="TextureRect" parent="Wallpaper/Character_Screen"]
+visible = false
 clip_contents = true
 layout_mode = 2
 offset_left = 244.0
@@ -1905,6 +1940,7 @@ offset_bottom = 216.0
 
 [node name="SubViewport" type="SubViewport" parent="Wallpaper/Character_Screen/SubViewportContainer"]
 own_world_3d = true
+world_3d = SubResource("World3D_cri5n")
 transparent_bg = true
 handle_input_locally = false
 msaa_3d = 2
