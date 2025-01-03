@@ -23,7 +23,7 @@ signal ScriptLoaded
 
 func _ready() -> void:
 	Assets = get_node(Assets_Path)
-	
+	print(Assets)
 	emit_signal("Loaded")
 	if !Load_Script_ID.is_empty():
 		for i in Load_Script_ID:

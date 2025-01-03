@@ -75,7 +75,7 @@ func setup():
 	## Add ray length
 	RayCast1.target_position = Vector3(0,-0.24,0)
 	RayCast2.target_position = Vector3(0,-0.24,0)
-	RayCast3.target_position = Vector3(0,-0.32,0)
+	RayCast3.target_position = Vector3(0,-0.4,0)
 	
 	RayCast1.position = Vector3(0,0.214,0)
 	RayCast2.position = Vector3(0,0.214,0)
@@ -193,7 +193,12 @@ func _physics_process(delta: float) -> void:
 		JumpTimer.stop()
 		Character.position = Character.position.slerp(RayCast3.get_collision_point(),.5)
 		gravity_control += (MoveMarker.global_transform.basis.y * 1) * 0.2
-		
+	elif !RayCast3.is_colliding():
+		JumpTimer.start()
+		jumping = true
+		RayCast1.target_position = Vector3(0,-0.07,0)
+		RayCast2.target_position = Vector3(0,-0.07,0)
+	
 	if Character.is_on_ceiling():
 		print("hai")
 		gravity_control += ((MoveMarker.global_transform.basis.y * 1) * (gravity/8)* 2.0)

@@ -50,7 +50,7 @@ func _process_modification() -> void:
 				var settings = x["DynBone_Data"]["DynBone_Settings"][y]
 				var damp_ratio = log(settings["dampening"]) / (-settings["osc_ps"] * settings["damp_time"])
 				for z in DynBones_Register[x][y].size():
-					var delta = Time.get_ticks_msec()/1000.0 - olddelta
+					var delta = olddelta
 					var current_bone = DynBones_Register[x][y][z]
 					
 					var BoneParent = Skeleton.get_bone_global_pose(Skeleton.get_bone_parent(current_bone))
@@ -78,4 +78,4 @@ func _process_modification() -> void:
 					Skeleton.set_bone_pose_rotation(current_bone,final_quaternion)
 					
 						
-	olddelta = Time.get_ticks_msec()/1000.0 
+	olddelta = get_process_delta_time()

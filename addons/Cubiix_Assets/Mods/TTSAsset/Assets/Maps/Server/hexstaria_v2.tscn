@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8l72w6pr35nv"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Load_Client_Map.gd" id="1_o7ut2"]
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/Load_Client_Map.gd" id="1_o7ut2"]
 
 [node name="Hexstaria_V2" type="Node3D"]
 script = ExtResource("1_o7ut2")

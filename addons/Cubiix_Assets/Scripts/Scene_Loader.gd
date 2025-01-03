@@ -18,13 +18,14 @@ func load_scene(SceneID:String,PassThrough:Dictionary={}, SkipFade:bool = false,
 		print(SceneData["Client_Path"])
 		load_scene.client_string = SceneData["Client_Path"]
 		
+		
+		get_tree().root.get_node("Main_Scene/Current_Scene").add_child(load_scene)
+		load_scene.setup()
+		await load_scene.FinishedLoad
 		if SpawnLocation != "" && SceneData["SpawnLocations"].has(SpawnLocation):
 			Core.Persistant_Core.SpawnAt(SceneData["SpawnLocations"][SpawnLocation][0], SceneData["SpawnLocations"][SpawnLocation][1])
 		else:
 			Core.Persistant_Core.SpawnAt(Vector3.ZERO, Vector3.ZERO)
-		get_tree().root.get_node("Main_Scene/Current_Scene").add_child(load_scene)
-		load_scene.setup()
-		await load_scene.FinishedLoad
 		Core.Persistant_Core.Transitioner_AnimationPlayer.play("FadeOut")
 		
 	else:

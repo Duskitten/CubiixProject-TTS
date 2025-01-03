@@ -248,6 +248,7 @@ offset_bottom = 44.0
 grow_vertical = 1
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("1_rvalq")]
+visible = false
 
 [node name="Hexii_Tablet_UI" parent="CanvasLayer" instance=ExtResource("5_d7p8w")]
 
@@ -425,7 +426,6 @@ position = Vector2(-40, -40)
 rotation = 3.14159
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transitioner/Control"]
 libraries = {

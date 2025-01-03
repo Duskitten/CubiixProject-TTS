@@ -4,6 +4,7 @@ extends Node
 @onready var Hub:Node3D = Character.get_node("Hub")
 
 var Lookat = Cubiix_LookAtBone.new()
+var snap_ray:RayCast3D = RayCast3D.new()
 
 var NPC_Name = ""
 var NPC_Dialogue_Point = ""
@@ -30,6 +31,15 @@ func _ready() -> void:
 	area.set_collision_mask_value(2,true)
 	area.set_collision_layer_value(1,false)
 	area.set_collision_layer_value(2,true)
+	
+	snap_ray.target_position = Vector3(0,-10000,0)
+	Character.add_child(snap_ray)
+	
+func _physics_process(delta: float) -> void:
+	if snap_ray != null:
+		if snap_ray.is_colliding():
+			Character.position = snap_ray.get_collision_point()
+			snap_ray.queue_free()
 
 func set_target(collider) -> void:
 	if collider.is_in_group("Player"):

@@ -8,7 +8,8 @@ extends SkeletonModifier3D
 var targetBone = 0
 var Alt_Pose:Basis = Basis()
 var holderRotation = Transform3D()
-
+var olddelta = 0.0
+var delta = 0.0
 func setup() -> void:
 	#var debugcube = CSGBox3D.new()
 	#debugcube.size = Vector3(.4,.4,.4)
@@ -17,6 +18,7 @@ func setup() -> void:
 	self.global_position = (get_skeleton().global_transform * get_skeleton().get_bone_global_pose(targetBone)).origin
 
 func _process_modification() -> void:
+	var delta = olddelta
 	self.global_position = (get_skeleton().global_transform * get_skeleton().get_bone_global_pose(targetBone)).origin
 	if Target != null :
 		self.look_at(Target.global_position+(Target.global_transform.basis.y * .5),Vector3(0,1,0),true)
@@ -27,8 +29,10 @@ func _process_modification() -> void:
 		else:
 			self.look_at(self.global_position + get_parent().global_transform.basis.z,Vector3(0,1,0),true)
 	
-	holderRotation = holderRotation.interpolate_with(self.transform,0.1)
+	holderRotation = holderRotation.interpolate_with(self.transform,5*delta)
 	var new_transform = Transform3D(holderRotation.basis,self.position)
 	
 	if targetBone != -1:
 		get_skeleton().set_bone_global_pose(targetBone,new_transform)
+
+	olddelta = get_process_delta_time()
