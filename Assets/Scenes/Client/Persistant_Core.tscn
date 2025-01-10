@@ -502,6 +502,8 @@ expand_mode = 5
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Player" parent="Node3D" groups=["Player"] instance=ExtResource("16_t4xvr")]
+collision_layer = 2
+collision_mask = 2
 Load_Script_ID = Array[String](["TTSAssets/Character_Controller", "TTSAssets/Camera_Controller"])
 Load_Script_Passthrough = Array[Dictionary]([{}, {}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
@@ -516,6 +518,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 0, 0)
 [node name="Rot_X" type="Node3D" parent="Node3D/Core_Follow/Rot_Y"]
 
 [node name="Rot_Z" type="SpringArm3D" parent="Node3D/Core_Follow/Rot_Y/Rot_X"]
+collision_mask = 128
 shape = SubResource("SphereShape3D_sqaxx")
 spring_length = -4.0
 

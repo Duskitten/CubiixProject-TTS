@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode blend_mix, depth_draw_always, cull_disabled, diffuse_lambert;
+render_mode blend_mix, depth_draw_always, cull_disabled, diffuse_lambert, depth_prepass_alpha;
 
 uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
 

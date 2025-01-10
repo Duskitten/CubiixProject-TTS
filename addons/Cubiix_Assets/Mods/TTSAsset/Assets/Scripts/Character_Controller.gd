@@ -55,6 +55,7 @@ var Fall_Delta = 0
 var Fall_Delta_Prev = 0
 var Fall_Tick = 0
 
+var CameraController = null
 var Current_Animation = ""
 var IsEmoting = false
 
@@ -102,13 +103,15 @@ func setup():
 	MoveMarker.name = "MoveMarker"
 	Character.add_child(MoveMarker)
 	
-	await Character.get_node("Camera_Controller").CameraSetup
+	CameraController = Character.get_node("Camera_Controller")
 	
-	Camera = Character.get_node("Camera_Controller").Camera
-	Camera_Y = Character.get_node("Camera_Controller").Camera_Y
-	Camera_X = Character.get_node("Camera_Controller").Camera_X
-	Camera_Z = Character.get_node("Camera_Controller").Camera_Z
-	Camera_Core = Character.get_node("Camera_Controller").Camera_Core
+	await CameraController.CameraSetup
+	
+	Camera = CameraController.Camera
+	Camera_Y = CameraController.Camera_Y
+	Camera_X = CameraController.Camera_X
+	Camera_Z = CameraController.Camera_Z
+	Camera_Core = CameraController.Camera_Core
 	
 	## Re-activate processes now
 	set_process(true)
@@ -141,6 +144,14 @@ func _process(delta: float) -> void:
 		Current_Animation = ["Falling",.2]
 	
 	Hub.update_animation(Current_Animation)
+	if CameraController != null:
+		if CameraController.CameraZoom == 0:
+			Hub.hide()
+			
+			Hub.rotation.y = Camera_Y.rotation.y
+			
+		else:
+			Hub.show()
 	
 	
 func _physics_process(delta: float) -> void:

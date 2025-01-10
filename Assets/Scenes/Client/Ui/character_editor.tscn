@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c476y3oq2ygq6"]
+[gd_scene load_steps=9 format=3 uid="uid://c476y3oq2ygq6"]
 
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="1_suc35"]
 
@@ -11,20 +11,6 @@ roughness = 0.0
 anisotropy_enabled = true
 texture_filter = 0
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hegkc"]
-
-[sub_resource type="Sky" id="Sky_ibw1c"]
-sky_material = SubResource("ProceduralSkyMaterial_hegkc")
-
-[sub_resource type="Environment" id="Environment_eawu4"]
-sky = SubResource("Sky_ibw1c")
-ambient_light_source = 2
-ambient_light_color = Color(0.691406, 0.691406, 0.691406, 1)
-ssao_sharpness = 0.0
-glow_enabled = true
-glow_normalized = true
-volumetric_fog_density = 0.1227
-
 [sub_resource type="Gradient" id="Gradient_035cj"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.125561, 0.29148)
@@ -36,21 +22,23 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lutr1"]
-sky_top_color = Color(0.181868, 0.340841, 0.652344, 1)
-sky_horizon_color = Color(0.232597, 0.726563, 0.715721, 1)
-ground_bottom_color = Color(0.371605, 0.481471, 0.617188, 1)
-ground_horizon_color = Color(0.372549, 0.482353, 0.615686, 1)
-sun_angle_max = 30.88
-sun_curve = 0.178379
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ae3p5"]
+sky_top_color = Color(0.415283, 0.949219, 0.949219, 1)
+sky_horizon_color = Color(0, 0.914073, 1, 1)
+sky_curve = 0.332871
+sky_cover_modulate = Color(0.485605, 1, 0, 1)
+ground_bottom_color = Color(0, 0.603922, 1, 1)
+ground_horizon_color = Color(0, 0.602553, 1, 1)
+ground_curve = 2.6974
+ground_energy_multiplier = 1.3
 
-[sub_resource type="Sky" id="Sky_b7qnr"]
-sky_material = SubResource("ProceduralSkyMaterial_lutr1")
+[sub_resource type="Sky" id="Sky_72x4i"]
+sky_material = SubResource("ProceduralSkyMaterial_ae3p5")
 
-[sub_resource type="Environment" id="Environment_bg2pb"]
+[sub_resource type="Environment" id="Environment_uxsx7"]
 background_mode = 2
 background_color = Color(0.758192, 0.758192, 0.758192, 1)
-sky = SubResource("Sky_b7qnr")
+sky = SubResource("Sky_72x4i")
 ambient_light_source = 3
 ambient_light_color = Color(0.691341, 0.851563, 0.838842, 1)
 ambient_light_sky_contribution = 0.04
@@ -74,28 +62,6 @@ volumetric_fog_density = 0.0
 volumetric_fog_sky_affect = 0.0
 volumetric_fog_temporal_reprojection_enabled = false
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_vypgd"]
-auto_exposure_scale = 0.5
-auto_exposure_speed = 1.0
-dof_blur_far_distance = 54.6
-dof_blur_far_transition = 96.04
-dof_blur_amount = 0.03
-
-[sub_resource type="VoxelGIData" id="VoxelGIData_ynsau"]
-
-[sub_resource type="VoxelGIData" id="VoxelGIData_ql404"]
-
-[sub_resource type="FogMaterial" id="FogMaterial_48hpq"]
-density = 0.05
-albedo = Color(0, 0.88229, 1, 1)
-emission = Color(0.149061, 0.240373, 0.257813, 1)
-edge_fade = 1e-05
-
-[sub_resource type="FogMaterial" id="FogMaterial_jwsbs"]
-density = 0.9333
-albedo = Color(0, 0, 0, 1)
-edge_fade = 1e-05
-
 [node name="Character_Editor" type="Node3D"]
 
 [node name="Cubiix_Base" parent="." instance=ExtResource("1_suc35")]
@@ -103,6 +69,9 @@ Load_Script_ID = Array[String](["TTSAssets/Character_Preview"])
 Load_Script_Passthrough = Array[Dictionary]([{}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
 Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
+
+[node name="Decal" parent="Cubiix_Base" index="1"]
+layers = 1048574
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 524295
@@ -118,7 +87,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76429, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Y/X/Z"]
 transform = Transform3D(1, 0, 0, 0, 0.997452, 0.0713408, 0, -0.0713408, 0.997452, 0, 0, 2.684)
-environment = SubResource("Environment_eawu4")
 current = true
 fov = 30.2
 far = 10.0
@@ -133,29 +101,15 @@ upper_fade = 1e-05
 lower_fade = 1.03526e-05
 cull_mask = 524288
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 4.17233e-07, 5.06639e-07, 1.84132e-08, 0.83048, 0.557048, -4.47035e-07, -0.557048, 0.830481, 0.00469455, 0, 0.0278296)
-light_bake_mode = 1
-shadow_bias = 2.0
-shadow_blur = 5.0
-directional_shadow_mode = 0
-directional_shadow_split_1 = 0.03
-directional_shadow_split_2 = 0.1
-directional_shadow_split_3 = 0.3
-directional_shadow_fade_start = 0.622
-directional_shadow_max_distance = 25.0
-directional_shadow_pancake_size = 60.0
-sky_mode = 1
-
 [node name="Environment_Template" type="Node3D" parent="."]
 process_mode = 4
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment_Template"]
-environment = SubResource("Environment_bg2pb")
-camera_attributes = SubResource("CameraAttributesPractical_vypgd")
+environment = SubResource("Environment_uxsx7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template"]
 transform = Transform3D(0.5, 0.482418, -0.719217, -2.62057e-09, 0.83048, 0.557049, 0.866025, -0.278524, 0.41524, 0.00469455, 0, 0.0278296)
+light_energy = 1.2
 light_bake_mode = 1
 shadow_bias = 2.0
 shadow_blur = 5.0
@@ -176,40 +130,5 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_bake_mode = 1
 sky_mode = 2
-
-[node name="VoxelGI_Underground" type="VoxelGI" parent="Environment_Template"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.661, -49.7403, -75.2356)
-visible = false
-subdiv = 2
-size = Vector3(59.0078, 55.9788, 65.2119)
-data = SubResource("VoxelGIData_ynsau")
-
-[node name="VoxelGI" type="VoxelGI" parent="Environment_Template"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1709, 4.64683, -8.74791)
-visible = false
-subdiv = 0
-size = Vector3(4100, 190.745, 4100)
-data = SubResource("VoxelGIData_ql404")
-
-[node name="FogVolume" type="FogVolume" parent="Environment_Template"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.45, -47.3156, -74.8464)
-visible = false
-size = Vector3(47.7, 36.0424, 48.3131)
-material = SubResource("FogMaterial_48hpq")
-
-[node name="FogVolume2" type="FogVolume" parent="Environment_Template"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.449, -13.3664, -74.6569)
-visible = false
-size = Vector3(8.43985, 31.5835, 8.70508)
-material = SubResource("FogMaterial_jwsbs")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Environment_Template"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 103.769, -24.8125, -73.9426)
-light_color = Color(0.620128, 0.744724, 0.999541, 1)
-light_energy = 50.0
-shadow_bias = 0.075
-spot_range = 53.6075
-spot_angle = 5.625
-spot_angle_attenuation = 0.482967
 
 [editable path="Cubiix_Base"]

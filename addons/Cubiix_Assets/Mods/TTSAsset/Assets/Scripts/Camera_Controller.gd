@@ -9,8 +9,8 @@ var Camera_Y:Node3D
 var Camera_X:Node3D
 var Camera_Z:SpringArm3D
 var Camera:Camera3D
-var Sensitivity = 5
-
+var Sensitivity:float = 5
+var CameraZoom:float = -4.0
 signal CameraSetup
 
 func setup() -> void:
@@ -32,11 +32,23 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Camera_Core != null:
-		Camera_Core.transform = Camera_Core.transform.interpolate_with(get_parent().transform,0.15)
-		Camera_Y.position.y = 0.5
+		if CameraZoom == 0:
+			Camera_Core.transform = get_parent().transform
+		else:
+			Camera_Core.transform = Camera_Core.transform.interpolate_with(get_parent().transform,0.15)
+		Camera_Y.position.y = 0.7
+		
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.is_action_pressed("mouse_right"):
 			Camera_Y.rotation_degrees.y -= event.relative.x/Sensitivity
 			Camera_X.rotation_degrees.x += event.relative.y/Sensitivity
+
+	if Input.is_action_just_released("scroll_up"):
+		CameraZoom += 0.5
+	elif  Input.is_action_just_released("scroll_down"):
+		CameraZoom -= 0.5
+			
+	CameraZoom = clampf(CameraZoom, -6,0)
+	Camera_Z.spring_length = CameraZoom
