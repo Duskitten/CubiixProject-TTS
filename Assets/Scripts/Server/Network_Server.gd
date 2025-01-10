@@ -115,7 +115,7 @@ func network_process():
 								send_packet = true
 						
 						if send_packet:
-							print(Peers[i].Current_Saved_Packet)
+							#print(Peers[i].Current_Saved_Packet)
 							send_data(n,Networking_Valid_Types.Tick_Packet,Peers[i].Current_Saved_Packet, Peers[i])
 						else:
 							send_data(n,Networking_Valid_Types.Tick_Packet,{"Character_Update":{}}, Peers[i])
@@ -276,8 +276,8 @@ func validate_player(userobj:ServerPlayer,username:String, secret:String, url:St
 	var API_Validate = HTTPRequest.new()
 	API_Validate.request_completed.connect(api_validate_completed.bind(userobj,API_Validate))
 	call_deferred("add_child",API_Validate)
-	print(username)
-	print(secret)
+	#print(username)
+	#print(secret)
 	await API_Validate.ready
 	API_Validate.request("https://api."+url+"/user/validateUser",["userID: \""+username+"\"","userSecretCode: \""+secret+"\"",
 	"Content-Type: application/json"]
@@ -288,8 +288,8 @@ func api_validate_completed(result, response_code, headers, body, userobj:Server
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
-	print(response)
-	print("api Completed!")
+	#print(response)
+	#print("api Completed!")
 	if response != null:
 		if response["status"] == 0:
 			userobj.Current_Saved_Packet["Unlock_Screen"] = true

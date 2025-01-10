@@ -8,10 +8,10 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("mouse_left"):
 			MouseInside = true
 		
-		if Input.is_action_just_released("ui_scroll_up"):
+		if Input.is_action_just_released("scroll_up"):
 			$Character_Editor/Y/X/Z/Camera3D.fov -= 1.0
 			$Character_Editor/Y/X/Z/Camera3D.fov = clampf($Character_Editor/Y/X/Z/Camera3D.fov,30.2,48.0 )
-		if Input.is_action_just_released("ui_scroll_down"):
+		if Input.is_action_just_released("scroll_down"):
 			$Character_Editor/Y/X/Z/Camera3D.fov += 1.0
 			$Character_Editor/Y/X/Z/Camera3D.fov = clampf($Character_Editor/Y/X/Z/Camera3D.fov,30.2,48.0 )
 	

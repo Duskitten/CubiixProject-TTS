@@ -141,12 +141,12 @@ func send_data(id:Networking_Valid_Types,data:Dictionary):
 					"Position" : Core.Persistant_Core.Player.global_position,
 					"Rotation" : Core.Persistant_Core.Player.global_rotation,
 					"Model_Rotation" : Core.Persistant_Core.Player.get_node("Hub").global_rotation,
-					"Current_Animation" : str(Core.Persistant_Core.Player.get_node("Hub/Cubiix_Model/AnimationTree").get("parameters/Player_State/playback").get_current_node()),
+					"Current_Animation" : str(Core.Persistant_Core.Player.get_node("Hub").old_animation[0]),
 				}
 			if Packet["Content"].has("Update_Model"):
 				Packet["Content"]["Update_Model"] = {
-					"Character": Core.Character_Gen.export_char(Core.Persistant_Core.Hexii_Ui_Tablet_Character),
-					"Accessories" : Core.Character_Gen.get_accessory_data(Core.Persistant_Core.Hexii_Ui_Tablet_Character)
+					"Character": Core.AssetData.Tools.export_character(Core.Persistant_Core.Hexii_Ui_Tablet_Character.Hub),
+					"Accessories" : JSON.stringify({"Head_Slot":"","Face_Slot":"","Chest_Slot":"","Back_Slot":"","L_Hip_Slot":"","R_Hip_Slot":"","L_Hand_Slot":"","R_Hand_Slot":""})
 					}
 	TCP.put_var(Packet)
 
@@ -184,12 +184,17 @@ func parse_data(data:Dictionary):
 			
 			if data["Content"].has("Spawn_Players"):
 				for i in data["Content"]["Spawn_Players"]:
-					var newplayer = load("res://Assets/Scenes/Client/cubiix_base.tscn").instantiate()
+					var newplayer = load("res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn").instantiate()
 					#newplayer.hide()
 					newplayer.name = i
-					newplayer.Is_Networked = true
 					char_data[i] = templatechar.duplicate(true)
 					char_data[i]["Node"] = newplayer
+					if data["Content"].has("Update_Players"):
+						newplayer.Character_String = data["Content"]["Update_Players"][i]["Character"]
+					newplayer.Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
+					newplayer.Animation_Path = "TTSAssets/TTS_Player_Anims"
+					newplayer.Load_Script_ID.append("TTSAssets/Network_Character_Controller")
+					newplayer.Load_Script_Passthrough.append({})
 					Core.Persistant_Core.get_node("Node3D/Network_Players").call_deferred("add_child", newplayer)
 					
 			if data["Content"].has("Despawn_Players"):
@@ -200,25 +205,29 @@ func parse_data(data:Dictionary):
 
 			if data["Content"].has("Update_Players"):
 				for i in data["Content"]["Update_Players"]:
-					print(char_data.has(i))
 					if char_data.has(i):
-						char_data[i]["Node"].call_deferred("queue_char_update",data["Content"]["Update_Players"][i])
-						
+						var controller = char_data[i]["Node"].Hub
+						if controller != null:
+							char_data[i]["Node"].Assets.Tools.call_deferred("generate_character_from_string",data["Content"]["Update_Players"][i]["Character"],controller)
+							#controller.call_deferred("update_character",data["Content"]["Update_Players"][i])
+			
 			if data["Content"].has("Character_Update"):
 				for i in data["Content"]["Character_Update"]:
 					if char_data.has(i):
-						char_data[i]["Node"].call_deferred("set_network_val", data["Content"]["Character_Update"][i])
+						var controller = char_data[i]["Node"].get_node_or_null("Network_Character_Controller")
+						if controller != null:
+							controller.call_deferred("update_character", data["Content"]["Character_Update"][i])
 				call_deferred("send_data",Networking_Valid_Types.Client_Packet,{"PlayerData":{}})
 				
-			if data["Content"].has("Accessory_Response"):
-				match data["Content"]["Accessory_Response"]["response"]:
-					"update_list":
-						print(data["Content"]["Accessory_Response"]["data"])
-						Core.Persistant_Core.Currently_Unlocked_Assets = JSON.parse_string(data["Content"]["Accessory_Response"]["data"])
-						Core.Persistant_Core.call_deferred("emit_signal","Accessory_Response")
+			#if data["Content"].has("Accessory_Response"):
+				#match data["Content"]["Accessory_Response"]["response"]:
+					#"update_list":
+						#print(data["Content"]["Accessory_Response"]["data"])
+						#Core.Persistant_Core.Currently_Unlocked_Assets = JSON.parse_string(data["Content"]["Accessory_Response"]["data"])
+						#Core.Persistant_Core.call_deferred("emit_signal","Accessory_Response")
 			
 			if data["Content"].has("Update_Self"):
-				Core.Persistant_Core.Player.call_deferred("queue_char_update",data["Content"]["Update_Self"])
+				Core.Persistant_Core.Player.Assets.Tools.call_deferred("generate_character_from_string",data["Content"]["Update_Self"]["Character"], Core.Persistant_Core.Player.Hub)
 			
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
