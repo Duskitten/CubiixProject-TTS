@@ -1,7 +1,7 @@
 # Cubiix Project: To The Stars!
 
 <p align="center">
-  <img src="Assets/Textures/UI/Titlescreen/Cubiix Project_Logo_2.png" width="400" alt="Cubiix Project Logo">
+  <img src="addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Logo.png" width="500" alt="Cubiix Project Logo">
 </p>
 
 ## "Cubiix Project: To The Stars!" is an open source Social MMO with RPG Elements
