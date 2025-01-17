@@ -1,7 +1,7 @@
-[gd_scene load_steps=119 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=123 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
-[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_wdvji"]
+[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="1_wdvji"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="2_f3wu7"]
 [ext_resource type="Texture2D" uid="uid://doljxqqrbnxu4" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Bar.png" id="2_ny2kl"]
 [ext_resource type="Texture2D" uid="uid://cqvic52gfyfox" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Icons/Settings_Normal.png" id="3_ux823"]
@@ -80,6 +80,10 @@
 [ext_resource type="Texture2D" uid="uid://f4n5rqt1sepx" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_bar.png" id="61_ga4pe"]
 [ext_resource type="Texture2D" uid="uid://cdfnrgo0w8so3" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_List.png" id="62_gb1sw"]
 [ext_resource type="Texture2D" uid="uid://bkn3510spy4im" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Connection_bar_hover.png" id="62_t5rdf"]
+[ext_resource type="Texture2D" uid="uid://d3cv87knyo6pr" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Remove_Server_Base.png" id="65_bvr7j"]
+[ext_resource type="Texture2D" uid="uid://dkba5cd3ivee8" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Remove_Server_Hover.png" id="66_j01x6"]
+[ext_resource type="Texture2D" uid="uid://w40nl7e56657" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Add_Server_Base.png" id="67_bagpd"]
+[ext_resource type="Texture2D" uid="uid://ceau7lncpo4no" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Add_Server_Hover.png" id="68_1pub0"]
 [ext_resource type="Texture2D" uid="uid://21ntbee3xvtg" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Offline_Normal.png" id="79_0m4it"]
 [ext_resource type="Texture2D" uid="uid://db82m562xi1p4" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Offline_Hover.png" id="80_py20x"]
 [ext_resource type="Texture2D" uid="uid://bw15s0r50tq1s" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Offline_Hover2.png" id="81_0hus2"]
@@ -421,6 +425,7 @@ offset_bottom = 278.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
 [node name="Wallpaper" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -54.0
 offset_top = -197.0
@@ -1946,7 +1951,7 @@ handle_input_locally = false
 msaa_3d = 2
 use_debanding = true
 size = Vector2i(132, 160)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Character_Editor" parent="Wallpaper/Character_Screen/SubViewportContainer/SubViewport" instance=ExtResource("4_ui7sq")]
 
@@ -2172,7 +2177,6 @@ texture = ExtResource("29_dbeuu")
 metadata/_edit_lock_ = true
 
 [node name="Wallpaper2" type="TextureRect" parent="."]
-visible = false
 texture_filter = 2
 layout_mode = 0
 offset_left = -55.0
@@ -2182,7 +2186,6 @@ offset_bottom = 231.0
 texture = ExtResource("48_sm57n")
 
 [node name="Devlog_Screen" type="Control" parent="Wallpaper2"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -2855,91 +2858,8 @@ offset_right = 130.0
 offset_bottom = 88.0
 texture = ExtResource("60_1piq4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper2/ServerList_Screen/Preview"]
-layout_mode = 0
-offset_left = 3.0
-offset_right = 123.0
-offset_bottom = 301.0
-theme_override_constants/separation = 2
-
-[node name="Label2" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("22_u408p")
-theme_override_font_sizes/font_size = 16
-text = " "
-
-[node name="Control2" type="HSeparator" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_o7lx1")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("2_f3wu7")
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-
-[node name="TextureButton3" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("27_t3w3u")
-texture_pressed = ExtResource("27_t3w3u")
-texture_hover = ExtResource("28_duf7k")
-
-[node name="Label" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer/TextureButton3"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -1.0
-offset_right = 75.0
-offset_bottom = 22.0
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("22_u408p")
-theme_override_font_sizes/font_size = 10
-text = "Connect"
-
-[node name="TextureButton" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("27_t3w3u")
-texture_pressed = ExtResource("27_t3w3u")
-texture_hover = ExtResource("28_duf7k")
-
-[node name="Label" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer/TextureButton"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -1.0
-offset_right = 75.0
-offset_bottom = 22.0
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("22_u408p")
-theme_override_font_sizes/font_size = 10
-text = "Add Server"
-
-[node name="TextureButton2" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("27_t3w3u")
-texture_pressed = ExtResource("27_t3w3u")
-texture_hover = ExtResource("28_duf7k")
-
-[node name="Label" type="Label" parent="Wallpaper2/ServerList_Screen/Preview/VBoxContainer/ScrollContainer/VBoxContainer/TextureButton2"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -1.0
-offset_right = 75.0
-offset_bottom = 22.0
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("22_u408p")
-theme_override_font_sizes/font_size = 10
-text = "Remove Server"
-
 [node name="Panel" type="ScrollContainer" parent="Wallpaper2/ServerList_Screen/Preview"]
 layout_mode = 0
-offset_left = 120.0
 offset_top = 3.0
 offset_right = 392.0
 offset_bottom = 302.0
@@ -2970,8 +2890,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_right = -57.0
+offset_left = 32.0
+offset_right = -116.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -2989,9 +2909,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 181.0
+offset_left = 267.0
 offset_top = 2.0
-offset_right = -24.0
+offset_right = -43.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -3003,7 +2923,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer/TextureButton"]
-position = Vector2(242, 13)
+position = Vector2(19, 13)
 texture = ExtResource("62_gb1sw")
 hframes = 8
 frame = 6
@@ -3018,6 +2938,23 @@ root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeAnimation_66yv2")
 anim_player = NodePath("..")
 
+[node name="TextureButton2" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer/TemplateServer/TextureButton"]
+layout_mode = 2
+offset_left = 346.0
+offset_top = 1.0
+offset_right = 370.0
+offset_bottom = 25.0
+texture_normal = ExtResource("65_bvr7j")
+texture_pressed = ExtResource("65_bvr7j")
+texture_hover = ExtResource("66_j01x6")
+
+[node name="Add_Server" type="TextureButton" parent="Wallpaper2/ServerList_Screen/Preview/Panel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("67_bagpd")
+texture_pressed = ExtResource("67_bagpd")
+texture_hover = ExtResource("68_1pub0")
+stretch_mode = 3
+
 [node name="Back" type="TextureButton" parent="Wallpaper2/ServerList_Screen"]
 layout_mode = 0
 offset_left = -67.0
@@ -3027,6 +2964,7 @@ offset_bottom = 376.0
 texture_normal = ExtResource("51_oo4pn")
 
 [node name="Login_Buttons" type="HBoxContainer" parent="Wallpaper2"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

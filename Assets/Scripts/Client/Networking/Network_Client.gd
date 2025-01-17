@@ -64,35 +64,37 @@ func network_ping(serverlist:Array) -> void:
 	Current_Network_Mode = Networking_Mode.Pinging
 	
 	for i in serverlist:
-		LastPingTime = -1
-		disable_connect = false
-		connect_to_server(i.get_meta("ip"),i.get_meta("port"))
-		await NextPing
-		NetworkThread.wait_to_finish()
-		await get_tree().create_timer(1).timeout
-		i.get_node("TextureButton/Sprite2D/AnimationPlayer/AnimationTree").active = false
-		print(LastPingTime)
-		var Target = "Dead"
-		if LastPingTime <= 50 && LastPingTime >= 0:
-			Target = "Good"
-		elif LastPingTime <= 200 && LastPingTime >= 51:
-			Target = "Mid"
-		elif  LastPingTime >= 201:
-			Target = "Bad"
+		if i.name != "Add_Server":
+			LastPingTime = -1
+			disable_connect = false
+			connect_to_server(i.get_meta("ip"),i.get_meta("port"))
+			await NextPing
+			NetworkThread.wait_to_finish()
+			await get_tree().create_timer(1).timeout
+			i.get_node("TextureButton/Sprite2D/AnimationPlayer/AnimationTree").active = false
+			print(LastPingTime)
+			var Target = "Dead"
+			if LastPingTime <= 50 && LastPingTime >= 0:
+				Target = "Good"
+			elif LastPingTime <= 200 && LastPingTime >= 51:
+				Target = "Mid"
+			elif  LastPingTime >= 201:
+				Target = "Bad"
 
-		i.get_node("TextureButton/Sprite2D/AnimationPlayer").play(Target)
-		if Target != "Dead":
-			i.get_node("TextureButton").self_modulate = Color(str(ServerData["ServerColor"]))
-			i.get_node("TextureButton/Label2").text = "[left]"+str(ServerData["ServerName"])+"\n[font_size=10]localhost:5599"
-			i.get_node("TextureButton/Label3").text = str(ServerData["CurrentPlayers"])+"/"+str(ServerData["MaxPlayers"])
-		else:
-			i.get_node("TextureButton").self_modulate = Color(1,0,0,1)
-			i.get_node("TextureButton/Label3").text = str("?")+"/"+str("?")
-			i.get_node("TextureButton/Label2").text = "[left]"+str("Server Offline...")+"\n[font_size=10]localhost:5599"
+			i.get_node("TextureButton/Sprite2D/AnimationPlayer").play(Target)
+			if Target != "Dead":
+				i.get_node("TextureButton").self_modulate = Color(str(ServerData["ServerColor"]))
+				i.get_node("TextureButton/Label2").text = "[left]"+str(ServerData["ServerName"])+"\n[font_size=10]localhost:5599"
+				i.get_node("TextureButton/Label3").text = str(ServerData["CurrentPlayers"])+"/"+str(ServerData["MaxPlayers"])
+			else:
+				i.get_node("TextureButton").self_modulate = Color(1,0,0,1)
+				i.get_node("TextureButton/Label3").text = str("?")+"/"+str("?")
+				i.get_node("TextureButton/Label2").text = "[left]"+str("Server Offline...")+"\n[font_size=10]localhost:5599"
 
 	for i in serverlist:
-		i.get_node("TextureButton").pressed.connect(button_connect_to_server.bind(i.get_meta("ip"),i.get_meta("port")))
-		i.get_node("TextureButton").disabled = false
+		if i.name != "Add_Server":
+			i.get_node("TextureButton").pressed.connect(button_connect_to_server.bind(i.get_meta("ip"),i.get_meta("port")))
+			i.get_node("TextureButton").disabled = false
 		
 	print("PingedServers!")
 

@@ -1,0 +1,1553 @@
+[gd_scene load_steps=62 format=3 uid="uid://c2701u34x8dm0"]
+
+[ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_en6yv"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Drag_Manager.gd" id="1_myaf6"]
+[ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Box_Container.gd" id="3_lp8p3"]
+[ext_resource type="Texture2D" uid="uid://bidaos2p31667" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Devlog_Base.png" id="3_vbtfg"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/title_transition_controller.gd" id="3_yb2d0"]
+[ext_resource type="Texture2D" uid="uid://bq7k18mcha5g3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Shadow.png" id="5_b250a"]
+[ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://Assets/Fonts/Jura/Jura-Bold.ttf" id="5_d5qti"]
+[ext_resource type="Texture2D" uid="uid://bgrmflwldfthk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Login_Base.png" id="5_l1n8e"]
+[ext_resource type="Texture2D" uid="uid://bkd4j6u8mfe3u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Offline_Base.png" id="7_ykukk"]
+[ext_resource type="Texture2D" uid="uid://7twqwub52lae" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Settings_Base.png" id="9_piyk6"]
+[ext_resource type="Texture2D" uid="uid://dnlwtpw0hdecu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Social_Base.png" id="11_2c4dj"]
+[ext_resource type="Texture2D" uid="uid://cnt3cohwghbt6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Logo.png" id="12_c8rpv"]
+[ext_resource type="Texture2D" uid="uid://bayuohxi04fbg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Devlog_Backing.png" id="13_8ewig"]
+[ext_resource type="Texture2D" uid="uid://chlvv6qbfkylu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Update_Base.png" id="13_j7rci"]
+[ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="14_q4chf"]
+[ext_resource type="Texture2D" uid="uid://vs6x01cc1fxt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Base.png" id="15_evwrj"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/title_devlog.gd" id="15_rcleq"]
+[ext_resource type="Texture2D" uid="uid://5tyort2rt0g4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Hover.png" id="16_f4obj"]
+[ext_resource type="FontFile" uid="uid://8qduw4o3whqt" path="res://Assets/Fonts/Jura/Jura-Regular.ttf" id="17_iygg2"]
+[ext_resource type="Texture2D" uid="uid://bh6cd3a6acb1g" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Settings_Backing.png" id="18_yi1hf"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/title_audio_adjust.gd" id="19_txgic"]
+[ext_resource type="Texture2D" uid="uid://bjx1yafhtgyeq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Backing.png" id="22_4ivrb"]
+[ext_resource type="Texture2D" uid="uid://d0a3m7qnlq1ra" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Login_Window.png" id="23_neoin"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/login_controller.gd" id="24_jy7r5"]
+[ext_resource type="AnimationLibrary" uid="uid://dadtuq6br5p3c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Animations/Loaderbar.tres" id="26_b76qr"]
+[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dfx2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_per7x"]
+
+[sub_resource type="Animation" id="Animation_xnag8"]
+resource_name = "DD"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0872665, 0.0872665]
+}
+
+[sub_resource type="Animation" id="Animation_1vrun"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0u440"]
+_data = {
+"DD": SubResource("Animation_xnag8"),
+"RESET": SubResource("Animation_1vrun")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_smh1b"]
+animation = &"DD"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ed7ft"]
+content_margin_left = 8.0
+bg_color = Color(0.18878, 0.278922, 0.6, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_h1uor"]
+color = Color(1, 1, 1, 0.248)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kah1a"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.415811, 0.186835, 0.6, 0.66)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nctn5"]
+color = Color(1, 1, 1, 1)
+grow_begin = -7.0
+grow_end = -7.0
+thickness = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r52jw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sueu"]
+bg_color = Color(0, 0.561, 0.6, 0.887)
+border_width_left = 26
+border_width_right = 26
+border_color = Color(0, 1, 0.20994, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyaw1"]
+bg_color = Color(0.322, 0, 0.6, 0.357)
+border_width_left = 26
+border_width_right = 26
+border_color = Color(1, 0.647406, 0.63248, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmnbe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5k6m"]
+bg_color = Color(0.341176, 0.623529, 0.890196, 1)
+border_width_right = 100
+border_color = Color(0.756037, 0.8, 0.405259, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adh8d"]
+content_margin_left = 10.0
+bg_color = Color(0.178, 0.589, 0.839, 0.676)
+border_width_right = 160
+border_color = Color(0.8, 0.798887, 0.539517, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re2np"]
+bg_color = Color(0.6, 0, 0.492, 0.79)
+border_width_left = 26
+border_width_right = 26
+border_color = Color(0, 0.139919, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwx1o"]
+bg_color = Color(0.6, 0, 0.492456, 0.357)
+border_width_left = 26
+border_width_right = 26
+border_color = Color(0.271592, 0.532995, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm522"]
+bg_color = Color(0.114622, 0, 0.6, 0.357)
+border_width_left = 26
+border_width_right = 26
+border_color = Color(0, 1, 0.938656, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sx4lh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjfbu"]
+bg_color = Color(0.469674, 0.518124, 0.6, 0.784)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.693515, 0.681982, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svu52"]
+bg_color = Color(0.23171, 0.307952, 0.6, 0.784)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.342588, 0.512217, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h613s"]
+bg_color = Color(0.929688, 0.546875, 0, 0.921569)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.338474, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1j41d"]
+bg_color = Color(0.6, 0.352971, 0, 0.784)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.544481, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmswh"]
+bg_color = Color(0, 0.75, 0.316474, 0.921569)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.855326, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4yu8"]
+bg_color = Color(0.117821, 0.6, 0.0800466, 0.784)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0.0425, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
+bg_color = Color(0, -0.484112, 0.594764, 1)
+border_width_top = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
+bg_color = Color(0, 0.248675, 0.599411, 1)
+border_width_top = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
+bg_color = Color(0, 0.625863, 0.601803, 1)
+border_width_top = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 7.10262
+expand_margin_bottom = 7.10262
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
+bg_color = Color(0, 0.98819, 0.6041, 1)
+border_width_top = 8
+border_width_bottom = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 19.5784
+expand_margin_bottom = 19.5784
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
+animation = &"new_animation"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm3dx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.439216, 0.168627, 0.6, 0.447059)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
+texture = ExtResource("87_b3x5w")
+
+[node name="Hexii_Tablet_UI" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = -360.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="DragArea" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 62.0
+offset_right = 767.0
+offset_bottom = 550.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
+script = ExtResource("1_myaf6")
+
+[node name="Backplate" type="Panel" parent="DragArea"]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 488.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
+
+[node name="In-Game_Zone" type="TextureRect" parent="DragArea"]
+visible = false
+layout_mode = 0
+offset_left = -84.0
+offset_top = -231.0
+offset_right = 370.0
+offset_bottom = 186.0
+texture = ExtResource("1_en6yv")
+
+[node name="Title_Zone" type="TextureRect" parent="DragArea"]
+texture_filter = 4
+clip_contents = true
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 468.0
+offset_bottom = 443.0
+texture = ExtResource("2_82imt")
+
+[node name="Transition_Controller" type="Control" parent="DragArea/Title_Zone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yb2d0")
+
+[node name="Title" type="Control" parent="DragArea/Title_Zone/Transition_Controller"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+alignment = 1
+script = ExtResource("3_lp8p3")
+
+[node name="Settings" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 56.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 61.5)
+
+[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 28.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 74)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 3.23999
+offset_right = 56.0
+offset_bottom = 58.24
+pivot_offset = Vector2(28, 27)
+texture = ExtResource("5_b250a")
+
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
+position = Vector2(28, 27)
+texture = ExtResource("9_piyk6")
+
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
+layout_mode = 2
+offset_top = 59.0
+offset_right = 56.0
+offset_bottom = 74.0
+theme_override_colors/font_shadow_color = Color(0, 0.499078, 0.617188, 0.692)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2dfx2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_per7x")
+bbcode_enabled = true
+text = "[center]Settings"
+fit_content = true
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer"]
+custom_minimum_size = Vector2(56, 55)
+layout_mode = 2
+offset_left = -4.74
+offset_top = -2.64
+offset_right = 60.26
+offset_bottom = 57.36
+
+[node name="Social" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 56.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 61.5)
+
+[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 28.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 74)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 3.23999
+offset_right = 56.0
+offset_bottom = 58.24
+pivot_offset = Vector2(28, 27)
+texture = ExtResource("5_b250a")
+
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
+position = Vector2(28, 27)
+texture = ExtResource("11_2c4dj")
+
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
+layout_mode = 2
+offset_top = 59.0
+offset_right = 56.0
+offset_bottom = 74.0
+theme_override_colors/font_shadow_color = Color(0, 0.499078, 0.617188, 0.692)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2dfx2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_per7x")
+bbcode_enabled = true
+text = "[center]Social"
+fit_content = true
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer"]
+custom_minimum_size = Vector2(56, 55)
+layout_mode = 2
+offset_left = -4.74
+offset_top = -2.64
+offset_right = 60.26
+offset_bottom = 57.36
+
+[node name="Devlog" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 56.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 61.5)
+
+[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 28.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 74)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 3.23999
+offset_right = 56.0
+offset_bottom = 58.24
+pivot_offset = Vector2(28, 27)
+texture = ExtResource("5_b250a")
+
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
+position = Vector2(28, 27)
+texture = ExtResource("3_vbtfg")
+
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
+layout_mode = 2
+offset_top = 59.0
+offset_right = 56.0
+offset_bottom = 74.0
+theme_override_colors/font_shadow_color = Color(0, 0.499078, 0.617188, 0.692)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2dfx2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_per7x")
+bbcode_enabled = true
+text = "[center]Devlog"
+fit_content = true
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer"]
+custom_minimum_size = Vector2(56, 55)
+layout_mode = 2
+offset_left = -4.74
+offset_top = -2.64
+offset_right = 60.26
+offset_bottom = 57.36
+
+[node name="Offline" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 56.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 61.5)
+
+[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 28.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 74)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 3.23999
+offset_right = 56.0
+offset_bottom = 58.24
+pivot_offset = Vector2(28, 27)
+texture = ExtResource("5_b250a")
+
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
+position = Vector2(28, 27)
+texture = ExtResource("7_ykukk")
+
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
+layout_mode = 2
+offset_top = 59.0
+offset_right = 56.0
+offset_bottom = 74.0
+theme_override_colors/font_shadow_color = Color(0, 0.499078, 0.617188, 0.692)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2dfx2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_per7x")
+bbcode_enabled = true
+text = "[center]Offline"
+fit_content = true
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer"]
+custom_minimum_size = Vector2(56, 55)
+layout_mode = 2
+offset_left = -4.74
+offset_top = -2.64
+offset_right = 60.26
+offset_bottom = 57.36
+
+[node name="Login" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 56.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 61.5)
+
+[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 28.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 74)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 3.23999
+offset_right = 56.0
+offset_bottom = 58.24
+pivot_offset = Vector2(28, 27)
+texture = ExtResource("5_b250a")
+
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
+position = Vector2(28, 27)
+texture = ExtResource("5_l1n8e")
+
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
+layout_mode = 2
+offset_top = 59.0
+offset_right = 56.0
+offset_bottom = 74.0
+theme_override_colors/font_shadow_color = Color(0, 0.499078, 0.617188, 0.692)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2dfx2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_per7x")
+bbcode_enabled = true
+text = "[center]Online"
+fit_content = true
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer"]
+custom_minimum_size = Vector2(56, 55)
+layout_mode = 2
+offset_left = -4.74
+offset_top = -2.64
+offset_right = 60.26
+offset_bottom = 57.36
+
+[node name="Update" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 56.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 61.5)
+
+[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 28.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 74)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 3.23999
+offset_right = 56.0
+offset_bottom = 58.24
+pivot_offset = Vector2(28, 27)
+texture = ExtResource("5_b250a")
+
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
+position = Vector2(28, 27)
+texture = ExtResource("13_j7rci")
+
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
+layout_mode = 2
+offset_top = 59.0
+offset_right = 56.0
+offset_bottom = 74.0
+theme_override_colors/font_shadow_color = Color(0, 0.499078, 0.617188, 0.692)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2dfx2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_per7x")
+bbcode_enabled = true
+text = "[center]Update"
+fit_content = true
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer"]
+custom_minimum_size = Vector2(56, 55)
+layout_mode = 2
+offset_left = -4.74
+offset_top = -2.64
+offset_right = 60.26
+offset_bottom = 57.36
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.18
+offset_top = 35.14
+offset_right = -9.82001
+offset_bottom = -166.8
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0872665
+pivot_offset = Vector2(201.78, 108.32)
+texture = ExtResource("12_c8rpv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Title_Zone/Transition_Controller/Title/TextureRect"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_0u440")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="DragArea/Title_Zone/Transition_Controller/Title/TextureRect/AnimationPlayer"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeAnimation_smh1b")
+anim_player = NodePath("..")
+
+[node name="Devlog" type="Control" parent="DragArea/Title_Zone/Transition_Controller"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_rcleq")
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Devlog"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 443.0
+offset_bottom = 377.0
+texture = ExtResource("13_8ewig")
+
+[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Template_Log" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control"]
+visible = false
+layout_mode = 0
+offset_left = 149.0
+offset_top = 14.0
+offset_right = 418.0
+offset_bottom = 353.0
+
+[node name="Title" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_ed7ft")
+text = "Title of Note"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+layout_mode = 2
+
+[node name="Author" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_ed7ft")
+text = "123"
+
+[node name="Date" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_ed7ft")
+text = "123"
+
+[node name="HSeparator5" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_q4chf")
+theme_override_fonts/normal_font = ExtResource("17_iygg2")
+theme_override_fonts/bold_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_styles/fill = SubResource("StyleBoxFlat_kah1a")
+theme_override_styles/background = SubResource("StyleBoxFlat_kah1a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kah1a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kah1a")
+bbcode_enabled = true
+text = "Hello! 
+
+Thank you for trying out my game, it has been something I have put in alot of time and effort into.
+
+I hope if you enjoy it, please do let me know on my [color=blue][url={\"OpenURL\": \"duskitten.bsky.social\"}]Bluesky[/url][/color]!
+"
+
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 143.0
+offset_bottom = 320.0
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+text = "Devlog"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_q4chf")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Template_Button" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
+
+[node name="Button" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/hover = SubResource("StyleBoxFlat_4sueu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fyaw1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fyaw1")
+text = "V.B.01.00"
+
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 321.0
+offset_right = 46.0
+offset_bottom = 356.0
+texture_normal = ExtResource("15_evwrj")
+texture_pressed = ExtResource("15_evwrj")
+texture_hover = ExtResource("16_f4obj")
+
+[node name="Settings" type="Control" parent="DragArea/Title_Zone/Transition_Controller"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Settings"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 443.0
+offset_bottom = 377.0
+texture = ExtResource("18_yi1hf")
+
+[node name="Screens" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Audio" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 14.0
+offset_right = 418.0
+offset_bottom = 353.0
+script = ExtResource("19_txgic")
+
+[node name="Label2" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_s5k6m")
+text = "Audio Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Master" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Master"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "Master"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Master"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Master/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator4" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="SFX" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "SFX"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Music" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Music"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "Music"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Music"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Music/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Notification" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "Notifications"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Ping" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "Chat Ping"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 143.0
+offset_bottom = 320.0
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_q4chf")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Template_Button" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
+
+[node name="Button" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_re2np")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dwx1o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
+text = "Visual"
+
+[node name="Template_Button2" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
+
+[node name="Button" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_re2np")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dwx1o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
+text = "Audio"
+
+[node name="Template_Button3" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
+
+[node name="Button" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button3"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_re2np")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bm522")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
+text = "Input"
+
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 321.0
+offset_right = 46.0
+offset_bottom = 356.0
+texture_normal = ExtResource("15_evwrj")
+texture_pressed = ExtResource("15_evwrj")
+texture_hover = ExtResource("16_f4obj")
+
+[node name="Login" type="Control" parent="DragArea/Title_Zone/Transition_Controller"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Login"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 443.0
+offset_bottom = 377.0
+texture = ExtResource("22_4ivrb")
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 321.0
+offset_right = 46.0
+offset_bottom = 356.0
+texture_normal = ExtResource("15_evwrj")
+texture_pressed = ExtResource("15_evwrj")
+texture_hover = ExtResource("16_f4obj")
+
+[node name="Login_Controller" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("24_jy7r5")
+
+[node name="Login" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller"]
+clip_contents = true
+layout_mode = 2
+anchors_preset = 0
+offset_left = 149.0
+offset_top = 14.0
+offset_right = 418.0
+offset_bottom = 353.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_sx4lh")
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("23_neoin")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 17.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Username" type="LineEdit" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_placeholder_color = Color(0.73339, 0.691301, 0.867188, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_yjfbu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_svu52")
+placeholder_text = "Email / Username"
+alignment = 1
+
+[node name="Password" type="LineEdit" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_placeholder_color = Color(0.73339, 0.691301, 0.867188, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_yjfbu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_svu52")
+placeholder_text = "Password"
+alignment = 1
+secret = true
+
+[node name="Auth" type="LineEdit" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_placeholder_color = Color(0.73339, 0.691301, 0.867188, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxFlat_yjfbu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_svu52")
+placeholder_text = "Auth Server - api.cubiixproject.xyz"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Register" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_h613s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1j41d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1j41d")
+text = "Register"
+
+[node name="Login" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_nmswh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j4yu8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j4yu8")
+text = "Login"
+
+[node name="Loader" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect"]
+visible = false
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="Panel" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qkhfu")
+
+[node name="TextureRect2" type="Panel" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8iocu")
+
+[node name="TextureRect3" type="Panel" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m4jrd")
+
+[node name="TextureRect4" type="Panel" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6tt0e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+libraries = {
+"": ExtResource("26_b76qr")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader/AnimationPlayer"]
+reset_on_save = false
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeAnimation_5abgu")
+anim_player = NodePath("..")
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_sx4lh")
+
+[node name="Login_Request" type="HTTPRequest" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller"]
+
+[node name="Register_Request" type="HTTPRequest" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller"]
+
+[node name="API_Validate" type="HTTPRequest" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 143.0
+offset_bottom = 320.0
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+text = "Online
+"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="Warning" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_qm3dx")
+text = "Login to play with other users!
+
+Game Servers have their own moderation and rules.
+
+Auth Servers are run by their own independent hosts, be careful who you share your information with on the internet. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
+
+[node name="Overlay" type="Panel" parent="DragArea"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -34.0
+offset_right = 510.0
+offset_bottom = 506.0
+pivot_offset = Vector2(270, 270)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_43210")
+metadata/_edit_lock_ = true
+
+[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Settings"]]
+[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Settings"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Settings", true, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Social"]]
+[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Social"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Social", false, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Devlog"]]
+[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Devlog"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Devlog", true, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Offline"]]
+[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Offline"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Offline", false, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Login"]]
+[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Login"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Login", true, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Update"]]
+[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Update"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Update", false, "Title"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Devlog"]]
+[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Master/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"Master"]]
+[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"SFX"]]
+[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Music/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"Music"]]
+[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"Notification"]]
+[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"Ping"]]
+[connection signal="scroll_ended" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
+[connection signal="scroll_started" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Settings"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Login"]]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
+[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]

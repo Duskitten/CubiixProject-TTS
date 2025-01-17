@@ -1,6 +1,6 @@
 [gd_scene load_steps=60 format=3 uid="uid://bft7cnsarmqrk"]
 
-[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://Assets/Textures/UI/In-Game/Tablet_Backing.png" id="1_qnmf3"]
+[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="1_qnmf3"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="2_befh2"]
 [ext_resource type="Texture2D" uid="uid://uh2xqm07w13p" path="res://Assets/Textures/UI/Titlescreen/Cubiix Project_Logo.png" id="3_rydyj"]
 [ext_resource type="PackedScene" uid="uid://c476y3oq2ygq6" path="res://Assets/Scenes/Client/Ui/character_editor.tscn" id="4_0uid6"]

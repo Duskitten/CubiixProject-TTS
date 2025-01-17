@@ -27,7 +27,7 @@ func setup() -> void:
 func _ready() -> void:
 	setup()
 	await Character.ScriptLoaded
-	print("We Made it, Too!")
+	#print("We Made it, Too!")
 	
 
 func _physics_process(delta: float) -> void:

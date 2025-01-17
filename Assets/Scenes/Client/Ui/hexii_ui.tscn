@@ -1,12 +1,12 @@
 [gd_scene load_steps=56 format=3 uid="uid://bmqym3jemx6x1"]
 
-[ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://Assets/Textures/UI/In-Game/Phone_Backing.png" id="1_bfryu"]
+[ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Phone_Backing.png" id="1_bfryu"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="2_s0t65"]
 [ext_resource type="AnimationLibrary" uid="uid://cmwufqqj34wma" path="res://Assets/Animations/UI/Tile_Slide.tres" id="3_irqxn"]
 [ext_resource type="PackedScene" uid="uid://d0phoqsu07oes" path="res://Assets/Scenes/Client/Ui/Phone_Default_Icon.tscn" id="3_tal58"]
 [ext_resource type="Script" path="res://Assets/Scripts/test_zone/phone_default_icon.gd" id="4_f4pqp"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="5_adsjc"]
-[ext_resource type="Texture2D" uid="uid://bq4ioqap8yndm" path="res://Assets/Textures/UI/In-Game/Phone_Backing_2.png" id="5_t6alf"]
+[ext_resource type="Texture2D" uid="uid://bq4ioqap8yndm" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Phone_Backing_2.png" id="5_t6alf"]
 [ext_resource type="Texture2D" uid="uid://uh2xqm07w13p" path="res://Assets/Textures/UI/Titlescreen/Cubiix Project_Logo.png" id="5_uth72"]
 [ext_resource type="Texture2D" uid="uid://bwk8vkuif6lyi" path="res://Assets/Textures/UI/Titlescreen/Status_UI_Networking_Low.png" id="6_u31x2"]
 

@@ -12,7 +12,7 @@
 				"Client_Path":"Assets/Maps/Client/hexstaria_v2.tscn",
 				"Name":"Hexstaria",
 				"Description":"The home of the Cubiix.",
-				"Preview_Image":"",
+				"Image_Preview":"Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png",
 				"Spawn_Locations":{}
 			}
 		},
@@ -51,6 +51,14 @@
 			},
 			"Skim":{
 				
+			}
+		},
+		"Devlog_Entries":{
+			"V_B.01.00":{
+				"Tag":"Log_Entry",
+				"Description":"",
+				"Author":"Duskitten",
+				"Date":"01/15/2025"
 			}
 		}
 	}

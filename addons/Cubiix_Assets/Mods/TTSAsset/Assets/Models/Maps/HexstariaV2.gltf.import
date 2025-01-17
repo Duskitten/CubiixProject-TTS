@@ -40,6 +40,10 @@ _subresources={
 "Material.002": {
 "use_external/enabled": true,
 "use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Grass.tres"
+},
+"Material.003": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Palm_Trees.tres"
 }
 }
 }

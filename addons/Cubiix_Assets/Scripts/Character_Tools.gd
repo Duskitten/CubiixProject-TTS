@@ -36,7 +36,7 @@ func generate_character_from_string(Data:String,Target:Node3D) -> void:
 					keyversion = 3
 					break
 		
-		print(keyversion)
+		#print(keyversion)
 		
 	match keyversion:
 		1:
@@ -99,7 +99,7 @@ func generate_character_from_string(Data:String,Target:Node3D) -> void:
 								for x in sortarray.size():
 									newArray[x] = sortedValues[x] / (percentage/100)
 								
-								print(newArray)
+								#print(newArray)
 									
 								data["WireCol"] = Color(newArray[0],newArray[1],newArray[2],1.0)
 								

@@ -10,7 +10,9 @@
 			"nodes":[
 				0,
 				1,
-				2
+				2,
+				3,
+				4
 			]
 		}
 	],
@@ -41,6 +43,19 @@
 				-1.107712984085083,
 				16.508777618408203
 			]
+		},
+		{
+			"mesh":3,
+			"name":"Grass_Layer",
+			"translation":[
+				-7.3948869705200195,
+				-2.6488492488861084,
+				-11.501888275146484
+			]
+		},
+		{
+			"mesh":4,
+			"name":"Palm_Trees"
 		}
 	],
 	"materials":[
@@ -82,6 +97,19 @@
 					"index":0
 				},
 				"metallicFactor":0
+			}
+		},
+		{
+			"alphaCutoff":0.5,
+			"alphaMode":"MASK",
+			"doubleSided":true,
+			"name":"Material.003",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":1
+				},
+				"metallicFactor":0,
+				"roughnessFactor":0.5
 			}
 		}
 	],
@@ -127,12 +155,44 @@
 					"material":2
 				}
 			]
+		},
+		{
+			"name":"Icosphere.004",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":12,
+						"NORMAL":13,
+						"TEXCOORD_0":14
+					},
+					"indices":15,
+					"material":1
+				}
+			]
+		},
+		{
+			"name":"Plane",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":16,
+						"NORMAL":17,
+						"TEXCOORD_0":18
+					},
+					"indices":19,
+					"material":3
+				}
+			]
 		}
 	],
 	"textures":[
 		{
 			"sampler":0,
 			"source":0
+		},
+		{
+			"sampler":0,
+			"source":1
 		}
 	],
 	"images":[
@@ -140,6 +200,11 @@
 			"mimeType":"image/png",
 			"name":"Hut_Test",
 			"uri":"Hut_Test.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"BackingObjects",
+			"uri":"BackingObjects.png"
 		}
 	],
 	"accessors":[
@@ -244,6 +309,74 @@
 			"componentType":5123,
 			"count":2313,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":12,
+			"componentType":5126,
+			"count":219,
+			"max":[
+				117.26763153076172,
+				9.675010681152344,
+				101.02415466308594
+			],
+			"min":[
+				-165.2709197998047,
+				1.0476685762405396,
+				-82.35497283935547
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":13,
+			"componentType":5126,
+			"count":219,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":14,
+			"componentType":5126,
+			"count":219,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":15,
+			"componentType":5123,
+			"count":219,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":16,
+			"componentType":5126,
+			"count":930,
+			"max":[
+				63.08258819580078,
+				21.82897186279297,
+				82.45710754394531
+			],
+			"min":[
+				-68.87559509277344,
+				-3.432785987854004,
+				-20.27558135986328
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":17,
+			"componentType":5126,
+			"count":930,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":18,
+			"componentType":5126,
+			"count":930,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":19,
+			"componentType":5123,
+			"count":1512,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -318,6 +451,54 @@
 			"byteLength":4626,
 			"byteOffset":54796,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":2628,
+			"byteOffset":59424,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2628,
+			"byteOffset":62052,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1752,
+			"byteOffset":64680,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":438,
+			"byteOffset":66432,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":11160,
+			"byteOffset":66872,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":11160,
+			"byteOffset":78032,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":7440,
+			"byteOffset":89192,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3024,
+			"byteOffset":96632,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -328,7 +509,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":59424,
+			"byteLength":99656,
 			"uri":"HexstariaV2.bin"
 		}
 	]

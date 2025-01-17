@@ -1,5 +1,5 @@
 extends Node3D
-
+@onready var Core = get_node("/root/Main_Scene/CoreLoader")
 ## Get the actual player object
 @onready var Character:CharacterBody3D = get_parent()
 
@@ -124,12 +124,15 @@ func _ready() -> void:
 	setup()
 	
 	## Just a little check which can be removed later
-	print("We Made it!")
+	#print("We Made it!")
 
 func _unhandled_input(event: InputEvent) -> void:
 	## Grab our actual inputs for player movement
-	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
-	input.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
+	if !Core.Globals.DisablePlayerInput:
+		input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+		input.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
+	else:
+		input = Vector2.ZERO
 
 func _process(delta: float) -> void:
 	if input != Vector2.ZERO:
@@ -211,7 +214,7 @@ func _physics_process(delta: float) -> void:
 		RayCast2.target_position = Vector3(0,-0.07,0)
 	
 	if Character.is_on_ceiling():
-		print("hai")
+		#print("hai")
 		gravity_control += ((MoveMarker.global_transform.basis.y * 1) * (gravity/8)* 2.0)
 		
 	Character.velocity = compiled_velocity + gravity_control

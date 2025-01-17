@@ -6,9 +6,7 @@ var TCP = TCPServer.new()
 var Peers = {}
 var PeerHash = []
 
-var OrganizedPeers = {
-	
-}
+var OrganizedPeers = []
 
 var Rooms = {}
 
@@ -140,7 +138,9 @@ func network_process():
 				print("Removing!")
 				if Peers[i].Character_Storage_Data["Current_Room"] != "":
 					Player_RemoveFrom_Room(Peers[i],Peers[i].Character_Storage_Data["Current_Room"])
+					OrganizedPeers.erase(Peers[i])
 				Peers.erase(i)
+				
 
 		if Core.Globals.KillThreads:
 			break
@@ -294,6 +294,7 @@ func api_validate_completed(result, response_code, headers, body, userobj:Server
 		if response["status"] == 0:
 			userobj.Current_Saved_Packet["Unlock_Screen"] = true
 			Player_To_Room(userobj,"island_0")
+			OrganizedPeers.append(userobj)
 		else:
 			send_data(userobj.Character_Storage_Data["peer_obj"],Networking_Valid_Types.Error,{"Code":"Error: User Authentication Error."})
 	else:

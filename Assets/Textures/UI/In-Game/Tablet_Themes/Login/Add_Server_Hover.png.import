@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcvd8t3o64ves"
-path="res://.godot/imported/Tablet_Backing.png-c4e625cad20ccccc14587f9f86371412.ctex"
+uid="uid://ceau7lncpo4no"
+path="res://.godot/imported/Add_Server_Hover.png-db2dacc2763babb99e1b47a32a47a107.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/UI/In-Game/Tablet_Backing.png"
-dest_files=["res://.godot/imported/Tablet_Backing.png-c4e625cad20ccccc14587f9f86371412.ctex"]
+source_file="res://Assets/Textures/UI/In-Game/Tablet_Themes/Login/Add_Server_Hover.png"
+dest_files=["res://.godot/imported/Add_Server_Hover.png-db2dacc2763babb99e1b47a32a47a107.ctex"]
 
 [params]
 

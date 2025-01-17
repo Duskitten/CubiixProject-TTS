@@ -9,11 +9,13 @@ var LocalUser = {
 
 var save_template ="""{
 	\"LastChar_Save\":"",
-	\"Master_Volume\":0,
-	\"Music_Volume\":0,
-	\"SFX_Volume\":0,
-	\"Notification_Volume\":0,
-	\"ChatPing_Volume\":0,
+	\"Audio\":{
+		\"Master\":0,
+		\"Music\":0,
+		\"SFX\":0,
+		\"Notification\":0,
+		\"Ping\":0,
+	}
 }"""
 
 var server_template ="""{
@@ -25,8 +27,12 @@ var server_template ="""{
 
 var Data:Dictionary = {}
 
-var KillThreads = false
+var KillThreads:bool = false
+var UI_Hovered:Array = []
+var All_UI:Array = []
+var Sorted_UI:Node = null
 
+var DisablePlayerInput:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if OS.has_feature("client"):
@@ -35,12 +41,14 @@ func _ready() -> void:
 		print(IsFile)
 		if !IsFile:
 			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
-			NewFile.store_string(save_template)
+			NewFile.store_string(JSON.stringify(JSON.parse_string(save_template)))
 			NewFile.close()
 
 		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/client.json")
 		Json.parse(JsonFile)
 		Data = Json.data
+		_setup_audio(Data["Audio"])
+		
 		
 	if OS.has_feature("server"):
 		var Json = JSON.new()
@@ -54,7 +62,10 @@ func _ready() -> void:
 		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/server.json")
 		Json.parse(JsonFile)
 		Data = Json.data
-	
+
+func _setup_audio(data:Dictionary) -> void:
+	for i in data.keys():
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(i),data[i])
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -62,10 +73,21 @@ func _notification(what):
 		if OS.has_feature("client"):
 			Core.AssetData.thread_force_post()
 			#Core.Persistant_Core
-			
-		
+			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
+			NewFile.store_string(JSON.stringify(Data))
+			NewFile.close()
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func sort_ui() -> Node:
+	var targeted_ui = null
+	if UI_Hovered.size() > 1:
+		for x in UI_Hovered:
+			for y in UI_Hovered:
+				if y != x:
+					if y.get_index() > x.get_index():
+						targeted_ui = y
+						break
+	else:
+		targeted_ui = UI_Hovered[0]
+		targeted_ui.get_parent().move_child(targeted_ui,targeted_ui.get_parent().get_child_count()-1)
+	
+	return targeted_ui
