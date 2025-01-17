@@ -1,5 +1,3 @@
-# Cubiix Project: To The Stars!
-
 <p align="center">
   <img src="addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Logo.png" width="500" alt="Cubiix Project Logo">
 </p>
