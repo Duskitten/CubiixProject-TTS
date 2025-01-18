@@ -31,14 +31,7 @@ var windowLocations = {
 var Tick_Prev = 0
 var Tick_Timer = 0
 
-var save_template ="""{
-	\"LastChar_Save\":"",
-	\"Master_Volume\":0,
-	\"Music_Volume\":0,
-	\"SFX_Volume\":0,
-	\"Notification_Volume\":0,
-	\"ChatPing_Volume\":0,
-}"""
+
 
 func _ready() -> void:
 ###### Signal Connections ######

@@ -10,8 +10,8 @@ extends CharacterBody3D
 var Assets
 
 ## Due to the characters now being independant from the main script, we want to use this to load the actual character
-@export var Character_String = ""
-@export var Accessory_String = ""
+@export_multiline var Character_String = ""
+@export_multiline var Accessory_String = ""
 
 ## These are space access, so we don't need to do 50 billion calls
 @onready var Hub = $Hub
@@ -34,4 +34,5 @@ func _ready() -> void:
 		Assets.find_animation(Animation_Path,$Hub)
 
 	call_deferred("emit_signal","ScriptLoaded")
+	Assets.Tools.generate_accessories_from_string(Accessory_String,Hub)
 	Assets.Tools.generate_character_from_string(Character_String,Hub)

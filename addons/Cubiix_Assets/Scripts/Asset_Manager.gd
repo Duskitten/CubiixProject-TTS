@@ -392,3 +392,13 @@ func find_log(ID:String) -> Dictionary:
 			return assets[AssetParts[0]]["Devlog_Entries"][AssetParts[1]]
 	
 	return {}
+
+func find_asset(ID:String) -> Dictionary:
+	var path = ""
+	var AssetParts = ID.split("/")
+	if assets.has(AssetParts[0]) &&\
+		assets[AssetParts[0]].has("Models") &&\
+		assets[AssetParts[0]]["Models"].has(AssetParts[1]):
+			return assets[AssetParts[0]]["Models"][AssetParts[1]]
+	
+	return {}

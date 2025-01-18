@@ -849,34 +849,42 @@
 				}
 			},
 			"Head":{
+				"Tag":"Head",
 				"Name":"None",
 				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"Face":{
+				"Tag":"Face",
 				"Name":"None",
 				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"Chest":{
+				"Tag":"Chest",
 				"Name":"None",
 				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"Back":{
+				"Tag":"Back",
 				"Name":"None",
 				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"L_Hip":{
+				"Tag":"L_Hip",
 				"Name":"None",
 				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"R_Hip":{
+				"Tag":"R_Hip",
 				"Name":"None",
 				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"L_Hand":{
+				"Tag":"L_Hand",
 				"Name":"None",
 				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"R_Hand":{
+				"Tag":"R_Hand",
 				"Name":"None",
 				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},

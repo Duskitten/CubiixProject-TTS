@@ -23,8 +23,8 @@ func load_scene(SceneID:String,PassThrough:Dictionary={}, SkipFade:bool = false,
 		current_scene.add_child(load_scene)
 		load_scene.setup()
 		await load_scene.FinishedLoad
-		if SpawnLocation != "" && SceneData["SpawnLocations"].has(SpawnLocation):
-			Core.Persistant_Core.SpawnAt(SceneData["SpawnLocations"][SpawnLocation][0], SceneData["SpawnLocations"][SpawnLocation][1])
+		if SpawnLocation != "" && SceneData["Spawn_Locations"].has(SpawnLocation):
+			Core.Persistant_Core.SpawnAt(str_to_var(SceneData["Spawn_Locations"][SpawnLocation][0]), str_to_var(SceneData["Spawn_Locations"][SpawnLocation][1]))
 		else:
 			Core.Persistant_Core.SpawnAt(Vector3.ZERO, Vector3.ZERO)
 		Core.Persistant_Core.Transitioner_AnimationPlayer.play("FadeOut")

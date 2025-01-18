@@ -4,7 +4,228 @@
 	"ModDesc" : "A Collection of assets tailored for Cubiix Project:TTS",
 	"ModAuthor" : "Duskitten/Selkspace",
 	"Assets" : {
-		"Models":{},
+		"Models":{
+			"Dock_Hat":{
+				"Tag":"Head",
+				"Name":"Dock Hat",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Head_Accessories/Dock_Hat.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Dock_Hat",
+				"Material_Overrides":{
+					"Head/0":{
+						"Color":"#333333",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Head/1":{
+						"Color":"#222222",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				}
+			},
+			"Witch_Hat":{
+				"Tag":"Head",
+				"Name":"Witch Hat",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Head_Accessories/Halloween/Witch_Hat.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Witch",
+				"Material_Overrides":{
+					"Head/0":{
+						"Color":"#314066",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Head/1":{
+						"Color":"#fad35c",
+						"Emission":"#000000",
+						"Metallic":1.0,
+						"Roughness":0.5,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Head/2":{
+						"Color":"#664931",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				}
+			},
+			"DotMouse_Hat":{
+				"Tag":"Head",
+				"Name":"DotMouse_Hat",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Head_Accessories/Community/DotMouse/Dotmouse_Hat.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/DotMouse_Hat",
+				"Material_Overrides":{
+					"Head/2":{
+						"Color":"#FF70E8",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Head/0":{
+						"Color":"#800E85",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				}
+			},
+			"Dock_Bib":{
+				"Tag":"Chest",
+				"Name":"Dock Bib",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Chest_Accessories/Dock_Bib.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Dock_Bib",
+				"Material_Overrides":{
+					"Chest/0":{
+						"Color":"#444444",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/1":{
+						"Color":"#111111",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/2":{
+						"Color":"#222222",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/3":{
+						"Color":"#000000",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				}
+			},
+			"LGBT_Bandanna":{
+				"Tag":"Chest",
+				"Name":"Dock Hat",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Chest_Accessories/Bandanna.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Bandanna",
+				"Material_Overrides":{
+					"Chest/0":{
+						"Color":"#de3835",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/2":{
+						"Color":"#dedb35",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/1":{
+						"Color":"#57de35",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/3":{
+						"Color":"#3595de",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				}
+			},
+			"LGBT_Cape":{
+				"Tag":"Back",
+				"Name":"LGBT Cape",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Back_Accessories/Cape.gltf",
+				"Mesh_Path":"Cape_Armature/Skeleton3D/Cape",
+				"Material_Overrides":{
+					"Back/0":{
+						"Color":"#de3835",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Back/2":{
+						"Color":"#dedb35",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Back/1":{
+						"Color":"#57de35",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Back/3":{
+						"Color":"#3595de",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				},
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"LGBT_Cape":["Cape_2","Cape.001","Cape.002","Cape.003","Cape.004"]
+					},
+					"DynBone_Settings":{
+						"LGBT_Cape":{
+							"osc_ps":15,
+							"dampening": 0.1,
+							"damp_time":0.3,
+							"extension_damp_time":0.15,
+						}
+					}
+				}
+			},
+		},
 		"Override_Binds":{},
 		"Maps":{
 			"Hexstaria_V2":{
@@ -13,7 +234,9 @@
 				"Name":"Hexstaria",
 				"Description":"The home of the Cubiix.",
 				"Image_Preview":"Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png",
-				"Spawn_Locations":{}
+				"Spawn_Locations":{
+					"Docks":["Vector3(22.381,0.098,12.539)","Vector3(0,3.14159,0)"]
+				}
 			}
 		},
 		"Scripts":{

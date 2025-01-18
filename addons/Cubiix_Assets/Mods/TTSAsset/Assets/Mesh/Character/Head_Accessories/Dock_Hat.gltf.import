@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://g66hh2k7gvmr"
-path="res://.godot/imported/Skim_Boat.gltf-201621a5df977d4e9d819b2e03ac7fb6.scn"
+uid="uid://bm5t47e7c4bbm"
+path="res://.godot/imported/Dock_Hat.gltf-4ae300458bd98ed02079682390f75a92.scn"
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Models/Maps/Skim_Boat.gltf"
-dest_files=["res://.godot/imported/Skim_Boat.gltf-201621a5df977d4e9d819b2e03ac7fb6.scn"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Character/Head_Accessories/Dock_Hat.gltf"
+dest_files=["res://.godot/imported/Dock_Hat.gltf-4ae300458bd98ed02079682390f75a92.scn"]
 
 [params]
 

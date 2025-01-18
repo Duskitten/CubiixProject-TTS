@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://b0uoiij21jcs0"]
 
 [ext_resource type="Shader" uid="uid://dkfqg56gfikfj" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/Hexstaria_Grass.tres" id="1_k0t5o"]
-[ext_resource type="Texture2D" uid="uid://uph2ua7mkd07" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Models/Maps/BackingObjects.png" id="2_bmkaw"]
+[ext_resource type="Texture2D" uid="uid://uph2ua7mkd07" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/BackingObjects.png" id="2_bmkaw"]
 
 [sub_resource type="Gradient" id="Gradient_hibip"]
 colors = PackedColorArray(0.44, 0.44, 0.44, 1, 1, 1, 1, 1)

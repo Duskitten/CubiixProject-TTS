@@ -7,16 +7,17 @@ var LocalUser = {
 	"Username":"",
 }
 
-var save_template ="""{
-	\"LastChar_Save\":"",
-	\"Audio\":{
-		\"Master\":0,
-		\"Music\":0,
-		\"SFX\":0,
-		\"Notification\":0,
-		\"Ping\":0,
-	}
-}"""
+var save_template = {
+	"LastChar_Save":"",
+	"Audio":{
+		"Master":0,
+		"Music":0,
+		"SFX":0,
+		"Notification":0,
+		"Ping":0,
+	},
+	"TestVec3":var_to_str(Vector3(0,0,0))
+}
 
 var server_template ="""{
 	\"Port\":5599,
@@ -41,7 +42,7 @@ func _ready() -> void:
 		print(IsFile)
 		if !IsFile:
 			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
-			NewFile.store_string(JSON.stringify(JSON.parse_string(save_template)))
+			NewFile.store_string(JSON.stringify(save_template))
 			NewFile.close()
 
 		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/client.json")

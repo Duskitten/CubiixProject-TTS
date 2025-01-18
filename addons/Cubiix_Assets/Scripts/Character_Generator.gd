@@ -99,6 +99,9 @@ func adjust_scale() -> void:
 	self.scale = Vector3(Scale,Scale,Scale)
 
 func generate_colors() -> void:
+	ColorCheck_Accessory(Acc_Head)
+	ColorCheck_Accessory(Acc_Chest)
+	ColorCheck_Accessory(Acc_Back)
 	New_Shader.set_shader_parameter("Body_Color", Shader_Color)
 	New_Shader.set_shader_parameter("Body_Emission", Shader_Emission)
 	New_Shader.set_shader_parameter("Body_Metallic", Shader_Metallic)
@@ -178,3 +181,27 @@ func update_animation(animation:Array) -> void:
 func update_animation_bypass(animation:Array) -> void:
 	if Animator != null:
 		Animator.play(animation[0], animation[1])
+
+func ColorCheck_Accessory(ID:String):
+	if ID != "":
+		var data = get_parent().Assets.find_asset(ID)
+		
+		if data != {}:
+			var colordata = data["Material_Overrides"]
+			for i in colordata.keys():
+				var Key = i.split("/")
+				var InputLocation = Keylist[Key[0]][int(Key[1])]
+				for x in colordata[i]:
+					match x:
+						"Color":
+							Shader_Color[InputLocation] = Color(colordata[i][x])
+						"Emission":
+							Shader_Emission[InputLocation] = Color(colordata[i][x])
+						"Roughness":
+							Shader_Roughness[InputLocation] = float(colordata[i][x])
+						"Metallic":
+							Shader_Metallic[InputLocation] = float(colordata[i][x])
+						"Emission_Strength":
+							Shader_Emission_Strength[InputLocation] = float(colordata[i][x])
+						"Alpha":
+							Shader_Alpha[InputLocation] = float(colordata[i][x])

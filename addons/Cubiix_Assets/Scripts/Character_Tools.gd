@@ -3,7 +3,29 @@ extends Node
 
 var Assets
 
+func generate_accessories_from_string(Data:String,Target:Node3D) -> void:
+	var json = JSON.new()
+	json.parse(Data)
+	var data = json.data
 
+	for i in data.keys():
+		match i:
+			"Head":
+				Target.Acc_Head = data[i]
+			"Face":
+				Target.Acc_Face = data[i]
+			"Chest":
+				Target.Acc_Chest = data[i]
+			"Back":
+				Target.Acc_Back = data[i]
+			"L_Hand":
+				Target.Acc_L_Hand = data[i]
+			"R_Hand":
+				Target.Acc_R_Hand = data[i]
+			"L_Hip":
+				Target.Acc_L_Hip = data[i]
+			"R_Hip":
+				Target.Acc_R_Hip = data[i]
 
 func generate_character_from_string(Data:String,Target:Node3D) -> void:
 	var V1_ConversionPath = Assets.assets["CoreAssets"]["Override_Binds"]["V1"]

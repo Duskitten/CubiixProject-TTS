@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wr581xvhe77w"
-path="res://.godot/imported/HexstariaV2.gltf-c497eba9a45cb3bbe0d841eed11db565.scn"
+path="res://.godot/imported/HexstariaV2.gltf-b91ecd7a8192a5c2499a64448baa91f3.scn"
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Models/Maps/HexstariaV2.gltf"
-dest_files=["res://.godot/imported/HexstariaV2.gltf-c497eba9a45cb3bbe0d841eed11db565.scn"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/HexstariaV2.gltf"
+dest_files=["res://.godot/imported/HexstariaV2.gltf-b91ecd7a8192a5c2499a64448baa91f3.scn"]
 
 [params]
 
