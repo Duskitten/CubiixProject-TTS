@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://hrgnkcktrbta"]
+[gd_scene load_steps=120 format=3 uid="uid://hrgnkcktrbta"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_2xfh6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="1_wdvji"]
@@ -161,48 +161,7 @@ thickness = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpvvo"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ae3p5"]
-sky_top_color = Color(0.415283, 0.949219, 0.949219, 1)
-sky_horizon_color = Color(0, 0.914073, 1, 1)
-sky_curve = 0.332871
-sky_cover_modulate = Color(0.485605, 1, 0, 1)
-ground_bottom_color = Color(0, 0.603922, 1, 1)
-ground_horizon_color = Color(0, 0.602553, 1, 1)
-ground_curve = 2.6974
-ground_energy_multiplier = 1.3
-
-[sub_resource type="Sky" id="Sky_72x4i"]
-sky_material = SubResource("ProceduralSkyMaterial_ae3p5")
-
-[sub_resource type="Environment" id="Environment_uxsx7"]
-background_mode = 2
-background_color = Color(0.758192, 0.758192, 0.758192, 1)
-sky = SubResource("Sky_72x4i")
-ambient_light_source = 3
-ambient_light_color = Color(0.691341, 0.851563, 0.838842, 1)
-ambient_light_sky_contribution = 0.04
-tonemap_mode = 2
-ssao_enabled = true
-ssao_power = 1.30582
-glow_enabled = true
-glow_levels/1 = 16.0
-glow_levels/2 = 16.0
-glow_normalized = true
-glow_intensity = 1.0
-glow_blend_mode = 1
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.649065, 0.767865, 1, 1)
-fog_sun_scatter = 0.18
-fog_density = 0.1322
-fog_aerial_perspective = 0.667
-fog_sky_affect = 0.422
-volumetric_fog_density = 0.0
-volumetric_fog_sky_affect = 0.0
-volumetric_fog_temporal_reprojection_enabled = false
-
 [sub_resource type="World3D" id="World3D_5oc7r"]
-environment = SubResource("Environment_uxsx7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ie6ih"]
 texture = ExtResource("54_yo32u")

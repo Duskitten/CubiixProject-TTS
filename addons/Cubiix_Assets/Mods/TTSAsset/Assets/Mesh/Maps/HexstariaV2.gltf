@@ -13,7 +13,8 @@
 				2,
 				3,
 				4,
-				5
+				5,
+				6
 			]
 		}
 	],
@@ -65,6 +66,26 @@
 				54.86897277832031,
 				-1.107712984085083,
 				16.508777618408203
+			]
+		},
+		{
+			"mesh":6,
+			"name":"Board",
+			"rotation":[
+				0,
+				0.23816464841365814,
+				0,
+				0.9712247848510742
+			],
+			"scale":[
+				0.7512633800506592,
+				0.7512633800506592,
+				0.7512633800506592
+			],
+			"translation":[
+				-9.36622428894043,
+				5.026785850524902,
+				7.680514812469482
 			]
 		}
 	],
@@ -204,6 +225,20 @@
 						"TEXCOORD_0":22
 					},
 					"indices":23,
+					"material":0
+				}
+			]
+		},
+		{
+			"name":"Plane.003",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":24,
+						"NORMAL":25,
+						"TEXCOORD_0":26
+					},
+					"indices":27,
 					"material":0
 				}
 			]
@@ -435,6 +470,40 @@
 			"componentType":5123,
 			"count":2313,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":24,
+			"componentType":5126,
+			"count":162,
+			"max":[
+				8.442259788513184,
+				7.756222724914551,
+				5.222026824951172
+			],
+			"min":[
+				-8.442259788513184,
+				-7.158603668212891,
+				-5.222026824951172
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":25,
+			"componentType":5126,
+			"count":162,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":26,
+			"componentType":5126,
+			"count":162,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":27,
+			"componentType":5123,
+			"count":312,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -581,6 +650,30 @@
 			"byteLength":4626,
 			"byteOffset":97268,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":1944,
+			"byteOffset":101896,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1944,
+			"byteOffset":103840,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1296,
+			"byteOffset":105784,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":624,
+			"byteOffset":107080,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -591,7 +684,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":101896,
+			"byteLength":107704,
 			"uri":"HexstariaV2.bin"
 		}
 	]

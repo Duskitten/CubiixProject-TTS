@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cmxcypkotim2b"]
+
+[ext_resource type="Texture2D" uid="uid://7skkfeds42mg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hut_Test.png" id="1_o6ade"]
+
+[resource]
+render_priority = 11
+transparency = 4
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_o6ade")
+texture_filter = 2
+texture_repeat = false
