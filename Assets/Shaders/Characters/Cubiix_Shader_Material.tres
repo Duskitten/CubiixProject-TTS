@@ -56,7 +56,7 @@ void fragment() {
 			ALPHA = Body2_alpha;
 		}
 		}
-		
+
 	else if (int(albedo_tex.r) == int(1.0) && int(albedo_tex.g) != int(1.0)){
 
 		ALBEDO = Body1.rgb;
@@ -74,8 +74,8 @@ void fragment() {
 			ALPHA = Body1_alpha;
 		}
 		}
-		
-		
+
+
 	else if (int(albedo_tex.g) == int(1.0) && int(albedo_tex.r) != int(1.0)){
 		ALBEDO = Body3.rgb;
 		if (!distance_transitioning){
@@ -92,7 +92,7 @@ void fragment() {
 			ALPHA = Body3_alpha;
 		}
 		}
-		
+
 	else{
 		ALBEDO = Body4.rgb;
 		if (!distance_transitioning){
@@ -108,7 +108,7 @@ void fragment() {
 			ALPHA = Body4_alpha;
 		}
 		}
-	
+
 	{
 		// Distance Fade: Pixel Dither
 		float fade_distance = length(VERTEX);

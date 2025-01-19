@@ -14,7 +14,8 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7
 			]
 		}
 	],
@@ -87,6 +88,10 @@
 				5.026785850524902,
 				7.680514812469482
 			]
+		},
+		{
+			"mesh":7,
+			"name":"StonePath"
 		}
 	],
 	"materials":[
@@ -139,6 +144,20 @@
 				"baseColorTexture":{
 					"index":1
 				},
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
+		},
+		{
+			"doubleSided":true,
+			"name":"Material.004",
+			"pbrMetallicRoughness":{
+				"baseColorFactor":[
+					0.800000011920929,
+					0.800000011920929,
+					0.800000011920929,
+					1
+				],
 				"metallicFactor":0,
 				"roughnessFactor":0.5
 			}
@@ -240,6 +259,20 @@
 					},
 					"indices":27,
 					"material":0
+				}
+			]
+		},
+		{
+			"name":"Cube",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":28,
+						"NORMAL":29,
+						"TEXCOORD_0":30
+					},
+					"indices":31,
+					"material":4
 				}
 			]
 		}
@@ -474,7 +507,7 @@
 		{
 			"bufferView":24,
 			"componentType":5126,
-			"count":162,
+			"count":230,
 			"max":[
 				8.442259788513184,
 				7.756222724914551,
@@ -490,19 +523,53 @@
 		{
 			"bufferView":25,
 			"componentType":5126,
-			"count":162,
+			"count":230,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":26,
 			"componentType":5126,
-			"count":162,
+			"count":230,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":27,
 			"componentType":5123,
-			"count":312,
+			"count":414,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":28,
+			"componentType":5126,
+			"count":473,
+			"max":[
+				2.8586204051971436,
+				-0.585326075553894,
+				-104.41847229003906
+			],
+			"min":[
+				-16.238618850708008,
+				-15.033195495605469,
+				-186.4761199951172
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":29,
+			"componentType":5126,
+			"count":473,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":30,
+			"componentType":5126,
+			"count":473,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":31,
+			"componentType":5123,
+			"count":840,
 			"type":"SCALAR"
 		}
 	],
@@ -653,26 +720,50 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":1944,
+			"byteLength":2760,
 			"byteOffset":101896,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1944,
-			"byteOffset":103840,
+			"byteLength":2760,
+			"byteOffset":104656,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1296,
-			"byteOffset":105784,
+			"byteLength":1840,
+			"byteOffset":107416,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":624,
-			"byteOffset":107080,
+			"byteLength":828,
+			"byteOffset":109256,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":5676,
+			"byteOffset":110084,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":5676,
+			"byteOffset":115760,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":3784,
+			"byteOffset":121436,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1680,
+			"byteOffset":125220,
 			"target":34963
 		}
 	],
@@ -684,7 +775,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":107704,
+			"byteLength":126900,
 			"uri":"HexstariaV2.bin"
 		}
 	]

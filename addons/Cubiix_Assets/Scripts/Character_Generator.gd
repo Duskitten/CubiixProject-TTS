@@ -100,8 +100,13 @@ func adjust_scale() -> void:
 
 func generate_colors() -> void:
 	ColorCheck_Accessory(Acc_Head)
+	ColorCheck_Accessory(Acc_Face)
 	ColorCheck_Accessory(Acc_Chest)
 	ColorCheck_Accessory(Acc_Back)
+	ColorCheck_Accessory(Acc_L_Hand)
+	ColorCheck_Accessory(Acc_R_Hand)
+	ColorCheck_Accessory(Acc_L_Hip)
+	ColorCheck_Accessory(Acc_R_Hip)
 	New_Shader.set_shader_parameter("Body_Color", Shader_Color)
 	New_Shader.set_shader_parameter("Body_Emission", Shader_Emission)
 	New_Shader.set_shader_parameter("Body_Metallic", Shader_Metallic)

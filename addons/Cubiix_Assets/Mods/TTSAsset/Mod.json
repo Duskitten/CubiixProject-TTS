@@ -88,6 +88,8 @@
 					}
 				}
 			},
+			
+			
 			"Dock_Bib":{
 				"Tag":"Chest",
 				"Name":"Dock Bib",
@@ -170,6 +172,8 @@
 					}
 				}
 			},
+			
+			
 			"LGBT_Cape":{
 				"Tag":"Back",
 				"Name":"LGBT Cape",
@@ -223,6 +227,32 @@
 							"extension_damp_time":0.15,
 						}
 					}
+				}
+			},
+			
+			"Ki_Star_Shades":{
+				"Tag":"Face",
+				"Name":"Star Shades",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Face_Accessories/Star_Shades.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Star_Shades",
+				"Material_Overrides":{
+					"Face/0":{
+						"Color":"#0055ff",
+						"Emission":"#0055ff",
+						"Metallic":0.5,
+						"Roughness":0.0,
+						"Emission_Strength":0.5,
+						"Alpha": 0.8
+					},
+					"Face/2":{
+						"Color":"#00ffb7",
+						"Emission":"#00ffb7",
+						"Metallic":0.5,
+						"Roughness":0.0,
+						"Emission_Strength":1.0,
+						"Alpha": 0.9
+					},
 				}
 			},
 		},

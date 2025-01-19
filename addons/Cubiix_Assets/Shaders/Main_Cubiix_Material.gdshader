@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_always, cull_disabled, diffuse_lambert, depth_prepass_alpha;
 
-uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
+uniform sampler2D texture_albedo : source_color, filter_nearest_mipmap, repeat_enable;
 
 uniform vec4 Body_SourceColor[256] : source_color;
 uniform vec4 Body_Color[256] : source_color;
