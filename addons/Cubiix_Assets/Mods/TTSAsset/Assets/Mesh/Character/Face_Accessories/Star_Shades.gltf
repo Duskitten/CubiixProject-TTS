@@ -316,47 +316,47 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":417,
+			"count":211,
 			"max":[
-				1.2134517431259155,
-				4.127569675445557,
-				1.253974199295044
+				1.352142572402954,
+				4.28741455078125,
+				1.2320560216903687
 			],
 			"min":[
-				-1.2134517431259155,
-				2.9453141689300537,
-				-0.6384999752044678
+				-1.352142572402954,
+				2.8245415687561035,
+				-0.6139848232269287
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":417,
+			"count":211,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":417,
+			"count":211,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5121,
-			"count":417,
+			"count":211,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":417,
+			"count":211,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":5,
 			"componentType":5123,
-			"count":894,
+			"count":510,
 			"type":"SCALAR"
 		},
 		{
@@ -369,49 +369,49 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":5004,
+			"byteLength":2532,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":5004,
-			"byteOffset":5004,
+			"byteLength":2532,
+			"byteOffset":2532,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3336,
-			"byteOffset":10008,
+			"byteLength":1688,
+			"byteOffset":5064,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1668,
-			"byteOffset":13344,
+			"byteLength":844,
+			"byteOffset":6752,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6672,
-			"byteOffset":15012,
+			"byteLength":3376,
+			"byteOffset":7596,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1788,
-			"byteOffset":21684,
+			"byteLength":1020,
+			"byteOffset":10972,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1152,
-			"byteOffset":23472
+			"byteOffset":11992
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":24624,
+			"byteLength":13144,
 			"uri":"Star_Shades.bin"
 		}
 	]

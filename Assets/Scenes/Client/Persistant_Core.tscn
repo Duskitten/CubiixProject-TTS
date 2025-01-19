@@ -327,9 +327,6 @@ press 1, or R!
 To close and open this menu, 
 press 2, or F!"
 
-[node name="Login_Buttons" parent="CanvasLayer/Hexii_Tablet_UI/Wallpaper2" index="5"]
-visible = true
-
 [node name="Hexii_UI" parent="CanvasLayer" instance=ExtResource("2_2xjws")]
 visible = false
 texture_filter = 1
@@ -418,6 +415,7 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 1
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -425,7 +423,6 @@ position = Vector2(-40, -11)
 rotation = 1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 1
 
 [node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -532,7 +529,7 @@ Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
 Character_String = "{\"B1\":\"000000\",\"B1E\":\"000000\",\"B1ES\":1,\"B1M\":0.46,\"B1R\":0.45,\"B2\":\"906eb8\",\"B2E\":\"385651\",\"B2ES\":0.2,\"B2M\":0,\"B2R\":0.9,\"B3\":\"e879ee\",\"B3E\":\"e879ee\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"e879ee\",\"B4E\":\"e879ee\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":\"CoreAssets/Ears_Cat\",\"EX\":\"CoreAssets/Extra\",\"EY\":\"CoreAssets/Eyes_Default\",\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":\"CoreAssets/Tails_Cat\",\"W\":\"CoreAssets/Wings_Angel\"}"
 Accessory_String = "{
 \"Back\":\"TTSAssets/LGBT_Cape\",
-\"Head\":\"TTSAssets/DotMouse_Hat\",
+\"Head\":\"TTSAssets/Witch_Hat\",
 \"Chest\":\"TTSAssets/LGBT_Bandanna\"
 }"
 
