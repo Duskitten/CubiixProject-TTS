@@ -95,7 +95,7 @@ func compile_mod_assets() -> void:
 							content["Assets"][n][x]["Client_Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Client_Path"]
 						if content["Assets"][n][x].has("Image_Preview"):
 							content["Assets"][n][x]["Image_Preview"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Image_Preview"]
-						if content["Assets"][n][x].has("Tag") && content["ModID"] != "CoreAssets":
+						if content["Assets"][n][x].has("Tag"):
 							if !assets_tagged.has(content["Assets"][n][x]["Tag"]) :
 								assets_tagged[content["Assets"][n][x]["Tag"]] = []
 							assets_tagged[content["Assets"][n][x]["Tag"]].append(content["ModID"]+"/"+x)

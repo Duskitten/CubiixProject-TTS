@@ -192,21 +192,22 @@ func ColorCheck_Accessory(ID:String):
 		var data = get_parent().Assets.find_asset(ID)
 		
 		if data != {}:
-			var colordata = data["Material_Overrides"]
-			for i in colordata.keys():
-				var Key = i.split("/")
-				var InputLocation = Keylist[Key[0]][int(Key[1])]
-				for x in colordata[i]:
-					match x:
-						"Color":
-							Shader_Color[InputLocation] = Color(colordata[i][x])
-						"Emission":
-							Shader_Emission[InputLocation] = Color(colordata[i][x])
-						"Roughness":
-							Shader_Roughness[InputLocation] = float(colordata[i][x])
-						"Metallic":
-							Shader_Metallic[InputLocation] = float(colordata[i][x])
-						"Emission_Strength":
-							Shader_Emission_Strength[InputLocation] = float(colordata[i][x])
-						"Alpha":
-							Shader_Alpha[InputLocation] = float(colordata[i][x])
+			if data.has("Material_Overrides"):
+				var colordata = data["Material_Overrides"]
+				for i in colordata.keys():
+					var Key = i.split("/")
+					var InputLocation = Keylist[Key[0]][int(Key[1])]
+					for x in colordata[i]:
+						match x:
+							"Color":
+								Shader_Color[InputLocation] = Color(colordata[i][x])
+							"Emission":
+								Shader_Emission[InputLocation] = Color(colordata[i][x])
+							"Roughness":
+								Shader_Roughness[InputLocation] = float(colordata[i][x])
+							"Metallic":
+								Shader_Metallic[InputLocation] = float(colordata[i][x])
+							"Emission_Strength":
+								Shader_Emission_Strength[InputLocation] = float(colordata[i][x])
+							"Alpha":
+								Shader_Alpha[InputLocation] = float(colordata[i][x])

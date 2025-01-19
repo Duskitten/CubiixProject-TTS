@@ -63,7 +63,7 @@ func _ready() -> void:
 	
 	Hexii_Ui_Tablet_JournalButton.emit_signal("pressed")
 	
-	Core.AssetData.Tools.clone_character(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
+	Core.AssetData.Tools.clone_character_with_accessories(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
 
 	AudioPlayer.add_child(CurrentAudioPlayer)
 
@@ -295,12 +295,12 @@ func _on_part_button_pressed(PartData: String) -> void:
 				if Core.Client.TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 					Core.Client.char_update()
 				else:
-					Core.AssetData.Tools.clone_character(Hexii_Ui_Tablet_Character.Hub,Player.Hub)
+					Core.AssetData.Tools.clone_character_with_accessories(Hexii_Ui_Tablet_Character.Hub,Player.Hub)
 				
 			"Revert":
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button4.hide()
 				$CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/HBoxContainer/Button3.hide()
-				Core.AssetData.Tools.clone_character(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
+				Core.AssetData.Tools.clone_character_with_accessories(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
 		
 	elif PartData.begins_with("Color, "):
 		var Asset = PartData.lstrip("Color, ")

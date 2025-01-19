@@ -302,6 +302,17 @@ func clone_character(A:Node3D, B:Node3D) -> void:
 	B.Base_Eyes = A.Base_Eyes
 	B.Scale = A.Scale
 	B.generate_character()
+	
+func clone_character_with_accessories(A:Node3D, B:Node3D) -> void:
+	B.Acc_Head = A.Acc_Head
+	B.Acc_Face = A.Acc_Face
+	B.Acc_Chest = A.Acc_Chest
+	B.Acc_Back = A.Acc_Back
+	B.Acc_L_Hand = A.Acc_L_Hand 
+	B.Acc_R_Hand = A.Acc_R_Hand 
+	B.Acc_L_Hip = A.Acc_L_Hip
+	B.Acc_R_Hip = A.Acc_R_Hip
+	clone_character(A,B)
 
 func export_character(Target:Node3D) -> String:
 	var V3Template = {
