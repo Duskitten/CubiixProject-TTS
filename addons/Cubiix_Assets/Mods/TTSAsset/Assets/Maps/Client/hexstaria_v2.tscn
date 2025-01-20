@@ -286,7 +286,7 @@ camera_attributes = SubResource("CameraAttributesPractical_3cwwd")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template"]
 transform = Transform3D(0.5, 0.482418, -0.719217, -2.62057e-09, 0.83048, 0.557049, 0.866025, -0.278524, 0.41524, 0.00469455, 0, 0.0278296)
 light_color = Color(0.894098, 0.848309, 1, 1)
-light_energy = 1.4
+light_energy = 2.0
 light_bake_mode = 1
 light_cull_mask = 4293918721
 shadow_enabled = true
@@ -422,7 +422,7 @@ layers = 262145
 surface_material_override/0 = ExtResource("7_7i3dg")
 
 [node name="Plane" parent="Map/HexstariaV2" index="5"]
-layers = 262144
+layers = 262145
 surface_material_override/0 = ExtResource("5_u4vgk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/HexstariaV2/Plane" index="0"]

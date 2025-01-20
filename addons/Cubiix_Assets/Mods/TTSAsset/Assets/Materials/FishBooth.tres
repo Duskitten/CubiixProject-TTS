@@ -6,7 +6,9 @@
 render_priority = 11
 transparency = 4
 cull_mode = 2
-shading_mode = 0
 albedo_texture = ExtResource("1_o6ade")
-texture_filter = 2
+emission_enabled = true
+emission_energy_multiplier = 0.15
+emission_texture = ExtResource("1_o6ade")
+texture_filter = 0
 texture_repeat = false
