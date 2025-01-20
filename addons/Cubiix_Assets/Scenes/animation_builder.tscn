@@ -1,4 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://j8saiypl2nqh"]
+[gd_scene load_steps=17 format=3 uid="uid://cox4vue5rvd5u"]
+
+[ext_resource type="PackedScene" uid="uid://bdg5nvdcqy2qy" path="res://addons/Cubiix_Assets/Mods/CoreAssets/Assets/Mesh/Base/Cubiix_Base.gltf" id="1_fbkmt"]
 
 [sub_resource type="Animation" id="Animation_crlt6"]
 resource_name = "Customizing"
@@ -3374,12 +3376,47 @@ _data = {
 "Wooble": SubResource("Animation_aeuoc")
 }
 
-[node name="Animations" type="Node3D"]
+[node name="Animation_Builder" type="Node3D"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Hub" type="Node3D" parent="."]
+
+[node name="Cubiix_Model" parent="Hub" instance=ExtResource("1_fbkmt")]
+
+[node name="Skeleton3D" parent="Hub/Cubiix_Model/Armature" index="0"]
+bones/1/position = Vector3(0, 0.24, 0)
+bones/2/position = Vector3(0, 0.254852, 0)
+bones/3/position = Vector3(-0.327326, 0.134334, 0)
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/4/position = Vector3(0, 0.223611, 0)
+bones/5/position = Vector3(-0.00361538, 0.200243, -0.0778246)
+bones/6/position = Vector3(0.00362426, 0.200243, 0.0780157)
+bones/7/position = Vector3(0.00878999, 0.111369, 0.122818)
+bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/8/position = Vector3(0.327326, 0.134334, 0)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/9/position = Vector3(0, 0.223611, 0)
+bones/10/position = Vector3(0.00361538, 0.200243, -0.0778246)
+bones/11/position = Vector3(-0.00362426, 0.200243, 0.0780157)
+bones/12/position = Vector3(-0.00878999, 0.111369, 0.122818)
+bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/13/position = Vector3(0, 0.24, 0)
+bones/14/position = Vector3(0, 0.24, 0)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
+bones/15/position = Vector3(0, 0.12722, 0)
+bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/position = Vector3(0, 0.24, 0)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+bones/17/position = Vector3(0, 0.12722, 0)
+bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
+
+[node name="Animations" type="Node3D" parent="Hub"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hub/Animations"]
 libraries = {
 "": SubResource("AnimationLibrary_yp2tw")
 }
 movie_quit_on_finish = true
 next/Idle_2 = &"Idle"
 blend_times = [&"Customizing", &"Falling", 0.5, &"Customizing", &"Idle", 0.5, &"Customizing", &"Idle_2", 0.5, &"Customizing", &"Jump", 0.5, &"Customizing", &"Null", 0.5, &"Customizing", &"RESET", 0.5, &"Customizing", &"Run", 0.5, &"Customizing", &"Sit", 0.5, &"Customizing", &"Walk", 0.5, &"Customizing", &"Wooble", 0.5, &"Drive", &"Customizing", 0.5, &"Drive", &"Drive", 0.5, &"Drive", &"Falling", 0.5, &"Drive", &"Idle", 0.5, &"Drive", &"Idle_2", 0.5, &"Drive", &"Jump", 0.5, &"Drive", &"Null", 0.5, &"Drive", &"RESET", 0.5, &"Drive", &"Run", 0.5, &"Drive", &"Sit", 0.5, &"Drive", &"Walk", 0.5, &"Drive", &"Wooble", 0.5, &"Falling", &"Customizing", 0.5, &"Falling", &"Drive", 0.5, &"Falling", &"Falling", 0.5, &"Falling", &"Idle", 0.5, &"Falling", &"Idle_2", 0.5, &"Falling", &"Jump", 0.5, &"Falling", &"Null", 0.5, &"Falling", &"RESET", 0.5, &"Falling", &"Run", 0.5, &"Falling", &"Sit", 0.5, &"Falling", &"Walk", 0.5, &"Falling", &"Wooble", 0.5, &"Idle", &"Customizing", 0.5, &"Idle", &"Drive", 0.5, &"Idle", &"Falling", 0.5, &"Idle", &"Idle", 0.5, &"Idle", &"Idle_2", 0.5, &"Idle", &"Jump", 0.5, &"Idle", &"Null", 0.5, &"Idle", &"RESET", 0.5, &"Idle", &"Run", 0.5, &"Idle", &"Sit", 0.5, &"Idle", &"Walk", 0.5, &"Idle", &"Wooble", 0.5, &"Idle_2", &"Customizing", 0.5, &"Idle_2", &"Drive", 0.5, &"Idle_2", &"Falling", 0.5, &"Idle_2", &"Idle", 0.5, &"Idle_2", &"Idle_2", 0.5, &"Idle_2", &"Jump", 0.5, &"Idle_2", &"Null", 0.5, &"Idle_2", &"RESET", 0.5, &"Idle_2", &"Run", 0.5, &"Idle_2", &"Sit", 0.5, &"Idle_2", &"Walk", 0.5, &"Idle_2", &"Wooble", 0.5, &"Jump", &"Customizing", 0.5, &"Jump", &"Drive", 0.5, &"Jump", &"Falling", 0.5, &"Jump", &"Idle", 0.5, &"Jump", &"Idle_2", 0.5, &"Jump", &"Jump", 0.5, &"Jump", &"Null", 0.5, &"Jump", &"RESET", 0.5, &"Jump", &"Run", 0.5, &"Jump", &"Sit", 0.5, &"Jump", &"Walk", 0.5, &"Jump", &"Wooble", 0.5, &"Null", &"Customizing", 0.5, &"Null", &"Drive", 0.5, &"Null", &"Falling", 0.5, &"Null", &"Idle", 0.5, &"Null", &"Idle_2", 0.5, &"Null", &"Jump", 0.5, &"Null", &"Null", 0.5, &"Null", &"RESET", 0.5, &"Null", &"Run", 0.5, &"Null", &"Sit", 0.5, &"Null", &"Walk", 0.5, &"Null", &"Wooble", 0.5, &"RESET", &"Customizing", 0.5, &"RESET", &"Drive", 0.5, &"RESET", &"Falling", 0.5, &"RESET", &"Idle", 0.5, &"RESET", &"Idle_2", 0.5, &"RESET", &"Jump", 0.5, &"RESET", &"Null", 0.5, &"RESET", &"RESET", 0.5, &"RESET", &"Run", 0.5, &"RESET", &"Sit", 0.5, &"RESET", &"Walk", 0.5, &"RESET", &"Wooble", 0.5, &"Run", &"Customizing", 0.5, &"Run", &"Drive", 0.5, &"Run", &"Falling", 0.5, &"Run", &"Idle", 0.5, &"Run", &"Idle_2", 0.5, &"Run", &"Jump", 0.5, &"Run", &"Null", 0.5, &"Run", &"RESET", 0.5, &"Run", &"Run", 0.5, &"Run", &"Sit", 0.5, &"Run", &"Walk", 0.5, &"Run", &"Wooble", 0.5, &"Sit", &"Customizing", 0.5, &"Sit", &"Drive", 0.5, &"Sit", &"Falling", 0.5, &"Sit", &"Idle", 0.5, &"Sit", &"Idle_2", 0.5, &"Sit", &"Jump", 0.5, &"Sit", &"Null", 0.5, &"Sit", &"RESET", 0.5, &"Sit", &"Run", 0.5, &"Sit", &"Sit", 0.5, &"Sit", &"Walk", 0.5, &"Sit", &"Wooble", 0.5, &"Walk", &"Customizing", 0.5, &"Walk", &"Drive", 0.5, &"Walk", &"Falling", 0.5, &"Walk", &"Idle", 0.5, &"Walk", &"Idle_2", 0.5, &"Walk", &"Jump", 0.5, &"Walk", &"Null", 0.5, &"Walk", &"RESET", 0.5, &"Walk", &"Run", 0.5, &"Walk", &"Sit", 0.5, &"Walk", &"Walk", 0.5, &"Walk", &"Wooble", 0.5, &"Wooble", &"Customizing", 0.5, &"Wooble", &"Drive", 0.5, &"Wooble", &"Falling", 0.5, &"Wooble", &"Idle", 0.5, &"Wooble", &"Idle_2", 0.5, &"Wooble", &"Jump", 0.5, &"Wooble", &"Null", 0.5, &"Wooble", &"RESET", 0.5, &"Wooble", &"Run", 0.5, &"Wooble", &"Sit", 0.5, &"Wooble", &"Walk", 0.5, &"Wooble", &"Wooble", 0.5]
+
+[editable path="Hub/Cubiix_Model"]

@@ -34,6 +34,12 @@ var All_UI:Array = []
 var Sorted_UI:Node = null
 
 var DisablePlayerInput:bool = false
+
+var Physics_Time:float
+
+func _physics_process(delta: float) -> void:
+	Physics_Time += delta
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if OS.has_feature("client"):

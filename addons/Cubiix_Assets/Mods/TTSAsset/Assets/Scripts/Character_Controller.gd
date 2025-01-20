@@ -59,6 +59,12 @@ var CameraController = null
 var Current_Animation = ""
 var IsEmoting = false
 
+var Movement_Disable = false
+
+## Swimming controller variables
+var RayCast_Swim:RayCast3D = RayCast3D.new()
+var Swimming = false
+
 func _init() -> void:
 	## Disable these to prevent "Null" errors before load.
 	set_process(false)
@@ -77,10 +83,12 @@ func setup():
 	RayCast1.target_position = Vector3(0,-0.24,0)
 	RayCast2.target_position = Vector3(0,-0.24,0)
 	RayCast3.target_position = Vector3(0,-0.4,0)
+	RayCast_Swim.target_position = Vector3(0,-0.2,0)
 	
 	RayCast1.position = Vector3(0,0.214,0)
 	RayCast2.position = Vector3(0,0.214,0)
 	RayCast3.position = Vector3(0,0.214,0)
+	RayCast_Swim.position = Vector3(0,0.8,0)
 	
 	RayCast1.set_collision_mask_value(1,false)
 	RayCast1.set_collision_mask_value(2,true)
@@ -88,16 +96,20 @@ func setup():
 	RayCast2.set_collision_mask_value(2,true)
 	RayCast3.set_collision_mask_value(1,false)
 	RayCast3.set_collision_mask_value(2,true)
+	RayCast_Swim.set_collision_mask_value(1,false)
+	RayCast_Swim.set_collision_mask_value(3,true)
 	
 	RayCast1.exclude_parent = true
 	RayCast2.exclude_parent = true
 	RayCast3.exclude_parent = true
+	RayCast_Swim.exclude_parent = true
 	
 	## Adding all required nodes
 	Character.add_child(Collider)
 	Character.add_child(RayCast1)
 	Character.add_child(RayCast2)
 	Character.add_child(RayCast3)
+	Character.add_child(RayCast_Swim)
 	Character.add_child(JumpTimer)
 	JumpTimer.timeout.connect(_on_jump_timer_timeout.bind())
 	MoveMarker.name = "MoveMarker"
@@ -135,16 +147,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		input = Vector2.ZERO
 
 func _process(delta: float) -> void:
-	if input != Vector2.ZERO:
-		Current_Animation = ["Run",.3]
-	else:
-		Current_Animation = ["Idle",.3]
-	
-	if jumping:
-		Current_Animation = ["Jump",.2]
-	
-	if falling && !RayCast3.is_colliding():
-		Current_Animation = ["Falling",.2]
+	if !Movement_Disable:
+		if input != Vector2.ZERO:
+			Current_Animation = ["Run",.3]
+		else:
+			Current_Animation = ["Idle",.3]
+		
+		if jumping:
+			Current_Animation = ["Jump",.2]
+		
+		if falling && !RayCast3.is_colliding():
+			Current_Animation = ["Falling",.2]
+		
+	if Swimming && Movement_Disable:
+		if input == Vector2.ZERO:
+			Current_Animation = ["Swimming_Idle",.2]
+		else:
+			Current_Animation = ["Swimming_Run",.2]
 	
 	Hub.update_animation(Current_Animation)
 	if CameraController != null:
@@ -158,70 +177,79 @@ func _process(delta: float) -> void:
 	
 	
 func _physics_process(delta: float) -> void:
-	Fall_Delta = Time.get_ticks_msec() - Fall_Delta_Prev
-	Fall_Delta_Prev = Time.get_ticks_msec()
 	
 	if input != Vector2.ZERO:
 		if Camera != null: 
 			MoveMarker.rotation.y = atan2(-input.x,-input.y)+Camera_Y.transform.basis.get_euler().y
-			#if !shiftlock_Enabled:
+				#if !shiftlock_Enabled:
 			Hub.rotation.y = lerp_angle(Hub.rotation.y, MoveMarker.rotation.y, delta*10)
+	
+	if !Movement_Disable:
+		if RayCast_Swim.is_colliding():
+			Movement_Disable = true
+			Swimming = true
+			RayCast_Swim.get_collider().player_lock(Character, RayCast_Swim.get_collision_point(), self, RayCast_Swim.get_collision_normal())
+			RayCast_Swim.enabled = false
 			
-	forcingUp = false
-	if RayCast2.is_colliding():
-		RayCast1.target_position = Vector3(0,-0.4,0)
-		fall_timer = 0
-		jumping = false
-		falling = false
-		Fall_Tick = 0
-		gravity_control = Vector3.ZERO
-	else:
-		gravity_control += (MoveMarker.global_transform.basis.y * 1) * (gravity/8)
-			
-		if Character.up_direction > gravity_control:
-			Fall_Tick += Fall_Delta
-			if Fall_Tick > (300) || jumping:
-				falling = true
-
-		RayCast1.target_position = Vector3(0,-0.27,0)
-		RayCast2.target_position = Vector3(0,-0.27,0)
+		Fall_Delta = Time.get_ticks_msec() - Fall_Delta_Prev
+		Fall_Delta_Prev = Time.get_ticks_msec()
 		
-	if !forcingUp:
-		if walk:
-			speed = walkspeed
+		
+				
+		forcingUp = false
+		if RayCast2.is_colliding():
+			RayCast1.target_position = Vector3(0,-0.4,0)
+			fall_timer = 0
+			jumping = false
+			falling = false
+			Fall_Tick = 0
+			gravity_control = Vector3.ZERO
 		else:
-			speed = runspeed
+			gravity_control += (MoveMarker.global_transform.basis.y * 1) * (gravity/8)
+				
+			if Character.up_direction > gravity_control:
+				Fall_Tick += Fall_Delta
+				if Fall_Tick > (300) || jumping:
+					falling = true
+
+			RayCast1.target_position = Vector3(0,-0.27,0)
+			RayCast2.target_position = Vector3(0,-0.27,0)
 			
-		if (Input.is_action_just_pressed("ui_jump") && !jumping && !falling) || (AltJump):
+		if !forcingUp:
+			if walk:
+				speed = walkspeed
+			else:
+				speed = runspeed
+				
+			if (Input.is_action_just_pressed("ui_jump") && !jumping && !falling) || (AltJump):
+				JumpTimer.start()
+				jumping = true
+				gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
+				RayCast1.target_position = Vector3(0,-0.07,0)
+				RayCast2.target_position = Vector3(0,-0.07,0)
+				if AltJump:
+					AltJump = false
+		
+			compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
+		
+		if RayCast3.is_colliding() && !jumping:
+			JumpTimer.stop()
+			Character.position = Character.position.slerp(RayCast3.get_collision_point(),.5)
+			gravity_control += (MoveMarker.global_transform.basis.y * 1) * 0.2
+		elif !RayCast3.is_colliding():
 			JumpTimer.start()
 			jumping = true
-			gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
 			RayCast1.target_position = Vector3(0,-0.07,0)
 			RayCast2.target_position = Vector3(0,-0.07,0)
-			if AltJump:
-				AltJump = false
-	
-		compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
-	
-	if RayCast3.is_colliding() && !jumping:
-		JumpTimer.stop()
-		Character.position = Character.position.slerp(RayCast3.get_collision_point(),.5)
-		gravity_control += (MoveMarker.global_transform.basis.y * 1) * 0.2
-	elif !RayCast3.is_colliding():
-		JumpTimer.start()
-		jumping = true
-		RayCast1.target_position = Vector3(0,-0.07,0)
-		RayCast2.target_position = Vector3(0,-0.07,0)
-	
-	if Character.is_on_ceiling():
-		#print("hai")
-		gravity_control += ((MoveMarker.global_transform.basis.y * 1) * (gravity/8)* 2.0)
 		
+		if Character.is_on_ceiling():
+			#print("hai")
+			gravity_control += ((MoveMarker.global_transform.basis.y * 1) * (gravity/8)* 2.0)
+			
 	Character.velocity = compiled_velocity + gravity_control
 	Character.move_and_slide()
-	
+		
 	compiled_velocity = compiled_velocity.slerp(Vector3.ZERO,0.4)
-
 
 ## Supplimentary function for aligning player to world smoothly
 func align_up(node_basis, normal, slerptime):
