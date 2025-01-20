@@ -18,4 +18,5 @@ albedo_texture = SubResource("NoiseTexture2D_14u2i")
 metallic_specular = 0.0
 uv1_scale = Vector3(0.08, 0.08, 0.08)
 uv1_triplanar = true
+uv1_world_triplanar = true
 texture_filter = 2

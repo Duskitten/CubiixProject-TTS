@@ -187,6 +187,7 @@ scroll_down={
 
 [layer_names]
 
+3d_render/layer_19="Cast Shadows"
 3d_physics/layer_1="World-Space"
 3d_physics/layer_2="Characters"
 3d_physics/layer_3="Walk Sounds"

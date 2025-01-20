@@ -45,4 +45,4 @@ texture_albedo = SubResource("GradientTexture2D_4r4pt")
 upper_fade = 6.91803
 lower_fade = 2.44589
 distance_fade_length = 0.0
-cull_mask = 524288
+cull_mask = 262144

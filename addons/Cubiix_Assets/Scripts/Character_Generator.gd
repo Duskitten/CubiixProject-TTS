@@ -170,6 +170,7 @@ func generate_character() -> void:
 	if Animator != null:
 		Animator.active = true
 		update_animation_bypass(old_animation)
+	$Cubiix_Model/Armature/Skeleton3D/MeshInstance3D.cast_shadow = false
 	$Cubiix_Model/Armature/Skeleton3D/MeshInstance3D.set_layer_mask_value(19,true)
 	await get_tree().create_timer(0.2).timeout
 	emit_signal("Skeleton_Added")
