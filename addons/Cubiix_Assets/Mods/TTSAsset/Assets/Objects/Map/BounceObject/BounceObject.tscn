@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlddkyamixlpn"]
+
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/BounceObject/bounce_object.gd" id="1_smhc5"]
+
+[node name="BounceObject" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_smhc5")
