@@ -229,7 +229,7 @@ func _physics_process(delta: float) -> void:
 				RayCast2.target_position = Vector3(0,-0.07,0)
 				if AltJump:
 					AltJump = false
-		
+			
 			compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
 		
 		if RayCast3.is_colliding() && !jumping:
@@ -248,7 +248,7 @@ func _physics_process(delta: float) -> void:
 			
 	Character.velocity = compiled_velocity + gravity_control
 	Character.move_and_slide()
-		
+
 	compiled_velocity = compiled_velocity.slerp(Vector3.ZERO,0.4)
 
 ## Supplimentary function for aligning player to world smoothly

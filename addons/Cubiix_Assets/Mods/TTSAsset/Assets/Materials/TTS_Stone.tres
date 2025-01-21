@@ -14,6 +14,7 @@ color_ramp = SubResource("Gradient_4b5ib")
 noise = SubResource("FastNoiseLite_2t37v")
 
 [resource]
+cull_mode = 2
 albedo_color = Color(0.562804, 0.582649, 0.628906, 1)
 albedo_texture = SubResource("NoiseTexture2D_gnsog")
 metallic_specular = 0.0
