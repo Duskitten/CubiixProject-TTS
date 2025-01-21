@@ -760,6 +760,21 @@ process_material = SubResource("ParticleProcessMaterial_ny2hd")
 draw_pass_1 = SubResource("QuadMesh_ovjg5")
 draw_skin = SubResource("Skin_2l2dy")
 
+[node name="Umbrella" parent="Map/HexstariaV2" index="17"]
+layers = 262145
+
+[node name="Umbrella_001" parent="Map/HexstariaV2" index="18"]
+layers = 262145
+
+[node name="Umbrella_002" parent="Map/HexstariaV2" index="19"]
+layers = 262145
+
+[node name="Umbrella_003" parent="Map/HexstariaV2" index="20"]
+layers = 262145
+
+[node name="Umbrella_004" parent="Map/HexstariaV2" index="21"]
+layers = 262145
+
 [node name="CharacterBody3D" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.149, -0.22, 5.833)
 collision_layer = 3
@@ -824,6 +839,33 @@ cull_mask = 262144
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55318, 0.955625, 9.41208)
 layers = 1048575
 size = Vector3(7, 6.75477, 8.9473)
+texture_albedo = SubResource("GradientTexture2D_vy41w")
+upper_fade = 0.239876
+lower_fade = 0.351196
+cull_mask = 262144
+
+[node name="Decal6" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.66404, 0.00538892, 12.1545)
+layers = 1048575
+size = Vector3(6, 2, 6)
+texture_albedo = SubResource("GradientTexture2D_vy41w")
+upper_fade = 0.239876
+lower_fade = 0.351196
+cull_mask = 262144
+
+[node name="Decal7" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50716, 0.00538892, 13.8423)
+layers = 1048575
+size = Vector3(6, 2, 6)
+texture_albedo = SubResource("GradientTexture2D_vy41w")
+upper_fade = 0.239876
+lower_fade = 0.351196
+cull_mask = 262144
+
+[node name="Decal8" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1154, 0.00538892, 4.52497)
+layers = 1048575
+size = Vector3(3, 2, 3)
 texture_albedo = SubResource("GradientTexture2D_vy41w")
 upper_fade = 0.239876
 lower_fade = 0.351196
