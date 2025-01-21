@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://fqbvemktav2x"]
+[gd_scene load_steps=85 format=4 uid="uid://fqbvemktav2x"]
 
 [ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/HexstariaV2.gltf" id="1_1h5qw"]
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="2_1hj25"]
@@ -21,6 +21,7 @@
 [ext_resource type="Material" uid="uid://cgont05kthg6q" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Dark_Stone.tres" id="12_je2dx"]
 [ext_resource type="Material" uid="uid://4pvclmjr0frp" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Portal.tres" id="13_fg1e4"]
 [ext_resource type="Texture2D" uid="uid://chpr8a0xeadnu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/World/Smoke.png" id="14_s26r4"]
+[ext_resource type="PackedScene" uid="uid://dlddkyamixlpn" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/BounceObject/BounceObject.tscn" id="15_u4044"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m6rq5"]
 sky_top_color = Color(0.0422569, 0, 0.949219, 1)
@@ -286,6 +287,47 @@ initial_velocity_max = 8.0
 scale_min = 0.1
 scale_curve = SubResource("CurveTexture_x0fkr")
 color_ramp = SubResource("GradientTexture1D_m48xb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0armg"]
+size = Vector3(1, 0.04, 1)
+
+[sub_resource type="Animation" id="Animation_5i1se"]
+resource_name = "Bounce"
+length = 0.35715
+step = 0.0714286
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:blend_shapes/Bounce")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qbtc8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:blend_shapes/Bounce")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cmo3a"]
+_data = {
+"Bounce": SubResource("Animation_5i1se"),
+"RESET": SubResource("Animation_qbtc8")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8ksp"]
 cull_mode = 2
@@ -763,17 +805,82 @@ draw_skin = SubResource("Skin_2l2dy")
 [node name="Umbrella" parent="Map/HexstariaV2" index="17"]
 layers = 262145
 
+[node name="BounceObject" parent="Map/HexstariaV2/Umbrella" index="0" instance=ExtResource("15_u4044")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30385e-08, 1.16637, -9.31323e-10)
+bounce_power = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/HexstariaV2/Umbrella/BounceObject"]
+transform = Transform3D(1, -1.49012e-08, 0, -1.39698e-08, 1, 1.30385e-08, 0, -1.86265e-09, 1, -1.60661e-09, 0.076568, -6.0828e-10)
+shape = SubResource("BoxShape3D_0armg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2/Umbrella" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_cmo3a")
+}
+
 [node name="Umbrella_001" parent="Map/HexstariaV2" index="18"]
 layers = 262145
+
+[node name="BounceObject" parent="Map/HexstariaV2/Umbrella_001" index="0" instance=ExtResource("15_u4044")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30385e-08, 1.16637, -9.31323e-10)
+bounce_power = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/HexstariaV2/Umbrella_001/BounceObject"]
+transform = Transform3D(1, -1.49012e-08, 0, -1.39698e-08, 1, 1.30385e-08, 0, -1.86265e-09, 1, -1.60661e-09, 0.076568, -6.0828e-10)
+shape = SubResource("BoxShape3D_0armg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2/Umbrella_001" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_cmo3a")
+}
 
 [node name="Umbrella_002" parent="Map/HexstariaV2" index="19"]
 layers = 262145
 
+[node name="BounceObject" parent="Map/HexstariaV2/Umbrella_002" index="0" instance=ExtResource("15_u4044")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30385e-08, 1.16637, -9.31323e-10)
+bounce_power = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/HexstariaV2/Umbrella_002/BounceObject"]
+transform = Transform3D(1, -1.49012e-08, 0, -1.39698e-08, 1, 1.30385e-08, 0, -1.86265e-09, 1, -1.60661e-09, 0.076568, -6.0828e-10)
+shape = SubResource("BoxShape3D_0armg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2/Umbrella_002" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_cmo3a")
+}
+
 [node name="Umbrella_003" parent="Map/HexstariaV2" index="20"]
 layers = 262145
 
+[node name="BounceObject" parent="Map/HexstariaV2/Umbrella_003" index="0" instance=ExtResource("15_u4044")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30385e-08, 1.16637, -9.31323e-10)
+bounce_power = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/HexstariaV2/Umbrella_003/BounceObject"]
+transform = Transform3D(1, -1.49012e-08, 0, -1.39698e-08, 1, 1.30385e-08, 0, -1.86265e-09, 1, -1.60661e-09, 0.076568, -6.0828e-10)
+shape = SubResource("BoxShape3D_0armg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2/Umbrella_003" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_cmo3a")
+}
+
 [node name="Umbrella_004" parent="Map/HexstariaV2" index="21"]
 layers = 262145
+
+[node name="BounceObject" parent="Map/HexstariaV2/Umbrella_004" index="0" instance=ExtResource("15_u4044")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30385e-08, 1.16637, -9.31323e-10)
+bounce_power = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/HexstariaV2/Umbrella_004/BounceObject"]
+transform = Transform3D(1, -1.49012e-08, 0, -1.39698e-08, 1, 1.30385e-08, 0, -1.86265e-09, 1, -1.60661e-09, 0.076568, -6.0828e-10)
+shape = SubResource("BoxShape3D_0armg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2/Umbrella_004" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_cmo3a")
+}
 
 [node name="CharacterBody3D" type="StaticBody3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.149, -0.22, 5.833)

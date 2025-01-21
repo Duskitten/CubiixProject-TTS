@@ -16,3 +16,7 @@ func _on_bouncepad_has_been_activated(body) -> void:
 		var char_con = body.get_node("Character_Controller")
 		var MoveMarker = body.get_node("MoveMarker")
 		char_con.gravity_control = (MoveMarker.global_transform.basis.y * 1) * bounce_power
+		
+		var animation_player = get_parent().get_node_or_null("AnimationPlayer")
+		if animation_player != null:
+			animation_player.play("Bounce")
