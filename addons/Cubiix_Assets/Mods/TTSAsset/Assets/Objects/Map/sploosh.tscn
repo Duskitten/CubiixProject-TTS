@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=3 uid="uid://drauuuybit8p0"]
+
+[ext_resource type="PackedScene" uid="uid://caan6u6k0t73d" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Water_Sploosh.gltf" id="1_2vt6n"]
+[ext_resource type="Texture2D" uid="uid://3gxlwydm4sno" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/World/Water_Sploosh.png" id="2_bwtsa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s3qb"]
+render_priority = 100
+transparency = 4
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.411)
+albedo_texture = ExtResource("2_bwtsa")
+texture_filter = 0
+
+[sub_resource type="Animation" id="Animation_mojsq"]
+resource_name = "Sploosh"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Water_Sploosh/Sphere:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.708333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(3, 0, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Water_Sploosh2/Sphere:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.708333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.7, 2.34, 0.7), Vector3(1.5, 0, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Water_Sploosh/Sphere:transparency")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.291667, 0.541667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Water_Sploosh2/Sphere:transparency")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.291667, 0.541667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_br13y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Water_Sploosh/Sphere:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Water_Sploosh2/Sphere:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Water_Sploosh/Sphere:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Water_Sploosh2/Sphere:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5ysi"]
+_data = {
+"RESET": SubResource("Animation_br13y"),
+"Sploosh": SubResource("Animation_mojsq")
+}
+
+[node name="Sploosh" type="Node3D"]
+
+[node name="Water_Sploosh" parent="." instance=ExtResource("1_2vt6n")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Sphere" parent="Water_Sploosh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0)
+transparency = 1.0
+cast_shadow = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_6s3qb")
+
+[node name="Water_Sploosh2" parent="." instance=ExtResource("1_2vt6n")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Sphere" parent="Water_Sploosh2" index="0"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0)
+cast_shadow = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_6s3qb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g5ysi")
+}
+
+[editable path="Water_Sploosh"]
+[editable path="Water_Sploosh2"]

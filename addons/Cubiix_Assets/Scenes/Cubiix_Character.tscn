@@ -25,7 +25,6 @@ floor_block_on_wall = false
 script = ExtResource("1_ro8ye")
 
 [node name="Hub" type="Node3D" parent="."]
-visible = false
 script = ExtResource("1_kx318")
 
 [node name="Cubiix_Model" type="Node3D" parent="Hub"]
