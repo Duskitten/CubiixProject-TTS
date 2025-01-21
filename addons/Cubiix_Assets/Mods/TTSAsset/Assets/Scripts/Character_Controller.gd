@@ -60,6 +60,8 @@ var Current_Animation = ""
 var IsEmoting = false
 
 var Movement_Disable = false
+var Alt_Input:Vector2
+var velocity_lock = false
 
 ## Swimming controller variables
 var RayCast_Swim:RayCast3D = RayCast3D.new()
@@ -148,7 +150,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if !Movement_Disable:
-		if input != Vector2.ZERO:
+		if input != Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
 			Current_Animation = ["Run",.3]
 		else:
 			Current_Animation = ["Idle",.3]
@@ -178,11 +180,15 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	
-	if input != Vector2.ZERO:
-		if Camera != null: 
-			MoveMarker.rotation.y = atan2(-input.x,-input.y)+Camera_Y.transform.basis.get_euler().y
-				#if !shiftlock_Enabled:
-			Hub.rotation.y = lerp_angle(Hub.rotation.y, MoveMarker.rotation.y, delta*10)
+	
+	if Camera != null: 
+		if !velocity_lock:
+			if input != Vector2.ZERO:
+				MoveMarker.rotation.y = atan2(-input.x,-input.y)+Camera_Y.transform.basis.get_euler().y
+		else:
+			MoveMarker.rotation.y = atan2(-Alt_Input.x,-Alt_Input.y)
+			#if !shiftlock_Enabled:
+		Hub.rotation.y = lerp_angle(Hub.rotation.y, MoveMarker.rotation.y, delta*10)
 	
 	if !Movement_Disable:
 		if RayCast_Swim.is_colliding():
@@ -230,8 +236,11 @@ func _physics_process(delta: float) -> void:
 				if AltJump:
 					AltJump = false
 			
-			compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
-		
+			if !velocity_lock:
+				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
+			else:
+				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(Alt_Input.y)+abs(Alt_Input.x),0,1)) * speed) 
+			
 		if RayCast3.is_colliding() && !jumping:
 			JumpTimer.stop()
 			Character.position = Character.position.slerp(RayCast3.get_collision_point(),.5)

@@ -901,9 +901,9 @@ func Transition_New_Song(NewSongID:String) -> void:
 	CurrentAudioPlayer.stream = load(SongList[NewSongID])
 	CurrentAudioPlayer.autoplay = true
 	AudioPlayer.add_child(CurrentAudioPlayer)
-	var AudioFader = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	var AudioFader2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	AudioFader.tween_property(CurrentAudioPlayer, "volume_db", 0, 1)
+	var AudioFader = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	var AudioFader2 = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	AudioFader.tween_property(CurrentAudioPlayer, "volume_db", 0, .2)
 	AudioFader2.tween_property(OldAudioPlayer, "volume_db", -80, 1)
 	AudioFader.play()
 	AudioFader2.play()
