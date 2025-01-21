@@ -1,6 +1,7 @@
 Cubiix License:
 
 Copyright (c) 2022 Duskitten, Selkspace
+Copyright (c) 2025 Cubiix Project Contributors
   
 Last Updated: Nov. 20 2024
 
