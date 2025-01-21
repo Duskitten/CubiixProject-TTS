@@ -162,7 +162,7 @@ func _process(delta: float) -> void:
 			Current_Animation = ["Falling",.2]
 		
 	if Swimming && Movement_Disable:
-		if input == Vector2.ZERO:
+		if input == Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
 			Current_Animation = ["Swimming_Idle",.2]
 		else:
 			Current_Animation = ["Swimming_Run",.2]

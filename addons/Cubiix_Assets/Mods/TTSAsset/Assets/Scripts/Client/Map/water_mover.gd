@@ -40,8 +40,13 @@ func _physics_process(delta: float) -> void:
 			player_unlock(false)
 		
 		if Player_Script != null && Player != null:
-			var input = Player_Script.input
-			compiled_velocity += ((Player_Script.MoveMarker.global_transform.basis.z * clamp(abs(Player_Script.input.y)+abs(Player_Script.input.x),0,1)) * swim_speed) 
+			var input:Vector2
+			if !Player_Script.velocity_lock:
+				input = Player_Script.input
+			else:
+				input = Player_Script.Alt_Input
+			compiled_velocity += ((Player_Script.MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * swim_speed) 
+			
 			Player_Mover.velocity = compiled_velocity
 			Player_Mover.move_and_slide()
 			compiled_velocity = compiled_velocity.slerp(Vector3.ZERO,0.4)
