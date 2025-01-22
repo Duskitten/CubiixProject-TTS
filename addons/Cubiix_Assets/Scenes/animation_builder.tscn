@@ -11,9 +11,7 @@
 
 [node name="Skeleton3D" parent="Hub/Cubiix_Model/Armature" index="0"]
 bones/1/position = Vector3(0, 0.24, 0)
-bones/1/scale = Vector3(1, 1, 1)
 bones/2/position = Vector3(0, 0.254852, 0)
-bones/2/scale = Vector3(1, 1, 1)
 bones/3/position = Vector3(-0.327326, 0.134334, 0)
 bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
 bones/3/scale = Vector3(1, 1, 1)
@@ -36,13 +34,10 @@ bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/14/scale = Vector3(0.999999, 1, 1)
 bones/15/position = Vector3(0, 0.12722, 0)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0, 0.24, 0)
 bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/16/scale = Vector3(1, 1, 1)
 bones/17/position = Vector3(0, 0.12722, 0)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
-bones/17/scale = Vector3(1, 1, 1)
 
 [node name="Animations" type="Node3D" parent="Hub"]
 

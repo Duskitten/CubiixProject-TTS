@@ -185,10 +185,11 @@ func _physics_process(delta: float) -> void:
 		if !velocity_lock:
 			if input != Vector2.ZERO:
 				MoveMarker.rotation.y = atan2(-input.x,-input.y)+Camera_Y.transform.basis.get_euler().y
+				Hub.rotation.y = lerp_angle(Hub.rotation.y, MoveMarker.rotation.y, delta*10)
 		else:
 			MoveMarker.rotation.y = atan2(-Alt_Input.x,-Alt_Input.y)
 			#if !shiftlock_Enabled:
-		Hub.rotation.y = lerp_angle(Hub.rotation.y, MoveMarker.rotation.y, delta*10)
+			Hub.rotation.y = lerp_angle(Hub.rotation.y, MoveMarker.rotation.y, delta*10)
 	
 	if !Movement_Disable:
 		if RayCast_Swim.is_colliding():
