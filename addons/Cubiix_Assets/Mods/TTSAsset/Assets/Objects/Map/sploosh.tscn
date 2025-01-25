@@ -7,7 +7,6 @@
 render_priority = 100
 transparency = 4
 cull_mode = 2
-shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.411)
 albedo_texture = ExtResource("2_bwtsa")
 texture_filter = 0
