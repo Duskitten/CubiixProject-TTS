@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		if CameraZoom == 0:
 			Camera_Core.transform = get_parent().transform
 		else:
-			Camera_Core.transform = Camera_Core.transform.interpolate_with(get_parent().transform,0.15)
+			Camera_Core.transform = get_parent().transform
 		Camera_Y.position.y = 0.7
 		
 
@@ -46,9 +46,12 @@ func _input(event: InputEvent) -> void:
 			Camera_X.rotation_degrees.x += event.relative.y/Sensitivity
 
 	if Input.is_action_just_released("scroll_up"):
-		CameraZoom += 0.5
+		CameraZoom += 1
 	elif  Input.is_action_just_released("scroll_down"):
-		CameraZoom -= 0.5
+		CameraZoom -= 1
 			
 	CameraZoom = clampf(CameraZoom, -6,0)
-	Camera_Z.spring_length = CameraZoom
+	
+
+func _process(delta: float) -> void:
+	Camera_Z.spring_length = lerpf(Camera_Z.spring_length,CameraZoom,0.15)

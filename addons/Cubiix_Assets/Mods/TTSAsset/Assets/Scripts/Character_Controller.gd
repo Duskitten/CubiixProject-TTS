@@ -169,7 +169,7 @@ func _process(delta: float) -> void:
 	
 	Hub.update_animation(Current_Animation)
 	if CameraController != null:
-		if CameraController.CameraZoom == 0:
+		if Camera_Z.spring_length >= -0.1:
 			Hub.hide()
 			
 			Hub.rotation.y = Camera_Y.rotation.y

@@ -13,3 +13,4 @@ emission_energy_multiplier = 0.15
 emission_texture = ExtResource("1_cx55e")
 texture_filter = 0
 texture_repeat = false
+distance_fade_max_distance = 0.0

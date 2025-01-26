@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	Tick_Timer += Delta
 	
 	if Tick_Timer > 1000/20:
-		print(time_of_day)
+		#print(time_of_day)
 		Current_Tick += 1
 		time_of_day += 0.01
 		if time_of_day >= 180:

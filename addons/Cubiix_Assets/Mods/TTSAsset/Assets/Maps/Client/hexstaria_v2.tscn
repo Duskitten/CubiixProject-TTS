@@ -67,7 +67,6 @@ sky = SubResource("Sky_w76i0")
 ambient_light_source = 3
 reflected_light_source = 1
 tonemap_mode = 2
-ssao_enabled = true
 ssao_intensity = 4.64
 ssao_power = 1.72304
 ssao_detail = 1.21
@@ -80,7 +79,7 @@ glow_intensity = 1.0
 glow_blend_mode = 1
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.777344, 0.720051, 0.775429, 1)
+fog_light_color = Color(0.0196078, 0.615686, 1, 1)
 fog_density = 0.7123
 fog_sky_affect = 0.0
 volumetric_fog_density = 0.015
@@ -93,7 +92,6 @@ volumetric_fog_temporal_reprojection_amount = 0.99
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3cwwd"]
 auto_exposure_scale = 0.5
 auto_exposure_speed = 1.0
-dof_blur_far_enabled = true
 dof_blur_far_distance = 54.6
 dof_blur_far_transition = 96.04
 dof_blur_amount = 0.03
@@ -128,8 +126,8 @@ offsets = PackedFloat32Array(0.184739, 0.722892)
 colors = PackedColorArray(1, 1, 1, 0.41, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_331bd"]
-offsets = PackedFloat32Array(0, 0.87381)
-colors = PackedColorArray(0, 0.787142, 0.921875, 1, 0, 0.354618, 0.921569, 1)
+offsets = PackedFloat32Array(0.0769231, 0.87381)
+colors = PackedColorArray(0, 0.0433317, 0.375, 1, 0, 0.297617, 0.773438, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ixgw8"]
 noise_type = 5
@@ -760,6 +758,7 @@ shape = SubResource("ConcavePolygonShape3D_migqa")
 
 [node name="CPUParticles3D4" type="CPUParticles3D" parent="Map/HexstariaV2/Portal" index="1"]
 transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 2.91028, -0.518986, 0.112095)
+visible = false
 material_override = SubResource("StandardMaterial3D_0yuo1")
 cast_shadow = 0
 visibility_range_end = 25.0
@@ -783,6 +782,7 @@ color_ramp = SubResource("Gradient_5kekf")
 
 [node name="CPUParticles3D5" type="CPUParticles3D" parent="Map/HexstariaV2/Portal" index="2"]
 transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 2.4788, -0.518986, 1.4147)
+visible = false
 material_override = SubResource("StandardMaterial3D_0yuo1")
 cast_shadow = 0
 visibility_range_end = 25.0
@@ -806,6 +806,7 @@ color_ramp = SubResource("Gradient_5kekf")
 
 [node name="CPUParticles3D3" type="CPUParticles3D" parent="Map/HexstariaV2/Portal" index="3"]
 transform = Transform3D(1, 0, 2.5332e-07, 0, 1, 0, -2.5332e-07, 0, 1, -0.0574017, -0.151477, -0.18277)
+visible = false
 material_override = SubResource("StandardMaterial3D_0yuo1")
 cast_shadow = 0
 visibility_range_end = 25.0
@@ -948,6 +949,7 @@ shape = SubResource("ConcavePolygonShape3D_pwpyx")
 
 [node name="CPUParticles3D3" type="CPUParticles3D" parent="Map/HexstariaV2/Satellite_Dishes" index="1"]
 transform = Transform3D(1, 0, 2.5332e-07, 0, 1, 0, -2.5332e-07, 0, 1, -0.176648, -0.151477, 0.48632)
+visible = false
 material_override = SubResource("StandardMaterial3D_0yuo1")
 cast_shadow = 0
 visibility_range_end = 25.0
@@ -1042,11 +1044,13 @@ shape = SubResource("ConcavePolygonShape3D_2p385")
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Map"]
 lod_bias = 0.5
+visibility_range_end = 90.0
 multimesh = SubResource("MultiMesh_qwijh")
 
 [node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
 lod_bias = 0.5
+visibility_range_end = 90.0
 multimesh = SubResource("MultiMesh_kjh6h")
 
 [node name="Grass" parent="Map" instance=ExtResource("9_teqfn")]
