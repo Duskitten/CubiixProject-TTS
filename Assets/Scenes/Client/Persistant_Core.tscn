@@ -251,7 +251,6 @@ grow_vertical = 1
 visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -429,7 +428,6 @@ position = Vector2(18, -40)
 rotation = 4.71239
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 1
 
 [node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1

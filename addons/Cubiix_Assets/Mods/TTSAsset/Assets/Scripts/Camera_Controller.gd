@@ -44,6 +44,7 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_pressed("mouse_right"):
 			Camera_Y.rotation_degrees.y -= event.relative.x/Sensitivity
 			Camera_X.rotation_degrees.x += event.relative.y/Sensitivity
+			Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
 
 	if Input.is_action_just_released("scroll_up"):
 		CameraZoom += 1

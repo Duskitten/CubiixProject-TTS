@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=64 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_en6yv"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Drag_Manager.gd" id="1_myaf6"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://d0a3m7qnlq1ra" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Login_Window.png" id="23_neoin"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/login_controller.gd" id="24_jy7r5"]
 [ext_resource type="AnimationLibrary" uid="uid://dadtuq6br5p3c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Animations/Loaderbar.tres" id="26_b76qr"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Card_Deck_Selector_Visual.gd" id="28_wu2g7"]
+[ext_resource type="Texture2D" uid="uid://rqhnqqlrqmuf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Card_Assets/Template_Card.png" id="29_6jmre"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
@@ -261,7 +263,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.244935, 0.599387, 1)
+bg_color = Color(0, 0.660624, 0.602023, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -270,9 +272,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 8.22082
+expand_margin_bottom = 8.22082
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.622462, 0.601781, 1)
+bg_color = Color(0, 0.997749, 0.604161, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -281,11 +285,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 6.99454
-expand_margin_bottom = 6.99454
+expand_margin_top = 19.9238
+expand_margin_bottom = 19.9238
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.989969, 0.604111, 1)
+bg_color = Color(0, -0.545334, 0.594376, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -294,11 +298,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 19.6462
-expand_margin_bottom = 19.6462
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.513124, 0.59458, 1)
+bg_color = Color(0, -0.626467, 0.593861, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -1509,6 +1511,285 @@ theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 [node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 129.0
+offset_right = 356.0
+offset_bottom = 357.0
+theme_override_constants/separation = 38
+script = ExtResource("28_wu2g7")
+
+[node name="Control" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control2"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control2/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control2/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control3"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control3/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control3/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="Control4" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control4"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control4/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control4/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="Control5" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control5"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control5/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control5/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="Control6" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control6"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control6/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control6/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="Control7" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control7"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control7/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control7/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="Control8" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control8"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control8/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control8/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="Control9" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control9"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control9/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control9/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
 
 [node name="Overlay" type="Panel" parent="DragArea"]
 layout_mode = 0
