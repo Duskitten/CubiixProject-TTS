@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://uph2ua7mkd07" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/BackingObjects.png" id="2_bmkaw"]
 
 [sub_resource type="Gradient" id="Gradient_hibip"]
-colors = PackedColorArray(0.44, 0.44, 0.44, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.601563, 0.601563, 0.601563, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vdmjj"]
 frequency = 1.0

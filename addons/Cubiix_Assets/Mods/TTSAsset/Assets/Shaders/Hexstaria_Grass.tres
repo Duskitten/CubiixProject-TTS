@@ -11,8 +11,8 @@ expanded_output_ports = [0]
 source = 5
 
 [sub_resource type="Gradient" id="Gradient_36he2"]
-offsets = PackedFloat32Array(0.501887, 0.675472)
-colors = PackedColorArray(0, 0.164063, 0.101174, 1, 0.11968, 1, 0.536743, 1)
+offsets = PackedFloat32Array(0.474178, 0.624413)
+colors = PackedColorArray(0.0745098, 0.541176, 0.486275, 1, 0.486451, 1, 0.71578, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y8ej1"]
 gradient = SubResource("Gradient_36he2")
@@ -171,6 +171,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-256.663, -276.396)
 modes/cull = 2
 flags/depth_prepass_alpha = true
 nodes/vertex/0/position = Vector2(740, 180)

@@ -1,6 +1,5 @@
-[gd_scene load_steps=64 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=87 format=3 uid="uid://c2701u34x8dm0"]
 
-[ext_resource type="Texture2D" uid="uid://0wqlvdk2jabh" path="res://Assets/Textures/UI/In-Game/Tablet_Themes/Theme_1/Wallpaper_1.png" id="1_en6yv"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Box_Container.gd" id="3_lp8p3"]
@@ -21,13 +20,34 @@
 [ext_resource type="Texture2D" uid="uid://5tyort2rt0g4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Hover.png" id="16_f4obj"]
 [ext_resource type="FontFile" uid="uid://8qduw4o3whqt" path="res://Assets/Fonts/Jura/Jura-Regular.ttf" id="17_iygg2"]
 [ext_resource type="Texture2D" uid="uid://bh6cd3a6acb1g" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Settings_Backing.png" id="18_yi1hf"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/title_audio_adjust.gd" id="19_txgic"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/title_settings_adjust.gd" id="21_14xp3"]
 [ext_resource type="Texture2D" uid="uid://bjx1yafhtgyeq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Backing.png" id="22_4ivrb"]
 [ext_resource type="Texture2D" uid="uid://d0a3m7qnlq1ra" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Login_Window.png" id="23_neoin"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/login_controller.gd" id="24_jy7r5"]
 [ext_resource type="AnimationLibrary" uid="uid://dadtuq6br5p3c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Animations/Loaderbar.tres" id="26_b76qr"]
+[ext_resource type="Texture2D" uid="uid://dthsi25w60klk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_A.png" id="27_qu4e4"]
+[ext_resource type="PackedScene" uid="uid://cmukryvy8s3t3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/UI/character_editor.tscn" id="27_t467y"]
+[ext_resource type="Texture2D" uid="uid://b36o2458ckfsf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot.png" id="28_86qy3"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Card_Char_UI_Selector.gd" id="28_c10ss"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Card_Deck_Selector_Visual.gd" id="28_wu2g7"]
 [ext_resource type="Texture2D" uid="uid://rqhnqqlrqmuf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Card_Assets/Template_Card.png" id="29_6jmre"]
+[ext_resource type="Texture2D" uid="uid://0r20d7ohferu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Head_Icon.png" id="30_qn7im"]
+[ext_resource type="Texture2D" uid="uid://b6kyxuxigqvto" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Face_Icon.png" id="31_okiee"]
+[ext_resource type="Texture2D" uid="uid://bcjdnft8eh8hx" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Chest_Icon.png" id="32_1et4h"]
+[ext_resource type="Texture2D" uid="uid://sj6txx2k5xqs" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Back_Icon.png" id="33_kg70k"]
+[ext_resource type="Texture2D" uid="uid://bg8rbpokn5fy4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/L_Leg_Icon.png" id="34_i2sjq"]
+[ext_resource type="Texture2D" uid="uid://dx8j33qik4ilk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/R_Leg_Icon.png" id="35_om6fv"]
+[ext_resource type="Texture2D" uid="uid://dn5rj008eiuyb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/L_Hand_Icon.png" id="36_eae0u"]
+[ext_resource type="Texture2D" uid="uid://ehai1jpye32u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/R_Hand_Icon.png" id="37_jf558"]
+[ext_resource type="Texture2D" uid="uid://by8bbtx0uwn6m" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Ears_Icon.png" id="38_daotg"]
+[ext_resource type="Texture2D" uid="uid://btnlf2qdftncl" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Picker_Icon.png" id="39_o3ymg"]
+[ext_resource type="Texture2D" uid="uid://dkxxq80qu5737" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Extra_Icon.png" id="39_ptxdx"]
+[ext_resource type="Texture2D" uid="uid://bauyi80rix4bj" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_B.png" id="40_5lkqb"]
+[ext_resource type="Texture2D" uid="uid://bpkarspgmcbxd" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Eyes_Icon.png" id="40_sin8i"]
+[ext_resource type="Texture2D" uid="uid://v4kflgwldsn8" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Wings_Icon.png" id="41_wlsjq"]
+[ext_resource type="Texture2D" uid="uid://b361amk056sbn" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Tails_Icon.png" id="42_76txj"]
+[ext_resource type="Texture2D" uid="uid://bst8b4r2w5sb2" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/QR_Icon.png" id="45_evikh"]
+[ext_resource type="Texture2D" uid="uid://1hw2pnpypueg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Who_Icon.png" id="45_m08tt"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
@@ -155,6 +175,16 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 expand_margin_bottom = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sks6k"]
+content_margin_left = 10.0
+bg_color = Color(0.178, 0.589, 0.839, 0)
+border_color = Color(0.8, 0.799, 0.54, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_bottom = 1.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re2np"]
 bg_color = Color(0.6, 0, 0.492, 0.79)
 border_width_left = 26
@@ -263,7 +293,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.660624, 0.602023, 1)
+bg_color = Color(0, 0.82756, 0.603082, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -272,11 +302,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 8.22082
-expand_margin_bottom = 8.22082
+expand_margin_top = 13.8598
+expand_margin_bottom = 13.8598
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.997749, 0.604161, 1)
+bg_color = Color(0, 0.512181, 0.601082, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -285,11 +315,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 19.9238
-expand_margin_bottom = 19.9238
+expand_margin_top = 4.02428
+expand_margin_bottom = 4.02428
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.545334, 0.594376, 1)
+bg_color = Color(0, -0.685612, 0.593486, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -300,7 +330,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.626467, 0.593861, 1)
+bg_color = Color(0, -0.363919, 0.595526, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -319,6 +349,15 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.439216, 0.168627, 0.6, 0.447059)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v41al"]
+bg_color = Color(0.9, 0.9, 0.9, 0.258824)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="World3D" id="World3D_l6x5t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
 texture = ExtResource("87_b3x5w")
@@ -355,16 +394,7 @@ offset_right = 479.0
 offset_bottom = 488.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 
-[node name="In-Game_Zone" type="TextureRect" parent="DragArea"]
-visible = false
-layout_mode = 0
-offset_left = -84.0
-offset_top = -231.0
-offset_right = 370.0
-offset_bottom = 186.0
-texture = ExtResource("1_en6yv")
-
-[node name="Title_Zone" type="TextureRect" parent="DragArea"]
+[node name="Wallpaper_Backing" type="TextureRect" parent="DragArea"]
 texture_filter = 4
 clip_contents = true
 layout_mode = 0
@@ -374,7 +404,7 @@ offset_right = 468.0
 offset_bottom = 443.0
 texture = ExtResource("2_82imt")
 
-[node name="Transition_Controller" type="Control" parent="DragArea/Title_Zone"]
+[node name="Transition_Controller" type="Control" parent="DragArea/Wallpaper_Backing"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -383,7 +413,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_yb2d0")
 
-[node name="Title" type="Control" parent="DragArea/Title_Zone/Transition_Controller"]
+[node name="Title" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -392,7 +422,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Title"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -404,11 +434,11 @@ theme_override_constants/separation = 9
 alignment = 1
 script = ExtResource("3_lp8p3")
 
-[node name="Settings" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+[node name="Settings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer"]
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings"]
+[node name="VBoxContainer" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings"]
 layout_mode = 2
 anchors_preset = 0
 offset_right = 56.0
@@ -417,7 +447,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 61.5)
 
-[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer"]
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -432,7 +462,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 74)
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
 show_behind_parent = true
 layout_mode = 0
 offset_top = 3.23999
@@ -441,11 +471,11 @@ offset_bottom = 58.24
 pivot_offset = Vector2(28, 27)
 texture = ExtResource("5_b250a")
 
-[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
 position = Vector2(28, 27)
 texture = ExtResource("9_piyk6")
 
-[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/Control"]
 layout_mode = 2
 offset_top = 59.0
 offset_right = 56.0
@@ -461,7 +491,7 @@ bbcode_enabled = true
 text = "[center]Settings"
 fit_content = true
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer"]
 custom_minimum_size = Vector2(56, 55)
 layout_mode = 2
 offset_left = -4.74
@@ -469,11 +499,11 @@ offset_top = -2.64
 offset_right = 60.26
 offset_bottom = 57.36
 
-[node name="Social" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+[node name="Social" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer"]
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social"]
+[node name="VBoxContainer" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social"]
 layout_mode = 2
 anchors_preset = 0
 offset_right = 56.0
@@ -482,7 +512,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 61.5)
 
-[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer"]
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -497,7 +527,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 74)
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
 show_behind_parent = true
 layout_mode = 0
 offset_top = 3.23999
@@ -506,11 +536,11 @@ offset_bottom = 58.24
 pivot_offset = Vector2(28, 27)
 texture = ExtResource("5_b250a")
 
-[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
 position = Vector2(28, 27)
 texture = ExtResource("11_2c4dj")
 
-[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/Control"]
 layout_mode = 2
 offset_top = 59.0
 offset_right = 56.0
@@ -526,7 +556,7 @@ bbcode_enabled = true
 text = "[center]Social"
 fit_content = true
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer"]
 custom_minimum_size = Vector2(56, 55)
 layout_mode = 2
 offset_left = -4.74
@@ -534,11 +564,11 @@ offset_top = -2.64
 offset_right = 60.26
 offset_bottom = 57.36
 
-[node name="Devlog" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+[node name="Devlog" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer"]
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog"]
+[node name="VBoxContainer" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog"]
 layout_mode = 2
 anchors_preset = 0
 offset_right = 56.0
@@ -547,7 +577,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 61.5)
 
-[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer"]
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -562,7 +592,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 74)
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
 show_behind_parent = true
 layout_mode = 0
 offset_top = 3.23999
@@ -571,11 +601,11 @@ offset_bottom = 58.24
 pivot_offset = Vector2(28, 27)
 texture = ExtResource("5_b250a")
 
-[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
 position = Vector2(28, 27)
 texture = ExtResource("3_vbtfg")
 
-[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/Control"]
 layout_mode = 2
 offset_top = 59.0
 offset_right = 56.0
@@ -591,7 +621,7 @@ bbcode_enabled = true
 text = "[center]Devlog"
 fit_content = true
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer"]
 custom_minimum_size = Vector2(56, 55)
 layout_mode = 2
 offset_left = -4.74
@@ -599,11 +629,11 @@ offset_top = -2.64
 offset_right = 60.26
 offset_bottom = 57.36
 
-[node name="Offline" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+[node name="Offline" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer"]
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline"]
+[node name="VBoxContainer" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline"]
 layout_mode = 2
 anchors_preset = 0
 offset_right = 56.0
@@ -612,7 +642,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 61.5)
 
-[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer"]
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -627,7 +657,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 74)
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
 show_behind_parent = true
 layout_mode = 0
 offset_top = 3.23999
@@ -636,11 +666,11 @@ offset_bottom = 58.24
 pivot_offset = Vector2(28, 27)
 texture = ExtResource("5_b250a")
 
-[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
 position = Vector2(28, 27)
 texture = ExtResource("7_ykukk")
 
-[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/Control"]
 layout_mode = 2
 offset_top = 59.0
 offset_right = 56.0
@@ -656,7 +686,7 @@ bbcode_enabled = true
 text = "[center]Offline"
 fit_content = true
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer"]
 custom_minimum_size = Vector2(56, 55)
 layout_mode = 2
 offset_left = -4.74
@@ -664,11 +694,11 @@ offset_top = -2.64
 offset_right = 60.26
 offset_bottom = 57.36
 
-[node name="Login" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+[node name="Login" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer"]
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login"]
+[node name="VBoxContainer" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login"]
 layout_mode = 2
 anchors_preset = 0
 offset_right = 56.0
@@ -677,7 +707,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 61.5)
 
-[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer"]
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -692,7 +722,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 74)
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
 show_behind_parent = true
 layout_mode = 0
 offset_top = 3.23999
@@ -701,11 +731,11 @@ offset_bottom = 58.24
 pivot_offset = Vector2(28, 27)
 texture = ExtResource("5_b250a")
 
-[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
 position = Vector2(28, 27)
 texture = ExtResource("5_l1n8e")
 
-[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/Control"]
 layout_mode = 2
 offset_top = 59.0
 offset_right = 56.0
@@ -721,7 +751,7 @@ bbcode_enabled = true
 text = "[center]Online"
 fit_content = true
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer"]
 custom_minimum_size = Vector2(56, 55)
 layout_mode = 2
 offset_left = -4.74
@@ -729,12 +759,12 @@ offset_top = -2.64
 offset_right = 60.26
 offset_bottom = 57.36
 
-[node name="Update" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer"]
+[node name="Update" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update"]
+[node name="VBoxContainer" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update"]
 layout_mode = 2
 anchors_preset = 0
 offset_right = 56.0
@@ -743,7 +773,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 61.5)
 
-[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer"]
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -758,7 +788,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(28, 74)
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
 show_behind_parent = true
 layout_mode = 0
 offset_top = 3.23999
@@ -767,11 +797,11 @@ offset_bottom = 58.24
 pivot_offset = Vector2(28, 27)
 texture = ExtResource("5_b250a")
 
-[node name="Sprite2D" type="Sprite2D" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
 position = Vector2(28, 27)
 texture = ExtResource("13_j7rci")
 
-[node name="LineEdit" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
+[node name="LineEdit" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/Control"]
 layout_mode = 2
 offset_top = 59.0
 offset_right = 56.0
@@ -787,7 +817,7 @@ bbcode_enabled = true
 text = "[center]Update"
 fit_content = true
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer"]
 custom_minimum_size = Vector2(56, 55)
 layout_mode = 2
 offset_left = -4.74
@@ -795,7 +825,7 @@ offset_top = -2.64
 offset_right = 60.26
 offset_bottom = 57.36
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Title"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -812,18 +842,18 @@ texture = ExtResource("12_c8rpv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Title_Zone/Transition_Controller/Title/TextureRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/TextureRect"]
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_0u440")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="DragArea/Title_Zone/Transition_Controller/Title/TextureRect/AnimationPlayer"]
+[node name="AnimationTree" type="AnimationTree" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/TextureRect/AnimationPlayer"]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeAnimation_smh1b")
 anim_player = NodePath("..")
 
-[node name="Devlog" type="Control" parent="DragArea/Title_Zone/Transition_Controller"]
+[node name="Devlog" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -833,7 +863,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("15_rcleq")
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Devlog"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 10.0
@@ -841,12 +871,12 @@ offset_right = 443.0
 offset_bottom = 377.0
 texture = ExtResource("13_8ewig")
 
-[node name="Control" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect"]
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Template_Log" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control"]
+[node name="Template_Log" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/Control"]
 visible = false
 layout_mode = 0
 offset_left = 149.0
@@ -854,7 +884,7 @@ offset_top = 14.0
 offset_right = 418.0
 offset_bottom = 353.0
 
-[node name="Title" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+[node name="Title" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
 layout_mode = 2
 theme = ExtResource("14_q4chf")
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -863,19 +893,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ed7ft")
 text = "Title of Note"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
 layout_mode = 2
 
-[node name="Author" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("14_q4chf")
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_ed7ft")
-text = "123"
-
-[node name="Date" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log/HBoxContainer"]
+[node name="Author" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/Control/Template_Log/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
@@ -884,12 +905,21 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_ed7ft")
 text = "123"
 
-[node name="HSeparator5" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+[node name="Date" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/Control/Template_Log/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_ed7ft")
+text = "123"
+
+[node name="HSeparator5" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
 layout_mode = 2
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+[node name="RichTextLabel" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_q4chf")
@@ -908,19 +938,19 @@ Thank you for trying out my game, it has been something I have put in alot of ti
 I hope if you enjoy it, please do let me know on my [color=blue][url={\"OpenURL\": \"duskitten.bsky.social\"}]Bluesky[/url][/color]!
 "
 
-[node name="HSeparator6" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/Control/Template_Log"]
 layout_mode = 2
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 9.0
 offset_right = 143.0
 offset_bottom = 320.0
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
 theme_override_constants/shadow_offset_y = 2
@@ -931,33 +961,33 @@ theme_override_font_sizes/font_size = 21
 text = "Devlog"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_q4chf")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="Template_Button" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Template_Button" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator2" type="VSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
 
-[node name="Button" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -968,15 +998,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fyaw1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_fyaw1")
 text = "V.B.01.00"
 
-[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 
-[node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 321.0
@@ -986,8 +1016,7 @@ texture_normal = ExtResource("15_evwrj")
 texture_pressed = ExtResource("15_evwrj")
 texture_hover = ExtResource("16_f4obj")
 
-[node name="Settings" type="Control" parent="DragArea/Title_Zone/Transition_Controller"]
-visible = false
+[node name="Settings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -995,7 +1024,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Settings"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 10.0
@@ -1003,20 +1032,21 @@ offset_right = 443.0
 offset_bottom = 377.0
 texture = ExtResource("18_yi1hf")
 
-[node name="Screens" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect"]
+[node name="Screens" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("21_14xp3")
 
-[node name="Audio" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens"]
+[node name="Audio" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens"]
+visible = false
 layout_mode = 0
 offset_left = 149.0
 offset_top = 14.0
 offset_right = 418.0
 offset_bottom = 353.0
-script = ExtResource("19_txgic")
 
-[node name="Label2" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="Label2" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 theme = ExtResource("14_q4chf")
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -1025,16 +1055,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_s5k6m")
 text = "Audio Settings"
 horizontal_alignment = 1
 
-[node name="HSeparator5" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="HSeparator5" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="Master" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="Master" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Master"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Master"]
 layout_mode = 2
 theme = ExtResource("14_q4chf")
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -1042,26 +1072,26 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
 text = "Master"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Master"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Master"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Master/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Master/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
 min_value = -80.0
 max_value = 6.0
 
-[node name="HSeparator4" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="SFX" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="SFX" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX"]
 layout_mode = 2
 theme = ExtResource("14_q4chf")
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -1069,26 +1099,26 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
 text = "SFX"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
 min_value = -80.0
 max_value = 6.0
 
-[node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="Music" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="Music" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Music"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Music"]
 layout_mode = 2
 theme = ExtResource("14_q4chf")
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -1096,26 +1126,26 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
 text = "Music"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Music"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Music"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Music/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Music/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
 min_value = -80.0
 max_value = 6.0
 
-[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="Notification" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="Notification" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification"]
 layout_mode = 2
 theme = ExtResource("14_q4chf")
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -1123,26 +1153,26 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
 text = "Notifications"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
 min_value = -80.0
 max_value = 6.0
 
-[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="Ping" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="Ping" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping"]
 layout_mode = 2
 theme = ExtResource("14_q4chf")
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -1150,30 +1180,89 @@ theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
 text = "Chat Ping"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
 min_value = -80.0
 max_value = 6.0
 
-[node name="HSeparator6" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio"]
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect"]
+[node name="Visuals" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 14.0
+offset_right = 418.0
+offset_bottom = 353.0
+
+[node name="Label2" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_s5k6m")
+text = "Visual Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Shadow_Depth" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Shadow_Depth"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "
+"
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Shadow_Depth/Label"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 19.0
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_sks6k")
+text = "Shadow Quality"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Shadow_Depth"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+max_value = 2.0
+step = 0.0
+
+[node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 9.0
 offset_right = 143.0
 offset_bottom = 320.0
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
 theme_override_constants/shadow_offset_y = 2
@@ -1184,32 +1273,32 @@ theme_override_font_sizes/font_size = 21
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_q4chf")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="Template_Button" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Template_Button" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator2" type="VSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
 
-[node name="Button" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -1220,16 +1309,16 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_dwx1o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
 text = "Visual"
 
-[node name="Template_Button2" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Template_Button2" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator2" type="VSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2"]
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2"]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
 
-[node name="Button" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2"]
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -1240,16 +1329,16 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_dwx1o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
 text = "Audio"
 
-[node name="Template_Button3" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Template_Button3" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VSeparator2" type="VSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button3"]
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button3"]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
 
-[node name="Button" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button3"]
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button3"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -1260,15 +1349,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bm522")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
 text = "Input"
 
-[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 
-[node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 321.0
@@ -1278,7 +1367,8 @@ texture_normal = ExtResource("15_evwrj")
 texture_pressed = ExtResource("15_evwrj")
 texture_hover = ExtResource("16_f4obj")
 
-[node name="Login" type="Control" parent="DragArea/Title_Zone/Transition_Controller"]
+[node name="Login" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1286,7 +1376,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Login"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 10.0
@@ -1294,7 +1384,7 @@ offset_right = 443.0
 offset_bottom = 377.0
 texture = ExtResource("22_4ivrb")
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 321.0
@@ -1304,14 +1394,14 @@ texture_normal = ExtResource("15_evwrj")
 texture_pressed = ExtResource("15_evwrj")
 texture_hover = ExtResource("16_f4obj")
 
-[node name="Login_Controller" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect"]
+[node name="Login_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("24_jy7r5")
 
-[node name="Login" type="Control" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller"]
+[node name="Login" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller"]
 clip_contents = true
 layout_mode = 2
 anchors_preset = 0
@@ -1320,7 +1410,7 @@ offset_top = 14.0
 offset_right = 418.0
 offset_bottom = 353.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1328,16 +1418,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_sx4lh")
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("23_neoin")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1349,7 +1439,7 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Username" type="LineEdit" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
+[node name="Username" type="LineEdit" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_placeholder_color = Color(0.73339, 0.691301, 0.867188, 1)
@@ -1361,7 +1451,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_svu52")
 placeholder_text = "Email / Username"
 alignment = 1
 
-[node name="Password" type="LineEdit" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
+[node name="Password" type="LineEdit" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_placeholder_color = Color(0.73339, 0.691301, 0.867188, 1)
@@ -1374,7 +1464,7 @@ placeholder_text = "Password"
 alignment = 1
 secret = true
 
-[node name="Auth" type="LineEdit" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
+[node name="Auth" type="LineEdit" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_placeholder_color = Color(0.73339, 0.691301, 0.867188, 1)
@@ -1386,11 +1476,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_svu52")
 placeholder_text = "Auth Server - api.cubiixproject.xyz"
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Register" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
+[node name="Register" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -1400,7 +1490,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_1j41d")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1j41d")
 text = "Register"
 
-[node name="Login" type="Button" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
+[node name="Login" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("5_d5qti")
@@ -1410,7 +1500,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_j4yu8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_j4yu8")
 text = "Login"
 
-[node name="Loader" type="HBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect"]
+[node name="Loader" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect"]
 visible = false
 modulate = Color(1, 1, 1, 0.741176)
 layout_mode = 1
@@ -1423,56 +1513,56 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TextureRect" type="Panel" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+[node name="TextureRect" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qkhfu")
 
-[node name="TextureRect2" type="Panel" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+[node name="TextureRect2" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8iocu")
 
-[node name="TextureRect3" type="Panel" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+[node name="TextureRect3" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m4jrd")
 
-[node name="TextureRect4" type="Panel" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+[node name="TextureRect4" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6tt0e")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
 libraries = {
 "": ExtResource("26_b76qr")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader/AnimationPlayer"]
+[node name="AnimationTree" type="AnimationTree" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader/AnimationPlayer"]
 reset_on_save = false
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeAnimation_5abgu")
 anim_player = NodePath("..")
 
-[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_sx4lh")
 
-[node name="Login_Request" type="HTTPRequest" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller"]
+[node name="Login_Request" type="HTTPRequest" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller"]
 
-[node name="Register_Request" type="HTTPRequest" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller"]
+[node name="Register_Request" type="HTTPRequest" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller"]
 
-[node name="API_Validate" type="HTTPRequest" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller"]
+[node name="API_Validate" type="HTTPRequest" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller"]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 9.0
 offset_right = 143.0
 offset_bottom = 320.0
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
 theme_override_constants/shadow_offset_y = 2
@@ -1484,11 +1574,11 @@ text = "Online
 "
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 
-[node name="Warning" type="Label" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+[node name="Warning" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/line_spacing = 1
@@ -1504,15 +1594,1191 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="HSeparator2" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 
-[node name="HSeparator3" type="HSeparator" parent="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Title_Zone"]
+[node name="Offline" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="In-Game_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player"]
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 443.0
+offset_bottom = 377.0
+
+[node name="Side_A" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("27_qu4e4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -143.5
+offset_bottom = 143.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 41
+alignment = 1
+script = ExtResource("28_c10ss")
+
+[node name="Head" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Head"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Head/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Head/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("30_qn7im")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Head/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Face" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Face"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Face/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Face/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("31_okiee")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Face/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Chest" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Chest"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Chest/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Chest/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("32_1et4h")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Chest/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Back" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Back"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Back/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Back/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("33_kg70k")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Back/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="L_Hip" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hip"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hip/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hip/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("34_i2sjq")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hip/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="R_Hip" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hip"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hip/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hip/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("35_om6fv")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hip/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="L_Hand" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hand"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hand/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hand/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("36_eae0u")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hand/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="R_Hand" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hand"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hand/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hand/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("37_jf558")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hand/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Center" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
+layout_mode = 0
+offset_left = 118.0
+offset_right = 316.0
+offset_bottom = 367.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v41al")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center"]
+custom_minimum_size = Vector2(198, 198)
+layout_mode = 1
+offset_right = 198.0
+offset_bottom = 367.0
+
+[node name="SubViewport" type="SubViewport" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_l6x5t")
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 1
+size = Vector2i(198, 367)
+render_target_update_mode = 0
+
+[node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
+
+[node name="Side_B" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
+layout_mode = 0
+offset_left = 316.0
+offset_right = 434.0
+offset_bottom = 367.0
+texture = ExtResource("40_5lkqb")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -102.5
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 41
+alignment = 1
+script = ExtResource("28_c10ss")
+
+[node name="Ears" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Ears"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Ears/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Ears/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("38_daotg")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Ears/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Extra" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extra"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extra/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extra/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("39_ptxdx")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extra/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Eyes" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Eyes"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Eyes/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Eyes/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("40_sin8i")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Eyes/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Wings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Wings"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Wings/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Wings/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("41_wlsjq")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Wings/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Tails" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Tails"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Tails/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Tails/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("42_76txj")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Tails/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Palette" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Palette"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Palette/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Palette/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("39_o3ymg")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Palette/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Who" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Who"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Who/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Who/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("45_m08tt")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Who/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="Loader" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Loader"]
+custom_minimum_size = Vector2(91, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Loader/TextureButton"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Loader/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -39.0
+offset_right = 33.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("45_evikh")
+
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Loader/TextureButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -163.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("28_86qy3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -47.0
+offset_right = -3.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton4" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing"]
+visible = false
 layout_mode = 0
 offset_left = 316.0
 offset_top = 129.0
@@ -1521,17 +2787,17 @@ offset_bottom = 357.0
 theme_override_constants/separation = 38
 script = ExtResource("28_wu2g7")
 
-[node name="Control" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1539,7 +2805,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1551,17 +2817,17 @@ theme_override_font_sizes/font_size = 12
 text = "LGBT Cape"
 horizontal_alignment = 1
 
-[node name="Control2" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control2" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control2"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control2"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control2/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control2/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1569,7 +2835,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control2/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control2/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1581,17 +2847,17 @@ theme_override_font_sizes/font_size = 12
 text = "LGBT Cape"
 horizontal_alignment = 1
 
-[node name="Control3" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control3" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control3"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control3"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control3/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control3/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1599,7 +2865,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control3/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control3/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1611,17 +2877,17 @@ theme_override_font_sizes/font_size = 12
 text = "LGBT Cape"
 horizontal_alignment = 1
 
-[node name="Control4" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control4" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control4"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control4"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control4/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control4/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1629,7 +2895,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control4/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control4/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1641,17 +2907,17 @@ theme_override_font_sizes/font_size = 12
 text = "LGBT Cape"
 horizontal_alignment = 1
 
-[node name="Control5" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control5" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control5"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control5"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control5/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control5/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1659,7 +2925,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control5/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control5/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1671,17 +2937,17 @@ theme_override_font_sizes/font_size = 12
 text = "LGBT Cape"
 horizontal_alignment = 1
 
-[node name="Control6" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control6" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control6"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control6"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control6/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control6/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1689,7 +2955,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control6/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control6/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1701,17 +2967,17 @@ theme_override_font_sizes/font_size = 12
 text = "LGBT Cape"
 horizontal_alignment = 1
 
-[node name="Control7" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control7" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control7"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control7"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control7/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control7/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1719,7 +2985,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control7/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control7/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1731,17 +2997,17 @@ theme_override_font_sizes/font_size = 12
 text = "LGBT Cape"
 horizontal_alignment = 1
 
-[node name="Control8" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control8" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control8"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control8"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control8/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control8/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1749,7 +3015,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control8/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control8/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1761,17 +3027,17 @@ theme_override_font_sizes/font_size = 12
 text = "LGBT Cape"
 horizontal_alignment = 1
 
-[node name="Control9" type="Control" parent="DragArea/Title_Zone/VBoxContainer"]
+[node name="Control9" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Title_Zone/VBoxContainer/Control9"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control9"]
 layout_mode = 2
 offset_right = 134.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Title_Zone/VBoxContainer/Control9/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control9/TextureButton"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 174.0
@@ -1779,7 +3045,7 @@ pivot_offset = Vector2(67, 96)
 mouse_filter = 2
 texture = ExtResource("29_6jmre")
 
-[node name="Label" type="Label" parent="DragArea/Title_Zone/VBoxContainer/Control9/TextureButton/TextureRect"]
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control9/TextureButton/TextureRect"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 16.0
@@ -1802,33 +3068,36 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_43210")
 metadata/_edit_lock_ = true
 
-[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Settings"]]
-[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Settings"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Settings", true, "Title"]]
-[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Social"]]
-[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Social"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Social", false, "Title"]]
-[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Devlog"]]
-[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Devlog"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Devlog", true, "Title"]]
-[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Offline"]]
-[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Offline"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Offline", false, "Title"]]
-[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Login"]]
-[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Login"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Login", true, "Title"]]
-[connection signal="mouse_entered" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Update"]]
-[connection signal="mouse_exited" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Update"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Update", false, "Title"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Devlog/TextureRect/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Devlog"]]
-[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Master/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"Master"]]
-[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"SFX"]]
-[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Music/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"Music"]]
-[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"Notification"]]
-[connection signal="value_changed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/Screens/Audio" method="_on_h_slider_value_changed" binds= [&"Ping"]]
-[connection signal="scroll_ended" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
-[connection signal="scroll_started" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Settings/TextureRect/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Settings"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/TextureButton" to="DragArea/Title_Zone/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Login"]]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
-[connection signal="pressed" from="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Title_Zone/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]
+[connection signal="mouse_entered" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Settings"]]
+[connection signal="mouse_exited" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Settings"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Settings/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Settings", true, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Social"]]
+[connection signal="mouse_exited" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Social"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Social/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Social", false, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Devlog"]]
+[connection signal="mouse_exited" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Devlog"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Devlog/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Devlog", true, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Offline"]]
+[connection signal="mouse_exited" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Offline"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Offline/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Offline", true, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Login"]]
+[connection signal="mouse_exited" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Login"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Login/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Login", true, "Title"]]
+[connection signal="mouse_entered" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_entered" binds= ["Update"]]
+[connection signal="mouse_exited" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer" method="_on_texture_button_mouse_exited" binds= ["Update"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Update", false, "Title"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Devlog"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Master/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Master", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/SFX/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"SFX", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Music/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Music", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Notification", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Ping", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Shadow_Depth", &"Visuals"]]
+[connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
+[connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Visuals"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Audio"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Settings"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Login"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]

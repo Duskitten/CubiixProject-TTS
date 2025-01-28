@@ -16,7 +16,9 @@ var save_template = {
 		"Notification":0,
 		"Ping":0,
 	},
-	"TestVec3":var_to_str(Vector3(0,0,0))
+	"Visuals":{
+		"Shadow_Depth":0
+	}
 }
 
 var server_template ="""{

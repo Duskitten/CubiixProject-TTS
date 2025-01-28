@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://fqbvemktav2x"]
+[gd_scene load_steps=95 format=4 uid="uid://fqbvemktav2x"]
 
 [ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/HexstariaV2.gltf" id="1_1h5qw"]
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_kyva2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="2_1hj25"]
 [ext_resource type="Material" uid="uid://l3apok7uyv6k" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Sand.tres" id="2_tdkn4"]
 [ext_resource type="Shader" uid="uid://b5tdwwroynsrf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/hexstaria_Light_Water.res" id="3_8o0vn"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_q3rlg"]
 [ext_resource type="Texture2D" uid="uid://cl7vtomrdaqin" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/World/Water_Ripple.png" id="4_sm606"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/water_mover.gd" id="4_vbluc"]
 [ext_resource type="Material" uid="uid://cmxcypkotim2b" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/FishBooth.tres" id="5_u4vgk"]
@@ -30,7 +31,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0.0967742, 0.290323, 0.903226)
 colors = PackedColorArray(0.527812, 1, 0.871439, 1, 0, 0.545007, 1, 1, 0.475922, 0.767964, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tcuf3"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kwyqm"]
 gradient = SubResource("Gradient_cosy2")
 width = 128
 height = 128
@@ -42,7 +43,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0.0645161, 1)
 colors = PackedColorArray(0, 0.0369588, 0.0976563, 1, 0.249128, 0, 0.386719, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_utk10"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2v07h"]
 gradient = SubResource("Gradient_cjrs2")
 width = 128
 height = 128
@@ -52,19 +53,19 @@ fill_to = Vector2(1, 0.1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pbl14"]
 shader = ExtResource("1_kyva2")
 shader_parameter/SkyDarkness = 1.0
-shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_utk10")
-shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_tcuf3")
+shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_2v07h")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_kwyqm")
 
-[sub_resource type="Sky" id="Sky_w76i0"]
+[sub_resource type="Sky" id="Sky_wsfn7"]
 sky_material = SubResource("ShaderMaterial_pbl14")
 
 [sub_resource type="Environment" id="Environment_klj7n"]
 background_mode = 2
 background_color = Color(0.758192, 0.758192, 0.758192, 1)
-sky = SubResource("Sky_w76i0")
-ambient_light_source = 3
+sky = SubResource("Sky_wsfn7")
+ambient_light_source = 2
+ambient_light_color = Color(0.572549, 0.603922, 0.854902, 1)
 reflected_light_source = 1
-tonemap_mode = 2
 ssao_intensity = 4.64
 ssao_power = 1.72304
 ssao_detail = 1.21
@@ -74,7 +75,11 @@ glow_levels/1 = 16.0
 glow_levels/2 = 16.0
 glow_normalized = true
 glow_intensity = 1.0
+glow_bloom = 1.0
 glow_blend_mode = 1
+glow_hdr_threshold = 0.07
+glow_hdr_scale = 2.07
+glow_hdr_luminance_cap = 0.0
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.0196078, 0.615686, 1, 1)
@@ -124,8 +129,8 @@ offsets = PackedFloat32Array(0.184739, 0.722892)
 colors = PackedColorArray(1, 1, 1, 0.41, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_331bd"]
-offsets = PackedFloat32Array(0.0769231, 0.87381)
-colors = PackedColorArray(0, 0.0433317, 0.375, 1, 0, 0.297617, 0.773438, 1)
+offsets = PackedFloat32Array(0.0745342, 0.540373)
+colors = PackedColorArray(0.566635, 0.798117, 1, 1, 0, 0.587081, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ixgw8"]
 noise_type = 5
@@ -468,8 +473,13 @@ light_energy = 1.2
 light_bake_mode = 1
 light_cull_mask = 4293918721
 shadow_enabled = true
+shadow_bias = 0.15
+directional_shadow_mode = 0
 directional_shadow_max_distance = 52.0
 sky_mode = 1
+
+[node name="Lighting_Settings" type="Node" parent="Environment_Template/DirectionalLight3D2/DirectionalLight3D"]
+script = ExtResource("3_q3rlg")
 
 [node name="NPC" type="Node3D" parent="."]
 
@@ -593,6 +603,7 @@ shape = SubResource("ConcavePolygonShape3D_3udrh")
 [node name="HexstariaV2" parent="Map" instance=ExtResource("1_1h5qw")]
 
 [node name="Center" parent="Map/HexstariaV2" index="0"]
+layers = 262145
 surface_material_override/0 = ExtResource("5_u4vgk")
 
 [node name="Grass_Layer" parent="Map/HexstariaV2" index="1"]

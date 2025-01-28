@@ -63,7 +63,7 @@ func _ready() -> void:
 	
 	Hexii_Ui_Tablet_JournalButton.emit_signal("pressed")
 	
-	Core.AssetData.Tools.clone_character_with_accessories(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
+	#Core.AssetData.Tools.clone_character_with_accessories(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
 
 	AudioPlayer.add_child(CurrentAudioPlayer)
 

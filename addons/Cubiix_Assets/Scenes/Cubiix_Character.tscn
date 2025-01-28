@@ -82,13 +82,13 @@ bind/17/name = &"Foot_L"
 bind/17/bone = -1
 bind/17/pose = Transform3D(-1, 6.21176e-22, -8.74228e-08, -5.69993e-15, -1, -7.10543e-15, -8.74228e-08, -7.10543e-15, 1, 0.12722, 0.24, 1.11219e-08)
 
-[sub_resource type="Gradient" id="Gradient_v4ag7"]
+[sub_resource type="Gradient" id="Gradient_xdia2"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.1275, 0.29148)
-colors = PackedColorArray(0, 0, 0, 0.741176, 0, 0, 0, 0.741176, 0, 0, 0, 0)
+colors = PackedColorArray(0.167969, 0.167969, 0.167969, 0.741176, 0.367188, 0.367188, 0.367188, 0.741176, 0.484375, 0.484375, 0.484375, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4r4pt"]
-gradient = SubResource("Gradient_v4ag7")
+gradient = SubResource("Gradient_xdia2")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
@@ -242,6 +242,7 @@ skin = SubResource("Skin_43fn0")
 
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00529909, 0)
+visible = false
 layers = 1048575
 size = Vector3(2, 5, 2)
 texture_albedo = SubResource("GradientTexture2D_4r4pt")

@@ -5,4 +5,5 @@ extends Node
 
 func _ready() -> void:
 	await Character.ScriptLoaded
+	print("Playing!")
 	Hub.update_animation(["Idle",0.0])

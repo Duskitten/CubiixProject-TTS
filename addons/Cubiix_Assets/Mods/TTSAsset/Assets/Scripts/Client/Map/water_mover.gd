@@ -72,14 +72,15 @@ func player_lock(Insert_Player:Node, Start_Pos:Vector3, Insert_PlayerScript:Node
 func player_unlock(Jump:bool) -> void:
 	Player_Lock.remote_path = NodePath("")
 	Player = null
-	Player_Script.Swimming = false
-	Player_Script.Movement_Disable = false
-	if Particles != null:
-			Particles.emitting = false
-	if Jump:
-		Player_Script.AltJump = true
-	Player_Script.RayCast_Swim.enabled = true
-	Player_Script = null
+	if Player_Script != null:
+		Player_Script.Swimming = false
+		Player_Script.Movement_Disable = false
+		if Particles != null:
+				Particles.emitting = false
+		if Jump:
+			Player_Script.AltJump = true
+		Player_Script.RayCast_Swim.enabled = true
+		Player_Script = null
 
 func align_up(node_basis, normal, slerptime):
 	var result = Basis()

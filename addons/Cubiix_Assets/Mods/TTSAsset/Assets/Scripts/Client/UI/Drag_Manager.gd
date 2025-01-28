@@ -72,3 +72,7 @@ func disable_connect(node:Node) -> void:
 			i.focus_exited.connect(enable_drag.bind())
 			i.focus_exited.connect(enable_input.bind())
 			i.text_submitted.connect(reset_focus.bind())
+
+
+func _on_h_slider_value_changed(value: float, extra_arg_0: StringName, extra_arg_1: StringName) -> void:
+	pass # Replace with function body.
