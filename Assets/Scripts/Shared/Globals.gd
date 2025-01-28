@@ -56,6 +56,16 @@ func _ready() -> void:
 		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/client.json")
 		Json.parse(JsonFile)
 		Data = Json.data
+		
+		###For continuity/Updating purposes
+		for i in save_template.keys():
+			if !Data.keys().has(i):
+				Data[i] = save_template[i]
+			if save_template[i] is Dictionary:
+				for n in save_template[i].keys():
+					if !Data[i].has(n):
+						Data[i][n] = save_template[i][n]
+
 		_setup_audio(Data["Audio"])
 		
 		
