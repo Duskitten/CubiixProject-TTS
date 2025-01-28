@@ -58,17 +58,11 @@ func _ready() -> void:
 		Data = Json.data
 		
 		###For continuity/Updating purposes
-		for i in save_template.keys():
-			if !Data.keys().has(i):
-				Data[i] = save_template[i]
-			if save_template[i] is Dictionary:
-				for n in save_template[i].keys():
-					if !Data[i].has(n):
-						Data[i][n] = save_template[i][n]
+		data_failsafe_check(save_template)
 
 		_setup_audio(Data["Audio"])
 		
-		
+
 	if OS.has_feature("server"):
 		var Json = JSON.new()
 		#print(OS.get_executable_path().get_base_dir()+"/server.json")
@@ -81,6 +75,14 @@ func _ready() -> void:
 		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/server.json")
 		Json.parse(JsonFile)
 		Data = Json.data
+
+func data_failsafe_check(pathobj) -> void:
+	for i in pathobj.keys():
+		if pathobj[i] is Dictionary:
+			for n in pathobj[i].keys():
+				if !Data[i].has(n):
+					Data[i][n] = pathobj[i][n]
+			data_failsafe_check(pathobj[i])
 
 func _setup_audio(data:Dictionary) -> void:
 	for i in data.keys():
