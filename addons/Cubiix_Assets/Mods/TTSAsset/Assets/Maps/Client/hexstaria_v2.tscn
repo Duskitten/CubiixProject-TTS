@@ -129,12 +129,12 @@ offsets = PackedFloat32Array(0.184739, 0.722892)
 colors = PackedColorArray(1, 1, 1, 0.41, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_331bd"]
-offsets = PackedFloat32Array(0.0745342, 0.540373)
-colors = PackedColorArray(0.566635, 0.798117, 1, 1, 0, 0.587081, 1, 1)
+offsets = PackedFloat32Array(0, 0.689441)
+colors = PackedColorArray(0, 0.779, 1, 0.676, 0, 0.463058, 1, 0.676)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ixgw8"]
 noise_type = 5
-frequency = 0.5
+frequency = 0.4
 fractal_type = 3
 fractal_octaves = 10
 fractal_lacunarity = 5.42
@@ -150,7 +150,7 @@ noise = SubResource("FastNoiseLite_ixgw8")
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_t2oll"]
 noise_type = 5
 seed = -14280
-frequency = 0.5
+frequency = 0.4
 fractal_type = 3
 fractal_octaves = 10
 fractal_lacunarity = 5.42
@@ -1085,6 +1085,7 @@ Tag_Radius = 5.78
 msaa_2d = 3
 msaa_3d = 3
 use_debanding = true
+screenshotMode = true
 
 [node name="Camera3D2" parent="SubViewport" index="0"]
 transform = Transform3D(0.99942, 0.0281175, -0.0191964, -0.0279201, 0.999556, 0.0104718, 0.0194823, -0.00992975, 0.999761, 0, 0.829, 25.435)
