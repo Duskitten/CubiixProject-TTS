@@ -1,14 +1,88 @@
-[gd_scene load_steps=23 format=3 uid="uid://cmukryvy8s3t3"]
+[gd_scene load_steps=16 format=3 uid="uid://cmukryvy8s3t3"]
 
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="1_t5kl5"]
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="2_irli6"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_277l1"]
 
+[sub_resource type="Gradient" id="Gradient_bxdry"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0967742, 0.290323, 0.903226)
+colors = PackedColorArray(0.527812, 1, 0.871439, 1, 0, 0.545007, 1, 1, 0.475922, 0.767964, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kwyqm"]
+gradient = SubResource("Gradient_bxdry")
+width = 128
+height = 128
+fill_from = Vector2(1, 0.587302)
+fill_to = Vector2(1, 0.103175)
+
+[sub_resource type="Gradient" id="Gradient_0secb"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0645161, 1)
+colors = PackedColorArray(0, 0.0369588, 0.0976563, 1, 0.249128, 0, 0.386719, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2v07h"]
+gradient = SubResource("Gradient_0secb")
+width = 128
+height = 128
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 0.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_185qv"]
+shader = ExtResource("2_irli6")
+shader_parameter/SkyDarkness = 1.0
+shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_2v07h")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_kwyqm")
+
+[sub_resource type="Sky" id="Sky_wsfn7"]
+sky_material = SubResource("ShaderMaterial_185qv")
+
+[sub_resource type="Environment" id="Environment_u6btc"]
+background_mode = 2
+background_color = Color(0.758192, 0.758192, 0.758192, 1)
+sky = SubResource("Sky_wsfn7")
+ambient_light_source = 2
+ambient_light_color = Color(0.572549, 0.603922, 0.854902, 1)
+reflected_light_source = 1
+ssao_intensity = 4.64
+ssao_power = 1.72304
+ssao_detail = 1.21
+ssao_sharpness = 1.0
+glow_enabled = true
+glow_levels/1 = 16.0
+glow_levels/2 = 16.0
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_threshold = 0.07
+glow_hdr_scale = 2.07
+glow_hdr_luminance_cap = 0.0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.0196078, 0.615686, 1, 1)
+fog_density = 0.7123
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.015
+volumetric_fog_albedo = Color(0, 1, 0.292014, 1)
+volumetric_fog_emission = Color(0.0203175, 0.616315, 1, 1)
+volumetric_fog_length = 173.9
+volumetric_fog_sky_affect = 0.0
+volumetric_fog_temporal_reprojection_amount = 0.99
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tyqme"]
+auto_exposure_scale = 0.5
+auto_exposure_speed = 1.0
+dof_blur_far_distance = 54.6
+dof_blur_far_transition = 96.04
+dof_blur_amount = 0.03
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_kp3qj"]
 size = Vector2(5.66, 5.66)
 
 [sub_resource type="Gradient" id="Gradient_b41qd"]
-colors = PackedColorArray(0.471, 0.31, 1, 0.541176, 1, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.658385)
+colors = PackedColorArray(0.471, 0.31, 1, 0.541176, 0.448152, 0.354392, 1, 0.859)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nyfp3"]
 gradient = SubResource("Gradient_b41qd")
@@ -23,140 +97,11 @@ shading_mode = 2
 albedo_texture = SubResource("GradientTexture2D_nyfp3")
 texture_filter = 0
 
-[sub_resource type="Gradient" id="Gradient_xvd6n"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.0967742, 0.290323, 0.903226)
-colors = PackedColorArray(0.527812, 1, 0.871439, 1, 0, 0.545007, 1, 1, 0.475922, 0.767964, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tcuf3"]
-gradient = SubResource("Gradient_xvd6n")
-width = 128
-height = 128
-fill_from = Vector2(1, 0.587302)
-fill_to = Vector2(1, 0.103175)
-
-[sub_resource type="Gradient" id="Gradient_hmxc8"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.0645161, 1)
-colors = PackedColorArray(0, 0.0369588, 0.0976563, 1, 0.249128, 0, 0.386719, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_utk10"]
-gradient = SubResource("Gradient_hmxc8")
-width = 128
-height = 128
-fill_from = Vector2(1, 1)
-fill_to = Vector2(1, 0.1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q55nj"]
-shader = ExtResource("2_irli6")
-shader_parameter/SkyDarkness = 1.0
-shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_utk10")
-shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_tcuf3")
-
-[sub_resource type="Sky" id="Sky_w76i0"]
-sky_material = SubResource("ShaderMaterial_q55nj")
-
-[sub_resource type="Environment" id="Environment_rudk5"]
-background_mode = 2
-background_color = Color(0.758192, 0.758192, 0.758192, 1)
-sky = SubResource("Sky_w76i0")
-ambient_light_source = 3
-reflected_light_source = 1
-tonemap_mode = 2
-ssao_intensity = 4.64
-ssao_power = 1.72304
-ssao_detail = 1.21
-ssao_sharpness = 1.0
-glow_enabled = true
-glow_levels/1 = 16.0
-glow_levels/2 = 16.0
-glow_normalized = true
-glow_intensity = 1.0
-glow_blend_mode = 1
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.0196078, 0.615686, 1, 1)
-fog_density = 0.7123
-fog_sky_affect = 0.0
-volumetric_fog_density = 0.015
-volumetric_fog_albedo = Color(0, 1, 0.292014, 1)
-volumetric_fog_emission = Color(0.0203175, 0.616315, 1, 1)
-volumetric_fog_length = 173.9
-volumetric_fog_sky_affect = 0.0
-volumetric_fog_temporal_reprojection_amount = 0.99
-
-[sub_resource type="Gradient" id="Gradient_ujpo8"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.0967742, 0.290323, 0.903226)
-colors = PackedColorArray(0.527812, 1, 0.871439, 1, 0, 0.545007, 1, 1, 0.475922, 0.767964, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ngfh"]
-gradient = SubResource("Gradient_ujpo8")
-width = 128
-height = 128
-fill_from = Vector2(1, 0.587302)
-fill_to = Vector2(1, 0.103175)
-
-[sub_resource type="Gradient" id="Gradient_0r07a"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.0645161, 1)
-colors = PackedColorArray(0, 0.0369588, 0.0976563, 1, 0.249128, 0, 0.386719, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m8nqx"]
-gradient = SubResource("Gradient_0r07a")
-width = 128
-height = 128
-fill_from = Vector2(1, 1)
-fill_to = Vector2(1, 0.1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq6xx"]
-shader = ExtResource("2_irli6")
-shader_parameter/SkyDarkness = 1.0
-shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_m8nqx")
-shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_1ngfh")
-
-[sub_resource type="Sky" id="Sky_k71g2"]
-sky_material = SubResource("ShaderMaterial_kq6xx")
-
-[sub_resource type="Environment" id="Environment_nqeyq"]
-background_mode = 2
-background_color = Color(0.758192, 0.758192, 0.758192, 1)
-sky = SubResource("Sky_k71g2")
-ambient_light_source = 3
-reflected_light_source = 1
-tonemap_mode = 2
-ssao_intensity = 4.64
-ssao_power = 1.72304
-ssao_detail = 1.21
-ssao_sharpness = 1.0
-glow_enabled = true
-glow_levels/1 = 16.0
-glow_levels/2 = 16.0
-glow_normalized = true
-glow_intensity = 1.0
-glow_blend_mode = 1
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.0196078, 0.615686, 1, 1)
-fog_density = 0.7123
-fog_sky_affect = 0.0
-volumetric_fog_density = 0.015
-volumetric_fog_albedo = Color(0, 1, 0.292014, 1)
-volumetric_fog_emission = Color(0.0203175, 0.616315, 1, 1)
-volumetric_fog_length = 173.9
-volumetric_fog_sky_affect = 0.0
-volumetric_fog_temporal_reprojection_amount = 0.99
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_q4b77"]
-auto_exposure_scale = 0.5
-auto_exposure_speed = 1.0
-dof_blur_far_distance = 54.6
-dof_blur_far_transition = 96.04
-dof_blur_amount = 0.03
-
 [node name="Character_Editor" type="Node3D"]
 
-[node name="Ki" parent="." instance=ExtResource("1_t5kl5")]
+[node name="Rotator" type="Node3D" parent="."]
+
+[node name="CubiixModel" parent="Rotator" instance=ExtResource("1_t5kl5")]
 Load_Script_ID = Array[String](["TTSAssets/Character_Preview"])
 Load_Script_Passthrough = Array[Dictionary]([{}])
 Animation_Path = "TTSAssets/TTS_Player_Anims"
@@ -164,41 +109,22 @@ Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
 Character_String = "{\"B1\":\"9ec0bd\",\"B1E\":\"6e6c5f\",\"B1ES\":1,\"B1M\":0.7,\"B1R\":0,\"B2\":\"354c56\",\"B2E\":\"63665f\",\"B2ES\":1,\"B2M\":0,\"B2R\":1,\"B3\":\"ff7e00\",\"B3E\":\"ffb67c\",\"B3ES\":1,\"B3M\":0,\"B3R\":1,\"B4\":\"ff7e00\",\"B4E\":\"ffb67c\",\"B4ES\":1,\"B4M\":0,\"B4R\":1,\"EA\":\"CoreAssets/Ears\",\"EX\":\"CoreAssets/Extra\",\"EY\":\"CoreAssets/Eyes_Default\",\"N\":\"\",\"PA\":\"\",\"PB\":\"\",\"PC\":\"\",\"S\":1,\"T\":\"CoreAssets/Tails\",\"W\":\"CoreAssets/Wings\"}"
 Accessory_String = "{}"
 
-[node name="Skeleton3D" parent="Ki/Hub/Cubiix_Model/Armature" index="0"]
+[node name="Skeleton3D" parent="Rotator/CubiixModel/Hub/Cubiix_Model/Armature" index="0"]
 bones/7/rotation = Quaternion(0.534874, 0.075961, 0.0397133, 0.840572)
 bones/12/rotation = Quaternion(0.534874, -0.075961, -0.0397133, 0.840572)
 
-[node name="Decal" parent="Ki" index="1"]
+[node name="Decal" parent="Rotator/CubiixModel" index="1"]
 sorting_offset = 1.0
 size = Vector3(2, 1, 2)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-layers = 786439
-mesh = SubResource("PlaneMesh_kp3qj")
-surface_material_override/0 = SubResource("StandardMaterial3D_kr5cl")
-
-[node name="Y" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76429, 0)
-
-[node name="X" type="Node3D" parent="Y"]
-
-[node name="Z" type="Node3D" parent="Y/X"]
-
-[node name="Camera3D" type="Camera3D" parent="Y/X/Z"]
-transform = Transform3D(1, 0, 0, 0, 0.997452, 0.0713408, 0, -0.0713408, 0.997452, 0, 0, 1.914)
-environment = SubResource("Environment_rudk5")
-current = true
-fov = 50.0
-far = 10.0
-
-[node name="Environment_Template" type="Node3D" parent="."]
+[node name="Environment_Template" type="Node3D" parent="Rotator"]
 process_mode = 4
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment_Template"]
-environment = SubResource("Environment_nqeyq")
-camera_attributes = SubResource("CameraAttributesPractical_q4b77")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Rotator/Environment_Template"]
+environment = SubResource("Environment_u6btc")
+camera_attributes = SubResource("CameraAttributesPractical_tyqme")
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Environment_Template"]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Rotator/Environment_Template"]
 process_mode = 3
 transform = Transform3D(-0.807985, -0.416624, 0.416634, 0.398019, 0.135443, 0.907324, -0.434443, 0.898932, 0.056388, 0.00469455, 0, 0.0278296)
 layers = 0
@@ -210,17 +136,37 @@ light_bake_mode = 1
 light_cull_mask = 4293918720
 sky_mode = 2
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template/DirectionalLight3D2"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Rotator/Environment_Template/DirectionalLight3D2"]
 transform = Transform3D(1, 0, 0, 1.49012e-08, 1, -7.45058e-09, -2.98023e-08, -2.23517e-08, 1, 0, 0, 0)
 light_energy = 1.2
 light_bake_mode = 1
 light_cull_mask = 4293918721
 shadow_enabled = true
+shadow_bias = 0.15
 directional_shadow_mode = 0
 directional_shadow_max_distance = 52.0
 sky_mode = 1
 
-[node name="Lighting_Settings" type="Node" parent="Environment_Template/DirectionalLight3D2/DirectionalLight3D"]
+[node name="Lighting_Settings" type="Node" parent="Rotator/Environment_Template/DirectionalLight3D2/DirectionalLight3D"]
 script = ExtResource("3_277l1")
 
-[editable path="Ki"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 786439
+mesh = SubResource("PlaneMesh_kp3qj")
+surface_material_override/0 = SubResource("StandardMaterial3D_kr5cl")
+
+[node name="Y" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692933, 0)
+
+[node name="X" type="Node3D" parent="Y"]
+transform = Transform3D(1, 0, 0, 0, 0.983204, 0.18251, 0, -0.18251, 0.983204, 0, 0, 0)
+
+[node name="Z" type="Node3D" parent="Y/X"]
+
+[node name="Camera3D" type="Camera3D" parent="Y/X/Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+current = true
+fov = 50.0
+far = 10.0
+
+[editable path="Rotator/CubiixModel"]

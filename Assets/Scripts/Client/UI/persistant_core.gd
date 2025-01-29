@@ -121,24 +121,24 @@ func _process(delta: float) -> void:
 	if TablockEnabled:
 		if Mouse_In_UI || Menu_Focused || $CanvasLayer/Hexii_Tablet_UI.visible:
 			if $CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport.MouseInside:
-				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
+				#Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
 				TablockBypass = false
 				$CanvasLayer/CrossHair.visible = false
 			else:
-				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
+				#Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
 				TablockBypass = true
 				$CanvasLayer/CrossHair.visible = false
 		else:
-			Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
+			#Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
 			TablockBypass = false
 			$CanvasLayer/CrossHair.visible = true
 	else:
 		if $CanvasLayer/Hexii_Tablet_UI/Wallpaper/Character_Screen/SubViewportContainer/SubViewport.MouseInside:
-				Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
+				#Input.mouse_mode = Input.MouseMode.MOUSE_MODE_CAPTURED
 				TablockBypass = false
 				$CanvasLayer/CrossHair.visible = false
 		else:
-			Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
+			#Input.mouse_mode = Input.MouseMode.MOUSE_MODE_VISIBLE
 			TablockBypass = false
 			$CanvasLayer/CrossHair.visible = false
 			

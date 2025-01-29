@@ -89,10 +89,7 @@
 				"Mesh_Path":"Armature/Skeleton3D/Eyes_Tri",
 				"Has_Blendshapes":true
 			},
-			"Ears":{
-				"Name":"None",
-				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_None.png"
-			},
+			
 			"Ears_Cat":{
 				"Tag":"Ears",
 				"Name":"Cat",
@@ -457,10 +454,12 @@
 					}
 				}
 			},
-			"Extra":{
+			"Ears":{
+				"Tag":"Ears",
 				"Name":"None",
-				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_None.png",
+				"Image_Preview":"Assets/Textures/Previews/Ears/Ears_None.png"
 			},
+			
 			"Extra_Antler":{
 				"Tag":"Extras",
 				"Name":"Antler",
@@ -510,11 +509,12 @@
 				"Path" : "Assets/Mesh/Base/Extra/Shark_Extra.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Shark_Extra",
 			},
-
-			"Wings":{
+			"Extra":{
+				"Tag":"Extras",
 				"Name":"None",
-				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_None.png",
+				"Image_Preview":"Assets/Textures/Previews/Extras/Extra_None.png",
 			},
+			
 			"Wings_Entity":{
 				"Tag":"Wings",
 				"Name":"Entity",
@@ -550,10 +550,12 @@
 				"Path" : "Assets/Mesh/Base/Wings/Dragon_Wings.gltf",
 				"Mesh_Path":"Dragon_Wings_Armature/Skeleton3D/Dragon_Wings",
 			},
-			"Tails":{
+			"Wings":{
+				"Tag":"Wings",
 				"Name":"None",
-				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_None.png",
 			},
+			
 			"Tails_Cat":{
 				"Tag":"Tails",
 				"Name":"Cat",
@@ -847,6 +849,11 @@
 						}
 					}
 				}
+			},
+			"Tails":{
+				"Tag":"Tails",
+				"Name":"None",
+				"Image_Preview":"Assets/Textures/Previews/Tails/Tails_None.png",
 			},
 			"Head":{
 				"Tag":"Head",

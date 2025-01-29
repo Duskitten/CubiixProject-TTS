@@ -25,7 +25,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-window/size/resizable=false
 
 [editor_plugins]
 

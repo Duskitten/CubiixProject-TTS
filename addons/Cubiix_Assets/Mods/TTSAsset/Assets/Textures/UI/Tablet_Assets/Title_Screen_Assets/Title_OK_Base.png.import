@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vsjigh1t64f8"
-path="res://.godot/imported/Card_A.png-449c4be51a14168fdc4a5144523fae27.ctex"
+uid="uid://b8cap6ry6tjb7"
+path="res://.godot/imported/Title_OK_Base.png-1bc844630cafbe1929932c3e9312adc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Card_Assets/Card_A.png"
-dest_files=["res://.godot/imported/Card_A.png-449c4be51a14168fdc4a5144523fae27.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_OK_Base.png"
+dest_files=["res://.godot/imported/Title_OK_Base.png-1bc844630cafbe1929932c3e9312adc2.ctex"]
 
 [params]
 

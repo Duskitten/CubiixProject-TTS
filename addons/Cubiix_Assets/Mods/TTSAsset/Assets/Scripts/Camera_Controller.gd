@@ -1,5 +1,5 @@
 extends Node3D
-
+@onready var Core = get_node("/root/Main_Scene/CoreLoader")
 ##Get the actual player object
 @onready var Character = get_parent()
 
@@ -45,13 +45,14 @@ func _input(event: InputEvent) -> void:
 			Camera_Y.rotation_degrees.y -= event.relative.x/Sensitivity
 			Camera_X.rotation_degrees.x += event.relative.y/Sensitivity
 			Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
-
-	if Input.is_action_just_released("scroll_up"):
-		CameraZoom += 1
-	elif  Input.is_action_just_released("scroll_down"):
-		CameraZoom -= 1
-			
-	CameraZoom = clampf(CameraZoom, -6,0)
+	
+	if Core.Globals.UI_Hovered.size() <= 0:
+		if Input.is_action_just_released("scroll_up"):
+			CameraZoom += 1
+		elif  Input.is_action_just_released("scroll_down"):
+			CameraZoom -= 1
+				
+		CameraZoom = clampf(CameraZoom, -6,0)
 	
 
 func _process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=94 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://d0a3m7qnlq1ra" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Login_Window.png" id="23_neoin"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/login_controller.gd" id="24_jy7r5"]
 [ext_resource type="AnimationLibrary" uid="uid://dadtuq6br5p3c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Animations/Loaderbar.tres" id="26_b76qr"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Character_Editor.gd" id="26_roqma"]
 [ext_resource type="Texture2D" uid="uid://dthsi25w60klk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_A.png" id="27_qu4e4"]
 [ext_resource type="PackedScene" uid="uid://cmukryvy8s3t3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/UI/character_editor.tscn" id="27_t467y"]
 [ext_resource type="Texture2D" uid="uid://b36o2458ckfsf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot.png" id="28_86qy3"]
@@ -40,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://dn5rj008eiuyb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/L_Hand_Icon.png" id="36_eae0u"]
 [ext_resource type="Texture2D" uid="uid://ehai1jpye32u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/R_Hand_Icon.png" id="37_jf558"]
 [ext_resource type="Texture2D" uid="uid://by8bbtx0uwn6m" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Ears_Icon.png" id="38_daotg"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Character_Previewer_Controls.gd" id="38_fcna6"]
 [ext_resource type="Texture2D" uid="uid://btnlf2qdftncl" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Picker_Icon.png" id="39_o3ymg"]
 [ext_resource type="Texture2D" uid="uid://dkxxq80qu5737" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Extra_Icon.png" id="39_ptxdx"]
 [ext_resource type="Texture2D" uid="uid://bauyi80rix4bj" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_B.png" id="40_5lkqb"]
@@ -48,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://b361amk056sbn" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Tails_Icon.png" id="42_76txj"]
 [ext_resource type="Texture2D" uid="uid://bst8b4r2w5sb2" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/QR_Icon.png" id="45_evikh"]
 [ext_resource type="Texture2D" uid="uid://1hw2pnpypueg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Who_Icon.png" id="45_m08tt"]
+[ext_resource type="Texture2D" uid="uid://btyrrwu4s7wtb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_D.png" id="47_u26x0"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
@@ -293,7 +296,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.197333, 0.599085, 1)
+bg_color = Color(0, 0.362905, 0.600135, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -302,11 +305,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = -1.40591
-expand_margin_bottom = -1.40591
+expand_margin_top = 0.184907
+expand_margin_bottom = 0.184907
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.676879, 0.593542, 1)
+bg_color = Color(0, 0.784415, 0.602808, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -315,9 +318,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 12.3666
+expand_margin_bottom = 12.3666
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.0504087, 0.597514, 1)
+bg_color = Color(0, 0.823598, 0.603056, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -326,9 +331,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 13.952
+expand_margin_bottom = 13.952
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.359551, 0.600114, 1)
+bg_color = Color(0, -0.761436, 0.593006, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -337,8 +344,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 0.135053
-expand_margin_bottom = 0.135053
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -358,6 +363,118 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="World3D" id="World3D_l6x5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nuyg7"]
+
+[sub_resource type="Animation" id="Animation_5fsc7"]
+resource_name = "Out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Side_A:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-130, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(118, 0), Vector2(118, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Side_B:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(316, 0), Vector2(316, 0), Vector2(446, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Side_In-Menu:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(452, 0), Vector2(452, 0), Vector2(199, 0), Vector2(199, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eg3eh"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Side_A:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(118, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Side_B:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(316, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Side_In-Menu:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(452, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmxce"]
+_data = {
+"Out": SubResource("Animation_5fsc7"),
+"RESET": SubResource("Animation_eg3eh")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
 texture = ExtResource("87_b3x5w")
@@ -1016,7 +1133,13 @@ texture_normal = ExtResource("15_evwrj")
 texture_pressed = ExtResource("15_evwrj")
 texture_hover = ExtResource("16_f4obj")
 
+[node name="VScrollBar" type="VScrollBar" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="Settings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1603,7 +1726,6 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
 [node name="Offline" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1633,11 +1755,12 @@ offset_left = 9.0
 offset_top = 10.0
 offset_right = 443.0
 offset_bottom = 377.0
+script = ExtResource("26_roqma")
 
 [node name="Side_A" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 118.0
+offset_bottom = 367.0
 texture = ExtResource("27_qu4e4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A"]
@@ -2187,22 +2310,25 @@ offset_right = 316.0
 offset_bottom = 367.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_v41al")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center"]
+[node name="Polygon2D" type="Polygon2D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center"]
+clip_children = 1
+polygon = PackedVector2Array(2, 365, 6, 367, 192, 367, 196, 365, 198, 361, 198, 7, 196, 2, 191, 0, 7, 0, 2, 2, 0, 7, 0, 361)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D"]
 custom_minimum_size = Vector2(198, 198)
-layout_mode = 1
 offset_right = 198.0
 offset_bottom = 367.0
+script = ExtResource("38_fcna6")
 
-[node name="SubViewport" type="SubViewport" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer"]
 own_world_3d = true
 world_3d = SubResource("World3D_l6x5t")
 transparent_bg = true
 handle_input_locally = false
-msaa_3d = 1
 size = Vector2i(198, 367)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
-[node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
+[node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
 
 [node name="Side_B" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
 layout_mode = 0
@@ -2296,10 +2422,10 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("28_86qy3")
 
-[node name="Extra" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
+[node name="Extras" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extra"]
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extras"]
 custom_minimum_size = Vector2(91, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -2314,7 +2440,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extra/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extras/TextureButton"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 7
@@ -2330,7 +2456,7 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("28_86qy3")
 
-[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extra/TextureButton/TextureRect"]
+[node name="TextureRect2" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extras/TextureButton/TextureRect"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2346,7 +2472,7 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("39_ptxdx")
 
-[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extra/TextureButton"]
+[node name="TextureRect3" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extras/TextureButton"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2751,6 +2877,118 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("28_86qy3")
 
+[node name="Side_In-Menu" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
+layout_mode = 0
+offset_left = 452.0
+offset_right = 688.0
+offset_bottom = 367.0
+texture = ExtResource("47_u26x0")
+
+[node name="Menu_Color" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu_Slider" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider"]
+custom_minimum_size = Vector2(234.96, 342)
+layout_mode = 0
+offset_top = 13.0
+offset_right = 235.0
+offset_bottom = 355.0
+theme = ExtResource("14_q4chf")
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 102.68)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(131.16, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
+
+[node name="Template_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer/Template_Controller"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer/Template_Controller/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer/Template_Controller/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(134, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("28_wu2g7")
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(6.26, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 321.0
+offset_right = 46.0
+offset_bottom = 356.0
+texture_normal = ExtResource("15_evwrj")
+texture_pressed = ExtResource("15_evwrj")
+texture_hover = ExtResource("16_f4obj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_hmxce")
+}
+
 [node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
 layout_mode = 1
 anchors_preset = 12
@@ -2776,286 +3014,6 @@ layout_mode = 2
 
 [node name="TextureButton4" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing"]
-visible = false
-layout_mode = 0
-offset_left = 316.0
-offset_top = 129.0
-offset_right = 356.0
-offset_bottom = 357.0
-theme_override_constants/separation = 38
-script = ExtResource("28_wu2g7")
-
-[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
-
-[node name="Control2" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control2"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control2/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control2/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
-
-[node name="Control3" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control3"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control3/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control3/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
-
-[node name="Control4" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control4"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control4/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control4/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
-
-[node name="Control5" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control5"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control5/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control5/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
-
-[node name="Control6" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control6"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control6/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control6/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
-
-[node name="Control7" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control7"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control7/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control7/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
-
-[node name="Control8" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control8"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control8/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control8/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
-
-[node name="Control9" type="Control" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control9"]
-layout_mode = 2
-offset_right = 134.0
-offset_bottom = 192.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control9/TextureButton"]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 174.0
-pivot_offset = Vector2(67, 96)
-mouse_filter = 2
-texture = ExtResource("29_6jmre")
-
-[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Control9/TextureButton/TextureRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 117.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "LGBT Cape"
-horizontal_alignment = 1
 
 [node name="Overlay" type="Panel" parent="DragArea"]
 layout_mode = 0
@@ -3101,3 +3059,4 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Login"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect" method="_on_back_button_pressed"]

@@ -37,4 +37,3 @@ func _ready() -> void:
 	call_deferred("emit_signal","ScriptLoaded")
 	Assets.Tools.generate_accessories_from_string(Accessory_String,Hub)
 	Assets.Tools.generate_character_from_string(Character_String,Hub)
-	print(self.name)

@@ -11,6 +11,7 @@ var drag_offset:Vector2
 func _ready() -> void:
 	Core.Globals.All_UI.append(get_parent())
 	
+	await get_tree().create_timer(1).timeout
 	disable_connect(self)
 	
 	
@@ -43,6 +44,7 @@ func drag_manager() -> void:
 
 
 func disable_drag() -> void:
+	print("test")
 	alt_drag_disable = true
 
 func enable_drag() -> void:
@@ -62,8 +64,7 @@ func disable_connect(node:Node) -> void:
 		
 		if i.get_child_count() > 0:
 			disable_connect(i)
-
-		if i is BaseButton || i is Slider || i is ScrollBar:
+		if i is BaseButton || i is Slider || i is SubViewportContainer:
 			i.mouse_entered.connect(disable_drag.bind())
 			i.mouse_exited.connect(enable_drag.bind())
 		elif i is LineEdit:
@@ -72,6 +73,13 @@ func disable_connect(node:Node) -> void:
 			i.focus_exited.connect(enable_drag.bind())
 			i.focus_exited.connect(enable_input.bind())
 			i.text_submitted.connect(reset_focus.bind())
+		elif i is ScrollContainer:
+			i.get_h_scroll_bar().mouse_entered.connect(disable_drag.bind())
+			i.get_h_scroll_bar().mouse_exited.connect(enable_drag.bind())
+			i.get_v_scroll_bar().mouse_entered.connect(disable_drag.bind())
+			i.get_v_scroll_bar().mouse_exited.connect(enable_drag.bind())
+			i.mouse_entered.connect(disable_drag.bind())
+			i.mouse_exited.connect(enable_drag.bind())
 
 
 func _on_h_slider_value_changed(value: float, extra_arg_0: StringName, extra_arg_1: StringName) -> void:
