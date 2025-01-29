@@ -296,7 +296,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.362905, 0.600135, 1)
+bg_color = Color(0, 1.01556, 0.604274, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -305,11 +305,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 0.184907
-expand_margin_bottom = 0.184907
+expand_margin_top = 20.4726
+expand_margin_bottom = 20.4726
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.784415, 0.602808, 1)
+bg_color = Color(0, -0.634067, 0.593813, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -318,11 +318,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 12.3666
-expand_margin_bottom = 12.3666
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.823598, 0.603056, 1)
+bg_color = Color(0, -0.326009, 0.595767, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -331,11 +329,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 13.952
-expand_margin_bottom = 13.952
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.761436, 0.593006, 1)
+bg_color = Color(0, 0.222818, 0.599247, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -482,25 +478,22 @@ texture = ExtResource("87_b3x5w")
 [node name="Hexii_Tablet_UI" type="Control"]
 texture_filter = 1
 layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+
+[node name="DragArea" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -300.0
-offset_right = -360.0
-offset_bottom = -260.0
+offset_left = -239.5
+offset_top = -244.0
+offset_right = 239.5
+offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
-
-[node name="DragArea" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 288.0
-offset_top = 62.0
-offset_right = 767.0
-offset_bottom = 550.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 script = ExtResource("1_myaf6")
@@ -1084,7 +1077,6 @@ theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 theme = ExtResource("14_q4chf")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
@@ -1097,7 +1089,6 @@ theme_override_constants/separation = 2
 [node name="Template_Button" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
 layout_mode = 2
@@ -2923,7 +2914,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
 custom_minimum_size = Vector2(131.16, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer"]

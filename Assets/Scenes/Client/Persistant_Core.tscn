@@ -322,16 +322,19 @@ visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Hexii_Tablet_UI" parent="CanvasLayer/Control" instance=ExtResource("12_m1i7v")]
 layout_mode = 1
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Hexii_Tablet_UI" parent="CanvasLayer" instance=ExtResource("5_d7p8w")]
 visible = false
@@ -488,6 +491,7 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("3_382uw")
 hframes = 4
+frame = 2
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -502,7 +506,6 @@ position = Vector2(18, -40)
 rotation = 4.71239
 texture = ExtResource("3_382uw")
 hframes = 4
-frame = 2
 
 [node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
