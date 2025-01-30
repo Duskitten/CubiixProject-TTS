@@ -133,7 +133,7 @@
 			},
 			"LGBT_Bandanna":{
 				"Tag":"Chest",
-				"Name":"LGBT Bandanna",
+				"Name":"RBW Bandanna",
 				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
 				"Path" : "Assets/Mesh/Character/Chest_Accessories/Bandanna.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/Bandanna",
@@ -176,7 +176,7 @@
 			
 			"LGBT_Cape":{
 				"Tag":"Back",
-				"Name":"LGBT Cape",
+				"Name":"RBW Cape",
 				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
 				"Path" : "Assets/Mesh/Character/Back_Accessories/Cape.gltf",
 				"Mesh_Path":"Cape_Armature/Skeleton3D/Cape",

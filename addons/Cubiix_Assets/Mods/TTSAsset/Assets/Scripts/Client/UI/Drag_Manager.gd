@@ -8,6 +8,8 @@ var dragging = false
 var alt_drag_disable = false
 var drag_offset:Vector2
 
+var Temp_Character:Node3D
+
 func _ready() -> void:
 	Core.Globals.All_UI.append(get_parent())
 	
@@ -44,7 +46,7 @@ func drag_manager() -> void:
 
 
 func disable_drag() -> void:
-	print("test")
+	#print("test")
 	alt_drag_disable = true
 
 func enable_drag() -> void:

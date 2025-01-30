@@ -161,14 +161,12 @@ func gen_thread_run():
 		var Queue = MeshRenderQueue.pop_front()
 		if Queue != null:
 			generate_character_mesh(Queue[0],Queue[1],Queue[2],Queue[3])
-		else:
-			thread_force_post()
 		
 	print("Killing Mesh Thread!")
 	
 	
 func queue_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
-	MeshRenderQueue.call_deferred("append",[AssetIDList,TargetMesh,TargetSkeleton,MainNode])
+	MeshRenderQueue.append([AssetIDList,TargetMesh,TargetSkeleton,MainNode])
 	
 func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null, TargetSkeleton:Skeleton3D = null, MainNode:Node = null) -> void:
 	
@@ -202,31 +200,34 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	var Asset_List = {}
 	
 	for AssetID in AssetIDList:
-		var AssetParts = AssetID.split("/")
-		if assets.has(AssetParts[0]) &&\
-			assets[AssetParts[0]].has("Models") &&\
-		 	assets[AssetParts[0]]["Models"].has(AssetParts[1]) &&\
-			assets[AssetParts[0]]["Models"][AssetParts[1]].has("Node"):
-				Asset_List[AssetID] = assets[AssetParts[0]]["Models"][AssetParts[1]]
-				
+		var node = find_asset(AssetID)
+		if node != {}:
+			if node.has("Mesh_Path") && node.has("Node"):
+				Asset_List[AssetID] = node
+				Asset_List[AssetID]["IDPath"] = AssetID 
+	#print(Asset_List)
+	#await get_tree().process_frame
 	## 2. Mesh Initial Compile 
 	## From here we're going to begin parsing through what we need, adding bones to a skeleton, etc.
-	for Asset in Asset_List.keys():
+	for Asset in Asset_List.values():
+		var RealAsset = Asset
+		var Mesh_Path = RealAsset["Mesh_Path"]
+		var Node_Path = RealAsset["Node"]
 		var DynBones = {}
-		Replace_Bone_Key[Asset] = []
-		var mesh = Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"]).mesh
-		var node = Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"])
+		Replace_Bone_Key[Asset["IDPath"]] = []
+		var mesh = Node_Path.get_node(Mesh_Path ).mesh
+		var node = Node_Path.get_node(Mesh_Path )
 		var nodeskeleton = node.get_parent()
 		
 		## This is where we add blendshape count for later
-		if Asset_List[Asset].has("Has_Blendshapes"):
+		if RealAsset.has("Has_Blendshapes"):
 			for blendshape in mesh.get_blend_shape_count():
 				Final_Mesh.call_deferred("add_blend_shape",mesh.get_blend_shape_name(blendshape))
 				Blendshape_Key.append(mesh.get_blend_shape_name(blendshape))
 		
 		## This is where we add the dynbone list for later
-		if Asset_List[Asset].has("Has_DynBones"):
-			DynBones = Asset_List[Asset]["DynBone_Data"]["DynBone_Sets"].duplicate(true)
+		if RealAsset.has("Has_DynBones"):
+			DynBones = RealAsset["DynBone_Data"]["DynBone_Sets"]
 		
 		## This is where we initially build the skeleton we will need + 
 		if TargetSkeleton != null:
@@ -240,20 +241,20 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 					if nodeskeleton.get_bone_parent(Ms_Bone_Location) != -1:
 						Sk_Bone_Parent = nodeskeleton.get_bone_name(nodeskeleton.get_bone_parent(Ms_Bone_Location))
 						Sk_Bone_Parent_Location = TargetSkeleton.find_bone(Sk_Bone_Parent)
-					TargetSkeleton.call_deferred("set_bone_parent",Sk_Bone_Location,Sk_Bone_Parent_Location)
-					TargetSkeleton.call_deferred("set_bone_pose",Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
-					TargetSkeleton.call_deferred("set_bone_rest",Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
-					TargetSkin.call_deferred("add_named_bind",BoneName,node.skin.get_bind_pose(Bone))
-					Replace_Bone_Key[Asset].append([Ms_Bone_Location,Sk_Bone_Location])
-					if Asset_List[Asset].has("Has_DynBones"):
+					TargetSkeleton.set_bone_parent(Sk_Bone_Location,Sk_Bone_Parent_Location)
+					TargetSkeleton.set_bone_pose(Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
+					TargetSkeleton.set_bone_rest(Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
+					TargetSkin.add_named_bind(BoneName,node.skin.get_bind_pose(Bone))
+					Replace_Bone_Key[Asset["IDPath"]].append([Ms_Bone_Location,Sk_Bone_Location])
+					if RealAsset.has("Has_DynBones"):
 						if MainNode != null:
 							for x in DynBones.keys():
 								for y in DynBones[x].size():
 									if str(DynBones[x][y]) == BoneName:
 										DynBones[x][y] = Sk_Bone_Location
 										
-		if Asset_List[Asset].has("Has_DynBones"):
-			DynBoneList[Asset_List[Asset]] = DynBones
+		if RealAsset.has("Has_DynBones"):
+			DynBoneList[RealAsset] = DynBones
 
 	if MainNode != null:
 		MainNode.DynBones_Register = DynBoneList
@@ -263,27 +264,28 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	var Bone_Rewrite = PackedInt32Array()
 	var st = SurfaceTool.new()
 	var Meshes = {}
-	for Asset in Asset_List.keys():
+	
+	for Asset in Asset_List.values():
+		var RealAsset = Asset
+		var Mesh_Path = RealAsset["Mesh_Path"]
+		var Node_Path = RealAsset["Node"]
 		var mesh = [
-			Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"]).mesh,
+			Node_Path.get_node(Mesh_Path).mesh,
 			SurfaceTool.new()
 		]
-		Meshes[Asset] = mesh
+		Meshes[Asset["IDPath"]] = mesh
 		mesh[1].append_from(mesh[0],0,Transform3D())
 		mesh[1] = mesh[1].commit_to_arrays()
 		var Mesh_Commit = mesh[1]
 		st.append_from(mesh[0],0,Transform3D())
 		Compiled_AABB = mesh[0].get_aabb().merge(Compiled_AABB)
-		var Key = Replace_Bone_Key[Asset]
+		var Key = Replace_Bone_Key[Asset["IDPath"]]
 		var IgnoreList = []
 		if !Key.is_empty():
 			for K in Key:
-				for CC in Mesh_Commit[10].size():
+				for CC in Mesh_Commit[Mesh.ARRAY_BONES].size():
 					if Mesh_Commit[Mesh.ARRAY_BONES][CC] == K[0]:
-						if !IgnoreList.has(CC):
-							IgnoreList.append(CC)
-							Mesh_Commit[Mesh.ARRAY_BONES][CC] = K[1]
-		
+						Mesh_Commit[Mesh.ARRAY_BONES][CC] = K[1]
 		for x in CoreMesh_Commit.size():
 				if x == 10:
 					Bone_Rewrite.append_array(Mesh_Commit[x])
@@ -294,30 +296,33 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	var Blendshapes = []
 	Blendshapes.resize(Blendshape_Key.size())
 	
-	for Asset in Asset_List.keys():
-		var mesh = Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"]).mesh
-		var node = Asset_List[Asset]["Node"].get_node(Asset_List[Asset]["Mesh_Path"])
+	for Asset in Asset_List.values():
+		var RealAsset = Asset
+		var Mesh_Path = RealAsset["Mesh_Path"]
+		var Node_Path = RealAsset["Node"]
+		var mesh = Node_Path.get_node(Mesh_Path).mesh
+		var node = Node_Path.get_node(Mesh_Path)
 		
-		if Asset_List[Asset].has("Has_Blendshapes"):
+		if RealAsset.has("Has_Blendshapes"):
 				#print("Mesh: ",MeshSubList[i]," has Blendshapes")
-				for b in Meshes[Asset][0].get_blend_shape_count():
+				for b in Meshes[Asset["IDPath"]][0].get_blend_shape_count():
 					##Compile Blended Mesh
 					var New_Blend_Array
-					var Blend_Name = Meshes[Asset][0].get_blend_shape_name(b)
+					var Blend_Name = Meshes[Asset["IDPath"]][0].get_blend_shape_name(b)
 					
 					var New_Blend_Array_Tool = SurfaceTool.new()
-					New_Blend_Array_Tool.create_from_blend_shape(Meshes[Asset][0],0,Blend_Name)
+					New_Blend_Array_Tool.create_from_blend_shape(Meshes[Asset["IDPath"]][0],0,Blend_Name)
 					New_Blend_Array = New_Blend_Array_Tool.commit_to_arrays()
 	
-					var Blend_Array_Compiled = [New_Blend_Array[0],Meshes[Asset][1][1],Meshes[Asset][1][2]]
+					var Blend_Array_Compiled = [New_Blend_Array[0],Meshes[Asset["IDPath"]][1][1],Meshes[Asset["IDPath"]][1][2]]
 					##Remove the values to get raw changed value
 					for x in Blend_Array_Compiled[0].size():
-						Blend_Array_Compiled[0][x] -= Meshes[Asset][1][0][x]
+						Blend_Array_Compiled[0][x] -= Meshes[Asset["IDPath"]][1][0][x]
 					
 					var Compiled_Blend_Array = [PackedVector3Array(),PackedVector3Array(),PackedFloat32Array()]
 						
-					for m in Asset_List.keys():
-						if Asset == m:
+					for m in Asset_List:
+						if Asset["IDPath"] == m:
 							Compiled_Blend_Array[0].append_array(Blend_Array_Compiled[0])
 							Compiled_Blend_Array[1].append_array(Blend_Array_Compiled[1])
 							Compiled_Blend_Array[2].append_array(Blend_Array_Compiled[2])
@@ -329,7 +334,7 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 							Compiled_Blend_Array[1].append_array(Meshes[m][1][1])
 							Compiled_Blend_Array[2].append_array(Meshes[m][1][2])
 							
-					Blendshapes[Blendshape_Key.find(Meshes[Asset][0].get_blend_shape_name(b))] = Compiled_Blend_Array
+					Blendshapes[Blendshape_Key.find(Meshes[Asset["IDPath"]][0].get_blend_shape_name(b))] = Compiled_Blend_Array
 					
 		for n in (Blendshapes.size()):
 			var empty_blendshape = [PackedVector3Array(),PackedVector3Array(),PackedFloat32Array()]

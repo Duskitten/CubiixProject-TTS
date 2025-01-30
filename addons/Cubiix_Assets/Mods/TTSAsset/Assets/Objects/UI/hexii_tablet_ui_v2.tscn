@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=110 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -296,7 +296,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.225584, 0.596403, 1)
+bg_color = Color(0, 0.545581, 0.601293, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -305,9 +305,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 4.62662
+expand_margin_bottom = 4.62662
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.364358, 0.600144, 1)
+bg_color = Color(0, 0.959226, 0.603916, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -316,11 +318,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 0.203932
-expand_margin_bottom = 0.203932
+expand_margin_top = 18.5361
+expand_margin_bottom = 18.5361
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.786837, 0.602823, 1)
+bg_color = Color(0, -0.279221, 0.596063, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -329,11 +331,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 12.4498
-expand_margin_bottom = 12.4498
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.808528, 0.602961, 1)
+bg_color = Color(0, -0.747448, 0.593094, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -342,8 +342,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 13.4228
-expand_margin_bottom = 13.4228
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -365,6 +363,65 @@ corner_radius_bottom_left = 8
 [sub_resource type="World3D" id="World3D_l6x5t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nuyg7"]
+
+[sub_resource type="Gradient" id="Gradient_e0udg"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ruhva"]
+gradient = SubResource("Gradient_e0udg")
+width = 2
+height = 12
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.7)
+
+[sub_resource type="Gradient" id="Gradient_nvq1b"]
+offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.603922, 0, 1, 0.815686, 0.870588, 0, 1, 0.309804, 0.862745, 0.290196, 1, 0.247059, 0.854902, 0.847059, 1, 0.184314, 0.788235, 0.886275, 1, 0.109804, 0.498039, 0.933333, 1, 0.372549, 0.0823529, 0.94902, 1, 0.729412, 0.0470588, 0.972549, 1, 0.984314, 0.027451, 0.85098, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4gtwl"]
+gradient = SubResource("Gradient_nvq1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbvvk"]
+texture = SubResource("GradientTexture2D_4gtwl")
+texture_margin_top = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gk43k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woi3g"]
+
+[sub_resource type="Gradient" id="Gradient_i5vix"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u6iv0"]
+gradient = SubResource("Gradient_i5vix")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5dci"]
+texture = SubResource("GradientTexture2D_u6iv0")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_tbbjk"]
+colors = PackedColorArray(0, 0, 0, 1, 0.198466, 0.444806, 0.636719, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m01qa"]
+gradient = SubResource("Gradient_tbbjk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wslw3"]
+texture = SubResource("GradientTexture2D_m01qa")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_hgbr1"]
+colors = PackedColorArray(1, 1, 1, 1, 0.198466, 0.444806, 0.636719, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fsc00"]
+gradient = SubResource("Gradient_hgbr1")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6mac"]
+texture = SubResource("GradientTexture2D_fsc00")
+texture_margin_top = 10.0
 
 [sub_resource type="Animation" id="Animation_5fsc7"]
 resource_name = "Out"
@@ -1780,6 +1837,7 @@ script = ExtResource("28_c10ss")
 
 [node name="Head" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/type = true
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Head"]
 custom_minimum_size = Vector2(91, 32)
@@ -1845,6 +1903,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="Face" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/type = true
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Face"]
 custom_minimum_size = Vector2(91, 32)
@@ -1910,6 +1969,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="Chest" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/type = true
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Chest"]
 custom_minimum_size = Vector2(91, 32)
@@ -1975,6 +2035,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="Back" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/type = true
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/Back"]
 custom_minimum_size = Vector2(91, 32)
@@ -2040,6 +2101,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="L_Hip" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/type = true
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hip"]
 custom_minimum_size = Vector2(91, 32)
@@ -2105,6 +2167,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="R_Hip" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/type = true
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hip"]
 custom_minimum_size = Vector2(91, 32)
@@ -2170,6 +2233,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="L_Hand" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/type = true
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/L_Hand"]
 custom_minimum_size = Vector2(91, 32)
@@ -2235,6 +2299,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="R_Hand" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/type = true
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_A/HBoxContainer/VBoxContainer/R_Hand"]
 custom_minimum_size = Vector2(91, 32)
@@ -2354,6 +2419,7 @@ script = ExtResource("28_c10ss")
 
 [node name="Ears" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
+metadata/type = false
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Ears"]
 custom_minimum_size = Vector2(91, 32)
@@ -2419,6 +2485,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="Extras" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
+metadata/type = false
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Extras"]
 custom_minimum_size = Vector2(91, 32)
@@ -2484,6 +2551,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="Eyes" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
+metadata/type = false
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Eyes"]
 custom_minimum_size = Vector2(91, 32)
@@ -2549,6 +2617,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="Wings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
+metadata/type = false
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Wings"]
 custom_minimum_size = Vector2(91, 32)
@@ -2614,6 +2683,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="Tails" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
+metadata/type = false
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_B/HBoxContainer2/VBoxContainer/Tails"]
 custom_minimum_size = Vector2(91, 32)
@@ -2880,12 +2950,135 @@ offset_bottom = 367.0
 texture = ExtResource("47_u26x0")
 
 [node name="Menu_Color" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color"]
+custom_minimum_size = Vector2(234.96, 342)
+layout_mode = 0
+offset_top = 13.0
+offset_right = 235.0
+offset_bottom = 355.0
+theme = ExtResource("14_q4chf")
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(131.16, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(129.02, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("28_wu2g7")
+
+[node name="Label2" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "Base Color"
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
+theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
+max_value = 255.0
+
+[node name="HSlider2" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
+theme_override_styles/slider = SubResource("StyleBoxTexture_p5dci")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
+max_value = 255.0
+
+[node name="Label3" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "Emission Color"
+
+[node name="HSlider5" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
+theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
+max_value = 255.0
+
+[node name="HSlider6" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
+theme_override_styles/slider = SubResource("StyleBoxTexture_p5dci")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
+max_value = 255.0
+
+[node name="Label4" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "Emission Strength"
+
+[node name="HSlider7" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
+theme_override_styles/slider = SubResource("StyleBoxTexture_p5dci")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
+max_value = 255.0
+
+[node name="Label6" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "Metallic"
+
+[node name="HSlider3" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
+theme_override_styles/slider = SubResource("StyleBoxTexture_wslw3")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
+max_value = 255.0
+
+[node name="Label5" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "Roughness"
+
+[node name="HSlider4" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
+theme_override_styles/slider = SubResource("StyleBoxTexture_y6mac")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
+max_value = 255.0
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(6.26, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
 
 [node name="Menu_Slider" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu"]
 layout_mode = 1

@@ -154,11 +154,13 @@ func generate_character() -> void:
 				Skeleton.remove_child(i)
 		$Cubiix_Model/Armature/Skeleton3D.free()
 	$Cubiix_Model/Armature.add_child(Skeleton)
+	
 	DynBones = Cubiix_DynBone.new()
+	DynBones.DynBones_Register = DynBones_Register.duplicate()
 	Skeleton.add_child(DynBones)
 	#add_child(load("res://addons/Cubiix_Assets/Animations/TTS_Animations.tscn").instantiate())
+	await get_tree().process_frame
 	
-	DynBones.DynBones_Register = DynBones_Register.duplicate(true)
 	DynBones.first_run()
 	Character_Skeleton = Skeleton
 	
