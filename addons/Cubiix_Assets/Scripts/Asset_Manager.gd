@@ -214,7 +214,7 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 		var Mesh_Path = RealAsset["Mesh_Path"]
 		var Node_Path = RealAsset["Node"]
 		var DynBones = {}
-		Replace_Bone_Key[Asset["IDPath"]] = []
+		Replace_Bone_Key[Asset["IDPath"]] = [[],[]]
 		var mesh = Node_Path.get_node(Mesh_Path ).mesh
 		var node = Node_Path.get_node(Mesh_Path )
 		var nodeskeleton = node.get_parent()
@@ -227,7 +227,7 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 		
 		## This is where we add the dynbone list for later
 		if RealAsset.has("Has_DynBones"):
-			DynBones = RealAsset["DynBone_Data"]["DynBone_Sets"]
+			DynBones = RealAsset["DynBone_Data"]["DynBone_Sets"].duplicate(true)
 		
 		## This is where we initially build the skeleton we will need + 
 		if TargetSkeleton != null:
@@ -245,7 +245,8 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 					TargetSkeleton.set_bone_pose(Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
 					TargetSkeleton.set_bone_rest(Sk_Bone_Location,nodeskeleton.get_bone_rest(Bone))
 					TargetSkin.add_named_bind(BoneName,node.skin.get_bind_pose(Bone))
-					Replace_Bone_Key[Asset["IDPath"]].append([Ms_Bone_Location,Sk_Bone_Location])
+					Replace_Bone_Key[Asset["IDPath"]][0].append(Ms_Bone_Location)
+					Replace_Bone_Key[Asset["IDPath"]][1].append(Sk_Bone_Location)
 					if RealAsset.has("Has_DynBones"):
 						if MainNode != null:
 							for x in DynBones.keys():
@@ -280,12 +281,13 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 		st.append_from(mesh[0],0,Transform3D())
 		Compiled_AABB = mesh[0].get_aabb().merge(Compiled_AABB)
 		var Key = Replace_Bone_Key[Asset["IDPath"]]
-		var IgnoreList = []
+		var IgnoreList = {}
 		if !Key.is_empty():
-			for K in Key:
-				for CC in Mesh_Commit[Mesh.ARRAY_BONES].size():
-					if Mesh_Commit[Mesh.ARRAY_BONES][CC] == K[0]:
-						Mesh_Commit[Mesh.ARRAY_BONES][CC] = K[1]
+			for CC in Mesh_Commit[Mesh.ARRAY_BONES].size():
+				if Key[0].has(Mesh_Commit[Mesh.ARRAY_BONES][CC]) && !IgnoreList.has(CC):
+					IgnoreList[CC] = 0
+					Mesh_Commit[Mesh.ARRAY_BONES][CC] = Key[1][Key[0].find(Mesh_Commit[Mesh.ARRAY_BONES][CC])]
+		#print(IgnoreList)
 		for x in CoreMesh_Commit.size():
 				if x == 10:
 					Bone_Rewrite.append_array(Mesh_Commit[x])
