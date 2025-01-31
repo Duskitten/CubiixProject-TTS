@@ -301,7 +301,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.673438, 0.593564, 1)
+bg_color = Color(0, -0.667995, 0.593598, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -312,7 +312,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.0354821, 0.597609, 1)
+bg_color = Color(0, -0.0155403, 0.597735, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -323,7 +323,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.441822, 0.600636, 1)
+bg_color = Color(0, 0.451641, 0.600698, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -332,11 +332,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 1.76988
-expand_margin_bottom = 1.76988
+expand_margin_top = 2.01518
+expand_margin_bottom = 2.01518
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.853045, 0.603243, 1)
+bg_color = Color(0, 0.864417, 0.603315, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -345,8 +345,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 14.676
-expand_margin_bottom = 14.676
+expand_margin_top = 15.0816
+expand_margin_bottom = 15.0816
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -1792,11 +1792,17 @@ grow_vertical = 2
 script = ExtResource("26_ld6j6")
 
 [node name="In-Game_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+clip_contents = true
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 225.0
+offset_top = 405.0
+offset_right = 225.0
+offset_bottom = 405.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
 metadata/Open = false
 metadata/Close_Pos = Vector2(225, 405)
 

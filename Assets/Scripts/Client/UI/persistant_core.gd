@@ -88,12 +88,12 @@ func _process(delta: float) -> void:
 		_on_area_2d_mouse_exited()
 	
 	if !Menu_Focused:
-		if Input.is_action_just_pressed("sub_menu"):
-			Hexii_Ui_Tablet.visible = !Hexii_Ui_Tablet.visible
-		if Input.is_action_just_pressed("chat_menu"):
-			Hexii_Ui.visible = !Hexii_Ui.visible
-		if Input.is_action_just_pressed("chat") && $CanvasLayer/Hexii_UI.visible:
-			Hexii_Ui_Chat_TextInput.grab_focus()
+		#if Input.is_action_just_pressed("sub_menu"):
+			#Hexii_Ui_Tablet.visible = !Hexii_Ui_Tablet.visible
+		#if Input.is_action_just_pressed("chat_menu"):
+			#Hexii_Ui.visible = !Hexii_Ui.visible
+		#if Input.is_action_just_pressed("chat") && $CanvasLayer/Hexii_UI.visible:
+			#Hexii_Ui_Chat_TextInput.grab_focus()
 			
 		if InTablet_DragArea:
 			if Input.is_action_just_pressed("mouse_left"):
