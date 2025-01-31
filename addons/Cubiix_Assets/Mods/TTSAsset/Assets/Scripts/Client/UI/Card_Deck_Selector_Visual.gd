@@ -6,7 +6,6 @@ func setup() -> void:
 	if rootnode == null:
 		rootnode = find_parent("DragArea")
 	
-	
 	for i in get_children():
 		i.get_node("TextureButton").mouse_entered.connect(hovered.bind(i.get_node("TextureButton/TextureRect")))
 		i.get_node("TextureButton").mouse_exited.connect(unhovered.bind(i.get_node("TextureButton/TextureRect")))

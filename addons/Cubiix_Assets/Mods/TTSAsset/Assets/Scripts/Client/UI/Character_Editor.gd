@@ -44,14 +44,23 @@ func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 			var container = $"Side_In-Menu/Menu_Slider/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer"
 			for i in container.get_children():
 				i.queue_free()
+
 			for i in Core.AssetData.assets_tagged[str(subtype.name)]:
 				var asset = Core.AssetData.find_asset(i)
 				var dupe_template = template_controller.duplicate()
 				dupe_template.get_node("TextureButton/TextureRect/Label").text = asset["Name"]
+				
+				var image = load(asset["Image_Preview"])
+				print(image == null)
+				if image != null:
+					dupe_template.get_node("TextureButton/TextureRect").texture = image
+				else:
+					dupe_template.get_node("TextureButton/TextureRect").texture = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Card_Assets/Template_Card.png")
 				dupe_template.get_node("TextureButton").pressed.connect(set_new_value.bind(extended+str(subtype.name),i))
 				container.add_child(dupe_template)
 				container.move_child(dupe_template,0)
 				dupe_template.show()
+			await get_tree().process_frame
 			container.setup()
 
 func set_new_value(WhatVar:String,WhatValue:String) -> void:

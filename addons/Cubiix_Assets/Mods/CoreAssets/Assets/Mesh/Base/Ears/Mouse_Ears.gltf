@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.3.47",
+		"generator":"Khronos glTF Blender I/O v4.0.43",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -381,7 +381,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":560,
+			"count":448,
 			"max":[
 				2.569636821746826,
 				5.670110702514648,
@@ -397,25 +397,25 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":560,
+			"count":448,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":560,
+			"count":448,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5121,
-			"count":560,
+			"count":448,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":560,
+			"count":448,
 			"type":"VEC4"
 		},
 		{
@@ -434,44 +434,44 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":6720,
+			"byteLength":5376,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6720,
-			"byteOffset":6720,
+			"byteLength":5376,
+			"byteOffset":5376,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4480,
-			"byteOffset":13440,
+			"byteLength":3584,
+			"byteOffset":10752,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2240,
-			"byteOffset":17920,
+			"byteLength":1792,
+			"byteOffset":14336,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":8960,
-			"byteOffset":20160,
+			"byteLength":7168,
+			"byteOffset":16128,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":2088,
-			"byteOffset":29120,
+			"byteOffset":23296,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1344,
-			"byteOffset":31208
+			"byteOffset":25384
 		}
 	],
 	"samplers":[
@@ -482,7 +482,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":32552,
+			"byteLength":26728,
 			"uri":"Mouse_Ears.bin"
 		}
 	]

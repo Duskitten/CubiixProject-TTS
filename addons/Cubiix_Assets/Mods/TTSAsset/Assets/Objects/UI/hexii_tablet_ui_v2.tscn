@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=115 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://d0a3m7qnlq1ra" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Login_Window.png" id="23_neoin"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/login_controller.gd" id="24_jy7r5"]
 [ext_resource type="AnimationLibrary" uid="uid://dadtuq6br5p3c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Animations/Loaderbar.tres" id="26_b76qr"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Desktop_Manager_System.gd" id="26_ld6j6"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Character_Editor.gd" id="26_roqma"]
 [ext_resource type="Texture2D" uid="uid://dthsi25w60klk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_A.png" id="27_qu4e4"]
 [ext_resource type="PackedScene" uid="uid://cmukryvy8s3t3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/UI/character_editor.tscn" id="27_t467y"]
@@ -51,6 +52,10 @@
 [ext_resource type="Texture2D" uid="uid://bst8b4r2w5sb2" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/QR_Icon.png" id="45_evikh"]
 [ext_resource type="Texture2D" uid="uid://1hw2pnpypueg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Who_Icon.png" id="45_m08tt"]
 [ext_resource type="Texture2D" uid="uid://btyrrwu4s7wtb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_D.png" id="47_u26x0"]
+[ext_resource type="Texture2D" uid="uid://d2u8lecbntiqm" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/PowerButton_Base.png" id="52_lsgqv"]
+[ext_resource type="Texture2D" uid="uid://bbisah7mxotk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/Center_Icon.png" id="52_pfxns"]
+[ext_resource type="Texture2D" uid="uid://dnraxca81r88x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/Center_Icon_Hover.png" id="53_ybm6u"]
+[ext_resource type="Texture2D" uid="uid://cmqxc3v32dj05" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/PowerButton_Hover.png" id="53_yess3"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
@@ -296,7 +301,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.624043, 0.601791, 1)
+bg_color = Color(0, -0.673438, 0.593564, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -305,11 +310,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 7.3633
-expand_margin_bottom = 7.3633
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.683524, 0.5935, 1)
+bg_color = Color(0, -0.0354821, 0.597609, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -320,7 +323,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.177544, 0.596708, 1)
+bg_color = Color(0, 0.441822, 0.600636, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -329,9 +332,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 1.76988
+expand_margin_bottom = 1.76988
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.310997, 0.599806, 1)
+bg_color = Color(0, 0.853045, 0.603243, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -340,8 +345,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = -0.00472912
-expand_margin_bottom = -0.00472912
+expand_margin_top = 14.676
+expand_margin_bottom = 14.676
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -469,10 +474,10 @@ tracks/3/path = NodePath("Side_In-Menu:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(452, 0), Vector2(452, 0), Vector2(199, 0), Vector2(199, 0)]
+"values": [Vector2(452, 0), Vector2(452, 0), Vector2(198.5, 0), Vector2(198.5, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_eg3eh"]
@@ -518,7 +523,7 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Side_In-Menu:position")
-tracks/3/interp = 2
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
@@ -1784,14 +1789,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("26_ld6j6")
 
 [node name="In-Game_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
 layout_mode = 1
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/Open = false
+metadata/Close_Pos = Vector2(225, 405)
 
 [node name="Player" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller"]
 layout_mode = 1
@@ -3202,6 +3209,30 @@ layout_mode = 2
 [node name="TextureButton4" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
 layout_mode = 2
 
+[node name="Center_Button" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+layout_mode = 2
+offset_left = 201.5
+offset_top = 382.0
+offset_right = 247.5
+offset_bottom = 428.0
+texture_normal = ExtResource("52_pfxns")
+texture_pressed = ExtResource("52_pfxns")
+texture_hover = ExtResource("53_ybm6u")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+custom_minimum_size = Vector2(0, 7.06)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 382.0
+offset_right = 176.0
+offset_bottom = 410.0
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("52_lsgqv")
+texture_pressed = ExtResource("52_lsgqv")
+texture_hover = ExtResource("53_yess3")
+
 [node name="Overlay" type="Panel" parent="DragArea"]
 layout_mode = 0
 offset_left = -30.0
@@ -3247,3 +3278,5 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect" method="_on_back_button_pressed"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Center_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["In-Game_Controller"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer2/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Offline"]]
