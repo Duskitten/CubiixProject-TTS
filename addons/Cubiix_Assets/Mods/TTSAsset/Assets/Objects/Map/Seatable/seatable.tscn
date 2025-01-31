@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://es0ma4lcv8qv"]
+
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Seatable/seatable.gd" id="1_gvk0t"]
+
+[node name="Seatable" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_gvk0t")

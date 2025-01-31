@@ -1,6 +1,5 @@
 class_name TeleportObject extends Area3D
 
-#@onready var Core = get_node("/root/Main_Scene/CoreLoader")
 @onready var Persistant = get_node("/root/Main_Scene/Persistant")
 
 @export var teleportation_target :Node3D
@@ -12,7 +11,7 @@ func _ready() -> void:
 	
 func _on_player_entered_teleportation_area(body) -> void:
 	
-	# There
+	
 	if body.is_in_group("Player"):
 		if Persistant.has_method("SpawnAt"):
 			var char_control = Persistant.Player.get_node("Character_Controller")

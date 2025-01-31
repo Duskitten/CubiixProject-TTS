@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_sfckk"]
 [ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://Assets/Scenes/Tools/Hexstaria_Screenshotter.tscn" id="4_td76n"]
 [ext_resource type="Material" uid="uid://bceb6ls5k3yg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Grass.tres" id="5_0sl4t"]
-[ext_resource type="PackedScene" uid="uid://cbn3887exbg6c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Coin/Coin.tscn" id="6_6ywb6"]
+[ext_resource type="PackedScene" uid="uid://cbn3887exbg6c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Coin/coin.tscn" id="6_6ywb6"]
 [ext_resource type="PackedScene" uid="uid://cn7vn6cg0mqg1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/TeleportObject/teleport_object.tscn" id="7_8v8lo"]
 [ext_resource type="Material" uid="uid://bjhxlgusl5c8e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Dirt.tres" id="8_7iplj"]
 [ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Stone.tres" id="9_ikpfk"]
