@@ -267,6 +267,16 @@
 				"Spawn_Locations":{
 					"Docks":["Vector3(22.381,0.098,12.539)","Vector3(0,3.14159,0)"]
 				}
+			},
+			"DM_Test":{
+				"Server_Path":"Assets/Maps/Server/dm_test.tscn",
+				"Client_Path":"Assets/Maps/Client/dm_test.tscn",
+				"Name":"DotMouse Test Room",
+				"Description":"A testing room",
+				"Image_Preview":"Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png",
+				"Spawn_Locations":{
+					"Docks":["Vector3(0,2,0)","Vector3(0,3.14159,0)"]
+				}
 			}
 		},
 		"Scripts":{

@@ -31,7 +31,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0.0967742, 0.290323, 0.903226)
 colors = PackedColorArray(0.527812, 1, 0.871439, 1, 0, 0.545007, 1, 1, 0.475922, 0.767964, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nwbfg"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sh3i"]
 gradient = SubResource("Gradient_cosy2")
 width = 128
 height = 128
@@ -43,7 +43,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0.0645161, 1)
 colors = PackedColorArray(0, 0.0369588, 0.0976563, 1, 0.249128, 0, 0.386719, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wnmh1"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_boljw"]
 gradient = SubResource("Gradient_cjrs2")
 width = 128
 height = 128
@@ -53,16 +53,16 @@ fill_to = Vector2(1, 0.1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pbl14"]
 shader = ExtResource("1_kyva2")
 shader_parameter/SkyDarkness = 1.0
-shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_wnmh1")
-shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_nwbfg")
+shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_boljw")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_1sh3i")
 
-[sub_resource type="Sky" id="Sky_dmw14"]
+[sub_resource type="Sky" id="Sky_qvq5a"]
 sky_material = SubResource("ShaderMaterial_pbl14")
 
 [sub_resource type="Environment" id="Environment_klj7n"]
 background_mode = 2
 background_color = Color(0.758192, 0.758192, 0.758192, 1)
-sky = SubResource("Sky_dmw14")
+sky = SubResource("Sky_qvq5a")
 ambient_light_source = 2
 ambient_light_color = Color(0.572549, 0.603922, 0.854902, 1)
 reflected_light_source = 1

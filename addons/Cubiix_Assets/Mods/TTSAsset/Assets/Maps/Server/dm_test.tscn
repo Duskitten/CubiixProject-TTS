@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0xxdsqch2mcb"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/Load_Client_Map.gd" id="1_to66i"]
+
+[node name="DM_TEST" type="Node3D"]
+script = ExtResource("1_to66i")
+
+[node name="Server" type="Node3D" parent="."]
+
+[node name="Client" type="Node3D" parent="."]
