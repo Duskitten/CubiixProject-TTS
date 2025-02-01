@@ -39,7 +39,8 @@
 				24,
 				25,
 				26,
-				27
+				27,
+				28
 			]
 		}
 	],
@@ -399,6 +400,21 @@
 				110.01017761230469,
 				-3.5818216800689697,
 				-6.131895065307617
+			]
+		},
+		{
+			"mesh":28,
+			"name":"Solar_Panels",
+			"rotation":[
+				0,
+				-0.8660253882408142,
+				0,
+				0.5000000596046448
+			],
+			"translation":[
+				-5.3847432136535645,
+				-0.2839302718639374,
+				-548.8221435546875
 			]
 		}
 	],
@@ -998,6 +1014,20 @@
 					},
 					"indices":120,
 					"material":0
+				}
+			]
+		},
+		{
+			"name":"Cube.009",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":121,
+						"NORMAL":122,
+						"TEXCOORD_0":123
+					},
+					"indices":124,
+					"material":7
 				}
 			]
 		}
@@ -2108,6 +2138,40 @@
 			"componentType":5123,
 			"count":528,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":121,
+			"componentType":5126,
+			"count":200,
+			"max":[
+				18.172626495361328,
+				3.3431036472320557,
+				3.4670379161834717
+			],
+			"min":[
+				-18.151718139648438,
+				-1.396192193031311,
+				-14.377291679382324
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":122,
+			"componentType":5126,
+			"count":200,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":123,
+			"componentType":5126,
+			"count":200,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":124,
+			"componentType":5123,
+			"count":300,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -2836,6 +2900,30 @@
 			"byteLength":1056,
 			"byteOffset":412796,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":2400,
+			"byteOffset":413852,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2400,
+			"byteOffset":416252,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1600,
+			"byteOffset":418652,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":600,
+			"byteOffset":420252,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -2846,7 +2934,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":413852,
+			"byteLength":420852,
 			"uri":"HexstariaV2.bin"
 		}
 	]
