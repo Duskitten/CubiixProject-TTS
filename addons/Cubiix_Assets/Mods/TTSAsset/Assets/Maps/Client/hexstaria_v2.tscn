@@ -779,6 +779,7 @@ shape = SubResource("ConcavePolygonShape3D_3udrh")
 
 [node name="Center" parent="Map/HexstariaV2" index="0"]
 layers = 262145
+cast_shadow = 0
 surface_material_override/0 = ExtResource("5_u4vgk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/HexstariaV2/Center" index="0" groups=["Sound_Stone"]]
@@ -1170,6 +1171,7 @@ collision_mask = 3
 shape = SubResource("ConcavePolygonShape3D_jw40b")
 
 [node name="Path" parent="Map/HexstariaV2" index="29"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("21_ms8sg")
 
 [node name="Docks" parent="Map/HexstariaV2" index="30"]
