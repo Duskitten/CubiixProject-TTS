@@ -4,7 +4,10 @@ extends Control
 func _on_h_slider_value_changed(value: float,extra_arg_0: StringName, extra_arg_1:StringName) -> void:
 	if extra_arg_1 == &"Audio":
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(extra_arg_0),int(value))
-	Core.Globals.Data[str(extra_arg_1)][str(extra_arg_0)] = value
+	elif extra_arg_0 == &"Anti-Aliasing":
+		get_viewport().msaa_3d = int(value)
+	if Core != null:
+		Core.Globals.Data[str(extra_arg_1)][str(extra_arg_0)] = value
 
 func _ready() -> void:
 	for i in get_children():
@@ -28,4 +31,5 @@ func _on_button_pressed(extra_arg_0:String) -> void:
 			get_node("Audio/Ping/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Ping"]
 		"Visuals":
 			get_node("Visuals/Shadow_Depth/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Shadow_Depth"]
+			get_node("Visuals/Anti-Aliasing/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Anti-Aliasing"]
 	get_node(extra_arg_0).show()

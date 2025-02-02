@@ -305,7 +305,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.681214, 0.593514, 1)
+bg_color = Color(0, -0.457494, 0.594933, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -316,7 +316,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.0743058, 0.597363, 1)
+bg_color = Color(0, 0.268361, 0.599536, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -327,7 +327,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.423662, 0.60052, 1)
+bg_color = Color(0, 0.644675, 0.601922, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -336,11 +336,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 1.33633
-expand_margin_bottom = 1.33633
+expand_margin_top = 7.70482
+expand_margin_bottom = 7.70482
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.830362, 0.603099, 1)
+bg_color = Color(0, 0.993663, 0.604135, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -349,8 +349,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 13.8716
-expand_margin_bottom = 13.8716
+expand_margin_top = 19.7775
+expand_margin_bottom = 19.7775
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -1434,6 +1434,44 @@ size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
 max_value = 2.0
 step = 0.0
+
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Anti-Aliasing" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "
+"
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/Label"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 19.0
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_sks6k")
+text = "MSAA"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+max_value = 3.0
+step = 0.0
+rounded = true
 
 [node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
 layout_mode = 2
@@ -3437,6 +3475,44 @@ max_value = 2.0
 step = 0.0
 rounded = true
 
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Anti-Aliasing" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "
+"
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/Label"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 19.0
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_sks6k")
+text = "MSAA"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+max_value = 3.0
+step = 0.0
+rounded = true
+
 [node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -3640,6 +3716,7 @@ metadata/_edit_lock_ = true
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Notification", &"Audio"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Ping", &"Audio"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Shadow_Depth", &"Visuals"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Anti-Aliasing", &"Visuals"]]
 [connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Visuals"]]
@@ -3655,6 +3732,7 @@ metadata/_edit_lock_ = true
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Notification", &"Audio"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Ping", &"Audio"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Shadow_Depth", &"Visuals"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Anti-Aliasing", &"Visuals"]]
 [connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Visuals"]]

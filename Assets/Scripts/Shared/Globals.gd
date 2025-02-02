@@ -17,7 +17,8 @@ var save_template = {
 		"Ping":0,
 	},
 	"Visuals":{
-		"Shadow_Depth":0
+		"Shadow_Depth":0,
+		"Anti-Aliasing":0
 	}
 }
 
