@@ -2447,35 +2447,35 @@
 		{
 			"bufferView":140,
 			"componentType":5126,
-			"count":115,
+			"count":747,
 			"max":[
-				266.9223327636719,
-				11.12575912475586,
-				83.58343505859375
+				266.9010925292969,
+				11.764100074768066,
+				83.64073944091797
 			],
 			"min":[
-				41.37003707885742,
-				4.306998252868652,
-				-154.2423858642578
+				41.29999923706055,
+				4.199384689331055,
+				-159.8942108154297
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":141,
 			"componentType":5126,
-			"count":115,
+			"count":747,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":142,
 			"componentType":5126,
-			"count":115,
+			"count":747,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":143,
 			"componentType":5123,
-			"count":123,
+			"count":1161,
 			"type":"SCALAR"
 		}
 	],
@@ -3322,26 +3322,26 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":1380,
+			"byteLength":8964,
 			"byteOffset":508884,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1380,
-			"byteOffset":510264,
+			"byteLength":8964,
+			"byteOffset":517848,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":920,
-			"byteOffset":511644,
+			"byteLength":5976,
+			"byteOffset":526812,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":246,
-			"byteOffset":512564,
+			"byteLength":2322,
+			"byteOffset":532788,
 			"target":34963
 		}
 	],
@@ -3353,7 +3353,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":512812,
+			"byteLength":535112,
 			"uri":"HexstariaV2.bin"
 		}
 	]
