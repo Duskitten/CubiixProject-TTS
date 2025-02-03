@@ -3,7 +3,7 @@ extends Node3D
 var coin_rotation_speed :int = 5
 
 func _physics_process(delta: float) -> void:
-	$CardSprite.rotation.y += coin_rotatwwion_speed * delta
+	$CardSprite.rotation.y += coin_rotation_speed * delta
 	
 	if $RayCast3D.is_colliding():
 		$Shadow.global_position.y = $RayCast3D.get_collision_point().y + 0.01
