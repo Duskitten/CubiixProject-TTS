@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=120 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -56,6 +56,10 @@
 [ext_resource type="Texture2D" uid="uid://bbisah7mxotk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/Center_Icon.png" id="52_pfxns"]
 [ext_resource type="Texture2D" uid="uid://dnraxca81r88x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/Center_Icon_Hover.png" id="53_ybm6u"]
 [ext_resource type="Texture2D" uid="uid://cmqxc3v32dj05" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/PowerButton_Hover.png" id="53_yess3"]
+[ext_resource type="Texture2D" uid="uid://odygdpdlcoss" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/SettingsButton_Base.png" id="55_usstw"]
+[ext_resource type="Texture2D" uid="uid://cxgq0yj5yxx0f" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/SettingsButton_Hover.png" id="56_sj26w"]
+[ext_resource type="Texture2D" uid="uid://dnwu4li8peekr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/CollectionsButton_Base.png" id="57_8vc7f"]
+[ext_resource type="Texture2D" uid="uid://rqhy8ml8mxm3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/CollectionsButton_Hover.png" id="58_q8jin"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
@@ -301,7 +305,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.667995, 0.593598, 1)
+bg_color = Color(0, -0.457494, 0.594933, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -312,7 +316,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.0155403, 0.597735, 1)
+bg_color = Color(0, 0.268361, 0.599536, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -323,7 +327,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.451641, 0.600698, 1)
+bg_color = Color(0, 0.644675, 0.601922, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -332,11 +336,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 2.01518
-expand_margin_bottom = 2.01518
+expand_margin_top = 7.70482
+expand_margin_bottom = 7.70482
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.864417, 0.603315, 1)
+bg_color = Color(0, 0.993663, 0.604135, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -345,8 +349,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 15.0816
-expand_margin_bottom = 15.0816
+expand_margin_top = 19.7775
+expand_margin_bottom = 19.7775
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -537,6 +541,8 @@ _data = {
 "Out": SubResource("Animation_5fsc7"),
 "RESET": SubResource("Animation_eg3eh")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0e5y"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
 texture = ExtResource("87_b3x5w")
@@ -1429,6 +1435,44 @@ theme = ExtResource("14_q4chf")
 max_value = 2.0
 step = 0.0
 
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Anti-Aliasing" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "
+"
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/Label"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 19.0
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_sks6k")
+text = "MSAA"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+max_value = 3.0
+step = 0.0
+rounded = true
+
 [node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -1794,17 +1838,18 @@ script = ExtResource("26_ld6j6")
 [node name="In-Game_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
 clip_contents = true
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 225.0
-offset_top = 405.0
-offset_right = 225.0
-offset_bottom = 405.0
+offset_left = 225.5
+offset_top = 379.0
+offset_right = 225.5
+offset_bottom = 379.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 metadata/Open = false
-metadata/Close_Pos = Vector2(225, 405)
+metadata/Close_Pos = Vector2(224.5, 379)
 
 [node name="Player" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller"]
 layout_mode = 1
@@ -3189,31 +3234,441 @@ libraries = {
 "": SubResource("AnimationLibrary_hmxce")
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+[node name="Settings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -47.0
-offset_right = -3.0
-offset_bottom = -20.0
+offset_left = 43.5
+offset_top = 380.0
+offset_right = 43.5
+offset_bottom = 380.0
 grow_horizontal = 2
-grow_vertical = 0
-alignment = 1
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+metadata/Open = false
+metadata/Close_Pos = Vector2(43.5, 380)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 443.0
+offset_bottom = 377.0
+texture = ExtResource("18_yi1hf")
+
+[node name="Screens" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("21_14xp3")
+
+[node name="Audio" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens"]
+visible = false
+layout_mode = 0
+offset_left = 149.0
+offset_top = 14.0
+offset_right = 418.0
+offset_bottom = 353.0
+
+[node name="Label2" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_s5k6m")
+text = "Audio Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Master" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Master"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "Master"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Master"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Master/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="SFX" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/SFX"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "SFX"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/SFX"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/SFX/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Music" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Music"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "Music"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Music"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Music/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Notification" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Notification"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "Notifications"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Notification"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Ping" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Ping"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "Chat Ping"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Ping"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+min_value = -80.0
+max_value = 6.0
+
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Visuals" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 14.0
+offset_right = 418.0
+offset_bottom = 353.0
+
+[node name="Label2" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_s5k6m")
+text = "Visual Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Shadow_Depth" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Shadow_Depth"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "
+"
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Shadow_Depth/Label"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 19.0
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_sks6k")
+text = "Shadow Quality"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Shadow_Depth"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+max_value = 2.0
+step = 0.0
+rounded = true
+
+[node name="HSeparator6" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Anti-Aliasing" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "
+"
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/Label"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 19.0
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_sks6k")
+text = "MSAA"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("14_q4chf")
+max_value = 3.0
+step = 0.0
+rounded = true
+
+[node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 143.0
+offset_bottom = 320.0
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_q4chf")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Template_Button" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
+
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_re2np")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dwx1o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
+text = "Visual"
+
+[node name="Template_Button2" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
+
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_re2np")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dwx1o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
+text = "Audio"
+
+[node name="Template_Button3" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_r52jw")
+
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button3"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover = SubResource("StyleBoxFlat_re2np")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bm522")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm522")
+text = "Input"
+
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+custom_minimum_size = Vector2(0, 7.06)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 382.0
+offset_right = 449.0
+offset_bottom = 410.0
 
 [node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("52_lsgqv")
+texture_pressed = ExtResource("52_lsgqv")
+texture_hover = ExtResource("53_yess3")
 
 [node name="TextureButton2" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("55_usstw")
+texture_pressed = ExtResource("55_usstw")
+texture_hover = ExtResource("56_sj26w")
+
+[node name="VSeparator" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e0e5y")
 
 [node name="TextureButton3" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("57_8vc7f")
+texture_pressed = ExtResource("57_8vc7f")
+texture_hover = ExtResource("58_q8jin")
 
 [node name="TextureButton4" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("52_lsgqv")
+texture_pressed = ExtResource("52_lsgqv")
+texture_hover = ExtResource("53_yess3")
+
+[node name="TextureButton5" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("52_lsgqv")
+texture_pressed = ExtResource("52_lsgqv")
+texture_hover = ExtResource("53_yess3")
+
+[node name="TextureButton6" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("52_lsgqv")
+texture_pressed = ExtResource("52_lsgqv")
+texture_hover = ExtResource("53_yess3")
 
 [node name="Center_Button" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
 layout_mode = 2
@@ -3224,20 +3679,6 @@ offset_bottom = 428.0
 texture_normal = ExtResource("52_pfxns")
 texture_pressed = ExtResource("52_pfxns")
 texture_hover = ExtResource("53_ybm6u")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
-custom_minimum_size = Vector2(0, 7.06)
-layout_mode = 0
-offset_left = 3.0
-offset_top = 382.0
-offset_right = 176.0
-offset_bottom = 410.0
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("52_lsgqv")
-texture_pressed = ExtResource("52_lsgqv")
-texture_hover = ExtResource("53_yess3")
 
 [node name="Overlay" type="Panel" parent="DragArea"]
 layout_mode = 0
@@ -3275,6 +3716,7 @@ metadata/_edit_lock_ = true
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Notification", &"Audio"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Ping", &"Audio"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Shadow_Depth", &"Visuals"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Anti-Aliasing", &"Visuals"]]
 [connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Visuals"]]
@@ -3284,5 +3726,17 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect" method="_on_back_button_pressed"]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Master/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Master", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/SFX/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"SFX", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Music/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Music", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Notification/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Notification", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Ping", &"Audio"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Shadow_Depth", &"Visuals"]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Anti-Aliasing", &"Visuals"]]
+[connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
+[connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Visuals"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Audio"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Offline"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton2" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Settings"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Center_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["In-Game_Controller"]]
-[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer2/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Offline"]]

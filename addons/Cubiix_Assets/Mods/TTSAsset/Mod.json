@@ -172,7 +172,68 @@
 					}
 				}
 			},
-			
+			"LGBT_Scarf":{
+				"Tag":"Chest",
+				"Name":"RBW Scarf",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Chest_Accessories/Scarf.gltf",
+				"Mesh_Path":"Scarf_Armature/Skeleton3D/Scarf",
+				"Material_Overrides":{
+					"Chest/0":{
+						"Color":"#de3835",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/2":{
+						"Color":"#dedb35",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/1":{
+						"Color":"#57de35",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Chest/3":{
+						"Color":"#3595de",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				},
+				"Has_DynBones":true,
+				"DynBone_Data":{
+					"DynBone_Sets":{
+						"LGBT_Scarf_Front":["Scarf_Front_1","Scarf_Front_2","Scarf_Front_3","Scarf_Front_4"],
+						"LGBT_Scarf_Back":["Scarf_Back_1","Scarf_Back_2","Scarf_Back_3","Scarf_Back_4"]
+					},
+					"DynBone_Settings":{
+						"LGBT_Scarf_Front":{
+							"osc_ps":15,
+							"dampening": 0.1,
+							"damp_time":0.3,
+							"extension_damp_time":0.15,
+						},
+						"LGBT_Scarf_Back":{
+							"osc_ps":15,
+							"dampening": 0.1,
+							"damp_time":0.3,
+							"extension_damp_time":0.15,
+						}
+					}
+				}
+			},
 			
 			"LGBT_Cape":{
 				"Tag":"Back",
@@ -229,6 +290,8 @@
 					}
 				}
 			},
+			
+
 			
 			"Ki_Star_Shades":{
 				"Tag":"Face",

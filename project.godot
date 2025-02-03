@@ -48,6 +48,14 @@ folder_colors={
 
 Player=""
 PlayerCamera=""
+Sound_Grass=""
+Sound_Stone=""
+Sound_Sand=""
+Sound_Water=""
+Sound_Dirt=""
+Sound_Metal=""
+Sound_Cloth=""
+Sound_Wood=""
 
 [importer_defaults]
 
