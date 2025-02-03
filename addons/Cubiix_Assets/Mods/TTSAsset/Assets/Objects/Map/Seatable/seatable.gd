@@ -5,4 +5,6 @@ func _ready() -> void:
 
 
 func _on_player_entered_seatarea(body) -> void:
+	#if body.is_in_class("Player"):
+		#pass
 	pass

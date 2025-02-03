@@ -47,7 +47,7 @@ func _ready():
 		get_node("../CanvasLayer/Loading").hide()
 		print("Haoi")
 		#SceneData.call_deferred("Swap_Scene","Showcase",{},true,"")
-		SceneData.call_deferred("load_scene","TTSAssets/Hexstaria_V2",{},true,"Docks")
+		SceneData.call_deferred("load_scene","TTSAssets/DM_Test",{},true,"Docks")
 		#Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_Tablet_TitleScreen_Anim","Exit","", false)
 		#Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)
 		

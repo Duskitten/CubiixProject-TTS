@@ -14,15 +14,9 @@ func _on_player_entered_teleportation_area(body) -> void:
 	
 	if body.is_in_group("Player"):
 		if Persistant.has_method("SpawnAt"):
-			var char_control = Persistant.Player.get_node("Character_Controller")
 			
-			char_control.Movement_Disable = true
-			Persistant.Player.global_position = teleportation_target.global_position
-			#Persistant.SpawnAt(teleportation_target.position, teleportation_target.rotation)
-			await get_tree().create_timer(0.01).timeout
-			char_control.Movement_Disable = false
-			
-			
-			
-			
-			#char_control.Movem
+			# I have to add the child otherwise it can't call await with the scenetree timer
+			# Unless?
+			var teleport = TeleportationScript.new()
+			add_child(teleport)
+			teleport.teleport_to_reference(body, teleportation_target)

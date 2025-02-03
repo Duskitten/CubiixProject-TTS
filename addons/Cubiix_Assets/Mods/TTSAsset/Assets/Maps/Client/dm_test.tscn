@@ -1,14 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://bgvhk1c438n3p"]
+[gd_scene load_steps=28 format=3 uid="uid://bgvhk1c438n3p"]
 
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_nxura"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Day_Night.gd" id="2_pu4pk"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_sfckk"]
 [ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://Assets/Scenes/Tools/Hexstaria_Screenshotter.tscn" id="4_td76n"]
 [ext_resource type="Material" uid="uid://bceb6ls5k3yg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Grass.tres" id="5_0sl4t"]
-[ext_resource type="PackedScene" uid="uid://cbn3887exbg6c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Coin/coin.tscn" id="6_6ywb6"]
+[ext_resource type="PackedScene" uid="uid://cbn3887exbg6c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/CardCollectable/card.tscn" id="6_6ywb6"]
 [ext_resource type="PackedScene" uid="uid://cn7vn6cg0mqg1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/TeleportObject/teleport_object.tscn" id="7_8v8lo"]
 [ext_resource type="Material" uid="uid://bjhxlgusl5c8e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Dirt.tres" id="8_7iplj"]
 [ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Stone.tres" id="9_ikpfk"]
+[ext_resource type="PackedScene" uid="uid://es0ma4lcv8qv" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Seatable/seatable.tscn" id="10_ujuqw"]
 
 [sub_resource type="Gradient" id="Gradient_xk310"]
 interpolation_mode = 2
@@ -110,6 +111,8 @@ size = Vector2(2, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_y8m5y"]
 height = 4.28193
 radius = 1.58776
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_e4i5y"]
 
 [node name="DmTest" type="Node3D"]
 
@@ -257,5 +260,11 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_y8m5y")
+
+[node name="Seatable" parent="." instance=ExtResource("10_ujuqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9737, 0.5, -9.79657)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seatable"]
+shape = SubResource("CylinderShape3D_e4i5y")
 
 [editable path="SubViewport"]

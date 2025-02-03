@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbn3887exbg6c"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Coin/coin.gd" id="1_ei0fj"]
-[ext_resource type="Texture2D" uid="uid://cs6o7tgbikv0s" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Coin/Cubiix_Coin.png" id="1_vqef6"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/CardCollectable/card.gd" id="1_ei0fj"]
+[ext_resource type="Texture2D" uid="uid://c5y5i5q6bmkvk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/CardCollectable/CubiixCardPlaceholderSprite.png" id="2_ma1xx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_unael"]
 
@@ -17,27 +17,18 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
-[node name="Coin" type="Node3D"]
+[node name="Card" type="Node3D"]
 script = ExtResource("1_ei0fj")
 
-[node name="CoinSprite" type="Node3D" parent="."]
+[node name="CardSprite" type="Node3D" parent="."]
 transform = Transform3D(0.0731696, 0, 0.997319, 0, 1, 0, -0.997319, 0, 0.0731696, 0, 0, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="CoinSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
-pixel_size = 0.05
+[node name="Sprite3D" type="Sprite3D" parent="CardSprite"]
+pixel_size = 0.02
 shaded = true
 texture_filter = 0
 render_priority = 100
-texture = ExtResource("1_vqef6")
-
-[node name="Sprite3D2" type="Sprite3D" parent="CoinSprite"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.03)
-pixel_size = 0.05
-shaded = true
-texture_filter = 0
-render_priority = 100
-texture = ExtResource("1_vqef6")
+texture = ExtResource("2_ma1xx")
 
 [node name="CollectionDetection" type="Area3D" parent="."]
 collision_layer = 2

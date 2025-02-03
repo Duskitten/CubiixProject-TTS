@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cs6o7tgbikv0s"
-path="res://.godot/imported/Cubiix_Coin.png-2cb153e28176e16aa2b9bb6a67c5c103.ctex"
+path="res://.godot/imported/Cubiix_Coin.png-7b16eb6c51f3a27b9b288b36c0b3b669.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Coin/Cubiix_Coin.png"
-dest_files=["res://.godot/imported/Cubiix_Coin.png-2cb153e28176e16aa2b9bb6a67c5c103.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/CardCollectable/Cubiix_Coin.png"
+dest_files=["res://.godot/imported/Cubiix_Coin.png-7b16eb6c51f3a27b9b288b36c0b3b669.ctex"]
 
 [params]
 
