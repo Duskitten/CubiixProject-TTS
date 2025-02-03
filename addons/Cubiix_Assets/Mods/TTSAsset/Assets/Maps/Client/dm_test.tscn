@@ -1,0 +1,261 @@
+[gd_scene load_steps=26 format=3 uid="uid://bgvhk1c438n3p"]
+
+[ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_nxura"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Day_Night.gd" id="2_pu4pk"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_sfckk"]
+[ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://Assets/Scenes/Tools/Hexstaria_Screenshotter.tscn" id="4_td76n"]
+[ext_resource type="Material" uid="uid://bceb6ls5k3yg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Grass.tres" id="5_0sl4t"]
+[ext_resource type="PackedScene" uid="uid://cbn3887exbg6c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/CardCollectable/card.tscn" id="6_6ywb6"]
+[ext_resource type="PackedScene" uid="uid://cn7vn6cg0mqg1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/TeleportObject/teleport_object.tscn" id="7_8v8lo"]
+[ext_resource type="Material" uid="uid://bjhxlgusl5c8e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Dirt.tres" id="8_7iplj"]
+[ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Stone.tres" id="9_ikpfk"]
+
+[sub_resource type="Gradient" id="Gradient_xk310"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0967742, 0.290323, 0.903226)
+colors = PackedColorArray(0.527812, 1, 0.871439, 1, 0, 0.545007, 1, 1, 0.475922, 0.767964, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nwbfg"]
+gradient = SubResource("Gradient_xk310")
+width = 128
+height = 128
+fill_from = Vector2(1, 0.587302)
+fill_to = Vector2(1, 0.103175)
+
+[sub_resource type="Gradient" id="Gradient_njoir"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0645161, 1)
+colors = PackedColorArray(0, 0.0369588, 0.0976563, 1, 0.249128, 0, 0.386719, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wnmh1"]
+gradient = SubResource("Gradient_njoir")
+width = 128
+height = 128
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 0.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lsqk"]
+shader = ExtResource("1_nxura")
+shader_parameter/SkyDarkness = 1.0
+shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_wnmh1")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_nwbfg")
+
+[sub_resource type="Sky" id="Sky_dmw14"]
+sky_material = SubResource("ShaderMaterial_6lsqk")
+
+[sub_resource type="Environment" id="Environment_jrlse"]
+background_mode = 2
+background_color = Color(0.758192, 0.758192, 0.758192, 1)
+sky = SubResource("Sky_dmw14")
+ambient_light_source = 2
+ambient_light_color = Color(0.572549, 0.603922, 0.854902, 1)
+reflected_light_source = 1
+ssao_intensity = 4.64
+ssao_power = 1.72304
+ssao_detail = 1.21
+ssao_sharpness = 1.0
+glow_enabled = true
+glow_levels/1 = 16.0
+glow_levels/2 = 16.0
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_threshold = 0.07
+glow_hdr_scale = 2.07
+glow_hdr_luminance_cap = 0.0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.0196078, 0.615686, 1, 1)
+fog_density = 0.7123
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.015
+volumetric_fog_albedo = Color(0, 1, 0.292014, 1)
+volumetric_fog_emission = Color(0.0203175, 0.616315, 1, 1)
+volumetric_fog_length = 173.9
+volumetric_fog_sky_affect = 0.0
+volumetric_fog_temporal_reprojection_amount = 0.99
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_q7wtv"]
+auto_exposure_scale = 0.5
+auto_exposure_speed = 1.0
+dof_blur_far_distance = 54.6
+dof_blur_far_transition = 96.04
+dof_blur_amount = 0.03
+
+[sub_resource type="BoxMesh" id="BoxMesh_157q0"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s8l27"]
+data = PackedVector3Array(-50, 0.5, 50, 50, 0.5, 50, -50, -0.5, 50, 50, 0.5, 50, 50, -0.5, 50, -50, -0.5, 50, 50, 0.5, -50, -50, 0.5, -50, 50, -0.5, -50, -50, 0.5, -50, -50, -0.5, -50, 50, -0.5, -50, 50, 0.5, 50, 50, 0.5, -50, 50, -0.5, 50, 50, 0.5, -50, 50, -0.5, -50, 50, -0.5, 50, -50, 0.5, -50, -50, 0.5, 50, -50, -0.5, -50, -50, 0.5, 50, -50, -0.5, 50, -50, -0.5, -50, 50, 0.5, 50, -50, 0.5, 50, 50, 0.5, -50, -50, 0.5, 50, -50, 0.5, -50, 50, 0.5, -50, -50, -0.5, 50, 50, -0.5, 50, -50, -0.5, -50, 50, -0.5, 50, 50, -0.5, -50, -50, -0.5, -50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3e4ps"]
+size = Vector3(2, 0.361328, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tltj7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s0pgt"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.02
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wyi2u"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 3.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_dadtn"]
+size = Vector2(2, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y8m5y"]
+height = 4.28193
+radius = 1.58776
+
+[node name="DmTest" type="Node3D"]
+
+[node name="Environment_Template" type="Node3D" parent="."]
+process_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment_Template"]
+environment = SubResource("Environment_jrlse")
+camera_attributes = SubResource("CameraAttributesPractical_q7wtv")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Environment_Template"]
+process_mode = 3
+transform = Transform3D(-0.807985, -0.416624, 0.416634, 0.398019, 0.135443, 0.907324, -0.434443, 0.898932, 0.056388, 0.00469455, 0, 0.0278296)
+layers = 0
+light_color = Color(4.865, 16.216, 1, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_bake_mode = 1
+light_cull_mask = 4293918720
+sky_mode = 2
+script = ExtResource("2_pu4pk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template/DirectionalLight3D2"]
+transform = Transform3D(1, 0, 0, 1.49012e-08, 1, -7.45058e-09, -2.98023e-08, -2.23517e-08, 1, 0, 0, 0)
+light_energy = 1.2
+light_bake_mode = 1
+light_cull_mask = 4293918721
+shadow_enabled = true
+shadow_bias = 0.15
+directional_shadow_mode = 0
+directional_shadow_max_distance = 52.0
+sky_mode = 1
+
+[node name="Lighting_Settings" type="Node" parent="Environment_Template/DirectionalLight3D2/DirectionalLight3D"]
+script = ExtResource("3_sfckk")
+
+[node name="SubViewport" parent="." instance=ExtResource("4_td76n")]
+msaa_2d = 3
+msaa_3d = 3
+use_debanding = true
+screenshotMode = true
+
+[node name="Camera3D2" parent="SubViewport" index="0"]
+transform = Transform3D(0.99942, 0.0281175, -0.0191964, -0.0279201, 0.999556, 0.0104718, 0.0194823, -0.00992975, 0.999761, 0, 0.829, 25.435)
+environment = null
+attributes = null
+current = true
+
+[node name="TeleportMarker" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.6187, 9.09832, -1.64784)
+
+[node name="SecondTeleportMarker" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.70542, 1.03466, -19.6478)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("5_0sl4t")
+mesh = SubResource("BoxMesh_157q0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_s8l27")
+
+[node name="Coin" parent="." instance=ExtResource("6_6ywb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.27081, 1.44723, -14.4878)
+
+[node name="Coin2" parent="." instance=ExtResource("6_6ywb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.27081, 1.44723, -14.4878)
+
+[node name="Coin3" parent="." instance=ExtResource("6_6ywb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27081, 1.44723, -14.4878)
+
+[node name="Coin4" parent="." instance=ExtResource("6_6ywb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27081, 1.44723, -14.4878)
+
+[node name="Coin5" parent="." instance=ExtResource("6_6ywb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2708, 1.44723, -14.4878)
+
+[node name="Coin6" parent="." instance=ExtResource("6_6ywb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2708, 1.44723, -14.4878)
+
+[node name="Coin7" parent="." instance=ExtResource("6_6ywb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2708, 1.44723, -14.4878)
+
+[node name="Coin8" parent="." instance=ExtResource("6_6ywb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2708, 1.44723, -14.4878)
+
+[node name="TeleportObject" parent="." node_paths=PackedStringArray("teleportation_target") instance=ExtResource("7_8v8lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.683308, 0.684806, -10.0291)
+teleportation_target = NodePath("../TeleportMarker")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportObject"]
+shape = SubResource("BoxShape3D_3e4ps")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TeleportObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.639042, 0)
+material_override = ExtResource("8_7iplj")
+mesh = SubResource("BoxMesh_tltj7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TeleportObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.639042, -9.64973)
+material_override = ExtResource("9_ikpfk")
+mesh = SubResource("BoxMesh_tltj7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="TeleportObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8.36096, 8.35027)
+material_override = ExtResource("9_ikpfk")
+mesh = SubResource("BoxMesh_tltj7")
+
+[node name="TeleportObject2" parent="." node_paths=PackedStringArray("teleportation_target") instance=ExtResource("7_8v8lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.80959, 0.684806, -10.0291)
+teleportation_target = NodePath("../SecondTeleportMarker")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportObject2"]
+shape = SubResource("BoxShape3D_3e4ps")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TeleportObject2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.639042, 0)
+material_override = ExtResource("8_7iplj")
+mesh = SubResource("BoxMesh_tltj7")
+
+[node name="Checkpoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496, 0)
+mesh = SubResource("CylinderMesh_s0pgt")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96553, 0)
+mesh = SubResource("CylinderMesh_wyi2u")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01746, 2.8977, 0)
+mesh = SubResource("QuadMesh_dadtn")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Checkpoint"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_y8m5y")
+
+[editable path="SubViewport"]
