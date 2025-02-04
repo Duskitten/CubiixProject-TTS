@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc12e6noyjju0"
-path="res://.godot/imported/Blimp.png-e00216be4362f3d6980a352872844ae7.ctex"
+uid="uid://ftkeffl87ehx"
+path="res://.godot/imported/BackObjects2.png-8bc13f05f5c2c7f7cd613b5d35c34ef5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Blimp.png"
-dest_files=["res://.godot/imported/Blimp.png-e00216be4362f3d6980a352872844ae7.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/BackObjects2.png"
+dest_files=["res://.godot/imported/BackObjects2.png-8bc13f05f5c2c7f7cd613b5d35c34ef5.ctex"]
 
 [params]
 

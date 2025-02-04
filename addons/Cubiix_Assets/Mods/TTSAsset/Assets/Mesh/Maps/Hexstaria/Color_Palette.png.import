@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqoat6aqdiwux"
-path="res://.godot/imported/Hutt_3.png-5a3664d605d4823f21e37a127aa0e537.ctex"
+uid="uid://bi3sbb04w1qvs"
+path="res://.godot/imported/Color_Palette.png-12df19b9922c18a6a46354b4711aa24a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hutt_3.png"
-dest_files=["res://.godot/imported/Hutt_3.png-5a3664d605d4823f21e37a127aa0e537.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Color_Palette.png"
+dest_files=["res://.godot/imported/Color_Palette.png-12df19b9922c18a6a46354b4711aa24a.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

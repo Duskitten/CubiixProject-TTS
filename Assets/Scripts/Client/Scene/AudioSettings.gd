@@ -1,10 +1,7 @@
 @tool
 extends Marker3D
 
-@export_enum(
-	"FishShop",
-	"Trinket"
-	) var SongID : String = ""
+@export var SongID : String = ""
 
 @export_range(0.0,999999.0) var Tag_Radius : float = 1.0 :
 	set(value):

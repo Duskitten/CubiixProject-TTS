@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbq2n0djvewmx"
-path="res://.godot/imported/Hutt_2.png-2dab9704e575fa430ad56ddc5f1ce07b.ctex"
+uid="uid://7skkfeds42mg"
+path="res://.godot/imported/Hut_Test.png-67a06f971ad3d78509d24cbec3cd1d62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hutt_2.png"
-dest_files=["res://.godot/imported/Hutt_2.png-2dab9704e575fa430ad56ddc5f1ce07b.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Hut_Test.png"
+dest_files=["res://.godot/imported/Hut_Test.png-67a06f971ad3d78509d24cbec3cd1d62.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

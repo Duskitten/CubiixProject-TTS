@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://g66hh2k7gvmr"
-path="res://.godot/imported/Skim_Boat.gltf-1abfe55af0b371ba832ad62fe0b7677e.scn"
+uid="uid://bcbqf7a7nej6x"
+path="res://.godot/imported/Grass.gltf-8385208833c94ff88971940d024d686a.scn"
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Skim_Boat.gltf"
-dest_files=["res://.godot/imported/Skim_Boat.gltf-1abfe55af0b371ba832ad62fe0b7677e.scn"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Grass.gltf"
+dest_files=["res://.godot/imported/Grass.gltf-8385208833c94ff88971940d024d686a.scn"]
 
 [params]
 
@@ -31,6 +31,13 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Grass_Fronds.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

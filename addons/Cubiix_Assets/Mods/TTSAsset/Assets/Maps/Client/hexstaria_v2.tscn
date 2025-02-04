@@ -1,37 +1,37 @@
 [gd_scene load_steps=118 format=4 uid="uid://fqbvemktav2x"]
 
-[ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/HexstariaV2.gltf" id="1_1h5qw"]
+[ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/HexstariaV2.gltf" id="1_1h5qw"]
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_kyva2"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Day_Night.gd" id="1_nkowm"]
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="2_1hj25"]
-[ext_resource type="Material" uid="uid://l3apok7uyv6k" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Sand.tres" id="2_tdkn4"]
+[ext_resource type="Material" uid="uid://l3apok7uyv6k" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Sand.tres" id="2_tdkn4"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_q3rlg"]
 [ext_resource type="Texture2D" uid="uid://cl7vtomrdaqin" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/World/Water_Ripple.png" id="4_sm606"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/water_mover.gd" id="4_vbluc"]
-[ext_resource type="Material" uid="uid://cmxcypkotim2b" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/FishBooth.tres" id="5_u4vgk"]
-[ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Stone.tres" id="6_y1rbs"]
-[ext_resource type="Material" uid="uid://c5xmac7ixdgwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Palm_Trees.tres" id="7_7i3dg"]
-[ext_resource type="Material" uid="uid://bceb6ls5k3yg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Grass.tres" id="7_sth75"]
-[ext_resource type="Material" uid="uid://cdl70qe7av6ti" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_Water.tres" id="8_h35ag"]
-[ext_resource type="Material" uid="uid://b0uoiij21jcs0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Grass_Fronds.tres" id="8_kts4w"]
-[ext_resource type="PackedScene" uid="uid://bcbqf7a7nej6x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Grass.gltf" id="9_teqfn"]
+[ext_resource type="Material" uid="uid://cmxcypkotim2b" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/FishBooth.tres" id="5_u4vgk"]
+[ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Stone.tres" id="6_y1rbs"]
+[ext_resource type="Material" uid="uid://c5xmac7ixdgwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Palm_Trees.tres" id="7_7i3dg"]
+[ext_resource type="Material" uid="uid://bceb6ls5k3yg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Grass.tres" id="7_sth75"]
+[ext_resource type="Material" uid="uid://cdl70qe7av6ti" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hexstaria_Water.tres" id="8_h35ag"]
+[ext_resource type="Material" uid="uid://b0uoiij21jcs0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Grass_Fronds.tres" id="8_kts4w"]
+[ext_resource type="PackedScene" uid="uid://bcbqf7a7nej6x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Grass.gltf" id="9_teqfn"]
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="10_t2d1s"]
 [ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://Assets/Scenes/Client/world/audioZone.tscn" id="11_daro4"]
 [ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://Assets/Scenes/Tools/Hexstaria_Screenshotter.tscn" id="12_2yfxy"]
-[ext_resource type="Material" uid="uid://cgont05kthg6q" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Dark_Stone.tres" id="12_je2dx"]
-[ext_resource type="Material" uid="uid://4pvclmjr0frp" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Portal.tres" id="13_fg1e4"]
-[ext_resource type="Material" uid="uid://bjhxlgusl5c8e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Dirt.tres" id="14_dk6bu"]
+[ext_resource type="Material" uid="uid://cgont05kthg6q" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Dark_Stone.tres" id="12_je2dx"]
+[ext_resource type="Material" uid="uid://4pvclmjr0frp" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Portal.tres" id="13_fg1e4"]
+[ext_resource type="Material" uid="uid://bjhxlgusl5c8e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Dirt.tres" id="14_dk6bu"]
 [ext_resource type="Texture2D" uid="uid://chpr8a0xeadnu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/World/Smoke.png" id="14_s26r4"]
 [ext_resource type="PackedScene" uid="uid://dlddkyamixlpn" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/BounceObject/BounceObject.tscn" id="15_u4044"]
-[ext_resource type="Material" uid="uid://b3oad460slu57" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hut_1.tres" id="16_3xrq8"]
-[ext_resource type="Material" uid="uid://c23u4882guha4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hut_2.tres" id="17_klhsr"]
-[ext_resource type="Material" uid="uid://chjf5pqto7jff" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hut_3.tres" id="18_3xugf"]
-[ext_resource type="Material" uid="uid://cbrpdiha2md3k" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_DeadGrass.tres" id="21_ms8sg"]
-[ext_resource type="Material" uid="uid://krsvtu3psvvo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Tall_Trees.tres" id="23_f5tmj"]
-[ext_resource type="Material" uid="uid://m776mhjwl8ko" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Blimp.tres" id="24_j1yv0"]
-[ext_resource type="Material" uid="uid://bnubjpxj6mtom" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Blimp_Metal.tres" id="25_5ro0l"]
-[ext_resource type="Texture2D" uid="uid://ftkeffl87ehx" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/BackObjects2.png" id="25_ilkdj"]
-[ext_resource type="Material" uid="uid://05vajaovxjw1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Blimp_engine.tres" id="26_5gvm4"]
+[ext_resource type="Material" uid="uid://b3oad460slu57" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_1.tres" id="16_3xrq8"]
+[ext_resource type="Material" uid="uid://c23u4882guha4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_2.tres" id="17_klhsr"]
+[ext_resource type="Material" uid="uid://chjf5pqto7jff" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_3.tres" id="18_3xugf"]
+[ext_resource type="Material" uid="uid://cbrpdiha2md3k" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_DeadGrass.tres" id="21_ms8sg"]
+[ext_resource type="Material" uid="uid://krsvtu3psvvo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Tall_Trees.tres" id="23_f5tmj"]
+[ext_resource type="Material" uid="uid://m776mhjwl8ko" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Blimp.tres" id="24_j1yv0"]
+[ext_resource type="Material" uid="uid://bnubjpxj6mtom" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Blimp_Metal.tres" id="25_5ro0l"]
+[ext_resource type="Texture2D" uid="uid://ftkeffl87ehx" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/BackObjects2.png" id="25_ilkdj"]
+[ext_resource type="Material" uid="uid://05vajaovxjw1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Blimp_engine.tres" id="26_5gvm4"]
 [ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://Assets/Scenes/Client/Ui/version_image.tscn" id="30_hrylf"]
 
 [sub_resource type="Gradient" id="Gradient_cosy2"]
@@ -646,17 +646,9 @@ Accessory_String = "{\"Face\":\"TTSAssets/Ki_Star_Shades\"}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Ki/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Nat" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -672,17 +664,9 @@ Accessory_String = "{}"
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Nat/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Dusk" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -698,17 +682,9 @@ Accessory_String = "{}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Dusk/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Skim" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -724,17 +700,9 @@ Accessory_String = "{\"Head\":\"TTSAssets/Dock_Hat\",\"Chest\":\"TTSAssets/Dock_
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Skim/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="MeshInstance3D" parent="NPC/Skim/Hub/Cubiix_Model/Armature/Skeleton3D" index="0"]
@@ -881,6 +849,7 @@ shape = SubResource("ConcavePolygonShape3D_184do")
 
 [node name="Big_Grass" parent="Map/HexstariaV2" index="9"]
 layers = 262145
+surface_material_override/0 = ExtResource("7_sth75")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/HexstariaV2/Big_Grass" index="0" groups=["Sound_Grass"]]
 collision_layer = 131

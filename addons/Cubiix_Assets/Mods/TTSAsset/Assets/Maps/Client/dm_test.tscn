@@ -1,14 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://bgvhk1c438n3p"]
+[gd_scene load_steps=28 format=3 uid="uid://dsuhhetxu6t1j"]
 
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_nxura"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Day_Night.gd" id="2_pu4pk"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_sfckk"]
 [ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://Assets/Scenes/Tools/Hexstaria_Screenshotter.tscn" id="4_td76n"]
-[ext_resource type="Material" uid="uid://bceb6ls5k3yg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Grass.tres" id="5_0sl4t"]
+[ext_resource type="Material" uid="uid://bceb6ls5k3yg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Grass.tres" id="5_0sl4t"]
 [ext_resource type="PackedScene" uid="uid://cbn3887exbg6c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/CardCollectable/card.tscn" id="6_6ywb6"]
 [ext_resource type="PackedScene" uid="uid://cn7vn6cg0mqg1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/TeleportObject/teleport_object.tscn" id="7_8v8lo"]
-[ext_resource type="Material" uid="uid://bjhxlgusl5c8e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Dirt.tres" id="8_7iplj"]
-[ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Stone.tres" id="9_ikpfk"]
+[ext_resource type="Material" uid="uid://bjhxlgusl5c8e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Dirt.tres" id="8_7iplj"]
+[ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Stone.tres" id="9_ikpfk"]
+[ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="10_5o565"]
+[ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://Assets/Scenes/Client/world/audioZone.tscn" id="11_e6b5r"]
 
 [sub_resource type="Gradient" id="Gradient_xk310"]
 interpolation_mode = 2
@@ -257,5 +259,16 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_y8m5y")
+
+[node name="Audio_Zones" type="Node3D" parent="."]
+visible = false
+script = ExtResource("10_5o565")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="AudioZone" parent="Audio_Zones" instance=ExtResource("11_e6b5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+SongID = "Trinket"
+Tag_Radius = 1000.0
 
 [editable path="SubViewport"]

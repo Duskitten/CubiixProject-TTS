@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcbqf7a7nej6x"
-path="res://.godot/imported/Grass.gltf-83a50e31c9b5e4872b403a74398c07e6.scn"
+uid="uid://caan6u6k0t73d"
+path="res://.godot/imported/Water_Sploosh.gltf-1784078bb63511e28fea23a7a11ed404.scn"
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Grass.gltf"
-dest_files=["res://.godot/imported/Grass.gltf-83a50e31c9b5e4872b403a74398c07e6.scn"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Effects/Water_Sploosh.gltf"
+dest_files=["res://.godot/imported/Water_Sploosh.gltf-1784078bb63511e28fea23a7a11ed404.scn"]
 
 [params]
 
@@ -31,13 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Material": {
-"use_external/enabled": true,
-"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Grass_Fronds.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

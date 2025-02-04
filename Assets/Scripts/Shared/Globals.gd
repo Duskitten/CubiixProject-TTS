@@ -1,6 +1,8 @@
 extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
+var GameVersion = "V_B.01.01"
+
 var LocalUser = {
 	"URL":"",
 	"UserSecretCode":"",

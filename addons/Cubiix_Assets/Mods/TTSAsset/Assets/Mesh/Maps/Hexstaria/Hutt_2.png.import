@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ftkeffl87ehx"
-path="res://.godot/imported/BackObjects2.png-8b1cc564d261f633c718913163ba524a.ctex"
+uid="uid://bbq2n0djvewmx"
+path="res://.godot/imported/Hutt_2.png-8076e823619d289fd0f192201ab3ea52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/BackObjects2.png"
-dest_files=["res://.godot/imported/BackObjects2.png-8b1cc564d261f633c718913163ba524a.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Hutt_2.png"
+dest_files=["res://.godot/imported/Hutt_2.png-8076e823619d289fd0f192201ab3ea52.ctex"]
 
 [params]
 

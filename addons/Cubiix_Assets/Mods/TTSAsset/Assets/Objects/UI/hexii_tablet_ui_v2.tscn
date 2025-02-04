@@ -1,10 +1,10 @@
-[gd_scene load_steps=120 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=123 format=3 uid="uid://c2701u34x8dm0"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Drag_Manager.gd" id="1_myaf6"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Box_Container.gd" id="3_lp8p3"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Title_Box_Container.gd" id="3_lp8p3"]
 [ext_resource type="Texture2D" uid="uid://bidaos2p31667" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Devlog_Base.png" id="3_vbtfg"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/title_transition_controller.gd" id="3_yb2d0"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_transition_controller.gd" id="3_yb2d0"]
 [ext_resource type="Texture2D" uid="uid://bq7k18mcha5g3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Shadow.png" id="5_b250a"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://Assets/Fonts/Jura/Jura-Bold.ttf" id="5_d5qti"]
 [ext_resource type="Texture2D" uid="uid://bgrmflwldfthk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Login_Base.png" id="5_l1n8e"]
@@ -16,22 +16,22 @@
 [ext_resource type="Texture2D" uid="uid://chlvv6qbfkylu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Update_Base.png" id="13_j7rci"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="14_q4chf"]
 [ext_resource type="Texture2D" uid="uid://vs6x01cc1fxt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Base.png" id="15_evwrj"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/title_devlog.gd" id="15_rcleq"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_devlog.gd" id="15_rcleq"]
 [ext_resource type="Texture2D" uid="uid://5tyort2rt0g4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Hover.png" id="16_f4obj"]
 [ext_resource type="FontFile" uid="uid://8qduw4o3whqt" path="res://Assets/Fonts/Jura/Jura-Regular.ttf" id="17_iygg2"]
 [ext_resource type="Texture2D" uid="uid://bh6cd3a6acb1g" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Settings_Backing.png" id="18_yi1hf"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/title_settings_adjust.gd" id="21_14xp3"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_settings_adjust.gd" id="21_14xp3"]
 [ext_resource type="Texture2D" uid="uid://bjx1yafhtgyeq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Backing.png" id="22_4ivrb"]
 [ext_resource type="Texture2D" uid="uid://d0a3m7qnlq1ra" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Login_Window.png" id="23_neoin"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/login_controller.gd" id="24_jy7r5"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/login_controller.gd" id="24_jy7r5"]
 [ext_resource type="AnimationLibrary" uid="uid://dadtuq6br5p3c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Animations/Loaderbar.tres" id="26_b76qr"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Desktop_Manager_System.gd" id="26_ld6j6"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Character_Editor.gd" id="26_roqma"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Desktop_Manager_System.gd" id="26_ld6j6"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Character_Editor.gd" id="26_roqma"]
 [ext_resource type="Texture2D" uid="uid://dthsi25w60klk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_A.png" id="27_qu4e4"]
 [ext_resource type="PackedScene" uid="uid://cmukryvy8s3t3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/UI/character_editor.tscn" id="27_t467y"]
 [ext_resource type="Texture2D" uid="uid://b36o2458ckfsf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot.png" id="28_86qy3"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Card_Char_UI_Selector.gd" id="28_c10ss"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Card_Deck_Selector_Visual.gd" id="28_wu2g7"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Card_Char_UI_Selector.gd" id="28_c10ss"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Card_Deck_Selector_Visual.gd" id="28_wu2g7"]
 [ext_resource type="Texture2D" uid="uid://rqhnqqlrqmuf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Card_Assets/Template_Card.png" id="29_6jmre"]
 [ext_resource type="Texture2D" uid="uid://0r20d7ohferu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Head_Icon.png" id="30_qn7im"]
 [ext_resource type="Texture2D" uid="uid://b6kyxuxigqvto" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Face_Icon.png" id="31_okiee"]
@@ -42,7 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://dn5rj008eiuyb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/L_Hand_Icon.png" id="36_eae0u"]
 [ext_resource type="Texture2D" uid="uid://ehai1jpye32u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/R_Hand_Icon.png" id="37_jf558"]
 [ext_resource type="Texture2D" uid="uid://by8bbtx0uwn6m" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Ears_Icon.png" id="38_daotg"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Character_Previewer_Controls.gd" id="38_fcna6"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Character_Previewer_Controls.gd" id="38_fcna6"]
 [ext_resource type="Texture2D" uid="uid://btnlf2qdftncl" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Picker_Icon.png" id="39_o3ymg"]
 [ext_resource type="Texture2D" uid="uid://dkxxq80qu5737" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Extra_Icon.png" id="39_ptxdx"]
 [ext_resource type="Texture2D" uid="uid://bauyi80rix4bj" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_B.png" id="40_5lkqb"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://cxgq0yj5yxx0f" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/SettingsButton_Hover.png" id="56_sj26w"]
 [ext_resource type="Texture2D" uid="uid://dnwu4li8peekr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/CollectionsButton_Base.png" id="57_8vc7f"]
 [ext_resource type="Texture2D" uid="uid://rqhy8ml8mxm3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/CollectionsButton_Hover.png" id="58_q8jin"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/command_parser.gd" id="61_arkv6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
@@ -305,7 +306,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.457494, 0.594933, 1)
+bg_color = Color(0, 0.227445, 0.599276, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -316,7 +317,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.268361, 0.599536, 1)
+bg_color = Color(0, 0.607174, 0.601684, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -325,9 +326,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 6.5118
+expand_margin_bottom = 6.5118
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.644675, 0.601922, 1)
+bg_color = Color(0, 0.985446, 0.604083, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -336,11 +339,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 7.70482
-expand_margin_bottom = 7.70482
+expand_margin_top = 19.4833
+expand_margin_bottom = 19.4833
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.993663, 0.604135, 1)
+bg_color = Color(0, -0.476421, 0.594813, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -349,8 +352,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 19.7775
-expand_margin_bottom = 19.7775
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -543,6 +544,27 @@ _data = {
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0e5y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h833f"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.145098, 0.215686, 0.6, 0.823529)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n65e8"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0588235, 0.0862745, 0.243137, 0.858824)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
 texture = ExtResource("87_b3x5w")
@@ -1827,10 +1849,13 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
 [node name="Offline" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 454.0
+offset_right = 454.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("26_ld6j6")
@@ -2444,7 +2469,7 @@ world_3d = SubResource("World3D_l6x5t")
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(198, 367)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
 
@@ -3680,6 +3705,45 @@ texture_normal = ExtResource("52_pfxns")
 texture_pressed = ExtResource("52_pfxns")
 texture_hover = ExtResource("53_ybm6u")
 
+[node name="Debug" type="Control" parent="DragArea/Wallpaper_Backing"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Command_Parser" type="Node" parent="DragArea/Wallpaper_Backing/Debug"]
+script = ExtResource("61_arkv6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Debug"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h833f")
+
+[node name="LineEdit" type="LineEdit" parent="DragArea/Wallpaper_Backing/Debug"]
+layout_mode = 0
+offset_left = 6.5
+offset_top = 334.0
+offset_right = 447.5
+offset_bottom = 370.0
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n65e8")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_n65e8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n65e8")
+placeholder_text = "Input Command..."
+caret_blink = true
+
 [node name="Overlay" type="Panel" parent="DragArea"]
 layout_mode = 0
 offset_left = -30.0
@@ -3740,3 +3804,4 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Offline"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton2" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Settings"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Center_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["In-Game_Controller"]]
+[connection signal="text_submitted" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_text_submitted"]
