@@ -10,7 +10,7 @@ var last_input = ""
 
 func _ready() -> void:
 	Core.Console = self
-	new_debug("Cubiix Project : TTL Version " + Core.Globals.GameVersion)
+	new_debug("Cubiix Project : TTL Version " + Core.Globals.GameVersion, false)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("CMD"):
@@ -35,9 +35,9 @@ func command_parser(text:String) -> void:
 					Core.SceneData.call_deferred("load_scene",split_normal[1],{},true,"")
 				
 			"commands":
-				RTL.text += "\n Current Commands:"
-				RTL.text += "\n commands: This Screen"
-				RTL.text += "\n swap_map : For Map Switching, syntax \"swap_map mapid spawnlocation\""
+				new_debug("Current Commands:")
+				new_debug("commands: This Screen")
+				new_debug("swap_map : For Map Switching, syntax \"swap_map mapid spawnlocation\"")
 	
 	last_command.append(text)
 	command_pos = last_command.size()
@@ -59,5 +59,8 @@ func _on_line_edit_gui_input(event: InputEvent) -> void:
 				else:
 					Line.text = last_command[command_pos]
 
-func new_debug(text:String) -> void:
-	RTL.text += "\n"+text
+func new_debug(text:String, newline:bool = true) -> void:
+	if newline:
+		RTL.text += "\n"+text
+	else:
+		RTL.text += text
