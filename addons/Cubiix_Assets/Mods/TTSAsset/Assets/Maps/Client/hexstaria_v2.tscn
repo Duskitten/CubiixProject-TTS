@@ -1353,7 +1353,7 @@ metadata/_edit_group_ = true
 
 [node name="AudioZone" parent="Audio_Zones" instance=ExtResource("11_daro4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3796, 2.07997, -29.6975)
-SongID = "Trinket"
+SongID = "HobblinWobblin"
 Tag_Radius = 1000.0
 
 [node name="AudioZone2" parent="Audio_Zones" instance=ExtResource("11_daro4")]

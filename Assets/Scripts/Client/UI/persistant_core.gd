@@ -883,8 +883,9 @@ func register_request_completed(result, response_code, headers, body):
 ##################################
 var LastSong = ""
 var SongList = {
-	"FishShop":"res://Assets/Audio/World/FishinForCubes.ogg",
-	"Trinket":"res://Assets/Audio/World/Trinket.ogg"
+	"FishShop":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/FishinForCubes.ogg",
+	"Trinket":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/Trinket.ogg",
+	"HobblinWobblin":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/HobblinWobblin.ogg"
 }
 
 var AudioHost = null
