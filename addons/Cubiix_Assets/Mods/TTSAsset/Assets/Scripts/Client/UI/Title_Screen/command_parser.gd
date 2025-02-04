@@ -46,7 +46,8 @@ func command_parser(text:String) -> void:
 				elif split_normal.size() > 3:
 					var teleport = TeleportationScript.new()
 					self.add_child(teleport)
-					teleport.teleport_to_coords( Core.Persistant_Core.Player, Vector3(float(split_normal[1]),float(split_normal[2]),float(split_normal[3])), Vector3(0,0,0) )
+					# If this ends up breaking, try setting the rotation manually to 0,0,0
+					teleport.teleport_to_coords( Core.Persistant_Core.Player, Vector3(float(split_normal[1]),float(split_normal[2]),float(split_normal[3])), Core.Persistant_Core.Player.rotation )
 			
 			"show_coord":
 				print("Hewwo UwU")
