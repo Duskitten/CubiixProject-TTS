@@ -9,7 +9,8 @@ var command_pos = 0
 var last_input = ""
 
 func _ready() -> void:
-	RTL.text += "Cubiix Project : TTL Version " + Core.Globals.GameVersion
+	Core.Console = self
+	new_debug("Cubiix Project : TTL Version " + Core.Globals.GameVersion)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("CMD"):
@@ -57,3 +58,6 @@ func _on_line_edit_gui_input(event: InputEvent) -> void:
 					Line.text = last_input
 				else:
 					Line.text = last_command[command_pos]
+
+func new_debug(text:String) -> void:
+	RTL.text += "\n"+text

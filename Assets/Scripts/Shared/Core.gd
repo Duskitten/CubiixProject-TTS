@@ -9,6 +9,7 @@ var AssetData
 var Dialogue_Handler
 var Persistant_Core
 var Character_Gen
+var Console
 
 var Client
 var Server
