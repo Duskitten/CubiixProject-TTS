@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cdl70qe7av6ti"]
+
+[ext_resource type="Shader" uid="uid://b5tdwwroynsrf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/hexstaria_Light_Water.res" id="1_5864u"]
+
+[sub_resource type="Gradient" id="Gradient_331bd"]
+offsets = PackedFloat32Array(0, 0.689441)
+colors = PackedColorArray(0, 0.779, 1, 0.676, 0, 0.463058, 1, 0.676)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t2oll"]
+noise_type = 5
+seed = -14280
+frequency = 0.4
+fractal_type = 3
+fractal_octaves = 10
+fractal_lacunarity = 5.42
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q7o4d"]
+seamless = true
+seamless_blend_skirt = 0.483
+color_ramp = SubResource("Gradient_331bd")
+noise = SubResource("FastNoiseLite_t2oll")
+
+[resource]
+render_priority = 12
+shader = ExtResource("1_5864u")
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5
+shader_parameter/TextureParameterTriplanar2 = SubResource("NoiseTexture2D_q7o4d")
+shader_parameter/TextureParameterTriplanar = SubResource("NoiseTexture2D_q7o4d")

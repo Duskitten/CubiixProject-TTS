@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bnubjpxj6mtom"]
+
+[ext_resource type="Texture2D" uid="uid://bc12e6noyjju0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Blimp.png" id="1_epmm0"]
+[ext_resource type="Texture2D" uid="uid://7skkfeds42mg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hut_Test.png" id="2_e7xnm"]
+
+[resource]
+render_priority = 11
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_epmm0")
+metallic = 0.64
+metallic_specular = 1.0
+roughness = 0.16
+emission_energy_multiplier = 0.15
+emission_texture = ExtResource("2_e7xnm")
+texture_filter = 0
+texture_repeat = false

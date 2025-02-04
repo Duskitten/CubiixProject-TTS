@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://05vajaovxjw1"]
+
+[ext_resource type="Shader" uid="uid://bo5e15pn416lr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/Blimp_Engine_Shader.tres" id="1_jet2k"]
+
+[resource]
+render_priority = 12
+shader = ExtResource("1_jet2k")
