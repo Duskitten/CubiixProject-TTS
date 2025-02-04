@@ -306,7 +306,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.980608, 0.604052, 1)
+bg_color = Color(0, -0.213428, 0.596481, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -315,11 +315,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 19.3086
-expand_margin_bottom = 19.3086
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.409939, 0.595234, 1)
+bg_color = Color(0, 0.368451, 0.60017, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -328,9 +326,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 0.260794
+expand_margin_bottom = 0.260794
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.527869, 0.594487, 1)
+bg_color = Color(0, 0.793485, 0.602865, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -339,9 +339,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 12.6787
+expand_margin_bottom = 12.6787
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.0306393, 0.598028, 1)
+bg_color = Color(0, 0.764298, 0.60268, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -350,6 +352,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 11.9192
+expand_margin_bottom = 11.9192
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -547,7 +551,7 @@ _data = {
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.145098, 0.215686, 0.6, 0.823529)
+bg_color = Color(0.145098, 0.215686, 0.6, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -558,7 +562,7 @@ content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.0588235, 0.0862745, 0.243137, 0.858824)
+bg_color = Color(0.0588235, 0.0862745, 0.243137, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
