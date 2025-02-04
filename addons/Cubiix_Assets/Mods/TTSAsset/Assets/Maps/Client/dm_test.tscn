@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dsuhhetxu6t1j"]
+[gd_scene load_steps=30 format=3 uid="uid://dsuhhetxu6t1j"]
 
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_nxura"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Day_Night.gd" id="2_pu4pk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Stone.tres" id="9_ikpfk"]
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="10_5o565"]
 [ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://Assets/Scenes/Client/world/audioZone.tscn" id="11_e6b5r"]
+[ext_resource type="PackedScene" uid="uid://qv8osc0f2rch" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/AreaLoadingTrigger/area_loading_trigger.tscn" id="12_g0u14"]
 
 [sub_resource type="Gradient" id="Gradient_xk310"]
 interpolation_mode = 2
@@ -112,6 +113,9 @@ size = Vector2(2, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_y8m5y"]
 height = 4.28193
 radius = 1.58776
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0c188"]
+size = Vector3(3, 3, 3)
 
 [node name="DmTest" type="Node3D"]
 
@@ -270,5 +274,17 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 SongID = "Trinket"
 Tag_Radius = 1000.0
+
+[node name="AreaLoadingTrigger" parent="." instance=ExtResource("12_g0u14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90147, 0.821595, -22.7228)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AreaLoadingTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.745079, 0)
+material_override = ExtResource("8_7iplj")
+mesh = SubResource("BoxMesh_tltj7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaLoadingTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28182, -1)
+shape = SubResource("BoxShape3D_0c188")
 
 [editable path="SubViewport"]

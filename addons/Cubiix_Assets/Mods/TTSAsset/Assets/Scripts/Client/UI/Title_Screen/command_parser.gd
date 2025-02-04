@@ -28,6 +28,7 @@ func command_parser(text:String) -> void:
 	
 	if split_lowered.size() > 0:
 		match split_lowered[0]:
+			
 			"swap_map":
 				if split_normal.size() > 2:
 					Core.SceneData.call_deferred("load_scene",split_normal[1],{},true,split_normal[2])
@@ -38,6 +39,19 @@ func command_parser(text:String) -> void:
 				new_debug("Current Commands:")
 				new_debug("commands: This Screen")
 				new_debug("swap_map : For Map Switching, syntax \"swap_map mapid spawnlocation\"")
+			
+			"teleport":
+				if split_normal.size() < 3:
+					new_debug("Error: command incomplete")
+				elif split_normal.size() > 3:
+					var teleport = TeleportationScript.new()
+					self.add_child(teleport)
+					teleport.teleport_to_coords( Core.Persistant_Core.Player, Vector3(float(split_normal[1]),float(split_normal[2]),float(split_normal[3])), Vector3(0,0,0) )
+			
+			"show_coord":
+				print("Hewwo UwU")
+				var current_player_position :Vector3 = Core.Persistant_Core.Player.global_position
+				new_debug("Current player coordinates: %f %f %f" % [current_player_position.x, current_player_position.y, current_player_position.z])
 	
 	last_command.append(text)
 	command_pos = last_command.size()
