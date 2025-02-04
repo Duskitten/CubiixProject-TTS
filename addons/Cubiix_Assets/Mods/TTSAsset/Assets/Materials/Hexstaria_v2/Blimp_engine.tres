@@ -1,7 +1,29 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://05vajaovxjw1"]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://05vajaovxjw1"]
 
 [ext_resource type="Shader" uid="uid://bo5e15pn416lr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/Blimp_Engine_Shader.tres" id="1_jet2k"]
+
+[sub_resource type="Gradient" id="Gradient_d3rh6"]
+colors = PackedColorArray(0, 0.25, 1, 0, 0, 0.761881, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jjseo"]
+gradient = SubResource("Gradient_d3rh6")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_t8uqb"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6qxlp"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_otngs"]
+width = 64
+height = 64
+seamless = true
+color_ramp = SubResource("Gradient_t8uqb")
+noise = SubResource("FastNoiseLite_6qxlp")
 
 [resource]
 render_priority = 12
 shader = ExtResource("1_jet2k")
+shader_parameter/Texture2DParameter2 = SubResource("NoiseTexture2D_otngs")
+shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_jjseo")
