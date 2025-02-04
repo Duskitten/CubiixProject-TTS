@@ -33,11 +33,13 @@ func command_parser(text:String) -> void:
 					Core.SceneData.call_deferred("load_scene",split_normal[1],{},true,split_normal[2])
 				elif split_normal.size() > 1:
 					Core.SceneData.call_deferred("load_scene",split_normal[1],{},true,"")
-				
 			"commands":
 				new_debug("Current Commands:")
 				new_debug("commands: This Screen")
 				new_debug("swap_map : For Map Switching, syntax \"swap_map mapid spawnlocation\"")
+			"teleport":
+				if split_normal.size() > 3:
+					var xyz = Vector3(float(split_normal[1]),float(split_normal[2]),float(split_normal[3]))
 	
 	last_command.append(text)
 	command_pos = last_command.size()

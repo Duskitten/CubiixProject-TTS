@@ -306,7 +306,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.213428, 0.596481, 1)
+bg_color = Color(0, -0.659714, 0.593651, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -317,7 +317,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.368451, 0.60017, 1)
+bg_color = Color(0, 0.0096123, 0.597895, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -326,11 +326,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 0.260794
-expand_margin_bottom = 0.260794
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.793485, 0.602865, 1)
+bg_color = Color(0, 0.464521, 0.600779, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -339,11 +337,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 12.6787
-expand_margin_bottom = 12.6787
+expand_margin_top = 2.34692
+expand_margin_bottom = 2.34692
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.764298, 0.60268, 1)
+bg_color = Color(0, 0.878476, 0.603404, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -352,8 +350,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 11.9192
-expand_margin_bottom = 11.9192
+expand_margin_top = 15.585
+expand_margin_bottom = 15.585
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -3708,7 +3706,6 @@ texture_pressed = ExtResource("52_pfxns")
 texture_hover = ExtResource("53_ybm6u")
 
 [node name="Debug" type="Control" parent="DragArea/Wallpaper_Backing"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3731,15 +3728,21 @@ offset_bottom = -95.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/mono_font_size = 12
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_h833f")
 
 [node name="LineEdit" type="LineEdit" parent="DragArea/Wallpaper_Backing/Debug"]
 layout_mode = 0
-offset_left = 6.5
+offset_left = 7.0
 offset_top = 334.0
-offset_right = 447.5
-offset_bottom = 370.0
+offset_right = 448.0
+offset_bottom = 365.0
 theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
 theme_override_styles/focus = SubResource("StyleBoxFlat_n65e8")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_n65e8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n65e8")
