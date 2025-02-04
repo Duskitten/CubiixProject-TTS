@@ -39,7 +39,8 @@ const runspeed = 3
 const jumpspeed = 6
 
 ## Current active speed
-var speed = 3
+var speed:float = 3
+var swim_speed:float = 1.2
 var compiled_velocity = Vector3.ZERO
 var walk = false
 
@@ -66,7 +67,8 @@ var velocity_lock = false
 ## Swimming controller variables
 var RayCast_Swim:RayCast3D = RayCast3D.new()
 var Swimming = false
-
+var current_swim_particles:Node
+var swim_pos:Vector3
 func _init() -> void:
 	## Disable these to prevent "Null" errors before load.
 	set_process(false)
@@ -90,7 +92,7 @@ func setup():
 	RayCast1.position = Vector3(0,0.214,0)
 	RayCast2.position = Vector3(0,0.214,0)
 	RayCast3.position = Vector3(0,0.214,0)
-	RayCast_Swim.position = Vector3(0,0.8,0)
+	RayCast_Swim.position = Vector3(0,0.7,0)
 	
 	RayCast1.set_collision_mask_value(1,false)
 	RayCast1.set_collision_mask_value(2,true)
@@ -149,24 +151,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		input = Vector2.ZERO
 
 func _process(delta: float) -> void:
-	if !Movement_Disable:
-		if input != Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
+	if input != Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
+		if !Swimming:
 			Current_Animation = ["Run",.3]
 		else:
+			Current_Animation = ["Swimming_Run",.1]
+	else:
+		if !Swimming:
 			Current_Animation = ["Idle",.3]
-		
-		if jumping:
-			Current_Animation = ["Jump",.2]
-		
-		if falling && !RayCast3.is_colliding():
-			Current_Animation = ["Falling",.2]
-		
-	if Swimming && Movement_Disable:
-		if input == Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
-			Current_Animation = ["Swimming_Idle",.2]
 		else:
-			Current_Animation = ["Swimming_Run",.2]
-	
+			Current_Animation = ["Swimming_Idle",.1]
+				
+	if jumping:
+		Current_Animation = ["Jump",.2]
+			
+	if falling && !RayCast3.is_colliding():
+		Current_Animation = ["Falling",.2]
+		
 	Hub.update_animation(Current_Animation)
 	if CameraController != null:
 		if Camera_Z.spring_length >= -0.1:
@@ -176,10 +177,12 @@ func _process(delta: float) -> void:
 			
 		else:
 			Hub.show()
+			
+	if current_swim_particles != null:
+		current_swim_particles.global_position = Character.to_global(swim_pos)
 	
 	
 func _physics_process(delta: float) -> void:
-	
 	
 	if Camera != null: 
 		if !velocity_lock:
@@ -193,69 +196,103 @@ func _physics_process(delta: float) -> void:
 	
 	if !Movement_Disable:
 		if RayCast_Swim.is_colliding():
-			Movement_Disable = true
 			Swimming = true
-			RayCast_Swim.get_collider().player_lock(Character, RayCast_Swim.get_collision_point(), self, RayCast_Swim.get_collision_normal())
 			RayCast_Swim.enabled = false
-			
-		Fall_Delta = Time.get_ticks_msec() - Fall_Delta_Prev
-		Fall_Delta_Prev = Time.get_ticks_msec()
-		
-		
-				
-		forcingUp = false
-		if RayCast2.is_colliding():
-			RayCast1.target_position = Vector3(0,-0.4,0)
-			fall_timer = 0
-			jumping = false
-			falling = false
-			Fall_Tick = 0
 			gravity_control = Vector3.ZERO
-		else:
-			gravity_control += (MoveMarker.global_transform.basis.y * 1) * (gravity/8)
-				
-			if Character.up_direction > gravity_control:
-				Fall_Tick += Fall_Delta
-				if Fall_Tick > (300) || jumping:
-					falling = true
-
-			RayCast1.target_position = Vector3(0,-0.27,0)
-			RayCast2.target_position = Vector3(0,-0.27,0)
+			compiled_velocity = Vector3.ZERO
+			Character.global_transform.basis = align_up(Character.basis,RayCast_Swim.get_collision_normal(),1)
+			Character.position = RayCast_Swim.get_collision_point() - (Character.global_transform.basis.y * 0.48)
+			if falling:
+				var sploosh =  load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Water/sploosh.tscn").instantiate()
+				sploosh.get_node("AnimationPlayer").play("Sploosh")
+				sploosh.get_node("AnimationPlayer").animation_finished.connect(kill_sploosh.bind(sploosh))
+				Character.get_parent().get_node("Effects").add_child(sploosh)
+				sploosh.global_position = RayCast_Swim.get_collision_point()
+				sploosh.global_transform.basis = Character.global_transform.basis
+			falling = false
+			jumping = false
 			
-		if !forcingUp:
-			if walk:
-				speed = walkspeed
+			var particles = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Water/water_particles.tscn").instantiate()
+			Character.get_parent().get_node("Effects").add_child(particles)
+			swim_pos = Character.to_local(RayCast_Swim.get_collision_point()) + Vector3(0,0.02,0)
+			particles.global_transform.basis = Character.global_transform.basis
+			
+			current_swim_particles = particles
+			particles.emitting = true
+			
+		if !Swimming:
+			Fall_Delta = Time.get_ticks_msec() - Fall_Delta_Prev
+			Fall_Delta_Prev = Time.get_ticks_msec()
+			forcingUp = false
+			if RayCast2.is_colliding():
+				RayCast1.target_position = Vector3(0,-0.4,0)
+				fall_timer = 0
+				jumping = false
+				falling = false
+				Fall_Tick = 0
+				gravity_control = Vector3.ZERO
 			else:
-				speed = runspeed
+				gravity_control += (MoveMarker.global_transform.basis.y * 1) * (gravity/8)
+					
+				if Character.up_direction > gravity_control:
+					Fall_Tick += Fall_Delta
+					if Fall_Tick > (300) || jumping:
+						falling = true
+
+				RayCast1.target_position = Vector3(0,-0.27,0)
+				RayCast2.target_position = Vector3(0,-0.27,0)
 				
-			if (Input.is_action_just_pressed("ui_jump") && !jumping && !falling) || (AltJump):
+			if !forcingUp:
+				if walk:
+					speed = walkspeed
+				else:
+					speed = runspeed
+					
+				if (Input.is_action_just_pressed("ui_jump") && !jumping && !falling) || (AltJump):
+					JumpTimer.start()
+					jumping = true
+					gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
+					RayCast1.target_position = Vector3(0,-0.07,0)
+					RayCast2.target_position = Vector3(0,-0.07,0)
+					if AltJump:
+						AltJump = false
+				
+				if !velocity_lock:
+					compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
+				else:
+					compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(Alt_Input.y)+abs(Alt_Input.x),0,1)) * speed) 
+				
+			if RayCast3.is_colliding() && !jumping:
+				JumpTimer.stop()
+				Character.position = Character.position.slerp(RayCast3.get_collision_point(),.5)
+				gravity_control += (MoveMarker.global_transform.basis.y * 1) * 0.2
+			elif !RayCast3.is_colliding():
 				JumpTimer.start()
 				jumping = true
-				gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
 				RayCast1.target_position = Vector3(0,-0.07,0)
 				RayCast2.target_position = Vector3(0,-0.07,0)
-				if AltJump:
-					AltJump = false
-			
-			if !velocity_lock:
-				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
-			else:
-				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(Alt_Input.y)+abs(Alt_Input.x),0,1)) * speed) 
-			
-		if RayCast3.is_colliding() && !jumping:
-			JumpTimer.stop()
-			Character.position = Character.position.slerp(RayCast3.get_collision_point(),.5)
-			gravity_control += (MoveMarker.global_transform.basis.y * 1) * 0.2
-		elif !RayCast3.is_colliding():
-			JumpTimer.start()
-			jumping = true
-			RayCast1.target_position = Vector3(0,-0.07,0)
-			RayCast2.target_position = Vector3(0,-0.07,0)
+						
+			if Character.is_on_ceiling():
+				#print("hai")
+				gravity_control += ((MoveMarker.global_transform.basis.y * 1) * (gravity/8)* 2.0)
 		
-		if Character.is_on_ceiling():
-			#print("hai")
-			gravity_control += ((MoveMarker.global_transform.basis.y * 1) * (gravity/8)* 2.0)
+		else:
+			if !velocity_lock:
+				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * swim_speed) 
+			else:
+				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(Alt_Input.y)+abs(Alt_Input.x),0,1)) * swim_speed) 
 			
+			
+			if Input.is_action_just_pressed("ui_jump"):
+				Swimming = false
+				AltJump = true
+				RayCast_Swim.enabled = true
+				current_swim_particles.emitting = false
+			elif Character.is_on_floor():
+				Swimming = false
+				RayCast_Swim.enabled = true
+				current_swim_particles.emitting = false
+				
 	Character.velocity = compiled_velocity + gravity_control
 	Character.move_and_slide()
 
@@ -275,3 +312,6 @@ func _on_jump_timer_timeout() -> void:
 	JumpTimer.stop()
 	jumping = false
 	falling = false
+
+func kill_sploosh(Anim:StringName, node:Node) -> void:
+	node.queue_free()

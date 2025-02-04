@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://drauuuybit8p0"]
 
-[ext_resource type="PackedScene" uid="uid://caan6u6k0t73d" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Effects/Water_Sploosh.gltf" id="1_2vt6n"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/sploosh.gd" id="1_tqbfm"]
-[ext_resource type="Material" uid="uid://dvkd67yfn1mvl" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Effects/sploosh.tres" id="3_lknio"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/sploosh.gd" id="1_dn42h"]
+[ext_resource type="PackedScene" uid="uid://caan6u6k0t73d" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Effects/Water_Sploosh.gltf" id="2_ide3k"]
+[ext_resource type="Material" uid="uid://dvkd67yfn1mvl" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Effects/sploosh.tres" id="3_8xyu7"]
 
 [sub_resource type="Animation" id="Animation_br13y"]
 length = 0.001
@@ -162,24 +162,24 @@ _data = {
 }
 
 [node name="Sploosh" type="Node3D"]
-script = ExtResource("1_tqbfm")
+script = ExtResource("1_dn42h")
 
-[node name="Water_Sploosh" parent="." instance=ExtResource("1_2vt6n")]
+[node name="Water_Sploosh" parent="." instance=ExtResource("2_ide3k")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="Sphere" parent="Water_Sploosh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0)
 transparency = 1.0
 cast_shadow = 0
-surface_material_override/0 = ExtResource("3_lknio")
+surface_material_override/0 = ExtResource("3_8xyu7")
 
-[node name="Water_Sploosh2" parent="." instance=ExtResource("1_2vt6n")]
+[node name="Water_Sploosh2" parent="." instance=ExtResource("2_ide3k")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="Sphere" parent="Water_Sploosh2" index="0"]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0.7, 0, 0, 0)
 cast_shadow = 0
-surface_material_override/0 = ExtResource("3_lknio")
+surface_material_override/0 = ExtResource("3_8xyu7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
