@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=114 format=4 uid="uid://fqbvemktav2x"]
+=======
+[gd_scene load_steps=119 format=4 uid="uid://fqbvemktav2x"]
+>>>>>>> 4275d6523b0fe7236f4b2c4975eda3858376427b
 
 [ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/HexstariaV2.gltf" id="1_1h5qw"]
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_kyva2"]
@@ -111,6 +115,41 @@ orientation = 1
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1v8yc"]
 data = PackedVector3Array(1000, 0, 1000, -1000, 0, 1000, 1000, 0, -1000, -1000, 0, 1000, -1000, 0, -1000, 1000, 0, -1000)
 
+<<<<<<< HEAD
+=======
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy6d3"]
+render_priority = 14
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.558473, 0.902139, 1, 1)
+albedo_texture = ExtResource("4_sm606")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ck7pe"]
+render_priority = 14
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.558473, 0.902139, 1, 1)
+albedo_texture = ExtResource("4_sm606")
+texture_filter = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_78ssf"]
+material = SubResource("StandardMaterial3D_ck7pe")
+size = Vector2(1, 1)
+
+[sub_resource type="Curve" id="Curve_b4abn"]
+_data = [Vector2(0, 0.548744), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_46f43"]
+offsets = PackedFloat32Array(0.184739, 0.722892)
+colors = PackedColorArray(1, 1, 1, 0.41, 1, 1, 1, 0)
+
+>>>>>>> 4275d6523b0fe7236f4b2c4975eda3858376427b
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3udrh"]
 data = PackedVector3Array(1000, 0, 1000, -1000, 0, 1000, 1000, 0, -1000, -1000, 0, 1000, -1000, 0, -1000, 1000, 0, -1000)
 
