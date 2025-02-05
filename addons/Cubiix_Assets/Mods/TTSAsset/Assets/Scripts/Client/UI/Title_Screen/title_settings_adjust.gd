@@ -14,8 +14,10 @@ func _ready() -> void:
 		var core = i.name
 		for x in i.get_children():
 			if x is BoxContainer:
-				x.get_node("HBoxContainer/HSlider").value = Core.Globals.Data[str(core)][str(x.name)]
-
+				if x.get_node_or_null("HBoxContainer/HSlider") != null:
+					x.get_node("HBoxContainer/HSlider").value = Core.Globals.Data[str(core)][str(x.name)]
+				if x.get_node_or_null("HBoxContainer/CheckButton") != null:
+					x.get_node("HBoxContainer/CheckButton").button_pressed = Core.Globals.Data[str(core)][str(x.name)]
 func hide_all() -> void:
 	for i in get_children():
 		i.hide()
@@ -32,4 +34,9 @@ func _on_button_pressed(extra_arg_0:String) -> void:
 		"Visuals":
 			get_node("Visuals/Shadow_Depth/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Shadow_Depth"]
 			get_node("Visuals/Anti-Aliasing/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Anti-Aliasing"]
+			get_node("Visuals/Bloom/HBoxContainer/CheckButton").button_pressed = Core.Globals.Data[str(extra_arg_0)]["Bloom"]
 	get_node(extra_arg_0).show()
+
+func _on_check_button_toggled(toggled_on: bool, extra_arg_0: StringName, extra_arg_1: StringName) -> void:
+	if Core != null:
+		Core.Globals.Data[str(extra_arg_1)][str(extra_arg_0)] = toggled_on

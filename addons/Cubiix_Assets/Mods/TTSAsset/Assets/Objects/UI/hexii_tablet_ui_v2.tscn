@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=128 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -198,6 +198,28 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 expand_margin_bottom = 1.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i517j"]
+
+[sub_resource type="Gradient" id="Gradient_yrh5i"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0, 1, 0.100754, 1, 0, 0.470588, 0.792157, 0.298039)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_psoo3"]
+gradient = SubResource("Gradient_yrh5i")
+width = 32
+height = 12
+
+[sub_resource type="Gradient" id="Gradient_sbq85"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0, 0.470675, 0.792969, 0.298039, 1, 0, 0.228847, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mm8cu"]
+gradient = SubResource("Gradient_sbq85")
+width = 32
+height = 12
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re2np"]
 bg_color = Color(0.6, 0, 0.492, 0.79)
 border_width_left = 26
@@ -306,7 +328,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.908114, 0.603592, 1)
+bg_color = Color(0, 0.443798, 0.600648, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -315,11 +337,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 16.7016
-expand_margin_bottom = 16.7016
+expand_margin_top = 1.81866
+expand_margin_bottom = 1.81866
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.0133055, 0.597918, 1)
+bg_color = Color(0, 0.885261, 0.603447, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -328,11 +350,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = -0.940137
-expand_margin_bottom = -0.940137
+expand_margin_top = 15.8888
+expand_margin_bottom = 15.8888
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.656171, 0.593673, 1)
+bg_color = Color(0, 0.145305, 0.598755, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -341,9 +363,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = -1.47993
+expand_margin_bottom = -1.47993
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.191445, 0.59662, 1)
+bg_color = Color(0, -0.798916, 0.592768, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -1224,7 +1248,6 @@ offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="Settings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1494,6 +1517,53 @@ theme = ExtResource("14_q4chf")
 max_value = 3.0
 step = 0.0
 rounded = true
+
+[node name="HSeparator7" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Bloom" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Bloom"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "
+"
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Bloom/Label"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 19.0
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_sks6k")
+text = "Bloom"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Bloom"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Bloom/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i517j")
+theme_override_icons/checked = SubResource("GradientTexture2D_psoo3")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_mm8cu")
 
 [node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals"]
 layout_mode = 2
@@ -3538,6 +3608,53 @@ max_value = 3.0
 step = 0.0
 rounded = true
 
+[node name="HSeparator7" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
+
+[node name="Bloom" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Bloom"]
+layout_mode = 2
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
+text = "
+"
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Bloom/Label"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 19.0
+theme = ExtResource("14_q4chf")
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_sks6k")
+text = "Bloom"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Bloom"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Bloom/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_i517j")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i517j")
+theme_override_icons/checked = SubResource("GradientTexture2D_psoo3")
+theme_override_icons/unchecked = SubResource("GradientTexture2D_mm8cu")
+
 [node name="HSeparator4" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -3706,6 +3823,7 @@ texture_pressed = ExtResource("52_pfxns")
 texture_hover = ExtResource("53_ybm6u")
 
 [node name="Debug" type="Control" parent="DragArea/Wallpaper_Backing"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3786,6 +3904,7 @@ metadata/_edit_lock_ = true
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Ping", &"Audio"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Shadow_Depth", &"Visuals"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Anti-Aliasing", &"Visuals"]]
+[connection signal="toggled" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens/Visuals/Bloom/HBoxContainer/CheckButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_check_button_toggled" binds= [&"Bloom", &"Visuals"]]
 [connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Visuals"]]
@@ -3802,6 +3921,7 @@ metadata/_edit_lock_ = true
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Audio/Ping/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Ping", &"Audio"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Shadow_Depth/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Shadow_Depth", &"Visuals"]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Anti-Aliasing/HBoxContainer/HSlider" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Anti-Aliasing", &"Visuals"]]
+[connection signal="toggled" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens/Visuals/Bloom/HBoxContainer/CheckButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_check_button_toggled" binds= [&"Bloom", &"Visuals"]]
 [connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Visuals"]]

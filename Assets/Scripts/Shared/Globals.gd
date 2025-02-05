@@ -20,7 +20,8 @@ var save_template = {
 	},
 	"Visuals":{
 		"Shadow_Depth":0,
-		"Anti-Aliasing":0
+		"Anti-Aliasing":0,
+		"Bloom":false
 	}
 }
 

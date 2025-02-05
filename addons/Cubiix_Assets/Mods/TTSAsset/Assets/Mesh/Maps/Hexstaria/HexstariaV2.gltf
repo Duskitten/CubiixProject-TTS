@@ -50,7 +50,8 @@
 				35,
 				36,
 				37,
-				38
+				38,
+				39
 			]
 		}
 	],
@@ -516,6 +517,15 @@
 				93.92338562011719,
 				-618.162109375
 			]
+		},
+		{
+			"mesh":39,
+			"name":"Fences",
+			"translation":[
+				0,
+				-2.622361183166504,
+				-372.8140869140625
+			]
 		}
 	],
 	"materials":[
@@ -643,7 +653,7 @@
 					"ior":1.4500000476837158
 				}
 			},
-			"name":"Material.009",
+			"name":"Hutt",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":4
@@ -1351,6 +1361,20 @@
 					},
 					"indices":167,
 					"material":13
+				}
+			]
+		},
+		{
+			"name":"Cube.010",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":168,
+						"NORMAL":169,
+						"TEXCOORD_0":170
+					},
+					"indices":171,
+					"material":8
 				}
 			]
 		}
@@ -2894,6 +2918,40 @@
 			"componentType":5123,
 			"count":708,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":168,
+			"componentType":5126,
+			"count":104,
+			"max":[
+				180.02821350097656,
+				18.251832962036133,
+				145.09759521484375
+			],
+			"min":[
+				3.2116470336914062,
+				10.914144515991211,
+				-28.06005859375
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":169,
+			"componentType":5126,
+			"count":104,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":170,
+			"componentType":5126,
+			"count":104,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":171,
+			"componentType":5123,
+			"count":156,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -3904,6 +3962,30 @@
 			"byteLength":1416,
 			"byteOffset":942860,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":1248,
+			"byteOffset":944276,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1248,
+			"byteOffset":945524,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":832,
+			"byteOffset":946772,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":312,
+			"byteOffset":947604,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -3918,7 +4000,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":944276,
+			"byteLength":947916,
 			"uri":"HexstariaV2.bin"
 		}
 	]
