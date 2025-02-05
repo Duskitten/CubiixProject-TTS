@@ -11,6 +11,7 @@ albedo_texture = ExtResource("1_f5qtd")
 metallic_specular = 0.0
 roughness = 0.07
 emission_enabled = true
+emission_energy_multiplier = 1.2
 emission_texture = ExtResource("2_hmqij")
 texture_filter = 0
 texture_repeat = false
