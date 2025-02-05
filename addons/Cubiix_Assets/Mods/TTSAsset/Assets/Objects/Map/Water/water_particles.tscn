@@ -26,7 +26,6 @@ offsets = PackedFloat32Array(0.184739, 0.722892)
 colors = PackedColorArray(1, 1, 1, 0.41, 1, 1, 1, 0)
 
 [node name="Water_Particles" type="CPUParticles3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, 0)
 material_override = SubResource("StandardMaterial3D_gy6d3")
 emitting = false
 lifetime = 1.5
