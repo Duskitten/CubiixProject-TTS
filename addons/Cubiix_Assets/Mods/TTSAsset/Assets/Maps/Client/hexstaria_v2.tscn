@@ -80,12 +80,10 @@ glow_enabled = true
 glow_levels/1 = 16.0
 glow_levels/2 = 16.0
 glow_normalized = true
-glow_intensity = 1.0
-glow_bloom = 1.0
+glow_bloom = 0.29
 glow_blend_mode = 1
-glow_hdr_threshold = 0.07
-glow_hdr_scale = 2.07
-glow_hdr_luminance_cap = 0.0
+glow_hdr_threshold = 0.55
+glow_hdr_scale = 1.27
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.0196078, 0.615686, 1, 1)
@@ -821,6 +819,7 @@ shape = SubResource("ConcavePolygonShape3D_lghrh")
 
 [node name="Big_Sand" parent="Map/HexstariaV2" index="8"]
 layers = 262145
+surface_material_override/0 = ExtResource("2_tdkn4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/HexstariaV2/Big_Sand" index="0"]
 collision_layer = 131
@@ -1218,7 +1217,21 @@ light_color = Color(0, 0.438499, 1, 1)
 light_energy = 16.0
 omni_range = 7.70476
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map/HexstariaV2/Blimp_001" index="2"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="Map/HexstariaV2/Blimp_001" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37505, -7.32677, 1.06482)
+light_color = Color(0, 0.438499, 1, 1)
+light_energy = 3.092
+omni_range = 1.721
+omni_attenuation = -3.212
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Map/HexstariaV2/Blimp_001" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.375, -7.327, -1.065)
+light_color = Color(0, 0.438499, 1, 1)
+light_energy = 3.092
+omni_range = 1.721
+omni_attenuation = -3.212
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/HexstariaV2/Blimp_001" index="4"]
 collision_layer = 131
 collision_mask = 131
 

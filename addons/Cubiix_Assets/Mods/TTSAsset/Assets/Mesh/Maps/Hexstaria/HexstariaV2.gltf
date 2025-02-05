@@ -617,10 +617,18 @@
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
+			"emissiveFactor":[
+				1,
+				1,
+				1
+			],
+			"emissiveTexture":{
+				"index":2
+			},
 			"name":"Material.007",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":2
+					"index":3
 				},
 				"metallicFactor":0
 			}
@@ -638,7 +646,7 @@
 			"name":"Material.009",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":3
+					"index":4
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -650,7 +658,7 @@
 			"name":"BackingObjects2",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":4
+					"index":5
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -677,7 +685,7 @@
 			"name":"Material",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":5
+					"index":6
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -689,7 +697,7 @@
 			"name":"Material",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":6
+					"index":7
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -1357,7 +1365,7 @@
 			"source":1
 		},
 		{
-			"sampler":0,
+			"sampler":1,
 			"source":2
 		},
 		{
@@ -1374,7 +1382,11 @@
 		},
 		{
 			"sampler":0,
-			"source":5
+			"source":6
+		},
+		{
+			"sampler":0,
+			"source":6
 		}
 	],
 	"images":[
@@ -1387,6 +1399,11 @@
 			"mimeType":"image/png",
 			"name":"BackingObjects",
 			"uri":"BackingObjects.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Blimp_emissive",
+			"uri":"Blimp_emissive.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -2779,7 +2796,7 @@
 		{
 			"bufferView":156,
 			"componentType":5126,
-			"count":9327,
+			"count":9681,
 			"max":[
 				174.86981201171875,
 				65.73316955566406,
@@ -2795,19 +2812,19 @@
 		{
 			"bufferView":157,
 			"componentType":5126,
-			"count":9327,
+			"count":9681,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":158,
 			"componentType":5126,
-			"count":9327,
+			"count":9681,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":159,
 			"componentType":5123,
-			"count":16242,
+			"count":16788,
 			"type":"SCALAR"
 		},
 		{
@@ -3818,74 +3835,74 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":111924,
+			"byteLength":116172,
 			"byteOffset":563784,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":111924,
-			"byteOffset":675708,
+			"byteLength":116172,
+			"byteOffset":679956,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":74616,
-			"byteOffset":787632,
+			"byteLength":77448,
+			"byteOffset":796128,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":32484,
-			"byteOffset":862248,
+			"byteLength":33576,
+			"byteOffset":873576,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":7056,
-			"byteOffset":894732,
+			"byteOffset":907152,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":7056,
-			"byteOffset":901788,
+			"byteOffset":914208,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":4704,
-			"byteOffset":908844,
+			"byteOffset":921264,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1788,
-			"byteOffset":913548,
+			"byteOffset":925968,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":5664,
-			"byteOffset":915336,
+			"byteOffset":927756,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":5664,
-			"byteOffset":921000,
+			"byteOffset":933420,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":3776,
-			"byteOffset":926664,
+			"byteOffset":939084,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1416,
-			"byteOffset":930440,
+			"byteOffset":942860,
 			"target":34963
 		}
 	],
@@ -3893,11 +3910,15 @@
 		{
 			"magFilter":9728,
 			"minFilter":9984
+		},
+		{
+			"magFilter":9729,
+			"minFilter":9987
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":931856,
+			"byteLength":944276,
 			"uri":"HexstariaV2.bin"
 		}
 	]

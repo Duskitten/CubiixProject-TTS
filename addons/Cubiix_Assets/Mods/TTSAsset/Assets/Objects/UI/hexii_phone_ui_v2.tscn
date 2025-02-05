@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://cufaqwnfhx7e5"]
+
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_kb738"]
+[ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Phone_Backing.png" id="2_xp7pi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
+
+[sub_resource type="Gradient" id="Gradient_ep053"]
+offsets = PackedFloat32Array(0.482051, 1)
+colors = PackedColorArray(0.171875, 0.171875, 0.171875, 1, 0.363281, 0.363281, 0.363281, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_351xa"]
+gradient = SubResource("Gradient_ep053")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5eph"]
+texture = ExtResource("2_xp7pi")
+
+[node name="Hexii_Phone_UI" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+
+[node name="DragArea" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -169.0
+offset_right = 103.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
+script = ExtResource("1_kb738")
+
+[node name="Backplate" type="Panel" parent="DragArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
+
+[node name="Wallpaper_Backing" type="TextureRect" parent="DragArea"]
+texture_filter = 4
+clip_contents = true
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 192.0
+offset_bottom = 222.0
+texture = SubResource("GradientTexture2D_351xa")
+
+[node name="Overlay" type="Panel" parent="DragArea"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -34.0
+offset_right = 245.0
+offset_bottom = 506.0
+pivot_offset = Vector2(142, 270)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_o5eph")
