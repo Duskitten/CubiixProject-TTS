@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=114 format=4 uid="uid://fqbvemktav2x"]
-=======
-[gd_scene load_steps=119 format=4 uid="uid://fqbvemktav2x"]
->>>>>>> 4275d6523b0fe7236f4b2c4975eda3858376427b
 
 [ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/HexstariaV2.gltf" id="1_1h5qw"]
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_kyva2"]
@@ -115,41 +111,6 @@ orientation = 1
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1v8yc"]
 data = PackedVector3Array(1000, 0, 1000, -1000, 0, 1000, 1000, 0, -1000, -1000, 0, 1000, -1000, 0, -1000, 1000, 0, -1000)
 
-<<<<<<< HEAD
-=======
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy6d3"]
-render_priority = 14
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.558473, 0.902139, 1, 1)
-albedo_texture = ExtResource("4_sm606")
-texture_filter = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ck7pe"]
-render_priority = 14
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.558473, 0.902139, 1, 1)
-albedo_texture = ExtResource("4_sm606")
-texture_filter = 2
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_78ssf"]
-material = SubResource("StandardMaterial3D_ck7pe")
-size = Vector2(1, 1)
-
-[sub_resource type="Curve" id="Curve_b4abn"]
-_data = [Vector2(0, 0.548744), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_46f43"]
-offsets = PackedFloat32Array(0.184739, 0.722892)
-colors = PackedColorArray(1, 1, 1, 0.41, 1, 1, 1, 0)
-
->>>>>>> 4275d6523b0fe7236f4b2c4975eda3858376427b
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3udrh"]
 data = PackedVector3Array(1000, 0, 1000, -1000, 0, 1000, 1000, 0, -1000, -1000, 0, 1000, -1000, 0, -1000, 1000, 0, -1000)
 
@@ -665,17 +626,9 @@ Accessory_String = "{\"Face\":\"TTSAssets/Ki_Star_Shades\"}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Ki/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Nat" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -691,17 +644,9 @@ Accessory_String = "{}"
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Nat/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Dusk" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -717,17 +662,9 @@ Accessory_String = "{}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Dusk/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Skim" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -743,17 +680,9 @@ Accessory_String = "{\"Head\":\"TTSAssets/Dock_Hat\",\"Chest\":\"TTSAssets/Dock_
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Skim/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="MeshInstance3D" parent="NPC/Skim/Hub/Cubiix_Model/Armature/Skeleton3D" index="0"]
