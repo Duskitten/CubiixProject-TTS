@@ -10,7 +10,9 @@ func teleport_to_coords( player:CharacterBody3D, location:Vector3, rotation:Vect
 	player.global_position = location
 	player.rotation = rotation
 	
-	await get_tree().create_timer(0.01).timeout
+	# Note to self: Browse the documentation from time to time, features like these are useful!
+	await get_tree().process_frame
+	
 	char_control.Movement_Disable = false
 	
 	queue_free()
@@ -24,7 +26,7 @@ func teleport_to_reference( player:CharacterBody3D, reference:Node3D ) -> void:
 	
 	player.global_position = reference.global_position
 	
-	await get_tree().create_timer(0.01).timeout
+	await get_tree().process_frame
 	char_control.Movement_Disable = false
 	
 	queue_free()
