@@ -6,7 +6,7 @@ Copyright (c) 2022 Duskitten, Selkspace
 
 Copyright (c) 2025 Cubiix Project Contributors
   
-Last Updated: Nov. 20 2024
+Last Updated: February 9, 2025
 
 Code and assets are free to be distributed, remixed, adapted, and built upon provided the following conditions are met:
 
