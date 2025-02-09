@@ -33,17 +33,53 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
+"BackingObjects2": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Tall_Trees.tres"
+},
+"Hutt": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_1.tres"
+},
+"Island_1_Mat": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/FishBooth.tres"
+},
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Blimp.tres"
+},
 "Material.001": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Sand.tres"
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Sand.tres"
 },
 "Material.002": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/TTS_Grass.tres"
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Grass.tres"
 },
 "Material.003": {
 "use_external/enabled": true,
-"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Palm_Trees.tres"
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Palm_Trees.tres"
+},
+"Material.004": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Stone.tres"
+},
+"Material.005": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Dirt.tres"
+},
+"Material.006": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Dark_Stone.tres"
+},
+"Material.007": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Portal.tres"
+},
+"Material.008": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Blimp_engine.tres"
 }
 }
 }
