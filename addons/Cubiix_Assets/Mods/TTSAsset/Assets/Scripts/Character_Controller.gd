@@ -248,7 +248,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					speed = runspeed
 					
-				if (Input.is_action_just_pressed("ui_jump") && !jumping && !falling) || (AltJump):
+				if (Input.is_action_just_pressed("ui_jump") && !jumping) || (AltJump):
 					JumpTimer.start()
 					jumping = true
 					gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
@@ -266,9 +266,8 @@ func _physics_process(delta: float) -> void:
 				JumpTimer.stop()
 				Character.position = Character.position.slerp(RayCast3.get_collision_point(),.5)
 				gravity_control += (MoveMarker.global_transform.basis.y * 1) * 0.2
-			elif !RayCast3.is_colliding():
+			elif !RayCast3.is_colliding() && jumping:
 				JumpTimer.start()
-				jumping = true
 				RayCast1.target_position = Vector3(0,-0.07,0)
 				RayCast2.target_position = Vector3(0,-0.07,0)
 						
