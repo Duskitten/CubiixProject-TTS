@@ -486,13 +486,13 @@ script = ExtResource("1_nkowm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment_Template/DirectionalLight3D2"]
 transform = Transform3D(1, 0, 0, 1.49012e-08, 1, -7.45058e-09, -2.98023e-08, -2.23517e-08, 1, 0, 0, 0)
-light_energy = 1.2
+light_energy = 3.0
 light_bake_mode = 1
 light_cull_mask = 4293918721
-shadow_enabled = true
-shadow_bias = 0.15
+shadow_bias = 0.0
 directional_shadow_mode = 0
 directional_shadow_fade_start = 0.0
+directional_shadow_max_distance = 35.7
 sky_mode = 1
 
 [node name="Lighting_Settings" type="Node" parent="Environment_Template/DirectionalLight3D2/DirectionalLight3D"]

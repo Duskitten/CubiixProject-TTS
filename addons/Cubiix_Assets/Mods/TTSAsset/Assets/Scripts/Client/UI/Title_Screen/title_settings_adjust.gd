@@ -5,7 +5,7 @@ func _on_h_slider_value_changed(value: float,extra_arg_0: StringName, extra_arg_
 	if extra_arg_1 == &"Audio":
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(extra_arg_0),int(value))
 	elif extra_arg_0 == &"Anti-Aliasing":
-		get_viewport().msaa_3d = int(value)
+		get_viewport().msaa_3d = clamp(int(value),0,3)
 	if Core != null:
 		Core.Globals.Data[str(extra_arg_1)][str(extra_arg_0)] = value
 

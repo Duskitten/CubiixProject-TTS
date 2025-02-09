@@ -328,7 +328,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.584558, 0.601541, 1)
+bg_color = Color(0, 0.688068, 0.602197, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -337,11 +337,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 5.80778
-expand_margin_bottom = 5.80778
+expand_margin_top = 9.11953
+expand_margin_bottom = 9.11953
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.97731, 0.604031, 1)
+bg_color = Color(0, 1.00038, 0.604177, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -350,11 +350,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 19.1894
-expand_margin_bottom = 19.1894
+expand_margin_top = 20.0116
+expand_margin_bottom = 20.0116
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.388682, 0.595369, 1)
+bg_color = Color(0, -0.586297, 0.594116, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -365,7 +365,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.712474, 0.593316, 1)
+bg_color = Color(0, -0.59025, 0.594091, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -1475,6 +1475,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
+min_value = -1.0
 max_value = 2.0
 step = 0.0
 
@@ -3564,6 +3565,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("14_q4chf")
+min_value = -1.0
 max_value = 2.0
 step = 0.0
 rounded = true
