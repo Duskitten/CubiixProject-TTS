@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bidaos2p31667" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Devlog_Base.png" id="3_vbtfg"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_transition_controller.gd" id="3_yb2d0"]
 [ext_resource type="Texture2D" uid="uid://bq7k18mcha5g3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Shadow.png" id="5_b250a"]
-[ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://Assets/Fonts/Jura/Jura-Bold.ttf" id="5_d5qti"]
+[ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="5_d5qti"]
 [ext_resource type="Texture2D" uid="uid://bgrmflwldfthk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Login_Base.png" id="5_l1n8e"]
 [ext_resource type="Texture2D" uid="uid://bkd4j6u8mfe3u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Offline_Base.png" id="7_ykukk"]
 [ext_resource type="Texture2D" uid="uid://7twqwub52lae" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Settings_Base.png" id="9_piyk6"]
@@ -14,11 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://cnt3cohwghbt6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Logo.png" id="12_c8rpv"]
 [ext_resource type="Texture2D" uid="uid://bayuohxi04fbg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Devlog_Backing.png" id="13_8ewig"]
 [ext_resource type="Texture2D" uid="uid://chlvv6qbfkylu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Update_Base.png" id="13_j7rci"]
-[ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="14_q4chf"]
+[ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Themes/Hexii_Device_UI.tres" id="14_q4chf"]
 [ext_resource type="Texture2D" uid="uid://vs6x01cc1fxt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Base.png" id="15_evwrj"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_devlog.gd" id="15_rcleq"]
 [ext_resource type="Texture2D" uid="uid://5tyort2rt0g4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Hover.png" id="16_f4obj"]
-[ext_resource type="FontFile" uid="uid://8qduw4o3whqt" path="res://Assets/Fonts/Jura/Jura-Regular.ttf" id="17_iygg2"]
+[ext_resource type="FontFile" uid="uid://8qduw4o3whqt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Regular.ttf" id="17_iygg2"]
 [ext_resource type="Texture2D" uid="uid://bh6cd3a6acb1g" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Settings_Backing.png" id="18_yi1hf"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_settings_adjust.gd" id="21_14xp3"]
 [ext_resource type="Texture2D" uid="uid://bjx1yafhtgyeq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Backing.png" id="22_4ivrb"]
@@ -328,7 +328,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.885642, 0.60345, 1)
+bg_color = Color(0, 0.558876, 0.601378, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -337,11 +337,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 15.9023
-expand_margin_bottom = 15.9023
+expand_margin_top = 5.0245
+expand_margin_bottom = 5.0245
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.143071, 0.598741, 1)
+bg_color = Color(0, 0.965978, 0.603959, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -350,11 +350,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = -1.47881
-expand_margin_bottom = -1.47881
+expand_margin_top = 18.7799
+expand_margin_bottom = 18.7799
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.672203, 0.593571, 1)
+bg_color = Color(0, -0.319125, 0.59581, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -365,7 +365,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.244026, 0.596287, 1)
+bg_color = Color(0, -0.736289, 0.593165, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)

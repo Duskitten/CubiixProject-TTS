@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://4xfckmbyk8kc"]
 
 [ext_resource type="Shader" path="res://addons/Cubiix_Assets/Shaders/Main_Cubiix_Material.gdshader" id="1_hcf83"]
-[ext_resource type="Texture2D" uid="uid://rjhats2dsdcd" path="res://Assets/Textures/Shader_TestStrip.png" id="2_07btt"]
+[ext_resource type="Texture2D" uid="uid://rjhats2dsdcd" path="res://addons/Cubiix_Assets/Textures/Shader_TestStrip.png" id="2_07btt"]
 
 [resource]
 render_priority = 0

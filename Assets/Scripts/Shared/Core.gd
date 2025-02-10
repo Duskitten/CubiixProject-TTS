@@ -30,9 +30,9 @@ func _ready():
 		await AssetData.FinishedLoad
 		SceneData = load("res://addons/Cubiix_Assets/Scripts/Scene_Loader.gd").new()
 		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
-		Client = load("res://Assets/Scripts/Client/Networking/Network_Client.gd").new()
+		Client = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Networking/Network_Client.gd").new()
 		Dialogue_Handler = load("res://Assets/Scripts/Client/UI/DialogueBank.gd").new()
-		Persistant_Core = load("res://Assets/Scenes/Client/Persistant_Core.tscn").instantiate()
+		Persistant_Core = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Persistant_Core.tscn").instantiate()
 		add_child(AssetData)
 		add_child(SceneData)
 		add_child(Globals)

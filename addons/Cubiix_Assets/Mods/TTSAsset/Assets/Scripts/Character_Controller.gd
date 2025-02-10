@@ -153,7 +153,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if input != Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
 		if !Swimming:
-			Current_Animation = ["Run",.3]
+			if !Input.is_action_pressed("walk"):
+				Current_Animation = ["Run",.3]
+			else:
+				Current_Animation = ["Walk",.3]
 		else:
 			Current_Animation = ["Swimming_Run",.1]
 	else:
@@ -258,7 +261,10 @@ func _physics_process(delta: float) -> void:
 						AltJump = false
 				
 				if !velocity_lock:
-					compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
+					if !Input.is_action_pressed("walk"):
+						compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
+					else:
+						compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * walkspeed) 
 				else:
 					compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(Alt_Input.y)+abs(Alt_Input.x),0,1)) * speed) 
 				

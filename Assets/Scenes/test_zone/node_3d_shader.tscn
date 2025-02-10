@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://n26jvsfu57ty"]
 
 [ext_resource type="Shader" path="res://addons/Cubiix_Assets/Shaders/Main_Cubiix_Material.gdshader" id="1_iye6f"]
-[ext_resource type="Texture2D" uid="uid://rjhats2dsdcd" path="res://Assets/Textures/Shader_TestStrip.png" id="2_4e65w"]
+[ext_resource type="Texture2D" uid="uid://rjhats2dsdcd" path="res://addons/Cubiix_Assets/Textures/Shader_TestStrip.png" id="2_4e65w"]
 [ext_resource type="Script" path="res://Assets/Scenes/test_zone/csg_box_3d.gd" id="3_npy0l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n3mah"]

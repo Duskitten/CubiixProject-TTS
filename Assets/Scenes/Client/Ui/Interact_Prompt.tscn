@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dp0k1g087afbc"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/UI/Interact_Prompt.gd" id="1_me2n5"]
-[ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://Assets/Themes/Hexii_Device_UI.tres" id="2_05rmh"]
+[ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Themes/Hexii_Device_UI.tres" id="2_05rmh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_28yho"]
 radius = 1.79235

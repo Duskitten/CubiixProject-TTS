@@ -33,15 +33,14 @@ enabled=PackedStringArray("res://addons/EasySpaceNodes/plugin.cfg", "res://addon
 [file_customization]
 
 folder_colors={
-"res://Assets/Audio/": "gray",
-"res://Assets/Fonts/": "red",
 "res://Assets/Materials/": "orange",
 "res://Assets/Mesh/": "yellow",
 "res://Assets/Scenes/": "green",
 "res://Assets/Scripts/": "teal",
 "res://Assets/Shaders/": "blue",
 "res://Assets/Textures/": "purple",
-"res://Assets/Videos/": "pink"
+"res://Assets/Videos/": "pink",
+"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/": "red"
 }
 
 [global_group]
@@ -195,6 +194,11 @@ scroll_down={
 CMD={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"location":0,"echo":false,"script":null)
+]
+}
+walk={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 
