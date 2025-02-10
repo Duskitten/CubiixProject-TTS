@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bb30770sajce6"]
 
-[ext_resource type="Texture2D" uid="uid://dmpdb5102s7eq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/CubiixLogo_Base.png" id="1_geggn"]
+[ext_resource type="Texture2D" uid="uid://dmpdb5102s7eq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/CubiixLogo_Base.png" id="1_geggn"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Themes/Hexii_Device_UI.tres" id="2_vi76u"]
 
 [node name="VersionImage" type="TextureRect"]

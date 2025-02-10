@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://baxtuakcmm8uq"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/test_zone/sub_viewport_Capture.gd" id="1_1syda"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/sub_viewport_Capture.gd" id="1_1syda"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e4tx0"]
 sky_top_color = Color(0.294954, 0.382988, 0.893109, 1)

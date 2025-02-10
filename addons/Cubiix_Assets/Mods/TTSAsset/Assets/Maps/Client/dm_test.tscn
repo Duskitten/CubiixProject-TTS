@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cn7vn6cg0mqg1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/TeleportObject/teleport_object.tscn" id="7_8v8lo"]
 [ext_resource type="Material" uid="uid://bjhxlgusl5c8e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Dirt.tres" id="8_7iplj"]
 [ext_resource type="Material" uid="uid://clcgj8lx4fg1l" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Stone.tres" id="9_ikpfk"]
-[ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="10_5o565"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/AudioZoneManager.gd" id="10_5o565"]
 [ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/audioZone.tscn" id="11_e6b5r"]
 [ext_resource type="PackedScene" uid="uid://qv8osc0f2rch" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/AreaLoadingTrigger/area_loading_trigger.tscn" id="12_g0u14"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/water_mover.gd" id="13_5cqaj"]

@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://cdl70qe7av6ti" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hexstaria_Water.tres" id="8_h35ag"]
 [ext_resource type="Material" uid="uid://b0uoiij21jcs0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Grass_Fronds.tres" id="8_kts4w"]
 [ext_resource type="PackedScene" uid="uid://bcbqf7a7nej6x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Grass.gltf" id="9_teqfn"]
-[ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="10_t2d1s"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/AudioZoneManager.gd" id="10_t2d1s"]
 [ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/audioZone.tscn" id="11_daro4"]
 [ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Tools/Hexstaria_Screenshotter.tscn" id="12_2yfxy"]
 [ext_resource type="Texture2D" uid="uid://uph2ua7mkd07" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/BackingObjects.png" id="14_vnswh"]

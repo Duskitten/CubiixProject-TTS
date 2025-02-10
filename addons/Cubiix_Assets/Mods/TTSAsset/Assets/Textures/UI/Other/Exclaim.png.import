@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxbehfpnollp1"
-path="res://.godot/imported/Loading.png-afd6c93d65b3abf9de1973c5b23482b9.ctex"
+uid="uid://dvwfqrpuntr1m"
+path="res://.godot/imported/Exclaim.png-38b231d1e60da6bd4bdc6afd01137cb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Loading.png"
-dest_files=["res://.godot/imported/Loading.png-afd6c93d65b3abf9de1973c5b23482b9.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Exclaim.png"
+dest_files=["res://.godot/imported/Exclaim.png-38b231d1e60da6bd4bdc6afd01137cb8.ctex"]
 
 [params]
 

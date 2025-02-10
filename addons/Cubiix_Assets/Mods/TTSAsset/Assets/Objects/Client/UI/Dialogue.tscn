@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgl6owk1m1q4u"]
 
-[ext_resource type="Texture2D" uid="uid://dfkdp3kyn42m6" path="res://Assets/Textures/UI/In-Game/Dialogue_Box.png" id="1_b1cvn"]
+[ext_resource type="Texture2D" uid="uid://dfkdp3kyn42m6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Dialogue_Box.png" id="1_b1cvn"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Themes/Hexii_Device_UI.tres" id="1_negna"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="3_lpmro"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://devrmc25i4qp4"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioSettings.gd" id="1_nm6ny"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/AudioSettings.gd" id="1_nm6ny"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0ns2"]
 render_priority = 127

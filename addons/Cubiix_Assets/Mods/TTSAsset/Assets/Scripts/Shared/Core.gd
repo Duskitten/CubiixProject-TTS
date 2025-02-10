@@ -28,10 +28,10 @@ func _ready():
 		Update_LogoText("Loading Asset Data...")
 		AssetData.name = "AssetData"
 		await AssetData.FinishedLoad
-		SceneData = load("res://addons/Cubiix_Assets/Scripts/Scene_Loader.gd").new()
-		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
+		SceneData = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Scene_Loader.gd").new()
+		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
 		Client = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Networking/Network_Client.gd").new()
-		Dialogue_Handler = load("res://Assets/Scripts/Client/UI/DialogueBank.gd").new()
+		Dialogue_Handler = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/DialogueBank.gd").new()
 		Persistant_Core = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Persistant_Core.tscn").instantiate()
 		add_child(AssetData)
 		add_child(SceneData)
@@ -54,10 +54,10 @@ func _ready():
 		#Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)
 		
 	if OS.has_feature("server"):
-		Globals = load("res://Assets/Scripts/Shared/Globals.gd").new()
+		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
 		add_child(Globals)
 		await get_tree().create_timer(1).timeout
-		Server = load("res://Assets/Scripts/Server/Network_Server.gd").new()
+		Server = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/Network_Server.gd").new()
 		add_child(Server)
 		
 		

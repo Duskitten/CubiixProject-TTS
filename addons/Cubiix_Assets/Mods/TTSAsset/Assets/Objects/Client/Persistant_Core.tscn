@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c2701u34x8dm0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_tablet_ui_v2.tscn" id="4_yn8bv"]
 [ext_resource type="PackedScene" uid="uid://cufaqwnfhx7e5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_phone_ui_v2.tscn" id="5_h76e0"]
 [ext_resource type="Texture2D" uid="uid://3y0k7m58gqtr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png" id="7_h2oss"]
-[ext_resource type="Texture2D" uid="uid://bxbehfpnollp1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Loading.png" id="11_jhpuk"]
+[ext_resource type="Texture2D" uid="uid://bxbehfpnollp1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Loading.png" id="11_jhpuk"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="13_7phac"]
-[ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="14_sqbso"]
+[ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Shiftlock.png" id="14_sqbso"]
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="15_rfthv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0sve"]
@@ -326,6 +326,7 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("11_jhpuk")
 hframes = 4
+frame = 3
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://lgavblqvfg06"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Client/UI/Dialogue_Compiler.gd" id="1_ixtr7"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Dialogue_Compiler.gd" id="1_ixtr7"]
 
 [node name="Dialogue_Database" type="Control"]
 layout_mode = 3

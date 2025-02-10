@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvwfqrpuntr1m"
-path="res://.godot/imported/Exclaim.png-558efa82cc21ec506f55bb6bd8b17e7c.ctex"
+uid="uid://dfkdp3kyn42m6"
+path="res://.godot/imported/Dialogue_Box.png-923704ecee7d9b1862e937658fbf5b49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/UI/In-Game/Exclaim.png"
-dest_files=["res://.godot/imported/Exclaim.png-558efa82cc21ec506f55bb6bd8b17e7c.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Dialogue_Box.png"
+dest_files=["res://.godot/imported/Dialogue_Box.png-923704ecee7d9b1862e937658fbf5b49.ctex"]
 
 [params]
 

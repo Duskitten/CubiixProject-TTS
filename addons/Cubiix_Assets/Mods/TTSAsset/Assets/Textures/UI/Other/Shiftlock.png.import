@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfkdp3kyn42m6"
-path="res://.godot/imported/Dialogue_Box.png-214df3662404451085fa5787c01b6f5e.ctex"
+uid="uid://b2j135lyefuy1"
+path="res://.godot/imported/Shiftlock.png-e364eb71cbbe6fbcdaf272775a5e487d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/UI/In-Game/Dialogue_Box.png"
-dest_files=["res://.godot/imported/Dialogue_Box.png-214df3662404451085fa5787c01b6f5e.ctex"]
+source_file="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Shiftlock.png"
+dest_files=["res://.godot/imported/Shiftlock.png-e364eb71cbbe6fbcdaf272775a5e487d.ctex"]
 
 [params]
 
