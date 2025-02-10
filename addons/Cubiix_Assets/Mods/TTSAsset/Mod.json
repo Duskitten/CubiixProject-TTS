@@ -340,6 +340,14 @@
 				"Spawn_Locations":{
 					"Docks":["Vector3(0,2,0)","Vector3(0,3.14159,0)"]
 				}
+			},
+			"Player_TestGround":{
+				"Server_Path":"Assets/Maps/Server/player_test_ground_server.tscn",
+				"Client_Path":"Assets/Maps/Client/player_test_ground_client.tscn",
+				"Name":"Player Testing Grounds",
+				"Description":"Where I make the player do things!",
+				"Image_Preview":"Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png",
+				"Spawn_Locations":{}
 			}
 		},
 		"Scripts":{

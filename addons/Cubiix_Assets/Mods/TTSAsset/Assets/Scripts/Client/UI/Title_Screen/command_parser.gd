@@ -36,7 +36,10 @@ func command_parser(text:String) -> void:
 					Core.SceneData.call_deferred("load_scene",split_normal[1],{},true,"")
 			"commands":
 				new_debug("Current Commands:")
-				new_debug("commands: This Screen")
+				new_debug("] commands: This Screen")
+				new_debug("] swap_map (map) (mapspawn*): load another map, * is optional")
+				new_debug("] teleport (x) (y) (z): Teleport to a location")
+				new_debug("] show_coord: Where you are currently")
 			"teleport":
 				if split_normal.size() < 3:
 					new_debug("Error: command incomplete")
