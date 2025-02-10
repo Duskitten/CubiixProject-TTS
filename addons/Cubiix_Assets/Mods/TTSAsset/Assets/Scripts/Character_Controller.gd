@@ -206,7 +206,7 @@ func _physics_process(delta: float) -> void:
 			Character.global_transform.basis = align_up(Character.basis,RayCast_Swim.get_collision_normal(),1)
 			Character.position = RayCast_Swim.get_collision_point() - (Character.global_transform.basis.y * 0.48)
 			if falling:
-				var sploosh =  load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Water/sploosh.tscn").instantiate()
+				var sploosh =  load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/sploosh.tscn").instantiate()
 				sploosh.get_node("AnimationPlayer").play("Sploosh")
 				sploosh.get_node("AnimationPlayer").animation_finished.connect(kill_sploosh.bind(sploosh))
 				Character.get_parent().get_node("Effects").add_child(sploosh)
@@ -215,7 +215,7 @@ func _physics_process(delta: float) -> void:
 			falling = false
 			jumping = false
 			
-			var particles = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/Water/water_particles.tscn").instantiate()
+			var particles = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/water_particles.tscn").instantiate()
 			Character.get_parent().get_node("Effects").add_child(particles)
 			swim_pos = Character.to_local(RayCast_Swim.get_collision_point()) + Vector3(0,0.02,0)
 			particles.global_transform.basis = Character.global_transform.basis

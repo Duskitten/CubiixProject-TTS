@@ -11,16 +11,16 @@
 [ext_resource type="Material" uid="uid://b0uoiij21jcs0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Grass_Fronds.tres" id="8_kts4w"]
 [ext_resource type="PackedScene" uid="uid://bcbqf7a7nej6x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Grass.gltf" id="9_teqfn"]
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="10_t2d1s"]
-[ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://Assets/Scenes/Client/world/audioZone.tscn" id="11_daro4"]
-[ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://Assets/Scenes/Tools/Hexstaria_Screenshotter.tscn" id="12_2yfxy"]
+[ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/audioZone.tscn" id="11_daro4"]
+[ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Tools/Hexstaria_Screenshotter.tscn" id="12_2yfxy"]
 [ext_resource type="Texture2D" uid="uid://uph2ua7mkd07" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/BackingObjects.png" id="14_vnswh"]
-[ext_resource type="PackedScene" uid="uid://dlddkyamixlpn" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/BounceObject/BounceObject.tscn" id="15_u4044"]
+[ext_resource type="PackedScene" uid="uid://dlddkyamixlpn" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/BounceObject/BounceObject.tscn" id="15_u4044"]
 [ext_resource type="Material" uid="uid://c23u4882guha4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_2.tres" id="17_klhsr"]
 [ext_resource type="Material" uid="uid://chjf5pqto7jff" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_3.tres" id="18_3xugf"]
 [ext_resource type="Material" uid="uid://krsvtu3psvvo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Tall_Trees.tres" id="23_f5tmj"]
 [ext_resource type="Texture2D" uid="uid://ftkeffl87ehx" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/BackObjects2.png" id="25_ilkdj"]
 [ext_resource type="Material" uid="uid://5dc67warsm75" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hangar.tres" id="26_i5mf1"]
-[ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://Assets/Scenes/Client/Ui/version_image.tscn" id="30_hrylf"]
+[ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/version_image.tscn" id="30_hrylf"]
 
 [sub_resource type="Gradient" id="Gradient_cosy2"]
 interpolation_mode = 2
@@ -530,17 +530,9 @@ Accessory_String = "{\"Face\":\"TTSAssets/Ki_Star_Shades\"}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Ki/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Nat" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -556,17 +548,9 @@ Accessory_String = "{}"
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Nat/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Dusk" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -582,17 +566,9 @@ Accessory_String = "{}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Dusk/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Skim" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -608,17 +584,9 @@ Accessory_String = "{\"Head\":\"TTSAssets/Dock_Hat\",\"Chest\":\"TTSAssets/Dock_
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Skim/Hub/Cubiix_Model/Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
-bones/12/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="MeshInstance3D" parent="NPC/Skim/Hub/Cubiix_Model/Armature/Skeleton3D" index="0"]

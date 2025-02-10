@@ -1,7 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cfneil43a8acy"]
-
-[ext_resource type="Texture2D" uid="uid://ef6dpy4dl3nl" path="res://Assets/Mesh/Cubiix/Color_Palette.png" id="1_vdc4x"]
-
-[resource]
-albedo_texture = ExtResource("1_vdc4x")
-texture_filter = 0

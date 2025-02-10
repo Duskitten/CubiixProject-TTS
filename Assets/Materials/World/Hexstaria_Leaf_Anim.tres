@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cumjroo3v04g"]
-
-[ext_resource type="Shader" uid="uid://b387dvnm4g771" path="res://Assets/Shaders/Maps/Hexstaria_Trees.tres" id="1_1pw43"]
-[ext_resource type="Texture2D" uid="uid://bsf1ktvgxelg1" path="res://Assets/Textures/World/Hexstaria_Sand.png" id="2_y4exp"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_1pw43")
-shader_parameter/Texture2DParameter = ExtResource("2_y4exp")

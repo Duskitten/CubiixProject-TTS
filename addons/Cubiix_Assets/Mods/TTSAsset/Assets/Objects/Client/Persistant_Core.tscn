@@ -1,12 +1,12 @@
 [gd_scene load_steps=26 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/persistant_core.gd" id="1_avm5g"]
-[ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://Assets/Scenes/Client/Ui/version_image.tscn" id="2_j6tbw"]
-[ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://Assets/Scenes/Client/Ui/Dialogue.tscn" id="3_0531y"]
-[ext_resource type="PackedScene" uid="uid://c2701u34x8dm0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/UI/hexii_tablet_ui_v2.tscn" id="4_yn8bv"]
-[ext_resource type="PackedScene" uid="uid://cufaqwnfhx7e5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/UI/hexii_phone_ui_v2.tscn" id="5_h76e0"]
-[ext_resource type="Texture2D" uid="uid://bxbehfpnollp1" path="res://Assets/Textures/UI/Other/Loading.png" id="11_jhpuk"]
-[ext_resource type="Texture2D" uid="uid://4x8mk84readb" path="res://Assets/Textures/UI/Map_Screenshots/screenshot_hexstaria_village.png" id="12_6irlc"]
+[ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/version_image.tscn" id="2_j6tbw"]
+[ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/Dialogue.tscn" id="3_0531y"]
+[ext_resource type="PackedScene" uid="uid://c2701u34x8dm0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_tablet_ui_v2.tscn" id="4_yn8bv"]
+[ext_resource type="PackedScene" uid="uid://cufaqwnfhx7e5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_phone_ui_v2.tscn" id="5_h76e0"]
+[ext_resource type="Texture2D" uid="uid://3y0k7m58gqtr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png" id="7_h2oss"]
+[ext_resource type="Texture2D" uid="uid://bxbehfpnollp1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Loading.png" id="11_jhpuk"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="13_7phac"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://Assets/Textures/UI/In-Game/Shiftlock.png" id="14_sqbso"]
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="15_rfthv"]
@@ -140,8 +140,8 @@ _data = {
 animation = &"Loading"
 
 [sub_resource type="Gradient" id="Gradient_0si2u"]
-offsets = PackedFloat32Array(0.1, 0.5, 0.9)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.0736196, 0.0858896, 0.153374, 0.815951, 0.91411, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_uy3ag"]
 gradient = SubResource("Gradient_0si2u")
@@ -278,7 +278,6 @@ offset_right = -186.0
 offset_bottom = 294.0
 
 [node name="Transitioner" type="Panel" parent="CanvasLayer"]
-visible = false
 z_index = 4096
 anchors_preset = 15
 anchor_right = 1.0
@@ -313,7 +312,6 @@ texture_filter = 1
 position = Vector2(-11, 18)
 texture = ExtResource("11_jhpuk")
 hframes = 4
-frame = 2
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -377,7 +375,7 @@ offset_top = -129.0
 offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_6irlc")
+texture = ExtResource("7_h2oss")
 expand_mode = 3
 stretch_mode = 5
 

@@ -15,7 +15,7 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="Cubiix Project: To The Stars"
-run/main_scene="res://Assets/Scenes/Shared/main_scene.tscn"
+run/main_scene="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Shared/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -33,9 +33,6 @@ enabled=PackedStringArray("res://addons/EasySpaceNodes/plugin.cfg", "res://addon
 [file_customization]
 
 folder_colors={
-"res://Assets/Materials/": "orange",
-"res://Assets/Mesh/": "yellow",
-"res://Assets/Scenes/": "green",
 "res://Assets/Scripts/": "teal",
 "res://Assets/Shaders/": "blue",
 "res://Assets/Textures/": "purple",

@@ -5,12 +5,6 @@ extends Node
 @onready var Transitioner = $CanvasLayer/Transitioner
 @onready var Transitioner_AnimationPlayer = Transitioner.get_node("AnimationPlayer")
 
-@onready var Update_Check = $HTTPNodes/Update_Check
-@onready var Update_Downloader = $HTTPNodes/Update_Downloader
-@onready var Login_Create = $HTTPNodes/Login_Create
-@onready var Login_Signin = $HTTPNodes/Login_Signin
-@onready var API_Validate = $HTTPNodes/API_Validate
-
 @onready var Player = $Node3D/Player
 @onready var AudioPlayer = $Node3D/Audio
 @onready var NetworkFolder = $Node3D/Network_Players

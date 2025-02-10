@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dma1uqsx8nwkj"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Client/Scene/AudioZoneManager.gd" id="1_nomcx"]
-[ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://Assets/Scenes/Client/world/audioZone.tscn" id="2_qtisu"]
+[ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/audioZone.tscn" id="2_qtisu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_34rnx"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
