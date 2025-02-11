@@ -273,11 +273,12 @@ grow_vertical = 2
 
 [node name="DragArea" parent="CanvasLayer/Draggable_UI/Hexii_Phone_UI" index="0"]
 offset_left = -392.0
-offset_top = -44.0
+offset_top = 85.0
 offset_right = -186.0
-offset_bottom = 294.0
+offset_bottom = 423.0
 
 [node name="Transitioner" type="Panel" parent="CanvasLayer"]
+visible = false
 z_index = 4096
 anchors_preset = 15
 anchor_right = 1.0
@@ -326,7 +327,6 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("11_jhpuk")
 hframes = 4
-frame = 3
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1

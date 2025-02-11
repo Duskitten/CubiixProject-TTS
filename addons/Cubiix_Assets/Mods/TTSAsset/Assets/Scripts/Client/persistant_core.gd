@@ -176,7 +176,8 @@ var LastSong = ""
 var SongList = {
 	"FishShop":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/FishinForCubes.ogg",
 	"Trinket":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/Trinket.ogg",
-	"HobblinWobblin":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/HobblinWobblin.ogg"
+	"HobblinWobblin":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/HobblinWobblin.ogg",
+	"Sunset":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/SunsetsAndPalmTrees.ogg"
 }
 
 var AudioHost = null

@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/EasySpaceNodes/plugin.cfg", "res://addon
 [file_customization]
 
 folder_colors={
+"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/": "green",
 "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/": "red"
 }
 
