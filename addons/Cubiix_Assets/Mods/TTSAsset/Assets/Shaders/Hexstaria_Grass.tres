@@ -37,7 +37,7 @@ constant = 1.0
 operator = 2
 
 [sub_resource type="VisualShaderNodeDistanceFade" id="VisualShaderNodeDistanceFade_k6cg7"]
-default_input_values = [0, 40.0, 1, 20.0]
+default_input_values = [0, 40.0, 1, 10.0]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_nf34e"]
 default_input_values = [0, 0.0, 1, 8.0]
@@ -194,7 +194,7 @@ void fragment() {
 
 // DistanceFade:18
 	float n_in18p0 = 40.00000;
-	float n_in18p1 = 20.00000;
+	float n_in18p1 = 10.00000;
 	float n_out18p0 = clamp(smoothstep(n_in18p0, n_in18p1, length(VERTEX)), 0.0, 1.0);
 
 
@@ -225,7 +225,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(12.768, 124.33)
 modes/cull = 2
 flags/depth_prepass_alpha = true
 flags/shadows_disabled = true

@@ -14,6 +14,7 @@ transitions = ["TTS_Anim_Falling", "End", SubResource("AnimationNodeStateMachine
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cs34u"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gwx0t"]
+graph_offset = Vector2(-464.927, 12.9044)
 nodes/AnimationNodeStateMachine/node = SubResource("AnimationNodeStateMachine_m8hvh")
 nodes/AnimationNodeStateMachine/position = Vector2(-380, 20)
 "nodes/AnimationNodeStateMachine 2/node" = SubResource("AnimationNodeStateMachine_m8hvh")

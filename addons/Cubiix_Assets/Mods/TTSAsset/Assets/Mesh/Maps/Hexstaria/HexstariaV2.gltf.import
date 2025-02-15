@@ -37,6 +37,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Tall_Trees.tres"
 },
+"Hollow": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hollow.tres"
+},
 "Hutt": {
 "use_external/enabled": true,
 "use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_1.tres"
@@ -56,10 +60,6 @@ _subresources={
 "Material.002": {
 "use_external/enabled": true,
 "use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Grass.tres"
-},
-"Material.003": {
-"use_external/enabled": true,
-"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Palm_Trees.tres"
 },
 "Material.004": {
 "use_external/enabled": true,

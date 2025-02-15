@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cidrwugm0awye"]
+
+[ext_resource type="Texture2D" uid="uid://ccbro7bkyoq5w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Hollow.png" id="1_7524a"]
+[ext_resource type="Texture2D" uid="uid://7skkfeds42mg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Hut_Test.png" id="2_gtvb3"]
+
+[resource]
+render_priority = 11
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_7524a")
+metallic_specular = 0.0
+emission_energy_multiplier = 0.15
+emission_texture = ExtResource("2_gtvb3")
+texture_filter = 0
+distance_fade_max_distance = 0.0
