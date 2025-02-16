@@ -37,6 +37,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Tall_Trees.tres"
 },
+"Gear": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Gear.tres"
+},
 "Hollow": {
 "use_external/enabled": true,
 "use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hollow.tres"
@@ -80,6 +84,10 @@ _subresources={
 "Material.008": {
 "use_external/enabled": true,
 "use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Blimp_engine.tres"
+},
+"Observatory": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Observatory.tres"
 }
 }
 }

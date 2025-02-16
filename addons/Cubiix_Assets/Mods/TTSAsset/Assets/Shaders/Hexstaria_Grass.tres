@@ -96,7 +96,7 @@ operator = 2
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, depth_prepass_alpha, shadows_disabled;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_toon, specular_schlick_ggx, depth_prepass_alpha;
 
 uniform sampler2D tex_frg_13;
 uniform sampler2D Texture2DParameter2 : hint_default_transparent, filter_nearest_mipmap, repeat_disable;
@@ -225,9 +225,10 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(299.995, 58.6693)
 modes/cull = 2
+modes/diffuse = 3
 flags/depth_prepass_alpha = true
-flags/shadows_disabled = true
 nodes/vertex/0/position = Vector2(740, 180)
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_3ap5k")
 nodes/vertex/2/position = Vector2(-400, 120)

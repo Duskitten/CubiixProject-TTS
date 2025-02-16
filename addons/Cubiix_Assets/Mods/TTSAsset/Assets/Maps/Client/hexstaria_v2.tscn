@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://fqbvemktav2x"]
+[gd_scene load_steps=87 format=4 uid="uid://fqbvemktav2x"]
 
 [ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/HexstariaV2.gltf" id="1_1h5qw"]
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_kyva2"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/audioZone.tscn" id="11_daro4"]
 [ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Tools/Hexstaria_Screenshotter.tscn" id="12_2yfxy"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/World/observatory_gears.gd" id="12_pjpjp"]
+[ext_resource type="Material" uid="uid://cdrbobpljb5b1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Gear_Telescope.tres" id="13_ptovx"]
 [ext_resource type="Texture2D" uid="uid://uph2ua7mkd07" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/BackingObjects.png" id="14_vnswh"]
 [ext_resource type="PackedScene" uid="uid://dlddkyamixlpn" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/BounceObject/BounceObject.tscn" id="15_u4044"]
 [ext_resource type="Material" uid="uid://c23u4882guha4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_2.tres" id="17_klhsr"]
@@ -514,7 +515,7 @@ transform = Transform3D(1, 0, 0, 1.49012e-08, 1, -7.45058e-09, -2.98023e-08, -2.
 light_bake_mode = 1
 light_cull_mask = 4293918721
 shadow_enabled = true
-shadow_bias = 0.0
+shadow_bias = 1.5
 directional_shadow_mode = 0
 directional_shadow_fade_start = 0.0
 directional_shadow_max_distance = 35.7
@@ -692,38 +693,6 @@ shape = SubResource("ConcavePolygonShape3D_3udrh")
 
 [node name="HexstariaV2-Mesh" parent="Map" instance=ExtResource("1_1h5qw")]
 
-[node name="Skeleton3D" parent="Map/HexstariaV2-Mesh/Base/Armature" index="2"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.534874, 0.075961, 0.0397133, 0.840572)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.534874, -0.075961, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/rotation = Quaternion(4.21608e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/rotation = Quaternion(4.21608e-09, 5.76012e-08, -0.707107, 0.707107)
-
-[node name="Skeleton3D" parent="Map/HexstariaV2-Mesh/Base/IK_Armature" index="0"]
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(6.88394e-08, -6.88394e-08, -0.707107, 0.707107)
-bones/25/rotation = Quaternion(1.01518e-07, 1.01518e-07, 0.707107, 0.707107)
-bones/27/scale = Vector3(1, 1, 1)
-bones/28/scale = Vector3(1, 1, 1)
-
-[node name="Skeleton3D" parent="Map/HexstariaV2-Mesh/Base/Template_Armature" index="0"]
-bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
-bones/3/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.534874, 0.075961, 0.0397133, 0.840572)
-bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
-bones/8/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.534874, -0.075961, -0.0397133, 0.840572)
-bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
-bones/15/rotation = Quaternion(4.21608e-09, -5.76012e-08, 0.707107, 0.707107)
-bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
-bones/17/rotation = Quaternion(4.21608e-09, 5.76012e-08, -0.707107, 0.707107)
-
 [node name="StaticBody3D" parent="Map/HexstariaV2-Mesh/Other/Pillar_1" index="0"]
 collision_layer = 131
 collision_mask = 131
@@ -789,6 +758,10 @@ surface_material_override/0 = ExtResource("10_aebdr")
 [node name="Observatory_Gears" parent="Map/HexstariaV2-Mesh/Isle_3" index="11"]
 surface_material_override/0 = ExtResource("11_44dqr")
 script = ExtResource("12_pjpjp")
+
+[node name="Telescope" parent="Map/HexstariaV2-Mesh/Isle_3/Observatory_Gears" index="0"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -0.830078, 8.27891, 0)
+surface_material_override/0 = ExtResource("13_ptovx")
 
 [node name="StaticBody3D" parent="Map/HexstariaV2-Mesh/Isle_3/SelaiHut" index="0"]
 collision_layer = 3
@@ -1114,14 +1087,12 @@ transform = Transform3D(1, -1.49012e-08, 0, -1.39698e-08, 1, 1.30385e-08, 0, -1.
 shape = SubResource("BoxShape3D_0armg")
 
 [node name="Grass_Island_1" type="MultiMeshInstance3D" parent="Map"]
-cast_shadow = 0
 lod_bias = 0.5
 visibility_range_end = 75.0
 multimesh = SubResource("MultiMesh_cqhq3")
 
 [node name="Grass_Island_2" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
-cast_shadow = 0
 lod_bias = 0.5
 visibility_range_end = 75.0
 multimesh = SubResource("MultiMesh_7wrrk")
@@ -1129,7 +1100,6 @@ multimesh = SubResource("MultiMesh_7wrrk")
 [node name="Grass_Island_3_A" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
 material_override = ExtResource("8_kts4w")
-cast_shadow = 0
 lod_bias = 0.5
 visibility_range_end = 75.0
 multimesh = SubResource("MultiMesh_acuve")
@@ -1137,7 +1107,6 @@ multimesh = SubResource("MultiMesh_acuve")
 [node name="Grass_Island_3_B" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
 material_override = ExtResource("8_kts4w")
-cast_shadow = 0
 lod_bias = 0.5
 visibility_range_end = 75.0
 multimesh = SubResource("MultiMesh_d6v8k")
@@ -1145,7 +1114,6 @@ multimesh = SubResource("MultiMesh_d6v8k")
 [node name="Grass_Island_3_C" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
 material_override = ExtResource("8_kts4w")
-cast_shadow = 0
 lod_bias = 0.5
 visibility_range_end = 75.0
 multimesh = SubResource("MultiMesh_4pqkc")
