@@ -1,11 +1,14 @@
 extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
+var Current_SceneID = ""
+var Scene_Root
 
 func load_scene(SceneID:String,PassThrough:Dictionary={}, SkipFade:bool = false, SpawnLocation:String = "") -> void:
 	var SceneData = Core.AssetData.find_map(SceneID)
 	var current_scene = get_tree().root.get_node("Main_Scene/Current_Scene")
 	#print(SceneData)
 	if SceneData.has("Image_Preview") && SceneData.has("Name") && SceneData.has("Description"):
+		Current_SceneID = SceneID
 		Core.Persistant_Core.Transitioner.get_node("TextureRect/RichTextLabel").text = "[center][font_size=40] [b]"+SceneData["Name"]+"[/b][/font_size]\n"+SceneData["Description"]
 		Core.Persistant_Core.Transitioner.get_node("TextureRect").texture = load(SceneData["Image_Preview"])
 		
@@ -21,6 +24,7 @@ func load_scene(SceneID:String,PassThrough:Dictionary={}, SkipFade:bool = false,
 		
 		
 		current_scene.add_child(load_scene)
+		Scene_Root = load_scene
 		load_scene.setup()
 		await load_scene.FinishedLoad
 		if SpawnLocation != "" && SceneData["Spawn_Locations"].has(SpawnLocation):

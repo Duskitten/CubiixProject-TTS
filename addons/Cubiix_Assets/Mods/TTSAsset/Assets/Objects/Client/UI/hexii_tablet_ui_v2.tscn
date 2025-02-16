@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=133 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -54,11 +54,16 @@
 [ext_resource type="Texture2D" uid="uid://btyrrwu4s7wtb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_D.png" id="47_u26x0"]
 [ext_resource type="Texture2D" uid="uid://d2u8lecbntiqm" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/PowerButton_Base.png" id="52_lsgqv"]
 [ext_resource type="Texture2D" uid="uid://bbisah7mxotk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/Center_Icon.png" id="52_pfxns"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/moon.gd" id="53_tbc8v"]
+[ext_resource type="Texture2D" uid="uid://dix00axcn6bd4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Star_screen.png" id="53_vqcqx"]
 [ext_resource type="Texture2D" uid="uid://dnraxca81r88x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/Center_Icon_Hover.png" id="53_ybm6u"]
 [ext_resource type="Texture2D" uid="uid://cmqxc3v32dj05" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/PowerButton_Hover.png" id="53_yess3"]
+[ext_resource type="PackedScene" uid="uid://ct4k6wt427fw0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Starmap/Starmap.tscn" id="54_18nne"]
 [ext_resource type="Texture2D" uid="uid://odygdpdlcoss" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/SettingsButton_Base.png" id="55_usstw"]
 [ext_resource type="Texture2D" uid="uid://cxgq0yj5yxx0f" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/SettingsButton_Hover.png" id="56_sj26w"]
 [ext_resource type="Texture2D" uid="uid://dnwu4li8peekr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/CollectionsButton_Base.png" id="57_8vc7f"]
+[ext_resource type="Texture2D" uid="uid://dy4d6rry07v8m" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/StarButton_Base.png" id="57_a8tg7"]
+[ext_resource type="Texture2D" uid="uid://dgoc5vw7wgd3f" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/StarButton_Hover.png" id="58_g3kg2"]
 [ext_resource type="Texture2D" uid="uid://rqhy8ml8mxm3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/CollectionsButton_Hover.png" id="58_q8jin"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/command_parser.gd" id="61_arkv6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
@@ -328,7 +333,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.0619345, 0.598227, 1)
+bg_color = Color(0, 0.828966, 0.60309, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -337,9 +342,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 14.1365
+expand_margin_bottom = 14.1365
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.493219, 0.600961, 1)
+bg_color = Color(0, -0.673414, 0.593564, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -348,11 +355,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 3.12047
-expand_margin_bottom = 3.12047
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.926453, 0.603709, 1)
+bg_color = Color(0, -0.23157, 0.596366, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -361,11 +366,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 17.3574
-expand_margin_bottom = 17.3574
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.100732, 0.597195, 1)
+bg_color = Color(0, 0.283343, 0.599631, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -374,8 +377,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = -0.230195
-expand_margin_bottom = -0.230195
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -1248,6 +1249,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="Settings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1921,13 +1923,10 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
 [node name="Offline" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 454.0
-offset_right = 454.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("26_ld6j6")
@@ -2541,7 +2540,7 @@ world_3d = SubResource("World3D_l6x5t")
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(198, 367)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
 
@@ -3764,6 +3763,134 @@ theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
+[node name="Moon" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("53_tbc8v")
+metadata/Open = false
+metadata/Close_Pos = Vector2(325.5, 380)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 443.0
+offset_bottom = 377.0
+texture = ExtResource("53_vqcqx")
+
+[node name="Control" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 153.0
+offset_top = 7.0
+offset_right = 428.0
+offset_bottom = 359.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control/SubViewportContainer"]
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(275, 352)
+render_target_update_mode = 4
+
+[node name="Node3D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control/SubViewportContainer/SubViewport" instance=ExtResource("54_18nne")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 149.0
+offset_bottom = 320.0
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+text = "Star-View"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_q4chf")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Label2" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+text = "
+Pan-H
+"
+horizontal_alignment = 1
+
+[node name="X" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -5.0
+max_value = 5.0
+step = 2.5
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label3" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0.452251, 0.644531, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 21
+text = "
+Pan-V
+"
+horizontal_alignment = 1
+
+[node name="Y" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -5.0
+max_value = 5.0
+step = 2.5
+tick_count = 5
+ticks_on_borders = true
+
+[node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
+
+[node name="HSeparator3" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
 custom_minimum_size = Vector2(0, 7.06)
 layout_mode = 0
@@ -3788,6 +3915,12 @@ texture_hover = ExtResource("56_sj26w")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_e0e5y")
+
+[node name="Moon" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("57_a8tg7")
+texture_pressed = ExtResource("57_a8tg7")
+texture_hover = ExtResource("58_g3kg2")
 
 [node name="TextureButton3" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
 layout_mode = 2
@@ -3927,8 +4060,15 @@ metadata/_edit_lock_ = true
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Visuals"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button2/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Settings/TextureRect/Screens" method="_on_button_pressed" binds= ["Audio"]]
+[connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
+[connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/X" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon" method="_on_value_changed" binds= [true]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/Y" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon" method="_on_value_changed" binds= [false]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Offline"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton2" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Settings"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/Moon" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Moon"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Center_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["In-Game_Controller"]]
 [connection signal="gui_input" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_gui_input"]
 [connection signal="text_submitted" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_text_submitted"]
+
+[editable path="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control/SubViewportContainer/SubViewport/Node3D"]

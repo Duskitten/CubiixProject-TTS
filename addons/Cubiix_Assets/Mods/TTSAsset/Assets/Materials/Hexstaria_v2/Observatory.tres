@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://5445ksmwb6lv"]
 
 [ext_resource type="Texture2D" uid="uid://bju7g0dkv12vc" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Observatory.png" id="1_yf41n"]
-[ext_resource type="Texture2D" uid="uid://lcchr7d8um74" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Blimp_emissive.png" id="2_hf4q3"]
+[ext_resource type="Texture2D" uid="uid://5kc6rk6pe8mr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Observatory_Emiss.png" id="2_bu3ni"]
 
 [resource]
 render_priority = 11
@@ -9,7 +9,9 @@ transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("1_yf41n")
 metallic_specular = 0.0
+metallic_texture_channel = 2
+emission_enabled = true
 emission_energy_multiplier = 1.2
-emission_texture = ExtResource("2_hf4q3")
+emission_texture = ExtResource("2_bu3ni")
 texture_filter = 0
 texture_repeat = false

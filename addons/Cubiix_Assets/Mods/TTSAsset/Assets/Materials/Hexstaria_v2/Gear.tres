@@ -6,5 +6,5 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_4wj2q")
-shader_parameter/FloatParameter = 0.0
+shader_parameter/FloatParameter = 8.14
 shader_parameter/Gear = ExtResource("2_5bx0c")
