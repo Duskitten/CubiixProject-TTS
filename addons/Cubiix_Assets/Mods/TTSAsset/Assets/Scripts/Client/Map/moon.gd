@@ -20,7 +20,7 @@ func _on_value_changed(value: float, extra_arg_0: bool) -> void:
 
 func _process(delta: float) -> void:
 	if Core.SceneData.Current_SceneID == "TTSAssets/Hexstaria_V2":
-		var Telescope = Core.SceneData.Scene_Root.get_node("Client/Map/HexstariaV2-Mesh/Isle_3/Observatory_Gears")
+		var Telescope = Core.SceneData.Scene_Root.get_node_or_null("Client/Map/HexstariaV2-Mesh/Isle_3/Observatory_Gears")
 		if Telescope != null:
 			Telescope.New_Y = CameraParent.rotation_degrees.y
 			Telescope.New_Z = Camera.rotation_degrees.x
