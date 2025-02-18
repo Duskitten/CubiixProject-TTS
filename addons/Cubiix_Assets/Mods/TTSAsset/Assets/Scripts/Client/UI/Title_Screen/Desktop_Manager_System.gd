@@ -11,6 +11,7 @@ func _on_transition_button_pressed(extra_arg_0: String) -> void:
 				var tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_parallel(true).set_trans(Tween.TRANS_QUAD)
 				tween.tween_property(newnode, "scale", Vector2.ZERO, .2)
 				tween.tween_property(newnode, "position", newnode.get_meta("Close_Pos"), .2)
+				tween.tween_callback(func():newnode.hide()).set_delay(.2)
 			else:
 				if lastmenu == extra_arg_0:
 					newnode.set_meta("Open",true)

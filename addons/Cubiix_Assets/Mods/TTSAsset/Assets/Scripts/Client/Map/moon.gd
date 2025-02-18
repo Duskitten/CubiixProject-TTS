@@ -14,23 +14,27 @@ var YRot = 0
 func _on_value_changed(value: float, extra_arg_0: bool) -> void:
 	match extra_arg_0:
 		true:
-			XRot = value
+			XRot = -value
 		false:
 			YRot = value
 
 func _process(delta: float) -> void:
-	if Core.SceneData.Current_SceneID == "TTSAssets/Hexstaria_V2":
-		var Telescope = Core.SceneData.Scene_Root.get_node_or_null("Client/Map/HexstariaV2-Mesh/Isle_3/Observatory_Gears")
-		if Telescope != null:
-			Telescope.New_Y = CameraParent.rotation_degrees.y
-			Telescope.New_Z = Camera.rotation_degrees.x
-		
-		CameraParent.rotation.y = lerp_angle(CameraParent.rotation.y, CameraParent.rotation.y+deg_to_rad(XRot), 0.01)
-		Camera.rotation.x = lerp_angle(Camera.rotation.x, deg_to_rad(clamp(rad_to_deg(Camera.rotation.x + deg_to_rad(YRot)),0,85)),0.01)
-		#print(CameraParent.rotation.y)
-		if rad_to_deg(CameraParent.rotation.y) < 360:
-			CameraParent.rotation.y += deg_to_rad(360)
-		Location.text = "[color=green]X:"+str(snappedf(fmod(rad_to_deg(CameraParent.rotation.y),360), 0.1)) +"\nY:"+str(snappedf(rad_to_deg(Camera.rotation.x),0.1))
+	if !self.visible:
+		XRot = 0
+		YRot = 0
+	else:
+		if Core.SceneData.Current_SceneID == "TTSAssets/Hexstaria_V2":
+			var Telescope = Core.SceneData.Scene_Root.get_node_or_null("Client/Map/HexstariaV2-Mesh/Isle_3/Observatory_Gears")
+			if Telescope != null:
+				Telescope.New_Y = CameraParent.rotation_degrees.y
+				Telescope.New_Z = Camera.rotation_degrees.x
+			
+			CameraParent.rotation.y = lerp_angle(CameraParent.rotation.y, CameraParent.rotation.y+deg_to_rad(XRot), 0.01)
+			Camera.rotation.x = lerp_angle(Camera.rotation.x, deg_to_rad(clamp(rad_to_deg(Camera.rotation.x + deg_to_rad(YRot)),0,85)),0.01)
+			#print(CameraParent.rotation.y)
+			if rad_to_deg(CameraParent.rotation.y) < 360:
+				CameraParent.rotation.y += deg_to_rad(360)
+			Location.text = "[color=green]X:"+str(snappedf(fmod(rad_to_deg(CameraParent.rotation.y),360), 0.1)) +"\nY:"+str(snappedf(rad_to_deg(Camera.rotation.x),0.1))
 
 func _physics_process(delta: float) -> void:
 	var Name = "Unknown"

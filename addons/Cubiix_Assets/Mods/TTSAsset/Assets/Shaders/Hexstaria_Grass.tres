@@ -225,7 +225,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(299.995, 58.6693)
 modes/cull = 2
 modes/diffuse = 3
 flags/depth_prepass_alpha = true

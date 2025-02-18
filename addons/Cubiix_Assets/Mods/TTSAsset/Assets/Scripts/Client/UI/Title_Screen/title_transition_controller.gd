@@ -11,6 +11,8 @@ func _ready() -> void:
 	for i in get_children():
 		i.hide()
 	$Title.show()
+	
+	
 
 func _on_texture_button_pressed(Screen_A: String, Reverse: bool, Screen_B: String) -> void:
 	match Screen_A:

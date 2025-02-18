@@ -9,7 +9,7 @@ frequency = 0.346
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gnsog"]
 seamless = true
-seamless_blend_skirt = 0.259
+seamless_blend_skirt = 0.0
 color_ramp = SubResource("Gradient_4b5ib")
 noise = SubResource("FastNoiseLite_2t37v")
 

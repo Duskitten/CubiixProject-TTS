@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=134 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -333,7 +333,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.490193, 0.600942, 1)
+bg_color = Color(0, 0.486607, 0.600919, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -342,11 +342,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 3.03689
-expand_margin_bottom = 3.03689
+expand_margin_top = 2.93844
+expand_margin_bottom = 2.93844
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.924241, 0.603695, 1)
+bg_color = Color(0, 0.921569, 0.603678, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -355,11 +355,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 17.2781
-expand_margin_bottom = 17.2781
+expand_margin_top = 17.1824
+expand_margin_bottom = 17.1824
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.078696, 0.597335, 1)
+bg_color = Color(0, -0.0634884, 0.597431, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -368,11 +368,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = -0.305363
-expand_margin_bottom = -0.305363
+expand_margin_top = -0.403692
+expand_margin_bottom = -0.403692
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.784002, 0.592862, 1)
+bg_color = Color(0, -0.785737, 0.592852, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -571,6 +571,8 @@ _data = {
 "Out": SubResource("Animation_5fsc7"),
 "RESET": SubResource("Animation_eg3eh")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cyr2w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0e5y"]
 
@@ -1936,6 +1938,7 @@ grow_vertical = 2
 script = ExtResource("26_ld6j6")
 
 [node name="In-Game_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -2544,7 +2547,7 @@ world_3d = SubResource("World3D_l6x5t")
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(198, 367)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
 
@@ -3335,6 +3338,7 @@ libraries = {
 }
 
 [node name="Settings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3768,6 +3772,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
 [node name="Moon" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3807,7 +3812,7 @@ metadata/_edit_use_anchors_ = true
 own_world_3d = true
 handle_input_locally = false
 size = Vector2i(275, 352)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Node3D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control/SubViewportContainer/SubViewport" instance=ExtResource("54_18nne")]
 
@@ -3815,7 +3820,7 @@ render_target_update_mode = 4
 layout_mode = 0
 offset_left = 16.0
 offset_top = 10.0
-offset_right = 149.0
+offset_right = 150.0
 offset_bottom = 320.0
 
 [node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer"]
@@ -3838,7 +3843,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_q4chf")
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
+vertical_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer"]
 layout_mode = 2
@@ -3879,13 +3884,28 @@ Pan-V
 "
 horizontal_alignment = 1
 
-[node name="Y" type="HSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_cyr2w")
+
+[node name="Y" type="VSlider" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+theme = ExtResource("14_q4chf")
 min_value = -5.0
 max_value = 5.0
 step = 2.5
 tick_count = 5
 ticks_on_borders = true
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_cyr2w")
 
 [node name="HSeparator2" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer"]
 layout_mode = 2
@@ -4067,7 +4087,7 @@ metadata/_edit_lock_ = true
 [connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/X" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon" method="_on_value_changed" binds= [true]]
-[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/Y" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon" method="_on_value_changed" binds= [false]]
+[connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Y" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon" method="_on_value_changed" binds= [false]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Offline"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton2" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Settings"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/Moon" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Moon"]]
