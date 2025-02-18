@@ -14,7 +14,8 @@ func internal_button_check(node:Node) -> void:
 		if i is BaseButton:
 			match i.get_parent().name:
 				"Palette":
-					pass
+					i.pressed.connect(_on_forward_button_pressed.bind())
+					i.pressed.connect(_on_generate_button_pressed.bind("Palette",i.get_parent()))
 				"Who":
 					pass
 				"Loader":
@@ -27,13 +28,17 @@ func internal_button_check(node:Node) -> void:
 
 func _on_forward_button_pressed() -> void:
 	Anim.play("Out")
+	set_back()
 
 func _on_back_button_pressed() -> void:
 	Anim.play_backwards("Out")
+	hide_both()
 	
 func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 	match type:
 		"Item":
+			$"Side_In-Menu/Menu_Color".hide()
+			$"Side_In-Menu/Menu_Slider".show()
 			var extended:String
 			match subtype.get_meta("type"):
 				true:
@@ -62,9 +67,25 @@ func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 				dupe_template.show()
 			await get_tree().process_frame
 			container.setup()
-
+		"Palette":
+			$"Side_In-Menu/Menu_Color".show()
+			$"Side_In-Menu/Menu_Slider".hide()
+			
 func set_new_value(WhatVar:String,WhatValue:String) -> void:
 	#print(WhatVar, WhatValue)
 	var character = Root.Temp_Character
 	character.set(WhatVar,WhatValue)
 	character.generate_character()
+	set_edited()
+
+func set_back() -> void:
+	get_node("Center/Edited").hide()
+	get_node("Center/Back").show()
+
+func set_edited() -> void:
+	get_node("Center/Edited").show()
+	get_node("Center/Back").hide()
+	
+func hide_both() -> void:
+	get_node("Center/Edited").hide()
+	get_node("Center/Back").hide()

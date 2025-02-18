@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbn3887exbg6c"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/CardCollectable/card.gd" id="1_ei0fj"]
+[ext_resource type="Script" uid="uid://5unml4jyicnd" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/CardCollectable/card.gd" id="1_ei0fj"]
 [ext_resource type="Texture2D" uid="uid://c5y5i5q6bmkvk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/CardCollectable/CubiixCardPlaceholderSprite.png" id="2_ma1xx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_unael"]

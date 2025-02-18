@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://qv8osc0f2rch"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/AreaLoadingTrigger/area_loading_trigger.gd" id="1_mw63n"]
+[ext_resource type="Script" uid="uid://5kigws6cxy84" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/AreaLoadingTrigger/area_loading_trigger.gd" id="1_mw63n"]
 
 [node name="AreaLoadingTrigger" type="Area3D"]
 collision_layer = 2

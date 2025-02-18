@@ -5,6 +5,7 @@ var has_mouse = false
 var Sensitivity:float = 2
 var recordedpos:Vector2
 var CameraZoom = 2
+
 func _ready() -> void:
 	find_parent("DragArea").Temp_Character = $SubViewport/Character_Editor/Rotator/CubiixModel/Hub
 	mouse_entered.connect(_mouse_enter.bind())

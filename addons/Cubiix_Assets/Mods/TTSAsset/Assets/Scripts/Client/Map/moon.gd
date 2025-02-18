@@ -4,7 +4,7 @@ extends Control
 @onready var CameraParent = $TextureRect/Control/SubViewportContainer/SubViewport/Node3D/Node3D
 @onready var Camera = $TextureRect/Control/SubViewportContainer/SubViewport/Node3D/Node3D/Main_Camera3D
 @onready var SliderX = $VBoxContainer/ScrollContainer/VBoxContainer/X
-@onready var SliderY = $VBoxContainer/ScrollContainer/VBoxContainer/Y
+@onready var SliderY = $VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Y
 @onready var Location = $TextureRect/Control/SubViewportContainer/SubViewport/Node3D/Control/Location
 @onready var Planet_Data = $TextureRect/Control/SubViewportContainer/SubViewport/Node3D/Control/Planet_Data
 

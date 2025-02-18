@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://dvvu2ls7inlev"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/persistant_core.gd" id="1_avm5g"]
+[ext_resource type="Script" uid="uid://dscljd2ut1qsq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/persistant_core.gd" id="1_avm5g"]
 [ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/version_image.tscn" id="2_j6tbw"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/Dialogue.tscn" id="3_0531y"]
 [ext_resource type="PackedScene" uid="uid://c2701u34x8dm0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_tablet_ui_v2.tscn" id="4_yn8bv"]
@@ -132,8 +132,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ima1k"]
 _data = {
-"Loading": SubResource("Animation_41tnh"),
-"RESET": SubResource("Animation_4ltjv")
+&"Loading": SubResource("Animation_41tnh"),
+&"RESET": SubResource("Animation_4ltjv")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ae5f8"]
@@ -216,8 +216,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qifgu"]
 _data = {
-"FadeOut": SubResource("Animation_n4ghk"),
-"RESET": SubResource("Animation_e2t24")
+&"FadeOut": SubResource("Animation_n4ghk"),
+&"RESET": SubResource("Animation_e2t24")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sqaxx"]

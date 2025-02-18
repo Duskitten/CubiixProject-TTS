@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chmlc53ehq8fh"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Transfer_Scene.gd" id="1_bgtpl"]
+[ext_resource type="Script" uid="uid://da8dg2dn0xkve" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Transfer_Scene.gd" id="1_bgtpl"]
 
 [node name="Transfer_Scene" type="Node3D"]
 script = ExtResource("1_bgtpl")

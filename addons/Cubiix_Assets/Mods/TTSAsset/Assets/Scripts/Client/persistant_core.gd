@@ -179,7 +179,8 @@ var SongList = {
 	"HobblinWobblin":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/HobblinWobblin.ogg",
 	"Sunset":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/SunsetsAndPalmTrees.ogg",
 	"ChillSunset":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/ChillSunsets.ogg",
-	"FishyFish":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/FishyFish.ogg"
+	"FishyFish":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/FishyFish.ogg",
+	"Xeno":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Audio/OST/Xeno.ogg"
 }
 
 var AudioHost = null

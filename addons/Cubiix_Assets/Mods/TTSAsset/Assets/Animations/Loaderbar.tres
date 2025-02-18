@@ -151,5 +151,5 @@ tracks/11/keys = {
 
 [resource]
 _data = {
-"new_animation": SubResource("Animation_50fpk")
+&"new_animation": SubResource("Animation_50fpk")
 }

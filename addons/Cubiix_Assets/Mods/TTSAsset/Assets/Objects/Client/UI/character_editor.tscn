@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="1_t5kl5"]
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="2_irli6"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_277l1"]
+[ext_resource type="Script" uid="uid://ybac4ivbcs3e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_277l1"]
 
 [sub_resource type="Gradient" id="Gradient_bxdry"]
 interpolation_mode = 2
@@ -30,9 +30,9 @@ fill_to = Vector2(1, 0.1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_185qv"]
 shader = ExtResource("2_irli6")
-shader_parameter/SkyDarkness = 1.0
 shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_2v07h")
 shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_kwyqm")
+shader_parameter/SkyDarkness = 1.0
 
 [sub_resource type="Sky" id="Sky_wsfn7"]
 sky_material = SubResource("ShaderMaterial_185qv")
@@ -143,6 +143,8 @@ light_bake_mode = 1
 light_cull_mask = 4293918721
 shadow_enabled = true
 shadow_bias = 0.15
+shadow_normal_bias = 0.595
+shadow_blur = 0.0
 directional_shadow_mode = 0
 directional_shadow_max_distance = 52.0
 sky_mode = 1

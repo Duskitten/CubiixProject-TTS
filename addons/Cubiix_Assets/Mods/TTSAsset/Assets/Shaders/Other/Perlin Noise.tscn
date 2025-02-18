@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdcosjmdgl06"]
 
-[ext_resource type="Shader" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/Other/Perlin_Noise.gdshader" id="1_5avdh"]
+[ext_resource type="Shader" uid="uid://bm00ttff3kwcj" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/Other/Perlin_Noise.gdshader" id="1_5avdh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jfvtk"]
 shader = ExtResource("1_5avdh")

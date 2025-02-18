@@ -1,6 +1,7 @@
 extends Control
 
 var lastmenu:String = ""
+@onready var Character_Template = $"In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer/SubViewport/Character_Editor/Rotator/CubiixModel/Hub"
 
 func _on_transition_button_pressed(extra_arg_0: String) -> void:
 	if lastmenu != "":

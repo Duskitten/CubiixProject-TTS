@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cn7vn6cg0mqg1"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/TeleportObject/teleport_object.gd" id="1_rgsde"]
+[ext_resource type="Script" uid="uid://ce558fqlrhn6e" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/TeleportObject/teleport_object.gd" id="1_rgsde"]
 
 [node name="TeleportObject" type="Area3D"]
 collision_layer = 2
