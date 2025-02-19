@@ -41,6 +41,6 @@ func _on_texture_button_pressed(Screen_A: String, Reverse: bool, Screen_B: Strin
 				get_node(Screen_A).show()
 				old_tween_a.tween_property(get_node(Screen_A),"position", Vector2(0,0), .5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 				old_tween_b.tween_property(get_node(Screen_B),"position", Vector2(454,0), .5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-				
+			
 			old_screen_a = Screen_A
 			old_screen_b = Screen_B

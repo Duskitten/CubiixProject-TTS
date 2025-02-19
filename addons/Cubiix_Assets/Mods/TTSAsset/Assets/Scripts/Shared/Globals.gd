@@ -3,6 +3,8 @@ extends Node
 
 var GameVersion = "V_B.01.01"
 
+signal Setting_Changed
+
 var LocalUser = {
 	"URL":"",
 	"UserSecretCode":"",
@@ -21,7 +23,8 @@ var save_template = {
 	"Visuals":{
 		"Shadow_Depth":0,
 		"Anti-Aliasing":0,
-		"Bloom":false
+		"Bloom":false,
+		"FOV":75
 	}
 }
 
