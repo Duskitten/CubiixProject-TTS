@@ -1,10 +1,10 @@
-[gd_scene load_steps=157 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=198 format=3 uid="uid://c2701u34x8dm0"]
 
-[ext_resource type="Script" uid="uid://fihnans4fruw" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
-[ext_resource type="Script" uid="uid://c2bbglepb7lm1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Title_Box_Container.gd" id="3_lp8p3"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Title_Box_Container.gd" id="3_lp8p3"]
 [ext_resource type="Texture2D" uid="uid://bidaos2p31667" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Devlog_Base.png" id="3_vbtfg"]
-[ext_resource type="Script" uid="uid://b0eo7ovtk6hux" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_transition_controller.gd" id="3_yb2d0"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_transition_controller.gd" id="3_yb2d0"]
 [ext_resource type="Texture2D" uid="uid://bq7k18mcha5g3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Shadow.png" id="5_b250a"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="5_d5qti"]
 [ext_resource type="Texture2D" uid="uid://bgrmflwldfthk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Login_Base.png" id="5_l1n8e"]
@@ -16,22 +16,22 @@
 [ext_resource type="Texture2D" uid="uid://chlvv6qbfkylu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Update_Base.png" id="13_j7rci"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Themes/Hexii_Device_UI.tres" id="14_q4chf"]
 [ext_resource type="Texture2D" uid="uid://vs6x01cc1fxt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Base.png" id="15_evwrj"]
-[ext_resource type="Script" uid="uid://iadoniasvi36" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_devlog.gd" id="15_rcleq"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_devlog.gd" id="15_rcleq"]
 [ext_resource type="Texture2D" uid="uid://5tyort2rt0g4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Hover.png" id="16_f4obj"]
 [ext_resource type="FontFile" uid="uid://8qduw4o3whqt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Regular.ttf" id="17_iygg2"]
 [ext_resource type="Texture2D" uid="uid://bh6cd3a6acb1g" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Settings_Backing.png" id="18_yi1hf"]
-[ext_resource type="Script" uid="uid://c3b8x5ddf61et" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_settings_adjust.gd" id="21_14xp3"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_settings_adjust.gd" id="21_14xp3"]
 [ext_resource type="Texture2D" uid="uid://bjx1yafhtgyeq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Backing.png" id="22_4ivrb"]
 [ext_resource type="Texture2D" uid="uid://d0a3m7qnlq1ra" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Login_Window.png" id="23_neoin"]
-[ext_resource type="Script" uid="uid://dpsagc3oicr3k" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/login_controller.gd" id="24_jy7r5"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/login_controller.gd" id="24_jy7r5"]
 [ext_resource type="AnimationLibrary" uid="uid://dadtuq6br5p3c" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Animations/Loaderbar.tres" id="26_b76qr"]
-[ext_resource type="Script" uid="uid://j03m38vhanu7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Desktop_Manager_System.gd" id="26_ld6j6"]
-[ext_resource type="Script" uid="uid://r0g5wb6f283s" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Character_Editor.gd" id="26_roqma"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Desktop_Manager_System.gd" id="26_ld6j6"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Character_Editor.gd" id="26_roqma"]
 [ext_resource type="Texture2D" uid="uid://dthsi25w60klk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_A.png" id="27_qu4e4"]
 [ext_resource type="PackedScene" uid="uid://cmukryvy8s3t3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/character_editor.tscn" id="27_t467y"]
 [ext_resource type="Texture2D" uid="uid://b36o2458ckfsf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot.png" id="28_86qy3"]
-[ext_resource type="Script" uid="uid://dl71jjmj5w0l3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Card_Char_UI_Selector.gd" id="28_c10ss"]
-[ext_resource type="Script" uid="uid://i27sbs8lnh73" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Card_Deck_Selector_Visual.gd" id="28_wu2g7"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Card_Char_UI_Selector.gd" id="28_c10ss"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Card_Deck_Selector_Visual.gd" id="28_wu2g7"]
 [ext_resource type="Texture2D" uid="uid://rqhnqqlrqmuf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Card_Assets/Template_Card.png" id="29_6jmre"]
 [ext_resource type="Texture2D" uid="uid://0r20d7ohferu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Head_Icon.png" id="30_qn7im"]
 [ext_resource type="Texture2D" uid="uid://b6kyxuxigqvto" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Face_Icon.png" id="31_okiee"]
@@ -42,7 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://dn5rj008eiuyb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/L_Hand_Icon.png" id="36_eae0u"]
 [ext_resource type="Texture2D" uid="uid://ehai1jpye32u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/R_Hand_Icon.png" id="37_jf558"]
 [ext_resource type="Texture2D" uid="uid://by8bbtx0uwn6m" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Ears_Icon.png" id="38_daotg"]
-[ext_resource type="Script" uid="uid://lol4dhnxllo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Character_Previewer_Controls.gd" id="38_fcna6"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Character_Previewer_Controls.gd" id="38_fcna6"]
 [ext_resource type="Texture2D" uid="uid://btnlf2qdftncl" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Picker_Icon.png" id="39_o3ymg"]
 [ext_resource type="Texture2D" uid="uid://dkxxq80qu5737" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Extra_Icon.png" id="39_ptxdx"]
 [ext_resource type="Texture2D" uid="uid://bauyi80rix4bj" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_B.png" id="40_5lkqb"]
@@ -56,11 +56,11 @@
 [ext_resource type="Texture2D" uid="uid://bst8b4r2w5sb2" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/QR_Icon.png" id="45_evikh"]
 [ext_resource type="Texture2D" uid="uid://1hw2pnpypueg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Who_Icon.png" id="45_m08tt"]
 [ext_resource type="Texture2D" uid="uid://btyrrwu4s7wtb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Character_Screen_Backing_D.png" id="47_u26x0"]
-[ext_resource type="Script" uid="uid://7oy8st3qdsqf" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/menu_color.gd" id="51_4sd3a"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/menu_color.gd" id="51_4sd3a"]
 [ext_resource type="Texture2D" uid="uid://d2u8lecbntiqm" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/PowerButton_Base.png" id="52_lsgqv"]
-[ext_resource type="Script" uid="uid://de37fc6d7nqfu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Color_Editor.gd" id="52_n1r6p"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Color_Editor.gd" id="52_n1r6p"]
 [ext_resource type="Texture2D" uid="uid://bbisah7mxotk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/Center_Icon.png" id="52_pfxns"]
-[ext_resource type="Script" uid="uid://l3ep4j82wo2m" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/moon.gd" id="53_tbc8v"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/moon.gd" id="53_tbc8v"]
 [ext_resource type="Texture2D" uid="uid://dix00axcn6bd4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Star_screen.png" id="53_vqcqx"]
 [ext_resource type="Texture2D" uid="uid://dnraxca81r88x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/Center_Icon_Hover.png" id="53_ybm6u"]
 [ext_resource type="Texture2D" uid="uid://cmqxc3v32dj05" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/PowerButton_Hover.png" id="53_yess3"]
@@ -71,7 +71,7 @@
 [ext_resource type="Texture2D" uid="uid://dy4d6rry07v8m" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/StarButton_Base.png" id="57_a8tg7"]
 [ext_resource type="Texture2D" uid="uid://dgoc5vw7wgd3f" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/StarButton_Hover.png" id="58_g3kg2"]
 [ext_resource type="Texture2D" uid="uid://rqhy8ml8mxm3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/CollectionsButton_Hover.png" id="58_q8jin"]
-[ext_resource type="Script" uid="uid://buaxmycpuqrde" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/command_parser.gd" id="61_arkv6"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/command_parser.gd" id="61_arkv6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
@@ -114,8 +114,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0u440"]
 _data = {
-&"DD": SubResource("Animation_xnag8"),
-&"RESET": SubResource("Animation_1vrun")
+"DD": SubResource("Animation_xnag8"),
+"RESET": SubResource("Animation_1vrun")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_smh1b"]
@@ -339,7 +339,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.550932, 0.59434, 1)
+bg_color = Color(0, -0.379599, 0.595427, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -350,7 +350,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.186735, 0.599018, 1)
+bg_color = Color(0, 0.313202, 0.59982, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -359,9 +359,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = -0.00237443
+expand_margin_bottom = -0.00237443
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.57476, 0.601479, 1)
+bg_color = Color(0, 0.696184, 0.602248, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -370,11 +372,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 5.50683
-expand_margin_bottom = 5.50683
+expand_margin_top = 9.38777
+expand_margin_bottom = 9.38777
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.965662, 0.603957, 1)
+bg_color = Color(0, 1.00357, 0.604198, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -383,8 +385,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 18.7524
-expand_margin_bottom = 18.7524
+expand_margin_top = 20.1086
+expand_margin_bottom = 20.1086
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -452,29 +454,29 @@ fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0.7)
 
-[sub_resource type="Gradient" id="Gradient_nvq1b"]
+[sub_resource type="Gradient" id="Gradient_pkkb4"]
 offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.603922, 0, 1, 0.815686, 0.870588, 0, 1, 0.309804, 0.862745, 0.290196, 1, 0.247059, 0.854902, 0.847059, 1, 0.184314, 0.788235, 0.886275, 1, 0.109804, 0.498039, 0.933333, 1, 0.372549, 0.0823529, 0.94902, 1, 0.729412, 0.0470588, 0.972549, 1, 0.984314, 0.027451, 0.85098, 1, 1, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4gtwl"]
-gradient = SubResource("Gradient_nvq1b")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nw0n6"]
+gradient = SubResource("Gradient_pkkb4")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbvvk"]
-texture = SubResource("GradientTexture2D_4gtwl")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_keygr"]
+texture = SubResource("GradientTexture2D_nw0n6")
 texture_margin_top = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gk43k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woi3g"]
 
-[sub_resource type="Gradient" id="Gradient_x0cmu"]
+[sub_resource type="Gradient" id="Gradient_o2mll"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yaohv"]
-gradient = SubResource("Gradient_x0cmu")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pcqoy"]
+gradient = SubResource("Gradient_o2mll")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0s8a"]
-texture = SubResource("GradientTexture2D_yaohv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acrls"]
+texture = SubResource("GradientTexture2D_pcqoy")
 texture_margin_top = 10.0
 
 [sub_resource type="Gradient" id="Gradient_5pkut"]
@@ -487,24 +489,35 @@ gradient = SubResource("Gradient_5pkut")
 texture = SubResource("GradientTexture2D_so7xl")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_b4b43"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_nvq1b"]
+offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.603922, 0, 1, 0.815686, 0.870588, 0, 1, 0.309804, 0.862745, 0.290196, 1, 0.247059, 0.854902, 0.847059, 1, 0.184314, 0.788235, 0.886275, 1, 0.109804, 0.498039, 0.933333, 1, 0.372549, 0.0823529, 0.94902, 1, 0.729412, 0.0470588, 0.972549, 1, 0.984314, 0.027451, 0.85098, 1, 1, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uomwi"]
-gradient = SubResource("Gradient_b4b43")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4gtwl"]
+gradient = SubResource("Gradient_nvq1b")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sd26x"]
-texture = SubResource("GradientTexture2D_uomwi")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbvvk"]
+texture = SubResource("GradientTexture2D_4gtwl")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_feooq"]
+[sub_resource type="Gradient" id="Gradient_8t4f2"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lykpo"]
+gradient = SubResource("Gradient_8t4f2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7831s"]
+texture = SubResource("GradientTexture2D_lykpo")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_d4ifn"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_45in0"]
-gradient = SubResource("Gradient_feooq")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pu5ri"]
+gradient = SubResource("Gradient_d4ifn")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_md81q"]
-texture = SubResource("GradientTexture2D_45in0")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bdav8"]
+texture = SubResource("GradientTexture2D_pu5ri")
 texture_margin_top = 10.0
 
 [sub_resource type="Gradient" id="Gradient_i5vix"]
@@ -538,17 +551,134 @@ fill_to = Vector2(0, 0)
 texture = SubResource("GradientTexture2D_fsc00")
 texture_margin_top = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hyqq"]
-content_margin_top = 4.0
-bg_color = Color(0.114622, 0, 0.6, 0.357)
-border_width_left = 26
-border_width_right = 26
-border_color = Color(0, 1, 0.938656, 1)
-border_blend = true
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="Gradient" id="Gradient_qo30q"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pkkb4"]
+gradient = SubResource("Gradient_qo30q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nw0n6"]
+texture = SubResource("GradientTexture2D_pkkb4")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_keygr"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o2mll"]
+gradient = SubResource("Gradient_keygr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pcqoy"]
+texture = SubResource("GradientTexture2D_o2mll")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_b4b43"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uomwi"]
+gradient = SubResource("Gradient_b4b43")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sd26x"]
+texture = SubResource("GradientTexture2D_uomwi")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_acrls"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8t4f2"]
+gradient = SubResource("Gradient_acrls")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lykpo"]
+texture = SubResource("GradientTexture2D_8t4f2")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_7831s"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d4ifn"]
+gradient = SubResource("Gradient_7831s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pu5ri"]
+texture = SubResource("GradientTexture2D_d4ifn")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_bdav8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cp4no"]
+gradient = SubResource("Gradient_bdav8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1h07k"]
+texture = SubResource("GradientTexture2D_cp4no")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_6jdtw"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hgriw"]
+gradient = SubResource("Gradient_6jdtw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wanox"]
+texture = SubResource("GradientTexture2D_hgriw")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_uy5ta"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j0py1"]
+gradient = SubResource("Gradient_uy5ta")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koy4f"]
+texture = SubResource("GradientTexture2D_j0py1")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_rmuca"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oxuyy"]
+gradient = SubResource("Gradient_rmuca")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdrt8"]
+texture = SubResource("GradientTexture2D_oxuyy")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_xdhwr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k8mme"]
+gradient = SubResource("Gradient_xdhwr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g52yt"]
+texture = SubResource("GradientTexture2D_k8mme")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_h3bx8"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_68dj2"]
+gradient = SubResource("Gradient_h3bx8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xt60o"]
+texture = SubResource("GradientTexture2D_68dj2")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_h0wou"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c8dap"]
+gradient = SubResource("Gradient_h0wou")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_825yj"]
+texture = SubResource("GradientTexture2D_c8dap")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_dtlth"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bokgu"]
+gradient = SubResource("Gradient_dtlth")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7ebj"]
+texture = SubResource("GradientTexture2D_bokgu")
+texture_margin_top = 10.0
 
 [sub_resource type="Animation" id="Animation_5fsc7"]
 resource_name = "Out"
@@ -656,8 +786,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hmxce"]
 _data = {
-&"Out": SubResource("Animation_5fsc7"),
-&"RESET": SubResource("Animation_eg3eh")
+"Out": SubResource("Animation_5fsc7"),
+"RESET": SubResource("Animation_eg3eh")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cyr2w"]
@@ -1168,7 +1298,7 @@ stretch_mode = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/TextureRect"]
 reset_on_save = false
 libraries = {
-&"": SubResource("AnimationLibrary_0u440")
+"": SubResource("AnimationLibrary_0u440")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="DragArea/Wallpaper_Backing/Transition_Controller/Title/TextureRect/AnimationPlayer"]
@@ -1949,7 +2079,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6tt0e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader"]
 libraries = {
-&"": ExtResource("26_b76qr")
+"": ExtResource("26_b76qr")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/Loader/AnimationPlayer"]
@@ -3300,8 +3430,8 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_d5qti")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v52rg")
@@ -3356,7 +3486,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_keygr")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3366,7 +3496,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_g0s8a")
+theme_override_styles/slider = SubResource("StyleBoxTexture_acrls")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3433,7 +3563,7 @@ step = 0.003
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_sd26x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_7831s")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3443,7 +3573,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_md81q")
+theme_override_styles/slider = SubResource("StyleBoxTexture_bdav8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3519,12 +3649,12 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
 [node name="Button2" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_d5qti")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v52rg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8hyqq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v52rg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jomqo")
 toggle_mode = true
 text = "Body Color B"
@@ -3585,7 +3715,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_g0s8a")
+theme_override_styles/slider = SubResource("StyleBoxTexture_nw0n6")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3595,7 +3725,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_selft")
+theme_override_styles/slider = SubResource("StyleBoxTexture_pcqoy")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3662,7 +3792,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_md81q")
+theme_override_styles/slider = SubResource("StyleBoxTexture_lykpo")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3672,7 +3802,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_p5dci")
+theme_override_styles/slider = SubResource("StyleBoxTexture_pu5ri")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3738,12 +3868,12 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
 [node name="Button3" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_d5qti")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v52rg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8hyqq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v52rg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jomqo")
 toggle_mode = true
 text = "Eye Color L"
@@ -3804,7 +3934,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_g0s8a")
+theme_override_styles/slider = SubResource("StyleBoxTexture_1h07k")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3814,7 +3944,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_selft")
+theme_override_styles/slider = SubResource("StyleBoxTexture_wanox")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3871,7 +4001,7 @@ step = 0.003
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_sd26x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_koy4f")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3881,7 +4011,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_md81q")
+theme_override_styles/slider = SubResource("StyleBoxTexture_kdrt8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3957,12 +4087,12 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
 [node name="Button4" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_d5qti")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v52rg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8hyqq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v52rg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jomqo")
 toggle_mode = true
 text = "Eye Color R"
@@ -4023,7 +4153,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_g0s8a")
+theme_override_styles/slider = SubResource("StyleBoxTexture_g52yt")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4033,7 +4163,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_selft")
+theme_override_styles/slider = SubResource("StyleBoxTexture_xt60o")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4090,7 +4220,7 @@ step = 0.003
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_sd26x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_825yj")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4100,7 +4230,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_md81q")
+theme_override_styles/slider = SubResource("StyleBoxTexture_m7ebj")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4257,7 +4387,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_nuyg7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
 libraries = {
-&"": SubResource("AnimationLibrary_hmxce")
+"": SubResource("AnimationLibrary_hmxce")
 }
 
 [node name="Settings" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
@@ -4995,7 +5125,7 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Edited/HBoxContainer/HBoxContainer2/TextureButton2" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect" method="_on_back_button_pressed"]
-[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Edited/HBoxContainer/HBoxContainer3/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect" method="_on_back_button_pressed"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Edited/HBoxContainer/HBoxContainer3/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect" method="_on_back_button_pressed" binds= [false]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Back/HBoxContainer/HBoxContainer2/TextureButton2" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect" method="_on_back_button_pressed"]
 [connection signal="toggled" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color" method="_on_button_toggled" binds= ["Body_Color_1"]]
 [connection signal="text_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Body_Color_1/HBoxContainer/VBoxContainer/Base_Hex" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Body_Color_1/HBoxContainer/VBoxContainer" method="_on_line_edit_text_changed" binds= ["Base_Color"]]
