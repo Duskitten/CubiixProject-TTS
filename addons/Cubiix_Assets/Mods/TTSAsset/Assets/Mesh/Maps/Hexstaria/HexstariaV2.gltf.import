@@ -88,6 +88,10 @@ _subresources={
 "Observatory": {
 "use_external/enabled": true,
 "use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Observatory.tres"
+},
+"Trees": {
+"use_external/enabled": true,
+"use_external/path": "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Palm_Trees.tres"
 }
 }
 }

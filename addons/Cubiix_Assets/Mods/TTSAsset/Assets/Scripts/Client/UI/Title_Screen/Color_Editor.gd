@@ -33,6 +33,12 @@ func setup() -> void:
 	update_mat = false
 	var character = find_parent("Offline").Character_Template
 	var Keylist = character.Keylist
+	OldBaseCol = character.Shader_Color[Keylist["Body"][Target_Material]]
+	OldEmissCol = character.Shader_Emission[Keylist["Body"][Target_Material]]
+	OldEmissStrVal = character.Shader_Emission_Strength[Keylist["Body"][Target_Material]]
+	OldMetallicVal = character.Shader_Metallic[Keylist["Body"][Target_Material]]
+	OldRoughnessVal = character.Shader_Roughness[Keylist["Body"][Target_Material]]
+
 	Base_Hex.text = character.Shader_Color[Keylist["Body"][Target_Material]].to_html(false)
 	Emiss_Hex.text = character.Shader_Emission[Keylist["Body"][Target_Material]].to_html(false)
 	Metallic_Float.text =  str("%0.2f" % character.Shader_Metallic[Keylist["Body"][Target_Material]])
@@ -45,6 +51,16 @@ func setup() -> void:
 	_on_line_edit_text_changed(str("%0.2f" % character.Shader_Roughness[Keylist["Body"][Target_Material]]),"Roughness")
 	await get_tree().process_frame
 	update_mat = true
+	
+func revert() -> void:
+	var character = find_parent("Offline").Character_Template
+	var Keylist = character.Keylist
+	character.Shader_Color[Keylist["Body"][Target_Material]] = OldBaseCol
+	character.Shader_Emission[Keylist["Body"][Target_Material]] = OldEmissCol
+	character.Shader_Metallic[Keylist["Body"][Target_Material]] =  OldMetallicVal
+	character.Shader_Emission_Strength[Keylist["Body"][Target_Material]] = OldEmissStrVal
+	character.Shader_Roughness[Keylist["Body"][Target_Material]] = OldRoughnessVal
+	character.generate_colors()
 	
 func remove_text_focus() -> void:
 	get_viewport().gui_release_focus()

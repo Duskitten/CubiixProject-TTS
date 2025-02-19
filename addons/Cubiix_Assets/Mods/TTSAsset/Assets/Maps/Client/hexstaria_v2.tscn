@@ -564,9 +564,17 @@ Accessory_String = "{\"Face\":\"TTSAssets/Ki_Star_Shades\"}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Ki/Hub/Cubiix_Model/Armature" index="0"]
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/12/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Nat" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -582,9 +590,17 @@ Accessory_String = "{}"
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Nat/Hub/Cubiix_Model/Armature" index="0"]
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/12/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Dusk" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -600,9 +616,17 @@ Accessory_String = "{}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Dusk/Hub/Cubiix_Model/Armature" index="0"]
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/12/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Sel-Ai" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -618,9 +642,17 @@ Accessory_String = "{}"
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Sel-Ai/Hub/Cubiix_Model/Armature" index="0"]
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/12/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="Skim" parent="NPC" instance=ExtResource("2_1hj25")]
@@ -636,9 +668,17 @@ Accessory_String = "{\"Head\":\"TTSAssets/Dock_Hat\",\"Chest\":\"TTSAssets/Dock_
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="NPC/Skim/Hub/Cubiix_Model/Armature" index="0"]
+bones/3/rotation = Quaternion(0.0164112, -0.0164112, 0.706916, 0.706916)
+bones/3/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(0.534875, 0.0759609, 0.0397133, 0.840572)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0164112, 0.0164112, -0.706916, 0.706916)
+bones/8/scale = Vector3(1, 1, 1)
 bones/12/rotation = Quaternion(0.534875, -0.0759609, -0.0397133, 0.840572)
+bones/12/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-2.66925e-08, 2.66925e-08, 0.707107, 0.707107)
 bones/15/rotation = Quaternion(4.21609e-09, -5.76012e-08, 0.707107, 0.707107)
+bones/16/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 bones/17/rotation = Quaternion(4.21609e-09, 5.76012e-08, -0.707107, 0.707107)
 
 [node name="MeshInstance3D" parent="NPC/Skim/Hub/Cubiix_Model/Armature/Skeleton3D" index="0"]

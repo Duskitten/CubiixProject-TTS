@@ -16,3 +16,9 @@ func setup() -> void:
 	$ScrollContainer2/VBoxContainer/Body_Color_2/HBoxContainer/VBoxContainer.setup()
 	$ScrollContainer2/VBoxContainer/Eye_Color_1/HBoxContainer/VBoxContainer.setup()
 	$ScrollContainer2/VBoxContainer/Eye_Color_2/HBoxContainer/VBoxContainer.setup()
+
+func revert() -> void:
+	$ScrollContainer2/VBoxContainer/Body_Color_1/HBoxContainer/VBoxContainer.revert()
+	$ScrollContainer2/VBoxContainer/Body_Color_2/HBoxContainer/VBoxContainer.revert()
+	$ScrollContainer2/VBoxContainer/Eye_Color_1/HBoxContainer/VBoxContainer.revert()
+	$ScrollContainer2/VBoxContainer/Eye_Color_2/HBoxContainer/VBoxContainer.revert()

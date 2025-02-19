@@ -12,7 +12,7 @@ source = 5
 
 [sub_resource type="Gradient" id="Gradient_36he2"]
 offsets = PackedFloat32Array(0, 0.531136)
-colors = PackedColorArray(0, 0.225873, 1, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0, 0.551205, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y8ej1"]
 gradient = SubResource("Gradient_36he2")
@@ -36,7 +36,7 @@ operator = 2
 
 [sub_resource type="Gradient" id="Gradient_of604"]
 offsets = PackedFloat32Array(0, 0.52381)
-colors = PackedColorArray(0, 1, 0.969404, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.784483, 1, 0.833086, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ammj8"]
 gradient = SubResource("Gradient_of604")
@@ -195,6 +195,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(168.315, -332.692)
 modes/cull = 2
 flags/depth_prepass_alpha = true
 nodes/vertex/0/position = Vector2(740, 180)
@@ -237,7 +238,7 @@ nodes/fragment/15/position = Vector2(1040, -300)
 nodes/fragment/16/node = SubResource("VisualShaderNodeTexture_wnul7")
 nodes/fragment/16/position = Vector2(780, -540)
 nodes/fragment/17/node = SubResource("VisualShaderNodeFloatConstant_mag2o")
-nodes/fragment/17/position = Vector2(837.54, 374.651)
+nodes/fragment/17/position = Vector2(760, 360)
 nodes/fragment/18/node = SubResource("VisualShaderNodeFloatConstant_gbjq3")
 nodes/fragment/18/position = Vector2(800, 260)
-nodes/fragment/connections = PackedInt32Array(6, 0, 7, 2, 8, 0, 7, 0, 11, 0, 12, 2, 8, 0, 12, 0, 7, 0, 14, 1, 7, 4, 0, 1, 13, 0, 14, 0, 14, 0, 15, 1, 16, 0, 15, 0, 15, 0, 0, 0, 17, 0, 0, 4, 17, 0, 0, 2, 18, 0, 0, 3)
+nodes/fragment/connections = PackedInt32Array(6, 0, 7, 2, 8, 0, 7, 0, 11, 0, 12, 2, 8, 0, 12, 0, 7, 0, 14, 1, 13, 0, 14, 0, 14, 0, 15, 1, 16, 0, 15, 0, 15, 0, 0, 0, 17, 0, 0, 4, 17, 0, 0, 2, 18, 0, 0, 3, 7, 4, 0, 1)

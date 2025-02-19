@@ -54,6 +54,7 @@ func _on_back_button_pressed(notkeep:bool = true) -> void:
 	Anim.play_backwards("Out")
 	hide_both()
 	if notkeep:
+		$"Side_In-Menu/Menu_Color".revert()
 		character.set(Target_Node,self.get(Target_Node))
 		character.generate_character()
 	else:
