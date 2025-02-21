@@ -66,7 +66,7 @@ var Name:String  = ""
 var Pronouns_A:String  = ""
 var Pronouns_B:String  = ""
 var Pronouns_C:String = ""
-var Faction:int = 1
+var Faction:int = 0
 
 var Scale:float = 1
 

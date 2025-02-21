@@ -31,7 +31,7 @@ var Name:String  = ""
 var Pronouns_A:String  = ""
 var Pronouns_B:String  = ""
 var Pronouns_C:String = ""
-var Faction:int = 1
+var Faction:int = 0
 
 var Scale:float = 1
 
@@ -78,7 +78,8 @@ func internal_button_check(node:Node) -> void:
 					i.pressed.connect(_on_forward_button_pressed.bind())
 					i.pressed.connect(_on_generate_button_pressed.bind("Palette",i.get_parent()))
 				"Who":
-					pass
+					i.pressed.connect(_on_forward_button_pressed.bind())
+					i.pressed.connect(_on_generate_button_pressed.bind("Details",i.get_parent()))
 				"Loader":
 					i.pressed.connect(_on_forward_button_pressed.bind())
 					i.pressed.connect(_on_generate_button_pressed.bind("Code",i.get_parent()))
@@ -99,14 +100,14 @@ func _on_back_button_pressed(notkeep:bool = true) -> void:
 	if notkeep:
 		if LastActiveScreen == "Palette":
 			$"Side_In-Menu/Menu_Color".revert()
-		elif LastActiveScreen == "Code":
+		elif LastActiveScreen == "Code" || LastActiveScreen == "Details":
 			Core.AssetData.Tools.clone_character_with_accessories(self, character)
 		else:
 			if self.get(Target_Node) != "":
 				character.set(Target_Node,self.get(Target_Node))
 				character.generate_character()
 	else:
-		if LastActiveScreen == "Code":
+		if LastActiveScreen == "Code" || LastActiveScreen == "Details":
 			Core.AssetData.Tools.clone_character_with_accessories(character, self)
 		self.set(Target_Node,character.get(Target_Node))
 		Core.AssetData.Tools.clone_character_with_accessories(character,Core.Persistant_Core.Player.get_node("Hub"))
@@ -116,6 +117,7 @@ func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 	match type:
 		"Item":
 			$"Side_In-Menu/Menu_Color".hide()
+			$"Side_In-Menu/Menu_Details".hide()
 			$"Side_In-Menu/Menu_Slider".show()
 			$"Side_In-Menu/Menu_Code".hide()
 			var extended:String
@@ -151,11 +153,19 @@ func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 			$"Side_In-Menu/Menu_Color".show()
 			$"Side_In-Menu/Menu_Slider".hide()
 			$"Side_In-Menu/Menu_Code".hide()
+			$"Side_In-Menu/Menu_Details".hide()
 			$"Side_In-Menu/Menu_Color".setup()
 		"Code":
 			$"Side_In-Menu/Menu_Color".hide()
 			$"Side_In-Menu/Menu_Slider".hide()
+			$"Side_In-Menu/Menu_Details".hide()
 			$"Side_In-Menu/Menu_Code".show()
+		"Details":
+			$"Side_In-Menu/Menu_Color".hide()
+			$"Side_In-Menu/Menu_Slider".hide()
+			$"Side_In-Menu/Menu_Details".show()
+			$"Side_In-Menu/Menu_Code".hide()
+			$"Side_In-Menu/Menu_Details".setup()
 			
 func set_new_value(WhatVar:String,WhatValue:String) -> void:
 	#print(WhatVar, WhatValue)
