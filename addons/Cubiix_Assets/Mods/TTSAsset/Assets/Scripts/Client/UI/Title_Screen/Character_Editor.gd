@@ -5,6 +5,14 @@ extends Control
 @onready var Side_B = $Side_B
 var Root:Node
 
+
+@export var Shader_Color : Array[Color]
+@export var Shader_Emission : Array[Color]
+@export_range(0,1) var Shader_Metallic : Array[float]
+@export_range(0,1) var Shader_Roughness : Array[float]
+@export_range(0,1) var Shader_Emission_Strength : Array[float]
+@export_range(0,1) var Shader_Alpha : Array[float]
+
 var Base_Eyes:String  = ""
 var Base_Ears:String  = ""
 var Base_Extras:String  = ""
@@ -19,14 +27,48 @@ var Acc_R_Hand:String  = ""
 var Acc_L_Hip:String  = ""
 var Acc_R_Hip:String  = ""
 
+var Name:String  = ""
+var Pronouns_A:String  = ""
+var Pronouns_B:String  = ""
+var Pronouns_C:String = ""
+var Faction:int = 1
+
+var Scale:float = 1
+
+var Keylist = {
+	"Body":{"Body1":0,"Body2":2,"Eye1":1,"Eye2":3},
+	"Head":[4,6,5,7],
+	"Face":[8,10,9,11],
+	"Chest":[12,14,13,15],
+	"Back":[16,18,17,19],
+	"L_Hand":[20,22,21,23],
+	"R_Hand":[24,26,25,27],
+	"L_Hip":[28,30,29,31],
+	"R_Hip":[32,34,33,35],
+}
+
 var Target_Node:String = ""
+
+var LastActiveScreen:String  = ""
 
 func _ready() -> void:
 	Root = find_parent("DragArea")
 	internal_button_check(Side_A)
 	internal_button_check(Side_B)
+	
+	Shader_Color.resize(36)
+	Shader_Emission.resize(36)
+	Shader_Metallic.resize(36)
+	Shader_Metallic.fill(0.0)
+	Shader_Roughness.resize(36)
+	Shader_Roughness.fill(1.0)
+	Shader_Emission_Strength.resize(36)
+	Shader_Alpha.resize(36)
+	Shader_Alpha.fill(1.0)
+	
 	var character = Root.Temp_Character
-	Base_Eyes = character.get("Base_Eyes")
+	await get_tree().create_timer(0.1).timeout
+	Core.AssetData.Tools.clone_character_with_accessories(character,self)
 	
 func internal_button_check(node:Node) -> void:
 	for i in node.get_children():
@@ -38,7 +80,8 @@ func internal_button_check(node:Node) -> void:
 				"Who":
 					pass
 				"Loader":
-					pass
+					i.pressed.connect(_on_forward_button_pressed.bind())
+					i.pressed.connect(_on_generate_button_pressed.bind("Code",i.get_parent()))
 				_:
 					i.pressed.connect(_on_forward_button_pressed.bind())
 					i.pressed.connect(_on_generate_button_pressed.bind("Item",i.get_parent()))
@@ -54,18 +97,27 @@ func _on_back_button_pressed(notkeep:bool = true) -> void:
 	Anim.play_backwards("Out")
 	hide_both()
 	if notkeep:
-		$"Side_In-Menu/Menu_Color".revert()
-		character.set(Target_Node,self.get(Target_Node))
-		character.generate_character()
+		if LastActiveScreen == "Palette":
+			$"Side_In-Menu/Menu_Color".revert()
+		elif LastActiveScreen == "Code":
+			Core.AssetData.Tools.clone_character_with_accessories(self, character)
+		else:
+			if self.get(Target_Node) != "":
+				character.set(Target_Node,self.get(Target_Node))
+				character.generate_character()
 	else:
+		if LastActiveScreen == "Code":
+			Core.AssetData.Tools.clone_character_with_accessories(character, self)
 		self.set(Target_Node,character.get(Target_Node))
 		Core.AssetData.Tools.clone_character_with_accessories(character,Core.Persistant_Core.Player.get_node("Hub"))
 		
 func _on_generate_button_pressed(type:String,subtype:Node) -> void:
+	LastActiveScreen = type
 	match type:
 		"Item":
 			$"Side_In-Menu/Menu_Color".hide()
 			$"Side_In-Menu/Menu_Slider".show()
+			$"Side_In-Menu/Menu_Code".hide()
 			var extended:String
 			match subtype.get_meta("type"):
 				true:
@@ -98,7 +150,12 @@ func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 		"Palette":
 			$"Side_In-Menu/Menu_Color".show()
 			$"Side_In-Menu/Menu_Slider".hide()
+			$"Side_In-Menu/Menu_Code".hide()
 			$"Side_In-Menu/Menu_Color".setup()
+		"Code":
+			$"Side_In-Menu/Menu_Color".hide()
+			$"Side_In-Menu/Menu_Slider".hide()
+			$"Side_In-Menu/Menu_Code".show()
 			
 func set_new_value(WhatVar:String,WhatValue:String) -> void:
 	#print(WhatVar, WhatValue)
@@ -118,3 +175,6 @@ func set_edited() -> void:
 func hide_both() -> void:
 	get_node("Center/Edited").hide()
 	get_node("Center/Back").hide()
+
+func generate_character() -> void:
+	pass

@@ -251,7 +251,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.999408, 0.604171, 1)
+bg_color = Color(0, 0.629432, 0.601825, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -260,11 +260,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 19.9809
-expand_margin_bottom = 19.9809
+expand_margin_top = 7.2163
+expand_margin_bottom = 7.2163
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.568998, 0.594226, 1)
+bg_color = Color(0, 0.991767, 0.604123, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -273,9 +273,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 19.7109
+expand_margin_bottom = 19.7109
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.411242, 0.595226, 1)
+bg_color = Color(0, -0.489233, 0.594732, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -286,7 +288,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.153834, 0.598809, 1)
+bg_color = Color(0, -0.66437, 0.593621, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -1674,13 +1676,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 224.5
-offset_top = 379.0
-offset_right = 224.5
-offset_bottom = 379.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(224.5, 379)
 metadata/Open = false
 metadata/Close_Pos = Vector2(224.5, 379)
 
@@ -3855,19 +3853,6 @@ text = "[center]Import Or Export A Character below!
 [color=red]"
 fit_content = true
 
-[node name="Export" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code/ScrollContainer2/VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_styles/hover = SubResource("StyleBoxFlat_v52rg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_v52rg")
-theme_override_styles/normal = SubResource("StyleBoxFlat_jomqo")
-text = "Export
-Current Character"
-
 [node name="TextEdit" type="TextEdit" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code/ScrollContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200.18)
 layout_mode = 2
@@ -3877,8 +3862,9 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_e3w3q")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_er8jx")
 placeholder_text = "Paste A Code, or Press a button below to export a character."
 wrap_mode = 1
+scroll_fit_content_height = true
 
-[node name="Import" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code/ScrollContainer2/VBoxContainer"]
+[node name="Button2" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code/ScrollContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -3888,8 +3874,19 @@ theme_override_fonts/font = ExtResource("5_d5qti")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v52rg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_v52rg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jomqo")
-text = "Import
-New Character"
+text = "Import Character"
+
+[node name="Button3" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code/ScrollContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.492188, 0.492188, 0.492188, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v52rg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v52rg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jomqo")
+text = "Export Character"
 
 [node name="Menu_Slider" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu"]
 visible = false
@@ -4379,8 +4376,7 @@ metadata/_edit_lock_ = true
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Eye_Color_2/HBoxContainer/VBoxContainer/Metallic" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Eye_Color_2/HBoxContainer/VBoxContainer" method="_on_value_changed" binds= ["Metallic"]]
 [connection signal="drag_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Eye_Color_2/HBoxContainer/VBoxContainer/Roughness" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Eye_Color_2/HBoxContainer/VBoxContainer" method="remove_text_focus"]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Eye_Color_2/HBoxContainer/VBoxContainer/Roughness" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer/Eye_Color_2/HBoxContainer/VBoxContainer" method="_on_value_changed" binds= ["Roughness"]]
-[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code/ScrollContainer2/VBoxContainer/Export" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code" method="_on_export_pressed"]
-[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code/ScrollContainer2/VBoxContainer/Import" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code" method="_on_import_pressed"]
+[connection signal="text_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code/ScrollContainer2/VBoxContainer/TextEdit" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Code" method="_on_text_edit_text_changed"]
 [connection signal="scroll_ended" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer" to="DragArea" method="enable_drag"]
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/X" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon" method="_on_value_changed" binds= [true]]

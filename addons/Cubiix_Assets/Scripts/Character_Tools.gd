@@ -3,7 +3,7 @@ extends Node
 
 var Assets
 
-func generate_accessories_from_string(Data:String,Target:Node3D) -> void:
+func generate_accessories_from_string(Data:String,Target:Node) -> void:
 	var json = JSON.new()
 	json.parse(Data)
 	var data = json.data
@@ -27,7 +27,7 @@ func generate_accessories_from_string(Data:String,Target:Node3D) -> void:
 			"R_Hip":
 				Target.Acc_R_Hip = data[i]
 
-func generate_character_from_string(Data:String,Target:Node3D) -> void:
+func generate_character_from_string(Data:String,Target:Node) -> void:
 	var V1_ConversionPath = Assets.assets["CoreAssets"]["Override_Binds"]["V1"]
 	var V2_ConversionPath = Assets.assets["CoreAssets"]["Override_Binds"]["V2"]
 	var V3_ConversionPath = Assets.assets["CoreAssets"]["Override_Binds"]["V3"]
@@ -267,9 +267,11 @@ func generate_character_from_string(Data:String,Target:Node3D) -> void:
 						Target.Pronouns_B = str(data["PB"])
 					"PC":
 						Target.Pronouns_C = str(data["PC"])
+					"F":
+						Target.Faction = int(data["F"])
 			Target.generate_character()
 
-func clone_character(A:Node3D, B:Node3D) -> void:
+func clone_character(A:Node, B:Node) -> void:
 	B.Shader_Color[B.Keylist["Body"]["Body1"]] = A.Shader_Color[B.Keylist["Body"]["Body1"]]
 	B.Shader_Color[B.Keylist["Body"]["Body2"]] = A.Shader_Color[B.Keylist["Body"]["Body2"]]
 	B.Shader_Color[B.Keylist["Body"]["Eye1"]] = A.Shader_Color[B.Keylist["Body"]["Eye1"]]
@@ -301,9 +303,16 @@ func clone_character(A:Node3D, B:Node3D) -> void:
 	B.Base_Extras = A.Base_Extras
 	B.Base_Eyes = A.Base_Eyes
 	B.Scale = A.Scale
+	
+	B.Name = A.Name
+	B.Pronouns_A = A.Pronouns_A
+	B.Pronouns_B = A.Pronouns_B
+	B.Pronouns_C = A.Pronouns_C
+	B.Faction = A.Faction
+
 	B.generate_character()
 	
-func clone_character_with_accessories(A:Node3D, B:Node3D) -> void:
+func clone_character_with_accessories(A:Node, B:Node) -> void:
 	B.Acc_Head = A.Acc_Head
 	B.Acc_Face = A.Acc_Face
 	B.Acc_Chest = A.Acc_Chest
@@ -314,7 +323,7 @@ func clone_character_with_accessories(A:Node3D, B:Node3D) -> void:
 	B.Acc_R_Hip = A.Acc_R_Hip
 	clone_character(A,B)
 
-func export_character(Target:Node3D) -> String:
+func export_character(Target:Node) -> String:
 	var V3Template = {
 	"B1":Target.Shader_Color[Target.Keylist["Body"]["Body1"]].to_html(false),
 	"B2":Target.Shader_Color[Target.Keylist["Body"]["Body2"]].to_html(false),
@@ -345,7 +354,8 @@ func export_character(Target:Node3D) -> String:
 	"N":Target.Name,
 	"PA":Target.Pronouns_A,
 	"PB":Target.Pronouns_B,
-	"PC":Target.Pronouns_C
+	"PC":Target.Pronouns_C,
+	"F":Target.Faction
 	}
 	
 	return JSON.stringify(V3Template)
