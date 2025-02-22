@@ -264,9 +264,6 @@ offset_top = -233.0
 offset_right = 360.0
 offset_bottom = 255.0
 
-[node name="TextureButton" parent="CanvasLayer/Draggable_UI/Hexii_Tablet_UI/DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect" index="2"]
-layout_mode = 0
-
 [node name="Hexii_Phone_UI" parent="CanvasLayer/Draggable_UI" instance=ExtResource("5_h76e0")]
 layout_mode = 1
 anchors_preset = 15

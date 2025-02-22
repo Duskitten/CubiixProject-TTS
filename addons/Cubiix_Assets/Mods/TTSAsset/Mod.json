@@ -291,7 +291,47 @@
 				}
 			},
 			
-
+			"FlyingV_Guitar":{
+				"Tag":"Back",
+				"Name":"Flying V Guitar",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Back_Accessories/Guitar_FlyingV.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/FlyingV Guitar",
+				"Material_Overrides":{
+					"Back/0":{
+						"Color":"#000000",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Back/2":{
+						"Color":"#85653c",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Back/1":{
+						"Color":"#bababa",
+						"Emission":"#000000",
+						"Metallic":0.5,
+						"Roughness":0.2,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Back/3":{
+						"Color":"#ffffff",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				}
+			},
 			
 			"Ki_Star_Shades":{
 				"Tag":"Face",
