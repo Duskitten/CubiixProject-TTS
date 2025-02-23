@@ -46,5 +46,16 @@ func network_process():
 			Peer_Connections[hash(peer)] = newPeer
 			print("A User has made a new connection.")
 			print("We will wait for a response.")
-			Send_Data.send_data(TCP,newPeer,NG.networkCommand.ping_init)
+			Send_Data.send_data(self,TCP,newPeer,NG.networkCommand.ping_init)
 		
+		for i in Peer_Connections.keys():
+			var n = Peer_Connections[i].Character_Storage_Data["peer_obj"]
+			var peer = n.stream_peer
+			peer.poll()
+			
+		#	print(peer.get_status())
+			
+			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
+				#send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
+				if peer.get_available_bytes() > 0:
+					Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],peer.get_var(false))

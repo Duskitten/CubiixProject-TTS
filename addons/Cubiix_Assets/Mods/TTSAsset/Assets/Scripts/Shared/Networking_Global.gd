@@ -5,7 +5,7 @@ extends Node
 ## networking functions, so I can actually use them sanely.
 
 ## Put all **essential** things in this enum
-enum networkCommand_TCP { 
+enum networkCommand { 
 	ping_init, ## This will be for when we initially interact
 	ping_response, ## This will be for when we need to send back the server info
 	

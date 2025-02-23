@@ -13,6 +13,8 @@ func _ready() -> void:
 	add_child(connect_timer)
 	connect_timer.wait_time = 3
 	connect_timer.timeout.connect(disable_connection)
+	await get_tree().create_timer(1)
+	connect_to_server("127.0.0.1","5599")
 
 func connect_to_server(ip:String,port:String) -> void:
 	TCP.connect_to_host(ip,int(port))
@@ -22,6 +24,7 @@ func connect_to_server(ip:String,port:String) -> void:
 func start_network():
 	NetworkThread.start(network_process)
 	
+func network_process():
 	while true:
 		if Core.Globals.KillThreads:
 				break
@@ -29,13 +32,15 @@ func start_network():
 		TCP.poll()
 		match TCP.get_status():
 			StreamPeerTCP.STATUS_CONNECTED:
+				
 				connect_timer.call_deferred("stop")
 				if TCP.get_available_bytes() > 0:
-					Parse_Data.parse_data(TCP.get_var(false))
+					print("Hai")
+					Parse_Data.parse_data(self,TCP,TCP.get_var(false))
 
 			StreamPeerTCP.STATUS_CONNECTING:
 				if TCP.get_available_bytes() > 0:
-					Parse_Data.parse_data(TCP.get_var(false))
+					Parse_Data.parse_data(self,TCP,TCP.get_var(false))
 				if disable_connect:
 					break
 				
@@ -43,11 +48,6 @@ func start_network():
 				connect_timer.call_deferred("stop")
 				break
 	TCP.disconnect_from_host()
-	
-func network_process():
-	while true:
-		if Core.Globals.KillThreads:
-				break
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
