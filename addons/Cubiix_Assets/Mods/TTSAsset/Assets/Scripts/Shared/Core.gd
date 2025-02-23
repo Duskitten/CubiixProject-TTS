@@ -57,7 +57,7 @@ func _ready():
 		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
 		add_child(Globals)
 		await get_tree().create_timer(1).timeout
-		Server = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/New_Networking_Server.gd").new()
+		Server = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/Networking/New_Networking_Server.gd").new()
 		add_child(Server)
 		
 		
