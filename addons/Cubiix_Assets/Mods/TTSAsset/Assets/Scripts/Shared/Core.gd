@@ -30,7 +30,7 @@ func _ready():
 		await AssetData.FinishedLoad
 		SceneData = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Scene_Loader.gd").new()
 		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
-		Client = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Networking/Network_Client.gd").new()
+		Client = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Networking/New_Networking_Client.gd").new()
 		Dialogue_Handler = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/DialogueBank.gd").new()
 		Persistant_Core = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Persistant_Core.tscn").instantiate()
 		add_child(AssetData)
@@ -57,7 +57,7 @@ func _ready():
 		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
 		add_child(Globals)
 		await get_tree().create_timer(1).timeout
-		Server = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/Network_Server.gd").new()
+		Server = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/New_Networking_Server.gd").new()
 		add_child(Server)
 		
 		
