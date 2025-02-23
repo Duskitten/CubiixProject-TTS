@@ -28,12 +28,12 @@ var save_template = {
 	}
 }
 
-var server_template ="""{
-	\"Port\":5599,
-	\"MaxPlayers\":40,
-	\"ServerName\":\"TestServer\",
-	\"ServerColor\":\"#999634\"
-}"""
+var server_template = {
+	"Port":5599,
+	"MaxPlayers":40,
+	"ServerName":"TestServer",
+	"ServerColor":"#999634"
+	}
 
 var Data:Dictionary = {}
 
@@ -75,12 +75,14 @@ func _ready() -> void:
 		var IsFile = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/server.json")
 		if !IsFile:
 			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
-			NewFile.store_string(server_template)
+			NewFile.store_string(JSON.stringify(server_template))
 			NewFile.close()
 
 		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/server.json")
 		Json.parse(JsonFile)
 		Data = Json.data
+		
+		data_failsafe_check(server_template)
 
 func data_failsafe_check(pathobj) -> void:
 	for i in pathobj.keys():
@@ -101,6 +103,10 @@ func _notification(what):
 			Core.AssetData.thread_force_post()
 			#Core.Persistant_Core
 			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
+			NewFile.store_string(JSON.stringify(Data))
+			NewFile.close()
+		if OS.has_feature("server"):
+			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
 			NewFile.store_string(JSON.stringify(Data))
 			NewFile.close()
 	

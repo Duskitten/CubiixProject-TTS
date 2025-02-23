@@ -9,12 +9,17 @@ var Send_Data = ClientSendData.new()
 var connect_timer:Timer = Timer.new()
 var disable_connect = false
 
+var ping_system_toggle = true
+var server_info_holder = {}
+signal ServerPolled
+
+
 func _ready() -> void:
 	add_child(connect_timer)
 	connect_timer.wait_time = 3
 	connect_timer.timeout.connect(disable_connection)
 	await get_tree().create_timer(1)
-	connect_to_server("127.0.0.1","5599")
+	Poll_Server_Info("127.0.0.1","5599")
 
 func connect_to_server(ip:String,port:String) -> void:
 	TCP.connect_to_host(ip,int(port))
@@ -28,7 +33,7 @@ func network_process():
 	while true:
 		if Core.Globals.KillThreads:
 				break
-		
+
 		TCP.poll()
 		match TCP.get_status():
 			StreamPeerTCP.STATUS_CONNECTED:
@@ -55,3 +60,11 @@ func _exit_tree() -> void:
 func disable_connection():
 	connect_timer.call_deferred("stop")
 	disable_connect = true
+
+
+### This is where we begin our ping test systems
+### We will poll the server, then cut it once it obtains a response
+func Poll_Server_Info(ip:String,port:String) -> void:
+	connect_to_server(ip,port)
+	await ServerPolled
+	print(server_info_holder)

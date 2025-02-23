@@ -14,6 +14,9 @@ var Current_Tick = 0
 ## This will be a list of all the currently connected peers, unsorted, we will set up unique identifiers later.
 var Peer_Connections = {}
 
+## This will be a list of all the "real" players in the server after they auth and such.
+var Real_Connections = {}
+
 func _ready() -> void:
 	TCP.listen(Core.Globals.Data["Port"])
 	start_network()

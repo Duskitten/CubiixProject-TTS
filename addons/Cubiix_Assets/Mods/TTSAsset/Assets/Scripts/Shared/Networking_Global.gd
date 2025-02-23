@@ -8,6 +8,7 @@ extends Node
 enum networkCommand { 
 	ping_init, ## This will be for when we initially interact
 	ping_response, ## This will be for when we need to send back the server info
+	ping_poll,
 	
 	player_update, ## This will happen every time a server ping happens, and when recieving the data back
 	spawn_player, ## This is for spawning a new player.
