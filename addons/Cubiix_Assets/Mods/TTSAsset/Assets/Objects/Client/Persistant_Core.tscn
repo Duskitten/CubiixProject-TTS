@@ -472,7 +472,6 @@ script = ExtResource("11_v4hbs")
 [node name="Effects" type="Node3D" parent="Node3D"]
 
 [editable path="CanvasLayer/Draggable_UI/Hexii_Tablet_UI"]
-[editable path="CanvasLayer/Draggable_UI/Hexii_Tablet_UI/DragArea/Backplate/Guitar_FlyingV"]
 [editable path="CanvasLayer/Draggable_UI/Hexii_Tablet_UI/DragArea/Wallpaper_Backing/Transition_Controller/Settings"]
 [editable path="CanvasLayer/Draggable_UI/Hexii_Tablet_UI/DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control/SubViewportContainer/SubViewport/Node3D"]
 [editable path="CanvasLayer/Draggable_UI/Hexii_Phone_UI"]

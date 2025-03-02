@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://co7v5bt8xi81"]
+[gd_scene load_steps=6 format=4 uid="uid://co7v5bt8xi81"]
 
-[ext_resource type="Script" uid="uid://bkpsn4xufxgkh" path="res://addons/Cubiix_Assets/Scripts/Character_Generator.gd" id="1_kx318"]
-[ext_resource type="Script" uid="uid://vxdn5wgjlh13" path="res://addons/Cubiix_Assets/Scripts/Character_ScriptLoader.gd" id="1_ro8ye"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_Generator.gd" id="1_kx318"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_ScriptLoader.gd" id="1_ro8ye"]
 [ext_resource type="Material" uid="uid://4xfckmbyk8kc" path="res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres" id="3_5ws0s"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bj6js"]
@@ -81,17 +81,6 @@ bind/16/pose = Transform3D(0, -1, 7.54979e-08, 1, 0, 0, 0, 7.54979e-08, 1, 0.24,
 bind/17/name = &"Foot_L"
 bind/17/bone = -1
 bind/17/pose = Transform3D(-1, 6.21176e-22, -8.74228e-08, -5.69993e-15, -1, -7.10543e-15, -8.74228e-08, -7.10543e-15, 1, 0.12722, 0.24, 1.11219e-08)
-
-[sub_resource type="Gradient" id="Gradient_xdia2"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.1275, 0.29148)
-colors = PackedColorArray(0.167969, 0.167969, 0.167969, 0.741176, 0.367188, 0.367188, 0.367188, 0.741176, 0.484375, 0.484375, 0.484375, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4r4pt"]
-gradient = SubResource("Gradient_xdia2")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 1)
 
 [node name="Cubiix_Character" type="CharacterBody3D"]
 collision_layer = 130
@@ -240,13 +229,8 @@ bones/17/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_bj6js")
 skin = SubResource("Skin_43fn0")
 
-[node name="Decal" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00529909, 0)
-visible = false
-layers = 1048575
-size = Vector3(2, 5, 2)
-texture_albedo = SubResource("GradientTexture2D_4r4pt")
-upper_fade = 6.91803
-lower_fade = 2.44589
-distance_fade_length = 0.0
-cull_mask = 262144
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502292, 0)
+aabb = AABB(-0.35264, -0.401349, -0.23594, 0.72481, 0.802697, 0.53731)
+enable_mode = 1
+enable_node_path = NodePath("../Hub")

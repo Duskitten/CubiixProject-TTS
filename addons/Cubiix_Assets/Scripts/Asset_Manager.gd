@@ -185,6 +185,7 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 	
 	##This is for our dynamic bones when we finish loading the character
 	var DynBoneList : Dictionary  = {}
+	var Compiled_Dynbones:Array = []
 	
 	## This is pretty important, it's what will allow us to have a bounding box for the character
 	var Compiled_AABB : AABB = AABB()
@@ -228,6 +229,8 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 		## This is where we add the dynbone list for later
 		if RealAsset.has("Has_DynBones"):
 			DynBones = RealAsset["DynBone_Data"]["DynBone_Sets"].duplicate(true)
+			Compiled_Dynbones.append(RealAsset["DynBone_Data"].duplicate(true))
+			#print(RealAsset["DynBone_Data"]["DynBone_Sets"])
 		
 		## This is where we initially build the skeleton we will need + 
 		if TargetSkeleton != null:
@@ -253,12 +256,10 @@ func generate_character_mesh(AssetIDList:Array, TargetMesh:MeshInstance3D = null
 								for y in DynBones[x].size():
 									if str(DynBones[x][y]) == BoneName:
 										DynBones[x][y] = Sk_Bone_Location
-										
-		if RealAsset.has("Has_DynBones"):
-			DynBoneList[RealAsset] = DynBones
-
+			
 	if MainNode != null:
-		MainNode.DynBones_Register = DynBoneList
+		MainNode.DynBones_Register = Compiled_Dynbones
+		#print(DynBoneList)
 	
 	## 3. 
 	var CoreMesh_Commit = [PackedVector3Array(),PackedVector3Array(),PackedFloat32Array(),null,PackedVector2Array(),null,null,null,null,null,PackedInt32Array(),PackedFloat32Array(),PackedInt32Array()]

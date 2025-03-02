@@ -1,8 +1,7 @@
-[gd_scene load_steps=213 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=212 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
-[ext_resource type="PackedScene" uid="uid://c0oyeg6vpdrcd" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Character/Back_Accessories/Guitar_FlyingV.gltf" id="2_lk0s1"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Title_Box_Container.gd" id="3_lp8p3"]
 [ext_resource type="Texture2D" uid="uid://bidaos2p31667" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Icon_Devlog_Base.png" id="3_vbtfg"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_transition_controller.gd" id="3_yb2d0"]
@@ -265,7 +264,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.744135, 0.602553, 1)
+bg_color = Color(0, 0.594664, 0.601605, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -274,11 +273,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 11.2582
-expand_margin_bottom = 11.2582
+expand_margin_top = 6.12082
+expand_margin_bottom = 6.12082
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.678798, 0.59353, 1)
+bg_color = Color(0, 0.981159, 0.604056, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -287,9 +286,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 19.3285
+expand_margin_bottom = 19.3285
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.208224, 0.596514, 1)
+bg_color = Color(0, -0.413538, 0.595212, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -300,7 +301,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.29591, 0.59971, 1)
+bg_color = Color(0, -0.702336, 0.59338, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -902,8 +903,6 @@ layout_mode = 0
 offset_right = 479.0
 offset_bottom = 488.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
-
-[node name="Guitar_FlyingV" parent="DragArea/Backplate" instance=ExtResource("2_lk0s1")]
 
 [node name="Wallpaper_Backing" type="TextureRect" parent="DragArea"]
 texture_filter = 4
@@ -5067,6 +5066,5 @@ offset_bottom = 40.0
 [connection signal="gui_input" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_gui_input"]
 [connection signal="text_submitted" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_text_submitted"]
 
-[editable path="DragArea/Backplate/Guitar_FlyingV"]
 [editable path="DragArea/Wallpaper_Backing/Transition_Controller/Settings"]
 [editable path="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control/SubViewportContainer/SubViewport/Node3D"]
