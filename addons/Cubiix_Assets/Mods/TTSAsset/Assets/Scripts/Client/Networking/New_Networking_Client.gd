@@ -9,6 +9,7 @@ var disable_connect = false
 var ping_system_toggle = true
 var server_info_holder = {}
 signal ServerPolled
+signal ClientDisconnected
 
 var current_packet = {}
 var Commands = {}
@@ -64,6 +65,7 @@ func network_process():
 				break
 	print("Disconnecting TCP")
 	TCP.disconnect_from_host()
+	call_deferred("emit_signal","ClientDisconnected")
 
 func _exit_tree() -> void:
 	NetworkThread.wait_to_finish()
@@ -81,5 +83,13 @@ func Poll_Server_Info(ip:String,port:String, coreNode:Control) -> void:
 	coreNode.self_modulate = Color(server_info_holder["ServerColor"])
 	coreNode.get_node("HBoxContainer/VBoxContainer/Name").text = server_info_holder["ServerName"]
 	coreNode.get_node("HBoxContainer/PlayerCount").text = str(server_info_holder["CurrentPlayers"]) + "/" + str(server_info_holder["MaxPlayers"])
+	disable_connect = true
+	disable_connect = false
+
+func Client_Join_Server(ip:String,port:String) -> void:
+	ping_system_toggle = false
+	connect_to_server(ip,port)
+
+func Client_Disconnect_Server() -> void:
 	disable_connect = true
 	disable_connect = false
