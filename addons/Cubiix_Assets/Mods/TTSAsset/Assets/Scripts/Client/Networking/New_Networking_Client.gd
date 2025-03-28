@@ -24,8 +24,6 @@ func _ready() -> void:
 	add_child(connect_timer)
 	connect_timer.wait_time = 3
 	connect_timer.timeout.connect(disable_connection)
-	await get_tree().create_timer(1).timeout
-	Poll_Server_Info("127.0.0.1","5599")
 
 func connect_to_server(ip:String,port:String) -> void:
 	TCP.connect_to_host(ip,int(port))
@@ -76,9 +74,12 @@ func disable_connection():
 
 ### This is where we begin our ping test systems
 ### We will poll the server, then cut it once it obtains a response
-func Poll_Server_Info(ip:String,port:String) -> void:
+func Poll_Server_Info(ip:String,port:String, coreNode:Control) -> void:
 	connect_to_server(ip,port)
 	await ServerPolled
+	print(server_info_holder["ServerColor"])
+	coreNode.self_modulate = Color(server_info_holder["ServerColor"])
+	coreNode.get_node("HBoxContainer/VBoxContainer/Name").text = server_info_holder["ServerName"]
+	coreNode.get_node("HBoxContainer/PlayerCount").text = str(server_info_holder["CurrentPlayers"]) + "/" + str(server_info_holder["MaxPlayers"])
 	disable_connect = true
-	print(server_info_holder)
 	disable_connect = false

@@ -32,7 +32,7 @@ var server_template = {
 	"Port":5599,
 	"MaxPlayers":40,
 	"ServerName":"TestServer",
-	"ServerColor":"#999634"
+	"ServerColor":"#fff500"
 	}
 
 var Data:Dictionary = {}

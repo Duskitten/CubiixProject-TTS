@@ -14,6 +14,14 @@ var Peer_Connections = {}
 ## This will be a list of all the "real" players in the server after they auth and such.
 var Real_Connections = {}
 
+var Rooms = {}
+
+var RoomTemplate = {
+	"MapID":"",
+	"Players":{}
+}
+
+
 var Commands = {}
 
 func _ready() -> void:
@@ -77,3 +85,8 @@ func network_process():
 					for x in Data.keys():
 						Commands[x].server_parse(self, Peer_Connections[i], Data[x])
 					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
+
+func generate_new_room(roomID:String) -> void:
+	if !Rooms.has(roomID):
+		Rooms[roomID] = {}
+		

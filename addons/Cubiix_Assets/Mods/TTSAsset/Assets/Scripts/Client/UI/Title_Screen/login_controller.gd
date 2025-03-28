@@ -116,6 +116,7 @@ func api_validate_completed(result, response_code, headers, body):
 			Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
 			Core.Globals.LocalUser["URL"] = URL.to_lower()
 			$ServerList.show()
+			Core.ServerList_Updater.updatevalues()
 			$Login.hide()
 		elif response["status"] == 2 && tryreset:
 			await get_tree().create_timer(1).timeout

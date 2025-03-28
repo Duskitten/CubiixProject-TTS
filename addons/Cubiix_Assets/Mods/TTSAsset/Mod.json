@@ -364,6 +364,7 @@
 			"Hexstaria_V2":{
 				"Server_Path":"Assets/Maps/Server/hexstaria_v2.tscn",
 				"Client_Path":"Assets/Maps/Client/hexstaria_v2.tscn",
+				"ServerRoomID":"Hexstaria_V2",
 				"Name":"Hexstaria",
 				"Description":"The home of the Cubiix.",
 				"Image_Preview":"Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png",

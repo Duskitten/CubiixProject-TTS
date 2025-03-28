@@ -10,6 +10,7 @@ var Dialogue_Handler
 var Persistant_Core
 var Character_Gen
 var Console
+var ServerList_Updater
 
 var Client
 var Server
