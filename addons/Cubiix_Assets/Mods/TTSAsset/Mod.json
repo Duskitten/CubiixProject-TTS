@@ -434,6 +434,23 @@
 				"Author":"Duskitten",
 				"Date":"01/15/2025"
 			}
+		},
+		"Network_Commands":{
+			"TTS_Ping":{
+				"Name":"TTS_Ping",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/Ping.gd",
+			},
+			"TTS_Ping_Init":{
+				"Name":"TTS_Ping_Init",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/Ping_Init.gd",
+			},
+			"TTS_PollUpdate":{
+				"Name":"TTS_PollUpdate",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/PollUpdate.gd",
+			}
 		}
 	}
 }

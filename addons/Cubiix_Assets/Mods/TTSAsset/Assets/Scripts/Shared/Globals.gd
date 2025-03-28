@@ -99,8 +99,9 @@ func _setup_audio(data:Dictionary) -> void:
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		KillThreads = true
+		Core.AssetData.thread_force_post()
 		if OS.has_feature("client"):
-			Core.AssetData.thread_force_post()
+			
 			#Core.Persistant_Core
 			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
 			NewFile.store_string(JSON.stringify(Data))

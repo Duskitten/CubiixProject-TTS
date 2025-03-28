@@ -2,9 +2,6 @@ extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 var NetworkThread = Thread.new()
 var TCP = TCPServer.new()
-var Send_Data = ServerSendData.new()
-var Parse_Data = ServerParseData.new()
-var NG = NetworkingGlobal.new()
 
 ## These are part of the tick system so we can keep track of time
 var Tick_Prev = 0
@@ -17,7 +14,16 @@ var Peer_Connections = {}
 ## This will be a list of all the "real" players in the server after they auth and such.
 var Real_Connections = {}
 
+var Commands = {}
+
 func _ready() -> void:
+	for i in Core.AssetData.assets_tagged["Network_Command"]:
+		#print(i)
+		var commanddata = Core.AssetData.find_command(i)
+		#print(commanddata)
+		var command = load(commanddata["Path"]).new()
+		command.name = commanddata["Name"]
+		Commands[commanddata["Name"]] = command
 	TCP.listen(Core.Globals.Data["Port"])
 	start_network()
 	
@@ -37,6 +43,11 @@ func network_process():
 			Current_Tick += 1
 			Tick_Timer = 0
 			
+			for i in Peer_Connections.keys():
+				var newPeer = Peer_Connections[i]
+				if !newPeer.Current_Saved_Packet.is_empty():
+					newPeer.Character_Storage_Data["peer_obj"].put_var(newPeer.Current_Saved_Packet)
+					newPeer.Current_Saved_Packet = {}
 			
 		
 		
@@ -47,10 +58,11 @@ func network_process():
 			var newPeer = ServerPlayer.new()
 			newPeer.Character_Storage_Data["peer_obj"] = peer
 			Peer_Connections[hash(peer)] = newPeer
-			print("A User has made a new connection.")
-			print("We will wait for a response.")
-			Send_Data.send_data(self,TCP,newPeer,NG.networkCommand.ping_init)
-		
+			#print("A User has made a new connection.")
+			#print("We will wait for a response.")
+			Commands["TTS_Ping_Init"].server_compile(self,newPeer)
+			
+			
 		for i in Peer_Connections.keys():
 			var n = Peer_Connections[i].Character_Storage_Data["peer_obj"]
 			var peer = n.stream_peer
@@ -59,6 +71,9 @@ func network_process():
 		#	print(peer.get_status())
 			
 			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-				#send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
+				##send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
 				if peer.get_available_bytes() > 0:
-					Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],peer.get_var(false))
+					var Data = peer.get_var(false)
+					for x in Data.keys():
+						Commands[x].server_parse(self, Peer_Connections[i], Data[x])
+					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)

@@ -15,6 +15,7 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="Cubiix Project: To The Stars"
+config/tags=PackedStringArray("cubiix")
 run/main_scene="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Shared/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
@@ -25,6 +26,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 

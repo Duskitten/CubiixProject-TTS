@@ -18,8 +18,10 @@ signal load_finished
 
 var InitThread:Thread
 var Tools = cubiix_tool.new()
+var IsServer = false
 
-func runsetup():
+func runsetup(Server:bool=false):
+	IsServer = Server
 	Tools.Assets = self
 	InitThread = Thread.new()
 	InitThread.start(Init_ThreadRun)
@@ -31,8 +33,9 @@ func Init_ThreadRun():
 	scan_for_mods("res://addons/Cubiix_Assets/Mods/")
 	compile_mod_assets()
 	await self.load_finished
-	load_mod_assets()
-	await self.load_finished
+	if !IsServer:
+		load_mod_assets()
+		await self.load_finished
 	call_deferred("Init_Finish")
 	
 func Init_Finish():
@@ -101,7 +104,7 @@ func compile_mod_assets() -> void:
 							assets_tagged[content["Assets"][n][x]["Tag"]].append(content["ModID"]+"/"+x)
 						#print(content["Assets"][n][x])
 				assets[content["ModID"]] = content["Assets"]
-			
+				
 				if content["Assets"].has("Override_Binds") && content["ModID"] == "CoreAssets":
 					if content["Assets"]["Override_Binds"].has("V3"):
 						for xc in content["Assets"]["Override_Binds"]["V3"].keys():
@@ -114,7 +117,9 @@ func compile_mod_assets() -> void:
 				print("Error: Conflicting Mod ID:"+content["ModID"])
 			else:
 				print("Error: Error Invalid Mod")
-	
+	#if assets_tagged.has("Network_Command"):
+		#print(assets_tagged["Network_Command"])
+		
 	call_deferred("emit_signal","load_finished")
 
 func load_mod_assets() -> void:
@@ -125,7 +130,7 @@ func load_mod_assets() -> void:
 					if compiled_assets.keys().has(assets[i][x][y]["Path"]):
 						assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 					else:
-						if x != "Scripts":
+						if x != "Scripts" && x != "Network_Commands":
 							compiled_assets[assets[i][x][y]["Path"]] = load(assets[i][x][y]["Path"]).instantiate()
 							assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 						
@@ -408,5 +413,15 @@ func find_asset(ID:String) -> Dictionary:
 		assets[AssetParts[0]].has("Models") &&\
 		assets[AssetParts[0]]["Models"].has(AssetParts[1]):
 			return assets[AssetParts[0]]["Models"][AssetParts[1]]
+	
+	return {}
+
+func find_command(ID:String) -> Dictionary:
+	var path = ""
+	var AssetParts = ID.split("/")
+	if assets.has(AssetParts[0]) &&\
+		assets[AssetParts[0]].has("Network_Commands") &&\
+		assets[AssetParts[0]]["Network_Commands"].has(AssetParts[1]):
+			return assets[AssetParts[0]]["Network_Commands"][AssetParts[1]]
 	
 	return {}

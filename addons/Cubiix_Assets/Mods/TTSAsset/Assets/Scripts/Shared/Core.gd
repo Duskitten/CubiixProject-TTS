@@ -16,17 +16,18 @@ var Server
 
 func _ready():
 	print(version)
+	Update_LogoText("Booting MindVirus Engine...")
+	await get_tree().create_timer(1).timeout
+	Update_LogoText("Finding Client...")
+	await get_tree().create_timer(1).timeout
+	Update_LogoText("Initiating Asset Load...")
+	await get_tree().create_timer(1).timeout
+	Update_LogoText("Loading Asset Data...")
+	AssetData = load("res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd").new()
+	AssetData.name = "AssetData"
+	
 	if OS.has_feature("client"): #|| OS.is_debug_build():
-		Update_LogoText("Booting MindVirus Engine...")
-		await get_tree().create_timer(1).timeout
-		Update_LogoText("Finding Client...")
-		await get_tree().create_timer(1).timeout
-		Update_LogoText("Initiating Asset Load...")
-		await get_tree().create_timer(1).timeout
-		AssetData = load("res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd").new()
 		AssetData.runsetup()
-		Update_LogoText("Loading Asset Data...")
-		AssetData.name = "AssetData"
 		await AssetData.FinishedLoad
 		SceneData = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Scene_Loader.gd").new()
 		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
@@ -54,7 +55,12 @@ func _ready():
 		#Persistant_Core.Hexii_UI_Transition("Enter","Hexii_Ui_ChatScreen_Anim","Exit","Hexii_Ui_NullScreen_Anim", true)
 		
 	if OS.has_feature("server"):
+		AssetData.runsetup(true)
+		AssetData.name = "AssetData"
+		await AssetData.FinishedLoad
+		
 		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
+		add_child(AssetData)
 		add_child(Globals)
 		await get_tree().create_timer(1).timeout
 		Server = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/Networking/New_Networking_Server.gd").new()

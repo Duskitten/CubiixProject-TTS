@@ -113,10 +113,6 @@ Accessory_String = "{}"
 bones/7/rotation = Quaternion(0.534874, 0.075961, 0.0397133, 0.840572)
 bones/12/rotation = Quaternion(0.534874, -0.075961, -0.0397133, 0.840572)
 
-[node name="Decal" parent="Rotator/CubiixModel" index="1"]
-sorting_offset = 1.0
-size = Vector3(2, 1, 2)
-
 [node name="Environment_Template" type="Node3D" parent="Rotator"]
 process_mode = 4
 

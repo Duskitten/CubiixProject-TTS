@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://co7v5bt8xi81"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_Generator.gd" id="1_kx318"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Scripts/Character_ScriptLoader.gd" id="1_ro8ye"]
+[ext_resource type="Script" uid="uid://bkpsn4xufxgkh" path="res://addons/Cubiix_Assets/Scripts/Character_Generator.gd" id="1_kx318"]
+[ext_resource type="Script" uid="uid://vxdn5wgjlh13" path="res://addons/Cubiix_Assets/Scripts/Character_ScriptLoader.gd" id="1_ro8ye"]
 [ext_resource type="Material" uid="uid://4xfckmbyk8kc" path="res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres" id="3_5ws0s"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bj6js"]

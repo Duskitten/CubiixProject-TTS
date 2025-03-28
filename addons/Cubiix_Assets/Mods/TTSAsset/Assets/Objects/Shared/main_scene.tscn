@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b743ed8o4h5bc"]
 
-[ext_resource type="Script" uid="uid://drd64ujgjgu2f" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Core.gd" id="1_afh2p"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Core.gd" id="1_afh2p"]
 [ext_resource type="Texture2D" uid="uid://cj71t0hl6gk00" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/Other/MindVirus_LGBT3.png" id="2_bopcq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssv2s"]

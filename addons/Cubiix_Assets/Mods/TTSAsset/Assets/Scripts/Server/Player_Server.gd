@@ -42,9 +42,6 @@ var PosOverride = {
 }
 
 var Current_Saved_Packet = {
-	"Spawn_Players" : [],
-	"Despawn_Players" : [],
-	"Update_Players" : {}
 }
 
 var Current_Saved_Packet_Template = {
