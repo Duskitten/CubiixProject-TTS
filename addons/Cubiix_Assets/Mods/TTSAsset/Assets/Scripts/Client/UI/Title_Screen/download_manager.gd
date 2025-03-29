@@ -6,7 +6,7 @@ func _ready() -> void:
 	$HTTPRequest.download_file = OS.get_executable_path().get_base_dir() + "/Cubiix_Project.pck"
 
 func trigger_update() -> void:
-	$HTTPRequest.request("http://localhost:5000/game/versionDownload",PackedStringArray(["versionID:"+Core.Globals.NewGameVersion]))
+	$HTTPRequest.request(Core.Globals.Data["UpdateServer_URL"]+"/game/versionDownload",PackedStringArray(["versionID:"+Core.Globals.NewGameVersion]))
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var json = JSON.new()

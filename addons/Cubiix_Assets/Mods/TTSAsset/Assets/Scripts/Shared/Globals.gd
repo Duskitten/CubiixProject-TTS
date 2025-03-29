@@ -28,7 +28,7 @@ var save_template = {
 		"Bloom":false,
 		"FOV":75
 	},
-	"UpdateServer_URL":"https://api.cubiixproject.xyz/"
+	"UpdateServer_URL":"https://api.cubiixproject.xyz"
 }
 
 var server_template = {
@@ -36,7 +36,7 @@ var server_template = {
 	"MaxPlayers":40,
 	"ServerName":"TestServer",
 	"ServerColor":"#fff500",
-	"UpdateServer_URL":"https://api.cubiixproject.xyz/"
+	"UpdateServer_URL":"https://api.cubiixproject.xyz"
 	}
 
 var Data:Dictionary = {}
