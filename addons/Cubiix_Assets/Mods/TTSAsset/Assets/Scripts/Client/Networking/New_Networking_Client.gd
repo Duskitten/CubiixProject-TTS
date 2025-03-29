@@ -68,7 +68,8 @@ func network_process():
 	call_deferred("emit_signal","ClientDisconnected")
 
 func _exit_tree() -> void:
-	NetworkThread.wait_to_finish()
+	if NetworkThread.is_started():
+		NetworkThread.wait_to_finish()
 	
 func disable_connection():
 	connect_timer.call_deferred("stop")

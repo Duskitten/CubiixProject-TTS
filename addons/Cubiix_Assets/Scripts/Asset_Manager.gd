@@ -131,7 +131,7 @@ func load_mod_assets() -> void:
 						assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 					else:
 						if x != "Scripts" && x != "Network_Commands":
-							compiled_assets[assets[i][x][y]["Path"]] = load(assets[i][x][y]["Path"]).instantiate()
+							compiled_assets[assets[i][x][y]["Path"]] = ResourceLoader.load(assets[i][x][y]["Path"],"",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
 							assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 						
 	call_deferred("emit_signal","load_finished")
@@ -148,7 +148,8 @@ func _notification(what):
 		KillThreads = true
 		
 func _exit_tree() -> void:
-	MeshGenThread.wait_to_finish()
+	if MeshGenThread.is_started():
+		MeshGenThread.wait_to_finish()
 
 func thread_force_post():
 	MeshGenSemaphore.post()

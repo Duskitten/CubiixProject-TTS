@@ -1,9 +1,11 @@
 extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
-var GameVersion = "V_B.01.01"
+var GameVersion = "V_B.01.00"
+var NewGameVersion = ""
 
 signal Setting_Changed
+signal Update_Triggered
 
 var LocalUser = {
 	"URL":"",
@@ -25,14 +27,16 @@ var save_template = {
 		"Anti-Aliasing":0,
 		"Bloom":false,
 		"FOV":75
-	}
+	},
+	"UpdateServer_URL":"https://api.cubiixproject.xyz/"
 }
 
 var server_template = {
 	"Port":5599,
 	"MaxPlayers":40,
 	"ServerName":"TestServer",
-	"ServerColor":"#fff500"
+	"ServerColor":"#fff500",
+	"UpdateServer_URL":"https://api.cubiixproject.xyz/"
 	}
 
 var Data:Dictionary = {}
@@ -98,18 +102,21 @@ func _setup_audio(data:Dictionary) -> void:
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		KillThreads = true
-		Core.AssetData.thread_force_post()
-		if OS.has_feature("client"):
-			
-			#Core.Persistant_Core
-			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
-			NewFile.store_string(JSON.stringify(Data))
-			NewFile.close()
-		if OS.has_feature("server"):
-			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
-			NewFile.store_string(JSON.stringify(Data))
-			NewFile.close()
+		Kill()
+		
+
+func Kill():
+	KillThreads = true
+	Core.AssetData.thread_force_post()
+	if OS.has_feature("client"):
+		#Core.Persistant_Core
+		var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
+		NewFile.store_string(JSON.stringify(Data))
+		NewFile.close()
+	if OS.has_feature("server"):
+		var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
+		NewFile.store_string(JSON.stringify(Data))
+		NewFile.close()
 	
 func sort_ui() -> Node:
 	var targeted_ui = null

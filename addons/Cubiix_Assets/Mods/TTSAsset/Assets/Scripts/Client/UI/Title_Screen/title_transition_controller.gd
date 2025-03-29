@@ -18,8 +18,6 @@ func _on_texture_button_pressed(Screen_A: String, Reverse: bool, Screen_B: Strin
 	match Screen_A:
 		"Social":
 			OS.shell_open("https://cubiixproject.xyz/") 
-		"Update":
-			pass
 		_:
 			if old_screen_b == Screen_A:
 				if old_tween_b != null:

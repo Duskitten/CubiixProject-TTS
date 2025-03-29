@@ -18,9 +18,9 @@ func setup() -> void:
 	var parent = find_parent("TextureRect")
 	
 	for i in FactionBox.get_children():
-		i.get_node("TextureRect").texture = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/"+i.name+"_Logo_V2.png")
+		i.get_node("TextureRect").texture = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/"+i.name+"_Logo_V2.png","",ResourceLoader.CACHE_MODE_REPLACE)
 	var faction = PositionFaction[parent.Faction]
-	FactionBox.get_node(faction).get_node("TextureRect").texture = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/"+faction+"_Logo_V2_Glow.png")
+	FactionBox.get_node(faction).get_node("TextureRect").texture = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/"+faction+"_Logo_V2_Glow.png","",ResourceLoader.CACHE_MODE_REPLACE)
 	
 	SlideText.text = str("%0.1f" % parent.Scale)
 	SlideScale.value = parent.Scale
@@ -31,8 +31,8 @@ func setup() -> void:
 	
 func _on_faction_pressed(extra_arg_0: String) -> void:
 	for i in FactionBox.get_children():
-		i.get_node("TextureRect").texture = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/"+i.name+"_Logo_V2.png")
-	FactionBox.get_node(extra_arg_0).get_node("TextureRect").texture = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/"+extra_arg_0+"_Logo_V2_Glow.png")
+		i.get_node("TextureRect").texture = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/"+i.name+"_Logo_V2.png","",ResourceLoader.CACHE_MODE_REPLACE)
+	FactionBox.get_node(extra_arg_0).get_node("TextureRect").texture = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/"+extra_arg_0+"_Logo_V2_Glow.png","",ResourceLoader.CACHE_MODE_REPLACE)
 	find_parent("TextureRect").set_edited()
 	var character = Root.Temp_Character
 	character.Faction = PositionFaction.find(extra_arg_0)

@@ -83,7 +83,7 @@ var Character_Skeleton
 var node_storage = []
 
 func _ready() -> void:
-	New_Shader = load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres").duplicate(true)
+	New_Shader = ResourceLoader.load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres","",ResourceLoader.CACHE_MODE_REPLACE).duplicate(true)
 	Shader_Color.resize(36)
 	Shader_Emission.resize(36)
 	Shader_Metallic.resize(36)

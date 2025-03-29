@@ -5,6 +5,6 @@ extends Node3D
 func _ready() -> void:
 	print("Trying new scene")
 	get_node("/root/Main_Scene").free()
-	var newscene = ResourceLoader.load("res://Assets/Scenes/Client/main_scene.tscn","",ResourceLoader.CACHE_MODE_IGNORE_DEEP)
+	var newscene = ResourceLoader.load("res://Assets/Scenes/Client/main_scene.tscn","",ResourceLoader.CACHE_MODE_REPLACE)
 	get_parent().add_child(newscene.instantiate())
 	self.free()

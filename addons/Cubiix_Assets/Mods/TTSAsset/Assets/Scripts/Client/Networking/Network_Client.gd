@@ -187,7 +187,7 @@ func parse_data(data:Dictionary):
 			
 			if data["Content"].has("Spawn_Players"):
 				for i in data["Content"]["Spawn_Players"]:
-					var newplayer = load("res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn").instantiate()
+					var newplayer = ResourceLoader.load("res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
 					#newplayer.hide()
 					newplayer.name = i
 					char_data[i] = templatechar.duplicate(true)
@@ -233,7 +233,8 @@ func parse_data(data:Dictionary):
 				Core.Persistant_Core.Player.Assets.Tools.call_deferred("generate_character_from_string",data["Content"]["Update_Self"]["Character"], Core.Persistant_Core.Player.Hub)
 			
 func _exit_tree() -> void:
-	NetworkThread.wait_to_finish()
+	if NetworkThread.is_started():
+		NetworkThread.wait_to_finish()
 
 func disable_connection():
 	connect_timer.call_deferred("stop")

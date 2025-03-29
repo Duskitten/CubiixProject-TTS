@@ -14,7 +14,7 @@ var compiled_velocity:Vector3
 var Collider = CollisionShape3D.new()
 var CollisionShape:CapsuleShape3D = CapsuleShape3D.new()
 var RayCast1:RayCast3D = RayCast3D.new()
-var Sploosh_Peices = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/sploosh.tscn").instantiate()
+var Sploosh_Peices = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Map/sploosh.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
 
 func _ready() -> void:
 	## Setting up the collision shapes
