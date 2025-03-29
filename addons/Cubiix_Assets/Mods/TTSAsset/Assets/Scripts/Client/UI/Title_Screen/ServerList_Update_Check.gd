@@ -5,6 +5,7 @@ func _ready() -> void:
 	Core.ServerList_Updater = self
 
 func updatevalues() -> void:
+	Core.Client.ping_system_toggle = true
 	if $VBoxContainer != null:
 		for i in $VBoxContainer.get_children():
 			if !i.get_meta("Checked"):
@@ -16,4 +17,5 @@ func updatevalues() -> void:
 
 func join_server(node:Node) -> void:
 	if node.get_meta("Checked"):
-		print(node)
+		Core.Client.ping_system_toggle = false
+		Core.Client.Client_Join_Server(node.get_meta("ip"),node.get_meta("port"))

@@ -268,7 +268,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.246683, 0.59627, 1)
+bg_color = Color(0, 0.938611, 0.603786, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -277,9 +277,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 17.7937
+expand_margin_bottom = 17.7937
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.357543, 0.600101, 1)
+bg_color = Color(0, -0.160503, 0.596816, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -288,11 +290,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 0.12052
-expand_margin_bottom = 0.12052
+expand_margin_top = -6.0553e-05
+expand_margin_bottom = -6.0553e-05
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.775135, 0.602749, 1)
+bg_color = Color(0, -0.621195, 0.593895, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -301,11 +303,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 12.0483
-expand_margin_bottom = 12.0483
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.878802, 0.603406, 1)
+bg_color = Color(0, -0.111627, 0.597126, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -314,8 +314,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 15.8509
-expand_margin_bottom = 15.8509
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -944,6 +942,7 @@ grow_vertical = 2
 script = ExtResource("3_yb2d0")
 
 [node name="Title" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1576,7 +1575,6 @@ texture_hover = ExtResource("16_f4obj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Login" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

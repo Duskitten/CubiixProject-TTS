@@ -55,7 +55,10 @@ func network_process():
 				var newPeer = Peer_Connections[i]
 				if !newPeer.Current_Saved_Packet.is_empty():
 					newPeer.Character_Storage_Data["peer_obj"].put_var(newPeer.Current_Saved_Packet)
-					newPeer.Current_Saved_Packet = {}
+					if newPeer.Current_Saved_Packet.has("Disconnect"):
+						newPeer.Character_Storage_Data["peer_obj"].disconnect_from_host()
+					else:
+						newPeer.Current_Saved_Packet = {}
 			
 		
 		
@@ -65,9 +68,8 @@ func network_process():
 			peer.stream_peer = New_Client_TCP
 			var newPeer = ServerPlayer.new()
 			newPeer.Character_Storage_Data["peer_obj"] = peer
+			
 			Peer_Connections[hash(peer)] = newPeer
-			#print("A User has made a new connection.")
-			#print("We will wait for a response.")
 			Commands["TTS_Ping_Init"].server_compile(self,newPeer)
 			
 			
@@ -76,8 +78,6 @@ func network_process():
 			var peer = n.stream_peer
 			peer.poll()
 			
-		#	print(peer.get_status())
-			
 			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 				##send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
 				if peer.get_available_bytes() > 0:
@@ -85,7 +85,10 @@ func network_process():
 					for x in Data.keys():
 						Commands[x].server_parse(self, Peer_Connections[i], Data[x])
 					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
-
+			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
+				Peer_Connections[i].queue_free()
+				Peer_Connections.erase(i)
+				
 func generate_new_room(roomID:String) -> void:
 	if !Rooms.has(roomID):
 		Rooms[roomID] = {}

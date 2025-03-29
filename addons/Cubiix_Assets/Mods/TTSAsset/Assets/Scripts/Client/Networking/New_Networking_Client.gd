@@ -84,8 +84,8 @@ func Poll_Server_Info(ip:String,port:String, coreNode:Control) -> void:
 	coreNode.self_modulate = Color(server_info_holder["ServerColor"])
 	coreNode.get_node("HBoxContainer/VBoxContainer/Name").text = server_info_holder["ServerName"]
 	coreNode.get_node("HBoxContainer/PlayerCount").text = str(server_info_holder["CurrentPlayers"]) + "/" + str(server_info_holder["MaxPlayers"])
-	disable_connect = true
-	disable_connect = false
+	Client_Disconnect_Server()
+	NetworkThread.wait_to_finish()
 
 func Client_Join_Server(ip:String,port:String) -> void:
 	ping_system_toggle = false
@@ -93,4 +93,5 @@ func Client_Join_Server(ip:String,port:String) -> void:
 
 func Client_Disconnect_Server() -> void:
 	disable_connect = true
+	await get_tree().process_frame
 	disable_connect = false
