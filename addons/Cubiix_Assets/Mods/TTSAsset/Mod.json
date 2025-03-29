@@ -63,6 +63,47 @@
 					}
 				}
 			},
+			"Shroomby_Hat":{
+				"Tag":"Head",
+				"Name":"Shroomby Hat",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Head_Accessories/CoF/ShroombyHat.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/Mushroom_Hat",
+				"Material_Overrides":{
+					"Head/0":{
+						"Color":"#d66363",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Head/1":{
+						"Color":"#917866",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Head/2":{
+						"Color":"#bf9f88",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					},
+					"Head/3":{
+						"Color":"#FFFFFF",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
+					}
+				}
+			},
 			"DotMouse_Hat":{
 				"Tag":"Head",
 				"Name":"DotMouse_Hat",
