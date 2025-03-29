@@ -68,7 +68,7 @@ func network_process():
 			peer.stream_peer = New_Client_TCP
 			var newPeer = ServerPlayer.new()
 			newPeer.Character_Storage_Data["peer_obj"] = peer
-			
+			call_deferred("add_child",newPeer)
 			Peer_Connections[hash(peer)] = newPeer
 			Commands["TTS_Ping_Init"].server_compile(self,newPeer)
 			

@@ -3,7 +3,7 @@ extends HTTPRequest
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.request(Core.Globals.Data["UpdateServer_URL"]+"/game/versionUrl")
+	self.request(Core.Globals.Data["API_URL"]+"/game/versionUrl")
 
 func _on_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var json = JSON.new()

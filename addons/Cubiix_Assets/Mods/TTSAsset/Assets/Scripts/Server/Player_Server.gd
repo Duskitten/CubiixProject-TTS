@@ -1,6 +1,8 @@
 class_name ServerPlayer
 extends Node3D
 
+var ValidationRequest = HTTPRequest.new()
+var ValidationURLAppend = "/user/validateUser"
 var Character_Storage_Data = {
 	"peer_obj":null,
 	"Current_Room":"",
@@ -50,6 +52,9 @@ var Current_Saved_Packet_Template = {
 	"Update_Players" : {}
 }
 
+func _ready() -> void:
+	add_child(ValidationRequest)
+	
 func room_connect(userID:String) -> void:
 	Current_Saved_Packet["Spawn_Players"].append(userID)
 	
@@ -76,3 +81,16 @@ func validate_accessories(accessorystring:String) -> String:
 			accessorylist[i] = ""
 			
 	return JSON.stringify(accessorylist)
+
+func validate_player(Server:Node ,Data:Dictionary)-> void:
+
+	ValidationRequest.request(Data["API_URL"]+ValidationURLAppend,PackedStringArray(["userID:\""+Data["Username"]+"\"","userSecretCode:\""+Data["SecretKey"]+"\""]))
+	Data.erase("SecretKey")
+	ValidationRequest.request_completed.connect(validation_request_completed.bind(Server,Data))
+	
+func validation_request_completed(result, response_code, headers, body, Server:Node, Data:Dictionary):
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+	var response = json.get_data()
+	print(response)
+	print(Data)

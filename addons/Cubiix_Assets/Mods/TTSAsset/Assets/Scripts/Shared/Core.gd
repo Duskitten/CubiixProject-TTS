@@ -10,6 +10,7 @@ var Persistant_Core
 var Character_Gen
 var Console
 var ServerList_Updater
+var LoginData
 
 var Client
 var Server

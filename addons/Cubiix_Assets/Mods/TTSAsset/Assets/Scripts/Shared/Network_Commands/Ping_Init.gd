@@ -7,7 +7,7 @@ func server_parse(Server:Node, Player:ServerPlayer, Data:Variant) -> void:
 			Server.Commands["TTS_PollUpdate"].server_compile(Server,Player)
 		"PlayerConnecting":
 			if Core.Globals.GameVersion == Data["ClientVersion"]:
-				print(Data)
+				Player.call_deferred("validate_player",Server,Data)
 			else:
 				Player.Current_Saved_Packet["Disconnect"] = "Wrong Game Version, Current Game Version: "+Core.Globals.GameVersion
 
@@ -28,5 +28,7 @@ func client_compile(Client:Node) -> void:
 			"Type":"PlayerConnecting",
 			"ClientVersion":Core.Globals.GameVersion,
 			"Username":Core.Globals.LocalUser["Username"],
-			"SecretKey":Core.Globals.LocalUser["UserSecretCode"]
+			"SecretKey":Core.Globals.LocalUser["UserSecretCode"],
+			"Auth_URL":Core.Globals.Data["Auth_URL"],
+			"API_URL":Core.Globals.Data["API_URL"],
 			}

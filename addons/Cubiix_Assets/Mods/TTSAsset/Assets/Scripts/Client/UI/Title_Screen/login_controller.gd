@@ -2,8 +2,6 @@ extends Control
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 @onready var UsernameBox = $Login/VBoxContainer/TextureRect/VBoxContainer/Username
 @onready var PasswordBox = $Login/VBoxContainer/TextureRect/VBoxContainer/Password
-@onready var AuthBox = $Login/VBoxContainer/TextureRect/VBoxContainer/Auth
-
 @onready var RegisterButton = $Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register
 @onready var LoginButton = $Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login
 
@@ -28,6 +26,7 @@ var jwt
 var tryreset:bool
 
 func _ready() -> void:
+	Core.LoginData = self
 	Login_Request.request_completed.connect(self.login_request_completed)
 	API_Validate.request_completed.connect(self.api_validate_completed)
 	Register_Request.request_completed.connect(self.register_request_completed)
@@ -36,23 +35,16 @@ func _ready() -> void:
 func _on_login_pressed():
 	disable_all()
 	var login_Query = {}
-	var login_URL = ""
-	var AUTH = ""
-	var regex = RegEx.new()
-	regex.compile("((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\\.(xn--)?([a-z0-9\\._-]{1,61}|[a-z0-9-]{1,30})")
-	regex.search(AuthBox.text.strip_edges(true))
-	var result = regex.search(AuthBox.text)
-	
-	print(result)
-	
-	if AuthBox.text.strip_edges(true) == "":
-		URL = "cubiixproject.xyz"
-		API_URL = "https://api."+URL
+	URL = Core.Globals.Data["Auth_URL"]
+	API_URL = Core.Globals.Data["API_URL"]
+	if Core.Globals.Data["Auth_URL"] == "https://cubiixproject.xyz":
+		var AUTH = ""
+		
 		login_Query = {
 		"query" : "mutation ($username:String!, $password:String!, $strategy:String!) {authentication {login (username : $username, password : $password, strategy : $strategy){responseResult{errorCode, message}, jwt}}}",
 		"variables" : {"username":UsernameBox.text,"password":PasswordBox.text,"strategy":"local"}
 		}
-		login_URL = "https://" + URL + ApiCalls["graphQl"]
+		login_URL = Core.Globals.Data["Auth_URL"] + ApiCalls["graphQl"]
 		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjUsImdycCI6NSwiaWF0IjoxNzMxODkyNzcwLCJleHAiOjE4MjY1NjU1NzAsImF1ZCI6InVybjpjdWJpaXhwcm9qZWN0Lnh5eiIsImlzcyI6InVybjp3aWtpLmpzIn0.AFfcQb0LMugPAcU_Gpg-vmv3O3b-Q3cAVtQRwka06Y53lzDMZCDmg7TzN1fsdI_vjbnZ2lAPKLoYB0gkYKRUpncJS9wOzZNgLrZ0Ho3Riu5K8AaUg1pHFvufGG0pjM7YHL92Cw8005dB55OrYMw67u-9ErqR68Q5qQSo3-DSwob_goTCJJ4c2kiPnomh8kE9nMV0e-_PofSoLzVfLx3fRdYoi8LUTgpdISpKmGMEO1E4nu2lL1Jk1E7JyzY5-VYfeyBsVBoUKiDAkECCfA9_3yqGW3DwuGVh2oL9-SqebuougopbeWuPOyw5cQ9c97OU3bAe01QS_CEh4eVFV3L8QQ"
 		var json = JSON.new()
 		Login_Request.request(login_URL,
@@ -60,16 +52,11 @@ func _on_login_pressed():
 			,HTTPClient.METHOD_POST,
 			json.stringify(login_Query))
 
-	elif result:
-		URL = AuthBox.text.to_lower()
-		API_URL = "https://api."+URL
-		login_URL = "https://api."+URL+ ApiCalls["validateToken"]
+	else:
+		login_URL = API_URL + ApiCalls["validateToken"]
 		API_Validate.request(login_URL,["userName:"+UsernameBox.text,"userPassword:"+PasswordBox.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
-	else:
-		enable_all()
-		print("Error: Direct IP/ Localhost Not Valid Domain.")
 
 func login_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
@@ -132,17 +119,11 @@ func api_validate_completed(result, response_code, headers, body):
 func _on_register_pressed() -> void:
 	disable_all()
 	var login_Query = {}
-	var login_URL = ""
 	var AUTH = ""
-	var regex = RegEx.new()
-	regex.compile("((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\\.(xn--)?([a-z0-9\\._-]{1,61}|[a-z0-9-]{1,30})")
-	regex.search(AuthBox.text.strip_edges(true))
-	var result = regex.search(AuthBox.text)
-	
-	if AuthBox.text.strip_edges(true) == "":
-		URL = "cubiixproject.xyz"
-		API_URL = "https://api."+URL
-		login_URL = "https://" + URL + ApiCalls["graphQl"]
+	URL = Core.Globals.Data["Auth_URL"]
+	API_URL = Core.Globals.Data["API_URL"]
+	if Core.Globals.Data["Auth_URL"] == "https://cubiixproject.xyz":
+		login_URL = URL + ApiCalls["graphQl"]
 		AUTH = "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOjUsImdycCI6NSwiaWF0IjoxNzMxODkyNzcwLCJleHAiOjE4MjY1NjU1NzAsImF1ZCI6InVybjpjdWJpaXhwcm9qZWN0Lnh5eiIsImlzcyI6InVybjp3aWtpLmpzIn0.AFfcQb0LMugPAcU_Gpg-vmv3O3b-Q3cAVtQRwka06Y53lzDMZCDmg7TzN1fsdI_vjbnZ2lAPKLoYB0gkYKRUpncJS9wOzZNgLrZ0Ho3Riu5K8AaUg1pHFvufGG0pjM7YHL92Cw8005dB55OrYMw67u-9ErqR68Q5qQSo3-DSwob_goTCJJ4c2kiPnomh8kE9nMV0e-_PofSoLzVfLx3fRdYoi8LUTgpdISpKmGMEO1E4nu2lL1Jk1E7JyzY5-VYfeyBsVBoUKiDAkECCfA9_3yqGW3DwuGVh2oL9-SqebuougopbeWuPOyw5cQ9c97OU3bAe01QS_CEh4eVFV3L8QQ"
 		login_Query = {
 			"query" : "mutation ($email:String!, $name:String!,$passwordRaw:String!, $providerKey:String!, $groups:[Int]!, $sendWelcomeEmail:Boolean!){ users{ create(email: $email, name:$name, passwordRaw: $passwordRaw ,providerKey:$providerKey, groups:$groups, sendWelcomeEmail: $sendWelcomeEmail){ responseResult{succeeded slug message} user{id}}}}",
@@ -154,16 +135,11 @@ func _on_register_pressed() -> void:
 		"Content-Type: application/json"]
 		,HTTPClient.METHOD_POST,
 		json.stringify(login_Query))
-	elif result:
-		URL = AuthBox.text.to_lower()
-		login_URL = "https://"+URL+ApiCalls["registerUser"]
-		API_URL = "https://api."+URL
+	else:
+		login_URL = URL+ApiCalls["registerUser"]
 		Register_Request.request(login_URL,["userName:"+UsernameBox.text,"userPassword:"+PasswordBox.text,
 			"Content-Type: application/json"]
 			,HTTPClient.METHOD_POST,"")
-	else:
-		enable_all()
-		print("Error: Direct IP/ Localhost Not Valid Domain.")
 
 func register_request_completed(result, response_code, headers, body):
 	#print(result)
@@ -191,7 +167,6 @@ func disable_all():
 	LoginButton.disabled = true
 	UsernameBox.editable = false
 	PasswordBox.editable = false
-	AuthBox.editable = false
 
 func enable_all():
 	Loader.hide()
@@ -199,4 +174,3 @@ func enable_all():
 	LoginButton.disabled = false
 	UsernameBox.editable = true
 	PasswordBox.editable = true
-	AuthBox.editable = true
