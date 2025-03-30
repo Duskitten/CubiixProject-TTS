@@ -6,8 +6,8 @@ var ValidationURLAppend = "/user/validateUser"
 var Character_Storage_Data = {
 	"peer_obj":null,
 	"Current_Room":"",
-	"Player_OBJ_IDName":"",
-	
+	"Player_OBJ_IDName":0,
+	"Validated": false,
 	"Position":Vector3.ZERO,
 	"Old_Position":Vector3.ZERO,
 	"Rotation":Vector3.ZERO,
@@ -16,16 +16,11 @@ var Character_Storage_Data = {
 	"Old_Model_Rotation":Vector3.ZERO,
 	"Current_Animation":"",
 	"Old_Current_Animation":"",
-	
 	"DirtyUpdate": false,
-	
 	"Core_Character":{
 		"Character" : JSON.stringify({"B1":"9ec0bd","B1E":"6e6c5f","B1ES":1,"B1M":0.7,"B1R":0,"B2":"354c56","B2E":"63665f","B2ES":1,"B2M":0,"B2R":1,"B3":"ff7e00","B3E":"ffb67c","B3ES":1,"B3M":0,"B3R":1,"B4":"ff7e00","B4E":"ffb67c","B4ES":1,"B4M":0,"B4R":1,"EA":"CoreAssets/Ears","EX":"CoreAssets/Extra","EY":"CoreAssets/Eyes_Default","N":"","PA":"","PB":"","PC":"","S":1,"T":"CoreAssets/Tails","W":"CoreAssets/Wings"}),
 		"Accessories": JSON.stringify({"Head_Slot":"","Face_Slot":"","Chest_Slot":"","Back_Slot":"","L_Hip_Slot":"","R_Hip_Slot":"","L_Hand_Slot":"","R_Hand_Slot":""})
-		},
-	"Disconnected":true,
-	
-	"Validated":false
+	},
 }
 
 var Unlocked_Accessory_Data = {
@@ -83,7 +78,6 @@ func validate_accessories(accessorystring:String) -> String:
 	return JSON.stringify(accessorylist)
 
 func validate_player(Server:Node ,Data:Dictionary)-> void:
-
 	ValidationRequest.request(Data["API_URL"]+ValidationURLAppend,PackedStringArray(["userID:\""+Data["Username"]+"\"","userSecretCode:\""+Data["SecretKey"]+"\""]))
 	Data.erase("SecretKey")
 	ValidationRequest.request_completed.connect(validation_request_completed.bind(Server,Data))
@@ -92,5 +86,23 @@ func validation_request_completed(result, response_code, headers, body, Server:N
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
-	print(response)
-	print(Data)
+	if response["status"] == 0:
+		Character_Storage_Data["Validated"] = true
+		
+		var url_byte:PackedByteArray = (str(Data["Username"])+"@"+str(Data["Auth_URL"])).to_utf8_buffer()
+		var url = ""
+		for i in url_byte:
+			url += str(i)
+		
+		var DB:Array = Server.Database.select_rows("PlayerInfo","user_id_string = " + str(url),["*"])
+		print(DB)
+		if DB.is_empty():
+			var newtable = {
+				"phone_id":Server.generate_new_phonenumber(), 
+				"user_id_string" : url,
+				"character_data" : "",
+			}
+			Server.Database.insert_row("PlayerInfo",newtable)
+		else:
+			print("DB Found!")
+			print(DB)

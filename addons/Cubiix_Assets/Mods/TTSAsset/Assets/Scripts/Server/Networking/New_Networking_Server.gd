@@ -21,10 +21,21 @@ var RoomTemplate = {
 	"Players":{}
 }
 
-
+var Database : SQLite
 var Commands = {}
 
 func _ready() -> void:
+	Database = SQLite.new()
+	Database.path=OS.get_executable_path().get_base_dir()+"/PlayerDB.db"
+	Database.open_db()
+	generate_new_phonenumber()
+	var table = {
+		"phone_id":{"data_type":"text", "not_null":true}, 
+		"user_id_string" : {"data_type":"int"}, ## This will be user_id@website.end
+		"character_data" : {"data_type":"string"}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
+		}
+	
+	Database.create_table("PlayerInfo",table)
 	for i in Core.AssetData.assets_tagged["Network_Command"]:
 		#print(i)
 		var commanddata = Core.AssetData.find_command(i)
@@ -68,6 +79,7 @@ func network_process():
 			peer.stream_peer = New_Client_TCP
 			var newPeer = ServerPlayer.new()
 			newPeer.Character_Storage_Data["peer_obj"] = peer
+			newPeer.Character_Storage_Data["Player_OBJ_ID"] = hash(peer)
 			call_deferred("add_child",newPeer)
 			Peer_Connections[hash(peer)] = newPeer
 			Commands["TTS_Ping_Init"].server_compile(self,newPeer)
@@ -92,4 +104,13 @@ func network_process():
 func generate_new_room(roomID:String) -> void:
 	if !Rooms.has(roomID):
 		Rooms[roomID] = {}
-		
+
+func generate_new_phonenumber() -> String:
+	const validints = "0123456789"
+	const length = 10
+	var result = ""
+	for i in length:
+		result += validints[randi() % validints.length()]
+	if !Database.select_rows("PlayerInfo","user_id_string = "+result,["*"]).is_empty():
+		result = generate_new_phonenumber()
+	return result

@@ -268,7 +268,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.838908, 0.603153, 1)
+bg_color = Color(0, -0.633999, 0.593814, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -277,11 +277,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 14.2561
-expand_margin_bottom = 14.2561
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.429394, 0.600557, 1)
+bg_color = Color(0, -0.326103, 0.595766, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -290,11 +288,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 1.83989
-expand_margin_bottom = 1.83989
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.685786, 0.593485, 1)
+bg_color = Color(0, 0.334341, 0.599954, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -303,9 +299,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = -0.0117402
+expand_margin_bottom = -0.0117402
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.341977, 0.595665, 1)
+bg_color = Color(0, 0.667634, 0.602067, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -314,6 +312,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 8.31553
+expand_margin_bottom = 8.31553
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -1550,30 +1550,6 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="Settings" parent="DragArea/Wallpaper_Backing/Transition_Controller" instance=ExtResource("20_yb38h")]
-visible = false
-layout_mode = 1
-offset_right = -454.0
-offset_bottom = -429.0
-
-[node name="Visuals" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureRect/Screens" index="1"]
-visible = false
-
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Settings"]
-layout_mode = 0
-anchor_left = 0.0276498
-anchor_top = 0.874659
-anchor_right = 0.105991
-anchor_bottom = 0.970027
-offset_left = 21.0
-offset_top = 331.0
-offset_right = 55.0
-offset_bottom = 366.0
-texture_normal = ExtResource("15_evwrj")
-texture_pressed = ExtResource("15_evwrj")
-texture_hover = ExtResource("16_f4obj")
-metadata/_edit_use_anchors_ = true
-
 [node name="Login" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
 layout_mode = 1
 anchors_preset = 15
@@ -1742,6 +1718,32 @@ anim_player = NodePath("..")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_sx4lh")
+
+[node name="Settings" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login" instance=ExtResource("20_yb38h")]
+visible = false
+layout_mode = 1
+offset_left = -158.0
+offset_top = -24.0
+offset_right = -427.0
+offset_bottom = -363.0
+
+[node name="Visuals" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/Settings/TextureRect/Screens" index="1"]
+visible = false
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/Settings"]
+layout_mode = 0
+anchor_left = 0.0276498
+anchor_top = 0.874659
+anchor_right = 0.105991
+anchor_bottom = 0.970027
+offset_left = 21.0
+offset_top = 331.0
+offset_right = 55.0
+offset_bottom = 366.0
+texture_normal = ExtResource("15_evwrj")
+texture_pressed = ExtResource("15_evwrj")
+texture_hover = ExtResource("16_f4obj")
+metadata/_edit_use_anchors_ = true
 
 [node name="Joining" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller"]
 visible = false
@@ -5296,10 +5298,10 @@ offset_bottom = 40.0
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/VBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Update", true, "Title"]]
 [connection signal="request_completed" from="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/HTTPRequest" to="DragArea/Wallpaper_Backing/Transition_Controller/Title/HBoxContainer/Update/HTTPRequest" method="_on_request_completed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Devlog"]]
-[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Settings/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Settings"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Login"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/Settings/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Settings"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/VBoxContainer/HBoxContainer/Back" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList" method="_on_Edit_Back_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/VBoxContainer/HBoxContainer/Add" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList" method="_on_edit_add_pressed"]
 [connection signal="child_order_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer" method="updatevalues"]
@@ -5431,5 +5433,5 @@ offset_bottom = 40.0
 [connection signal="gui_input" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_gui_input"]
 [connection signal="text_submitted" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_text_submitted"]
 
-[editable path="DragArea/Wallpaper_Backing/Transition_Controller/Settings"]
+[editable path="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/Settings"]
 [editable path="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control/SubViewportContainer/SubViewport/Node3D"]
