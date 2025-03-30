@@ -9,7 +9,8 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
-	if response.has("API"):
+	
+	if response != null && response.has("API"):
 		Core.Globals.NewGameVersion = response["API"]
 		
 		if Core.Globals.GameVersion != Core.Globals.NewGameVersion:

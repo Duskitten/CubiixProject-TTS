@@ -28,14 +28,14 @@ func _ready() -> void:
 	Database = SQLite.new()
 	Database.path=OS.get_executable_path().get_base_dir()+"/PlayerDB.db"
 	Database.open_db()
-	generate_new_phonenumber()
 	var table = {
-		"phone_id":{"data_type":"text", "not_null":true}, 
-		"user_id_string" : {"data_type":"int"}, ## This will be user_id@website.end
-		"character_data" : {"data_type":"string"}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
+		"phoneid":{"data_type":"text", "not_null":true}, 
+		"userid" : {"data_type":"text"}, ## This will be user_id@website.end
+		"character" : {"data_type":"text"}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
 		}
 	
 	Database.create_table("PlayerInfo",table)
+	
 	for i in Core.AssetData.assets_tagged["Network_Command"]:
 		#print(i)
 		var commanddata = Core.AssetData.find_command(i)
@@ -111,6 +111,9 @@ func generate_new_phonenumber() -> String:
 	var result = ""
 	for i in length:
 		result += validints[randi() % validints.length()]
-	if !Database.select_rows("PlayerInfo","user_id_string = "+result,["*"]).is_empty():
+	var compiled_url = "select * from PlayerInfo where phoneid is '"+result+"';"
+	Database.query(compiled_url)
+	var DB:Array = Database.query_result
+	if !DB.is_empty():
 		result = generate_new_phonenumber()
 	return result

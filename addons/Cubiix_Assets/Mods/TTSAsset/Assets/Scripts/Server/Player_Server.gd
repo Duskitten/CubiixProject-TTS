@@ -89,20 +89,19 @@ func validation_request_completed(result, response_code, headers, body, Server:N
 	if response["status"] == 0:
 		Character_Storage_Data["Validated"] = true
 		
-		var url_byte:PackedByteArray = (str(Data["Username"])+"@"+str(Data["Auth_URL"])).to_utf8_buffer()
-		var url = ""
-		for i in url_byte:
-			url += str(i)
-		
-		var DB:Array = Server.Database.select_rows("PlayerInfo","user_id_string = " + str(url),["*"])
+		var url:String = str(Data["Username"])+"@"+str(Data["Auth_URL"])
+		var compiled_url = "select * from PlayerInfo where userid is '"+url+"';"
+		Server.Database.query(compiled_url)
+		var DB = Server.Database.query_result
 		print(DB)
 		if DB.is_empty():
 			var newtable = {
-				"phone_id":Server.generate_new_phonenumber(), 
-				"user_id_string" : url,
-				"character_data" : "",
+				"phoneid":Server.generate_new_phonenumber(), 
+				"userid" : url,
+				"character" : "",
 			}
 			Server.Database.insert_row("PlayerInfo",newtable)
+			print("Inserting Into DB")
 		else:
 			print("DB Found!")
 			print(DB)
