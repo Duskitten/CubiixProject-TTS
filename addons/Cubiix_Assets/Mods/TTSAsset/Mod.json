@@ -492,6 +492,16 @@
 				"Name":"TTS_PollUpdate",
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/PollUpdate.gd",
+			},
+			"TTS_SpawnPlayers":{
+				"Name":"TTS_SpawnPlayers",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/SpawnPlayers.gd",
+			},
+			"TTS_DespawnPlayers":{
+				"Name":"TTS_DespawnPlayers",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/DespawnPlayers.gd",
 			}
 		}
 	}

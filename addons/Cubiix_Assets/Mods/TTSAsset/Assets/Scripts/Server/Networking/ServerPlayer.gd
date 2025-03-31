@@ -87,38 +87,43 @@ func validate_player(Server:Node ,Data:Dictionary)-> void:
 	ValidationRequest.request_completed.connect(validation_request_completed.bind(Server,Data))
 	
 func validation_request_completed(result, response_code, headers, body, Server:Node, Data:Dictionary):
+	
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	if response["status"] == 0:
 		Character_Storage_Data["Validated"] = true
-		
+		var Database = Server.Database_Manager.Database
 		var url:String = str(Data["Username"])+"@"+str(Data["Auth_URL"])
 		var compiled_url = "select * from PlayerInfo where userid is '"+url+"';"
-		Server.Database.query(compiled_url)
-		var DB = Server.Database.query_result
-		print(DB)
+		Database.query(compiled_url)
+		var DB =  Database.query_result
+		#print(DB)
 		var PhoneID = ""
-		var LastRoom = ""
+		var LastRoom = "TTSAssets/Hexstaria_V2"
 		if DB.is_empty():
 			var newtable = {
-				"phoneid":Server.generate_new_phonenumber(), 
+				"phoneid":Server.Database_Manager.generate_new_phonenumber(), 
 				"userid" : url,
 				"character" : "",
-				"last_interaction":"",
+				"last_interaction":LastRoom,
 				"mailbox":""
 			}
 			PhoneID = newtable["phoneid"]
-			Server.Database.insert_row("PlayerInfo",newtable)
-			print("Inserting Into DB")
+			Database.insert_row("PlayerInfo",newtable)
+			#print("Inserting Into DB")
 		else:
-			print("DB Found!")
-			print(DB)
-			PhoneID = DB["phoneid"]
-			LastRoom = DB["last_interaction"]
+			#print("DB Found!")
+			#print(DB)
+			PhoneID = DB[0]["phoneid"]
+			LastRoom = DB[0]["last_interaction"]
 
 		Character_Storage_Data["DB_Data"]["UserID"] = url
 		Character_Storage_Data["DB_Data"]["PhoneID"] = PhoneID
 		Server.Real_Connections[Character_Storage_Data["DB_Data"]["PhoneID"]] = self
 		
-		
+		var AssignedRoomID = Server.Room_Manager.check_for_new_room(LastRoom)
+		Server.Room_Manager.Rooms[AssignedRoomID]["Players"][PhoneID] = self
+		#print(Server.Room_Manager.Rooms[AssignedRoomID]["Players"])
+		Server.Room_Manager.notify_of_new_join(AssignedRoomID, self)
+		Server.Room_Manager.spawn_current_users_data(AssignedRoomID, self)

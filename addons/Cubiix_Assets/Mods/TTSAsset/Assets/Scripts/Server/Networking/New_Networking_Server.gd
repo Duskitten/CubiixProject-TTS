@@ -14,29 +14,16 @@ var Peer_Connections = {}
 ## This will be a list of all the "real" players in the server after they auth and such.
 var Real_Connections = {}
 
-var Rooms = {}
+@onready var Room_Manager:RoomManager = RoomManager.new()
+@onready var Database_Manager:DatabaseManager = DatabaseManager.new()
 
-var RoomTemplate = {
-	"MapID":"",
-	"Players":{}
-}
-
-var Database : SQLite
 var Commands = {}
 
 func _ready() -> void:
-	Database = SQLite.new()
-	Database.path=OS.get_executable_path().get_base_dir()+"/PlayerDB.db"
-	Database.open_db()
-	var table = {
-		"phoneid":{"data_type":"text", "not_null":true}, 
-		"userid" : {"data_type":"text"}, ## This will be user_id@website.end
-		"character" : {"data_type":"text"}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
-		"last_interaction" : {"data_type":"text"},
-		"mailbox" : {"data_type":"text"}
-		}
+	Room_Manager.Server = self
+	add_child(Room_Manager)
+	add_child(Database_Manager)
 	
-	Database.create_table("PlayerInfo",table)
 	
 	for i in Core.AssetData.assets_tagged["Network_Command"]:
 		#print(i)
@@ -68,6 +55,7 @@ func network_process():
 				var newPeer = Peer_Connections[i]
 				if !newPeer.Current_Saved_Packet.is_empty():
 					newPeer.Character_Storage_Data["peer_obj"].put_var(newPeer.Current_Saved_Packet)
+					#print(newPeer.Current_Saved_Packet)
 					if newPeer.Current_Saved_Packet.has("Disconnect"):
 						newPeer.Character_Storage_Data["peer_obj"].disconnect_from_host()
 					else:
@@ -100,35 +88,7 @@ func network_process():
 						Commands[x].server_parse(self, Peer_Connections[i], Data[x])
 					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
-				if Real_Connections.has(n.Character_Storage_Data["DB_Data"]["PhoneID"]):
-					Real_Connections.erase(n.Character_Storage_Data["DB_Data"]["PhoneID"])
+				if Real_Connections.has(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"]):
+					Real_Connections.erase(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"])
 				Peer_Connections[i].queue_free()
 				Peer_Connections.erase(i)
-				
-				
-func generate_new_room(RoomID:String) -> void:
-	var Map:Dictionary = Core.AssetData.find_map(RoomID)
-	if !Map.is_empty():
-		pass
-	else:
-		print("Error, Map Does Not Exist!")
-		
-func find_room(RoomID:String) -> String:
-	for n in Rooms.keys():
-		print(Rooms[n])
-		#if Rooms.n
-	
-	return ""
-
-func generate_new_phonenumber() -> String:
-	const validints = "0123456789"
-	const length = 10
-	var result = ""
-	for i in length:
-		result += validints[randi() % validints.length()]
-	var compiled_url = "select * from PlayerInfo where phoneid is '"+result+"';"
-	Database.query(compiled_url)
-	var DB:Array = Database.query_result
-	if !DB.is_empty():
-		result = generate_new_phonenumber()
-	return result
