@@ -33,6 +33,7 @@ func _ready() -> void:
 		"userid" : {"data_type":"text"}, ## This will be user_id@website.end
 		"character" : {"data_type":"text"}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
 		"last_interaction" : {"data_type":"text"},
+		"mailbox" : {"data_type":"text"}
 		}
 	
 	Database.create_table("PlayerInfo",table)

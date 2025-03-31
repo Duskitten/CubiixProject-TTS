@@ -99,12 +99,14 @@ func validation_request_completed(result, response_code, headers, body, Server:N
 		var DB = Server.Database.query_result
 		print(DB)
 		var PhoneID = ""
+		var LastRoom = ""
 		if DB.is_empty():
 			var newtable = {
 				"phoneid":Server.generate_new_phonenumber(), 
 				"userid" : url,
 				"character" : "",
-				"last_interaction":""
+				"last_interaction":"",
+				"mailbox":""
 			}
 			PhoneID = newtable["phoneid"]
 			Server.Database.insert_row("PlayerInfo",newtable)
@@ -113,6 +115,7 @@ func validation_request_completed(result, response_code, headers, body, Server:N
 			print("DB Found!")
 			print(DB)
 			PhoneID = DB["phoneid"]
+			LastRoom = DB["last_interaction"]
 
 		Character_Storage_Data["DB_Data"]["UserID"] = url
 		Character_Storage_Data["DB_Data"]["PhoneID"] = PhoneID
