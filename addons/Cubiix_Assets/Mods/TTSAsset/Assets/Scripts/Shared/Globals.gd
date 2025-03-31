@@ -35,6 +35,7 @@ var save_template = {
 var server_template = {
 	"Port":5599,
 	"MaxPlayers":40,
+	"RoomMaxSize":10,
 	"ServerName":"TestServer",
 	"ServerColor":"#fff500",
 	"API_URL":"https://api.cubiixproject.xyz",
@@ -89,9 +90,12 @@ func _ready() -> void:
 		Data = Json.data
 		
 		data_failsafe_check(server_template)
+		print(Data)
 
 func data_failsafe_check(pathobj) -> void:
 	for i in pathobj.keys():
+		if !Data.has(i):
+			Data[i] = pathobj[i]
 		if pathobj[i] is Dictionary:
 			for n in pathobj[i].keys():
 				if !Data[i].has(n):

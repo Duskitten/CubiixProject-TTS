@@ -32,6 +32,7 @@ func _ready() -> void:
 		"phoneid":{"data_type":"text", "not_null":true}, 
 		"userid" : {"data_type":"text"}, ## This will be user_id@website.end
 		"character" : {"data_type":"text"}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
+		"last_interaction" : {"data_type":"text"},
 		}
 	
 	Database.create_table("PlayerInfo",table)
@@ -98,12 +99,25 @@ func network_process():
 						Commands[x].server_parse(self, Peer_Connections[i], Data[x])
 					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
+				if Real_Connections.has(n.Character_Storage_Data["DB_Data"]["PhoneID"]):
+					Real_Connections.erase(n.Character_Storage_Data["DB_Data"]["PhoneID"])
 				Peer_Connections[i].queue_free()
 				Peer_Connections.erase(i)
 				
-func generate_new_room(roomID:String) -> void:
-	if !Rooms.has(roomID):
-		Rooms[roomID] = {}
+				
+func generate_new_room(RoomID:String) -> void:
+	var Map:Dictionary = Core.AssetData.find_map(RoomID)
+	if !Map.is_empty():
+		pass
+	else:
+		print("Error, Map Does Not Exist!")
+		
+func find_room(RoomID:String) -> String:
+	for n in Rooms.keys():
+		print(Rooms[n])
+		#if Rooms.n
+	
+	return ""
 
 func generate_new_phonenumber() -> String:
 	const validints = "0123456789"
