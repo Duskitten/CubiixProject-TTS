@@ -124,6 +124,7 @@ func validation_request_completed(result, response_code, headers, body, Server:N
 		
 		var AssignedRoomID = Server.Room_Manager.check_for_new_room(LastRoom)
 		Server.Room_Manager.Rooms[AssignedRoomID]["Players"][PhoneID] = self
+		Character_Storage_Data["Current_Room"] = AssignedRoomID
 		#print(Server.Room_Manager.Rooms[AssignedRoomID]["Players"])
 		Server.Room_Manager.notify_of_new_join(AssignedRoomID, self)
 		Server.Room_Manager.spawn_current_users_data(AssignedRoomID, self)

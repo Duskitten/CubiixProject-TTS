@@ -50,20 +50,18 @@ func notify_of_new_join(RoomName:String, User:ServerPlayer) -> void:
 	for i in Rooms[RoomName]["Players"].keys():
 		var plr = Rooms[RoomName]["Players"][i]
 		if plr != User:
-			print(i)
 			Server.Commands["TTS_SpawnPlayers"].server_compile(Server,plr,User)
 
 func notify_disconnect(RoomName:String, User:ServerPlayer) -> void:
 	for i in Rooms[RoomName]["Players"].keys():
 		var plr = Rooms[RoomName]["Players"][i]
 		if plr != User:
-			print(i)
-			Server.Commands["TTS_DespawnPlayers"].server_compile(Server,User,plr)
-
+			Server.Commands["TTS_DespawnPlayers"].server_compile(Server,plr,User)
+	
+	Rooms[RoomName]["Players"].erase(User.Character_Storage_Data["DB_Data"]["PhoneID"])
 
 func spawn_current_users_data(RoomName:String, User:ServerPlayer) -> void:
 	for i in Rooms[RoomName]["Players"].keys():
 		var plr = Rooms[RoomName]["Players"][i]
 		if plr != User:
-			print(i)
 			Server.Commands["TTS_SpawnPlayers"].server_compile(Server,User,plr)

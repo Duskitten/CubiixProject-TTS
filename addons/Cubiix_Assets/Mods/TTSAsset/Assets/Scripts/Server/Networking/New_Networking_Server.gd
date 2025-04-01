@@ -88,6 +88,9 @@ func network_process():
 						Commands[x].server_parse(self, Peer_Connections[i], Data[x])
 					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
+				var who = Peer_Connections[i]
+				if Peer_Connections[i].Character_Storage_Data["Current_Room"] != "":
+					Room_Manager.notify_disconnect(Peer_Connections[i].Character_Storage_Data["Current_Room"],who)
 				if Real_Connections.has(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"]):
 					Real_Connections.erase(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"])
 				Peer_Connections[i].queue_free()
