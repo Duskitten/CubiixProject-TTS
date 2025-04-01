@@ -13,6 +13,7 @@ The project is maintained by Duskitten / [Selkspace](https://selkspace.xyz), and
 
 ## Credits
 Credits to external resources used currently in the project:
+-  [Godot SQlite](https://github.com/2shady4u/godot-sqlite)
 -  [Godot JWT](https://github.com/fenix-hub/godot-engine.jwt/tree/main)
 -  [QRCode Generator](https://kenyoni-software.github.io/godot-addons/addons/qr_code/)
 -  [TV Boarder Shader (Heavily Modified)](https://godotshaders.com/shader/animated-tv-static-border-shader/)
