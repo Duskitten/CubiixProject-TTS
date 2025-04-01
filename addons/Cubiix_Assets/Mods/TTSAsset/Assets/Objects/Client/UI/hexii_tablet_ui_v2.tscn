@@ -1,4 +1,4 @@
-[gd_scene load_steps=218 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=219 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -52,6 +52,7 @@
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/ServerList_Update_Check.gd" id="35_l23uk"]
 [ext_resource type="Texture2D" uid="uid://dx8j33qik4ilk" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/R_Leg_Icon.png" id="35_om6fv"]
 [ext_resource type="Texture2D" uid="uid://dn5rj008eiuyb" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/L_Hand_Icon.png" id="36_eae0u"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/remove_button.gd" id="36_n0hek"]
 [ext_resource type="Texture2D" uid="uid://ehai1jpye32u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/R_Hand_Icon.png" id="37_jf558"]
 [ext_resource type="Texture2D" uid="uid://by8bbtx0uwn6m" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Slot_Icons/Ears_Icon.png" id="38_daotg"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Character_Previewer_Controls.gd" id="38_fcna6"]
@@ -268,7 +269,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.331383, 0.595733, 1)
+bg_color = Color(0, 0.232843, 0.59931, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -279,7 +280,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.332582, 0.599943, 1)
+bg_color = Color(0, 0.611791, 0.601713, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -288,11 +289,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = -0.0122797
-expand_margin_bottom = -0.0122797
+expand_margin_top = 6.65703
+expand_margin_bottom = 6.65703
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.725954, 0.602437, 1)
+bg_color = Color(0, 0.986895, 0.604092, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -301,11 +302,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 10.3805
-expand_margin_bottom = 10.3805
+expand_margin_top = 19.5355
+expand_margin_bottom = 19.5355
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 1.0164, 0.604279, 1)
+bg_color = Color(0, -0.487788, 0.594741, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -314,8 +315,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 20.4983
-expand_margin_bottom = 20.4983
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -1553,6 +1552,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="Settings" parent="DragArea/Wallpaper_Backing/Transition_Controller" instance=ExtResource("20_yb38h")]
+visible = false
 layout_mode = 1
 offset_right = -269.0
 offset_bottom = -339.0
@@ -1576,7 +1576,6 @@ texture_hover = ExtResource("16_f4obj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Login" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1868,7 +1867,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = -8
 
-[node name="Name2" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 6
@@ -1895,16 +1894,6 @@ text = "0/0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Remove_Button" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(26, 0)
-layout_mode = 2
-texture_normal = ExtResource("26_p1wqv")
-texture_pressed = ExtResource("26_p1wqv")
-texture_hover = ExtResource("26_p1wqv")
-ignore_texture_size = true
-stretch_mode = 3
-
 [node name="Signal" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer"]
 custom_minimum_size = Vector2(26, 0)
 layout_mode = 2
@@ -1916,6 +1905,16 @@ stretch_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_r7igg")
 }
+
+[node name="Remove_Button" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer"]
+custom_minimum_size = Vector2(26, 0)
+layout_mode = 2
+texture_normal = ExtResource("26_p1wqv")
+texture_pressed = ExtResource("26_p1wqv")
+texture_hover = ExtResource("26_p1wqv")
+ignore_texture_size = true
+stretch_mode = 3
+script = ExtResource("36_n0hek")
 
 [node name="Add_Screen" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList"]
 visible = false
@@ -1970,7 +1969,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_yjfbu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_svu52")
 placeholder_text = "Port"
 alignment = 1
-secret = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/VBoxContainer"]
 layout_mode = 2
@@ -1996,50 +1994,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_j4yu8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_j4yu8")
 text = "Add"
 
-[node name="Loader" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect"]
-visible = false
-modulate = Color(1, 1, 1, 0.741176)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 56.0
-offset_bottom = -58.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="TextureRect" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/Loader"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qkhfu")
-
-[node name="TextureRect2" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/Loader"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8iocu")
-
-[node name="TextureRect3" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/Loader"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_m4jrd")
-
-[node name="TextureRect4" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/Loader"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6tt0e")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/Loader"]
-libraries = {
-"": ExtResource("26_b76qr")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/Loader/AnimationPlayer"]
-reset_on_save = false
-root_node = NodePath("../..")
-tree_root = SubResource("AnimationNodeAnimation_5abgu")
-anim_player = NodePath("..")
-
 [node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -2059,77 +2013,6 @@ script = ExtResource("35_l23uk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer"]
 layout_mode = 2
-
-[node name="Cubiix_Main_Server_1" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("25_wt8xs")
-metadata/ip = "127.0.0.1"
-metadata/port = "5599"
-metadata/Checked = false
-
-[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer/Cubiix_Main_Server_1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_right = -6.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer/Cubiix_Main_Server_1/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = -8
-
-[node name="Name" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer/Cubiix_Main_Server_1/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "Connecting..."
-vertical_alignment = 1
-
-[node name="IP" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer/Cubiix_Main_Server_1/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 10
-text = "127.0.0.1:5599"
-vertical_alignment = 1
-
-[node name="PlayerCount" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer/Cubiix_Main_Server_1/HBoxContainer"]
-custom_minimum_size = Vector2(65.86, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_d5qti")
-theme_override_font_sizes/font_size = 12
-text = "0/0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Remove_Button" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer/Cubiix_Main_Server_1/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(26, 0)
-layout_mode = 2
-texture_normal = ExtResource("26_p1wqv")
-texture_pressed = ExtResource("26_p1wqv")
-texture_hover = ExtResource("26_p1wqv")
-ignore_texture_size = true
-stretch_mode = 3
-
-[node name="Signal" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer/Cubiix_Main_Server_1/HBoxContainer"]
-custom_minimum_size = Vector2(26, 0)
-layout_mode = 2
-texture = ExtResource("28_d7y4y")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer/Cubiix_Main_Server_1/HBoxContainer/Signal"]
-libraries = {
-"": SubResource("AnimationLibrary_r7igg")
-}
 
 [node name="Add_Button" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer"]
 layout_mode = 2
@@ -5302,6 +5185,7 @@ offset_bottom = 40.0
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Login"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Register" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_register_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/Login/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/Login" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller" method="_on_login_pressed"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer/Remove_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer/Remove_Button" method="_on_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/VBoxContainer/HBoxContainer/Back" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList" method="_on_Edit_Back_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/VBoxContainer/HBoxContainer/Add" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList" method="_on_edit_add_pressed"]
 [connection signal="child_order_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer" method="updatevalues"]
