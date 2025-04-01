@@ -11,6 +11,7 @@ var server_info_holder = {}
 signal ServerPolled
 signal ClientDisconnected
 
+var NetworkPlayers
 var current_packet = {}
 var Commands = {}
 

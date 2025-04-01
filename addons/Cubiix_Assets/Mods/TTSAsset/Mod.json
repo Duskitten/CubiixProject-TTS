@@ -446,7 +446,7 @@
 				"Path":"Assets/Scripts/NPC_Controller.gd"
 			},
 			"Network_Character_Controller":{
-				"Path":"Assets/Scripts/Client/Network_Character_Controller.gd"
+				"Path":"Assets/Scripts/Client/Networking/Network_Character_Controller.gd"
 			}
 		},
 		"Materials":{},

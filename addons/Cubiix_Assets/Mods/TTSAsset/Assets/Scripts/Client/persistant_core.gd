@@ -8,6 +8,7 @@ extends Node
 @onready var Player = $Node3D/Player
 @onready var AudioPlayer = $Node3D/Audio
 @onready var NetworkFolder = $Node3D/Network_Players
+@onready var Network_Players = $Node3D/Network_Players
 
 var Tick_Prev = 0
 var Tick_Timer = 0
@@ -15,6 +16,7 @@ var Tick_Timer = 0
 
 
 func _ready() -> void:
+	Core.Client.NetworkPlayers = Network_Players
 	#Core.AssetData.Tools.clone_character_with_accessories(Player.Hub,Hexii_Ui_Tablet_Character.Hub)
 	$CanvasLayer/Transitioner.visible = true
 	AudioPlayer.add_child(CurrentAudioPlayer)

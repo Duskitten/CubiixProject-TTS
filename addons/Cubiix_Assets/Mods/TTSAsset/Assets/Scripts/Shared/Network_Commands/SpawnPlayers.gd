@@ -18,8 +18,20 @@ func server_compile(Server:Node, Player:ServerPlayer, NewPlayer:ServerPlayer) ->
 		Player.Current_Saved_Packet["TTS_SpawnPlayers"].append(NewPlayerDetails)
 	
 func client_parse(Client:Node, Data:Variant) -> void:
-	pass
-	print(Data)
+	for i in Data:
+		var newPlayer = load("res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn").instantiate()
+		newPlayer.name = i["PhoneID"]
+		newPlayer.Load_Script_ID = ([
+			"TTSAssets/Network_Character_Controller"
+		] as Array[String])
+		newPlayer.Load_Script_Passthrough = ([
+			{}
+		] as Array[Dictionary])
+		newPlayer.Animation_Path = "TTSAssets/TTS_Player_Anims"
+		newPlayer.Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
+		newPlayer.Character_String = i["Core_Character"]["Character"]
+		newPlayer.Accessory_String = i["Core_Character"]["Accessories"]
+		Client.NetworkPlayers.call_deferred("add_child", newPlayer)
 	
 func client_compile(Client:Node) -> void:
 	pass
