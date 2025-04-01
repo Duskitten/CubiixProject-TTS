@@ -53,14 +53,18 @@ func network_process():
 			
 			for i in Peer_Connections.keys():
 				var newPeer = Peer_Connections[i]
-				if !newPeer.Current_Saved_Packet.is_empty():
-					newPeer.Character_Storage_Data["peer_obj"].put_var(newPeer.Current_Saved_Packet)
-					#print(newPeer.Current_Saved_Packet)
-					if newPeer.Current_Saved_Packet.has("Disconnect"):
-						newPeer.Character_Storage_Data["peer_obj"].disconnect_from_host()
-					else:
-						newPeer.Current_Saved_Packet = {}
-			
+				
+				
+				if newPeer.Character_Storage_Data["Validated"]:
+					Commands["TTS_MovementUpdate"].server_compile(self,newPeer)
+				
+				newPeer.Character_Storage_Data["peer_obj"].put_var(newPeer.Current_Saved_Packet)
+				#print(newPeer.Current_Saved_Packet)
+				if newPeer.Current_Saved_Packet.has("Disconnect"):
+					newPeer.Character_Storage_Data["peer_obj"].disconnect_from_host()
+				else:
+					newPeer.Current_Saved_Packet = {}
+		
 		
 		
 		var New_Client_TCP = TCP.take_connection()

@@ -49,7 +49,7 @@ func network_process():
 				if TCP.get_available_bytes() > 0:
 					var Data = TCP.get_var(false)
 					for i in Data.keys():
-						Commands[i].client_parse(self, Data[i])
+						Commands[i].call_deferred("client_parse",self, Data[i])
 					
 					if !current_packet.is_empty():
 						TCP.put_var(current_packet)

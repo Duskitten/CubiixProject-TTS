@@ -14,7 +14,7 @@ var Character_Storage_Data = {
 	"Old_Rotation":Vector3.ZERO,
 	"Model_Rotation":Vector3.ZERO,
 	"Old_Model_Rotation":Vector3.ZERO,
-	"Current_Animation":"",
+	"Current_Animation":"Idle",
 	"Old_Current_Animation":"",
 	"DirtyUpdate": false,
 	"Core_Character":{

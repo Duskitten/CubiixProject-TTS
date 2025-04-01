@@ -1,6 +1,6 @@
 extends Node
 
-func server_parse(Data:Variant, Server:Node, Player:ServerPlayer) -> void:
+func server_parse(Server:Node, Player:ServerPlayer, Data:Variant) -> void:
 	pass
 
 func server_compile(Server:Node, Player:ServerPlayer, NewPlayer:ServerPlayer) -> void:

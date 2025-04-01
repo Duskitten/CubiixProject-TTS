@@ -502,6 +502,11 @@
 				"Name":"TTS_DespawnPlayers",
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/DespawnPlayers.gd",
+			},
+			"TTS_MovementUpdate":{
+				"Name":"TTS_MovementUpdate",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/MovementUpdate.gd",
 			}
 		}
 	}
