@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cufaqwnfhx7e5"]
+[gd_scene load_steps=15 format=3 uid="uid://cufaqwnfhx7e5"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_kb738"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="2_2nwku"]
@@ -15,6 +15,30 @@ colors = PackedColorArray(0.171875, 0.171875, 0.171875, 1, 0.363281, 0.363281, 0
 gradient = SubResource("Gradient_ep053")
 fill_to = Vector2(0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lykaw"]
+content_margin_left = 4.0
+bg_color = Color(0.445103, 0.3149, 0.67, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5q1g"]
+content_margin_left = 4.0
+bg_color = Color(0.565491, 0.317731, 0.671875, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oi6uw"]
+content_margin_left = 4.0
+bg_color = Color(0.364364, 0.1011, 0.460938, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftuoh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sal6x"]
@@ -29,9 +53,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lykaw"]
-bg_color = Color(0.474291, 0.131602, 0.6, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5eph"]
 texture = ExtResource("2_xp7pi")
@@ -95,10 +116,95 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ChatTemplate" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer/VBoxContainer/ChatTemplate"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer/VBoxContainer/ChatTemplate/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_2nwku")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_lykaw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r5q1g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oi6uw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lykaw")
+text = "Duskitten:"
+alignment = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer/VBoxContainer/ChatTemplate/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_2nwku")
+theme_override_fonts/mono_font = ExtResource("2_2nwku")
+theme_override_fonts/italics_font = ExtResource("2_2nwku")
+theme_override_fonts/bold_italics_font = ExtResource("2_2nwku")
+theme_override_fonts/bold_font = ExtResource("2_2nwku")
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 4
+bbcode_enabled = true
+text = "1234"
+fit_content = true
+
+[node name="ChatTemplate2" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer/VBoxContainer/ChatTemplate2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer/VBoxContainer/ChatTemplate2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_2nwku")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_lykaw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r5q1g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oi6uw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lykaw")
+text = "TestUser 3:"
+alignment = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel2/ScrollContainer/VBoxContainer/ChatTemplate2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_2nwku")
+theme_override_fonts/mono_font = ExtResource("2_2nwku")
+theme_override_fonts/italics_font = ExtResource("2_2nwku")
+theme_override_fonts/bold_italics_font = ExtResource("2_2nwku")
+theme_override_fonts/bold_font = ExtResource("2_2nwku")
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+bbcode_enabled = true
+text = "Hello World!!!!!"
+fit_content = true
+
 [node name="LineEdit" type="LineEdit" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_2nwku")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ftuoh")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_sal6x")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jingl")
