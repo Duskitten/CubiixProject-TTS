@@ -151,6 +151,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		input = Vector2.ZERO
 
 func _process(delta: float) -> void:
+	if Core.Globals.DisablePlayerInput:
+		input = Vector2.ZERO
 	if input != Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
 		if !Swimming:
 			if !Input.is_action_pressed("walk"):

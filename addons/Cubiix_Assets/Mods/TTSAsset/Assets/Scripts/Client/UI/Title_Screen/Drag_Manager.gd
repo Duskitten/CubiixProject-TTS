@@ -63,7 +63,6 @@ func reset_focus(string:String) -> void:
 
 func disable_connect(node:Node) -> void:
 	for i in node.get_children():
-		
 		if i.get_child_count() > 0:
 			disable_connect(i)
 		if i is BaseButton || i is Slider || i is SubViewportContainer:
@@ -71,9 +70,9 @@ func disable_connect(node:Node) -> void:
 			i.mouse_exited.connect(enable_drag.bind())
 		elif i is LineEdit:
 			i.mouse_entered.connect(disable_drag.bind())
-			i.mouse_entered.connect(disable_input.bind())
 			i.mouse_exited.connect(enable_drag.bind())
-			i.mouse_exited.connect(enable_input.bind())
+			i.focus_entered.connect(disable_input.bind())
+			i.focus_exited.connect(enable_input.bind())
 			i.text_submitted.connect(reset_focus.bind())
 		elif i is ScrollContainer:
 			i.get_h_scroll_bar().mouse_entered.connect(disable_drag.bind())
