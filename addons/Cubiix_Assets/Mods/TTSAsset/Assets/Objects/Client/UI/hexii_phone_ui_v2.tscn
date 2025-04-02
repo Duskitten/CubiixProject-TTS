@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cufaqwnfhx7e5"]
+[gd_scene load_steps=13 format=3 uid="uid://cufaqwnfhx7e5"]
 
-[ext_resource type="Script" uid="uid://fihnans4fruw" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_kb738"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_kb738"]
+[ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="2_2nwku"]
 [ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Phone_Backing.png" id="2_xp7pi"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="3_0l6bc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
 
@@ -12,6 +14,24 @@ colors = PackedColorArray(0.171875, 0.171875, 0.171875, 1, 0.363281, 0.363281, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_351xa"]
 gradient = SubResource("Gradient_ep053")
 fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftuoh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sal6x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jingl"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.117188, 0.117188, 0.117188, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lykaw"]
+bg_color = Color(0.474291, 0.131602, 0.6, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5eph"]
 texture = ExtResource("2_xp7pi")
@@ -29,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -103.0
-offset_top = -169.0
-offset_right = 103.0
-offset_bottom = 169.0
+offset_left = -118.0
+offset_top = -211.0
+offset_right = 113.0
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -44,6 +64,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 13.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
@@ -52,18 +76,58 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_pommg")
 texture_filter = 4
 clip_contents = true
 layout_mode = 0
-offset_left = 13.0
-offset_top = 14.0
-offset_right = 192.0
-offset_bottom = 222.0
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 217.0
+offset_bottom = 251.0
 texture = SubResource("GradientTexture2D_351xa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Panel2" type="Panel" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LineEdit" type="LineEdit" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2nwku")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ftuoh")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_sal6x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jingl")
+placeholder_text = "Type Here"
+
+[node name="Panel" type="Panel" parent="DragArea/Wallpaper_Backing/VBoxContainer"]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lykaw")
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_2nwku")
+text = "24:60"
+horizontal_alignment = 1
+script = ExtResource("3_0l6bc")
 
 [node name="Overlay" type="Panel" parent="DragArea"]
 layout_mode = 0
-offset_left = -40.0
-offset_top = -34.0
-offset_right = 245.0
-offset_bottom = 506.0
+offset_left = -45.0
+offset_top = -38.0
+offset_right = 278.0
+offset_bottom = 574.0
 pivot_offset = Vector2(142, 270)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o5eph")
+metadata/_edit_lock_ = true
