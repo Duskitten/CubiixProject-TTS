@@ -507,6 +507,11 @@
 				"Name":"TTS_MovementUpdate",
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/MovementUpdate.gd",
+			},
+			"TTS_PlayerMovementUpdate":{
+				"Name":"TTS_PlayerMovementUpdate",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/PlayerMovementUpdate.gd",
 			}
 		}
 	}

@@ -4,7 +4,7 @@ var stored_value = {
 	"Position":Vector3.ZERO,
 	"Rotation":Vector3.ZERO,
 	"Model_Rotation":Vector3.ZERO,
-	"Current_Animation":""
+	"Current_Animation":"Idle"
 }
 
 func update_character(value:Dictionary) -> void:

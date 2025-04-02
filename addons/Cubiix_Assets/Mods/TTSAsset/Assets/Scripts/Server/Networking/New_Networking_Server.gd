@@ -88,8 +88,7 @@ func network_process():
 				##send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
 				if peer.get_available_bytes() > 0:
 					var Data = peer.get_var(false)
-					for x in Data.keys():
-						Commands[x].server_parse(self, Peer_Connections[i], Data[x])
+					call_deferred("SendToParser",Peer_Connections[i], Data)
 					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
 				var who = Peer_Connections[i]
@@ -99,3 +98,7 @@ func network_process():
 					Real_Connections.erase(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"])
 				Peer_Connections[i].queue_free()
 				Peer_Connections.erase(i)
+
+func SendToParser(Peer:ServerPlayer,Data:Dictionary) -> void:
+	for i in Data.keys():
+		Commands[i].server_parse(self, Peer, Data[i])

@@ -8,7 +8,7 @@ func server_compile(Server:Node, Player:ServerPlayer, NewPlayer:ServerPlayer) ->
 		"Position":NewPlayer.Character_Storage_Data["Position"],
 		"Rotation":NewPlayer.Character_Storage_Data["Rotation"],
 		"Model_Rotation":NewPlayer.Character_Storage_Data["Model_Rotation"],
-		"Current_Animation":NewPlayer.Character_Storage_Data["Model_Rotation"],
+		"Current_Animation":NewPlayer.Character_Storage_Data["Current_Animation"],
 		"Core_Character":NewPlayer.Character_Storage_Data["Core_Character"],
 		"PhoneID":NewPlayer.Character_Storage_Data["DB_Data"]["PhoneID"]
 	}
@@ -45,6 +45,7 @@ func client_parse(Client:Node, Data:Variant) -> void:
 		newPlayer.global_position = i["Position"]
 		newPlayer.global_rotation = i["Rotation"]
 		newPlayer.get_node("Hub").rotation = i["Model_Rotation"]
+		newPlayer.show()
 	
 func client_compile(Client:Node) -> void:
 	pass

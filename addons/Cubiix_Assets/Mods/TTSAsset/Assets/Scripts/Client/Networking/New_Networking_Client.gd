@@ -49,9 +49,7 @@ func network_process():
 					connect_timer.call_deferred("stop")
 				if TCP.get_available_bytes() > 0:
 					var Data = TCP.get_var(false)
-					for i in Data.keys():
-						Commands[i].call_deferred("client_parse",self, Data[i])
-					
+					call_deferred("SendToParser",Data)
 					if !current_packet.is_empty():
 						TCP.put_var(current_packet)
 						current_packet = {}
@@ -97,3 +95,8 @@ func Client_Disconnect_Server() -> void:
 	disable_connect = true
 	await get_tree().process_frame
 	disable_connect = false
+
+func SendToParser(Data:Dictionary) -> void:
+	for i in Data.keys():
+		Commands[i].client_parse(self, Data[i])
+					

@@ -53,24 +53,6 @@ var Current_Saved_Packet_Template = {
 
 func _ready() -> void:
 	add_child(ValidationRequest)
-	
-func room_connect(userID:String) -> void:
-	Current_Saved_Packet["Spawn_Players"].append(userID)
-	
-func room_disconnect(userID:String) -> void:
-	Current_Saved_Packet["Despawn_Players"].append(userID)
-
-func room_update_character(userID:String,new_char:Dictionary) -> void:
-	if userID != Character_Storage_Data["Player_OBJ_IDName"]:
-		Current_Saved_Packet["Update_Players"][userID] = new_char
-
-func pos_overrider(userID:String, userobj:ServerPlayer) -> void:
-	PosOverride[userobj.Character_Storage_Data["Player_OBJ_IDName"]] = {
-		"Position":userobj.Character_Storage_Data["Position"],
-		"Rotation":userobj.Character_Storage_Data["Rotation"],
-		"Model_Rotation":userobj.Character_Storage_Data["Model_Rotation"],
-		"Current_Animation":userobj.Character_Storage_Data["Current_Animation"]
-	}
 
 func validate_accessories(accessorystring:String) -> String:
 	var accessorylist = JSON.parse_string(accessorystring)
