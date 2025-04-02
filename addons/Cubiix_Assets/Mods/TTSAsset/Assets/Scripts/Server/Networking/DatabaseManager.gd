@@ -9,10 +9,11 @@ func _ready() -> void:
 	
 	var table = {
 		"phoneid":{"data_type":"text", "not_null":true}, 
-		"userid" : {"data_type":"text"}, ## This will be user_id@website.end
-		"character" : {"data_type":"text"}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
-		"last_interaction" : {"data_type":"text"},
-		"mailbox" : {"data_type":"text"}
+		"userid" : {"data_type":"text", "not_null":true}, ## This will be user_id@website.end
+		"character" : {"data_type":"text", "not_null":true}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
+		"last_interaction" : {"data_type":"text", "not_null":true},
+		"mailbox" : {"data_type":"text", "not_null":true},
+		"extradata":  {"data_type":"text", "not_null":true}
 		}
 	
 	Database.create_table("PlayerInfo",table)

@@ -45,7 +45,8 @@ func network_process():
 			StreamPeerTCP.STATUS_CONNECTED:
 				if disable_connect:
 					break
-				connect_timer.call_deferred("stop")
+				if !connect_timer.is_stopped():
+					connect_timer.call_deferred("stop")
 				if TCP.get_available_bytes() > 0:
 					var Data = TCP.get_var(false)
 					for i in Data.keys():
