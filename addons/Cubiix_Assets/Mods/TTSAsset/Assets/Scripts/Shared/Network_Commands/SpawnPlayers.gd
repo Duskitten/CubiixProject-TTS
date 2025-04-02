@@ -31,8 +31,8 @@ func client_parse(Client:Node, Data:Variant) -> void:
 		] as Array[Dictionary])
 		newPlayer.Animation_Path = "TTSAssets/TTS_Player_Anims"
 		newPlayer.Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
-		newPlayer.Character_String = i["Core_Character"]["Character"]
-		newPlayer.Accessory_String = i["Core_Character"]["Accessories"]
+		newPlayer.Character_String = JSON.stringify(i["Core_Character"]["Character"])
+		newPlayer.Accessory_String = JSON.stringify(i["Core_Character"]["Accessories"])
 		Client.NetworkPlayers.call_deferred("add_child", newPlayer)
 		await newPlayer.ScriptLoaded
 		var netcontroller = newPlayer.get_node("Network_Character_Controller")

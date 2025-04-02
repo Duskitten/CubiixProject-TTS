@@ -153,6 +153,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if Core.Globals.DisablePlayerInput:
 		input = Vector2.ZERO
+
 	if input != Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
 		if !Swimming:
 			if !Input.is_action_pressed("walk"):
@@ -253,7 +254,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					speed = runspeed
 					
-				if (Input.is_action_just_pressed("ui_jump") && !jumping) || (AltJump):
+				if (Input.is_action_just_pressed("ui_jump") && !jumping && !Core.Globals.DisablePlayerInput) || (AltJump):
 					JumpTimer.start()
 					jumping = true
 					gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed

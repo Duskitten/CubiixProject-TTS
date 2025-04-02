@@ -72,4 +72,10 @@ func update_player_movement(RoomName:String, User:ServerPlayer) -> void:
 		var plr = Rooms[RoomName]["Players"][i]
 		if plr != User:
 			Server.Commands["TTS_PlayerMovementUpdate"].server_compile(Server,plr,User)
+
+func update_chat(RoomName:String, User:ServerPlayer, Messeges:Dictionary) -> void:
+	for i in Rooms[RoomName]["Players"].keys():
+		var plr = Rooms[RoomName]["Players"][i]
+		Server.Commands["TTS_ChatMessege"].server_compile(Server,plr,Messeges)
+
 	

@@ -512,6 +512,11 @@
 				"Name":"TTS_PlayerMovementUpdate",
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/PlayerMovementUpdate.gd",
+			},
+			"TTS_ChatMessege":{
+				"Name":"TTS_ChatMessege",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/ChatMessege.gd",
 			}
 		}
 	}

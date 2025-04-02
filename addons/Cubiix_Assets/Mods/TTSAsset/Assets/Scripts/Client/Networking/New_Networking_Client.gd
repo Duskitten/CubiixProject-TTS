@@ -2,7 +2,7 @@ extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 var NetworkThread = Thread.new()
 var TCP:StreamPeerTCP = StreamPeerTCP.new()
-
+var ChatManager
 var connect_timer:Timer = Timer.new()
 var disable_connect = false
 
@@ -88,6 +88,7 @@ func Poll_Server_Info(ip:String,port:String, coreNode:Control) -> void:
 	NetworkThread.wait_to_finish()
 
 func Client_Join_Server(ip:String,port:String) -> void:
+	current_packet = {}
 	ping_system_toggle = false
 	connect_to_server(ip,port)
 

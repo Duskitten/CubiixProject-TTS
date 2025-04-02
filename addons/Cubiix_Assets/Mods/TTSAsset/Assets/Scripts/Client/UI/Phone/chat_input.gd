@@ -14,4 +14,5 @@ extends LineEdit
 func _on_text_submitted(new_text: String) -> void:
 	if text != "":
 		text = ""
-		get_parent().get_node("ChatSpawn/ScrollContainer/VBoxContainer").append_new_messege(get_parent().get_node("ChatSpawn/ScrollContainer/VBoxContainer").ChatTypes.PLAYER,{"Name":"Duskitten","Messege":new_text})
+		Core.Client.Commands["TTS_ChatMessege"].client_compile(Core.Client,new_text)
+		#get_parent().get_node("ChatSpawn/ScrollContainer/VBoxContainer").append_new_messege(get_parent().get_node("ChatSpawn/ScrollContainer/VBoxContainer").ChatTypes.PLAYER,{"Name":"Duskitten","Messege":new_text})
