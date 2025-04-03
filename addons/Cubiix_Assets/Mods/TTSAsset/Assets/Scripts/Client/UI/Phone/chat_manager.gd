@@ -28,7 +28,7 @@ var emotelist = {
 	":wizard:":"[img]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Chat_Emotes/wizard.png[/img]",
 	":yes:":"[img]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Chat_Emotes/yes.png[/img]"
 	}
-
+ 
 func _ready() -> void:
 	Core.Client.ChatManager = self
 	
