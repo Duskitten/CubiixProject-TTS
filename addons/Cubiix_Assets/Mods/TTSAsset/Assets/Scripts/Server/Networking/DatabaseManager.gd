@@ -3,20 +3,38 @@ extends Node
 
 @onready var Database : SQLite = SQLite.new()
 
+var gamedata_versions = ["gamedata_VB_01_00"]
+
 func _ready() -> void:
 	Database.path=OS.get_executable_path().get_base_dir()+"/PlayerDB.db"
 	Database.open_db()
 	
 	var table = {
-		"phoneid":{"data_type":"text", "not_null":true}, 
-		"userid" : {"data_type":"text", "not_null":true}, ## This will be user_id@website.end
-		"character" : {"data_type":"text", "not_null":true}, ## This will be a simple merging of the user's Character Dict + Accessory Dict
-		"last_interaction" : {"data_type":"text", "not_null":true},
-		"mailbox" : {"data_type":"text", "not_null":true},
-		"extradata":  {"data_type":"text", "not_null":true}
+		"phoneid":{"data_type":"text","default":"''"}, ## This will be a 10 digit number
+		"userid" : {"data_type":"text","default":"''"}, ## This will be user_id@website.end
+		"last_interaction" : {"data_type":"text","default":"''"},
+		"mailbox" : {"data_type":"text","default":"'{}'"}, ## This will hold a dictionary of all messeges sent to user
 		}
 	
 	Database.create_table("PlayerInfo",table)
+	Database.query("pragma table_info(PlayerInfo);")
+	var result = Database.query_result
+	for i in gamedata_versions:
+		add_new_column(i, result)
+
+
+func add_new_column(version:String, result:Array[Dictionary]) -> void:
+	var hasTable = false
+	for i in result:
+		if i["name"] == version:
+			hasTable = true
+			break
+
+	if !hasTable:
+		print("Adding Table!")
+		Database.query("alter table PlayerInfo add column "+version+" text default '';")
+	else:
+		print("Has Table!")
 
 func generate_new_phonenumber() -> String:
 	const validints = "0123456789"

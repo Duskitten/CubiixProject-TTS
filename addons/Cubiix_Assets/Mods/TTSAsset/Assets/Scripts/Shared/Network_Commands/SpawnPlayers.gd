@@ -9,7 +9,8 @@ func server_compile(Server:Node, Player:ServerPlayer, NewPlayer:ServerPlayer) ->
 		"Rotation":NewPlayer.Character_Storage_Data["Rotation"],
 		"Model_Rotation":NewPlayer.Character_Storage_Data["Model_Rotation"],
 		"Current_Animation":NewPlayer.Character_Storage_Data["Current_Animation"],
-		"Core_Character":NewPlayer.Character_Storage_Data["Core_Character"],
+		"Character_Character":NewPlayer.Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Character"],
+		"Character_Accessories":NewPlayer.Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Accessories"],
 		"PhoneID":NewPlayer.Character_Storage_Data["DB_Data"]["PhoneID"]
 	}
 	if Player.Current_Saved_Packet.has("TTS_SpawnPlayers"):
@@ -31,8 +32,8 @@ func client_parse(Client:Node, Data:Variant) -> void:
 		] as Array[Dictionary])
 		newPlayer.Animation_Path = "TTSAssets/TTS_Player_Anims"
 		newPlayer.Assets_Path = "/root/Main_Scene/CoreLoader/AssetData"
-		newPlayer.Character_String = JSON.stringify(i["Core_Character"]["Character"])
-		newPlayer.Accessory_String = JSON.stringify(i["Core_Character"]["Accessories"])
+		newPlayer.Character_String = JSON.stringify(i["Character_Character"])
+		newPlayer.Accessory_String = JSON.stringify(i["Character_Accessories"])
 		Client.NetworkPlayers.call_deferred("add_child", newPlayer)
 		await newPlayer.ScriptLoaded
 		var netcontroller = newPlayer.get_node("Network_Character_Controller")

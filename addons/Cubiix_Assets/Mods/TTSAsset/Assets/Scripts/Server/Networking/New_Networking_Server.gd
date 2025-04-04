@@ -74,6 +74,7 @@ func network_process():
 			var newPeer = ServerPlayer.new()
 			newPeer.Character_Storage_Data["peer_obj"] = peer
 			newPeer.Character_Storage_Data["Player_OBJ_ID"] = hash(peer)
+			newPeer.Server = self
 			call_deferred("add_child",newPeer)
 			Peer_Connections[hash(peer)] = newPeer
 			Commands["TTS_Ping_Init"].server_compile(self,newPeer)

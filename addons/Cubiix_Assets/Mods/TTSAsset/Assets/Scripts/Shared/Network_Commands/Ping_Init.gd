@@ -7,7 +7,7 @@ func server_parse(Server:Node, Player:ServerPlayer, Data:Variant) -> void:
 			Server.Commands["TTS_PollUpdate"].server_compile(Server,Player)
 		"PlayerConnecting":
 			if Core.Globals.GameVersion == Data["ClientVersion"]:
-				Player.call_deferred("validate_player",Server,Data)
+				Player.call_deferred("validate_player",Data)
 			else:
 				Player.Current_Saved_Packet["Disconnect"] = "Wrong Game Version, Current Game Version: "+Core.Globals.GameVersion
 
