@@ -517,7 +517,13 @@
 				"Name":"TTS_ChatMessege",
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/ChatMessege.gd",
-			}
+			},
+			"TTS_SelfUpdateCharacter":{
+				"Name":"TTS_SelfUpdateCharacter",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/SelfUpdateCharacter.gd",
+			},
+				
 		}
 	}
 }

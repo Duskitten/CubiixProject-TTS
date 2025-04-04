@@ -32,7 +32,7 @@ func add_new_column(version:String, result:Array[Dictionary]) -> void:
 
 	if !hasTable:
 		print("Adding Table!")
-		Database.query("alter table PlayerInfo add column "+version+" text default '';")
+		Database.query("alter table PlayerInfo add column "+version+" text default '{}';")
 	else:
 		print("Has Table!")
 

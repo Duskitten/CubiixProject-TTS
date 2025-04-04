@@ -5,6 +5,7 @@ extends Node
 @onready var Transitioner = $CanvasLayer/Transitioner
 @onready var Transitioner_AnimationPlayer = Transitioner.get_node("AnimationPlayer")
 
+var TemplateChar
 @onready var Player = $Node3D/Player
 @onready var AudioPlayer = $Node3D/Audio
 @onready var NetworkFolder = $Node3D/Network_Players

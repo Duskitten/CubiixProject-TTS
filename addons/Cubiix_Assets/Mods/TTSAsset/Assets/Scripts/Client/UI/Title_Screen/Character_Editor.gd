@@ -34,6 +34,7 @@ var Pronouns_C:String = ""
 var Faction:int = 0
 
 var Scale:float = 1
+var character
 
 var Keylist = {
 	"Body":{"Body1":0,"Body2":2,"Eye1":1,"Eye2":3},
@@ -52,7 +53,10 @@ var Target_Node:String = ""
 var LastActiveScreen:String  = ""
 
 func _ready() -> void:
+	
+	Core.Persistant_Core.TemplateChar = self
 	Root = find_parent("DragArea")
+	character = Root.Temp_Character
 	internal_button_check(Side_A)
 	internal_button_check(Side_B)
 	
@@ -66,10 +70,14 @@ func _ready() -> void:
 	Shader_Alpha.resize(36)
 	Shader_Alpha.fill(1.0)
 	
-	var character = Root.Temp_Character
 	await get_tree().create_timer(0.1).timeout
 	Core.AssetData.Tools.clone_character_with_accessories(character,self)
-	
+
+func update_self_and_character():
+	Core.AssetData.Tools.clone_character_with_accessories(Core.Persistant_Core.Player.Hub,self)
+	Core.AssetData.Tools.clone_character_with_accessories(self,character)
+
+
 func internal_button_check(node:Node) -> void:
 	for i in node.get_children():
 		if i is BaseButton:
@@ -169,7 +177,6 @@ func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 			
 func set_new_value(WhatVar:String,WhatValue:String) -> void:
 	#print(WhatVar, WhatValue)
-	var character = Root.Temp_Character
 	character.set(WhatVar,WhatValue)
 	character.generate_character()
 	set_edited()
