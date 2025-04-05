@@ -1,5 +1,5 @@
 extends Control
-
+@onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
 var old_tween_a:Tween
 var old_tween_b:Tween
@@ -11,8 +11,7 @@ func _ready() -> void:
 	for i in get_children():
 		i.hide()
 	$Title.show()
-	
-	
+	Core.TransitionController = self
 
 func _on_texture_button_pressed(Screen_A: String, Reverse: bool, Screen_B: String) -> void:
 	match Screen_A:

@@ -22,11 +22,12 @@ func client_parse(Client:Node, Data:Variant) -> void:
 	for i in Data:
 		var player = Client.NetworkPlayers.get_node_or_null(i["PhoneID"])
 		if player != null:
-			var charactercontroller = player.get_node("Network_Character_Controller")
-			charactercontroller.stored_value["Position"]=i["Position"]
-			charactercontroller.stored_value["Rotation"]=i["Rotation"]
-			charactercontroller.stored_value["Model_Rotation"]=i["Model_Rotation"]
-			charactercontroller.stored_value["Current_Animation"]=i["Current_Animation"]
-	
+			var charactercontroller = player.get_node_or_null("Network_Character_Controller")
+			if charactercontroller != null:
+				charactercontroller.stored_value["Position"]=i["Position"]
+				charactercontroller.stored_value["Rotation"]=i["Rotation"]
+				charactercontroller.stored_value["Model_Rotation"]=i["Model_Rotation"]
+				charactercontroller.stored_value["Current_Animation"]=i["Current_Animation"]
+		
 func client_compile(Client:Node) -> void:
 	pass

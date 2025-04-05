@@ -211,7 +211,6 @@ func _physics_process(delta: float) -> void:
 			if falling:
 				var sploosh =  ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/sploosh.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
 				sploosh.get_node("AnimationPlayer").play("Sploosh")
-				sploosh.get_node("AnimationPlayer").animation_finished.connect(kill_sploosh.bind(sploosh))
 				Character.get_parent().get_node("Effects").add_child(sploosh)
 				sploosh.global_position = RayCast_Swim.get_collision_point()
 				sploosh.global_transform.basis = Character.global_transform.basis
@@ -320,6 +319,3 @@ func _on_jump_timer_timeout() -> void:
 	JumpTimer.stop()
 	jumping = false
 	falling = false
-
-func kill_sploosh(Anim:StringName, node:Node) -> void:
-	node.queue_free()

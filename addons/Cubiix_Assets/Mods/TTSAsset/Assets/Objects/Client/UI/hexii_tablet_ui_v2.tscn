@@ -269,7 +269,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.545029, 0.594378, 1)
+bg_color = Color(0, 1.01143, 0.604247, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -278,9 +278,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 20.3471
+expand_margin_bottom = 20.3471
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.434454, 0.595079, 1)
+bg_color = Color(0, -0.640049, 0.593775, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -291,7 +293,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.283501, 0.599632, 1)
+bg_color = Color(0, -0.315356, 0.595834, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -302,7 +304,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.588783, 0.601567, 1)
+bg_color = Color(0, 0.230443, 0.599295, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -311,8 +313,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 5.80249
-expand_margin_bottom = 5.80249
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -2334,7 +2334,6 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
 [node name="Offline" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2952,7 +2951,7 @@ world_3d = SubResource("World3D_l6x5t")
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(198, 367)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
 
@@ -4930,7 +4929,7 @@ metadata/_edit_use_anchors_ = true
 own_world_3d = true
 handle_input_locally = false
 size = Vector2i(275, 352)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Node3D" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/TextureRect/Control/SubViewportContainer/SubViewport" instance=ExtResource("54_18nne")]
 
@@ -5041,7 +5040,14 @@ offset_top = 382.0
 offset_right = 449.0
 offset_bottom = 410.0
 
-[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+[node name="OfflineBack" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("52_lsgqv")
+texture_pressed = ExtResource("52_lsgqv")
+texture_hover = ExtResource("53_yess3")
+
+[node name="OnlineBack" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("52_lsgqv")
 texture_pressed = ExtResource("52_lsgqv")
@@ -5309,7 +5315,9 @@ offset_bottom = 40.0
 [connection signal="scroll_started" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer" to="DragArea" method="disable_drag"]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/X" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon" method="_on_value_changed" binds= [true]]
 [connection signal="value_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Y" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon" method="_on_value_changed" binds= [false]]
-[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Offline"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/OfflineBack" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Offline"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/OnlineBack" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_online_back_pressed"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/OnlineBack" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Login", false, "Offline"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton2" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Settings"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/Moon" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Moon"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Center_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["In-Game_Controller"]]

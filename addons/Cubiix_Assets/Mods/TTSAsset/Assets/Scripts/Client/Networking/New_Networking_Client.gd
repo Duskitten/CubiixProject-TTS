@@ -52,7 +52,7 @@ func network_process():
 					call_deferred("SendToParser",Data)
 					if !current_packet.is_empty():
 						TCP.put_var(current_packet)
-						current_packet = {}
+						current_packet = {"TTS_Ping":true}
 
 			StreamPeerTCP.STATUS_CONNECTING:
 				#if TCP.get_available_bytes() > 0:

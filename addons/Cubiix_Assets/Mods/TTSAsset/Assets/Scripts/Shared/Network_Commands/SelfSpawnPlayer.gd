@@ -10,9 +10,12 @@ func server_compile(Server:Node, Player:ServerPlayer) -> void:
 	}
 	
 func client_parse(Client:Node, Data:Variant) -> void:
-	print("oioioi",Data)
 	for i in Data["Messeges"]:
 		Client.ChatManager.append_new_messege(Client.ChatManager.ChatTypes.PLAYER,i)
+	
+	await Client.get_tree().create_timer(1).timeout
+	Client.Core.TransitionController._on_texture_button_pressed("Offline", true, "Login")
+	Client.Core.OfflineMenu.setup_online()
 	
 func client_compile(Client:Node) -> void:
 	pass

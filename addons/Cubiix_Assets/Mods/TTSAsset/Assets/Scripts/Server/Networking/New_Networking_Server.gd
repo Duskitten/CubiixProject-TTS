@@ -48,6 +48,11 @@ func network_process():
 		Tick_Timer += Delta
 		
 		if Tick_Timer > 1000/20:
+			for i in Peer_Connections.keys():
+				var n = Peer_Connections[i].Character_Storage_Data["peer_obj"]
+				var peer = n.stream_peer
+				peer.poll()
+			
 			Current_Tick += 1
 			Tick_Timer = 0
 			
@@ -64,7 +69,7 @@ func network_process():
 					newPeer.Character_Storage_Data["peer_obj"].stream_peer.disconnect_from_host()
 				else:
 					newPeer.Current_Saved_Packet = {}
-		
+					
 		
 		
 		var New_Client_TCP = TCP.take_connection()
@@ -84,12 +89,14 @@ func network_process():
 			var n = Peer_Connections[i].Character_Storage_Data["peer_obj"]
 			var peer = n.stream_peer
 			peer.poll()
-			
 			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 				##send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
 				if peer.get_available_bytes() > 0:
-					var Data = peer.get_var(false)
-					call_deferred("SendToParser",Peer_Connections[i], Data)
+					Peer_Connections[i].DisconnectTimer = 0
+					call_deferred("SendToParser",Peer_Connections[i], peer.get_var(false))
+				elif peer.get_available_bytes() <= 0:
+					if Peer_Connections[i].Character_Storage_Data["Current_Room"] != "":
+						Peer_Connections[i].DisconnectTimer += 1
 					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
 			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
 				var who = Peer_Connections[i]
