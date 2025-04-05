@@ -60,8 +60,8 @@ func network_process():
 				
 				newPeer.Character_Storage_Data["peer_obj"].put_var(newPeer.Current_Saved_Packet)
 				#print(newPeer.Current_Saved_Packet)
-				if newPeer.Current_Saved_Packet.has("Disconnect"):
-					newPeer.Character_Storage_Data["peer_obj"].disconnect_from_host()
+				if newPeer.Character_Storage_Data["Disconnect"]:
+					newPeer.Character_Storage_Data["peer_obj"].stream_peer.disconnect_from_host()
 				else:
 					newPeer.Current_Saved_Packet = {}
 		

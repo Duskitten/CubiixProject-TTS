@@ -498,6 +498,11 @@
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/SpawnPlayers.gd",
 			},
+			"TTS_SelfSpawnPlayer":{
+				"Name":"TTS_SelfSpawnPlayer",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/SelfSpawnPlayer.gd",
+			},
 			"TTS_DespawnPlayers":{
 				"Name":"TTS_DespawnPlayers",
 				"Tag":"Network_Command",
@@ -532,6 +537,11 @@
 				"Name":"TTS_ServerChatMessege",
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/ChatMessege_System.gd",
+			},
+			"TTS_Disconnect":{
+				"Name":"TTS_Disconnect",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/Disconnect.gd",
 			},
 		}
 	}

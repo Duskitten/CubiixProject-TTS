@@ -20,14 +20,17 @@ var save_template = {
 		"Music":0,
 		"SFX":0,
 		"Notification":0,
-		"Ping":0,
+		"Ping":0
 	},
 	"Visuals":{
 		"Shadow_Depth":0,
 		"Anti-Aliasing":0,
 		"Bloom":false,
-		"FOV":75
+		"FOV":75,
+		"TestB":0
 	},
+	"TestA":0,
+	"SavedServers":[["127.0.0.1","5599"]],
 	"API_URL":"https://api.cubiixproject.xyz",
 	"Auth_URL":"https://cubiixproject.xyz"
 }
@@ -44,6 +47,7 @@ var server_template = {
 	"Admins":[],
 	"Owners":[],
 	"BannedUserIDs":[],
+	"MutedUserIDs":[],
 	}
 
 var Data:Dictionary = {}
@@ -67,16 +71,16 @@ func _ready() -> void:
 		print(IsFile)
 		if !IsFile:
 			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
-			NewFile.store_string(JSON.stringify(save_template))
+			NewFile.store_string(JSON.stringify(save_template,"\t"))
 			NewFile.close()
 
 		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/client.json")
 		Json.parse(JsonFile)
 		Data = Json.data
 		
-		###For continuity/Updating purposes
 		data_failsafe_check(save_template)
-
+		###For continuity/Updating purposes
+		print(Data)
 		_setup_audio(Data["Audio"])
 		
 
@@ -86,7 +90,7 @@ func _ready() -> void:
 		var IsFile = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/server.json")
 		if !IsFile:
 			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
-			NewFile.store_string(JSON.stringify(server_template))
+			NewFile.store_string(JSON.stringify(server_template,"\t"))
 			NewFile.close()
 
 		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/server.json")
@@ -94,21 +98,22 @@ func _ready() -> void:
 		Data = Json.data
 		
 		data_failsafe_check(server_template)
-		print(Data)
+		#print(Data)
 
-func data_failsafe_check(pathobj) -> void:
-	for i in pathobj.keys():
+func data_failsafe_check(pathobj):
+	for i in pathobj:
 		if !Data.has(i):
 			Data[i] = pathobj[i]
-		if pathobj[i] is Dictionary:
-			for n in pathobj[i].keys():
-				if !Data[i].has(n):
-					Data[i][n] = pathobj[i][n]
-			data_failsafe_check(pathobj[i])
+		else:
+			if pathobj[i] is Dictionary:
+				for x in pathobj[i]:
+					if !Data[i].has(x):
+						Data[i][x] = pathobj[i][x]
 
 func _setup_audio(data:Dictionary) -> void:
 	for i in data.keys():
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(i),data[i])
+		if AudioServer.get_bus_index(i) != -1:
+			AudioServer.set_bus_volume_db(AudioServer.get_bus_index(i),data[i])
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -121,11 +126,11 @@ func Kill():
 	if OS.has_feature("client"):
 		#Core.Persistant_Core
 		var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
-		NewFile.store_string(JSON.stringify(Data))
+		NewFile.store_string(JSON.stringify(Data,"\t"))
 		NewFile.close()
 	if OS.has_feature("server"):
 		var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
-		NewFile.store_string(JSON.stringify(Data))
+		NewFile.store_string(JSON.stringify(Data,"\t"))
 		NewFile.close()
 	
 func sort_ui() -> Node:

@@ -48,3 +48,15 @@ func generate_new_phonenumber() -> String:
 	if !DB.is_empty():
 		result = generate_new_phonenumber()
 	return result
+	
+func is_valid_phonenumber(Number:String) -> bool:
+	var is_valid = false
+	var validchars = 0
+	for i in Number:
+		if i.is_valid_int():
+			validchars += 1
+	
+	if validchars == 10 && Number.length() == 10:
+		is_valid = true
+	
+	return is_valid

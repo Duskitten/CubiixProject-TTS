@@ -36,6 +36,7 @@ var defaults = {
 	}
 
 var Character_Storage_Data = {
+	"Disconnect":false,
 	"peer_obj":null,
 	"Current_Room":"",
 	"Player_OBJ_IDName":"",
@@ -54,10 +55,14 @@ var Character_Storage_Data = {
 		"PhoneID":"",
 		"IsMod":false,
 		"IsAdmin":false,
-		"IsOwner":false
+		"IsOwner":false,
+		"IsMuted":false
 	},
 	"DB_Version_Data":{
 
+	},
+	"NonPersistData":{
+		"BackTP":Vector3.ZERO
 	}
 }
 
@@ -130,14 +135,20 @@ func validation_request_completed(result, response_code, headers, body, Data:Dic
 					if !Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"][i].has(x):
 						Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"][i].append(x)
 		
-		
 		Valid_Accessories = Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"]
 		print(Valid_Accessories)
 			
 		Character_Storage_Data["DB_Data"]["UserID"] = url
 		Character_Storage_Data["DB_Data"]["PhoneID"] = PhoneID
 		
+		if Server.Core.Globals.Data["BannedUserIDs"].has(PhoneID):
+			Server.Commands["TTS_ServerChatMessege"].server_compile(Server,self,{"Messege":"Failed To Connect: You are banned from this server."})
+			Character_Storage_Data["Disconnect"] = true
+			return
+
 		Server.Real_Connections[Character_Storage_Data["DB_Data"]["PhoneID"]] = self
+		
+		update_perms()
 		
 		var AssignedRoomID = Server.Room_Manager.check_for_new_room(LastRoom)
 		Server.Room_Manager.Rooms[AssignedRoomID]["Players"][PhoneID] = self
@@ -147,6 +158,7 @@ func validation_request_completed(result, response_code, headers, body, Data:Dic
 		Server.Room_Manager.spawn_current_users_data(AssignedRoomID, self)
 		
 		Server.Commands["TTS_SelfUpdateCharacter"].server_compile(Server,self)
+		Server.Commands["TTS_SelfSpawnPlayer"].server_compile(Server,self)
 		
 		save_player()
 		#await get_tree().create_timer(2).timeout
@@ -158,6 +170,26 @@ func check_for_updates(string:String) -> void:
 		if !Character_Storage_Data["DB_Version_Data"][string].has(i):
 			Character_Storage_Data["DB_Version_Data"][string][i] = defaults[string][i]
 
+func update_perms() -> void:
+	var PhoneID = Character_Storage_Data["DB_Data"]["PhoneID"]
+	var isAdmin = false
+	var isModerator = false
+	var isOwner= false
+	var isMuted = false
+	
+	if Server.Core.Globals.Data["Admins"].has(PhoneID):
+		isAdmin = true
+	if Server.Core.Globals.Data["Moderators"].has(PhoneID):
+		isModerator = true
+	if Server.Core.Globals.Data["Owners"].has(PhoneID):
+		isOwner = true
+	if Server.Core.Globals.Data["MutedUserIDs"].has(PhoneID):
+		isMuted = true
+	
+	Character_Storage_Data["DB_Data"]["IsAdmin"] = isAdmin
+	Character_Storage_Data["DB_Data"]["IsMod"] = isModerator
+	Character_Storage_Data["DB_Data"]["IsOwner"] = isOwner
+	Character_Storage_Data["DB_Data"]["IsMuted"] = isMuted
 
 func save_player() -> void:
 	var Database = Server.Database_Manager.Database

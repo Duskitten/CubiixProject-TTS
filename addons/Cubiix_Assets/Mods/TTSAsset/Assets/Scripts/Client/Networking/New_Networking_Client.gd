@@ -61,17 +61,24 @@ func network_process():
 					break
 				
 			StreamPeerTCP.STATUS_NONE:
-				connect_timer.call_deferred("stop")
-				break
+				if ping_system_toggle:
+					if disable_connect:
+						connect_timer.call_deferred("stop")
+						break
+				else:
+					break
 	print("Disconnecting TCP")
-	TCP.disconnect_from_host()
+	if TCP.get_status() != StreamPeerTCP.STATUS_NONE:
+		TCP.disconnect_from_host()
 	call_deferred("emit_signal","ClientDisconnected")
+	call_deferred("_exit_tree")
 
 func _exit_tree() -> void:
 	if NetworkThread.is_started():
 		NetworkThread.wait_to_finish()
 	
 func disable_connection():
+	emit_signal("ServerPolled")
 	connect_timer.call_deferred("stop")
 	disable_connect = true
 
@@ -80,12 +87,21 @@ func disable_connection():
 func Poll_Server_Info(ip:String,port:String, coreNode:Control) -> void:
 	connect_to_server(ip,port)
 	await ServerPolled
+	if server_info_holder.is_empty():
+		server_info_holder["ServerColor"] = "#ff0000"
+		server_info_holder["ServerName"] = "NO CONNECTION..."
+		server_info_holder["CurrentPlayers"] = "?"
+		server_info_holder["MaxPlayers"] = "?"
+		coreNode.set_meta("disabled", true)
+	else:
+		coreNode.set_meta("disabled", false)
+	
 	print(server_info_holder["ServerColor"])
 	coreNode.self_modulate = Color(server_info_holder["ServerColor"])
 	coreNode.get_node("HBoxContainer/VBoxContainer/Name").text = server_info_holder["ServerName"]
 	coreNode.get_node("HBoxContainer/PlayerCount").text = str(server_info_holder["CurrentPlayers"]) + "/" + str(server_info_holder["MaxPlayers"])
+	
 	Client_Disconnect_Server()
-	NetworkThread.wait_to_finish()
 
 func Client_Join_Server(ip:String,port:String) -> void:
 	current_packet = {}
