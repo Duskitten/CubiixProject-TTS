@@ -527,7 +527,12 @@
 				"Name":"TTS_UpdateCharacter",
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/UpdateCharacter.gd",
-			}
+			},
+			"TTS_ServerChatMessege":{
+				"Name":"TTS_ServerChatMessege",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/ChatMessege_System.gd",
+			},
 		}
 	}
 }
