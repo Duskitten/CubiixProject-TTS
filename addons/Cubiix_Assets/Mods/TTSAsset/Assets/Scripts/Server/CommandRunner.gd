@@ -12,6 +12,8 @@ func parse_command(Server:Node, Player:ServerPlayer, command:Array) -> void:
 						if Server.Database_Manager.is_valid_phonenumber(command[2]):
 							if !Server.Core.Globals.Data["Admins"].has(command[2]):
 								Server.Core.Globals.Data["Admins"].append(command[2])
+								if Server.Core.Globals.Data["Moderators"].has(command[2]):
+									Server.Core.Globals.Data["Moderators"].erase(command[2])
 								if Server.Real_Connections.has(command[2]):
 									Server.Real_Connections[command[2]].update_perms()
 								response = {"Messege":"Added user to Admin list."}
@@ -43,6 +45,8 @@ func parse_command(Server:Node, Player:ServerPlayer, command:Array) -> void:
 						if Server.Database_Manager.is_valid_phonenumber(command[2]):
 							if !Server.Core.Globals.Data["Moderators"].has(command[2]):
 								Server.Core.Globals.Data["Moderators"].append(command[2])
+								if Server.Core.Globals.Data["Admins"].has(command[2]):
+									Server.Core.Globals.Data["Admins"].erase(command[2])
 								if Server.Real_Connections.has(command[2]):
 									Server.Real_Connections[command[2]].update_perms()
 								response = {"Messege":"Added user to Moderators list."}
@@ -197,6 +201,25 @@ func parse_command(Server:Node, Player:ServerPlayer, command:Array) -> void:
 					#pass
 				#else:
 					#response = {"Messege":"Error: command is\n/emote [emoteID]"}
+			"commands":
+				response = {"Messege":"CommandsList:\n"}
+				if command.size() == 2:
+					if Player.Character_Storage_Data["DB_Data"]["IsOwner"]:
+						response["Messege"]+=\
+						"/admin [user#]\n"+\
+						"/unadmin [user#]\n"+\
+						"/mod [user#]\n"+\
+						"/unmod [user#]\n"
+					if Player.Character_Storage_Data["DB_Data"]["IsAdmin"] || Player.Character_Storage_Data["DB_Data"]["IsOwner"]:
+						response["Messege"]+=\
+						"/ban [user#]\n"+\
+						"/unban [user#]\n"
+					if Player.Character_Storage_Data["DB_Data"]["IsAdmin"] || Player.Character_Storage_Data["DB_Data"]["IsMod"] || Player.Character_Storage_Data["DB_Data"]["IsOwner"]:
+						response["Messege"]+=\
+						"/kick [user#]\n"+\
+						"/mute [user#]\n"+\
+						"/unmute [user#]\n"+\
+						"/commands"
 					
 		if !response.is_empty():
 			Server.Commands["TTS_ServerChatMessege"].server_compile(Server,Player,response)
