@@ -445,6 +445,9 @@
 			"NPC_Controller":{
 				"Path":"Assets/Scripts/NPC_Controller.gd"
 			},
+			"NPC_Controller_Screenshot":{
+				"Path":"Assets/Scripts/NPC_Controller_Screenshot.gd"
+			},
 			"Network_Character_Controller":{
 				"Path":"Assets/Scripts/Client/Networking/Network_Character_Controller.gd"
 			}
@@ -453,6 +456,9 @@
 		"Animations":{
 			"TTS_Player_Anims":{
 				"Path":"Assets/Animations/TTS_Animations.tscn"
+			},
+			"TTS_Screenshot_VB_01_00":{
+				"Path":"Assets/Animations/TTS_Animations_Screenshot.tscn"
 			}
 		},
 		"Dialogue":{

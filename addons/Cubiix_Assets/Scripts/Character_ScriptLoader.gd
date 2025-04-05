@@ -27,10 +27,13 @@ func _ready() -> void:
 	#print(Assets)
 	emit_signal("Loaded")
 	if !Load_Script_ID.is_empty():
-		for i in Load_Script_ID:
+		for i in Load_Script_ID.size():
 			var NewNode = Node3D.new()
-			Assets.find_script(i,NewNode,self)
+			Assets.find_script(Load_Script_ID[i],NewNode,self)
 			call_deferred("add_child",NewNode)
+			if !Load_Script_Passthrough[i].is_empty():
+				for x in Load_Script_Passthrough[i].keys():
+					NewNode.set(x,Load_Script_Passthrough[i][x])
 	if Animation_Path != "":
 		Assets.find_animation(Animation_Path,$Hub)
 

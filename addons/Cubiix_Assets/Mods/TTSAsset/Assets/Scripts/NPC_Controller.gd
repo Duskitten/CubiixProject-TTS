@@ -7,11 +7,12 @@ var Lookat = Cubiix_LookAtBone.new()
 var snap_ray:RayCast3D = RayCast3D.new()
 
 var NPC_Name = ""
+var PassThroughAnimation = "Idle"
 var NPC_Dialogue_Point = ""
 
 func _ready() -> void:
 	await Hub.Skeleton_Added
-	Hub.update_animation(["Idle",0.0])
+	Hub.update_animation([PassThroughAnimation,0.0])
 	Lookat.Use_BoneName = "Head"
 	
 	if Hub.Character_Skeleton != null:
