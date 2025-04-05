@@ -14,7 +14,7 @@ func server_compile(Server:Node, Player:ServerPlayer, NewPlayer:ServerPlayer) ->
 		Player.Current_Saved_Packet["TTS_DespawnPlayers"].append(NewPlayerDetails)
 	
 func client_parse(Client:Node, Data:Variant) -> void:
-	print(Data)
+	#print(Data)
 	for i in Data:
 		var character = Client.NetworkPlayers.get_node_or_null(i["PhoneID"])
 		if character != null:

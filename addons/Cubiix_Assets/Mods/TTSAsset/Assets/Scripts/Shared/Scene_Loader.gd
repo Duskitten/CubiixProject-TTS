@@ -34,4 +34,5 @@ func load_scene(SceneID:String,PassThrough:Dictionary={}, SkipFade:bool = false,
 		Core.Persistant_Core.Transitioner_AnimationPlayer.play("FadeOut")
 		
 	else:
-		print("Error: Invalid Map Data")
+		pass
+		#print("Error: Invalid Map Data")

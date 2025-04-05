@@ -67,7 +67,7 @@ func network_process():
 						break
 				else:
 					break
-	print("Disconnecting TCP")
+	#print("Disconnecting TCP")
 	if TCP.get_status() != StreamPeerTCP.STATUS_NONE:
 		TCP.disconnect_from_host()
 	call_deferred("emit_signal","ClientDisconnected")
@@ -96,7 +96,7 @@ func Poll_Server_Info(ip:String,port:String, coreNode:Control) -> void:
 	else:
 		coreNode.set_meta("disabled", false)
 	
-	print(server_info_holder["ServerColor"])
+	#print(server_info_holder["ServerColor"])
 	coreNode.self_modulate = Color(server_info_holder["ServerColor"])
 	coreNode.get_node("HBoxContainer/VBoxContainer/Name").text = server_info_holder["ServerName"]
 	coreNode.get_node("HBoxContainer/PlayerCount").text = str(server_info_holder["CurrentPlayers"]) + "/" + str(server_info_holder["MaxPlayers"])

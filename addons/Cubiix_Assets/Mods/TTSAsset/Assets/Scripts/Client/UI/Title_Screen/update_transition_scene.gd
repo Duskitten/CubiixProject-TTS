@@ -8,9 +8,9 @@ func _ready() -> void:
 	var scene = get_node("/root/Main_Scene")
 	scene.queue_free()
 	await get_tree().create_timer(3).timeout
-	print("ReLoading!")
+	#print("ReLoading!")
 	var success = ProjectSettings.load_resource_pack(OS.get_executable_path().get_base_dir()+"/Cubiix_Project.pck",true)
-	print(success)
+	#print(success)
 	await get_tree().create_timer(3).timeout
 	var newCore = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Shared/main_scene.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
 	get_node("/root").add_child(newCore)

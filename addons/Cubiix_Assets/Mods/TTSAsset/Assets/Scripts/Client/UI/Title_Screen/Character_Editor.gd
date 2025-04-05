@@ -118,7 +118,7 @@ func _on_back_button_pressed(notkeep:bool = true) -> void:
 		if LastActiveScreen == "Code" || LastActiveScreen == "Details":
 			Core.AssetData.Tools.clone_character_with_accessories(character, self)
 		self.set(Target_Node,character.get(Target_Node))
-		print(Target_Node)
+		#print(Target_Node)
 		if Core.Client.TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 			Core.Client.Commands["TTS_SelfUpdateCharacter"].client_compile(Core.Client)
 		else:
@@ -150,7 +150,7 @@ func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 				dupe_template.get_node("TextureButton/TextureRect/Label").text = asset["Name"]
 				
 				var image = load(asset["Image_Preview"])
-				print(image == null)
+				#print(image == null)
 				if image != null:
 					dupe_template.get_node("TextureButton/TextureRect").texture = image
 				else:

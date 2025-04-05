@@ -3,5 +3,5 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("123",Core.Globals.GameVersion)
+	#print("123",Core.Globals.GameVersion)
 	self.text = str(Core.Globals.GameVersion)

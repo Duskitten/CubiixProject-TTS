@@ -50,7 +50,7 @@ func _ready():
 		Update_LogoText("Good Luck Have Fun! :3")
 		await get_tree().create_timer(1).timeout
 		get_node("../CanvasLayer/Loading").hide()
-		print("Haoi")
+		#print("Haoi")
 		#SceneData.call_deferred("Swap_Scene","Showcase",{},true,"")
 		SceneData.call_deferred("load_scene","TTSAssets/Hexstaria_V2",{},true,"Docks")
 		#SceneData.call_deferred("load_scene","TTSAssets/Player_TestGround",{},true,"Docks")
@@ -69,7 +69,7 @@ func _ready():
 		Server = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/Networking/New_Networking_Server.gd","",ResourceLoader.CACHE_MODE_REPLACE).new()
 		add_child(Server)
 		
-		print(Globals.GameVersion)
+		#print(Globals.GameVersion)
 
 func Update_LogoText(text:String) -> void:
 	get_node("../CanvasLayer/Loading/TextureRect/Label").text = text

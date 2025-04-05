@@ -80,7 +80,7 @@ func _ready() -> void:
 		
 		data_failsafe_check(save_template)
 		###For continuity/Updating purposes
-		print(Data)
+		#print(Data)
 		_setup_audio(Data["Audio"])
 		
 

@@ -62,16 +62,16 @@ func login_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
-	print(response)
+	#print(response)
 	var login_URL = ""
 	if response != null:
 		if response.has("data"):
 			if response["data"]["authentication"]["login"]["responseResult"]["errorCode"] != 0:
-				print("Error: User Login Error.")
+				#print("Error: User Login Error.")
 				enable_all()
 			else:
 				login_URL = API_URL+ ApiCalls["validateToken"]
-				print(login_URL)
+				#print(login_URL)
 				jwt = response["data"]["authentication"]["login"]["jwt"]
 				
 				API_Validate.request(login_URL,["userToken: "+jwt,
@@ -83,20 +83,20 @@ func login_request_completed(result, response_code, headers, body):
 				enable_all()
 			else:
 				enable_all()
-				print("Error: User Login Error.")
+				#print("Error: User Login Error.")
 		else:
 			enable_all()
-			print("Error: No Server Response.")
+			#print("Error: No Server Response.")
 	else:
 		enable_all()
-		print("Error: Check SSL Cert.")
+		#print("Error: Check SSL Cert.")
 
 func api_validate_completed(result, response_code, headers, body):
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
-	print(response)
-	print("api Completed!")
+	#print(response)
+	#print("api Completed!")
 	if response != null:
 		if response["status"] == 0:
 			Core.Globals.LocalUser["Username"] = str(response["userID"]).to_lower()
@@ -114,7 +114,7 @@ func api_validate_completed(result, response_code, headers, body):
 			,HTTPClient.METHOD_POST,"")
 		else:
 			enable_all()
-			print("Error: User Failed To Validate.")
+			#print("Error: User Failed To Validate.")
 
 func _on_register_pressed() -> void:
 	disable_all()
@@ -146,11 +146,11 @@ func register_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
-	print(response)
+	#print(response)
 	if response.has("data"):
 		if response["data"]["users"]["create"].has("responseResult"):
 			if response["data"]["users"]["create"]["responseResult"]["succeeded"] != true:
-				print("Error: Failed To Register User.")
+				#print("Error: Failed To Register User.")
 				enable_all()
 			else:
 				_on_login_pressed()
@@ -159,7 +159,7 @@ func register_request_completed(result, response_code, headers, body):
 			_on_login_pressed()
 		else:
 			enable_all()
-			print("Error: Failed To Register User.")
+			#print("Error: Failed To Register User.")
 
 func disable_all():
 	Loader.show()

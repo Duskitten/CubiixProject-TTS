@@ -50,7 +50,7 @@ func command_parser(text:String) -> void:
 					teleport.teleport_to_coords( Core.Persistant_Core.Player, Vector3(float(split_normal[1]),float(split_normal[2]),float(split_normal[3])), Core.Persistant_Core.Player.rotation )
 			
 			"show_coord":
-				print("Hewwo UwU")
+				#print("Hewwo UwU")
 				var current_player_position :Vector3 = Core.Persistant_Core.Player.global_position
 				new_debug("Current player coordinates: %f %f %f" % [current_player_position.x, current_player_position.y, current_player_position.z])
 

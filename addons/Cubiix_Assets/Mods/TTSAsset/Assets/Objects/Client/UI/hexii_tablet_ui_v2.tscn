@@ -1,4 +1,4 @@
-[gd_scene load_steps=219 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=218 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://vs6x01cc1fxt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Base.png" id="15_evwrj"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_devlog.gd" id="15_rcleq"]
 [ext_resource type="Texture2D" uid="uid://5tyort2rt0g4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Back_Hover.png" id="16_f4obj"]
-[ext_resource type="FontFile" uid="uid://8qduw4o3whqt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Regular.ttf" id="17_iygg2"]
 [ext_resource type="PackedScene" uid="uid://bc6sehgwqey1q" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/settings.tscn" id="20_yb38h"]
 [ext_resource type="Texture2D" uid="uid://bjx1yafhtgyeq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Backing.png" id="22_4ivrb"]
 [ext_resource type="Texture2D" uid="uid://d0a3m7qnlq1ra" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Online_Login_Window.png" id="23_neoin"]
@@ -172,8 +171,8 @@ thickness = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sueu"]
 bg_color = Color(0, 0.561, 0.6, 0.887)
-border_width_left = 26
-border_width_right = 26
+border_width_left = 2
+border_width_right = 2
 border_color = Color(0, 1, 0.20994, 1)
 border_blend = true
 corner_radius_top_left = 4
@@ -183,8 +182,8 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyaw1"]
 bg_color = Color(0.322, 0, 0.6, 0.357)
-border_width_left = 26
-border_width_right = 26
+border_width_left = 2
+border_width_right = 2
 border_color = Color(1, 0.647406, 0.63248, 1)
 border_blend = true
 corner_radius_top_left = 4
@@ -269,7 +268,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 1.01143, 0.604247, 1)
+bg_color = Color(0, -0.19376, 0.596605, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -278,11 +277,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 20.3471
-expand_margin_bottom = 20.3471
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.640049, 0.593775, 1)
+bg_color = Color(0, -0.61227, 0.593951, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -293,7 +290,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.315356, 0.595834, 1)
+bg_color = Color(0, 0.106453, 0.598509, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -304,7 +301,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.230443, 0.599295, 1)
+bg_color = Color(0, 0.438419, 0.600614, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -313,6 +310,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 1.6068
+expand_margin_bottom = 1.6068
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -1384,7 +1383,6 @@ tree_root = SubResource("AnimationNodeAnimation_smh1b")
 anim_player = NodePath("..")
 
 [node name="Devlog" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1453,7 +1451,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("14_q4chf")
-theme_override_fonts/normal_font = ExtResource("17_iygg2")
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
 theme_override_fonts/bold_font = ExtResource("5_d5qti")
 theme_override_font_sizes/normal_font_size = 14
 theme_override_styles/fill = SubResource("StyleBoxFlat_kah1a")
@@ -1496,6 +1494,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 259.95)
 layout_mode = 2
 theme = ExtResource("14_q4chf")
 horizontal_scroll_mode = 0
@@ -1508,6 +1507,7 @@ theme_override_constants/separation = 2
 
 [node name="Template_Button" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer"]
 visible = false
+custom_minimum_size = Vector2(0, 26.445)
 layout_mode = 2
 
 [node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Devlog/TextureRect/VBoxContainer/ScrollContainer/VBoxContainer/Template_Button"]
@@ -1574,6 +1574,7 @@ texture_hover = ExtResource("16_f4obj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Login" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2009,6 +2010,29 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 script = ExtResource("35_l23uk")
+
+[node name="Template_Server2" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer"]
+self_modulate = Color(0, 0.557249, 1, 1)
+layout_mode = 2
+texture_normal = ExtResource("25_wt8xs")
+metadata/ip = "127.0.0.1"
+metadata/port = "5599"
+metadata/Checked = false
+metadata/disabled = false
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/Template_Server2"]
+self_modulate = Color(0, 0.147648, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "Click To Refresh Serverlist"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer"]
 layout_mode = 2
@@ -5193,6 +5217,7 @@ offset_bottom = 40.0
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer/Remove_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Template_Server/HBoxContainer/Remove_Button" method="_on_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/VBoxContainer/HBoxContainer/Back" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList" method="_on_Edit_Back_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/Add_Screen/TextureRect/VBoxContainer/HBoxContainer/Add" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList" method="_on_edit_add_pressed"]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/Template_Server2" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer" method="force_refresh"]
 [connection signal="child_order_changed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/VBoxContainer" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer" method="updatevalues"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList/List/VBoxContainer/Add_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Login/TextureRect/Login_Controller/ServerList" method="_on_add_button_pressed"]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Update/TextureRect/Update_Controller/Confirm/VBoxContainer/TextureRect/VBoxContainer/HBoxContainer/GoBack" to="DragArea/Wallpaper_Backing/Transition_Controller" method="_on_texture_button_pressed" binds= ["Title", false, "Update"]]

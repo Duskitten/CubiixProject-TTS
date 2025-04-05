@@ -23,16 +23,16 @@ func check_for_new_room(RoomID:String) -> String:
 		else:
 			return create_new_room(RoomID)
 	else:
-		print("Error, Map Does Not Exist!")
+		#print("Error, Map Does Not Exist!")
 		return ""
 
 func create_new_room(RoomID:String) -> String:
 	var intcount = 0
-	print("test?")
+	#print("test?")
 	while Rooms.keys().has(RoomID+"-"+str(intcount)):
 		intcount += 1
 	var new_roomname = RoomID+"-"+str(intcount)
-	print(new_roomname)
+	#print(new_roomname)
 	var DupeDict = RoomTemplate.duplicate(true)
 	DupeDict["MapID"] = RoomID
 	Rooms[new_roomname] = DupeDict

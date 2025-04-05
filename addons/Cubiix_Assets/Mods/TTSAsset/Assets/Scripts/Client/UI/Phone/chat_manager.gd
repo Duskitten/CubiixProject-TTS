@@ -39,7 +39,7 @@ func append_new_messege(Type:ChatTypes, MessegeData:Dictionary) -> void:
 			new_messege.get_node("VBoxContainer/Button").disabled = true
 			adjust_messege(new_messege,">>System:", Color("#ab1c2e"),MessegeData["Messege"])
 		ChatTypes.PLAYER:
-			print(MessegeData["SenderPhone"])
+			#print(MessegeData["SenderPhone"])
 			if !MessegeData["SenderName"].strip_edges(true,true) == "":
 				adjust_messege(new_messege,MessegeData["SenderName"], Color("#7250ab"),MessegeData["Messege"])
 			else:

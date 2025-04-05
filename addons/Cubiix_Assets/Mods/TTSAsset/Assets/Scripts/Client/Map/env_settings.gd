@@ -6,5 +6,5 @@ func _ready() -> void:
 	Core.Globals.Setting_Changed.connect(update_setting.bind())
 
 func update_setting() -> void:
-	print("Test")
+	#print("Test")
 	get_parent().environment.glow_enabled = Core.Globals.Data["Visuals"]["Bloom"]

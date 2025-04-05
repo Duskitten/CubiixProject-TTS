@@ -141,7 +141,7 @@ func validation_request_completed(result, response_code, headers, body, Data:Dic
 						Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"][i].append(x)
 		
 		Valid_Accessories = Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"]
-		print(Valid_Accessories)
+		#print(Valid_Accessories)
 			
 		Character_Storage_Data["DB_Data"]["UserID"] = url
 		Character_Storage_Data["DB_Data"]["PhoneID"] = PhoneID
@@ -211,7 +211,7 @@ func save_player() -> void:
 		if Character_Storage_Data["DB_Version_Data"].has(i):
 			newtable[i] = JSON.stringify(Character_Storage_Data["DB_Version_Data"][i])
 	var DB =  Database.select_rows("PlayerInfo","userid is '"+url+"'",["*"])
-	print(DB)
+	#print(DB)
 	Database.update_rows("PlayerInfo","userid is '"+url+"'",newtable)
 
 func validate_character_update(Data:Dictionary) -> void:
@@ -258,7 +258,7 @@ var lastcheckThreshhold = 10
 var lastcheckCount = 0
 
 func timer_test() -> void:
-	print(DisconnectTimer, " ")
+	#print(DisconnectTimer, " ")
 	if DisconnectTimer != lastcheck:
 		lastcheckCount = 0
 		lastcheck = DisconnectTimer
