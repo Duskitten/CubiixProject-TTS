@@ -11,8 +11,8 @@ var defaults = {
 		"Unlocked_Accessories":{
 			"Head":[
 				"TTSAssets/Dock_Hat",
-				"TTSAssets/Witch_Hat",
 				"TTSAssets/Shroomby_Hat",
+				"TTSAssets/Witch_Hat",
 				"TTSAssets/DotMouse_Hat"
 				],
 			"Face":[
@@ -123,8 +123,16 @@ func validation_request_completed(result, response_code, headers, body, Data:Dic
 				if Server.Database_Manager.gamedata_versions.has(i):
 					Character_Storage_Data["DB_Version_Data"][i] = JSON.parse_string(DB[0][i])
 					check_for_updates(i)
-					
+	
+			for i in Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"]:
+				for x in defaults["gamedata_VB_01_00"]["Unlocked_Accessories"][i]:
+					if !Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"][i].has(x):
+						Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"][i].append(x)
 		
+		
+		Valid_Accessories = Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Unlocked_Accessories"]
+		print(Valid_Accessories)
+			
 		Character_Storage_Data["DB_Data"]["UserID"] = url
 		Character_Storage_Data["DB_Data"]["PhoneID"] = PhoneID
 		
@@ -175,23 +183,25 @@ func validate_character_update(Data:Dictionary) -> void:
 		Data["Character"]["W"] = "CoreAssets/Wings"
 	if !Server.Core.AssetData.assets_tagged["Tails"].has(Data["Character"]["T"]):
 		Data["Character"]["T"] = "CoreAssets/Tails"
-	
-	if !Server.Core.AssetData.assets_tagged["Head"].has(Data["Accessories"]["Head"]) && Data["Accessories"]["Head"].strip_edges(true,true) != "" && Valid_Accessories["Head"].has(Data["Accessories"]["Head"]):
+
+	if (!Server.Core.AssetData.assets_tagged["Head"].has(Data["Accessories"]["Head"]) || !Valid_Accessories["Head"].has(Data["Accessories"]["Head"])) && Data["Accessories"]["Head"].strip_edges(true,true) != "":
 		Data["Accessories"]["Head"] = ""
-	if !Server.Core.AssetData.assets_tagged["Chest"].has(Data["Accessories"]["Chest"]) && Data["Accessories"]["Chest"].strip_edges(true,true) != "" && Valid_Accessories["Chest"].has(Data["Accessories"]["Chest"]):
+	if (!Server.Core.AssetData.assets_tagged["Chest"].has(Data["Accessories"]["Chest"]) || !Valid_Accessories["Chest"].has(Data["Accessories"]["Chest"])) && Data["Accessories"]["Chest"].strip_edges(true,true) != "":
 		Data["Accessories"]["Chest"] = ""
-	if !Server.Core.AssetData.assets_tagged["Face"].has(Data["Accessories"]["Face"]) && Data["Accessories"]["Face"].strip_edges(true,true) != "" && Valid_Accessories["Face"].has(Data["Accessories"]["Face"]):
+	if (!Server.Core.AssetData.assets_tagged["Face"].has(Data["Accessories"]["Face"])  || !Valid_Accessories["Face"].has(Data["Accessories"]["Face"])) && Data["Accessories"]["Face"].strip_edges(true,true) != "":
 		Data["Accessories"]["Face"] = ""
-	if !Server.Core.AssetData.assets_tagged["Back"].has(Data["Accessories"]["Back"]) && Data["Accessories"]["Back"].strip_edges(true,true) != "" && Valid_Accessories["Back"].has(Data["Accessories"]["back"]):
+	if (!Server.Core.AssetData.assets_tagged["Back"].has(Data["Accessories"]["Back"]) || !Valid_Accessories["Back"].has(Data["Accessories"]["Back"])) && Data["Accessories"]["Back"].strip_edges(true,true) != "":
 		Data["Accessories"]["Back"] = ""
-	if !Server.Core.AssetData.assets_tagged["L_Hand"].has(Data["Accessories"]["L_Hand"]) && Data["Accessories"]["L_Hand"].strip_edges(true,true) != "" && Valid_Accessories["L_Hand"].has(Data["Accessories"]["L_Hand"]):
+	if (!Server.Core.AssetData.assets_tagged["L_Hand"].has(Data["Accessories"]["L_Hand"]) || !Valid_Accessories["L_Hand"].has(Data["Accessories"]["L_Hand"])) && Data["Accessories"]["L_Hand"].strip_edges(true,true) != "":
 		Data["Accessories"]["L_Hand"] = ""
-	if !Server.Core.AssetData.assets_tagged["R_Hand"].has(Data["Accessories"]["R_Hand"]) && Data["Accessories"]["R_Hand"].strip_edges(true,true) != "" && Valid_Accessories["R_Hand"].has(Data["Accessories"]["R_Hand"]):
+	if (!Server.Core.AssetData.assets_tagged["R_Hand"].has(Data["Accessories"]["R_Hand"]) || !Valid_Accessories["R_Hand"].has(Data["Accessories"]["R_Hand"])) && Data["Accessories"]["R_Hand"].strip_edges(true,true) != "":
 		Data["Accessories"]["R_Hand"] = ""
-	if !Server.Core.AssetData.assets_tagged["L_Hip"].has(Data["Accessories"]["L_Hip"]) && Data["Accessories"]["L_Hip"].strip_edges(true,true) != "" && Valid_Accessories["L_Hip"].has(Data["Accessories"]["L_Hip"]):
+	if (!Server.Core.AssetData.assets_tagged["L_Hip"].has(Data["Accessories"]["L_Hip"]) || !Valid_Accessories["L_Hip"].has(Data["Accessories"]["L_Hip"])) && Data["Accessories"]["L_Hip"].strip_edges(true,true) != "" :
 		Data["Accessories"]["L_Hip"] = ""
-	if !Server.Core.AssetData.assets_tagged["R_Hip"].has(Data["Accessories"]["R_Hip"]) && Data["Accessories"]["R_Hip"].strip_edges(true,true) != "" && Valid_Accessories["R_Hip"].has(Data["Accessories"]["R_Hip"]):
+	if (!Server.Core.AssetData.assets_tagged["R_Hip"].has(Data["Accessories"]["R_Hip"]) || !Valid_Accessories["R_Hip"].has(Data["Accessories"]["R_Hip"])) && Data["Accessories"]["R_Hip"].strip_edges(true,true) != "" :
 		Data["Accessories"]["R_Hip"] = ""
+	
+	
 	
 	Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Character"] =  Data["Character"]
 	Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Accessories"] = Data["Accessories"]

@@ -9,8 +9,8 @@ func server_compile(Server:Node, Player:ServerPlayer) -> void:
 		"Accessories":Player.Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Accessories"]
 	}
 	
+	
 func client_parse(Client:Node, Data:Variant) -> void:
-	print(Data)
 	var Hub = Client.Core.Persistant_Core.Player.Hub
 	Client.Core.AssetData.Tools.generate_character_from_string(JSON.stringify(Data["Character"]),Hub)
 	Client.Core.AssetData.Tools.generate_accessories_from_string(JSON.stringify(Data["Accessories"]),Hub)
