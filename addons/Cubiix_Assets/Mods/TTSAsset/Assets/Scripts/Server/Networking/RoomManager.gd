@@ -78,4 +78,8 @@ func update_chat(RoomName:String, User:ServerPlayer, Messeges:Dictionary) -> voi
 		var plr = Rooms[RoomName]["Players"][i]
 		Server.Commands["TTS_ChatMessege"].server_compile(Server,plr,Messeges)
 
-	
+func update_character(RoomName:String, User:ServerPlayer) -> void:
+	for i in Rooms[RoomName]["Players"].keys():
+		var plr = Rooms[RoomName]["Players"][i]
+		if plr != User:
+			Server.Commands["TTS_UpdateCharacter"].server_compile(Server,plr,User)

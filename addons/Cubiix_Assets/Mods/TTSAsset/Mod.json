@@ -523,7 +523,11 @@
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/SelfUpdateCharacter.gd",
 			},
-				
+			"TTS_UpdateCharacter":{
+				"Name":"TTS_UpdateCharacter",
+				"Tag":"Network_Command",
+				"Path":"Assets/Scripts/Shared/Network_Commands/UpdateCharacter.gd",
+			}
 		}
 	}
 }

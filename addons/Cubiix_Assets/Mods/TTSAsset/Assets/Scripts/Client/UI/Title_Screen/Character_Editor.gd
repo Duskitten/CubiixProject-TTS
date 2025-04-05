@@ -118,7 +118,11 @@ func _on_back_button_pressed(notkeep:bool = true) -> void:
 		if LastActiveScreen == "Code" || LastActiveScreen == "Details":
 			Core.AssetData.Tools.clone_character_with_accessories(character, self)
 		self.set(Target_Node,character.get(Target_Node))
-		Core.AssetData.Tools.clone_character_with_accessories(character,Core.Persistant_Core.Player.get_node("Hub"))
+		print(Target_Node)
+		if Core.Client.TCP.get_status() == StreamPeerTCP.STATUS_CONNECTED:
+			Core.Client.Commands["TTS_SelfUpdateCharacter"].client_compile(Core.Client)
+		else:
+			Core.AssetData.Tools.clone_character_with_accessories(character,Core.Persistant_Core.Player.get_node("Hub"))
 		
 func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 	LastActiveScreen = type

@@ -359,3 +359,16 @@ func export_character(Target:Node) -> String:
 	}
 	
 	return JSON.stringify(V3Template)
+
+func export_accessories(Target:Node) -> String:
+	var V3Template = {
+			"Head":Target.Acc_Head,
+			"Face":Target.Acc_Face,
+			"Chest":Target.Acc_Chest,
+			"Back":Target.Acc_Back,
+			"L_Hand":Target.Acc_L_Hand,
+			"R_Hand":Target.Acc_R_Hand,
+			"L_Hip":Target.Acc_L_Hip,
+			"R_Hip":Target.Acc_R_Hip
+		}
+	return JSON.stringify(V3Template)

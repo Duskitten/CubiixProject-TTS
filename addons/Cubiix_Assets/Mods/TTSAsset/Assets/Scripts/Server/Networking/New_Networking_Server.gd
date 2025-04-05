@@ -95,8 +95,12 @@ func network_process():
 				var who = Peer_Connections[i]
 				if Peer_Connections[i].Character_Storage_Data["Current_Room"] != "":
 					Room_Manager.notify_disconnect(Peer_Connections[i].Character_Storage_Data["Current_Room"],who)
+					Peer_Connections[i].save_player()
 				if Real_Connections.has(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"]):
 					Real_Connections.erase(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"])
+				
+				
+				
 				Peer_Connections[i].queue_free()
 				Peer_Connections.erase(i)
 

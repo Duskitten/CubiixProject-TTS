@@ -8,7 +8,30 @@ var defaults = {
 	"gamedata_VB_01_00":{
 		"Character" : {"B1":"9ec0bd","B1E":"6e6c5f","B1ES":1,"B1M":0.7,"B1R":0,"B2":"354c56","B2E":"63665f","B2ES":1,"B2M":0,"B2R":1,"B3":"ff7e00","B3E":"ffb67c","B3ES":1,"B3M":0,"B3R":1,"B4":"ff7e00","B4E":"ffb67c","B4ES":1,"B4M":0,"B4R":1,"EA":"CoreAssets/Ears","EX":"CoreAssets/Extra","EY":"CoreAssets/Eyes_Default","N":"","PA":"","PB":"","PC":"","S":1,"T":"CoreAssets/Tails","W":"CoreAssets/Wings"},
 		"Accessories": {"Head":"","Face":"","Chest":"","Back":"","L_Hip":"","R_Hip":"","L_Hand":"","R_Hand":""},
-		"Olive":{}
+		"Unlocked_Accessories":{
+			"Head":[
+				"TTSAssets/Dock_Hat",
+				"TTSAssets/Witch_Hat",
+				"TTSAssets/Shroomby_Hat",
+				"TTSAssets/DotMouse_Hat"
+				],
+			"Face":[
+				"TTSAssets/Ki_Star_Shades"
+				],
+			"Chest":[
+				"TTSAssets/Dock_Bib",
+				"TTSAssets/LGBT_Bandanna",
+				"TTSAssets/LGBT_Scarf"
+				],
+			"Back":[
+				"TTSAssets/LGBT_Cape",
+				"TTSAssets/FlyingV_Guitar"
+				],
+			"L_Hip":[],
+			"R_Hip":[],
+			"L_Hand":[],
+			"R_Hand":[]
+			}
 		}
 	}
 
@@ -33,12 +56,19 @@ var Character_Storage_Data = {
 		"IsAdmin":false
 	},
 	"DB_Version_Data":{
-		
+
 	}
 }
 
-var PosOverride = {
-	
+var Valid_Accessories = {
+	"Head":[],
+	"Face":[],
+	"Chest":[],
+	"Back":[],
+	"L_Hip":[],
+	"R_Hip":[],
+	"L_Hand":[],
+	"R_Hand":[]
 }
 
 var Current_Saved_Packet = {
@@ -55,9 +85,6 @@ func _ready() -> void:
 	
 	for i in Server.Database_Manager.gamedata_versions:
 		Character_Storage_Data["DB_Version_Data"][i] = {}
-
-func validate_accessories(accessorystring:String) -> String:
-	return ""
 
 func validate_player(Data:Dictionary)-> void:
 	ValidationRequest.request(Data["API_URL"]+ValidationURLAppend,PackedStringArray(["userID:\""+Data["Username"]+"\"","userSecretCode:\""+Data["SecretKey"]+"\""]))
@@ -112,7 +139,7 @@ func validation_request_completed(result, response_code, headers, body, Data:Dic
 		
 		Server.Commands["TTS_SelfUpdateCharacter"].server_compile(Server,self)
 		
-		save_player(Server)
+		save_player()
 		#await get_tree().create_timer(2).timeout
 		#print("testing Save")
 
@@ -123,7 +150,7 @@ func check_for_updates(string:String) -> void:
 			Character_Storage_Data["DB_Version_Data"][string][i] = defaults[string][i]
 
 
-func save_player(Server:Node) -> void:
+func save_player() -> void:
 	var Database = Server.Database_Manager.Database
 	var url = Character_Storage_Data["DB_Data"]["UserID"]
 	var newtable = {
@@ -135,3 +162,39 @@ func save_player(Server:Node) -> void:
 	var DB =  Database.select_rows("PlayerInfo","userid is '"+url+"'",["*"])
 	print(DB)
 	Database.update_rows("PlayerInfo","userid is '"+url+"'",newtable)
+
+func validate_character_update(Data:Dictionary) -> void:
+	
+	if !Server.Core.AssetData.assets_tagged["Eyes"].has(Data["Character"]["EY"]):
+		Data["Character"]["EY"] = "CoreAssets/Eyes_Default"
+	if !Server.Core.AssetData.assets_tagged["Ears"].has(Data["Character"]["EA"]):
+		Data["Character"]["EA"] = "CoreAssets/Ears"
+	if !Server.Core.AssetData.assets_tagged["Extras"].has(Data["Character"]["EX"]):
+		Data["Character"]["EX"] = "CoreAssets/Extra"
+	if !Server.Core.AssetData.assets_tagged["Wings"].has(Data["Character"]["W"]):
+		Data["Character"]["W"] = "CoreAssets/Wings"
+	if !Server.Core.AssetData.assets_tagged["Tails"].has(Data["Character"]["T"]):
+		Data["Character"]["T"] = "CoreAssets/Tails"
+	
+	if !Server.Core.AssetData.assets_tagged["Head"].has(Data["Accessories"]["Head"]) && Data["Accessories"]["Head"].strip_edges(true,true) != "" && Valid_Accessories["Head"].has(Data["Accessories"]["Head"]):
+		Data["Accessories"]["Head"] = ""
+	if !Server.Core.AssetData.assets_tagged["Chest"].has(Data["Accessories"]["Chest"]) && Data["Accessories"]["Chest"].strip_edges(true,true) != "" && Valid_Accessories["Chest"].has(Data["Accessories"]["Chest"]):
+		Data["Accessories"]["Chest"] = ""
+	if !Server.Core.AssetData.assets_tagged["Face"].has(Data["Accessories"]["Face"]) && Data["Accessories"]["Face"].strip_edges(true,true) != "" && Valid_Accessories["Face"].has(Data["Accessories"]["Face"]):
+		Data["Accessories"]["Face"] = ""
+	if !Server.Core.AssetData.assets_tagged["Back"].has(Data["Accessories"]["Back"]) && Data["Accessories"]["Back"].strip_edges(true,true) != "" && Valid_Accessories["Back"].has(Data["Accessories"]["back"]):
+		Data["Accessories"]["Back"] = ""
+	if !Server.Core.AssetData.assets_tagged["L_Hand"].has(Data["Accessories"]["L_Hand"]) && Data["Accessories"]["L_Hand"].strip_edges(true,true) != "" && Valid_Accessories["L_Hand"].has(Data["Accessories"]["L_Hand"]):
+		Data["Accessories"]["L_Hand"] = ""
+	if !Server.Core.AssetData.assets_tagged["R_Hand"].has(Data["Accessories"]["R_Hand"]) && Data["Accessories"]["R_Hand"].strip_edges(true,true) != "" && Valid_Accessories["R_Hand"].has(Data["Accessories"]["R_Hand"]):
+		Data["Accessories"]["R_Hand"] = ""
+	if !Server.Core.AssetData.assets_tagged["L_Hip"].has(Data["Accessories"]["L_Hip"]) && Data["Accessories"]["L_Hip"].strip_edges(true,true) != "" && Valid_Accessories["L_Hip"].has(Data["Accessories"]["L_Hip"]):
+		Data["Accessories"]["L_Hip"] = ""
+	if !Server.Core.AssetData.assets_tagged["R_Hip"].has(Data["Accessories"]["R_Hip"]) && Data["Accessories"]["R_Hip"].strip_edges(true,true) != "" && Valid_Accessories["R_Hip"].has(Data["Accessories"]["R_Hip"]):
+		Data["Accessories"]["R_Hip"] = ""
+	
+	Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Character"] =  Data["Character"]
+	Character_Storage_Data["DB_Version_Data"]["gamedata_VB_01_00"]["Accessories"] = Data["Accessories"]
+	
+	Server.Commands["TTS_SelfUpdateCharacter"].server_compile(Server,self)
+	Server.Room_Manager.update_character(Character_Storage_Data["Current_Room"], self)
