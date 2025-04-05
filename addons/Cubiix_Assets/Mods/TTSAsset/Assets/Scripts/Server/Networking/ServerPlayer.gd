@@ -53,7 +53,8 @@ var Character_Storage_Data = {
 		"UserID":"",
 		"PhoneID":"",
 		"IsMod":false,
-		"IsAdmin":false
+		"IsAdmin":false,
+		"IsOwner":false
 	},
 	"DB_Version_Data":{
 

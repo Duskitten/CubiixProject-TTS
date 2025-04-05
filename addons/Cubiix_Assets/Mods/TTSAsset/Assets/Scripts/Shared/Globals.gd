@@ -39,7 +39,11 @@ var server_template = {
 	"ServerName":"TestServer",
 	"ServerColor":"#fff500",
 	"API_URL":"https://api.cubiixproject.xyz",
-	"Auth_URL":"https://cubiixproject.xyz"
+	"Auth_URL":"https://cubiixproject.xyz",
+	"Moderators":[],
+	"Admins":[],
+	"Owners":[],
+	"BannedUserIDs":[],
 	}
 
 var Data:Dictionary = {}
