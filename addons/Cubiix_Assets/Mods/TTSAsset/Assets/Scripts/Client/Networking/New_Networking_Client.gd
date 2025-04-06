@@ -29,6 +29,7 @@ func _ready() -> void:
 
 func connect_to_server(ip:String,port:String) -> void:
 	TCP.connect_to_host(ip,int(port))
+	disable_connect = false
 	connect_timer.start()
 	start_network()
 	
@@ -43,44 +44,51 @@ func network_process():
 		TCP.poll()
 		match TCP.get_status():
 			StreamPeerTCP.STATUS_CONNECTED:
-				if disable_connect:
-					break
-				if !connect_timer.is_stopped():
-					connect_timer.call_deferred("stop")
+				
 				if TCP.get_available_bytes() > 0:
+					if !connect_timer.is_stopped():
+						connect_timer.call_deferred("stop")
 					var Data = TCP.get_var(false)
 					call_deferred("SendToParser",Data)
+					print(Data)
 					if !current_packet.is_empty():
 						TCP.put_var(current_packet)
 						current_packet = {"TTS_Ping":true}
+				else:
+					if disable_connect:
+						break
 
 			StreamPeerTCP.STATUS_CONNECTING:
 				#if TCP.get_available_bytes() > 0:
 					#Parse_Data.parse_data(self,TCP,TCP.get_var(false))
 				if disable_connect:
+					connect_timer.call_deferred("stop")
 					break
 				
 			StreamPeerTCP.STATUS_NONE:
-				if ping_system_toggle:
-					if disable_connect:
-						connect_timer.call_deferred("stop")
-						break
-				else:
-					break
-	#print("Disconnecting TCP")
+				break
+			StreamPeerTCP.STATUS_ERROR:
+				call_deferred("disable_connection")
+				break
+	print("Disconnecting TCP")
 	if TCP.get_status() != StreamPeerTCP.STATUS_NONE:
 		TCP.disconnect_from_host()
 	call_deferred("emit_signal","ClientDisconnected")
 	call_deferred("_exit_tree")
 
 func _exit_tree() -> void:
+	disable_connect = true
 	if NetworkThread.is_started():
 		NetworkThread.wait_to_finish()
 	
 func disable_connection():
-	emit_signal("ServerPolled")
-	connect_timer.call_deferred("stop")
 	disable_connect = true
+	if NetworkThread.is_started():
+		print("waiting to finish")
+		NetworkThread.wait_to_finish()
+		call_deferred("emit_signal","ServerPolled")
+		connect_timer.stop()
+	
 
 ### This is where we begin our ping test systems
 ### We will poll the server, then cut it once it obtains a response
@@ -102,6 +110,7 @@ func Poll_Server_Info(ip:String,port:String, coreNode:Control) -> void:
 	coreNode.get_node("HBoxContainer/PlayerCount").text = str(server_info_holder["CurrentPlayers"]) + "/" + str(server_info_holder["MaxPlayers"])
 	
 	Client_Disconnect_Server()
+	server_info_holder = {}
 
 func Client_Join_Server(ip:String,port:String) -> void:
 	current_packet = {}

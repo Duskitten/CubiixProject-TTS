@@ -12,9 +12,9 @@ var swim_pos
 func update_character(value:Dictionary) -> void:
 	stored_value = value
 
-func _process(delta:float) -> void:
-	if current_swim_particles != null:
-		current_swim_particles.global_position = get_parent().to_global(swim_pos)
+#func _process(delta:float) -> void:
+	#if current_swim_particles != null:
+		#current_swim_particles.global_position = get_parent().to_global(swim_pos)
 
 func _physics_process(delta: float) -> void:
 	get_parent().global_position = lerp(get_parent().global_position,stored_value["Position"],0.3)

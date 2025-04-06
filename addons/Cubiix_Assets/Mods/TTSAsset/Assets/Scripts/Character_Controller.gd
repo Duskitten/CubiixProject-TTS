@@ -69,6 +69,9 @@ var RayCast_Swim:RayCast3D = RayCast3D.new()
 var Swimming = false
 var current_swim_particles:Node
 var swim_pos:Vector3
+
+var sploosh = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/sploosh.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
+var particles = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/water_particles.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
 func _init() -> void:
 	## Disable these to prevent "Null" errors before load.
 	set_process(false)
@@ -209,21 +212,21 @@ func _physics_process(delta: float) -> void:
 			Character.global_transform.basis = align_up(Character.basis,RayCast_Swim.get_collision_normal(),1)
 			Character.position = RayCast_Swim.get_collision_point() - (Character.global_transform.basis.y * 0.48)
 			if falling:
-				var sploosh =  ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/sploosh.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
-				sploosh.get_node("AnimationPlayer").play("Sploosh")
-				Character.get_parent().get_node("Effects").add_child(sploosh)
-				sploosh.global_position = RayCast_Swim.get_collision_point()
-				sploosh.global_transform.basis = Character.global_transform.basis
+				var sploosh2 = sploosh.duplicate()
+				sploosh2.get_node("AnimationPlayer").play("Sploosh")
+				Character.get_parent().get_node("Effects").add_child(sploosh2)
+				sploosh2.global_position = RayCast_Swim.get_collision_point()
+				sploosh2.global_transform.basis = Character.global_transform.basis
 			falling = false
 			jumping = false
 			
-			var particles = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/water_particles.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
-			Character.get_parent().get_node("Effects").add_child(particles)
+			var particles2 = particles.duplicate()
+			Character.get_parent().get_node("Effects").add_child(particles2)
 			swim_pos = Character.to_local(RayCast_Swim.get_collision_point()) + Vector3(0,0.02,0)
-			particles.global_transform.basis = Character.global_transform.basis
+			particles2.global_transform.basis = Character.global_transform.basis
 			
-			current_swim_particles = particles
-			particles.emitting = true
+			current_swim_particles = particles2
+			particles2.emitting = true
 			
 		if !Swimming:
 			Fall_Delta = Time.get_ticks_msec() - Fall_Delta_Prev
@@ -294,11 +297,13 @@ func _physics_process(delta: float) -> void:
 				Swimming = false
 				AltJump = true
 				RayCast_Swim.enabled = true
-				current_swim_particles.emitting = false
+				if current_swim_particles != null:
+					current_swim_particles.emitting = false
 			elif Character.is_on_floor():
 				Swimming = false
 				RayCast_Swim.enabled = true
-				current_swim_particles.emitting = false
+				if current_swim_particles != null:
+					current_swim_particles.emitting = false
 				
 	Character.velocity = compiled_velocity + gravity_control
 	Character.move_and_slide()

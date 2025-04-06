@@ -154,33 +154,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
 
-[node name="Master" type="VBoxContainer" parent="TextureRect/Screens/Audio"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="TextureRect/Screens/Audio/Master"]
-layout_mode = 2
-theme = ExtResource("3_tssdb")
-theme_override_fonts/font = ExtResource("4_o3kyl")
-theme_override_font_sizes/font_size = 15
-theme_override_styles/normal = SubResource("StyleBoxFlat_adh8d")
-text = "Master"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/Screens/Audio/Master"]
-layout_mode = 2
-
-[node name="HSlider" type="HSlider" parent="TextureRect/Screens/Audio/Master/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("3_tssdb")
-min_value = -80.0
-max_value = 6.0
-
-[node name="HSeparator4" type="HSeparator" parent="TextureRect/Screens/Audio"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 6
-theme_override_styles/separator = SubResource("StyleBoxLine_h1uor")
-
 [node name="SFX" type="VBoxContainer" parent="TextureRect/Screens/Audio"]
 layout_mode = 2
 
@@ -199,8 +172,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_tssdb")
-min_value = -80.0
-max_value = 6.0
+min_value = -60.0
+max_value = 0.0
 
 [node name="HSeparator3" type="HSeparator" parent="TextureRect/Screens/Audio"]
 layout_mode = 2
@@ -226,8 +199,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_tssdb")
-min_value = -80.0
-max_value = 6.0
+min_value = -60.0
+max_value = 0.0
 
 [node name="HSeparator2" type="HSeparator" parent="TextureRect/Screens/Audio"]
 layout_mode = 2
@@ -253,8 +226,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_tssdb")
-min_value = -80.0
-max_value = 6.0
+min_value = -60.0
+max_value = 0.0
 
 [node name="HSeparator" type="HSeparator" parent="TextureRect/Screens/Audio"]
 layout_mode = 2
@@ -280,8 +253,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_tssdb")
-min_value = -80.0
-max_value = 6.0
+min_value = -60.0
+max_value = 0.0
 
 [node name="HSeparator6" type="HSeparator" parent="TextureRect/Screens/Audio"]
 layout_mode = 2
@@ -574,7 +547,6 @@ theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
-[connection signal="value_changed" from="TextureRect/Screens/Audio/Master/HBoxContainer/HSlider" to="TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Master", &"Audio"]]
 [connection signal="value_changed" from="TextureRect/Screens/Audio/SFX/HBoxContainer/HSlider" to="TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"SFX", &"Audio"]]
 [connection signal="value_changed" from="TextureRect/Screens/Audio/Music/HBoxContainer/HSlider" to="TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Music", &"Audio"]]
 [connection signal="value_changed" from="TextureRect/Screens/Audio/Notification/HBoxContainer/HSlider" to="TextureRect/Screens" method="_on_h_slider_value_changed" binds= [&"Notification", &"Audio"]]

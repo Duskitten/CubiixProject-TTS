@@ -154,7 +154,7 @@ func _on_generate_button_pressed(type:String,subtype:Node) -> void:
 				if image != null:
 					dupe_template.get_node("TextureButton/TextureRect").texture = image
 				else:
-					dupe_template.get_node("TextureButton/TextureRect").texture = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Card_Assets/Template_Card.png","",ResourceLoader.CACHE_MODE_REPLACE)
+					dupe_template.get_node("TextureButton/TextureRect").texture = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Card_Assets/Template_Card.png")
 				dupe_template.get_node("TextureButton").pressed.connect(set_new_value.bind(extended+str(subtype.name),i))
 				container.add_child(dupe_template)
 				container.move_child(dupe_template,0)

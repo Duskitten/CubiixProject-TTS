@@ -9,7 +9,8 @@ func server_parse(Server:Node, Player:ServerPlayer, Data:Variant) -> void:
 			if Core.Globals.GameVersion == Data["ClientVersion"]:
 				Player.call_deferred("validate_player",Data)
 			else:
-				Player.Current_Saved_Packet["Disconnect"] = "Wrong Game Version, Current Game Version: "+Core.Globals.GameVersion
+				Player.Character_Storage_Data["Disconnect"] = true
+				Player.Current_Saved_Packet["TTS_ServerChatMessege"] = "Wrong Game Version, Current Game Version: "+Core.Globals.GameVersion
 
 func server_compile(Server:Node, Player:ServerPlayer) -> void:
 	Player.Current_Saved_Packet["TTS_Ping_Init"] = "Hello, Who Are You?"

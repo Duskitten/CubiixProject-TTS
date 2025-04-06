@@ -13,7 +13,9 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 	if response != null && response.has("API"):
 		Core.Globals.NewGameVersion = response["API"]
 		
-		if Core.Globals.GameVersion != Core.Globals.NewGameVersion:
+		if Core.Globals.GameVersion != str(Core.Globals.NewGameVersion):
+			print(Core.Globals.GameVersion)
+			print(Core.Globals.NewGameVersion)
 			get_parent().show()
 
 

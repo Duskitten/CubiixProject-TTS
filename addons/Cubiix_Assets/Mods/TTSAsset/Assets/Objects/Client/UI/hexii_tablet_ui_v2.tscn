@@ -268,7 +268,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.625531, 0.593867, 1)
+bg_color = Color(0, 0.409074, 0.600428, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -277,9 +277,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 1.01064
+expand_margin_bottom = 1.01064
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.0841093, 0.598367, 1)
+bg_color = Color(0, 0.848622, 0.603215, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -288,9 +290,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 14.5964
+expand_margin_bottom = 14.5964
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.506225, 0.601044, 1)
+bg_color = Color(0, 0.363913, 0.600142, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -299,11 +303,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 3.48439
-expand_margin_bottom = 3.48439
+expand_margin_top = 0.400107
+expand_margin_bottom = 0.400107
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.918013, 0.603655, 1)
+bg_color = Color(0, -0.796392, 0.592784, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -312,8 +316,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 17.0125
-expand_margin_bottom = 17.0125
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -2102,7 +2104,6 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
 [node name="Update" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

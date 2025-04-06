@@ -16,9 +16,11 @@ func updatevalues() -> void:
 					(i as TextureButton).pressed.connect(join_server.bind(i))
 					if i.get_meta("ip").is_valid_ip_address && i.get_meta("port").is_valid_int():
 						Core.Client.Poll_Server_Info(i.get_meta("ip"),i.get_meta("port"), i)
+						print("Checking!")
 						await Core.Client.ServerPolled
-						await get_tree().process_frame
+						await get_tree().create_timer(2)
 						i.set_meta("Checked", true)
+						
 		disable = false
 
 func force_refresh() -> void:
@@ -31,7 +33,7 @@ func force_refresh() -> void:
 				if i.get_meta("ip").is_valid_ip_address && i.get_meta("port").is_valid_int():
 						Core.Client.Poll_Server_Info(i.get_meta("ip"),i.get_meta("port"), i)
 						await Core.Client.ServerPolled
-						await get_tree().process_frame
+						await get_tree().create_timer(2)
 						i.set_meta("Checked", true)
 		disable = false
 

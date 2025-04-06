@@ -12,4 +12,4 @@ func server_compile(Server:Node, Player:ServerPlayer) -> void:
 	
 func client_parse(Client:Node, Data:Variant) -> void:
 	Client.server_info_holder = Data
-	Client.call_deferred("emit_signal","ServerPolled")
+	Client.call_deferred("disable_connection")

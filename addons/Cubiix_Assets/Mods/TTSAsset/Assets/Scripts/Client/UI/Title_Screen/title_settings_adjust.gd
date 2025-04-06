@@ -36,7 +36,6 @@ func _on_button_pressed(extra_arg_0:String) -> void:
 	match extra_arg_0:
 		"Audio":
 			get_node("Audio/SFX/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["SFX"]
-			get_node("Audio/Master/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Master"]
 			get_node("Audio/Music/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Music"]
 			get_node("Audio/Notification/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Notification"]
 			get_node("Audio/Ping/HBoxContainer/HSlider").value = Core.Globals.Data[str(extra_arg_0)]["Ping"]

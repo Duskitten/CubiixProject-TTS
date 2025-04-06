@@ -93,7 +93,8 @@ func network_process():
 				##send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
 				if peer.get_available_bytes() > 0:
 					Peer_Connections[i].DisconnectTimer = 0
-					call_deferred("SendToParser",Peer_Connections[i], peer.get_var(false))
+					var data = peer.get_var(false)
+					call_deferred("SendToParser",Peer_Connections[i], data)
 				elif peer.get_available_bytes() <= 0:
 					if Peer_Connections[i].Character_Storage_Data["Current_Room"] != "":
 						Peer_Connections[i].DisconnectTimer += 1
@@ -111,6 +112,6 @@ func network_process():
 				Peer_Connections[i].queue_free()
 				Peer_Connections.erase(i)
 
-func SendToParser(Peer:ServerPlayer,Data:Dictionary) -> void:
+func SendToParser(Peer:ServerPlayer,Data) -> void:
 	for i in Data.keys():
 		Commands[i].server_parse(self, Peer, Data[i])
