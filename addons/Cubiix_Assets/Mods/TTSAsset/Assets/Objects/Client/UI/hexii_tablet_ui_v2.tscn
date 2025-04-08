@@ -1,4 +1,4 @@
-[gd_scene load_steps=218 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=220 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -90,6 +90,8 @@
 [ext_resource type="Texture2D" uid="uid://cjtr4mys5irfy" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/Tixii_Logo_V2.png" id="61_2m45u"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/command_parser.gd" id="61_arkv6"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
+[ext_resource type="Texture2D" uid="uid://bsq4glihvq1iu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Card_Tab_Base.png" id="89_xnolo"]
+[ext_resource type="Texture2D" uid="uid://cqs18g6d3t5qh" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Card_Tab_Hover.png" id="90_d3pfx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
 
@@ -268,7 +270,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.409074, 0.600428, 1)
+bg_color = Color(0, 0.809779, 0.602969, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -277,11 +279,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 1.01064
-expand_margin_bottom = 1.01064
+expand_margin_top = 13.2418
+expand_margin_bottom = 13.2418
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.848622, 0.603215, 1)
+bg_color = Color(0, 0.646283, 0.601932, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -290,11 +292,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 14.5964
-expand_margin_bottom = 14.5964
+expand_margin_top = 8.06456
+expand_margin_bottom = 8.06456
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.363913, 0.600142, 1)
+bg_color = Color(0, -0.682843, 0.593504, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -303,11 +305,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 0.400107
-expand_margin_bottom = 0.400107
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.796392, 0.592784, 1)
+bg_color = Color(0, -0.397067, 0.595316, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -1387,6 +1387,7 @@ tree_root = SubResource("AnimationNodeAnimation_smh1b")
 anim_player = NodePath("..")
 
 [node name="Devlog" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2104,6 +2105,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
 
 [node name="Update" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2370,6 +2372,7 @@ grow_vertical = 2
 script = ExtResource("26_ld6j6")
 
 [node name="In-Game_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -2978,7 +2981,7 @@ world_3d = SubResource("World3D_l6x5t")
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(198, 367)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
 
@@ -5131,6 +5134,16 @@ texture_normal = ExtResource("52_pfxns")
 texture_pressed = ExtResource("52_pfxns")
 texture_hover = ExtResource("53_ybm6u")
 
+[node name="Card_Button" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+layout_mode = 2
+offset_left = 251.0
+offset_top = 382.0
+offset_right = 282.0
+offset_bottom = 425.0
+texture_normal = ExtResource("89_xnolo")
+texture_pressed = ExtResource("89_xnolo")
+texture_hover = ExtResource("90_d3pfx")
+
 [node name="Debug" type="Control" parent="DragArea/Wallpaper_Backing"]
 visible = false
 layout_mode = 1
@@ -5349,6 +5362,7 @@ offset_bottom = 40.0
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/TextureButton2" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Settings"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/HBoxContainer/Moon" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["Moon"]]
 [connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Center_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["In-Game_Controller"]]
+[connection signal="pressed" from="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Card_Button" to="DragArea/Wallpaper_Backing/Transition_Controller/Offline" method="_on_transition_button_pressed" binds= ["CardMenu"]]
 [connection signal="gui_input" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_gui_input"]
 [connection signal="text_submitted" from="DragArea/Wallpaper_Backing/Debug/LineEdit" to="DragArea/Wallpaper_Backing/Debug/Command_Parser" method="_on_line_edit_text_submitted"]
 
