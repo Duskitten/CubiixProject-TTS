@@ -1,4 +1,4 @@
-[gd_scene load_steps=220 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=232 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -89,6 +89,10 @@
 [ext_resource type="Texture2D" uid="uid://rqhy8ml8mxm3" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Taskbar_Icons/CollectionsButton_Hover.png" id="58_q8jin"]
 [ext_resource type="Texture2D" uid="uid://cjtr4mys5irfy" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Faction_Icons/Tixii_Logo_V2.png" id="61_2m45u"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/command_parser.gd" id="61_arkv6"]
+[ext_resource type="Texture2D" uid="uid://diwlnkcggl34n" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Carding.Backing.png" id="79_ufpcg"]
+[ext_resource type="Texture2D" uid="uid://dma0kmiv76sog" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Carding_CardArea_Base.png" id="80_ewk5x"]
+[ext_resource type="Texture2D" uid="uid://cwtph4kwg4dv" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Carding_CardArea_Hover.png" id="81_xkb1r"]
+[ext_resource type="Texture2D" uid="uid://cyrsdnp5hipel" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Test_Cart.png" id="82_r5oag"]
 [ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 [ext_resource type="Texture2D" uid="uid://bsq4glihvq1iu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Card_Tab_Base.png" id="89_xnolo"]
 [ext_resource type="Texture2D" uid="uid://cqs18g6d3t5qh" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Card_Tab_Hover.png" id="90_d3pfx"]
@@ -270,7 +274,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.809779, 0.602969, 1)
+bg_color = Color(0, -0.404574, 0.595268, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -279,11 +283,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 13.2418
-expand_margin_bottom = 13.2418
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.646283, 0.601932, 1)
+bg_color = Color(0, -0.530702, 0.594469, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -292,11 +294,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 8.06456
-expand_margin_bottom = 8.06456
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.682843, 0.593504, 1)
+bg_color = Color(0, 0.207665, 0.599151, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -307,7 +307,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.397067, 0.595316, 1)
+bg_color = Color(0, 0.51221, 0.601082, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -316,6 +316,8 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 3.53486
+expand_margin_bottom = 3.53486
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -868,6 +870,63 @@ _data = {
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cyr2w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fext"]
+bg_color = Color(0.27, 0.27, 0.27, 0.2)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr7tl"]
+bg_color = Color(0.335164, 0.310587, 0.6, 0.694118)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm0f1"]
+bg_color = Color(0.232, 0.2842, 0.58, 0.619608)
+border_color = Color(0.5, 0, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exigv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrr4m"]
+bg_color = Color(0.3484, 0.36556, 0.52, 0.623529)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0u1pg"]
+bg_color = Color(0.3484, 0.36556, 0.52, 0.623529)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvv3n"]
+bg_color = Color(0.3484, 0.36556, 0.52, 0.623529)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6p5w"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0992, 0.12128, 0.32, 0.690196)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0e5y"]
 
@@ -5061,6 +5120,396 @@ theme_override_styles/separator = SubResource("StyleBoxLine_nctn5")
 [node name="HSeparator3" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/Moon/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kmnbe")
+
+[node name="CardMenu" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/Open = false
+metadata/Close_Pos = Vector2(325.5, 380)
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 443.0
+offset_bottom = 377.0
+texture = ExtResource("79_ufpcg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 164.0
+offset_bottom = 118.0
+theme = ExtResource("14_q4chf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5fext")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Button" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/ScrollContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_mr7tl")
+text = "Template Deck Name"
+
+[node name="Button8" type="Button" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_mr7tl")
+text = "+"
+
+[node name="TextureButton9" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect"]
+layout_mode = 2
+offset_left = 175.0
+offset_top = 20.0
+offset_right = 257.0
+offset_bottom = 121.0
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/TextureButton9"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -50.0
+offset_right = 172.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 12
+columns = 4
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer/TextureButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="TextureButton2" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer/TextureButton2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="TextureButton3" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer/TextureButton3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="TextureButton4" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer/TextureButton4"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="TextureButton5" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer/TextureButton5"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="TextureButton6" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer/TextureButton6"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="TextureButton7" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer/TextureButton7"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="TextureButton8" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("80_ewk5x")
+texture_hover = ExtResource("81_xkb1r")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/HBoxContainer/GridContainer/TextureButton8"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -47.0
+offset_right = 33.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("82_r5oag")
+
+[node name="Preview" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect"]
+visible = false
+custom_minimum_size = Vector2(367.445, 234.5)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.723
+offset_top = -117.5
+offset_right = 183.723
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sm0f1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(17.77, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_exigv")
+
+[node name="Template_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(135.1, 38)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer/Template_Controller"]
+layout_mode = 2
+offset_right = 134.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer/Template_Controller/TextureButton"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 174.0
+pivot_offset = Vector2(67, 96)
+mouse_filter = 2
+texture = ExtResource("29_6jmre")
+
+[node name="Label" type="Label" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer/Template_Controller/TextureButton/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d5qti")
+theme_override_font_sizes/font_size = 12
+text = "LGBT Cape"
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(17.77, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_exigv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/fill = SubResource("StyleBoxFlat_rrr4m")
+theme_override_styles/background = SubResource("StyleBoxFlat_0u1pg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lvv3n")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x6p5w")
+bbcode_enabled = true
+text = "[center]<insert card name here>"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_exigv")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 138.81)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("5_d5qti")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/fill = SubResource("StyleBoxFlat_rrr4m")
+theme_override_styles/background = SubResource("StyleBoxFlat_0u1pg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lvv3n")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x6p5w")
+bbcode_enabled = true
+text = "[center]<insert card description here>"
+fit_content = true
+
+[node name="VSeparator2" type="VSeparator" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/CardMenu/TextureRect/Preview/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(17.77, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_exigv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
 custom_minimum_size = Vector2(0, 7.06)

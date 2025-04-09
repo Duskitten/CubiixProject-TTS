@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=36 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/persistant_core.gd" id="1_avm5g"]
 [ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/version_image.tscn" id="2_j6tbw"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c2701u34x8dm0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_tablet_ui_v2.tscn" id="4_yn8bv"]
 [ext_resource type="PackedScene" uid="uid://cufaqwnfhx7e5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_phone_ui_v2.tscn" id="5_h76e0"]
 [ext_resource type="Texture2D" uid="uid://3y0k7m58gqtr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png" id="7_h2oss"]
+[ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="10_st7my"]
 [ext_resource type="Texture2D" uid="uid://bxbehfpnollp1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Loading.png" id="11_jhpuk"]
+[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="11_rr2a5"]
 [ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/camera_settings.gd" id="11_v4hbs"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="13_7phac"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Shiftlock.png" id="14_sqbso"]
@@ -221,6 +223,84 @@ _data = {
 "RESET": SubResource("Animation_e2t24")
 }
 
+[sub_resource type="Gradient" id="Gradient_vxtpk"]
+offsets = PackedFloat32Array(0, 0.45, 0.54, 0.9, 1)
+colors = PackedColorArray(0, 0.141176, 0.333333, 0.619608, 0, 0.684126, 0.792969, 0.619608, 0.519774, 1, 0.971751, 1, 0.351254, 0.675781, 0.656691, 1, 0, 0.141176, 0.333333, 0.619608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4o0ib"]
+gradient = SubResource("Gradient_vxtpk")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5t2t6"]
+texture = SubResource("GradientTexture2D_4o0ib")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr5wn"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.06, 0.765, 1, 0.215686)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.706288, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+expand_margin_right = 20.0
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpbmt"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0, 0.95, 1, 0.47451)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.98606, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvwao"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0, 0.342, 0.36, 0.47451)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.118, 0.12, 0.796078)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwxdb"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.06, 0.765, 1, 0.215686)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.706288, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_size = 2
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_sqaxx"]
 radius = 0.2
 
@@ -321,7 +401,6 @@ position = Vector2(-40, 18)
 rotation = 1.5708
 texture = ExtResource("11_jhpuk")
 hframes = 4
-frame = 3
 
 [node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -357,6 +436,7 @@ position = Vector2(-40, -40)
 rotation = 3.14159
 texture = ExtResource("11_jhpuk")
 hframes = 4
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transitioner/Control"]
 libraries = {
@@ -429,6 +509,80 @@ offset_right = 435.0
 offset_bottom = 349.0
 texture = ExtResource("14_sqbso")
 expand_mode = 5
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5t2t6")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Button" type="Panel" parent="CanvasLayer/Panel/HBoxContainer2"]
+custom_minimum_size = Vector2(83.565, 22.185)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mr5wn")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/HBoxContainer2/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_st7my")
+text = "10:10 AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_rr2a5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_st7my")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bpbmt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nvwao")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwxdb")
+text = "Hexii_Phone"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_st7my")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bpbmt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nvwao")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwxdb")
+text = "Hexii_Tablet"
 
 [node name="Node3D" type="Node3D" parent="."]
 
