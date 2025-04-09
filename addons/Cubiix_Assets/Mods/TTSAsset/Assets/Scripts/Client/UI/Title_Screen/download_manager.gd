@@ -3,10 +3,10 @@ extends Control
 var loadscene = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/Update_Transition_Scene.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$HTTPRequest.download_file = OS.get_executable_path().get_base_dir() + "/Cubiix_Project.pck"
+	$HTTPRequest.download_file = OS.get_executable_path().get_base_dir() + "/update.zip"
 
 func trigger_update() -> void:
-	$HTTPRequest.request(Core.Globals.Data["API_URL"]+"/game/versionDownload",PackedStringArray(["versionID:"+Core.Globals.NewGameVersion]))
+	$HTTPRequest.request(Core.Globals.Data["API_URL"]+"/game/versionDownload2",PackedStringArray(["versionID:"+Core.Globals.NewGameVersion,"OS:"+(OS.get_name().to_lower())]))
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var json = JSON.new()
@@ -16,8 +16,23 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	$VBoxContainer/TextureRect/VBoxContainer/Confirm.show()
 	$VBoxContainer/TextureRect/VBoxContainer/Text.text = "Restart?"
 
-func finished_download() -> void:
-	get_node("/root/").add_child(loadscene)
-
 func _on_confirm_pressed() -> void:
-	finished_download()
+	var reader = ZIPReader.new()
+	reader.open(OS.get_executable_path().get_base_dir() + "/update.zip")
+	var root_dir = DirAccess.open(OS.get_executable_path().get_base_dir())
+	var files = reader.get_files()
+	for file_path in files:
+		if file_path.ends_with("/"):
+			root_dir.make_dir_recursive(file_path)
+			continue
+		root_dir.make_dir_recursive(root_dir.get_current_dir().path_join(file_path).get_base_dir())
+		var file = FileAccess.open(root_dir.get_current_dir().path_join(file_path), FileAccess.WRITE)
+		var buffer = reader.read_file(file_path)
+		file.store_buffer(buffer)
+	match OS.get_name().to_lower():
+		"windows":
+			OS.create_process(OS.get_executable_path().get_base_dir()+"/update/updater.bat",[])
+			get_tree().quit()
+		"linux":
+			OS.create_process(OS.get_executable_path().get_base_dir()+"/update/updater.sh",[])
+			get_tree().quit()

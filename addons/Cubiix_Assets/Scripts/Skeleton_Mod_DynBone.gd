@@ -78,6 +78,5 @@ func _process_modification() -> void:
 					
 					var final_quaternion = Quaternion(ray_a,ray_b) * DynBones_CoreRot[x]["DynBone_Sets"][y][z]
 					Skeleton.set_bone_pose_rotation(current_bone,final_quaternion)
-					
-						
+
 	olddelta = get_process_delta_time()
