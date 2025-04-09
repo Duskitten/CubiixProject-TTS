@@ -131,7 +131,7 @@ func load_mod_assets() -> void:
 						assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 					else:
 						if x != "Scripts" && x != "Network_Commands":
-							compiled_assets[assets[i][x][y]["Path"]] = ResourceLoader.load(assets[i][x][y]["Path"],"",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
+							compiled_assets[assets[i][x][y]["Path"]] = load(assets[i][x][y]["Path"]).instantiate()
 							assets[i][x][y]["Node"] = compiled_assets[assets[i][x][y]["Path"]]
 						
 	call_deferred("emit_signal","load_finished")

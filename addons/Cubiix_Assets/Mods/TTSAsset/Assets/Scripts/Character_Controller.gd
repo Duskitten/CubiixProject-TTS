@@ -70,8 +70,8 @@ var Swimming = false
 var current_swim_particles:Node
 var swim_pos:Vector3
 
-var sploosh = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/sploosh.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
-var particles = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/water_particles.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
+var sploosh = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/sploosh.tscn").instantiate()
+var particles = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/water_particles.tscn").instantiate()
 func _init() -> void:
 	## Disable these to prevent "Null" errors before load.
 	set_process(false)

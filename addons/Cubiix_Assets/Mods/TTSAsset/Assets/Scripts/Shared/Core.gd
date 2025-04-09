@@ -26,17 +26,17 @@ func _ready():
 	Update_LogoText("Initiating Asset Load...")
 	await get_tree().create_timer(1).timeout
 	Update_LogoText("Loading Asset Data...")
-	AssetData = ResourceLoader.load("res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd","",ResourceLoader.CACHE_MODE_REPLACE).new()
+	AssetData = load("res://addons/Cubiix_Assets/Scripts/Asset_Manager.gd").new()
 	AssetData.name = "AssetData"
 	
 	if OS.has_feature("client"): #|| OS.is_debug_build():
 		AssetData.runsetup()
 		await AssetData.FinishedLoad
-		SceneData = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Scene_Loader.gd","",ResourceLoader.CACHE_MODE_IGNORE).new()
-		Globals = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd","",ResourceLoader.CACHE_MODE_IGNORE).new()
-		Client = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Networking/New_Networking_Client.gd","",ResourceLoader.CACHE_MODE_IGNORE).new()
-		Dialogue_Handler = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/DialogueBank.gd","",ResourceLoader.CACHE_MODE_IGNORE).new()
-		Persistant_Core = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Persistant_Core.tscn","",ResourceLoader.CACHE_MODE_IGNORE).instantiate()
+		SceneData = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Scene_Loader.gd").new()
+		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
+		Client = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Networking/New_Networking_Client.gd").new()
+		Dialogue_Handler = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/DialogueBank.gd").new()
+		Persistant_Core = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Persistant_Core.tscn").instantiate()
 		add_child(AssetData)
 		add_child(SceneData)
 		add_child(Globals)
@@ -62,11 +62,11 @@ func _ready():
 		AssetData.name = "AssetData"
 		await AssetData.FinishedLoad
 		
-		Globals = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd","",ResourceLoader.CACHE_MODE_REPLACE).new()
+		Globals = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Shared/Globals.gd").new()
 		add_child(AssetData)
 		add_child(Globals)
 		await get_tree().create_timer(1).timeout
-		Server = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/Networking/New_Networking_Server.gd","",ResourceLoader.CACHE_MODE_REPLACE).new()
+		Server = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Server/Networking/New_Networking_Server.gd").new()
 		add_child(Server)
 		
 		#print(Globals.GameVersion)

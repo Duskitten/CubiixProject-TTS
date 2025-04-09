@@ -12,6 +12,6 @@ func _ready() -> void:
 	var success = ProjectSettings.load_resource_pack(OS.get_executable_path().get_base_dir()+"/Cubiix_Project.pck",true)
 	#print(success)
 	await get_tree().create_timer(3).timeout
-	var newCore = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Shared/main_scene.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
+	var newCore = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Shared/main_scene.tscn").instantiate()
 	get_node("/root").add_child(newCore)
 	self.queue_free()

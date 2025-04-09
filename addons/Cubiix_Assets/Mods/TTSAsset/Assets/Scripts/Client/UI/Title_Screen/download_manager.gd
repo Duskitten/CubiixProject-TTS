@@ -1,6 +1,6 @@
 extends Control
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
-var loadscene = ResourceLoader.load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/Update_Transition_Scene.tscn","",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
+var loadscene = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/Update_Transition_Scene.tscn").instantiate()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$HTTPRequest.download_file = OS.get_executable_path().get_base_dir() + "/update.zip"
