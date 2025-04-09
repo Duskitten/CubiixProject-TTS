@@ -8,7 +8,7 @@ The project is maintained by Duskitten / [Selkspace](https://selkspace.xyz), and
 
 ## Instructions
 
-- The project is currently built with the [Godot Engine 4.3](https://godotengine.org/).
+- The project is currently built with the [Godot Engine 4.4.1](https://godotengine.org/).
 - Download and open the project as normal.
 
 ## Credits
