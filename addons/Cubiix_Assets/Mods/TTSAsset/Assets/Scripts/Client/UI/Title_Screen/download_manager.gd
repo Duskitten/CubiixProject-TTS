@@ -29,10 +29,12 @@ func _on_confirm_pressed() -> void:
 		var file = FileAccess.open(root_dir.get_current_dir().path_join(file_path), FileAccess.WRITE)
 		var buffer = reader.read_file(file_path)
 		file.store_buffer(buffer)
+	
 	match OS.get_name().to_lower():
 		"windows":
 			OS.create_process(OS.get_executable_path().get_base_dir()+"/update/updater.bat",[])
-			get_tree().quit()
 		"linux":
 			OS.create_process(OS.get_executable_path().get_base_dir()+"/update/updater.sh",[])
-			get_tree().quit()
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	await get_tree().process_frame
+	get_tree().quit()
