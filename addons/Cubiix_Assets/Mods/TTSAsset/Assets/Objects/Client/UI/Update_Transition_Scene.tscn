@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqu5v1rpacll"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/update_transition_scene.gd" id="1_tt3b8"]
+[ext_resource type="Script" uid="uid://bovl7vwgk44b8" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/update_transition_scene.gd" id="1_tt3b8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg2hk"]
 bg_color = Color(0, 0, 0, 1)

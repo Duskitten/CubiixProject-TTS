@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://drauuuybit8p0"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/sploosh.gd" id="1_dn42h"]
+[ext_resource type="Script" uid="uid://ct260vss4y7ig" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/sploosh.gd" id="1_dn42h"]
 [ext_resource type="PackedScene" uid="uid://caan6u6k0t73d" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Effects/Water_Sploosh.gltf" id="2_ide3k"]
 [ext_resource type="Material" uid="uid://dvkd67yfn1mvl" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Effects/sploosh.tres" id="3_8xyu7"]
 
@@ -157,8 +157,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g5ysi"]
 _data = {
-"RESET": SubResource("Animation_br13y"),
-"Sploosh": SubResource("Animation_mojsq")
+&"RESET": SubResource("Animation_br13y"),
+&"Sploosh": SubResource("Animation_mojsq")
 }
 
 [node name="Sploosh" type="Node3D"]

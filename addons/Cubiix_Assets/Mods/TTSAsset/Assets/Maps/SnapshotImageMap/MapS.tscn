@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/HexstariaV2.gltf" id="5_i7j2b"]
 [ext_resource type="Texture2D" uid="uid://c05b25xo00o6r" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Hangar.png" id="6_knl72"]
 [ext_resource type="Material" uid="uid://cnia27pxku16a" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Gear.tres" id="7_qxe44"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/World/observatory_gears.gd" id="8_i21uv"]
+[ext_resource type="Script" uid="uid://cnvpy788ay3lv" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/World/observatory_gears.gd" id="8_i21uv"]
 [ext_resource type="Material" uid="uid://cdrbobpljb5b1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Gear_Telescope.tres" id="9_h1n88"]
 [ext_resource type="Material" uid="uid://cidrwugm0awye" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hollow.tres" id="10_0emdq"]
 [ext_resource type="Material" uid="uid://c23u4882guha4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hut_2.tres" id="11_kesko"]
@@ -269,9 +269,9 @@ fill_to = Vector2(1, 0.1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8bceo"]
 shader = SubResource("VisualShader_xjhsa")
-shader_parameter/SkyDarkness = 1.0
 shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_6p0ml")
 shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_iri0c")
+shader_parameter/SkyDarkness = 1.0
 
 [sub_resource type="Sky" id="Sky_7wlli"]
 sky_material = SubResource("ShaderMaterial_8bceo")
@@ -461,8 +461,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cmo3a"]
 _data = {
-"Bounce": SubResource("Animation_5i1se"),
-"RESET": SubResource("Animation_qbtc8")
+&"Bounce": SubResource("Animation_5i1se"),
+&"RESET": SubResource("Animation_qbtc8")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0armg"]

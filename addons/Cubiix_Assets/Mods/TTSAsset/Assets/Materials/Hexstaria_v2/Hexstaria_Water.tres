@@ -25,8 +25,8 @@ noise = SubResource("FastNoiseLite_t2oll")
 [resource]
 render_priority = 12
 shader = ExtResource("1_5864u")
+shader_parameter/TextureParameterTriplanar2 = SubResource("NoiseTexture2D_q7o4d")
+shader_parameter/TextureParameterTriplanar = SubResource("NoiseTexture2D_q7o4d")
 shader_parameter/triplanar_scale = Vector3(1, 1, 1)
 shader_parameter/triplanar_offset = Vector3(0, 0, 0)
 shader_parameter/triplanar_sharpness = 0.5
-shader_parameter/TextureParameterTriplanar2 = SubResource("NoiseTexture2D_q7o4d")
-shader_parameter/TextureParameterTriplanar = SubResource("NoiseTexture2D_q7o4d")

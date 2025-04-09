@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://dvvu2ls7inlev"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/persistant_core.gd" id="1_avm5g"]
+[ext_resource type="Script" uid="uid://ktth0ilkl1ry" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/persistant_core.gd" id="1_avm5g"]
 [ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/version_image.tscn" id="2_j6tbw"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/Dialogue.tscn" id="3_0531y"]
 [ext_resource type="PackedScene" uid="uid://c2701u34x8dm0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_tablet_ui_v2.tscn" id="4_yn8bv"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://3y0k7m58gqtr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png" id="7_h2oss"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="10_st7my"]
 [ext_resource type="Texture2D" uid="uid://bxbehfpnollp1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Loading.png" id="11_jhpuk"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="11_rr2a5"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/camera_settings.gd" id="11_v4hbs"]
+[ext_resource type="Script" uid="uid://cv18ea4ncsogo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="11_rr2a5"]
+[ext_resource type="Script" uid="uid://bh6yacjxyssxg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/camera_settings.gd" id="11_v4hbs"]
 [ext_resource type="FontFile" uid="uid://d4abxqqufataa" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Courier-Prime-Code/Courier Prime Code.ttf" id="13_7phac"]
 [ext_resource type="Texture2D" uid="uid://b2j135lyefuy1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Shiftlock.png" id="14_sqbso"]
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="15_rfthv"]
@@ -135,8 +135,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ima1k"]
 _data = {
-"Loading": SubResource("Animation_41tnh"),
-"RESET": SubResource("Animation_4ltjv")
+&"Loading": SubResource("Animation_41tnh"),
+&"RESET": SubResource("Animation_4ltjv")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ae5f8"]
@@ -219,8 +219,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qifgu"]
 _data = {
-"FadeOut": SubResource("Animation_n4ghk"),
-"RESET": SubResource("Animation_e2t24")
+&"FadeOut": SubResource("Animation_n4ghk"),
+&"RESET": SubResource("Animation_e2t24")
 }
 
 [sub_resource type="Gradient" id="Gradient_vxtpk"]
@@ -354,9 +354,9 @@ grow_vertical = 2
 
 [node name="DragArea" parent="CanvasLayer/Draggable_UI/Hexii_Phone_UI" index="0"]
 offset_left = -391.0
-offset_top = 40.0
+offset_top = 12.0
 offset_right = -158.0
-offset_bottom = 423.0
+offset_bottom = 395.0
 
 [node name="Transitioner" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -436,11 +436,11 @@ position = Vector2(-40, -40)
 rotation = 3.14159
 texture = ExtResource("11_jhpuk")
 hframes = 4
-frame = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transitioner/Control"]
 libraries = {
-"": SubResource("AnimationLibrary_ima1k")
+&"": SubResource("AnimationLibrary_ima1k")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="CanvasLayer/Transitioner/Control/AnimationPlayer"]
@@ -497,7 +497,7 @@ scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transitioner"]
 libraries = {
-"": SubResource("AnimationLibrary_qifgu")
+&"": SubResource("AnimationLibrary_qifgu")
 }
 
 [node name="CrossHair" type="TextureRect" parent="CanvasLayer"]

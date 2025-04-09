@@ -1,12 +1,12 @@
 [gd_scene load_steps=19 format=3 uid="uid://cufaqwnfhx7e5"]
 
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_kb738"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/chat_manager.gd" id="2_0vmol"]
+[ext_resource type="Script" uid="uid://7jma4bk086lt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_kb738"]
+[ext_resource type="Script" uid="uid://wnmgug11rqj5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/chat_manager.gd" id="2_0vmol"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="2_2nwku"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Themes/Hexii_Device_UI.tres" id="2_w2xqr"]
 [ext_resource type="Texture2D" uid="uid://dfaa3763c44rh" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Phone_Backing.png" id="2_xp7pi"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="3_0l6bc"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/chat_input.gd" id="5_0c400"]
+[ext_resource type="Script" uid="uid://cv18ea4ncsogo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="3_0l6bc"]
+[ext_resource type="Script" uid="uid://qh66xa5i1sbr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/chat_input.gd" id="5_0c400"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
 

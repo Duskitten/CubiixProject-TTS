@@ -2,21 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://wr581xvhe77w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/HexstariaV2.gltf" id="1_1h5qw"]
 [ext_resource type="Shader" uid="uid://c3suwhyevrlr7" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/sky_shader.tres" id="1_kyva2"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Day_Night.gd" id="1_nkowm"]
+[ext_resource type="Script" uid="uid://c8i8cix7n8u56" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/Day_Night.gd" id="1_nkowm"]
 [ext_resource type="PackedScene" uid="uid://co7v5bt8xi81" path="res://addons/Cubiix_Assets/Scenes/Cubiix_Character.tscn" id="2_1hj25"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/env_settings.gd" id="2_pm257"]
+[ext_resource type="Script" uid="uid://b534ebec1xu6q" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/env_settings.gd" id="2_pm257"]
 [ext_resource type="Material" uid="uid://l3apok7uyv6k" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/TTS_Sand.tres" id="2_tdkn4"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_q3rlg"]
+[ext_resource type="Script" uid="uid://ci6ndr6b6vha6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/lighting_settings.gd" id="3_q3rlg"]
 [ext_resource type="Material" uid="uid://cdl70qe7av6ti" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hexstaria_Water.tres" id="8_h35ag"]
 [ext_resource type="Material" uid="uid://b0uoiij21jcs0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Grass_Fronds.tres" id="8_kts4w"]
 [ext_resource type="Texture2D" uid="uid://c05b25xo00o6r" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Hangar.png" id="9_gyqxj"]
 [ext_resource type="PackedScene" uid="uid://bcbqf7a7nej6x" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/Grass.gltf" id="9_teqfn"]
 [ext_resource type="Material" uid="uid://cidrwugm0awye" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Hollow.tres" id="10_qmpkc"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/AudioZoneManager.gd" id="10_t2d1s"]
+[ext_resource type="Script" uid="uid://c01je4jyv8q1y" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/AudioZoneManager.gd" id="10_t2d1s"]
 [ext_resource type="Material" uid="uid://cnia27pxku16a" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Gear.tres" id="11_44dqr"]
 [ext_resource type="PackedScene" uid="uid://devrmc25i4qp4" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/audioZone.tscn" id="11_daro4"]
 [ext_resource type="PackedScene" uid="uid://baxtuakcmm8uq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Tools/Hexstaria_Screenshotter.tscn" id="12_2yfxy"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/World/observatory_gears.gd" id="12_pjpjp"]
+[ext_resource type="Script" uid="uid://cnvpy788ay3lv" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/World/observatory_gears.gd" id="12_pjpjp"]
 [ext_resource type="Material" uid="uid://cdrbobpljb5b1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Materials/Hexstaria_v2/Gear_Telescope.tres" id="13_ptovx"]
 [ext_resource type="Texture2D" uid="uid://uph2ua7mkd07" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/BackingObjects.png" id="14_vnswh"]
 [ext_resource type="PackedScene" uid="uid://dlddkyamixlpn" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/BounceObject/BounceObject.tscn" id="15_u4044"]
@@ -52,9 +52,9 @@ fill_to = Vector2(1, 0.1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pbl14"]
 shader = ExtResource("1_kyva2")
-shader_parameter/SkyDarkness = 1.0
 shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_h5qma")
 shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_mgell")
+shader_parameter/SkyDarkness = 1.0
 
 [sub_resource type="Sky" id="Sky_5fc24"]
 sky_material = SubResource("ShaderMaterial_pbl14")
@@ -248,8 +248,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cmo3a"]
 _data = {
-"Bounce": SubResource("Animation_5i1se"),
-"RESET": SubResource("Animation_qbtc8")
+&"Bounce": SubResource("Animation_5i1se"),
+&"RESET": SubResource("Animation_qbtc8")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0armg"]
@@ -478,9 +478,9 @@ fill_to = Vector2(1, 0.1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rf0tx"]
 shader = ExtResource("1_kyva2")
-shader_parameter/SkyDarkness = 1.0
 shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_wnmh1")
 shader_parameter/Texture2DParameter = SubResource("GradientTexture2D_nwbfg")
+shader_parameter/SkyDarkness = 1.0
 
 [sub_resource type="Sky" id="Sky_dmw14"]
 sky_material = SubResource("ShaderMaterial_rf0tx")
@@ -1023,7 +1023,7 @@ shape = SubResource("ConcavePolygonShape3D_yebd0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_cmo3a")
+&"": SubResource("AnimationLibrary_cmo3a")
 }
 
 [node name="BounceObject" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella" index="1" instance=ExtResource("15_u4044")]
@@ -1036,7 +1036,7 @@ shape = SubResource("BoxShape3D_0armg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella_001" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_cmo3a")
+&"": SubResource("AnimationLibrary_cmo3a")
 }
 
 [node name="BounceObject" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella_001" index="1" instance=ExtResource("15_u4044")]
@@ -1049,7 +1049,7 @@ shape = SubResource("BoxShape3D_0armg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella_002" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_cmo3a")
+&"": SubResource("AnimationLibrary_cmo3a")
 }
 
 [node name="BounceObject" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella_002" index="1" instance=ExtResource("15_u4044")]
@@ -1062,7 +1062,7 @@ shape = SubResource("BoxShape3D_0armg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella_003" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_cmo3a")
+&"": SubResource("AnimationLibrary_cmo3a")
 }
 
 [node name="BounceObject" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella_003" index="1" instance=ExtResource("15_u4044")]
@@ -1075,7 +1075,7 @@ shape = SubResource("BoxShape3D_0armg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella_004" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_cmo3a")
+&"": SubResource("AnimationLibrary_cmo3a")
 }
 
 [node name="BounceObject" parent="Map/HexstariaV2-Mesh/Isle_1/Umbrella_004" index="1" instance=ExtResource("15_u4044")]

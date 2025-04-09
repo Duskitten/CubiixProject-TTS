@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://bc6sehgwqey1q"]
 
 [ext_resource type="Texture2D" uid="uid://bh6cd3a6acb1g" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Settings_Backing.png" id="1_35aee"]
-[ext_resource type="Script" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_settings_adjust.gd" id="2_v426w"]
+[ext_resource type="Script" uid="uid://m22o7v3lflcq" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/title_settings_adjust.gd" id="2_v426w"]
 [ext_resource type="Theme" uid="uid://bst76owxspkj5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Themes/Hexii_Device_UI.tres" id="3_tssdb"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="4_o3kyl"]
 
