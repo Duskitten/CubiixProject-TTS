@@ -99,7 +99,7 @@ func api_validate_completed(result, response_code, headers, body):
 	#print("api Completed!")
 	if response != null:
 		if response["status"] == 0:
-			Core.Globals.LocalUser["Username"] = str(response["userID"]).to_lower()
+			Core.Globals.LocalUser["Username"] = str(int(response["userID"])).to_lower()
 			Core.Globals.LocalUser["UserSecretCode"] = response["userSecretCode"]
 			Core.Globals.LocalUser["URL"] = URL.to_lower()
 			$ServerList.show()

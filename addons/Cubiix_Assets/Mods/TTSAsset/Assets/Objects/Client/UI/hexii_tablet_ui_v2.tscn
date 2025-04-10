@@ -1,4 +1,4 @@
-[gd_scene load_steps=232 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=210 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" uid="uid://7jma4bk086lt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -93,7 +93,6 @@
 [ext_resource type="Texture2D" uid="uid://dma0kmiv76sog" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Carding_CardArea_Base.png" id="80_ewk5x"]
 [ext_resource type="Texture2D" uid="uid://cwtph4kwg4dv" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Carding_CardArea_Hover.png" id="81_xkb1r"]
 [ext_resource type="Texture2D" uid="uid://cyrsdnp5hipel" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Test_Cart.png" id="82_r5oag"]
-[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="87_b3x5w"]
 [ext_resource type="Texture2D" uid="uid://bsq4glihvq1iu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Card_Tab_Base.png" id="89_xnolo"]
 [ext_resource type="Texture2D" uid="uid://cqs18g6d3t5qh" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Card_Tab_Hover.png" id="90_d3pfx"]
 
@@ -274,7 +273,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.795378, 0.602877, 1)
+bg_color = Color(0, 0.982736, 0.604065, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -283,11 +282,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 12.7439
-expand_margin_bottom = 12.7439
+expand_margin_top = 19.3854
+expand_margin_bottom = 19.3854
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 0.750778, 0.602595, 1)
+bg_color = Color(0, -0.424017, 0.595145, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -296,11 +295,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 11.4805
-expand_margin_bottom = 11.4805
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.678435, 0.593532, 1)
+bg_color = Color(0, -0.520188, 0.594535, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -311,7 +308,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.42289, 0.595152, 1)
+bg_color = Color(0, 0.0401117, 0.598088, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -507,230 +504,162 @@ fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0.7)
 
-[sub_resource type="Gradient" id="Gradient_pkkb4"]
-offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0.603922, 0, 1, 0.815686, 0.870588, 0, 1, 0.309804, 0.862745, 0.290196, 1, 0.247059, 0.854902, 0.847059, 1, 0.184314, 0.788235, 0.886275, 1, 0.109804, 0.498039, 0.933333, 1, 0.372549, 0.0823529, 0.94902, 1, 0.729412, 0.0470588, 0.972549, 1, 0.984314, 0.027451, 0.85098, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nw0n6"]
-gradient = SubResource("Gradient_pkkb4")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oxuyy"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_keygr"]
-texture = SubResource("GradientTexture2D_nw0n6")
+texture = SubResource("PlaceholderTexture2D_oxuyy")
 texture_margin_top = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gk43k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woi3g"]
 
-[sub_resource type="Gradient" id="Gradient_o2mll"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pcqoy"]
-gradient = SubResource("Gradient_o2mll")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kdrt8"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acrls"]
-texture = SubResource("GradientTexture2D_pcqoy")
+texture = SubResource("PlaceholderTexture2D_kdrt8")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_5pkut"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_so7xl"]
-gradient = SubResource("Gradient_5pkut")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdhwr"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_selft"]
-texture = SubResource("GradientTexture2D_so7xl")
+texture = SubResource("PlaceholderTexture2D_xdhwr")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_nvq1b"]
-offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0.603922, 0, 1, 0.815686, 0.870588, 0, 1, 0.309804, 0.862745, 0.290196, 1, 0.247059, 0.854902, 0.847059, 1, 0.184314, 0.788235, 0.886275, 1, 0.109804, 0.498039, 0.933333, 1, 0.372549, 0.0823529, 0.94902, 1, 0.729412, 0.0470588, 0.972549, 1, 0.984314, 0.027451, 0.85098, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4gtwl"]
-gradient = SubResource("Gradient_nvq1b")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k8mme"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbvvk"]
-texture = SubResource("GradientTexture2D_4gtwl")
+texture = SubResource("PlaceholderTexture2D_k8mme")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_8t4f2"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lykpo"]
-gradient = SubResource("Gradient_8t4f2")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g52yt"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7831s"]
-texture = SubResource("GradientTexture2D_lykpo")
+texture = SubResource("PlaceholderTexture2D_g52yt")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_d4ifn"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pu5ri"]
-gradient = SubResource("Gradient_d4ifn")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h3bx8"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bdav8"]
-texture = SubResource("GradientTexture2D_pu5ri")
+texture = SubResource("PlaceholderTexture2D_h3bx8")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_i5vix"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_u6iv0"]
-gradient = SubResource("Gradient_i5vix")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_68dj2"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5dci"]
-texture = SubResource("GradientTexture2D_u6iv0")
+texture = SubResource("PlaceholderTexture2D_68dj2")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_tbbjk"]
-colors = PackedColorArray(0, 0, 0, 1, 0.198466, 0.444806, 0.636719, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m01qa"]
-gradient = SubResource("Gradient_tbbjk")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xt60o"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wslw3"]
-texture = SubResource("GradientTexture2D_m01qa")
+texture = SubResource("PlaceholderTexture2D_xt60o")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_hgbr1"]
-colors = PackedColorArray(1, 1, 1, 1, 0.198466, 0.444806, 0.636719, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fsc00"]
-gradient = SubResource("Gradient_hgbr1")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h0wou"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6mac"]
-texture = SubResource("GradientTexture2D_fsc00")
+texture = SubResource("PlaceholderTexture2D_h0wou")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_qo30q"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pkkb4"]
-gradient = SubResource("Gradient_qo30q")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c8dap"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nw0n6"]
-texture = SubResource("GradientTexture2D_pkkb4")
+texture = SubResource("PlaceholderTexture2D_c8dap")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_keygr"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_o2mll"]
-gradient = SubResource("Gradient_keygr")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_825yj"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pcqoy"]
-texture = SubResource("GradientTexture2D_o2mll")
+texture = SubResource("PlaceholderTexture2D_825yj")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_b4b43"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uomwi"]
-gradient = SubResource("Gradient_b4b43")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dtlth"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sd26x"]
-texture = SubResource("GradientTexture2D_uomwi")
+texture = SubResource("PlaceholderTexture2D_dtlth")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_acrls"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8t4f2"]
-gradient = SubResource("Gradient_acrls")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bokgu"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lykpo"]
-texture = SubResource("GradientTexture2D_8t4f2")
+texture = SubResource("PlaceholderTexture2D_bokgu")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_7831s"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d4ifn"]
-gradient = SubResource("Gradient_7831s")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m7ebj"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pu5ri"]
-texture = SubResource("GradientTexture2D_d4ifn")
+texture = SubResource("PlaceholderTexture2D_m7ebj")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_bdav8"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cp4no"]
-gradient = SubResource("Gradient_bdav8")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0sifb"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1h07k"]
-texture = SubResource("GradientTexture2D_cp4no")
+texture = SubResource("PlaceholderTexture2D_0sifb")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_6jdtw"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hgriw"]
-gradient = SubResource("Gradient_6jdtw")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pvfjt"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wanox"]
-texture = SubResource("GradientTexture2D_hgriw")
+texture = SubResource("PlaceholderTexture2D_pvfjt")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_uy5ta"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_j0py1"]
-gradient = SubResource("Gradient_uy5ta")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwd37"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koy4f"]
-texture = SubResource("GradientTexture2D_j0py1")
+texture = SubResource("PlaceholderTexture2D_nwd37")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_rmuca"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_oxuyy"]
-gradient = SubResource("Gradient_rmuca")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7rs47"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdrt8"]
-texture = SubResource("GradientTexture2D_oxuyy")
+texture = SubResource("PlaceholderTexture2D_7rs47")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_xdhwr"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_k8mme"]
-gradient = SubResource("Gradient_xdhwr")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8i50l"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g52yt"]
-texture = SubResource("GradientTexture2D_k8mme")
+texture = SubResource("PlaceholderTexture2D_8i50l")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_h3bx8"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_68dj2"]
-gradient = SubResource("Gradient_h3bx8")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7nwsm"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xt60o"]
-texture = SubResource("GradientTexture2D_68dj2")
+texture = SubResource("PlaceholderTexture2D_7nwsm")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_h0wou"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_c8dap"]
-gradient = SubResource("Gradient_h0wou")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n0rqx"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_825yj"]
-texture = SubResource("GradientTexture2D_c8dap")
+texture = SubResource("PlaceholderTexture2D_n0rqx")
 texture_margin_top = 10.0
 
-[sub_resource type="Gradient" id="Gradient_dtlth"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bokgu"]
-gradient = SubResource("Gradient_dtlth")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c7ldo"]
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7ebj"]
-texture = SubResource("GradientTexture2D_bokgu")
+texture = SubResource("PlaceholderTexture2D_c7ldo")
 texture_margin_top = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51o2c"]
@@ -953,8 +882,11 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hwgr7"]
+size = Vector2(1067, 1067)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
-texture = ExtResource("87_b3x5w")
+texture = SubResource("PlaceholderTexture2D_hwgr7")
 
 [node name="Hexii_Tablet_UI" type="Control"]
 texture_filter = 1

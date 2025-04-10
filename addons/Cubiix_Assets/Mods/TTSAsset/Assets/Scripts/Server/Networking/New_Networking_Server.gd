@@ -41,7 +41,7 @@ func start_network():
 func network_process():
 	var CurrentTick :int = 0
 	var CurrentTime :int = Time.get_ticks_msec()
-	print("Server running on port: " + str(Core.Globals.Data["Port"]))
+	print("Server running on port: " + str(int(Core.Globals.Data["Port"])))
 	while true:
 		var Delta = Time.get_ticks_msec() - Tick_Prev
 		Tick_Prev = Time.get_ticks_msec()
@@ -68,7 +68,7 @@ func network_process():
 				if newPeer.Character_Storage_Data["Disconnect"]:
 					newPeer.Character_Storage_Data["peer_obj"].stream_peer.disconnect_from_host()
 				else:
-					newPeer.Current_Saved_Packet = {}
+					newPeer.Current_Saved_Packet = {"TTS_Ping":true}
 					
 		
 		

@@ -18,7 +18,6 @@ var Client
 var Server
 
 func _ready():
-
 	Update_LogoText("Booting MindVirus Engine...")
 	await get_tree().create_timer(1).timeout
 	Update_LogoText("Finding Client...")

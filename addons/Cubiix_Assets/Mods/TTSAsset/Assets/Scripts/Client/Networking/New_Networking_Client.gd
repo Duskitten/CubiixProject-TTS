@@ -40,17 +40,16 @@ func network_process():
 	while true:
 		if Core.Globals.KillThreads:
 			break
-
+		
 		TCP.poll()
+		
 		match TCP.get_status():
 			StreamPeerTCP.STATUS_CONNECTED:
-				
 				if TCP.get_available_bytes() > 0:
 					if !connect_timer.is_stopped():
 						connect_timer.call_deferred("stop")
 					var Data = TCP.get_var(false)
 					call_deferred("SendToParser",Data)
-					print(Data)
 					if !current_packet.is_empty():
 						TCP.put_var(current_packet)
 						current_packet = {"TTS_Ping":true}
