@@ -21,7 +21,7 @@ func _ready() -> void:
 		var commanddata = Core.AssetData.find_command(i)
 		#print(commanddata)
 		var command = load(commanddata["Path"]).new()
-		command.name = commanddata["Name"]
+		#command.name = commanddata["Name"]
 		Commands[commanddata["Name"]] = command
 	add_child(connect_timer)
 	connect_timer.wait_time = 3
@@ -49,10 +49,11 @@ func network_process():
 					if !connect_timer.is_stopped():
 						connect_timer.call_deferred("stop")
 					var Data = TCP.get_var(false)
-					call_deferred("SendToParser",Data)
-					if !current_packet.is_empty():
-						TCP.put_var(current_packet)
-						current_packet = {"TTS_Ping":true}
+					if Data is Dictionary && !Data.is_empty():
+						call_deferred("SendToParser",Data)
+						if !current_packet.is_empty():
+							TCP.put_var(current_packet)
+							current_packet = {"TTS_Ping":true}
 				else:
 					if disable_connect:
 						break

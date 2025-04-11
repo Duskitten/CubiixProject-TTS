@@ -30,8 +30,9 @@ func _ready() -> void:
 		var commanddata = Core.AssetData.find_command(i)
 		#print(commanddata)
 		var command = load(commanddata["Path"]).new()
-		command.name = commanddata["Name"]
+		#command.name = commanddata["Name"]
 		Commands[commanddata["Name"]] = command
+		
 	TCP.listen(Core.Globals.Data["Port"])
 	start_network()
 	
@@ -48,20 +49,46 @@ func network_process():
 		Tick_Timer += Delta
 		
 		if Tick_Timer > 1000/20:
-			for i in Peer_Connections.keys():
-				var n = Peer_Connections[i].Character_Storage_Data["peer_obj"]
-				var peer = n.stream_peer
-				peer.poll()
-			
 			Current_Tick += 1
 			Tick_Timer = 0
 			
 			for i in Peer_Connections.keys():
+				var n = Peer_Connections[i].Character_Storage_Data["peer_obj"]
+				var peer = n.stream_peer
+				peer.poll()
+
 				var newPeer = Peer_Connections[i]
 				
 				
 				if newPeer.Character_Storage_Data["Validated"]:
 					Commands["TTS_MovementUpdate"].server_compile(self,newPeer)
+
+				if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
+					##send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
+					if peer.get_available_bytes() > 0:
+						if !Peer_Connections[i].DisconnectTimer.is_stopped():
+							Peer_Connections[i].call_deferred("stop_timer")
+						var Data = peer.get_var(false)
+						if Data is Dictionary && !Data.is_empty():
+							call_deferred("SendToParser",Peer_Connections[i], Data)
+					elif peer.get_available_bytes() <= 0:
+						if Peer_Connections[i].DisconnectTimer.is_stopped():
+							Peer_Connections[i].call_deferred("start_timer")
+						#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
+				elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
+					var who = Peer_Connections[i]
+					if Peer_Connections[i].Character_Storage_Data["Current_Room"] != "":
+						Room_Manager.notify_disconnect(Peer_Connections[i].Character_Storage_Data["Current_Room"],who)
+						Peer_Connections[i].save_player()
+					if Real_Connections.has(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"]):
+						Real_Connections.erase(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"])
+					Peer_Connections[i].queue_free()
+					Peer_Connections.erase(i)
+
+			for i in Peer_Connections.keys():
+				var n = Peer_Connections[i].Character_Storage_Data["peer_obj"]
+				var peer = n.stream_peer
+				var newPeer = Peer_Connections[i]
 				
 				newPeer.Character_Storage_Data["peer_obj"].put_var(newPeer.Current_Saved_Packet)
 				#print(newPeer.Current_Saved_Packet)
@@ -69,9 +96,7 @@ func network_process():
 					newPeer.Character_Storage_Data["peer_obj"].stream_peer.disconnect_from_host()
 				else:
 					newPeer.Current_Saved_Packet = {"TTS_Ping":true}
-					
-		
-		
+				
 		var New_Client_TCP = TCP.take_connection()
 		if New_Client_TCP:
 			var peer = PacketPeerStream.new()
@@ -83,35 +108,8 @@ func network_process():
 			call_deferred("add_child",newPeer)
 			Peer_Connections[hash(peer)] = newPeer
 			Commands["TTS_Ping_Init"].server_compile(self,newPeer)
-			
-			
-		for i in Peer_Connections.keys():
-			var n = Peer_Connections[i].Character_Storage_Data["peer_obj"]
-			var peer = n.stream_peer
-			peer.poll()
-			if peer.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-				##send_data(Core.Globals.Networking_Valid_Types.Player_Move,accumulated_server_positions[Peers[i]["room"]])
-				if peer.get_available_bytes() > 0:
-					Peer_Connections[i].DisconnectTimer = 0
-					var data = peer.get_var(false)
-					call_deferred("SendToParser",Peer_Connections[i], data)
-				elif peer.get_available_bytes() <= 0:
-					if Peer_Connections[i].Character_Storage_Data["Current_Room"] != "":
-						Peer_Connections[i].DisconnectTimer += 1
-					#Parse_Data.call_deferred("parse_data",self,TCP,Peer_Connections[i],)
-			elif peer.get_status() == StreamPeerTCP.STATUS_NONE:
-				var who = Peer_Connections[i]
-				if Peer_Connections[i].Character_Storage_Data["Current_Room"] != "":
-					Room_Manager.notify_disconnect(Peer_Connections[i].Character_Storage_Data["Current_Room"],who)
-					Peer_Connections[i].save_player()
-				if Real_Connections.has(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"]):
-					Real_Connections.erase(Peer_Connections[i].Character_Storage_Data["DB_Data"]["PhoneID"])
-				
-				
-				
-				Peer_Connections[i].queue_free()
-				Peer_Connections.erase(i)
 
 func SendToParser(Peer:ServerPlayer,Data) -> void:
+	#print(Data)
 	for i in Data.keys():
 		Commands[i].server_parse(self, Peer, Data[i])

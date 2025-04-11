@@ -1,4 +1,4 @@
-extends Node
+extends Object
 
 func server_parse(Server:Node, Player:ServerPlayer, Data:Variant) -> void:
 	pass

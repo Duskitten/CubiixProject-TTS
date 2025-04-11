@@ -27,13 +27,13 @@ void fragment() {
 	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
 	vec3 world_pos = world_pos_from_depth(depth, SCREEN_UV, INV_PROJECTION_MATRIX, (INV_VIEW_MATRIX));
 	vec4 test_pos = (INV_MODEL_MATRIX * vec4(world_pos, 1.0));
-	
+
 	if (abs(test_pos.x) > cube_half_size ||abs(test_pos.y) > cube_half_size || abs(test_pos.z) > cube_half_size) {
 		discard;
 	}
-	
-	
-	
+
+
+
 	ALBEDO = texture(texture_albedo, (-test_pos.xz * scale_mod) + 0.5).rgb * albedo.rgb;
 	ALPHA = texture(texture_albedo, (-test_pos.xz * scale_mod) + 0.5).a * albedo.a;
 }

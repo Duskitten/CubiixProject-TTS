@@ -1,10 +1,9 @@
 class_name ServerPlayer
-extends Node3D
+extends Node
 var Server
 var ValidationRequest = HTTPRequest.new()
 var ValidationURLAppend = "/user/validateUser"
-var DisconnectTimer = 0
-var DisconnectTimerThreshold = 1000000
+var DisconnectTimer:Timer = Timer.new()
 var defaults = {
 	"gamedata_VB_01_00":{
 		"Character" : {"B1":"9ec0bd","B1E":"6e6c5f","B1ES":1,"B1M":0.7,"B1R":0,"B2":"354c56","B2E":"63665f","B2ES":1,"B2M":0,"B2R":1,"B3":"ff7e00","B3E":"ffb67c","B3ES":1,"B3M":0,"B3R":1,"B4":"ff7e00","B4E":"ffb67c","B4ES":1,"B4M":0,"B4R":1,"EA":"CoreAssets/Ears","EX":"CoreAssets/Extra","EY":"CoreAssets/Eyes_Default","N":"","PA":"","PB":"","PC":"","S":1,"T":"CoreAssets/Tails","W":"CoreAssets/Wings"},
@@ -89,11 +88,12 @@ var Current_Saved_Packet_Template = {
 
 func _ready() -> void:
 	add_child(ValidationRequest)
-	var timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = 2
-	timer.start()
-	timer.timeout.connect(timer_test.bind())
+	DisconnectTimer.autostart = false
+	DisconnectTimer.wait_time = 30
+	DisconnectTimer.one_shot = true
+	DisconnectTimer.timeout.connect(end_timer.bind())
+	add_child(DisconnectTimer)
+	
 	for i in Server.Database_Manager.gamedata_versions:
 		Character_Storage_Data["DB_Version_Data"][i] = {}
 
@@ -254,15 +254,17 @@ func validate_character_update(Data:Dictionary) -> void:
 		
 
 var lastcheck = 0
-var lastcheckThreshhold = 10
-var lastcheckCount = 0
 
-func timer_test() -> void:
-	#print(DisconnectTimer, " ")
-	if DisconnectTimer != lastcheck:
-		lastcheckCount = 0
-		lastcheck = DisconnectTimer
-	else:
-		lastcheckCount += 1
-		if lastcheckCount > lastcheckThreshhold:
-			Character_Storage_Data["Disconnect"] = true
+func start_timer() -> void:
+	lastcheck += 1
+	if lastcheck > 5:
+	#print("Starting Disconnect!")
+		DisconnectTimer.start()
+
+func stop_timer() -> void:
+	lastcheck = 0
+	#print("Stopping Disconnect!")
+	DisconnectTimer.stop()
+	
+func end_timer() -> void:
+	Character_Storage_Data["Disconnect"] = true

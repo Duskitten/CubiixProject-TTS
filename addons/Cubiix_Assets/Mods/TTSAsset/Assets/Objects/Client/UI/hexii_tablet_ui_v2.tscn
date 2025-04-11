@@ -95,6 +95,7 @@
 [ext_resource type="Texture2D" uid="uid://cyrsdnp5hipel" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/In_Game_Assets/Test_Cart.png" id="82_r5oag"]
 [ext_resource type="Texture2D" uid="uid://bsq4glihvq1iu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Card_Tab_Base.png" id="89_xnolo"]
 [ext_resource type="Texture2D" uid="uid://cqs18g6d3t5qh" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Card_Tab_Hover.png" id="90_d3pfx"]
+[ext_resource type="Texture2D" uid="uid://dcvd8t3o64ves" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Tablet_Backing.png" id="96_kdrt8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pommg"]
 
@@ -273,7 +274,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.982736, 0.604065, 1)
+bg_color = Color(0, 0.963923, 0.603946, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -282,11 +283,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 19.3854
-expand_margin_bottom = 19.3854
+expand_margin_top = 18.7057
+expand_margin_bottom = 18.7057
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.424017, 0.595145, 1)
+bg_color = Color(0, -0.306906, 0.595888, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -297,7 +298,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.520188, 0.594535, 1)
+bg_color = Color(0, -0.574763, 0.594189, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -308,7 +309,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.0401117, 0.598088, 1)
+bg_color = Color(0, -0.0332478, 0.597623, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -882,11 +883,8 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hwgr7"]
-size = Vector2(1067, 1067)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43210"]
-texture = SubResource("PlaceholderTexture2D_hwgr7")
+texture = ExtResource("96_kdrt8")
 
 [node name="Hexii_Tablet_UI" type="Control"]
 texture_filter = 1
