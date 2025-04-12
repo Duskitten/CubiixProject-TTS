@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=37 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" uid="uid://ktth0ilkl1ry" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/persistant_core.gd" id="1_avm5g"]
 [ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/version_image.tscn" id="2_j6tbw"]
 [ext_resource type="PackedScene" uid="uid://bgl6owk1m1q4u" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/Dialogue.tscn" id="3_0531y"]
+[ext_resource type="Script" uid="uid://ukaits6b380o" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/hide_ui.gd" id="4_tqidq"]
 [ext_resource type="PackedScene" uid="uid://c2701u34x8dm0" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_tablet_ui_v2.tscn" id="4_yn8bv"]
 [ext_resource type="PackedScene" uid="uid://cufaqwnfhx7e5" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/hexii_phone_ui_v2.tscn" id="5_h76e0"]
 [ext_resource type="Texture2D" uid="uid://3y0k7m58gqtr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png" id="7_h2oss"]
@@ -329,6 +330,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_tqidq")
 
 [node name="Hexii_Tablet_UI" parent="CanvasLayer/Draggable_UI" instance=ExtResource("4_yn8bv")]
 layout_mode = 1
@@ -422,7 +424,6 @@ position = Vector2(18, -40)
 rotation = 4.71239
 texture = ExtResource("11_jhpuk")
 hframes = 4
-frame = 3
 
 [node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -625,6 +626,9 @@ script = ExtResource("11_v4hbs")
 [node name="Network_Players" type="Node3D" parent="Node3D"]
 
 [node name="Effects" type="Node3D" parent="Node3D"]
+
+[connection signal="pressed" from="CanvasLayer/Panel/HBoxContainer/Button" to="CanvasLayer/Draggable_UI" method="_on_button_pressed" binds= ["Hexii_Phone_UI"]]
+[connection signal="pressed" from="CanvasLayer/Panel/HBoxContainer/Button2" to="CanvasLayer/Draggable_UI" method="_on_button_pressed" binds= ["Hexii_Tablet_UI"]]
 
 [editable path="CanvasLayer/Draggable_UI/Hexii_Tablet_UI"]
 [editable path="CanvasLayer/Draggable_UI/Hexii_Tablet_UI/DragArea/Wallpaper_Backing/Transition_Controller/Settings"]

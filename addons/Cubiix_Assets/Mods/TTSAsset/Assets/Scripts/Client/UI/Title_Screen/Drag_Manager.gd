@@ -39,7 +39,8 @@ func drag_manager() -> void:
 			drag_offset = self.position - mouse_position 
 			dragging = true
 	if Input.is_action_pressed("mouse_left") && dragging :
-		self.position = mouse_position + drag_offset
+		if (get_viewport_rect().grow_individual(-32,-32,-32,-32)).has_point(mouse_position):
+			self.position = mouse_position + drag_offset
 		
 	if Input.is_action_just_released("mouse_left"):
 		dragging = false
