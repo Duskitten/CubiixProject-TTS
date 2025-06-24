@@ -33,6 +33,7 @@ func _process_modification() -> void:
 	var new_transform = Transform3D(holderRotation.basis,self.position)
 	
 	if targetBone != -1:
-		get_skeleton().set_bone_global_pose(targetBone,new_transform)
+		pass
+		#get_skeleton().set_bone_global_pose(targetBone,new_transform)
 
 	olddelta = get_process_delta_time()

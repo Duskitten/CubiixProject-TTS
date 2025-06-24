@@ -98,6 +98,13 @@ func compile_mod_assets() -> void:
 							content["Assets"][n][x]["Client_Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Client_Path"]
 						if content["Assets"][n][x].has("Image_Preview"):
 							content["Assets"][n][x]["Image_Preview"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Image_Preview"]
+						if content["Assets"][n][x].has("Texture_Overrides"):
+							if content["Assets"][n][x]["Texture_Overrides"].has("Color_Path"):
+								content["Assets"][n][x]["Texture_Overrides"]["Color_Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Texture_Overrides"]["Color_Path"]
+							if content["Assets"][n][x]["Texture_Overrides"].has("Metallic_Path"):
+								content["Assets"][n][x]["Texture_Overrides"]["Metallic_Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Texture_Overrides"]["Metallic_Path"]
+							if content["Assets"][n][x]["Texture_Overrides"].has("Emission_Path"):
+								content["Assets"][n][x]["Texture_Overrides"]["Emission_Path"] = i.rstrip("Mod.json")+content["Assets"][n][x]["Texture_Overrides"]["Emission_Path"]
 						if content["Assets"][n][x].has("Tag"):
 							if !assets_tagged.has(content["Assets"][n][x]["Tag"]) :
 								assets_tagged[content["Assets"][n][x]["Tag"]] = []

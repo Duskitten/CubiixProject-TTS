@@ -34,17 +34,34 @@ extends Node3D
 ## Just a nice little key so I dont have to memorize stuff
 var Keylist = {
 	"Body":{"Body1":0,"Body2":2,"Eye1":1,"Eye2":3},
-	"Head":[4,6,5,7],
-	"Face":[8,10,9,11],
-	"Chest":[12,14,13,15],
-	"Back":[16,18,17,19],
-	"L_Hand":[20,22,21,23],
-	"R_Hand":[24,26,25,27],
-	"L_Hip":[28,30,29,31],
-	"R_Hip":[32,34,33,35],
+	#"Head":[4,6,5,7],
+	#"Face":[8,10,9,11],
+	#"Chest":[12,14,13,15],
+	#"Back":[16,18,17,19],
+	#"L_Hand":[20,22,21,23],
+	#"R_Hand":[24,26,25,27],
+	#"L_Hip":[28,30,29,31],
+	#"R_Hip":[32,34,33,35],
+
 }
 
-var New_Shader:Material
+var new_Keylist = {
+	"Body":{"Body1":Vector2i(0,0),"Body2":Vector2i(0,1),"Eye1":Vector2i(1,0),"Eye2":Vector2i(1,1)},
+	"Head":[Vector2i(0,2),Vector2i(0,3),Vector2i(1,2),Vector2i(1,3)],
+	"Face":[Vector2i(0,4),Vector2i(0,5),Vector2i(1,4),Vector2i(1,5)],
+	"Chest":[Vector2i(0,6),Vector2i(0,7),Vector2i(1,6),Vector2i(1,7)],
+	"Back":[Vector2i(0,8),Vector2i(0,9),Vector2i(1,8),Vector2i(1,9)],
+	"L_Hand":[Vector2i(0,10),Vector2i(0,11),Vector2i(1,10),Vector2i(1,11)],
+	"R_Hand":[Vector2i(0,12),Vector2i(0,13),Vector2i(1,12),Vector2i(1,13)],
+	"L_Hip":[Vector2i(0,14),Vector2i(0,15),Vector2i(1,14),Vector2i(1,15)],
+	"R_Hip":[Vector2i(0,16),Vector2i(0,17),Vector2i(1,16),Vector2i(1,17)],
+}
+
+var New_Shader:StandardMaterial3D
+var New_Texture:Image
+var Current_Texture_Color:Image
+var Current_Texture_Emission:Image
+var Current_Texture_Metallic:Image
 
 ##For Asset ID Purposes of what asset to use.
 var Base_Eyes:String  = ""
@@ -83,19 +100,25 @@ var Character_Skeleton
 var node_storage = []
 
 func _ready() -> void:
-	New_Shader = load("res://addons/Cubiix_Assets/Materials/Cubiix_Material.tres").duplicate(true)
-	Shader_Color.resize(36)
-	Shader_Emission.resize(36)
-	Shader_Metallic.resize(36)
+	New_Shader = load("res://addons/Cubiix_Assets/Materials/New_Cubiix_Material.tres").duplicate(true)
+	New_Texture = Image.load_from_file("res://addons/Cubiix_Assets/Textures/Shader_TestStrip.png")
+	Current_Texture_Color = New_Texture.duplicate(true)
+	Current_Texture_Emission = New_Texture.duplicate(true)
+	Current_Texture_Metallic = New_Texture.duplicate(true)
+	
+	Shader_Color.resize(4)
+	Shader_Color.fill(Color(0,0,0,1))
+	Shader_Emission.resize(4)
+	Shader_Emission.fill(Color(0,0,0,1))
+	Shader_Metallic.resize(4)
 	Shader_Metallic.fill(0.0)
-	Shader_Roughness.resize(36)
+	Shader_Roughness.resize(4)
 	Shader_Roughness.fill(1.0)
-	Shader_Emission_Strength.resize(36)
-	Shader_Alpha.resize(36)
-	Shader_Alpha.fill(1.0)
+	Shader_Emission_Strength.resize(4)
 	#await get_parent().Loaded
 	#generate_character()
 func adjust_scale() -> void:
+	print(get_parent().name+"Aaa")
 	self.scale = Vector3(Scale,Scale,Scale)
 
 func generate_colors() -> void:
@@ -107,12 +130,22 @@ func generate_colors() -> void:
 	ColorCheck_Accessory(Acc_R_Hand)
 	ColorCheck_Accessory(Acc_L_Hip)
 	ColorCheck_Accessory(Acc_R_Hip)
-	New_Shader.set_shader_parameter("Body_Color", Shader_Color)
-	New_Shader.set_shader_parameter("Body_Emission", Shader_Emission)
-	New_Shader.set_shader_parameter("Body_Metallic", Shader_Metallic)
-	New_Shader.set_shader_parameter("Body_Roughness", Shader_Roughness)
-	New_Shader.set_shader_parameter("Body_Emission_Str", Shader_Emission_Strength)
-	New_Shader.set_shader_parameter("Body_Alpha", Shader_Alpha)
+	Current_Texture_Color.save_png("user://te3.png")
+	
+	for p in new_Keylist["Body"]:
+		var InputLocation = new_Keylist["Body"][p] * 57
+		InputLocation = Vector2i(InputLocation.y,InputLocation.x)
+		var roughness_metallic_compilation = Color(Shader_Roughness[Keylist["Body"][p]],0,Shader_Metallic[Keylist["Body"][p]],1)
+		Current_Texture_Color.fill_rect(Rect2i(InputLocation,Vector2i(57,57)),Shader_Color[Keylist["Body"][p]])
+		Current_Texture_Emission.fill_rect(Rect2i(InputLocation,Vector2i(57,57)),Shader_Emission[Keylist["Body"][p]]*Shader_Emission_Strength[Keylist["Body"][p]])
+		Current_Texture_Metallic.fill_rect(Rect2i(InputLocation,Vector2i(57,57)),roughness_metallic_compilation)
+	
+	
+	
+	New_Shader.albedo_texture = ImageTexture.create_from_image(Current_Texture_Color)
+	New_Shader.roughness_texture = ImageTexture.create_from_image(Current_Texture_Metallic)
+	New_Shader.metallic_texture = ImageTexture.create_from_image(Current_Texture_Metallic)
+	New_Shader.emission_texture = ImageTexture.create_from_image(Current_Texture_Emission)
 
 func generate_character() -> void:
 	adjust_scale()
@@ -201,18 +234,49 @@ func ColorCheck_Accessory(ID:String):
 				var colordata = data["Material_Overrides"]
 				for i in colordata.keys():
 					var Key = i.split("/")
-					var InputLocation = Keylist[Key[0]][int(Key[1])]
-					for x in colordata[i]:
-						match x:
-							"Color":
-								Shader_Color[InputLocation] = Color(colordata[i][x])
-							"Emission":
-								Shader_Emission[InputLocation] = Color(colordata[i][x])
-							"Roughness":
-								Shader_Roughness[InputLocation] = float(colordata[i][x])
-							"Metallic":
-								Shader_Metallic[InputLocation] = float(colordata[i][x])
-							"Emission_Strength":
-								Shader_Emission_Strength[InputLocation] = float(colordata[i][x])
-							"Alpha":
-								Shader_Alpha[InputLocation] = float(colordata[i][x])
+					var InputLocation = new_Keylist[Key[0]][int(Key[1])]*57
+					InputLocation = Vector2i(InputLocation.y,InputLocation.x)
+					var roughness_metallic_compilation = Color(0,0,0,1)
+					var compiled_emission = Color(0,0,0,1)
+					if colordata[i].has("Color"):
+						var NewColor = Color(colordata[i]["Color"])
+						if colordata[i].has("Alpha"):
+							NewColor.a = colordata[i]["Alpha"]
+						Current_Texture_Color.fill_rect(Rect2i(InputLocation,Vector2i(57,57)),NewColor)
+					
+					if colordata[i].has("Roughness") && colordata[i].has("Metallic"):
+						roughness_metallic_compilation.r = float(colordata[i]["Roughness"])
+						roughness_metallic_compilation.b = float(colordata[i]["Metallic"])
+						Current_Texture_Metallic.fill_rect(Rect2i(InputLocation,Vector2i(57,57)),roughness_metallic_compilation)
+					
+					if colordata[i].has("Emission") :
+						var NewColor = Color(colordata[i]["Emission"])
+						if colordata[i].has("Emission_Strength"):
+							NewColor *= colordata[i]["Emission_Strength"]
+						Current_Texture_Emission.fill_rect(Rect2i(InputLocation,Vector2i(57,57)),NewColor)
+			if data.has("Texture_Overrides"):
+				var texturedata = data["Texture_Overrides"]
+				var startpos = new_Keylist[data["Tag"]][0]*57
+				startpos = Vector2i(startpos.y, startpos.x)
+				var current_rect = Rect2i(startpos,Vector2i(114,114))
+				if texturedata.has("Color_Path"):
+					print(get_parent().name+"aaaaaaaaa")
+					#print(texturedata["Color_Path"])
+					var newimg = Image.load_from_file(texturedata["Color_Path"])
+					Current_Texture_Color.blit_rect(newimg,current_rect,startpos)
+				else:
+					Current_Texture_Color.fill_rect(current_rect,Color("000"))
+					
+				if texturedata.has("Metallic_Path"):
+					#print(texturedata["Color_Path"])
+					var newimg = Image.load_from_file(texturedata["Metallic_Path"])
+					Current_Texture_Metallic.blit_rect(newimg,current_rect,startpos)
+				else:
+					Current_Texture_Metallic.fill_rect(current_rect,Color("000"))
+					
+				if texturedata.has("Emission_Path"):
+					#print(texturedata["Color_Path"])
+					var newimg = Image.load_from_file(texturedata["Emission_Path"])
+					Current_Texture_Emission.blit_rect(newimg,current_rect,startpos)
+				else:
+					Current_Texture_Emission.fill_rect(current_rect,Color("000"))

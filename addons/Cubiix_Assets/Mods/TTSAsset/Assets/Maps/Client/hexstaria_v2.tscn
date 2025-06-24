@@ -1087,18 +1087,21 @@ transform = Transform3D(1, -1.49012e-08, 0, -1.39698e-08, 1, 1.30385e-08, 0, -1.
 shape = SubResource("BoxShape3D_0armg")
 
 [node name="Grass_Island_1" type="MultiMeshInstance3D" parent="Map"]
+visible = false
 lod_bias = 0.5
 visibility_range_end = 75.0
 multimesh = SubResource("MultiMesh_cqhq3")
 
 [node name="Grass_Island_2" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
+visible = false
 lod_bias = 0.5
 visibility_range_end = 75.0
 multimesh = SubResource("MultiMesh_7wrrk")
 
 [node name="Grass_Island_3_A" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
+visible = false
 material_override = ExtResource("8_kts4w")
 lod_bias = 0.5
 visibility_range_end = 75.0
@@ -1106,6 +1109,7 @@ multimesh = SubResource("MultiMesh_acuve")
 
 [node name="Grass_Island_3_B" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
+visible = false
 material_override = ExtResource("8_kts4w")
 lod_bias = 0.5
 visibility_range_end = 75.0
@@ -1113,6 +1117,7 @@ multimesh = SubResource("MultiMesh_d6v8k")
 
 [node name="Grass_Island_3_C" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
+visible = false
 material_override = ExtResource("8_kts4w")
 lod_bias = 0.5
 visibility_range_end = 75.0
@@ -1120,12 +1125,14 @@ multimesh = SubResource("MultiMesh_4pqkc")
 
 [node name="Tall_Trees_A" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
+visible = false
 material_override = ExtResource("23_f5tmj")
 lod_bias = 0.5
 multimesh = SubResource("MultiMesh_or877")
 
 [node name="Tall_Trees_B" type="MultiMeshInstance3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -72.4703)
+visible = false
 material_override = ExtResource("23_f5tmj")
 lod_bias = 0.5
 multimesh = SubResource("MultiMesh_6kv27")

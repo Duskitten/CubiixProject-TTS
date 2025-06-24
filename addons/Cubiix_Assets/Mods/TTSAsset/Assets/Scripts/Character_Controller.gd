@@ -135,6 +135,7 @@ func setup():
 	## Re-activate processes now
 	set_process(true)
 	set_physics_process(true)
+	print(get_parent())
 	
 
 func _ready() -> void:

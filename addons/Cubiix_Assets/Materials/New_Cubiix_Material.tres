@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dd84p8joppta0"]
+
+[resource]
+transparency = 4
+cull_mode = 2
+metallic = 1.0
+metallic_texture_channel = 2
+emission_enabled = true
+texture_filter = 2
+texture_repeat = false

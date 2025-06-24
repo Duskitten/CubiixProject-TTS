@@ -1,4 +1,4 @@
-[gd_scene load_steps=210 format=3 uid="uid://c2701u34x8dm0"]
+[gd_scene load_steps=253 format=3 uid="uid://c2701u34x8dm0"]
 
 [ext_resource type="Script" uid="uid://7jma4bk086lt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Title_Screen/Drag_Manager.gd" id="1_myaf6"]
 [ext_resource type="Texture2D" uid="uid://vkdxokfow1dt" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Wallpaper.png" id="2_82imt"]
@@ -274,7 +274,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, 0.722684, 0.602417, 1)
+bg_color = Color(0, 0.359846, 0.600116, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -283,11 +283,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 10.2708
-expand_margin_bottom = 10.2708
+expand_margin_top = 0.147002
+expand_margin_bottom = 0.147002
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, 1.0164, 0.604279, 1)
+bg_color = Color(0, 0.779189, 0.602775, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -296,11 +296,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 20.4982
-expand_margin_bottom = 20.4982
+expand_margin_top = 12.1872
+expand_margin_bottom = 12.1872
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, -0.627535, 0.593855, 1)
+bg_color = Color(0, 0.855422, 0.603258, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -309,9 +309,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 15.0488
+expand_margin_bottom = 15.0488
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, -0.540812, 0.594405, 1)
+bg_color = Color(0, -0.757021, 0.593034, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -507,162 +509,288 @@ fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0.7)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oxuyy"]
-size = Vector2(64, 64)
+[sub_resource type="Gradient" id="Gradient_k8mme"]
+offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.498039, 0, 1, 1, 1, 0, 1, 0.498039, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0.498039, 1, 1, 0, 0, 1, 1, 0.498039, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_keygr"]
-texture = SubResource("PlaceholderTexture2D_oxuyy")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g52yt"]
+gradient = SubResource("Gradient_k8mme")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3bx8"]
+texture = SubResource("GradientTexture2D_g52yt")
 texture_margin_top = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gk43k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woi3g"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kdrt8"]
-size = Vector2(64, 64)
+[sub_resource type="Gradient" id="Gradient_g52yt"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acrls"]
-texture = SubResource("PlaceholderTexture2D_kdrt8")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h3bx8"]
+gradient = SubResource("Gradient_g52yt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68dj2"]
+texture = SubResource("GradientTexture2D_h3bx8")
 texture_margin_top = 10.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdhwr"]
-size = Vector2(64, 64)
+[sub_resource type="Gradient" id="Gradient_h0wou"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_selft"]
-texture = SubResource("PlaceholderTexture2D_xdhwr")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k8mme"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbvvk"]
-texture = SubResource("PlaceholderTexture2D_k8mme")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g52yt"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7831s"]
-texture = SubResource("PlaceholderTexture2D_g52yt")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h3bx8"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bdav8"]
-texture = SubResource("PlaceholderTexture2D_h3bx8")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_68dj2"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5dci"]
-texture = SubResource("PlaceholderTexture2D_68dj2")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xt60o"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wslw3"]
-texture = SubResource("PlaceholderTexture2D_xt60o")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h0wou"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6mac"]
-texture = SubResource("PlaceholderTexture2D_h0wou")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c8dap"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nw0n6"]
-texture = SubResource("PlaceholderTexture2D_c8dap")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_825yj"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pcqoy"]
-texture = SubResource("PlaceholderTexture2D_825yj")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dtlth"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sd26x"]
-texture = SubResource("PlaceholderTexture2D_dtlth")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bokgu"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lykpo"]
-texture = SubResource("PlaceholderTexture2D_bokgu")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m7ebj"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pu5ri"]
-texture = SubResource("PlaceholderTexture2D_m7ebj")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0sifb"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1h07k"]
-texture = SubResource("PlaceholderTexture2D_0sifb")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pvfjt"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wanox"]
-texture = SubResource("PlaceholderTexture2D_pvfjt")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwd37"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koy4f"]
-texture = SubResource("PlaceholderTexture2D_nwd37")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7rs47"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdrt8"]
-texture = SubResource("PlaceholderTexture2D_7rs47")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8i50l"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g52yt"]
-texture = SubResource("PlaceholderTexture2D_8i50l")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7nwsm"]
-size = Vector2(64, 64)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xt60o"]
-texture = SubResource("PlaceholderTexture2D_7nwsm")
-texture_margin_top = 10.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n0rqx"]
-size = Vector2(64, 64)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c8dap"]
+gradient = SubResource("Gradient_h0wou")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_825yj"]
-texture = SubResource("PlaceholderTexture2D_n0rqx")
+texture = SubResource("GradientTexture2D_c8dap")
 texture_margin_top = 10.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c7ldo"]
-size = Vector2(64, 64)
+[sub_resource type="Gradient" id="Gradient_dtlth"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bokgu"]
+gradient = SubResource("Gradient_dtlth")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7ebj"]
-texture = SubResource("PlaceholderTexture2D_c7ldo")
+texture = SubResource("GradientTexture2D_bokgu")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_0sifb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pvfjt"]
+gradient = SubResource("Gradient_0sifb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nwd37"]
+texture = SubResource("GradientTexture2D_pvfjt")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_7rs47"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8i50l"]
+gradient = SubResource("Gradient_7rs47")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7nwsm"]
+texture = SubResource("GradientTexture2D_8i50l")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_n0rqx"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c7ldo"]
+gradient = SubResource("Gradient_n0rqx")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hwgr7"]
+texture = SubResource("GradientTexture2D_c7ldo")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_fiqie"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dsdls"]
+gradient = SubResource("Gradient_fiqie")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klpux"]
+texture = SubResource("GradientTexture2D_dsdls")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_kdrt8"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xdhwr"]
+gradient = SubResource("Gradient_kdrt8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8mme"]
+texture = SubResource("GradientTexture2D_xdhwr")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_h3bx8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_68dj2"]
+gradient = SubResource("Gradient_h3bx8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xt60o"]
+texture = SubResource("GradientTexture2D_68dj2")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_c8dap"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_825yj"]
+gradient = SubResource("Gradient_c8dap")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtlth"]
+texture = SubResource("GradientTexture2D_825yj")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_bokgu"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m7ebj"]
+gradient = SubResource("Gradient_bokgu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0sifb"]
+texture = SubResource("GradientTexture2D_m7ebj")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_pvfjt"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nwd37"]
+gradient = SubResource("Gradient_pvfjt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rs47"]
+texture = SubResource("GradientTexture2D_nwd37")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_8i50l"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7nwsm"]
+gradient = SubResource("Gradient_8i50l")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n0rqx"]
+texture = SubResource("GradientTexture2D_7nwsm")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_c7ldo"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hwgr7"]
+gradient = SubResource("Gradient_c7ldo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fiqie"]
+texture = SubResource("GradientTexture2D_hwgr7")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_dsdls"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_klpux"]
+gradient = SubResource("Gradient_dsdls")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tl5kq"]
+texture = SubResource("GradientTexture2D_klpux")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_n2cja"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iuh84"]
+gradient = SubResource("Gradient_n2cja")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rkut1"]
+texture = SubResource("GradientTexture2D_iuh84")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_w2cju"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d77fa"]
+gradient = SubResource("Gradient_w2cju")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1tcv"]
+texture = SubResource("GradientTexture2D_d77fa")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_1r3g4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o8lyq"]
+gradient = SubResource("Gradient_1r3g4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fafvs"]
+texture = SubResource("GradientTexture2D_o8lyq")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_5p2jk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s6dl2"]
+gradient = SubResource("Gradient_5p2jk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xyti"]
+texture = SubResource("GradientTexture2D_s6dl2")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_d42fg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x758d"]
+gradient = SubResource("Gradient_d42fg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7vhk"]
+texture = SubResource("GradientTexture2D_x758d")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_12pc4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3g0yv"]
+gradient = SubResource("Gradient_12pc4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6t0ss"]
+texture = SubResource("GradientTexture2D_3g0yv")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_i7g2q"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m63ys"]
+gradient = SubResource("Gradient_i7g2q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qih0j"]
+texture = SubResource("GradientTexture2D_m63ys")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_whcm7"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v66y4"]
+gradient = SubResource("Gradient_whcm7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2owtf"]
+texture = SubResource("GradientTexture2D_v66y4")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_4688s"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cy854"]
+gradient = SubResource("Gradient_4688s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ornf"]
+texture = SubResource("GradientTexture2D_cy854")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_coc7t"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0yx7k"]
+gradient = SubResource("Gradient_coc7t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3vjie"]
+texture = SubResource("GradientTexture2D_0yx7k")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_xcijx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_62wfg"]
+gradient = SubResource("Gradient_xcijx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3iek"]
+texture = SubResource("GradientTexture2D_62wfg")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_nf8lj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpe0v"]
+gradient = SubResource("Gradient_nf8lj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_joqap"]
+texture = SubResource("GradientTexture2D_dpe0v")
+texture_margin_top = 10.0
+
+[sub_resource type="Gradient" id="Gradient_6bfrm"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x4j3m"]
+gradient = SubResource("Gradient_6bfrm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63dvl"]
+texture = SubResource("GradientTexture2D_x4j3m")
 texture_margin_top = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51o2c"]
@@ -2365,19 +2493,13 @@ grow_vertical = 2
 script = ExtResource("26_ld6j6")
 
 [node name="In-Game_Controller" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline"]
-visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 224.5
-offset_top = 379.0
-offset_right = 224.5
-offset_bottom = 379.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
 metadata/Open = false
 metadata/Close_Pos = Vector2(224.5, 379)
 
@@ -2974,7 +3096,7 @@ world_3d = SubResource("World3D_l6x5t")
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(198, 367)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Character_Editor" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Center/Polygon2D/SubViewportContainer/SubViewport" instance=ExtResource("27_t467y")]
 
@@ -3620,7 +3742,6 @@ offset_bottom = 367.0
 texture = ExtResource("47_u26x0")
 
 [node name="Menu_Color" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3703,7 +3824,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_keygr")
+theme_override_styles/slider = SubResource("StyleBoxTexture_h3bx8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3713,7 +3834,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_acrls")
+theme_override_styles/slider = SubResource("StyleBoxTexture_68dj2")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3723,7 +3844,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_selft")
+theme_override_styles/slider = SubResource("StyleBoxTexture_825yj")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3770,7 +3891,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_h3bx8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3780,7 +3901,7 @@ step = 0.003
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_7831s")
+theme_override_styles/slider = SubResource("StyleBoxTexture_m7ebj")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3790,7 +3911,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_bdav8")
+theme_override_styles/slider = SubResource("StyleBoxTexture_nwd37")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3800,7 +3921,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_p5dci")
+theme_override_styles/slider = SubResource("StyleBoxTexture_7nwsm")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3843,7 +3964,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_wslw3")
+theme_override_styles/slider = SubResource("StyleBoxTexture_hwgr7")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3853,7 +3974,7 @@ step = 0.01
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_y6mac")
+theme_override_styles/slider = SubResource("StyleBoxTexture_klpux")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3922,7 +4043,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_h3bx8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3932,7 +4053,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_nw0n6")
+theme_override_styles/slider = SubResource("StyleBoxTexture_k8mme")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3942,7 +4063,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_pcqoy")
+theme_override_styles/slider = SubResource("StyleBoxTexture_xt60o")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3989,7 +4110,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_h3bx8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -3999,7 +4120,7 @@ step = 0.003
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_sd26x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_dtlth")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4009,7 +4130,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_lykpo")
+theme_override_styles/slider = SubResource("StyleBoxTexture_0sifb")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4019,7 +4140,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_pu5ri")
+theme_override_styles/slider = SubResource("StyleBoxTexture_7rs47")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4062,7 +4183,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_wslw3")
+theme_override_styles/slider = SubResource("StyleBoxTexture_n0rqx")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4072,7 +4193,7 @@ step = 0.01
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_y6mac")
+theme_override_styles/slider = SubResource("StyleBoxTexture_fiqie")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4141,7 +4262,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_h3bx8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4151,7 +4272,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_1h07k")
+theme_override_styles/slider = SubResource("StyleBoxTexture_tl5kq")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4161,7 +4282,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_wanox")
+theme_override_styles/slider = SubResource("StyleBoxTexture_rkut1")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4208,7 +4329,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_h3bx8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4218,7 +4339,7 @@ step = 0.003
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_koy4f")
+theme_override_styles/slider = SubResource("StyleBoxTexture_c1tcv")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4228,7 +4349,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_kdrt8")
+theme_override_styles/slider = SubResource("StyleBoxTexture_fafvs")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4238,7 +4359,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_p5dci")
+theme_override_styles/slider = SubResource("StyleBoxTexture_5xyti")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4281,7 +4402,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_wslw3")
+theme_override_styles/slider = SubResource("StyleBoxTexture_n7vhk")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4291,7 +4412,7 @@ step = 0.01
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_y6mac")
+theme_override_styles/slider = SubResource("StyleBoxTexture_6t0ss")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4360,7 +4481,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_h3bx8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4370,7 +4491,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_g52yt")
+theme_override_styles/slider = SubResource("StyleBoxTexture_qih0j")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4380,7 +4501,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_xt60o")
+theme_override_styles/slider = SubResource("StyleBoxTexture_2owtf")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4427,7 +4548,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_dbvvk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_h3bx8")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4437,7 +4558,7 @@ step = 0.003
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_825yj")
+theme_override_styles/slider = SubResource("StyleBoxTexture_5ornf")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4447,7 +4568,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_m7ebj")
+theme_override_styles/slider = SubResource("StyleBoxTexture_3vjie")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4457,7 +4578,7 @@ step = 0.001
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_p5dci")
+theme_override_styles/slider = SubResource("StyleBoxTexture_c3iek")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4500,7 +4621,7 @@ caret_blink = true
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_wslw3")
+theme_override_styles/slider = SubResource("StyleBoxTexture_joqap")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0
@@ -4510,7 +4631,7 @@ step = 0.01
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = SubResource("GradientTexture2D_ruhva")
-theme_override_styles/slider = SubResource("StyleBoxTexture_y6mac")
+theme_override_styles/slider = SubResource("StyleBoxTexture_63dvl")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_gk43k")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_woi3g")
 max_value = 1.0

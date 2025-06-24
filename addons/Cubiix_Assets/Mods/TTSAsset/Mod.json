@@ -27,6 +27,14 @@
 						"Roughness":1.0,
 						"Emission_Strength":0.0,
 						"Alpha": 1.0
+					},
+					"Head/2":{
+						"Color":"#AAAAAA",
+						"Emission":"#000000",
+						"Metallic":0.0,
+						"Roughness":1.0,
+						"Emission_Strength":0.0,
+						"Alpha": 1.0
 					}
 				}
 			},
@@ -397,8 +405,24 @@
 						"Emission_Strength":1.0,
 						"Alpha": 0.9
 					},
+				},
+				"Texture_Overrides":{
+					"Color":"",
+					"Met_R":"",
+					"Emission":"",
+					"Emission_Strength":""
 				}
 			},
+			"Ki_Star_Shades":{
+				"Tag":"Face",
+				"Name":"New Star Shades",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Face_Accessories/New_Star_Shades.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/New_Star_Shades",
+				"Texture_Overrides":{
+					"Color_Path":"Assets/Mesh/Character/Face_Accessories/Star_Shades.png"
+				}
+			}
 		},
 		"Override_Binds":{},
 		"Maps":{

@@ -1,7 +1,7 @@
 extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
-var GameVersion = "V_B.01.05"
+var GameVersion = "V_B.01.06"
 var NewGameVersion = ""
 
 signal Setting_Changed
@@ -68,13 +68,14 @@ func _ready() -> void:
 	if OS.has_feature("client"):
 		var Json = JSON.new()
 		var IsFile = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/client.json")
+		print(OS.get_executable_path().get_base_dir())
 		print(IsFile)
 		if !IsFile:
-			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
+			var NewFile = FileAccess.open(OS.get_user_data_dir()+"/client.json",FileAccess.WRITE)
 			NewFile.store_string(JSON.stringify(save_template,"\t"))
 			NewFile.close()
 
-		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/client.json")
+		var JsonFile = FileAccess.get_file_as_string(OS.get_user_data_dir()+"/client.json")
 		Json.parse(JsonFile)
 		Data = Json.data
 		
@@ -87,13 +88,13 @@ func _ready() -> void:
 	if OS.has_feature("server"):
 		var Json = JSON.new()
 		#print(OS.get_executable_path().get_base_dir()+"/server.json")
-		var IsFile = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/server.json")
+		var IsFile = FileAccess.file_exists(OS.get_user_data_dir()+"/server.json")
 		if !IsFile:
-			var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
+			var NewFile = FileAccess.open(OS.get_user_data_dir()+"/server.json",FileAccess.WRITE)
 			NewFile.store_string(JSON.stringify(server_template,"\t"))
 			NewFile.close()
 
-		var JsonFile = FileAccess.get_file_as_string(OS.get_executable_path().get_base_dir()+"/server.json")
+		var JsonFile = FileAccess.get_file_as_string(OS.get_user_data_dir()+"/server.json")
 		Json.parse(JsonFile)
 		Data = Json.data
 		
@@ -125,11 +126,11 @@ func Kill():
 	Core.AssetData.thread_force_post()
 	if OS.has_feature("client"):
 		#Core.Persistant_Core
-		var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/client.json",FileAccess.WRITE)
+		var NewFile = FileAccess.open(OS.get_user_data_dir()+"/client.json",FileAccess.WRITE)
 		NewFile.store_string(JSON.stringify(Data,"\t"))
 		NewFile.close()
 	if OS.has_feature("server"):
-		var NewFile = FileAccess.open(OS.get_executable_path().get_base_dir()+"/server.json",FileAccess.WRITE)
+		var NewFile = FileAccess.open(OS.get_user_data_dir()+"/server.json",FileAccess.WRITE)
 		NewFile.store_string(JSON.stringify(Data,"\t"))
 		NewFile.close()
 	
