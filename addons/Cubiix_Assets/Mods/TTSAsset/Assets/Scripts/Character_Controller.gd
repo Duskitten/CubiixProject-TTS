@@ -72,6 +72,7 @@ var swim_pos:Vector3
 
 var sploosh = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/sploosh.tscn").instantiate()
 var particles = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Map/Water/water_particles.tscn").instantiate()
+
 func _init() -> void:
 	## Disable these to prevent "Null" errors before load.
 	set_process(false)
@@ -212,22 +213,22 @@ func _physics_process(delta: float) -> void:
 			compiled_velocity = Vector3.ZERO
 			Character.global_transform.basis = align_up(Character.basis,RayCast_Swim.get_collision_normal(),1)
 			Character.position = RayCast_Swim.get_collision_point() - (Character.global_transform.basis.y * 0.48)
-			if falling:
-				var sploosh2 = sploosh.duplicate()
-				sploosh2.get_node("AnimationPlayer").play("Sploosh")
-				Character.get_parent().get_node("Effects").add_child(sploosh2)
-				sploosh2.global_position = RayCast_Swim.get_collision_point()
-				sploosh2.global_transform.basis = Character.global_transform.basis
+			#if falling:
+				#var sploosh2 = sploosh.duplicate()
+				#sploosh2.get_node("AnimationPlayer").play("Sploosh")
+				#Character.get_parent().get_node("Effects").add_child(sploosh2)
+				#sploosh2.global_position = RayCast_Swim.get_collision_point()
+				#sploosh2.global_transform.basis = Character.global_transform.basis
 			falling = false
 			jumping = false
-			
-			var particles2 = particles.duplicate()
-			Character.get_parent().get_node("Effects").add_child(particles2)
-			swim_pos = Character.to_local(RayCast_Swim.get_collision_point()) + Vector3(0,0.02,0)
-			particles2.global_transform.basis = Character.global_transform.basis
-			
-			current_swim_particles = particles2
-			particles2.emitting = true
+			#
+			#var particles2 = particles.duplicate()
+			#Character.get_parent().get_node("Effects").add_child(particles2)
+			#swim_pos = Character.to_local(RayCast_Swim.get_collision_point()) + Vector3(0,0.02,0)
+			#particles2.global_transform.basis = Character.global_transform.basis
+			#
+			#current_swim_particles = particles2
+			#particles2.emitting = true
 			
 		if !Swimming:
 			Fall_Delta = Time.get_ticks_msec() - Fall_Delta_Prev

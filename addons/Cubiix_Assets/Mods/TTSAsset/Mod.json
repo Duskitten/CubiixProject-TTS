@@ -420,7 +420,8 @@
 				"Path" : "Assets/Mesh/Character/Face_Accessories/New_Star_Shades.gltf",
 				"Mesh_Path":"Armature/Skeleton3D/New_Star_Shades",
 				"Texture_Overrides":{
-					"Color_Path":"Assets/Mesh/Character/Face_Accessories/Star_Shades.png"
+					"Color_Path":"Assets/Mesh/Character/Face_Accessories/Star_Shades.png",
+					"Emission_Path":"Assets/Mesh/Character/Face_Accessories/Star_Shades_Emission.png"
 				}
 			}
 		},
