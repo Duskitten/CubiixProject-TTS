@@ -382,7 +382,7 @@
 				}
 			},
 			
-			"Ki_Star_Shades":{
+			"Ki_Star_Shades_Old":{
 				"Tag":"Face",
 				"Name":"Star Shades",
 				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
@@ -422,6 +422,17 @@
 				"Texture_Overrides":{
 					"Color_Path":"Assets/Mesh/Character/Face_Accessories/Star_Shades.png",
 					"Emission_Path":"Assets/Mesh/Character/Face_Accessories/Star_Shades_Emission.png"
+				}
+			},
+			"Ki_Basic_Shades":{
+				"Tag":"Face",
+				"Name":"Basic Shades",
+				"Image_Preview":"Assets/Textures/Previews/Wings/Wings_Entity.png",
+				"Path" : "Assets/Mesh/Character/Face_Accessories/New_Star_Shades.gltf",
+				"Mesh_Path":"Armature/Skeleton3D/New_Star_Shades",
+				"Texture_Overrides":{
+					"Color_Path":"Assets/Mesh/Character/Face_Accessories/Basic_Shades_Color.png",
+					"Emission_Path":"Assets/Mesh/Character/Face_Accessories/Basic_Shades_Emission.png"
 				}
 			}
 		},
