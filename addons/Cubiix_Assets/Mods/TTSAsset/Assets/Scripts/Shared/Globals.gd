@@ -67,9 +67,7 @@ func _physics_process(delta: float) -> void:
 func _ready() -> void:
 	if OS.has_feature("client"):
 		var Json = JSON.new()
-		var IsFile = FileAccess.file_exists(OS.get_executable_path().get_base_dir()+"/client.json")
-		print(OS.get_executable_path().get_base_dir())
-		print(IsFile)
+		var IsFile = FileAccess.file_exists(OS.get_user_data_dir()+"/client.json")
 		if !IsFile:
 			var NewFile = FileAccess.open(OS.get_user_data_dir()+"/client.json",FileAccess.WRITE)
 			NewFile.store_string(JSON.stringify(save_template,"\t"))

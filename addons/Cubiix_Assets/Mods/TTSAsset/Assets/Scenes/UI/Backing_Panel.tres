@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://rv7cv7go6bnk"]
+
+[ext_resource type="Texture2D" uid="uid://6p0o57broutv" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Slide_UI/Backings/Backing_Base.png" id="1_jtx3l"]
+
+[resource]
+texture = ExtResource("1_jtx3l")
+texture_margin_left = 155.0
+texture_margin_top = 255.0
+texture_margin_right = 125.0
+texture_margin_bottom = 150.0

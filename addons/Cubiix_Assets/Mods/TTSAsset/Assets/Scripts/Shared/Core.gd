@@ -7,6 +7,7 @@ var Globals
 var AssetData
 var Dialogue_Handler
 var Persistant_Core
+var UI_Scaler
 var Character_Gen
 var Console
 var ServerList_Updater
@@ -36,10 +37,12 @@ func _ready():
 		Client = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Networking/New_Networking_Client.gd").new()
 		Dialogue_Handler = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/DialogueBank.gd").new()
 		Persistant_Core = load("res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/Persistant_Core.tscn").instantiate()
+		UI_Scaler = load("res://scripts/adjust.gd").new()
 		add_child(AssetData)
 		add_child(SceneData)
 		add_child(Globals)
 		add_child(Client)
+		add_child(UI_Scaler)
 		add_child(Dialogue_Handler)
 		get_parent().call_deferred("add_child", Persistant_Core)
 		await Persistant_Core.ready

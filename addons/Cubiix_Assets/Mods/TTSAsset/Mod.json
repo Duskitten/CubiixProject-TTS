@@ -498,17 +498,13 @@
 			}
 		},
 		"Dialogue":{
-			"Dusk":{
-				
-			},
-			"Nat":{
-				
-			},
-			"Ki":{
-				
-			},
-			"Skim":{
-				
+			"Ki_1":{
+				"Character_Image":"",
+				"Character":"Ki",
+				"Text":"Hia! Welcome to the island!",
+				"SpeedPoints":[],
+				"Speeds":[],
+				"TextOptions":["Option_1", "Option_2"]
 			}
 		},
 		"Devlog_Entries":{

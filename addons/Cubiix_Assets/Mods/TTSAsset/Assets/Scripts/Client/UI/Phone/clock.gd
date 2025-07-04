@@ -21,4 +21,4 @@ func _process(delta: float) -> void:
 			else:
 				Backuptime = saved_time[0]
 
-			text = "%02d:%02d %s" % [Backuptime, saved_time[1], AMPM]
+			text = "%02d:%02d" % [Backuptime, saved_time[1]]
