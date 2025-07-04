@@ -10,6 +10,7 @@ var Camera_X:Node3D
 var Camera_Z:SpringArm3D
 var Camera:Camera3D
 var Sensitivity:float = 5
+var Controller_Sensitivity:float = .6
 var CameraZoom:float = -4.0
 signal CameraSetup
 
@@ -57,3 +58,13 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	Camera_Z.spring_length = lerpf(Camera_Z.spring_length,CameraZoom,0.15)
+	
+	if Input.get_action_strength("move_mouse_right") != 0 || Input.get_action_strength("move_mouse_left") != 0:
+		var input = Input.get_action_raw_strength("move_mouse_right") -  Input.get_action_raw_strength("move_mouse_left")
+		Camera_Y.rotation_degrees.y -= input/Controller_Sensitivity
+		
+	if Input.get_action_strength("move_mouse_up") != 0 || Input.get_action_strength("move_mouse_down") != 0:
+		var input = Input.get_action_raw_strength("move_mouse_up") -  Input.get_action_raw_strength("move_mouse_down")
+		Camera_X.rotation_degrees.x += input/Controller_Sensitivity
+		Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
+	

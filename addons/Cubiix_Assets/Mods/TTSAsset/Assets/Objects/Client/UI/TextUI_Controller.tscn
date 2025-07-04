@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwu4aa0t4dm8c"]
+[gd_scene load_steps=20 format=3 uid="uid://cwu4aa0t4dm8c"]
 
 [ext_resource type="FontFile" uid="uid://brv2r44cd7dfp" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-SemiBold.ttf" id="1_35gd0"]
 [ext_resource type="Script" uid="uid://cv18ea4ncsogo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="2_e6qho"]
@@ -43,6 +43,14 @@ shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8ql6j"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.601562, 0.601562, 0.601562, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
 [sub_resource type="LabelSettings" id="LabelSettings_pokjv"]
 font = ExtResource("1_35gd0")
 font_size = 24
@@ -65,6 +73,21 @@ shadow_offset = Vector2(3, 2)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7sjd"]
 
+[sub_resource type="Animation" id="Animation_d57x0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_r7sjd"]
 resource_name = "new_animation"
 length = 4.0
@@ -82,21 +105,6 @@ tracks/0/keys = {
 "values": [-0.120428, 0.120428]
 }
 
-[sub_resource type="Animation" id="Animation_d57x0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esetb"]
 _data = {
 &"RESET": SubResource("Animation_d57x0"),
@@ -106,7 +114,7 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r7sjd"]
 animation = &"new_animation"
 
-[node name="Control" type="Control"]
+[node name="TextUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 746.0
@@ -174,6 +182,12 @@ layout_mode = 2
 text = "Login"
 label_settings = SubResource("LabelSettings_esetb")
 
+[node name="Social" type="Label" parent="Control/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Social"
+label_settings = SubResource("LabelSettings_8ql6j")
+
 [node name="Settings" type="Label" parent="Control/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
@@ -201,7 +215,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Control" parent="Screens"]
+[node name="Home" type="Control" parent="Screens"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -210,7 +224,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Title"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Home"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,27 +232,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VSeparator2" type="VSeparator" parent="Screens/Title/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="Screens/Home/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 theme_override_styles/separator = SubResource("StyleBoxEmpty_d57x0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Title/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Home/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HSeparator" type="HSeparator" parent="Screens/Title/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Screens/Home/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 theme_override_styles/separator = SubResource("StyleBoxEmpty_esetb")
 
-[node name="Panel" type="Panel" parent="Screens/Title/HBoxContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="Screens/Home/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_r7sjd")
 
-[node name="TextureRect" type="TextureRect" parent="Screens/Title/HBoxContainer/VBoxContainer/Panel"]
+[node name="TextureRect" type="TextureRect" parent="Screens/Home/HBoxContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -251,21 +265,46 @@ texture = ExtResource("3_r7sjd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Screens/Title/HBoxContainer/VBoxContainer/Panel/TextureRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Screens/Home/HBoxContainer/VBoxContainer/Panel/TextureRect"]
 libraries = {
 &"": SubResource("AnimationLibrary_esetb")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Screens/Title/HBoxContainer/VBoxContainer/Panel/TextureRect/AnimationPlayer"]
+[node name="AnimationTree" type="AnimationTree" parent="Screens/Home/HBoxContainer/VBoxContainer/Panel/TextureRect/AnimationPlayer"]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeAnimation_r7sjd")
 anim_player = NodePath("..")
 
-[node name="HSeparator2" type="HSeparator" parent="Screens/Title/HBoxContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Screens/Home/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_esetb")
 
-[node name="VSeparator" type="VSeparator" parent="Screens/Title/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="Screens/Home/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_d57x0")
+
+[node name="Play" type="Control" parent="Screens"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Login" type="Control" parent="Screens"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Social" type="Control" parent="Screens"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Settings" type="Control" parent="Screens"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Quit" type="Control" parent="Screens"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
