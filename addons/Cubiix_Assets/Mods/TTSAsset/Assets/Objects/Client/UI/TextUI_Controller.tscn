@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwu4aa0t4dm8c"]
+[gd_scene load_steps=24 format=3 uid="uid://cwu4aa0t4dm8c"]
 
 [ext_resource type="FontFile" uid="uid://brv2r44cd7dfp" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-SemiBold.ttf" id="1_35gd0"]
 [ext_resource type="Script" uid="uid://cv18ea4ncsogo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="2_e6qho"]
@@ -30,31 +30,7 @@ shadow_offset = Vector2(3, 2)
 [sub_resource type="LabelSettings" id="LabelSettings_d57x0"]
 font = ExtResource("1_35gd0")
 font_size = 24
-font_color = Color(0.6, 0.6, 0.6, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.352941)
-shadow_offset = Vector2(3, 2)
-
-[sub_resource type="LabelSettings" id="LabelSettings_esetb"]
-font = ExtResource("1_35gd0")
-font_size = 24
-font_color = Color(0.601562, 0.601562, 0.601562, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.352941)
-shadow_offset = Vector2(3, 2)
-
-[sub_resource type="LabelSettings" id="LabelSettings_8ql6j"]
-font = ExtResource("1_35gd0")
-font_size = 24
-font_color = Color(0.601562, 0.601562, 0.601562, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.352941)
-shadow_offset = Vector2(3, 2)
-
-[sub_resource type="LabelSettings" id="LabelSettings_pokjv"]
-font = ExtResource("1_35gd0")
-font_size = 24
-font_color = Color(0.6, 0.6, 0.6, 1)
+font_color = Color(0.6, 0.6, 0.6, 0.5)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
@@ -62,7 +38,63 @@ shadow_offset = Vector2(3, 2)
 [sub_resource type="LabelSettings" id="LabelSettings_wa808"]
 font = ExtResource("1_35gd0")
 font_size = 24
-font_color = Color(0.6, 0.6, 0.6, 1)
+font_color = Color(0.6, 0.6, 0.6, 0.5)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_esetb"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.602, 0.602, 0.602, 0.5)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pokjv"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.602, 0.602, 0.602, 0.5)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ql6j"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.6, 0.6, 0.6, 0.5)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vu8tt"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.602, 0.602, 0.602, 0.5)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h03bw"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ae2ra"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qpxxv"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
@@ -129,7 +161,7 @@ offset_top = 9.0
 offset_right = -19.0
 offset_bottom = 47.0
 grow_horizontal = 2
-text = "CubiixOS 2.0"
+text = "ZMB 1.0"
 label_settings = SubResource("LabelSettings_tixo2")
 horizontal_alignment = 2
 
@@ -157,55 +189,102 @@ offset_top = 22.0
 offset_bottom = 22.0
 script = ExtResource("3_d57x0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 8.0
-offset_right = 150.0
-offset_bottom = 190.0
+offset_right = 983.0
 
-[node name="Home" type="Label" parent="Control/VBoxContainer"]
+[node name="Base" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(108.47, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Base"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 135.0
+offset_bottom = 216.0
+
+[node name="Home" type="Label" parent="Control/HBoxContainer/Base/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 text = "Home"
 label_settings = SubResource("LabelSettings_r7sjd")
 
-[node name="Play" type="Label" parent="Control/VBoxContainer"]
+[node name="Play" type="Label" parent="Control/HBoxContainer/Base/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 text = "Play"
 label_settings = SubResource("LabelSettings_d57x0")
 
-[node name="Login" type="Label" parent="Control/VBoxContainer"]
-use_parent_material = true
-layout_mode = 2
-text = "Login"
-label_settings = SubResource("LabelSettings_esetb")
-
-[node name="Social" type="Label" parent="Control/VBoxContainer"]
-use_parent_material = true
-layout_mode = 2
-text = "Social"
-label_settings = SubResource("LabelSettings_8ql6j")
-
-[node name="Settings" type="Label" parent="Control/VBoxContainer"]
-use_parent_material = true
-layout_mode = 2
-text = "Settings"
-label_settings = SubResource("LabelSettings_pokjv")
-
-[node name="Quit" type="Label" parent="Control/VBoxContainer"]
+[node name="Quit" type="Label" parent="Control/HBoxContainer/Base/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 text = "Quit"
 label_settings = SubResource("LabelSettings_wa808")
 
-[node name="Control" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = 15.0
+[node name="Home" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(108.47, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Home"]
+layout_mode = 0
 offset_top = 8.0
-offset_right = 55.0
-offset_bottom = 48.0
+offset_right = 135.0
+offset_bottom = 216.0
+
+[node name="Devlog" type="Label" parent="Control/HBoxContainer/Home/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Devlog"
+label_settings = SubResource("LabelSettings_esetb")
+
+[node name="Social" type="Label" parent="Control/HBoxContainer/Home/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Social"
+label_settings = SubResource("LabelSettings_pokjv")
+
+[node name="Settings" type="Label" parent="Control/HBoxContainer/Home/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_8ql6j")
+
+[node name="Play" type="Control" parent="Control/HBoxContainer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(108.47, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Play"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 135.0
+offset_bottom = 216.0
+
+[node name="Login" type="Label" parent="Control/HBoxContainer/Play/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Login"
+label_settings = SubResource("LabelSettings_vu8tt")
+
+[node name="Character Editor" type="Label" parent="Control/HBoxContainer/Play/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Character"
+label_settings = SubResource("LabelSettings_h03bw")
+
+[node name="StarMapper" type="Label" parent="Control/HBoxContainer/Play/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "StarMapper"
+label_settings = SubResource("LabelSettings_ae2ra")
+
+[node name="Inventory" type="Label" parent="Control/HBoxContainer/Play/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Inventory"
+label_settings = SubResource("LabelSettings_qpxxv")
 
 [node name="Screens" type="Control" parent="."]
 layout_mode = 1

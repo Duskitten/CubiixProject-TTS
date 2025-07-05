@@ -258,7 +258,7 @@ func ColorCheck_Accessory(ID:String):
 				var texturedata = data["Texture_Overrides"]
 				var startpos = new_Keylist[data["Tag"]][0]*57
 				startpos = Vector2i(startpos.y, startpos.x)
-				var current_rect = Rect2i(startpos,Vector2i(114,114))
+				var current_rect = Rect2i(Vector2(0,0),Vector2i(114,114))
 				if texturedata.has("Color_Path"):
 					print(get_parent().name+"aaaaaaaaa")
 					#print(texturedata["Color_Path"])
