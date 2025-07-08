@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 		elif  Input.is_action_just_released("scroll_down"):
 			CameraZoom -= 1
 				
-		CameraZoom = clampf(CameraZoom, -6,0)
+		CameraZoom = clampf(CameraZoom, -10,0)
 	
 
 func _process(delta: float) -> void:
@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 		Camera_Y.rotation_degrees.y -= input/Controller_Sensitivity
 		
 	if Input.get_action_strength("move_mouse_up") != 0 || Input.get_action_strength("move_mouse_down") != 0:
-		var input = Input.get_action_raw_strength("move_mouse_up") -  Input.get_action_raw_strength("move_mouse_down")
+		var input = Input.get_action_raw_strength("move_mouse_down") -  Input.get_action_raw_strength("move_mouse_up")
 		Camera_X.rotation_degrees.x += input/Controller_Sensitivity
 		Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
 	

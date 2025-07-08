@@ -512,7 +512,13 @@
 				"Tag":"Log_Entry",
 				"Description":"Hello, thank you for opening this game and coming to look at what I've spent the last 2 years of my life working on!\n\n\nSo far what I've added to this game is character customizing, chat, servers, commands, multiplayer, modding, and you name it really, there's no 'actual' content yet, but that will show up soon enough as I keep working on this project!\n\n\nIf you'd like to help support this project, please consider following me on [color=blue][url={\"OpenURL\": \"duskitten.bsky.social\"]Bluesky[/url][/color].\n\nOr even consider donating via [color=blue][url={\"OpenURL\": \"https://www.patreon.com/c/CubiixProject\"]Patreon[/url][/color]!\n\n\nThank you for coming to enjoy my world and one of my various joys in life!",
 				"Author":"Duskitten",
-				"Date":"April 04, 2025"
+				"Date":"April 4, 2025"
+			},
+			"V_B.01.10 - ZMB UI!":{
+				"Tag":"Log_Entry",
+				"Description":"\n\n\n[center]Welcome to the new ZMB 1.0 UI!\nThis is a new thing that I've been working on to make the quality of life better for everybody!\nIt adds controller support and alot more ease of access when it comes to interacting with UI menus in the game itself.\n\nDusk <3",
+				"Author":"Duskitten",
+				"Date":"July 7, 2025"
 			}
 		},
 		"Network_Commands":{

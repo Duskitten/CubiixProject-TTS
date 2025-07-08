@@ -1,7 +1,7 @@
 extends Node
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
-var GameVersion = "V_B.01.06"
+var GameVersion = "V_B.01.10"
 var NewGameVersion = ""
 
 signal Setting_Changed
@@ -15,6 +15,9 @@ var LocalUser = {
 
 var save_template = {
 	"LastChar_Save":"",
+	"Controls":{
+		"Invert_Controls":false,
+	},
 	"Audio":{
 		"Master":0,
 		"Music":0,
@@ -29,7 +32,6 @@ var save_template = {
 		"FOV":75,
 		"TestB":0
 	},
-	"TestA":0,
 	"SavedServers":[["127.0.0.1","5599"]],
 	"API_URL":"https://api.cubiixproject.xyz",
 	"Auth_URL":"https://cubiixproject.xyz"

@@ -1,9 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cwu4aa0t4dm8c"]
+[gd_scene load_steps=34 format=3 uid="uid://cwu4aa0t4dm8c"]
 
 [ext_resource type="FontFile" uid="uid://brv2r44cd7dfp" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-SemiBold.ttf" id="1_35gd0"]
 [ext_resource type="Script" uid="uid://cv18ea4ncsogo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="2_e6qho"]
 [ext_resource type="Script" uid="uid://bq53jkk3c4ny1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Slide_UI/Selector_Visual.gd" id="3_d57x0"]
 [ext_resource type="Texture2D" uid="uid://cnt3cohwghbt6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Logo.png" id="3_r7sjd"]
+[ext_resource type="StyleBox" uid="uid://cya3s2fgnv3c2" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/SmoothUI.tres" id="5_esetb"]
+[ext_resource type="Script" uid="uid://dj6f3f7tosw3t" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Slide_UI/Devlog_HasUI.gd" id="5_pokjv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tixo2"]
 font = ExtResource("1_35gd0")
@@ -11,14 +13,6 @@ font_size = 32
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6qho"]
-bg_color = Color(0.09, 0.09, 0.09, 0.658824)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-expand_margin_bottom = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_r7sjd"]
 font = ExtResource("1_35gd0")
@@ -28,6 +22,14 @@ shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_d57x0"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.6, 0.6, 0.6, 0.5)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rvedy"]
 font = ExtResource("1_35gd0")
 font_size = 24
 font_color = Color(0.6, 0.6, 0.6, 0.5)
@@ -99,6 +101,46 @@ shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
 
+[sub_resource type="LabelSettings" id="LabelSettings_u87mk"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8hsx"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.602, 0.602, 0.602, 0.5)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7h6cc"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_46kox"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_utdyb"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d57x0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esetb"]
@@ -146,6 +188,18 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r7sjd"]
 animation = &"new_animation"
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pokjv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1tge1"]
+font = ExtResource("1_35gd0")
+font_size = 24
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.409)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa808"]
+
 [node name="TextUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -177,7 +231,7 @@ offset_right = -287.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_e6qho")
+theme_override_styles/normal = ExtResource("5_esetb")
 text = "11:11"
 label_settings = SubResource("LabelSettings_tixo2")
 horizontal_alignment = 1
@@ -216,6 +270,12 @@ layout_mode = 2
 text = "Play"
 label_settings = SubResource("LabelSettings_d57x0")
 
+[node name="Settings" type="Label" parent="Control/HBoxContainer/Base/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_rvedy")
+
 [node name="Quit" type="Label" parent="Control/HBoxContainer/Base/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
@@ -238,16 +298,16 @@ layout_mode = 2
 text = "Devlog"
 label_settings = SubResource("LabelSettings_esetb")
 
-[node name="Social" type="Label" parent="Control/HBoxContainer/Home/VBoxContainer"]
+[node name="Discord" type="Label" parent="Control/HBoxContainer/Home/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
-text = "Social"
+text = "Discord"
 label_settings = SubResource("LabelSettings_pokjv")
 
-[node name="Settings" type="Label" parent="Control/HBoxContainer/Home/VBoxContainer"]
+[node name="Updates" type="Label" parent="Control/HBoxContainer/Home/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
-text = "Settings"
+text = "Updates"
 label_settings = SubResource("LabelSettings_8ql6j")
 
 [node name="Play" type="Control" parent="Control/HBoxContainer"]
@@ -286,6 +346,48 @@ layout_mode = 2
 text = "Inventory"
 label_settings = SubResource("LabelSettings_qpxxv")
 
+[node name="Inbox" type="Label" parent="Control/HBoxContainer/Play/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Inbox"
+label_settings = SubResource("LabelSettings_u87mk")
+
+[node name="Settings" type="Control" parent="Control/HBoxContainer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(108.47, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/Settings"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 135.0
+offset_bottom = 216.0
+
+[node name="Visuals" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Visuals"
+label_settings = SubResource("LabelSettings_j8hsx")
+
+[node name="Input" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Input"
+label_settings = SubResource("LabelSettings_7h6cc")
+
+[node name="Accessibility" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Accessibility"
+label_settings = SubResource("LabelSettings_46kox")
+
+[node name="Other" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Other"
+label_settings = SubResource("LabelSettings_utdyb")
+
 [node name="Screens" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -295,6 +397,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Home" type="Control" parent="Screens"]
+visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -363,27 +467,266 @@ layout_mode = 2
 theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_d57x0")
 
-[node name="Play" type="Control" parent="Screens"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Devlog" type="Control" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_pokjv")
 
-[node name="Login" type="Control" parent="Screens"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Panel" type="Panel" parent="Screens/Devlog"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -200.0
+offset_right = -32.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_esetb")
 
-[node name="Social" type="Control" parent="Screens"]
-anchors_preset = 0
+[node name="Label" type="Label" parent="Screens/Devlog/Panel"]
+layout_mode = 0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Devlog/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Devlog/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 23
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pokjv")
+
+[node name="Label2" type="Label" parent="Screens/Devlog/Panel/HBoxContainer"]
+layout_mode = 2
+text = "< "
+label_settings = SubResource("LabelSettings_1tge1")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Screens/Devlog/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Current_Name"
+label_settings = SubResource("LabelSettings_1tge1")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Screens/Devlog/Panel/HBoxContainer"]
+layout_mode = 2
+text = " >"
+label_settings = SubResource("LabelSettings_1tge1")
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Devlog/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 23
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pokjv")
+
+[node name="Panel3" type="Panel" parent="Screens/Devlog"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 373.0
+offset_top = -273.0
+offset_right = -32.0
+offset_bottom = -212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_esetb")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Screens/Devlog/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Devlog/Panel3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 23
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pokjv")
+
+[node name="Label3" type="Label" parent="Screens/Devlog/Panel3/HBoxContainer2"]
+layout_mode = 2
+text = "10/10/1999 10:00"
+label_settings = SubResource("LabelSettings_1tge1")
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Devlog/Panel3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 23
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pokjv")
+
+[node name="Panel2" type="Panel" parent="Screens/Devlog"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -128.0
+offset_right = -30.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_esetb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Devlog/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Screens/Devlog/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Devlog/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Devlog/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screens/Devlog/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.407843)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/normal_font = ExtResource("1_35gd0")
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "
+
+
+[center]Welcome to the new ZMB 1.0 UI!
+This is a new thing that I've been working on to make the quality of life better for everybody!
+It adds controller support and alot more ease of access when it comes to interacting with UI menus in the game itself.
+
+Dusk <3
+
+
+
+212
+12
+121
+2
+121
+2"
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Devlog/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HSeparator" type="HSeparator" parent="Screens/Devlog/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="Discord" type="Control" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Screens/Discord"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -75.0
+offset_right = -30.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_esetb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Discord/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Screens/Discord/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Discord/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Discord/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screens/Discord/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.407843)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/normal_font = ExtResource("1_35gd0")
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[center]Open
+\"Cubiix Project Official Discord\"
+In browser."
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Discord/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HSeparator" type="HSeparator" parent="Screens/Discord/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
 
 [node name="Settings" type="Control" parent="Screens"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Quit" type="Control" parent="Screens"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
