@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cwu4aa0t4dm8c"]
+[gd_scene load_steps=43 format=3 uid="uid://cwu4aa0t4dm8c"]
 
 [ext_resource type="FontFile" uid="uid://brv2r44cd7dfp" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-SemiBold.ttf" id="1_35gd0"]
 [ext_resource type="Script" uid="uid://cv18ea4ncsogo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="2_e6qho"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cnt3cohwghbt6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Tablet_Assets/Title_Screen_Assets/Title_Logo.png" id="3_r7sjd"]
 [ext_resource type="StyleBox" uid="uid://cya3s2fgnv3c2" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/SmoothUI.tres" id="5_esetb"]
 [ext_resource type="Script" uid="uid://dj6f3f7tosw3t" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Slide_UI/Devlog_HasUI.gd" id="5_pokjv"]
+[ext_resource type="Script" uid="uid://dp6jjk7fwoc28" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Slide_UI/Theme_HasUI.gd" id="7_1tge1"]
+[ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="8_8ql6j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tixo2"]
 font = ExtResource("1_35gd0")
@@ -120,7 +122,7 @@ shadow_offset = Vector2(3, 2)
 [sub_resource type="LabelSettings" id="LabelSettings_7h6cc"]
 font = ExtResource("1_35gd0")
 font_size = 24
-font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+font_color = Color(0.602, 0.602, 0.602, 0.5)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
@@ -134,6 +136,22 @@ shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_utdyb"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_juaxi"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hquq3"]
 font = ExtResource("1_35gd0")
 font_size = 24
 font_color = Color(0.603922, 0.603922, 0.603922, 0.501961)
@@ -200,12 +218,74 @@ shadow_offset = Vector2(3, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa808"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_u53am"]
+font = ExtResource("1_35gd0")
+font_size = 32
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa808"]
+content_margin_left = 20.0
+bg_color = Color(1, 0, 0.91507, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.702)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2xjd"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tge1"]
+content_margin_left = 20.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 0.702)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvedy"]
+content_margin_left = 20.0
+bg_color = Color(0, 0, 0, 0.42)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 0.702)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+
 [node name="TextUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 746.0
 offset_bottom = 708.0
 metadata/_edit_vertical_guides_ = [373.0]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -226,9 +306,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 287.0
-offset_top = -47.0
+offset_top = -68.0
 offset_right = -287.0
-offset_bottom = -9.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/normal = ExtResource("5_esetb")
@@ -283,6 +363,7 @@ text = "Quit"
 label_settings = SubResource("LabelSettings_wa808")
 
 [node name="Home" type="Control" parent="Control/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(108.47, 0)
 layout_mode = 2
 
@@ -364,29 +445,41 @@ offset_top = 8.0
 offset_right = 135.0
 offset_bottom = 216.0
 
+[node name="Audio" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Audio"
+label_settings = SubResource("LabelSettings_j8hsx")
+
 [node name="Visuals" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 text = "Visuals"
-label_settings = SubResource("LabelSettings_j8hsx")
+label_settings = SubResource("LabelSettings_7h6cc")
 
 [node name="Input" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 text = "Input"
-label_settings = SubResource("LabelSettings_7h6cc")
+label_settings = SubResource("LabelSettings_46kox")
 
 [node name="Accessibility" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 text = "Accessibility"
-label_settings = SubResource("LabelSettings_46kox")
+label_settings = SubResource("LabelSettings_utdyb")
+
+[node name="Theme" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Theme"
+label_settings = SubResource("LabelSettings_juaxi")
 
 [node name="Other" type="Label" parent="Control/HBoxContainer/Settings/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 text = "Other"
-label_settings = SubResource("LabelSettings_utdyb")
+label_settings = SubResource("LabelSettings_hquq3")
 
 [node name="Screens" type="Control" parent="."]
 layout_mode = 1
@@ -583,7 +676,7 @@ anchor_bottom = 0.5
 offset_left = 31.0
 offset_top = -128.0
 offset_right = -30.0
-offset_bottom = 284.0
+offset_bottom = 251.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("5_esetb")
@@ -725,8 +818,213 @@ layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
 
-[node name="Settings" type="Control" parent="Screens"]
+[node name="Visuals" type="Control" parent="Screens"]
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Screens/Visuals"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -128.0
+offset_right = -30.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_esetb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Visuals/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Screens/Visuals/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Visuals/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Visuals/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screens/Visuals/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.407843)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/normal_font = ExtResource("1_35gd0")
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "
+
+
+[center]Welcome to the new ZMB 1.0 UI!
+This is a new thing that I've been working on to make the quality of life better for everybody!
+It adds controller support and alot more ease of access when it comes to interacting with UI menus in the game itself.
+
+Dusk <3
+
+
+
+212
+12
+121
+2
+121
+2"
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Visuals/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HSeparator" type="HSeparator" parent="Screens/Visuals/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="Theme" type="Control" parent="Screens"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_1tge1")
+
+[node name="Node3D" type="Node3D" parent="Screens/Theme"]
+
+[node name="Panel2" type="Panel" parent="Screens/Theme"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -52.0
+offset_right = -30.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_esetb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Theme/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Screens/Theme/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Theme/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Asset_Name" type="Label" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Top Color"
+label_settings = SubResource("LabelSettings_u53am")
+horizontal_alignment = 1
+
+[node name="Color" type="Panel" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 66.415)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_wa808")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Asset_Name" type="Label" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bottom Color"
+label_settings = SubResource("LabelSettings_b2xjd")
+horizontal_alignment = 1
+
+[node name="Color" type="Panel" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 66.415)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1tge1")
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Theme/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HSeparator" type="HSeparator" parent="Screens/Theme/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="Instruction_Panel" type="Panel" parent="Screens/Theme"]
+z_index = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 222.0
+offset_right = -43.0
+offset_bottom = -410.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rvedy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screens/Theme/Instruction_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = -6
+theme_override_fonts/normal_font = ExtResource("8_8ql6j")
+bbcode_enabled = true
+text = "
+[font_size=24]H - [img=48,center,center]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png[/img][font_size=24] [img=48,center,center]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png[/img] [font_size=24]      S - [img=48,center,center]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Up_Dpad.png[/img][font_size=24] [img=48,center,center]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Down_Dpad.png[/img] [font_size=24]     V - [img=48,center,center]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Square_Pink.png[/img][font_size=24] [img=48,center,center]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/X_Blue.png[/img]"
+scroll_active = false
+horizontal_alignment = 1

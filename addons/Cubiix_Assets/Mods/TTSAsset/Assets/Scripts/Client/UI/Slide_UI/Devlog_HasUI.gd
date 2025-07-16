@@ -13,7 +13,7 @@ func _ready() -> void:
 			break
 
 func populate_new_log(logdata:Dictionary, title:String) -> void:
-	$Panel/HBoxContainer/Label3.text = title
+	$Panel/HBoxContainer/Label3.text = logdata["Title"]
 	$Panel3/HBoxContainer2/Label3.text = logdata["Date"]
 	$Panel2/VBoxContainer/HBoxContainer/RichTextLabel.text = logdata["Description"]
 	

@@ -4,6 +4,11 @@ var saved_time = [0,0]
 var TwelveHR = true
 var AMPM = "AM"
 var Backuptime = 0
+
+func _ready() -> void:
+	var panel = get_node_or_null("../Panel")
+	if panel != null:
+		panel.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if saved_time != [Time.get_datetime_dict_from_system()["hour"],Time.get_datetime_dict_from_system()["minute"]]:

@@ -18,6 +18,10 @@ var save_template = {
 	"Controls":{
 		"Invert_Controls":false,
 	},
+	"Theme":{
+		"Top":"b705a9",
+		"Bottom":"ffc479"
+	},
 	"Audio":{
 		"Master":0,
 		"Music":0,

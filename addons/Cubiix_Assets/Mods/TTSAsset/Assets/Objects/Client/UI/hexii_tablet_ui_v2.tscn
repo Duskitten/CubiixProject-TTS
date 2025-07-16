@@ -274,7 +274,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhfu"]
-bg_color = Color(0, -0.684468, 0.593494, 1)
+bg_color = Color(0, 0.878567, 0.603405, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -283,9 +283,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = 15.6516
+expand_margin_bottom = 15.6516
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iocu"]
-bg_color = Color(0, -0.101819, 0.597188, 1)
+bg_color = Color(0, 0.18447, 0.599004, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -294,9 +296,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+expand_margin_top = -1.44315
+expand_margin_bottom = -1.44315
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4jrd"]
-bg_color = Color(0, 0.411532, 0.600443, 1)
+bg_color = Color(0, -0.675861, 0.593548, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -305,11 +309,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 1.06393
-expand_margin_bottom = 1.06393
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tt0e"]
-bg_color = Color(0, 0.813877, 0.602995, 1)
+bg_color = Color(0, -0.25975, 0.596187, 1)
 border_width_top = 8
 border_width_bottom = 8
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -318,8 +320,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-expand_margin_top = 13.2911
-expand_margin_bottom = 13.2911
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5abgu"]
 animation = &"new_animation"
@@ -494,13 +494,13 @@ content_margin_left = 8.0
 content_margin_top = 3.0
 bg_color = Color(1, 1, 1, 0.2)
 
-[sub_resource type="Gradient" id="Gradient_e0udg"]
+[sub_resource type="Gradient" id="Gradient_xdhwr"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ruhva"]
-gradient = SubResource("Gradient_e0udg")
+gradient = SubResource("Gradient_xdhwr")
 width = 2
 height = 12
 fill = 2
@@ -511,11 +511,11 @@ fill_to = Vector2(0.5, 0.7)
 offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.498039, 0, 1, 1, 1, 0, 1, 0.498039, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0.498039, 1, 1, 0, 0, 1, 1, 0.498039, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g52yt"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k8mme"]
 gradient = SubResource("Gradient_k8mme")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3bx8"]
-texture = SubResource("GradientTexture2D_g52yt")
+texture = SubResource("GradientTexture2D_k8mme")
 texture_margin_top = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gk43k"]
@@ -664,20 +664,20 @@ texture_margin_top = 10.0
 [sub_resource type="Gradient" id="Gradient_dsdls"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_klpux"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g52yt"]
 gradient = SubResource("Gradient_dsdls")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tl5kq"]
-texture = SubResource("GradientTexture2D_klpux")
+texture = SubResource("GradientTexture2D_g52yt")
 texture_margin_top = 10.0
 
 [sub_resource type="Gradient" id="Gradient_n2cja"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_iuh84"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xt60o"]
 gradient = SubResource("Gradient_n2cja")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rkut1"]
-texture = SubResource("GradientTexture2D_iuh84")
+texture = SubResource("GradientTexture2D_xt60o")
 texture_margin_top = 10.0
 
 [sub_resource type="Gradient" id="Gradient_w2cju"]
@@ -2519,7 +2519,8 @@ script = ExtResource("26_roqma")
 
 [node name="Side_A" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
 layout_mode = 0
-offset_right = 118.0
+offset_left = -130.0
+offset_right = -12.0
 offset_bottom = 367.0
 texture = ExtResource("27_qu4e4")
 
@@ -3073,8 +3074,7 @@ texture = ExtResource("28_86qy3")
 
 [node name="Center" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
 layout_mode = 0
-offset_left = 118.0
-offset_right = 316.0
+offset_right = 198.0
 offset_bottom = 367.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_v41al")
 
@@ -3182,8 +3182,8 @@ horizontal_alignment = 1
 
 [node name="Side_B" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
 layout_mode = 0
-offset_left = 316.0
-offset_right = 434.0
+offset_left = 446.0
+offset_right = 564.0
 offset_bottom = 367.0
 texture = ExtResource("40_5lkqb")
 
@@ -3734,8 +3734,8 @@ texture = ExtResource("28_86qy3")
 
 [node name="Side_In-Menu" type="TextureRect" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect"]
 layout_mode = 0
-offset_left = 452.0
-offset_right = 688.0
+offset_left = 198.5
+offset_right = 434.5
 offset_bottom = 367.0
 texture = ExtResource("47_u26x0")
 
@@ -4216,6 +4216,7 @@ text = "Eye Color L"
 
 [node name="Eye_Color_1" type="Panel" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu/Menu_Color/ScrollContainer2/VBoxContainer"]
 clip_contents = true
+custom_minimum_size = Vector2(0, 204.805)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k2jrp")
 
@@ -4709,6 +4710,7 @@ text = "Import
 New Character"
 
 [node name="Menu_Details" type="Control" parent="DragArea/Wallpaper_Backing/Transition_Controller/Offline/In-Game_Controller/Player/TextureRect/Side_In-Menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

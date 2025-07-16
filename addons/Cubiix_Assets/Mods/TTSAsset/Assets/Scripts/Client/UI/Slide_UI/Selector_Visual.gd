@@ -4,28 +4,30 @@ var options = {}
 var HasControl = true
 var options_reset = {
 	"Base":[
-		["Home", 8, "","Top"],
-		["Play", -26,"",""],
-		["Settings", -60,"",""],
-		["Quit", -94,"","Bottom"]
+		["Home", 0, "","Top"],
+		["Play", 0,"",""],
+		["Settings", 0,"",""],
+		["Quit", 0,"Base","Bottom"]
 	],
 	"Home":[
-		["Devlog", 8,"Base","Top"],
-		["Discord", -26,"Base",""],
-		["Updates", -60,"Base","Bottom"],
+		["Devlog", 0,"Base","Top"],
+		["Discord", 0,"Base",""],
+		["Updates", 0,"Base","Bottom"],
 	],
 	"Play":[
-		["Login", 8,"Base","Top"],
-		["Character Editor", -26,"Base",""],
-		["StarMapper", -60,"Base",""],
-		["Inventory", -94,"Base",""],
-		["Inbox", -128,"Base","Bottom"],
+		["Login", 0,"Base","Top"],
+		["Character Editor", 0,"Base",""],
+		["StarMapper", 0,"Base",""],
+		["Inventory", 0,"Base",""],
+		["Inbox", 0,"Base","Bottom"],
 	],
 	"Settings":[
-		["Visuals", 8,"Base","Top"],
-		["Input", -26,"Base",""],
-		["Accessibility", -60,"Base",""],
-		["Other", -94,"Base","Bottom"],
+		["Audio", 0,"Base","Top"],
+		["Visuals", 0,"Base",""],
+		["Input", 0,"Base",""],
+		["Accessibility", 0,"Base",""],
+		["Theme", 0,"Base",""],
+		["Other", 0,"Base","Bottom"],
 	]
 }
 
@@ -35,6 +37,13 @@ var Target_Option = ["Home", 8, "","Top"]
 var InMenu = false
 
 func _ready() -> void:
+	
+	
+	for i in options_reset.keys():
+		for x in options_reset[i].size():
+			var pos = (8 + (x * -34))
+			options_reset[i][x][1] = pos
+			
 	options = options_reset.duplicate(true)
 	for i in $HBoxContainer.get_children():
 		i.custom_minimum_size.x = i.get_node("VBoxContainer").size.x + 20
@@ -57,28 +66,29 @@ func _process(delta: float) -> void:
 				tween.tween_property(newpopup, "modulate", Color("FFFFFF",0), .2)
 				newpopup.hide()
 			if $"../Screens".find_child(Target_Option[0],false) != null:
-					var newpopup =  $"../Screens".find_child(Target_Option[0],false)
-					tween.tween_property(newpopup, "modulate", Color("FFFFFF",0), .2)
-					newpopup.hide()
+				var newpopup =  $"../Screens".find_child(Target_Option[0],false)
+				tween.tween_property(newpopup, "modulate", Color("FFFFFF",0), .2)
+				newpopup.hide()
 			tween.tween_property(Target_Container.get_node(value[0]), "label_settings:font_size", 24, .2)
 			tween.tween_property(Target_Container.get_node(value[0]), "label_settings:font_color", Color("9a9a9a",0.5), .1)
 			#tween.tween_property(get_parent().get_node("Screens/"+value[0]), "modulate", Color("FFFFFF",0), .1)
 			Target_Option = options[TargetList][0]
 			tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_size", 32, .2)
 			tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_color", Color("FFFFFF"), .1)
+			print(Target_Option)
 			tween.tween_property(Target_Container, "position:y", Target_Option[1], .2)
 			#tween.tween_property(get_parent().get_node("Screens/"+Target_Option[0]), "modulate", Color("FFFFFF",1), .1)
-			print(Target_Option)
-			print("oofer!")
+			#print(Target_Option)
+			#print("oofer!")
 			if $HBoxContainer.find_child(Target_Option[0],false) != null:
 				var newpopup = $HBoxContainer.find_child(Target_Option[0],false)
 				newpopup.show()
 				tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 			if $"../Screens".find_child(Target_Option[0],false) != null:
-					var newpopup =  $"../Screens".find_child(Target_Option[0],false)
-					newpopup.show()
-					tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
-			
+				var newpopup =  $"../Screens".find_child(Target_Option[0],false)
+				newpopup.show()
+				tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
+		
 		if Input.is_action_just_pressed("dp_up") && Target_Option[3] != "Top":
 			var tween = get_tree().create_tween()
 			tween.set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
@@ -111,9 +121,35 @@ func _process(delta: float) -> void:
 			
 			tween.tween_property(Target_Container, "position:y", Target_Option[1], .2)
 		if Input.is_action_just_pressed("dp_right"):
-			if options.has(Target_Option[0]):
+			if Target_Option[2] == "Base":
+				match Target_Option[0]:
+					"Home":
+						pass
+					"Discord":
+						OS.shell_open("https://discord.gg/UgEq5VxNQ4")
+					"Quit":
+						print("Quit!")
+						get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+						get_tree().quit()
+					_:
+						var newpopup = $"../Screens".find_child(Target_Option[0],false)
+						if newpopup != null:
+							var tween = get_tree().create_tween()
+							tween.set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+							tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_size", 96, .3)
+							for i in Target_Container.get_children():
+								if i != Target_Container.get_node(Target_Option[0]):
+									tween.tween_property(i, "modulate", Color("FFFFFF",0), .3)
+							
+							await get_tree().process_frame
+							newpopup.HasControl = true
+							HasControl = false
+							InMenu = true
+			
+			elif options.has(Target_Option[0]):
 				var tween = get_tree().create_tween()
 				tween.set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+		
 				tween.tween_property($HBoxContainer, "position:x", -Target_Container.size.x - 5, .2)
 				if $"../Screens".find_child(Target_Option[0],false) != null:
 					var newpopup =  $"../Screens".find_child(Target_Option[0],false)
@@ -124,13 +160,14 @@ func _process(delta: float) -> void:
 				Target_Container = get_node("HBoxContainer/"+Target_Option[0]+"/VBoxContainer")
 				
 				Target_Option = options[TargetList][0]
-				print(Target_Option)
+				#print(Target_Option)
 				if $"../Screens".find_child(Target_Option[0],false) != null:
 					var newpopup =  $"../Screens".find_child(Target_Option[0],false)
 					newpopup.show()
 					tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 				tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_size", 32, .2)
 				tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_color", Color("FFFFFF"), .1)
+		
 		if Input.is_action_just_pressed("dp_left"):
 			if options.has(Target_Option[2]):
 				var tween = get_tree().create_tween()
@@ -144,7 +181,7 @@ func _process(delta: float) -> void:
 				tween.tween_property($HBoxContainer, "position:x", 15, .2)
 				tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_size", 24, .2)
 				tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_color", Color("9a9a9a",0.5), .1)
-				print(Target_Option)
+			#	print(Target_Option)
 				Target_Container = get_node("HBoxContainer/"+Target_Option[2]+"/VBoxContainer")
 				TargetList = Target_Option[2]
 				Target_Option = options[TargetList][0]
@@ -152,29 +189,8 @@ func _process(delta: float) -> void:
 					var newpopup =  $"../Screens".find_child(Target_Option[0],false)
 					newpopup.show()
 					tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
-			
-		if Input.is_action_just_pressed("dp_okay"):
-			match Target_Option[0]:
-				"Home":
-					pass
-				"Discord":
-					OS.shell_open("https://discord.gg/UgEq5VxNQ4")
-				"Quit":
-					get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
-					get_tree().quit()
-				_:
-					var newpopup = $"../Screens".find_child(Target_Option[0],false)
-					if newpopup != null:
-						newpopup.HasControl = true
-						HasControl = false
-						InMenu = true
-						var tween = get_tree().create_tween()
-						tween.set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-						tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_size", 96, .3)
-						for i in Target_Container.get_children():
-							if i != Target_Container.get_node(Target_Option[0]):
-								tween.tween_property(i, "modulate", Color("FFFFFF",0), .3)
-						
+	
+				
 	if Input.is_action_just_pressed("dp_back") && InMenu:
 		var newpopup = $"../Screens".find_child(Target_Option[0],false)
 		if newpopup != null:
