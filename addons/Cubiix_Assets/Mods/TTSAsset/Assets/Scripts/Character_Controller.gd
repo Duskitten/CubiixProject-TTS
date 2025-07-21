@@ -268,7 +268,7 @@ func _physics_process(delta: float) -> void:
 						AltJump = false
 				
 				if !velocity_lock:
-					if !Input.is_action_pressed("walk"):
+					if !Input.is_action_pressed("Keyboard_Button_Left"):
 						compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
 					else:
 						compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * walkspeed) 

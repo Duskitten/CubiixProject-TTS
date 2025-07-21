@@ -6,6 +6,7 @@ var NewGameVersion = ""
 
 signal Setting_Changed
 signal Update_Triggered
+signal Controller_Changed
 
 var LocalUser = {
 	"URL":"",
@@ -17,6 +18,8 @@ var save_template = {
 	"LastChar_Save":"",
 	"Controls":{
 		"Invert_Controls":false,
+		"Input_Overrides":{
+		}
 	},
 	"Theme":{
 		"Top":"b705a9",
@@ -33,8 +36,7 @@ var save_template = {
 		"Shadow_Depth":0,
 		"Anti-Aliasing":0,
 		"Bloom":false,
-		"FOV":75,
-		"TestB":0
+		"FOV":75
 	},
 	"SavedServers":[["127.0.0.1","5599"]],
 	"API_URL":"https://api.cubiixproject.xyz",
@@ -62,9 +64,151 @@ var KillThreads:bool = false
 var UI_Hovered:Array = []
 var All_UI:Array = []
 var Sorted_UI:Node = null
-
 var DisablePlayerInput:bool = false
 var Physics_Time:float
+
+var Current_Input = {
+	"Mode":"Keyboard",
+	"Controller_Type":"",
+	"DPad_Input":Vector2.ZERO,  ## Try to restrict to menu stuff
+	"DPad_Input_Just_Pressed":{
+		"Up":false,
+		"Down":false,
+		"Left":false,
+		"Right":false},
+	"DPad_Input_Just_Released":{
+		"Up":false,
+		"Down":false,
+		"Left":false,
+		"Right":false},
+	"Joy_1_Input":Vector2.ZERO, ## Try to restrict to movement stuff
+	"Joy_2_Input":Vector2.ZERO, ## Try to restrict to camera stuff
+	"Button_Input":{
+		"Up":false,
+		"Down":false,
+		"Left":false,
+		"Right":false},
+	"Button_Input_Just_Pressed":{
+		"Up":false,
+		"Down":false,
+		"Left":false,
+		"Right":false},
+	"Shoulder_Input":{
+		"Left":false,
+		"Right":false},
+	"Shoulder_Input_Just_Pressed":{
+		"Left":false,
+		"Right":false},
+	"Shoulder_Input_Just_Released":{
+		"Left":false,
+		"Right":false},
+	"Trigger_Input":[0,0] ## Unsure What will use for
+}
+
+var ControllerInputImages = {
+	"Playstation":{
+		#Button Buttons
+		"{ControllerInputUB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Tri_Green.png",
+		"{ControllerInputDB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/X_Blue.png",
+		"{ControllerInputLB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Square_Pink.png",
+		"{ControllerInputRB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/O_Red.png",
+		#D-Pad
+		"{ControllerInputUDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Up_Dpad.png",
+		"{ControllerInputDDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Down_Dpad.png",
+		"{ControllerInputLDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png",
+		"{ControllerInputRDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png",
+		#Joy1
+		"{ControllerInputUJ1}":"",
+		"{ControllerInputDJ1}":"",
+		"{ControllerInputLJ1}":"",
+		"{ControllerInputRJ1}":"",
+		"{ControllerInputPJ1}":"",
+		#Joy2
+		"{ControllerInputUJ2}":"",
+		"{ControllerInputDJ2}":"",
+		"{ControllerInputLJ2}":"",
+		"{ControllerInputRJ2}":"",
+		"{ControllerInputPJ2}":"",
+		#Shoulder Buttons
+		"{ControllerInputLSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/L1_Grey.png",
+		"{ControllerInputRSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/R1_Grey.png",
+		#Trigger Buttons
+		"{ControllerInputLTB}":"",
+		"{ControllerInputRTB}":"",
+		#Menu Button
+		"{ControllerInputMB}":"",
+	},
+	"Xbox":{
+		#Button Buttons
+		"{ControllerInputUB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Y_Yellow.png",
+		"{ControllerInputDB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/A_Green.png",
+		"{ControllerInputLB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/X_Blue.png",
+		"{ControllerInputRB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/B_Red.png",
+		#D-Pad
+		"{ControllerInputUDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Up_Dpad.png",
+		"{ControllerInputDDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Down_Dpad.png",
+		"{ControllerInputLDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png",
+		"{ControllerInputRDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png",
+		#Joy1
+		"{ControllerInputUJ1}":"",
+		"{ControllerInputDJ1}":"",
+		"{ControllerInputLJ1}":"",
+		"{ControllerInputRJ1}":"",
+		"{ControllerInputPJ1}":"",
+		#Joy2
+		"{ControllerInputUJ2}":"",
+		"{ControllerInputDJ2}":"",
+		"{ControllerInputLJ2}":"",
+		"{ControllerInputRJ2}":"",
+		"{ControllerInputPJ2}":"",
+		#Shoulder Buttons
+		"{ControllerInputLSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/LB_Grey.png",
+		"{ControllerInputRSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/RB_Grey.png",
+		#Trigger Buttons
+		"{ControllerInputLTB}":"",
+		"{ControllerInputRTB}":"",
+		#Menu Button
+		"{ControllerInputMB}":"",
+	},
+	"Nintendo":{
+		#Button Buttons
+		"{ControllerInputUB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/X_Blue.png",
+		"{ControllerInputDB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/B_Yellow.png",
+		"{ControllerInputLB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Y_Green.png",
+		"{ControllerInputRB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/A_Red.png",
+		#D-Pad
+		"{ControllerInputUDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Up_Dpad.png",
+		"{ControllerInputDDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Down_Dpad.png",
+		"{ControllerInputLDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png",
+		"{ControllerInputRDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png",
+		#Joy1
+		"{ControllerInputUJ1}":"",
+		"{ControllerInputDJ1}":"",
+		"{ControllerInputLJ1}":"",
+		"{ControllerInputRJ1}":"",
+		"{ControllerInputPJ1}":"",
+		#Joy2
+		"{ControllerInputUJ2}":"",
+		"{ControllerInputDJ2}":"",
+		"{ControllerInputLJ2}":"",
+		"{ControllerInputRJ2}":"",
+		"{ControllerInputPJ2}":"",
+		#Shoulder Buttons
+		"{ControllerInputLSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/LB_Grey.png",
+		"{ControllerInputRSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/RB_Grey.png",
+		#Trigger Buttons
+		"{ControllerInputLTB}":"",
+		"{ControllerInputRTB}":"",
+		#Menu Button
+		"{ControllerInputMB}":"",
+	}
+	
+	
+	
+}
+
+func _input(event: InputEvent) -> void:
+	controller_manager(event)
 
 func _physics_process(delta: float) -> void:
 	Physics_Time += delta
@@ -152,3 +296,58 @@ func sort_ui() -> Node:
 		targeted_ui.get_parent().move_child(targeted_ui,targeted_ui.get_parent().get_child_count()-1)
 	
 	return targeted_ui
+
+
+func controller_manager(event:InputEvent) -> void:
+	if (event is InputEventJoypadMotion && (event["axis_value"] > 0.1 ||  event["axis_value"] < -0.1)) || event is InputEventJoypadButton:
+		Current_Input["Mode"] = "Controller"
+		if Input.get_joy_name(0).to_lower().contains("ps") || Input.get_joy_name(0).to_lower().contains("playstation") || Input.get_joy_name(0).to_lower().contains("sony"):
+			if Current_Input["Controller_Type"] != "Playstation":
+				emit_signal("Controller_Changed")
+				Current_Input["Controller_Type"] = "Playstation"
+		elif Input.get_joy_name(0).to_lower().contains("xbox") || Input.get_joy_name(0).to_lower().contains("microsoft") || Input.get_joy_name(0).to_lower().contains("360"):
+			if Current_Input["Controller_Type"] != "Xbox":
+				emit_signal("Controller_Changed")
+				Current_Input["Controller_Type"] = "Xbox"
+		elif Input.get_joy_name(0).to_lower().contains("switch") || Input.get_joy_name(0).to_lower().contains("nintendo"):
+			if Current_Input["Controller_Type"] != "Nintendo":
+				emit_signal("Controller_Changed")
+				Current_Input["Controller_Type"] = "Nintendo"
+
+	if (event is InputEventMouse || event is InputEventKey):
+		if Current_Input["Controller_Type"] != "Keyboard":
+			Current_Input["Mode"] = "Keyboard"
+			emit_signal("Controller_Changed")
+			Current_Input["Controller_Type"] = "Keyboard"
+
+func _process(delta: float) -> void:
+	match Current_Input["Mode"]:
+		"Controller":
+			Current_Input["DPad_Input"] = Vector2(Input.get_action_raw_strength("Controller_1_Button_Left")-Input.get_action_raw_strength("Controller_1_Button_Right"),Input.get_action_raw_strength("Controller_1_Button_Up")-Input.get_action_raw_strength("Controller_1_Button_Down"))
+			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_1_DPad_Up")
+			Current_Input["DPad_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_1_DPad_Down")
+			Current_Input["DPad_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_1_DPad_Left")
+			Current_Input["DPad_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_1_DPad_Right")
+			Current_Input["DPad_Input_Just_Released"]["Up"] = Input.is_action_just_released("Controller_1_DPad_Up")
+			Current_Input["DPad_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_1_DPad_Down")
+			Current_Input["DPad_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_1_DPad_Left")
+			Current_Input["DPad_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_1_DPad_Right")
+		"Keyboard":
+			Current_Input["DPad_Input"] = Vector2(Input.get_action_raw_strength("Keyboard_DPad_Left")-Input.get_action_raw_strength("Keyboard_DPad_Right"),Input.get_action_raw_strength("Keyboard_DPad_Up")-Input.get_action_raw_strength("Keyboard_DPad_Down"))
+			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Keyboard_DPad_Up")
+			Current_Input["DPad_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Keyboard_DPad_Down")
+			Current_Input["DPad_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Keyboard_DPad_Left")
+			Current_Input["DPad_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Keyboard_DPad_Right")
+			Current_Input["DPad_Input_Just_Released"]["Up"] = Input.is_action_just_released("Keyboard_DPad_Up")
+			Current_Input["DPad_Input_Just_Released"]["Down"] = Input.is_action_just_released("Keyboard_DPad_Down")
+			Current_Input["DPad_Input_Just_Released"]["Left"] = Input.is_action_just_released("Keyboard_DPad_Left")
+			Current_Input["DPad_Input_Just_Released"]["Right"] = Input.is_action_just_released("Keyboard_DPad_Right")
+	
+	#print(Current_Input["Controller_Type"])
+
+func reparse_controller_context(text:String) -> String:
+	return ""
+
+func vibrate_controller(controllerid:int,weak:float,strong:float,length:float) -> void:
+	if Current_Input["Mode"] == "Controller":
+		Input.start_joy_vibration(controllerid,weak,strong,length)

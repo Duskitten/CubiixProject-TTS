@@ -126,7 +126,8 @@ func compile_mod_assets() -> void:
 				print("Error: Error Invalid Mod")
 	#if assets_tagged.has("Network_Command"):
 		#print(assets_tagged["Network_Command"])
-		
+	
+	print(assets_tagged["Translation_Text"])
 	call_deferred("emit_signal","load_finished")
 
 func load_mod_assets() -> void:
@@ -431,5 +432,15 @@ func find_command(ID:String) -> Dictionary:
 		assets[AssetParts[0]].has("Network_Commands") &&\
 		assets[AssetParts[0]]["Network_Commands"].has(AssetParts[1]):
 			return assets[AssetParts[0]]["Network_Commands"][AssetParts[1]]
+	
+	return {}
+
+func find_translation(ID:String) -> Dictionary:
+	var path = ""
+	var AssetParts = ID.split("/")
+	if assets.has(AssetParts[0]) &&\
+		assets[AssetParts[0]].has("Translation_Text") &&\
+		assets[AssetParts[0]]["Translation_Text"].has(AssetParts[1]):
+			return assets[AssetParts[0]]["Translation_Text"][AssetParts[1]]
 	
 	return {}

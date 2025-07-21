@@ -589,6 +589,20 @@
 				"Tag":"Network_Command",
 				"Path":"Assets/Scripts/Shared/Network_Commands/Disconnect.gd",
 			},
+		},
+		"Translation_Text":{
+			"Themer_H":{
+				"Tag":"Translation_Text",
+				"Text":"\n[font_size=24][img=60x32]{ControllerInputLSB}[/img]					Mode: H - [img=48,center,center]{ControllerInputLDP}[/img][font_size=24] [img=48,center,center]{ControllerInputRDP}[/img] 					[img=60x32]{ControllerInputRSB}[/img]"
+			},
+			"Themer_S":{
+				"Tag":"Translation_Text",
+				"Text":"\n[font_size=24][img=60x32]{ControllerInputLSB}[/img]					Mode: S - [img=48,center,center]{ControllerInputLDP}[/img][font_size=24] [img=48,center,center]{ControllerInputRDP}[/img] 					[img=60x32]{ControllerInputRSB}[/img]"
+			},
+			"Themer_V":{
+				"Tag":"Translation_Text",
+				"Text":"\n[font_size=24][img=60x32]{ControllerInputLSB}[/img]					Mode: V - [img=48,center,center]{ControllerInputLDP}[/img][font_size=24] [img=48,center,center]{ControllerInputRDP}[/img] 					[img=60x32]{ControllerInputRSB}[/img]"
+			}
 		}
 	}
 }

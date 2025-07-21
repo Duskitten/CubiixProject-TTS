@@ -6,12 +6,18 @@ extends Control
 @onready var Instructions = $Instruction_Panel
 var nodes = []
 var target = 0
+var Controls = [
+	"TTSAssets/Themer_H",
+	"TTSAssets/Themer_S",
+	"TTSAssets/Themer_V"
+]
 
 var HasControl = false
 
 func _ready() -> void:
 	nodes = [top,bottom]
-	
+	print(Core.AssetData.find_translation(Controls[0]))
+	Core.Globals.Controller_Changed.connect(update_text.bind())
 	var skymat = $Node3D.get_world_3d().environment.sky.sky_material
 	skymat.sky_top_color = Color(Core.Globals.Data["Theme"]["Top"])
 	skymat.sky_horizon_color = Color(Core.Globals.Data["Theme"]["Top"])
@@ -84,3 +90,6 @@ func update_color(stylebox,color:Color) -> void:
 		1:
 			skymat.ground_bottom_color = color
 			Core.Globals.Data["Theme"]["Bottom"] =  color.to_html()
+
+func update_text() -> void:
+	pass
