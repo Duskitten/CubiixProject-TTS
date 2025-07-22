@@ -69,8 +69,13 @@ var Physics_Time:float
 
 var Current_Input = {
 	"Mode":"Keyboard",
-	"Controller_Type":"",
+	"Controller_Type":"Keyboard",
 	"DPad_Input":Vector2.ZERO,  ## Try to restrict to menu stuff
+	"DPad_Input_Pressed":{
+		"Up":false,
+		"Down":false,
+		"Left":false,
+		"Right":false},
 	"DPad_Input_Just_Pressed":{
 		"Up":false,
 		"Down":false,
@@ -201,6 +206,9 @@ var ControllerInputImages = {
 		"{ControllerInputRTB}":"",
 		#Menu Button
 		"{ControllerInputMB}":"",
+	},
+	"Keyboard":{
+		
 	}
 	
 	
@@ -303,22 +311,22 @@ func controller_manager(event:InputEvent) -> void:
 		Current_Input["Mode"] = "Controller"
 		if Input.get_joy_name(0).to_lower().contains("ps") || Input.get_joy_name(0).to_lower().contains("playstation") || Input.get_joy_name(0).to_lower().contains("sony"):
 			if Current_Input["Controller_Type"] != "Playstation":
-				emit_signal("Controller_Changed")
 				Current_Input["Controller_Type"] = "Playstation"
+				emit_signal("Controller_Changed")
 		elif Input.get_joy_name(0).to_lower().contains("xbox") || Input.get_joy_name(0).to_lower().contains("microsoft") || Input.get_joy_name(0).to_lower().contains("360"):
 			if Current_Input["Controller_Type"] != "Xbox":
-				emit_signal("Controller_Changed")
 				Current_Input["Controller_Type"] = "Xbox"
+				emit_signal("Controller_Changed")
 		elif Input.get_joy_name(0).to_lower().contains("switch") || Input.get_joy_name(0).to_lower().contains("nintendo"):
 			if Current_Input["Controller_Type"] != "Nintendo":
-				emit_signal("Controller_Changed")
 				Current_Input["Controller_Type"] = "Nintendo"
+				emit_signal("Controller_Changed")
 
-	if (event is InputEventMouse || event is InputEventKey):
+	if (event is InputEventMouseButton || event is InputEventKey):
 		if Current_Input["Controller_Type"] != "Keyboard":
 			Current_Input["Mode"] = "Keyboard"
-			emit_signal("Controller_Changed")
 			Current_Input["Controller_Type"] = "Keyboard"
+			emit_signal("Controller_Changed")
 
 func _process(delta: float) -> void:
 	match Current_Input["Mode"]:
@@ -332,6 +340,10 @@ func _process(delta: float) -> void:
 			Current_Input["DPad_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_1_DPad_Down")
 			Current_Input["DPad_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_1_DPad_Left")
 			Current_Input["DPad_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_1_DPad_Right")
+			Current_Input["DPad_Input_Pressed"]["Up"] = Input.is_action_pressed("Controller_1_DPad_Up")
+			Current_Input["DPad_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_1_DPad_Down")
+			Current_Input["DPad_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_1_DPad_Left")
+			Current_Input["DPad_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_1_DPad_Right")
 		"Keyboard":
 			Current_Input["DPad_Input"] = Vector2(Input.get_action_raw_strength("Keyboard_DPad_Left")-Input.get_action_raw_strength("Keyboard_DPad_Right"),Input.get_action_raw_strength("Keyboard_DPad_Up")-Input.get_action_raw_strength("Keyboard_DPad_Down"))
 			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Keyboard_DPad_Up")
@@ -346,7 +358,14 @@ func _process(delta: float) -> void:
 	#print(Current_Input["Controller_Type"])
 
 func reparse_controller_context(text:String) -> String:
-	return ""
+	var newtext = text
+	#print(ControllerInputImages[Current_Input["Controller_Type"]])
+	if Current_Input["Controller_Type"] != "Keyboard":
+		for i in ControllerInputImages[Current_Input["Controller_Type"]]:
+			print(i)
+			newtext = newtext.replace(i,ControllerInputImages[Current_Input["Controller_Type"]][i])
+	print(newtext)
+	return newtext
 
 func vibrate_controller(controllerid:int,weak:float,strong:float,length:float) -> void:
 	if Current_Input["Mode"] == "Controller":
