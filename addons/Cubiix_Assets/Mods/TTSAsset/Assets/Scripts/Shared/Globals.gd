@@ -88,7 +88,7 @@ var Current_Input = {
 		"Right":false},
 	"Joy_1_Input":Vector2.ZERO, ## Try to restrict to movement stuff
 	"Joy_2_Input":Vector2.ZERO, ## Try to restrict to camera stuff
-	"Button_Input":{
+	"Button_Input_Pressed":{
 		"Up":false,
 		"Down":false,
 		"Left":false,
@@ -98,7 +98,12 @@ var Current_Input = {
 		"Down":false,
 		"Left":false,
 		"Right":false},
-	"Shoulder_Input":{
+	"Button_Input_Just_Released":{
+		"Up":false,
+		"Down":false,
+		"Left":false,
+		"Right":false},
+	"Shoulder_Input_Pressed":{
 		"Left":false,
 		"Right":false},
 	"Shoulder_Input_Just_Pressed":{
@@ -107,7 +112,10 @@ var Current_Input = {
 	"Shoulder_Input_Just_Released":{
 		"Left":false,
 		"Right":false},
-	"Trigger_Input":[0,0] ## Unsure What will use for
+	"Trigger_Input":[0,0], ## Unsure What will use for
+	"Menu_Button_Pressed":false,
+	"Menu_Button_Just_Pressed":false,
+	"Menu_Button_Just_Released":false,
 }
 
 var ControllerInputImages = {
@@ -214,11 +222,13 @@ var ControllerInputImages = {
 	
 	
 }
+var oldmouse_pos:Vector2
 
 func _input(event: InputEvent) -> void:
 	controller_manager(event)
 
 func _physics_process(delta: float) -> void:
+	print(Current_Input["Mode"]) 
 	Physics_Time += delta
 
 # Called when the node enters the scene tree for the first time.
@@ -331,6 +341,7 @@ func controller_manager(event:InputEvent) -> void:
 func _process(delta: float) -> void:
 	match Current_Input["Mode"]:
 		"Controller":
+			##D-Pad
 			Current_Input["DPad_Input"] = Vector2(Input.get_action_raw_strength("Controller_1_Button_Left")-Input.get_action_raw_strength("Controller_1_Button_Right"),Input.get_action_raw_strength("Controller_1_Button_Up")-Input.get_action_raw_strength("Controller_1_Button_Down"))
 			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_1_DPad_Up")
 			Current_Input["DPad_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_1_DPad_Down")
@@ -344,6 +355,26 @@ func _process(delta: float) -> void:
 			Current_Input["DPad_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_1_DPad_Down")
 			Current_Input["DPad_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_1_DPad_Left")
 			Current_Input["DPad_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_1_DPad_Right")
+			##Button Inputs X, Tri, etc
+			Current_Input["Button_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_1_Button_Up")
+			Current_Input["Button_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_1_Button_Down")
+			Current_Input["Button_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_1_Button_Left")
+			Current_Input["Button_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_1_Button_Right")
+			Current_Input["Button_Input_Just_Released"]["Up"] = Input.is_action_just_released("Controller_1_Button_Up")
+			Current_Input["Button_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_1_Button_Down")
+			Current_Input["Button_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_1_Button_Left")
+			Current_Input["Button_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_1_Button_Right")
+			Current_Input["Button_Input_Pressed"]["Up"] = Input.is_action_pressed("Controller_1_Button_Up")
+			Current_Input["Button_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_1_Button_Down")
+			Current_Input["Button_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_1_Button_Left")
+			Current_Input["Button_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_1_Button_Right")
+			#Joy Input
+			Current_Input["Joy_1_Input"] = Input.get_vector("Controller_1_Joy_1_Left","Controller_1_Joy_1_Right","Controller_1_Joy_1_Up","Controller_1_Joy_1_Down")
+			Current_Input["Joy_2_Input"] = Input.get_vector("Controller_1_Joy_2_Left","Controller_1_Joy_2_Right","Controller_1_Joy_2_Up","Controller_1_Joy_2_Down")
+			#Menu Button
+			Current_Input["Menu_Button_Pressed"] = Input.is_action_pressed("Controller_1_Menu")
+			Current_Input["Menu_Button_Just_Pressed"] = Input.is_action_just_pressed("Controller_1_Menu")
+			Current_Input["Menu_Button_Just_Released"] = Input.is_action_just_released("Controller_1_Menu")
 		"Keyboard":
 			Current_Input["DPad_Input"] = Vector2(Input.get_action_raw_strength("Keyboard_DPad_Left")-Input.get_action_raw_strength("Keyboard_DPad_Right"),Input.get_action_raw_strength("Keyboard_DPad_Up")-Input.get_action_raw_strength("Keyboard_DPad_Down"))
 			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Keyboard_DPad_Up")
@@ -354,12 +385,32 @@ func _process(delta: float) -> void:
 			Current_Input["DPad_Input_Just_Released"]["Down"] = Input.is_action_just_released("Keyboard_DPad_Down")
 			Current_Input["DPad_Input_Just_Released"]["Left"] = Input.is_action_just_released("Keyboard_DPad_Left")
 			Current_Input["DPad_Input_Just_Released"]["Right"] = Input.is_action_just_released("Keyboard_DPad_Right")
-	
+			##Button Inputs X, Tri, etc
+			Current_Input["Button_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Keyboard_Button_Up")
+			Current_Input["Button_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Keyboard_Mouse_L")
+			Current_Input["Button_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Keyboard_Mouse_R")
+			Current_Input["Button_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Keyboard_Button_Down")
+			Current_Input["Button_Input_Just_Released"]["Up"] = Input.is_action_just_released("Keyboard_Button_Up")
+			Current_Input["Button_Input_Just_Released"]["Down"] = Input.is_action_just_released("Keyboard_Mouse_L")
+			Current_Input["Button_Input_Just_Released"]["Left"] = Input.is_action_just_released("Keyboard_Mouse_R")
+			Current_Input["Button_Input_Just_Released"]["Right"] = Input.is_action_just_released("Keyboard_Button_Down")
+			Current_Input["Button_Input_Pressed"]["Up"] = Input.is_action_pressed("Keyboard_Button_Up")
+			Current_Input["Button_Input_Pressed"]["Down"] = Input.is_action_pressed("Keyboard_Mouse_L")
+			Current_Input["Button_Input_Pressed"]["Left"] = Input.is_action_pressed("Keyboard_Mouse_R")
+			Current_Input["Button_Input_Pressed"]["Right"] = Input.is_action_pressed("Keyboard_Button_Down")
+			#Joy Input
+			Current_Input["Joy_1_Input"] = Input.get_vector("Keyboard_DPad_Left","Keyboard_DPad_Right","Keyboard_DPad_Up","Keyboard_DPad_Down")
+			Current_Input["Joy_2_Input"] = get_viewport().get_mouse_position()-oldmouse_pos
+			#Menu Button
+			Current_Input["Menu_Button_Pressed"] = Input.is_action_pressed("Keyboard_Menu")
+			Current_Input["Menu_Button_Just_Pressed"] = Input.is_action_just_pressed("Keyboard_Menu")
+			Current_Input["Menu_Button_Just_Released"] = Input.is_action_just_released("Keyboard_Menu")
 	#print(Current_Input["Controller_Type"])
+			oldmouse_pos = get_viewport().get_mouse_position()
 
 func reparse_controller_context(text:String) -> String:
 	var newtext = text
-	#print(ControllerInputImages[Current_Input["Controller_Type"]])
+	
 	if Current_Input["Controller_Type"] != "Keyboard":
 		for i in ControllerInputImages[Current_Input["Controller_Type"]]:
 			print(i)

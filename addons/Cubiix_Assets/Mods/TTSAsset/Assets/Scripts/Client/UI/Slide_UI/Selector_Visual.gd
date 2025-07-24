@@ -195,7 +195,7 @@ func _process(delta: float) -> void:
 					tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 	
 				
-	if Input.is_action_just_pressed("dp_back") && InMenu:
+	if Core.Globals.Current_Input["Button_Input_Just_Pressed"]["Right"] && InMenu:
 		Core.Globals.vibrate_controller(0, .2, 0, 0.5)
 		var newpopup = $"../Screens".find_child(Target_Option[0],false)
 		if newpopup != null:

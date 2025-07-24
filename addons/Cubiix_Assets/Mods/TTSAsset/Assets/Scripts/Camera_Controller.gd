@@ -40,31 +40,24 @@ func _physics_process(delta: float) -> void:
 		Camera_Y.position.y = 0.7
 		
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		if Input.is_action_pressed("mouse_right"):
-			Camera_Y.rotation_degrees.y -= event.relative.x/Sensitivity
-			Camera_X.rotation_degrees.x += event.relative.y/Sensitivity
-			Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
-	
-	if Core.Globals.UI_Hovered.size() <= 0:
-		if Input.is_action_just_released("scroll_up"):
-			CameraZoom += 1
-		elif  Input.is_action_just_released("scroll_down"):
-			CameraZoom -= 1
-				
-		CameraZoom = clampf(CameraZoom, -10,0)
-	
 
 func _process(delta: float) -> void:
-	Camera_Z.spring_length = lerpf(Camera_Z.spring_length,CameraZoom,0.15)
-	
-	if Input.get_action_strength("move_mouse_right") != 0 || Input.get_action_strength("move_mouse_left") != 0:
-		var input = Input.get_action_raw_strength("move_mouse_right") -  Input.get_action_raw_strength("move_mouse_left")
-		Camera_Y.rotation_degrees.y -= input/Controller_Sensitivity
-		
-	if Input.get_action_strength("move_mouse_up") != 0 || Input.get_action_strength("move_mouse_down") != 0:
-		var input = Input.get_action_raw_strength("move_mouse_down") -  Input.get_action_raw_strength("move_mouse_up")
-		Camera_X.rotation_degrees.x += input/Controller_Sensitivity
+	if Core.Globals.Current_Input["Mode"] == "Keyboard" && Core.Globals.Current_Input["Button_Input_Pressed"]["Left"]:
+		Camera_Y.rotation_degrees.y -= Core.Globals.Current_Input["Joy_2_Input"].x/Sensitivity
+		Camera_X.rotation_degrees.x += Core.Globals.Current_Input["Joy_2_Input"].y/Sensitivity
 		Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
+	elif Core.Globals.Current_Input["Mode"] == "Controller":
+		Camera_Y.rotation_degrees.y -= Core.Globals.Current_Input["Joy_2_Input"].x*Sensitivity
+		Camera_X.rotation_degrees.x += Core.Globals.Current_Input["Joy_2_Input"].y*Sensitivity
+		Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
+
+	if Core.Globals.Current_Input["Shoulder_Input_Just_Pressed"]["Right"]:
+		CameraZoom += 1
+	elif Core.Globals.Current_Input["Shoulder_Input_Just_Pressed"]["Left"]:
+		CameraZoom -= 1
+			
+	CameraZoom = clampf(CameraZoom, -10,0)
+	
+	
+	Camera_Z.spring_length = lerpf(Camera_Z.spring_length,CameraZoom,0.15)
 	

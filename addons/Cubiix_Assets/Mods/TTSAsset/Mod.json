@@ -602,7 +602,12 @@
 			"Themer_V":{
 				"Tag":"Translation_Text",
 				"Text":"\n[font_size=24][img=60x32]{ControllerInputLSB}[/img]					Mode: V - [img=48,center,center]{ControllerInputLDP}[/img][font_size=24] [img=48,center,center]{ControllerInputRDP}[/img] 					[img=60x32]{ControllerInputRSB}[/img]"
-			}
+			},
+			"Interact_Key":{
+				"Tag":"Translation_Text",
+				"Text":"\nInteract [img=32]{ControllerInputDB}[/img]"
+			},
+				
 		}
 	}
 }

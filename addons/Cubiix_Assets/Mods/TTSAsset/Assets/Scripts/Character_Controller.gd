@@ -147,21 +147,19 @@ func _ready() -> void:
 	## Just a little check which can be removed later
 	#print("We Made it!")
 
-func _unhandled_input(event: InputEvent) -> void:
-	## Grab our actual inputs for player movement
+func _process(delta: float) -> void:
 	if !Core.Globals.DisablePlayerInput:
-		input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
-		input.y = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
+		input = Core.Globals.Current_Input["Joy_1_Input"]
 	else:
 		input = Vector2.ZERO
-
-func _process(delta: float) -> void:
+		
 	if Core.Globals.DisablePlayerInput:
 		input = Vector2.ZERO
 
 	if input != Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
 		if !Swimming:
-			if !Input.is_action_pressed("walk"):
+			#print(input.length())
+			if (input.length() > .4 && Core.Globals.Current_Input["Mode"] == "Controller") || (Core.Globals.Current_Input["Mode"] == "Keyboard" && !Core.Globals.Current_Input["Button_Input_Pressed"]["Up"]):
 				Current_Animation = ["Run",.3]
 			else:
 				Current_Animation = ["Walk",.3]
@@ -258,7 +256,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					speed = runspeed
 					
-				if (Input.is_action_just_pressed("ui_jump") && !jumping && !Core.Globals.DisablePlayerInput) || (AltJump):
+				if (Core.Globals.Current_Input["Button_Input_Just_Pressed"]["Right"] && !jumping && !Core.Globals.DisablePlayerInput) || (AltJump):
 					JumpTimer.start()
 					jumping = true
 					gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
@@ -268,7 +266,7 @@ func _physics_process(delta: float) -> void:
 						AltJump = false
 				
 				if !velocity_lock:
-					if !Input.is_action_pressed("Keyboard_Button_Left"):
+					if !(Core.Globals.Current_Input["Mode"] == "Keyboard" && Core.Globals.Current_Input["Button_Input_Pressed"]["Up"]):
 						compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
 					else:
 						compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * walkspeed) 
@@ -295,7 +293,7 @@ func _physics_process(delta: float) -> void:
 				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(Alt_Input.y)+abs(Alt_Input.x),0,1)) * swim_speed) 
 			
 			
-			if Input.is_action_just_pressed("ui_jump"):
+			if Core.Globals.Current_Input["Button_Input_Just_Pressed"]["Right"]:
 				Swimming = false
 				AltJump = true
 				RayCast_Swim.enabled = true
