@@ -1,5 +1,6 @@
 extends Node3D
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
+@onready var ControllerID = 0
 ##Get the actual player object
 @onready var Character = get_parent()
 
@@ -42,18 +43,18 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
-	if Core.Globals.Current_Input["Mode"] == "Keyboard" && Core.Globals.Current_Input["Button_Input_Pressed"]["Left"]:
-		Camera_Y.rotation_degrees.y -= Core.Globals.Current_Input["Joy_2_Input"].x/Sensitivity
-		Camera_X.rotation_degrees.x += Core.Globals.Current_Input["Joy_2_Input"].y/Sensitivity
+	if Core.Globals.local_inputs[ControllerID].Current_Input["Mode"] == "Keyboard" && Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Pressed"]["Left"]:
+		Camera_Y.rotation_degrees.y -= Core.Globals.local_inputs[ControllerID].Current_Input["Joy_2_Input"].x/Sensitivity
+		Camera_X.rotation_degrees.x += Core.Globals.local_inputs[ControllerID].Current_Input["Joy_2_Input"].y/Sensitivity
 		Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
-	elif Core.Globals.Current_Input["Mode"] == "Controller":
-		Camera_Y.rotation_degrees.y -= Core.Globals.Current_Input["Joy_2_Input"].x*Sensitivity
-		Camera_X.rotation_degrees.x += Core.Globals.Current_Input["Joy_2_Input"].y*Sensitivity
+	elif Core.Globals.local_inputs[ControllerID].Current_Input["Mode"] == "Controller":
+		Camera_Y.rotation_degrees.y -= Core.Globals.local_inputs[ControllerID].Current_Input["Joy_2_Input"].x*Sensitivity
+		Camera_X.rotation_degrees.x += Core.Globals.local_inputs[ControllerID].Current_Input["Joy_2_Input"].y*Sensitivity
 		Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
 
-	if Core.Globals.Current_Input["Shoulder_Input_Just_Pressed"]["Right"]:
+	if Core.Globals.local_inputs[ControllerID].Current_Input["Shoulder_Button_Input_Just_Pressed"]["Right"]:
 		CameraZoom += 1
-	elif Core.Globals.Current_Input["Shoulder_Input_Just_Pressed"]["Left"]:
+	elif Core.Globals.local_inputs[ControllerID].Current_Input["Shoulder_Button_Input_Just_Pressed"]["Left"]:
 		CameraZoom -= 1
 			
 	CameraZoom = clampf(CameraZoom, -10,0)

@@ -1,6 +1,8 @@
 extends Control
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
+@onready var ControllerID = find_parent("Slide_UI").ControllerID
 
+var HasControl = false
 @onready var shadow_depth = $Panel2/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/Shadow_Depth
 @onready var anti_aliasing = $Panel2/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/Anti_Aliasing
 @onready var bloom = $Panel2/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/Bloom
@@ -17,7 +19,7 @@ var limits = [
 var nodes = []
 var target = 0
 
-var HasControl = false
+
 
 func _ready() -> void:
 	nodes = [shadow_depth,anti_aliasing,bloom,fov]

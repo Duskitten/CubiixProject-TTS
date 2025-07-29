@@ -16,9 +16,48 @@ var LocalUser = {
 
 var save_template = {
 	"LastChar_Save":"",
-	"Controls":{
-		"Invert_Controls":false,
+	"Controls_0":{
+		"Flip_Controller_Joysticks":false,
+		"Controller_Sensitivity_Joy_1":0.1,
+		"Controller_Sensitivity_Joy_2":0.1,
+		"Use_Middle_Mouse_Rotate":false,
+		"Mouse_Sensitivity":0.1,
+		"Input_Translations":{
+			"Keyboard_Button_Up":KEY_1,
+			"Keyboard_Button_Down":KEY_3,
+			"Keyboard_Button_Left":KEY_2,
+			"Keyboard_Button_Right":KEY_4,
+			
+			"Keyboard_DPad_Up":KEY_W,
+			"Keyboard_DPad_Down":KEY_S,
+			"Keyboard_DPad_Left":KEY_A,
+			"Keyboard_DPad_Right":KEY_D,
+			
+			"Keyboard_Shoulder_Button_Right": KEY_Q,
+			"Keyboard_Shoulder_Button_Left": KEY_E,
+			
+			"Keyboard_Trigger_Right": KEY_Z,
+			"Keyboard_Trigger_Left": KEY_X,
+			
+			"Keyboard_Joy_Up":KEY_W,
+			"Keyboard_Joy_Down":KEY_S,
+			"Keyboard_Joy_Left":KEY_A,
+			"Keyboard_Joy_Right":KEY_D,
+		},
 		"Input_Overrides":{
+			"{ColorInput_A}":["",""],
+			"{ColorInput_B}":["",""],
+			"{ColorInput_C}":["",""],
+			"{ColorInput_D}":["",""],
+			"{Interact_Key}":["",""],
+			"{UI_Up}":["",""],
+			"{UI_Down}":["",""],
+			"{UI_Left}":["",""],
+			"{UI_Right}":["",""],
+			"{Walk_Forwards}":["",""],
+			"{Walk_Backwards}":["",""],
+			"{Walk_Left}":["",""],
+			"{Walk_Right}":["",""],
 		}
 	},
 	"Theme":{
@@ -67,168 +106,10 @@ var Sorted_UI:Node = null
 var DisablePlayerInput:bool = false
 var Physics_Time:float
 
-var Current_Input = {
-	"Mode":"Keyboard",
-	"Controller_Type":"Keyboard",
-	"DPad_Input":Vector2.ZERO,  ## Try to restrict to menu stuff
-	"DPad_Input_Pressed":{
-		"Up":false,
-		"Down":false,
-		"Left":false,
-		"Right":false},
-	"DPad_Input_Just_Pressed":{
-		"Up":false,
-		"Down":false,
-		"Left":false,
-		"Right":false},
-	"DPad_Input_Just_Released":{
-		"Up":false,
-		"Down":false,
-		"Left":false,
-		"Right":false},
-	"Joy_1_Input":Vector2.ZERO, ## Try to restrict to movement stuff
-	"Joy_2_Input":Vector2.ZERO, ## Try to restrict to camera stuff
-	"Button_Input_Pressed":{
-		"Up":false,
-		"Down":false,
-		"Left":false,
-		"Right":false},
-	"Button_Input_Just_Pressed":{
-		"Up":false,
-		"Down":false,
-		"Left":false,
-		"Right":false},
-	"Button_Input_Just_Released":{
-		"Up":false,
-		"Down":false,
-		"Left":false,
-		"Right":false},
-	"Shoulder_Input_Pressed":{
-		"Left":false,
-		"Right":false},
-	"Shoulder_Input_Just_Pressed":{
-		"Left":false,
-		"Right":false},
-	"Shoulder_Input_Just_Released":{
-		"Left":false,
-		"Right":false},
-	"Trigger_Input":[0,0], ## Unsure What will use for
-	"Menu_Button_Pressed":false,
-	"Menu_Button_Just_Pressed":false,
-	"Menu_Button_Just_Released":false,
-}
-
-var ControllerInputImages = {
-	"Playstation":{
-		#Button Buttons
-		"{ControllerInputUB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Tri_Green.png",
-		"{ControllerInputDB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/X_Blue.png",
-		"{ControllerInputLB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Square_Pink.png",
-		"{ControllerInputRB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/O_Red.png",
-		#D-Pad
-		"{ControllerInputUDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Up_Dpad.png",
-		"{ControllerInputDDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Down_Dpad.png",
-		"{ControllerInputLDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png",
-		"{ControllerInputRDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png",
-		#Joy1
-		"{ControllerInputUJ1}":"",
-		"{ControllerInputDJ1}":"",
-		"{ControllerInputLJ1}":"",
-		"{ControllerInputRJ1}":"",
-		"{ControllerInputPJ1}":"",
-		#Joy2
-		"{ControllerInputUJ2}":"",
-		"{ControllerInputDJ2}":"",
-		"{ControllerInputLJ2}":"",
-		"{ControllerInputRJ2}":"",
-		"{ControllerInputPJ2}":"",
-		#Shoulder Buttons
-		"{ControllerInputLSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/L1_Grey.png",
-		"{ControllerInputRSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/R1_Grey.png",
-		#Trigger Buttons
-		"{ControllerInputLTB}":"",
-		"{ControllerInputRTB}":"",
-		#Menu Button
-		"{ControllerInputMB}":"",
-	},
-	"Xbox":{
-		#Button Buttons
-		"{ControllerInputUB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Y_Yellow.png",
-		"{ControllerInputDB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/A_Green.png",
-		"{ControllerInputLB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/X_Blue.png",
-		"{ControllerInputRB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/B_Red.png",
-		#D-Pad
-		"{ControllerInputUDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Up_Dpad.png",
-		"{ControllerInputDDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Down_Dpad.png",
-		"{ControllerInputLDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png",
-		"{ControllerInputRDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png",
-		#Joy1
-		"{ControllerInputUJ1}":"",
-		"{ControllerInputDJ1}":"",
-		"{ControllerInputLJ1}":"",
-		"{ControllerInputRJ1}":"",
-		"{ControllerInputPJ1}":"",
-		#Joy2
-		"{ControllerInputUJ2}":"",
-		"{ControllerInputDJ2}":"",
-		"{ControllerInputLJ2}":"",
-		"{ControllerInputRJ2}":"",
-		"{ControllerInputPJ2}":"",
-		#Shoulder Buttons
-		"{ControllerInputLSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/LB_Grey.png",
-		"{ControllerInputRSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/RB_Grey.png",
-		#Trigger Buttons
-		"{ControllerInputLTB}":"",
-		"{ControllerInputRTB}":"",
-		#Menu Button
-		"{ControllerInputMB}":"",
-	},
-	"Nintendo":{
-		#Button Buttons
-		"{ControllerInputUB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/X_Blue.png",
-		"{ControllerInputDB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/B_Yellow.png",
-		"{ControllerInputLB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Y_Green.png",
-		"{ControllerInputRB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/A_Red.png",
-		#D-Pad
-		"{ControllerInputUDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Up_Dpad.png",
-		"{ControllerInputDDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Down_Dpad.png",
-		"{ControllerInputLDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png",
-		"{ControllerInputRDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png",
-		#Joy1
-		"{ControllerInputUJ1}":"",
-		"{ControllerInputDJ1}":"",
-		"{ControllerInputLJ1}":"",
-		"{ControllerInputRJ1}":"",
-		"{ControllerInputPJ1}":"",
-		#Joy2
-		"{ControllerInputUJ2}":"",
-		"{ControllerInputDJ2}":"",
-		"{ControllerInputLJ2}":"",
-		"{ControllerInputRJ2}":"",
-		"{ControllerInputPJ2}":"",
-		#Shoulder Buttons
-		"{ControllerInputLSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/LB_Grey.png",
-		"{ControllerInputRSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/RB_Grey.png",
-		#Trigger Buttons
-		"{ControllerInputLTB}":"",
-		"{ControllerInputRTB}":"",
-		#Menu Button
-		"{ControllerInputMB}":"",
-	},
-	"Keyboard":{
-		
-	}
-	
-	
-	
-}
-var oldmouse_pos:Vector2
-
-func _input(event: InputEvent) -> void:
-	controller_manager(event)
+var local_inputs = []
 
 func _physics_process(delta: float) -> void:
-	print(Current_Input["Mode"]) 
+	#print(Current_Input["Mode"]) 
 	Physics_Time += delta
 
 # Called when the node enters the scene tree for the first time.
@@ -250,6 +131,15 @@ func _ready() -> void:
 		#print(Data)
 		_setup_audio(Data["Audio"])
 		
+		for i in Data["Controls"]["Input_Translations"]:
+			var event = InputEventKey.new()
+			event.keycode = Data["Controls"]["Input_Translations"][i]
+			InputMap.action_add_event(i,event)
+			
+		print(InputMap.action_get_events("Keyboard_Button_Down"))
+		var newcontroller = InputController.new(self,0)
+		add_child(newcontroller)
+		local_inputs.append(newcontroller)
 
 	if OS.has_feature("server"):
 		var Json = JSON.new()
@@ -265,7 +155,7 @@ func _ready() -> void:
 		Data = Json.data
 		
 		data_failsafe_check(server_template)
-		#print(Data)
+		
 
 func data_failsafe_check(pathobj):
 	for i in pathobj:
@@ -314,110 +204,3 @@ func sort_ui() -> Node:
 		targeted_ui.get_parent().move_child(targeted_ui,targeted_ui.get_parent().get_child_count()-1)
 	
 	return targeted_ui
-
-
-func controller_manager(event:InputEvent) -> void:
-	if (event is InputEventJoypadMotion && (event["axis_value"] > 0.1 ||  event["axis_value"] < -0.1)) || event is InputEventJoypadButton:
-		Current_Input["Mode"] = "Controller"
-		if Input.get_joy_name(0).to_lower().contains("ps") || Input.get_joy_name(0).to_lower().contains("playstation") || Input.get_joy_name(0).to_lower().contains("sony"):
-			if Current_Input["Controller_Type"] != "Playstation":
-				Current_Input["Controller_Type"] = "Playstation"
-				emit_signal("Controller_Changed")
-		elif Input.get_joy_name(0).to_lower().contains("xbox") || Input.get_joy_name(0).to_lower().contains("microsoft") || Input.get_joy_name(0).to_lower().contains("360"):
-			if Current_Input["Controller_Type"] != "Xbox":
-				Current_Input["Controller_Type"] = "Xbox"
-				emit_signal("Controller_Changed")
-		elif Input.get_joy_name(0).to_lower().contains("switch") || Input.get_joy_name(0).to_lower().contains("nintendo"):
-			if Current_Input["Controller_Type"] != "Nintendo":
-				Current_Input["Controller_Type"] = "Nintendo"
-				emit_signal("Controller_Changed")
-
-	if (event is InputEventMouseButton || event is InputEventKey):
-		if Current_Input["Controller_Type"] != "Keyboard":
-			Current_Input["Mode"] = "Keyboard"
-			Current_Input["Controller_Type"] = "Keyboard"
-			emit_signal("Controller_Changed")
-
-func _process(delta: float) -> void:
-	match Current_Input["Mode"]:
-		"Controller":
-			##D-Pad
-			Current_Input["DPad_Input"] = Vector2(Input.get_action_raw_strength("Controller_1_Button_Left")-Input.get_action_raw_strength("Controller_1_Button_Right"),Input.get_action_raw_strength("Controller_1_Button_Up")-Input.get_action_raw_strength("Controller_1_Button_Down"))
-			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_1_DPad_Up")
-			Current_Input["DPad_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_1_DPad_Down")
-			Current_Input["DPad_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_1_DPad_Left")
-			Current_Input["DPad_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_1_DPad_Right")
-			Current_Input["DPad_Input_Just_Released"]["Up"] = Input.is_action_just_released("Controller_1_DPad_Up")
-			Current_Input["DPad_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_1_DPad_Down")
-			Current_Input["DPad_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_1_DPad_Left")
-			Current_Input["DPad_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_1_DPad_Right")
-			Current_Input["DPad_Input_Pressed"]["Up"] = Input.is_action_pressed("Controller_1_DPad_Up")
-			Current_Input["DPad_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_1_DPad_Down")
-			Current_Input["DPad_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_1_DPad_Left")
-			Current_Input["DPad_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_1_DPad_Right")
-			##Button Inputs X, Tri, etc
-			Current_Input["Button_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_1_Button_Up")
-			Current_Input["Button_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_1_Button_Down")
-			Current_Input["Button_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_1_Button_Left")
-			Current_Input["Button_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_1_Button_Right")
-			Current_Input["Button_Input_Just_Released"]["Up"] = Input.is_action_just_released("Controller_1_Button_Up")
-			Current_Input["Button_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_1_Button_Down")
-			Current_Input["Button_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_1_Button_Left")
-			Current_Input["Button_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_1_Button_Right")
-			Current_Input["Button_Input_Pressed"]["Up"] = Input.is_action_pressed("Controller_1_Button_Up")
-			Current_Input["Button_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_1_Button_Down")
-			Current_Input["Button_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_1_Button_Left")
-			Current_Input["Button_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_1_Button_Right")
-			#Joy Input
-			Current_Input["Joy_1_Input"] = Input.get_vector("Controller_1_Joy_1_Left","Controller_1_Joy_1_Right","Controller_1_Joy_1_Up","Controller_1_Joy_1_Down")
-			Current_Input["Joy_2_Input"] = Input.get_vector("Controller_1_Joy_2_Left","Controller_1_Joy_2_Right","Controller_1_Joy_2_Up","Controller_1_Joy_2_Down")
-			#Menu Button
-			Current_Input["Menu_Button_Pressed"] = Input.is_action_pressed("Controller_1_Menu")
-			Current_Input["Menu_Button_Just_Pressed"] = Input.is_action_just_pressed("Controller_1_Menu")
-			Current_Input["Menu_Button_Just_Released"] = Input.is_action_just_released("Controller_1_Menu")
-		"Keyboard":
-			Current_Input["DPad_Input"] = Vector2(Input.get_action_raw_strength("Keyboard_DPad_Left")-Input.get_action_raw_strength("Keyboard_DPad_Right"),Input.get_action_raw_strength("Keyboard_DPad_Up")-Input.get_action_raw_strength("Keyboard_DPad_Down"))
-			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Keyboard_DPad_Up")
-			Current_Input["DPad_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Keyboard_DPad_Down")
-			Current_Input["DPad_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Keyboard_DPad_Left")
-			Current_Input["DPad_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Keyboard_DPad_Right")
-			Current_Input["DPad_Input_Just_Released"]["Up"] = Input.is_action_just_released("Keyboard_DPad_Up")
-			Current_Input["DPad_Input_Just_Released"]["Down"] = Input.is_action_just_released("Keyboard_DPad_Down")
-			Current_Input["DPad_Input_Just_Released"]["Left"] = Input.is_action_just_released("Keyboard_DPad_Left")
-			Current_Input["DPad_Input_Just_Released"]["Right"] = Input.is_action_just_released("Keyboard_DPad_Right")
-			##Button Inputs X, Tri, etc
-			Current_Input["Button_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Keyboard_Button_Up")
-			Current_Input["Button_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Keyboard_Mouse_L")
-			Current_Input["Button_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Keyboard_Mouse_R")
-			Current_Input["Button_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Keyboard_Button_Down")
-			Current_Input["Button_Input_Just_Released"]["Up"] = Input.is_action_just_released("Keyboard_Button_Up")
-			Current_Input["Button_Input_Just_Released"]["Down"] = Input.is_action_just_released("Keyboard_Mouse_L")
-			Current_Input["Button_Input_Just_Released"]["Left"] = Input.is_action_just_released("Keyboard_Mouse_R")
-			Current_Input["Button_Input_Just_Released"]["Right"] = Input.is_action_just_released("Keyboard_Button_Down")
-			Current_Input["Button_Input_Pressed"]["Up"] = Input.is_action_pressed("Keyboard_Button_Up")
-			Current_Input["Button_Input_Pressed"]["Down"] = Input.is_action_pressed("Keyboard_Mouse_L")
-			Current_Input["Button_Input_Pressed"]["Left"] = Input.is_action_pressed("Keyboard_Mouse_R")
-			Current_Input["Button_Input_Pressed"]["Right"] = Input.is_action_pressed("Keyboard_Button_Down")
-			#Joy Input
-			Current_Input["Joy_1_Input"] = Input.get_vector("Keyboard_DPad_Left","Keyboard_DPad_Right","Keyboard_DPad_Up","Keyboard_DPad_Down")
-			Current_Input["Joy_2_Input"] = get_viewport().get_mouse_position()-oldmouse_pos
-			#Menu Button
-			Current_Input["Menu_Button_Pressed"] = Input.is_action_pressed("Keyboard_Menu")
-			Current_Input["Menu_Button_Just_Pressed"] = Input.is_action_just_pressed("Keyboard_Menu")
-			Current_Input["Menu_Button_Just_Released"] = Input.is_action_just_released("Keyboard_Menu")
-	#print(Current_Input["Controller_Type"])
-			oldmouse_pos = get_viewport().get_mouse_position()
-
-func reparse_controller_context(text:String) -> String:
-	var newtext = text
-	
-	if Current_Input["Controller_Type"] != "Keyboard":
-		for i in ControllerInputImages[Current_Input["Controller_Type"]]:
-			print(i)
-			newtext = newtext.replace(i,ControllerInputImages[Current_Input["Controller_Type"]][i])
-	print(newtext)
-	return newtext
-
-func vibrate_controller(controllerid:int,weak:float,strong:float,length:float) -> void:
-	if Current_Input["Mode"] == "Controller":
-		Input.start_joy_vibration(controllerid,weak,strong,length)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cwu4aa0t4dm8c"]
+[gd_scene load_steps=68 format=3 uid="uid://cwu4aa0t4dm8c"]
 
 [ext_resource type="FontFile" uid="uid://brv2r44cd7dfp" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-SemiBold.ttf" id="1_35gd0"]
 [ext_resource type="Script" uid="uid://cv18ea4ncsogo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="2_e6qho"]
@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="8_8ql6j"]
 [ext_resource type="StyleBox" uid="uid://co210mrymb0jl" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/Smooth_UI_NoTransparency_Darker.tres" id="8_rvedy"]
 [ext_resource type="Script" uid="uid://dy3ycuf78a0b2" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Slide_UI/Visuals_HasUI.gd" id="9_1tge1"]
+[ext_resource type="Texture2D" uid="uid://btre5v6yvgnv6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/A_Green.png" id="10_j8hsx"]
+[ext_resource type="Script" uid="uid://kjtjlmiew76w" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Slide_UI/Input_HasUI.gd" id="10_vu8tt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tixo2"]
 font = ExtResource("1_35gd0")
@@ -260,6 +262,121 @@ border_blend = true
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu8tt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ftaw"]
+font = ExtResource("1_35gd0")
+font_size = 32
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h03bw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsyb4"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2xqe"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_25hga"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t3q3s"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fb2w8"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ue414"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m0xe8"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5l2uo"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1q01e"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6l2nl"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m6wql"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_miuir"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tt7y1"]
+font = ExtResource("1_35gd0")
+font_size = 24
+font_color = Color(0.588235, 0.588235, 0.588235, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.352941)
+shadow_offset = Vector2(3, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4tjry"]
 font = ExtResource("1_35gd0")
@@ -853,6 +970,7 @@ theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
 
 [node name="Theme" type="Control" parent="Screens"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -975,6 +1093,557 @@ text = "
 [font_size=24][img=60x32]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/L1_Grey.png[/img]					Mode: H - [img=48,center,center]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png[/img][font_size=24] [img=48,center,center]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png[/img] 					[img=60x32]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/R1_Grey.png[/img]"
 scroll_active = false
 horizontal_alignment = 1
+
+[node name="Input" type="Control" parent="Screens"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_vu8tt")
+
+[node name="Node3D" type="Node3D" parent="Screens/Input"]
+
+[node name="Panel2" type="Panel" parent="Screens/Input"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -52.0
+offset_right = -30.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("8_rvedy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Input/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Screens/Input/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Keyboard" type="VBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer11"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer11"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UI Move Up"
+label_settings = SubResource("LabelSettings_8ftaw")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer11"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer11"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer12"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer12"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UI Move Down"
+label_settings = SubResource("LabelSettings_bsyb4")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer12"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer12"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer13"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer13"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UI Move Left"
+label_settings = SubResource("LabelSettings_e2xqe")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer13"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer13"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer14"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer14"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UI Move Right"
+label_settings = SubResource("LabelSettings_25hga")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer14"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer14"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Forwards"
+label_settings = SubResource("LabelSettings_t3q3s")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Backwards"
+label_settings = SubResource("LabelSettings_fb2w8")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer3"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Left"
+label_settings = SubResource("LabelSettings_ue414")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer4"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move Right"
+label_settings = SubResource("LabelSettings_m0xe8")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer5"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer5"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jump"
+label_settings = SubResource("LabelSettings_5l2uo")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer5"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer6"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer6"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Interact"
+label_settings = SubResource("LabelSettings_1q01e")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer6"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer7"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer7"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Walk Mode"
+label_settings = SubResource("LabelSettings_6l2nl")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer7"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer8"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer8"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Menu"
+label_settings = SubResource("LabelSettings_m6wql")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer8"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer9"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer9"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "[ K&C ] Interact"
+label_settings = SubResource("LabelSettings_miuir")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer9"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer10"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="Asset_Name" type="Label" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer10"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "[ K&C ] Interact"
+label_settings = SubResource("LabelSettings_tt7y1")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_h03bw")
+
+[node name="InputMap" type="TextureRect" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer10"]
+layout_mode = 2
+texture = ExtResource("10_j8hsx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer/ScrollContainer/Keyboard/HBoxContainer10"]
+layout_mode = 2
+theme_override_constants/separation = 114
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vu8tt")
+
+[node name="VSeparator" type="VSeparator" parent="Screens/Input/Panel2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="HSeparator" type="HSeparator" parent="Screens/Input/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wa808")
+
+[node name="Instruction_Panel" type="Panel" parent="Screens/Input"]
+z_index = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 222.0
+offset_right = -43.0
+offset_bottom = -410.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("8_rvedy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screens/Input/Instruction_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = -6
+theme_override_fonts/normal_font = ExtResource("8_8ql6j")
+bbcode_enabled = true
+text = "
+[font_size=24][img=60x32]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/L1_Grey.png[/img]					Mode: Keyboard			[img=60x32]res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/R1_Grey.png[/img]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Visuals" type="Control" parent="Screens"]
 visible = false

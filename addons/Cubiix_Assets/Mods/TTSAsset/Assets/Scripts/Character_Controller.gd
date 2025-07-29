@@ -1,6 +1,7 @@
 extends Node3D
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 ## Get the actual player object
+@onready var ControllerID = 0
 @onready var Character:CharacterBody3D = get_parent()
 
 ## This is the mesh root itself
@@ -149,7 +150,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if !Core.Globals.DisablePlayerInput:
-		input = Core.Globals.Current_Input["Joy_1_Input"]
+		input = Core.Globals.local_inputs[ControllerID].Current_Input["Joy_1_Input"]
 	else:
 		input = Vector2.ZERO
 		
@@ -159,7 +160,7 @@ func _process(delta: float) -> void:
 	if input != Vector2.ZERO || (Alt_Input != Vector2.ZERO && velocity_lock):
 		if !Swimming:
 			#print(input.length())
-			if (input.length() > .4 && Core.Globals.Current_Input["Mode"] == "Controller") || (Core.Globals.Current_Input["Mode"] == "Keyboard" && !Core.Globals.Current_Input["Button_Input_Pressed"]["Up"]):
+			if (input.length() > .4 && Core.Globals.local_inputs[ControllerID].Current_Input["Mode"] == "Controller") || (Core.Globals.local_inputs[ControllerID].Current_Input["Mode"] == "Keyboard" && !Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Pressed"]["Up"]):
 				Current_Animation = ["Run",.3]
 			else:
 				Current_Animation = ["Walk",.3]
@@ -256,7 +257,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					speed = runspeed
 					
-				if (Core.Globals.Current_Input["Button_Input_Just_Pressed"]["Right"] && !jumping && !Core.Globals.DisablePlayerInput) || (AltJump):
+				if (Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Just_Pressed"]["Right"] && !jumping && !Core.Globals.DisablePlayerInput) || (AltJump):
 					JumpTimer.start()
 					jumping = true
 					gravity_control = (MoveMarker.global_transform.basis.y * 1) * jumpspeed
@@ -266,7 +267,7 @@ func _physics_process(delta: float) -> void:
 						AltJump = false
 				
 				if !velocity_lock:
-					if !(Core.Globals.Current_Input["Mode"] == "Keyboard" && Core.Globals.Current_Input["Button_Input_Pressed"]["Up"]):
+					if !(Core.Globals.local_inputs[ControllerID].Current_Input["Mode"] == "Keyboard" && Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Pressed"]["Up"]):
 						compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * speed) 
 					else:
 						compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(input.y)+abs(input.x),0,1)) * walkspeed) 
@@ -293,7 +294,7 @@ func _physics_process(delta: float) -> void:
 				compiled_velocity += ((MoveMarker.global_transform.basis.z * clamp(abs(Alt_Input.y)+abs(Alt_Input.x),0,1)) * swim_speed) 
 			
 			
-			if Core.Globals.Current_Input["Button_Input_Just_Pressed"]["Right"]:
+			if Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Just_Pressed"]["Right"]:
 				Swimming = false
 				AltJump = true
 				RayCast_Swim.enabled = true

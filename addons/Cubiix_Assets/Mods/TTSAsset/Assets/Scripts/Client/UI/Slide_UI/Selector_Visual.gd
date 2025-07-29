@@ -1,5 +1,6 @@
 extends Panel
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
+@onready var ControllerID = find_parent("Slide_UI").ControllerID
 var options = {}
 var HasControl = true
 var options_reset = {
@@ -37,8 +38,6 @@ var Target_Option = ["Home", 8, "","Top"]
 var InMenu = false
 
 func _ready() -> void:
-	
-	
 	for i in options_reset.keys():
 		for x in options_reset[i].size():
 			var pos = (8 + (x * -34))
@@ -55,8 +54,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if find_parent("Slide_UI").visible && HasControl:
-		if Core.Globals.Current_Input["DPad_Input_Just_Pressed"]["Down"] && Target_Option[3] != "Bottom":
-			Core.Globals.vibrate_controller(0, .2, 0, 0.5)
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Down"] && Target_Option[3] != "Bottom":
+			Core.Globals.local_inputs[ControllerID].vibrate_controller(.2, 0, 0.5)
 			var value = options[TargetList].pop_front()
 			options[TargetList].push_back(value)
 			var tween = get_tree().create_tween()
@@ -90,8 +89,8 @@ func _process(delta: float) -> void:
 				newpopup.show()
 				tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 		
-		if Core.Globals.Current_Input["DPad_Input_Just_Pressed"]["Up"] && Target_Option[3] != "Top":
-			Core.Globals.vibrate_controller(0, .2, 0, 0.5)
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Up"] && Target_Option[3] != "Top":
+			Core.Globals.local_inputs[ControllerID].vibrate_controller( .2, 0, 0.5)
 			var tween = get_tree().create_tween()
 			tween.set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 			tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_size", 24, .2)
@@ -122,8 +121,8 @@ func _process(delta: float) -> void:
 					tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 			
 			tween.tween_property(Target_Container, "position:y", Target_Option[1], .2)
-		if Core.Globals.Current_Input["DPad_Input_Just_Pressed"]["Right"]:
-			Core.Globals.vibrate_controller(0, .2, 0, 0.5)
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Right"]:
+			Core.Globals.local_inputs[ControllerID].vibrate_controller( .2, 0, 0.5)
 			if Target_Option[2] == "Base":
 				match Target_Option[0]:
 					"Home":
@@ -171,9 +170,9 @@ func _process(delta: float) -> void:
 				tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_size", 32, .2)
 				tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_color", Color("FFFFFF"), .1)
 		
-		if Core.Globals.Current_Input["DPad_Input_Just_Pressed"]["Left"]:
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Left"]:
 			if options.has(Target_Option[2]):
-				Core.Globals.vibrate_controller(0, .2, 0, 0.5)
+				Core.Globals.local_inputs[ControllerID].vibrate_controller( .2, 0, 0.5)
 				var tween = get_tree().create_tween()
 				tween.set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 				if $"../Screens".find_child(Target_Option[0],false) != null:
@@ -195,8 +194,8 @@ func _process(delta: float) -> void:
 					tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 	
 				
-	if Core.Globals.Current_Input["Button_Input_Just_Pressed"]["Right"] && InMenu:
-		Core.Globals.vibrate_controller(0, .2, 0, 0.5)
+	if Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Just_Pressed"]["Right"] && InMenu:
+		Core.Globals.local_inputs[ControllerID].vibrate_controller( .2, 0, 0.5)
 		var newpopup = $"../Screens".find_child(Target_Option[0],false)
 		if newpopup != null:
 			newpopup.HasControl = false

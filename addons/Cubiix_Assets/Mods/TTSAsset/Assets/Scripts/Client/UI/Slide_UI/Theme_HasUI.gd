@@ -1,6 +1,6 @@
 extends Control
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
-
+@onready var ControllerID = find_parent("Slide_UI").ControllerID
 @onready var top = $Panel2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Color
 @onready var bottom = $Panel2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Color
 @onready var Instructions = $Instruction_Panel
@@ -30,7 +30,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if HasControl:
-		if Core.Globals.Current_Input["DPad_Input_Just_Pressed"]["Down"]:
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Down"]:
 			if target + 1 < nodes.size():
 				var targetNode = nodes[target].get_parent().get_node("Asset_Name")
 				var tween = get_tree().create_tween()
@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 				tween.tween_property(targetNode, "label_settings:font_size", 32, .2)
 				tween.tween_property(targetNode, "label_settings:font_color", Color("FFFFFF"), .2)
 				#Instructions.global_position = targetNode.get_node("../Color").global_position + Vector2(0,70)
-		if Core.Globals.Current_Input["DPad_Input_Just_Pressed"]["Up"]:
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Up"]:
 			if target - 1 >= 0:
 				var targetNode = nodes[target].get_parent().get_node("Asset_Name")
 				var tween = get_tree().create_tween()
@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 				tween.tween_property(targetNode, "label_settings:font_size", 32, .2)
 				tween.tween_property(targetNode, "label_settings:font_color", Color("FFFFFF"), .2)
 				#Instructions.global_position = targetNode.get_node("../Color").global_position + Vector2(0,70)
-		if Core.Globals.Current_Input["DPad_Input_Pressed"]["Left"] || Core.Globals.Current_Input["DPad_Input_Pressed"]["Right"]:
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Pressed"]["Left"] || Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Pressed"]["Right"]:
 			var input =  int(Input.is_action_pressed("dp_left")) - int(Input.is_action_pressed("dp_right"))
 			var stylebox = (nodes[target] as Panel).get_theme_stylebox("panel")
 			var color = stylebox.bg_color

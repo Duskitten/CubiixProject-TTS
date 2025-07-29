@@ -1,23 +1,12 @@
-[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://l3apok7uyv6k"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://l3apok7uyv6k"]
 
-[sub_resource type="Gradient" id="Gradient_bck20"]
-offsets = PackedFloat32Array(0, 0.381215)
-colors = PackedColorArray(0.441406, 0.441406, 0.441406, 1, 0.800781, 0.800781, 0.800781, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_t5d3n"]
-frequency = 0.346
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_14u2i"]
-seamless = true
-seamless_blend_skirt = 0.259
-color_ramp = SubResource("Gradient_bck20")
-noise = SubResource("FastNoiseLite_t5d3n")
+[ext_resource type="Texture2D" uid="uid://83o8gpiadmsr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/World/noise.png" id="1_5d0oe"]
 
 [resource]
-albedo_color = Color(1, 0.622166, 0.478432, 1)
-albedo_texture = SubResource("NoiseTexture2D_14u2i")
+albedo_color = Color(0.706375, 0.439483, 0.337952, 1)
+albedo_texture = ExtResource("1_5d0oe")
 metallic_specular = 0.0
-uv1_scale = Vector3(0.08, 0.08, 0.08)
+uv1_scale = Vector3(0.3, 0.3, 0.3)
 uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 2
