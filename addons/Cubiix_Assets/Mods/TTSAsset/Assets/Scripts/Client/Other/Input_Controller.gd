@@ -151,7 +151,37 @@ var ControllerInputImages = {
 		"{ControllerInputMB}":"",
 	},
 	"Keyboard":{
+		#Where To Find New Keys
+		"Find_Key":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Keyboard_Keys/",
+		#Button Buttons
 		
+		"{ControllerInputUB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/X_Blue.png",
+		"{ControllerInputDB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/B_Yellow.png",
+		"{ControllerInputLB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Y_Green.png",
+		"{ControllerInputRB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/A_Red.png",
+		#D-Pad
+		"{ControllerInputUDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Up_Dpad.png",
+		"{ControllerInputDDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Down_Dpad.png",
+		"{ControllerInputLDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Dpad.png",
+		"{ControllerInputRDP}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Dpad.png",
+				#Joy1
+		"{ControllerInputUJ1}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Joystick_Up.png",
+		"{ControllerInputDJ1}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Joystick_Down.png",
+		"{ControllerInputLJ1}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Joystick_Left.png",
+		"{ControllerInputRJ1}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Left_Joystick_Right.png",
+		#Joy2
+		"{ControllerInputUJ2}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Joystick_Up.png",
+		"{ControllerInputDJ2}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Joystick_Down.png",
+		"{ControllerInputLJ2}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Joystick_Left.png",
+		"{ControllerInputRJ2}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Right_Joystick_Right.png",
+		#Shoulder Buttons
+		"{ControllerInputLSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/LB_Grey.png",
+		"{ControllerInputRSB}":"res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/RB_Grey.png",
+		#Trigger Buttons
+		"{ControllerInputLTB}":"",
+		"{ControllerInputRTB}":"",
+		#Menu Button
+		"{ControllerInputMB}":"",
 	}
 	
 	
@@ -300,10 +330,9 @@ func _process(delta: float) -> void:
 func reparse_controller_context(text:String) -> String:
 	var newtext = text
 	
-	if Current_Input["Controller_Type"] != "Keyboard":
-		for i in ControllerInputImages[Current_Input["Controller_Type"]]:
-			print(i)
-			newtext = newtext.replace(i,ControllerInputImages[Current_Input["Controller_Type"]][i])
+	for i in ControllerInputImages[Current_Input["Controller_Type"]]:
+		print(i)
+		newtext = newtext.replace(i,ControllerInputImages[Current_Input["Controller_Type"]][i])
 	#print(newtext)
 	return newtext
 
