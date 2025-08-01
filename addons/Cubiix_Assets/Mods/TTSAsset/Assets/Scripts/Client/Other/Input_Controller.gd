@@ -184,10 +184,11 @@ func controller_manager(event:InputEvent) -> void:
 			if Current_Input["Controller_Type"] != "Xbox":
 				Current_Input["Controller_Type"] = "Xbox"
 				emit_signal("Controller_Changed")
-		elif Input.get_joy_name(0).to_lower().contains("switch") || Input.get_joy_name(0).to_lower().contains("nintendo"):
+		else:
 			if Current_Input["Controller_Type"] != "Nintendo":
 				Current_Input["Controller_Type"] = "Nintendo"
 				emit_signal("Controller_Changed")
+			
 
 	if (event is InputEventMouseButton || event is InputEventKey):
 		if Current_Input["Controller_Type"] != "Keyboard":
@@ -199,57 +200,57 @@ func _process(delta: float) -> void:
 	match Current_Input["Mode"]:
 		"Controller":
 			##D-Pad
-			Current_Input["DPad_Input"] = Input.get_vector("Controller_1_DPad_Left","Controller_1_DPad_Right","Controller_1_DPad_Up","Controller_1_DPad_Down")
-			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_1_DPad_Up")
-			Current_Input["DPad_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_1_DPad_Down")
-			Current_Input["DPad_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_1_DPad_Left")
-			Current_Input["DPad_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_1_DPad_Right")
-			Current_Input["DPad_Input_Just_Released"]["Up"] = Input.is_action_just_released("Controller_1_DPad_Up")
-			Current_Input["DPad_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_1_DPad_Down")
-			Current_Input["DPad_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_1_DPad_Left")
-			Current_Input["DPad_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_1_DPad_Right")
-			Current_Input["DPad_Input_Pressed"]["Up"] = Input.is_action_pressed("Controller_1_DPad_Up")
-			Current_Input["DPad_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_1_DPad_Down")
-			Current_Input["DPad_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_1_DPad_Left")
-			Current_Input["DPad_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_1_DPad_Right")
+			Current_Input["DPad_Input"] = Input.get_vector("Controller_"+str(ControllerInput)+"_DPad_Left","Controller_"+str(ControllerInput)+"_DPad_Right","Controller_"+str(ControllerInput)+"_DPad_Up","Controller_"+str(ControllerInput)+"_DPad_Down")
+			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_DPad_Up")
+			Current_Input["DPad_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_DPad_Down")
+			Current_Input["DPad_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_DPad_Left")
+			Current_Input["DPad_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_DPad_Right")
+			Current_Input["DPad_Input_Just_Released"]["Up"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_DPad_Up")
+			Current_Input["DPad_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_DPad_Down")
+			Current_Input["DPad_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_DPad_Left")
+			Current_Input["DPad_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_DPad_Right")
+			Current_Input["DPad_Input_Pressed"]["Up"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_DPad_Up")
+			Current_Input["DPad_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_DPad_Down")
+			Current_Input["DPad_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_DPad_Left")
+			Current_Input["DPad_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_DPad_Right")
 			##Button Inputs X, Tri, etc
-			Current_Input["Button_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_1_Button_Up")
-			Current_Input["Button_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_1_Button_Down")
-			Current_Input["Button_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_1_Button_Left")
-			Current_Input["Button_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_1_Button_Right")
-			Current_Input["Button_Input_Just_Released"]["Up"] = Input.is_action_just_released("Controller_1_Button_Up")
-			Current_Input["Button_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_1_Button_Down")
-			Current_Input["Button_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_1_Button_Left")
-			Current_Input["Button_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_1_Button_Right")
-			Current_Input["Button_Input_Pressed"]["Up"] = Input.is_action_pressed("Controller_1_Button_Up")
-			Current_Input["Button_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_1_Button_Down")
-			Current_Input["Button_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_1_Button_Left")
-			Current_Input["Button_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_1_Button_Right")
+			Current_Input["Button_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Button_Up")
+			Current_Input["Button_Input_Just_Pressed"]["Down"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Button_Down")
+			Current_Input["Button_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Button_Left")
+			Current_Input["Button_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Button_Right")
+			Current_Input["Button_Input_Just_Released"]["Up"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_Button_Up")
+			Current_Input["Button_Input_Just_Released"]["Down"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_Button_Down")
+			Current_Input["Button_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_Button_Left")
+			Current_Input["Button_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_Button_Right")
+			Current_Input["Button_Input_Pressed"]["Up"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_Button_Up")
+			Current_Input["Button_Input_Pressed"]["Down"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_Button_Down")
+			Current_Input["Button_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_Button_Left")
+			Current_Input["Button_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_Button_Right")
 			#Joy Input
 			
 			if !Creator.Data["Controls_"+str(ControllerInput)]["Flip_Controller_Joysticks"]:
-				Current_Input["Joy_1_Input"] = Input.get_vector("Controller_1_Joy_1_Left","Controller_1_Joy_1_Right","Controller_1_Joy_1_Up","Controller_1_Joy_1_Down")
-				Current_Input["Joy_2_Input"] = Input.get_vector("Controller_1_Joy_2_Left","Controller_1_Joy_2_Right","Controller_1_Joy_2_Up","Controller_1_Joy_2_Down")
+				Current_Input["Joy_1_Input"] = Input.get_vector("Controller_"+str(ControllerInput)+"_Joy_1_Left","Controller_"+str(ControllerInput)+"_Joy_1_Right","Controller_"+str(ControllerInput)+"_Joy_1_Up","Controller_"+str(ControllerInput)+"_Joy_1_Down")
+				Current_Input["Joy_2_Input"] = Input.get_vector("Controller_"+str(ControllerInput)+"_Joy_2_Left","Controller_"+str(ControllerInput)+"_Joy_2_Right","Controller_"+str(ControllerInput)+"_Joy_2_Up","Controller_"+str(ControllerInput)+"_Joy_2_Down")
 			else:
-				Current_Input["Joy_1_Input"] = Input.get_vector("Controller_1_Joy_2_Left","Controller_1_Joy_2_Right","Controller_1_Joy_2_Up","Controller_1_Joy_2_Down")
-				Current_Input["Joy_2_Input"] = Input.get_vector("Controller_1_Joy_1_Left","Controller_1_Joy_1_Right","Controller_1_Joy_1_Up","Controller_1_Joy_1_Down")
+				Current_Input["Joy_1_Input"] = Input.get_vector("Controller_"+str(ControllerInput)+"_Joy_2_Left","Controller_"+str(ControllerInput)+"_Joy_2_Right","Controller_"+str(ControllerInput)+"_Joy_2_Up","Controller_"+str(ControllerInput)+"_Joy_2_Down")
+				Current_Input["Joy_2_Input"] = Input.get_vector("Controller_"+str(ControllerInput)+"_Joy_1_Left","Controller_"+str(ControllerInput)+"_Joy_1_Right","Controller_"+str(ControllerInput)+"_Joy_1_Up","Controller_"+str(ControllerInput)+"_Joy_1_Down")
 			
 			#Menu Button
-			Current_Input["Menu_Button_Pressed"] = Input.is_action_pressed("Controller_1_Menu")
-			Current_Input["Menu_Button_Just_Pressed"] = Input.is_action_just_pressed("Controller_1_Menu")
-			Current_Input["Menu_Button_Just_Released"] = Input.is_action_just_released("Controller_1_Menu")
+			Current_Input["Menu_Button_Pressed"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_Menu")
+			Current_Input["Menu_Button_Just_Pressed"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Menu")
+			Current_Input["Menu_Button_Just_Released"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_Menu")
 	
 			#Shoulders
-			Current_Input["Shoulder_Button_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_1_Shoulder_Button_Left")
-			Current_Input["Shoulder_Button_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_1_Shoulder_Button_Right")
-			Current_Input["Shoulder_Button_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_1_Shoulder_Button_Left")
-			Current_Input["Shoulder_Button_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_1_Shoulder_Button_Right")
-			Current_Input["Shoulder_Button_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_1_Shoulder_Button_Left")
-			Current_Input["Shoulder_Button_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_1_Shoulder_Button_Right")
+			Current_Input["Shoulder_Button_Input_Just_Pressed"]["Left"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Shoulder_Button_Left")
+			Current_Input["Shoulder_Button_Input_Just_Pressed"]["Right"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Shoulder_Button_Right")
+			Current_Input["Shoulder_Button_Input_Just_Released"]["Left"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_Shoulder_Button_Left")
+			Current_Input["Shoulder_Button_Input_Just_Released"]["Right"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_Shoulder_Button_Right")
+			Current_Input["Shoulder_Button_Input_Pressed"]["Left"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_Shoulder_Button_Left")
+			Current_Input["Shoulder_Button_Input_Pressed"]["Right"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_Shoulder_Button_Right")
 		
 			#Triggers
-			Current_Input["Trigger_Input"]["Left"] = Input.get_action_raw_strength("Controller_1_Trigger_Left")
-			Current_Input["Trigger_Input"]["Right"] = Input.get_action_raw_strength("Controller_1_Trigger_Right")
+			Current_Input["Trigger_Input"]["Left"] = Input.get_action_raw_strength("Controller_"+str(ControllerInput)+"_Trigger_Left")
+			Current_Input["Trigger_Input"]["Right"] = Input.get_action_raw_strength("Controller_"+str(ControllerInput)+"_Trigger_Right")
 		"Keyboard":
 			Current_Input["DPad_Input"] = Input.get_vector("Keyboard_DPad_Left","Keyboard_DPad_Right","Keyboard_DPad_Up","Keyboard_DPad_Down")
 			Current_Input["DPad_Input_Just_Pressed"]["Up"] = Input.is_action_just_pressed("Keyboard_DPad_Up")
