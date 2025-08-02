@@ -4,7 +4,7 @@
 
 ## "Cubiix Project: To The Stars!" is an open source Social MMO.
 
-The project is maintained by Duskitten / [Selkspace](https://selkspace.xyz), and is licensed under the [Cubiix Project License](LICENSE.md)
+The project is maintained by Duskitten / [Selkspace](https://selkspace.xyz), and is licensed under the [MIT License](LICENSE.md)
 
 ## Instructions
 
