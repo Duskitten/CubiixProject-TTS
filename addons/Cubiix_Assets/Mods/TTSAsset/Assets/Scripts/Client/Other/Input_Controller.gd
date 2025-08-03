@@ -2,7 +2,7 @@ extends Node
 class_name InputController
 
 @export var ControllerInput := 0
-
+@onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
 var Current_Input = {
 	"Mode":"Keyboard",
@@ -185,14 +185,40 @@ var ControllerInputImages = {
 	}
 	
 	
-	
 }
+
+var Keyboard_Translation = {
+	"Keyboard_Button_Up":"{ControllerInputUB}",
+	"Keyboard_Button_Down":"{ControllerInputDB}",
+	"Keyboard_Button_Left":"{ControllerInputLB}",
+	"Keyboard_Button_Right":"{ControllerInputRB}",
+	
+	"Keyboard_DPad_Up":"{ControllerInputUDP}",
+	"Keyboard_DPad_Down":"{ControllerInputDDP}",
+	"Keyboard_DPad_Left":"{ControllerInputLDP}",
+	"Keyboard_DPad_Right":"{ControllerInputRDP}",
+	
+	"Keyboard_Shoulder_Button_Left": "{ControllerInputLSB}",
+	"Keyboard_Shoulder_Button_Right": "{ControllerInputRSB}",
+	
+	"Keyboard_Trigger_Left": "{ControllerInputLTB}",
+	"Keyboard_Trigger_Right": "{ControllerInputRTB}",
+	
+	"Keyboard_Joy_Up":"{ControllerInputUJ1}",
+	"Keyboard_Joy_Down":"{ControllerInputDJ1}",
+	"Keyboard_Joy_Left":"{ControllerInputLJ1}",
+	"Keyboard_Joy_Right":"{ControllerInputRJ1}",
+}
+
 var oldmouse_pos:Vector2
 var Creator
 
 func _init(creator,who) -> void:
 	Creator = creator
 	ControllerInput = who
+	
+func _ready() -> void:
+	reset_keyboard_images()
 	
 func _input(event: InputEvent) -> void:
 	controller_manager(event)
@@ -327,11 +353,23 @@ func _process(delta: float) -> void:
 	#print(Current_Input["Controller_Type"])
 			oldmouse_pos = get_viewport().get_mouse_position()
 
+func reset_keyboard_images() -> void:
+	var Current_Input = Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Translations"]
+	for i in Current_Input:
+		
+		var newImage = "res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Controller_Buttons/Keyboard_Keys/"+str(int(Current_Input[i]))+".png"
+		ControllerInputImages["Keyboard"][Keyboard_Translation[i]] = newImage
+		print(newImage)
+
 func reparse_controller_context(text:String) -> String:
 	var newtext = text
 	
+	##Adaptive First Pass // {VarName} -> {InputName}
+	for i in Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Overrides"]:
+		newtext = newtext.replace(i,Core.Globals.Data["Controls_"+str(ControllerInput)+""]["Input_Overrides"][i])
+	
+	##Apply New Images // {InputName} -> res://image.png
 	for i in ControllerInputImages[Current_Input["Controller_Type"]]:
-		print(i)
 		newtext = newtext.replace(i,ControllerInputImages[Current_Input["Controller_Type"]][i])
 	#print(newtext)
 	return newtext
