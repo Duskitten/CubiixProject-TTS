@@ -5,8 +5,8 @@ class_name InputController
 @onready var Core = get_node("/root/Main_Scene/CoreLoader")
 
 var Current_Input = {
-	"Mode":"Keyboard",
-	"Controller_Type":"Keyboard",
+	"Mode":"Controller",
+	"Controller_Type":"Playstation",
 	"Keyboard_Mouse_Rotate_Down":false,
 	"DPad_Input":Vector2.ZERO,  ## Try to restrict to menu stuff
 	"DPad_Input_Pressed":{
@@ -212,16 +212,44 @@ var Keyboard_Translation = {
 
 var oldmouse_pos:Vector2
 var Creator
+var Key_Update_Checker:bool = false
+var IsKeyboard:bool = true
 
+signal Binded_Controller
+signal Controller_Changed
 func _init(creator,who) -> void:
 	Creator = creator
 	ControllerInput = who
 	
 func _ready() -> void:
 	reset_keyboard_images()
+	await get_tree().create_timer(2).timeout
+	print("enabling_Key_update")
+	enable_key_update("test")
 	
 func _input(event: InputEvent) -> void:
 	controller_manager(event)
+	if Key_Update_Checker && event.device == ControllerInput:
+		if IsKeyboard && event is InputEventKey && ControllerInput == 0:
+			Key_Update_Checker = false
+			#print(event)
+			emit_signal("Binded_Controller", true, event)
+		elif !IsKeyboard && event is InputEventJoypadButton:
+			Key_Update_Checker = false
+			#print(event)
+			emit_signal("Binded_Controller", true, event)
+		elif event is InputEventKey || event is InputEventJoypadButton:
+			Key_Update_Checker = false
+			#print("Input Failed")
+			emit_signal("Binded_Controller", false,{})
+			
+
+func enable_key_update(KeyName) -> void:
+	Key_Update_Checker = true
+	if Current_Input["Mode"] == "Controller":
+		IsKeyboard = false
+	else:
+		IsKeyboard = true
 
 func controller_manager(event:InputEvent) -> void:
 	if (event is InputEventJoypadMotion && (event["axis_value"] > 0.1 ||  event["axis_value"] < -0.1)) || event is InputEventJoypadButton:

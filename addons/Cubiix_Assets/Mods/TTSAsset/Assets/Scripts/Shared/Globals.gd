@@ -6,7 +6,7 @@ var NewGameVersion = ""
 
 signal Setting_Changed
 signal Update_Triggered
-signal Controller_Changed
+
 
 var LocalUser = {
 	"URL":"",
