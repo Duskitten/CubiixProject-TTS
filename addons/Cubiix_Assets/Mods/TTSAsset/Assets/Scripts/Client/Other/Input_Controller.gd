@@ -209,6 +209,36 @@ var Keyboard_Translation = {
 	"Keyboard_Menu":"{ControllerInputMB}",
 }
 
+var Input_Translation = {
+	["Button","Up"]:"{ControllerInputUB}",
+	["Button","Down"]:"{ControllerInputDB}",
+	["Button","Left"]:"{ControllerInputLB}",
+	["Button","Right"]:"{ControllerInputRB}",
+	
+	["DPad","Up"]:"{ControllerInputUDP}",
+	["DPad","Down"]:"{ControllerInputDDP}",
+	["DPad","Left"]:"{ControllerInputLDP}",
+	["DPad","Right"]:"{ControllerInputRDP}",
+	
+	["Shoulder_Button","Left"]: "{ControllerInputLSB}",
+	["Shoulder_Button","Right"]: "{ControllerInputRSB}",
+	
+	["Trigger","Left"]: "{ControllerInputLTB}",
+	["Trigger","Right"]: "{ControllerInputRTB}",
+	
+	["Joy","1","Up"]:"{ControllerInputUJ1}",
+	["Joy","1","Down"]:"{ControllerInputDJ1}",
+	["Joy","1","Left"]:"{ControllerInputLJ1}",
+	["Joy","1","Right"]:"{ControllerInputRJ1}",
+	
+	["Joy","2","Up"]:"{ControllerInputUJ2}",
+	["Joy","2","Down"]:"{ControllerInputDJ2}",
+	["Joy","2","Left"]:"{ControllerInputLJ2}",
+	["Joy","2","Right"]:"{ControllerInputRJ2}",
+	
+	["Menu_Button",""]:"{ControllerInputMB}",
+}
+
 var InputOverride_Defaults = {
 	"{ColorInput_A}":[ ["DPad","Left"] ,["DPad","Left"]],
 	"{ColorInput_B}":[ ["DPad","Left"] ,["DPad","Left"]],
@@ -219,10 +249,13 @@ var InputOverride_Defaults = {
 	"{UI_Down}":[ ["DPad","Down"] , ["DPad","Down"] ],
 	"{UI_Left}":[ ["DPad","Left"] , ["DPad","Left"] ],
 	"{UI_Right}":[ ["DPad","Right"] , ["DPad","Right"] ],
-	"{Walk_Forwards}":[ ["DPad","Up"] , ["DPad","Up"] ],
-	"{Walk_Backwards}":[ ["DPad","Down"] , ["DPad","Down"] ],
-	"{Walk_Left}":[ ["DPad","Left"] , ["DPad","Left"] ],
-	"{Walk_Right}":[ ["DPad","Right"] , ["DPad","Right"] ],
+	"{UI_Back}":[ ["Menu_Button",""] , ["Menu_Button",""] ],
+	"{Character_Forwards}":[ ["Joy","1","Up"] , ["Joy","1","Up"] ],
+	"{Character_Backwards}":[ ["Joy","1","Down"] , ["Joy","1","Down"] ],
+	"{Character_Left}":[ ["Joy","1","Left"] , ["Joy","1","Left"] ],
+	"{Character_Right}":[ ["Joy","1","Right"] , ["Joy","1","Right"] ],
+	"{Character_Jump}":[ ["Button","Right"] , ["Button","Right"] ],
+	"{Character_Walk}":[ ["Button","Up"] , ["Button","Up"] ],
 }
 
 var oldmouse_pos:Vector2
@@ -289,6 +322,10 @@ func controller_manager(event:InputEvent) -> void:
 			emit_signal("Controller_Changed")
 
 func _process(delta: float) -> void:
+	_update_mapping()
+	
+func _update_mapping() -> void:
+
 	match Current_Input["Mode"]:
 		"Controller":
 			##D-Pad
@@ -331,7 +368,6 @@ func _process(delta: float) -> void:
 			Current_Input["Menu_Button_Input_Pressed_"] = Input.is_action_pressed("Controller_"+str(ControllerInput)+"_Menu")
 			Current_Input["Menu_Button_Input_Just_Pressed_"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Menu")
 			Current_Input["Menu_Button_Input_Just_Released_"] = Input.is_action_just_released("Controller_"+str(ControllerInput)+"_Menu")
-	
 			#Shoulders
 			Current_Input["Shoulder_Button_Input_Just_Pressed_Left"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Shoulder_Button_Left")
 			Current_Input["Shoulder_Button_Input_Just_Pressed_Right"] = Input.is_action_just_pressed("Controller_"+str(ControllerInput)+"_Shoulder_Button_Right")
@@ -370,10 +406,9 @@ func _process(delta: float) -> void:
 			Current_Input["Joy_1_Input"] = Input.get_vector("Keyboard_Joy_Left","Keyboard_Joy_Right","Keyboard_Joy_Up","Keyboard_Joy_Down")
 			Current_Input["Joy_2_Input"] = get_viewport().get_mouse_position()-oldmouse_pos
 			#Menu Button
-			Current_Input["Menu_Button_Pressed_"] = Input.is_action_pressed("Keyboard_Menu")
-			Current_Input["Menu_Button_Just_Pressed_"] = Input.is_action_just_pressed("Keyboard_Menu")
-			Current_Input["Menu_Button_Just_Released_"] = Input.is_action_just_released("Keyboard_Menu")
-			
+			Current_Input["Menu_Button_Input_Pressed_"] = Input.is_action_pressed("Keyboard_Menu")
+			Current_Input["Menu_Button_Input_Just_Pressed_"] = Input.is_action_just_pressed("Keyboard_Menu")
+			Current_Input["Menu_Button_Input_Just_Released_"] = Input.is_action_just_released("Keyboard_Menu")
 			if Creator.Data["Controls_"+str(ControllerInput)]["Use_Middle_Mouse_Rotate"]:
 				Current_Input["Keyboard_Mouse_Rotate_Down"] = Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE)
 			else:
@@ -400,16 +435,21 @@ func reset_keyboard_images() -> void:
 		ControllerInputImages["Keyboard"][Keyboard_Translation[i]] = newImage
 
 func reparse_controller_context(text:String) -> String:
+	
 	var newtext = text
 	
 	##Adaptive First Pass // {VarName} -> {InputName}
 	for i in Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Overrides"]:
-		newtext = newtext.replace(i,Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Overrides"][i][int(Current_Input["Mode"] == "Controller")])
-	
+		if Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Overrides"][i][int(Current_Input["Mode"] == "Controller")] != ["",""]:
+			newtext = newtext.replace(i,Input_Translation[Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Overrides"][i][int(Current_Input["Mode"] == "Controller")]])
+		else:
+			newtext = newtext.replace(i,Input_Translation[InputOverride_Defaults[i][int(Current_Input["Mode"] == "Controller")]])
+			
 	##Apply New Images // {InputName} -> res://image.png
+	
 	for i in ControllerInputImages[Current_Input["Controller_Type"]]:
 		newtext = newtext.replace(i,ControllerInputImages[Current_Input["Controller_Type"]][i])
-	#print(newtext)
+	print(newtext)
 	return newtext
 
 func vibrate_controller(weak:float,strong:float,length:float) -> void:
@@ -417,6 +457,9 @@ func vibrate_controller(weak:float,strong:float,length:float) -> void:
 		Input.start_joy_vibration(ControllerInput,weak,strong,length)
 
 func find_controller_input(VarText:String) -> Dictionary:
+	
+	#_update_mapping()
+	
 	var VarInput = []
 	
 	var Data_Point = Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Overrides"][VarText][int(Current_Input["Mode"] == "Controller")]
@@ -426,22 +469,27 @@ func find_controller_input(VarText:String) -> Dictionary:
 	else:
 		VarInput = InputOverride_Defaults[VarText][int(Current_Input["Mode"] == "Controller")]
 	
+	
 	var InputType = VarInput[0]
 	var InputKey = VarInput[1]
 	
+	
 	match InputType:
-		"Button","DPad":
+		"Button","DPad","Menu_Button","Shoulder_Button":
 			return {
+				"Image":Input_Translation[VarInput],
 				"Just_Pressed":Current_Input[InputType+"_Input_Just_Pressed_"+InputKey],
 				"Just_Released":Current_Input[InputType+"_Input_Just_Released_"+InputKey],
 				"Is_Pressed":Current_Input[InputType+"_Input_Pressed_"+InputKey]
 			}
 		"Trigger":
 			return {
+				"Image":Input_Translation[Data_Point],
 				"Strength":Current_Input[InputType+"_Input_"+InputKey]
 			}
 		"Joy":
 			return {
+				"Image":Input_Translation[Data_Point],
 				"Vector":Current_Input[InputType+"_"+InputKey+"_Input"]
 			}
 	return {}

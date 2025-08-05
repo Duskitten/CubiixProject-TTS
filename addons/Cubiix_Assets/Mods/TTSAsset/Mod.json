@@ -593,19 +593,19 @@
 		"Translation_Text":{
 			"Themer_H":{
 				"Tag":"Translation_Text",
-				"Text":"\n[font_size=24][img=60x32]{ColorInput_A}[/img]					Mode: H - [img=48,center,center]{ColorInput_C}[/img][font_size=24] [img=48,center,center]{ColorInput_D}[/img] 					[img=60x32]{ColorInput_B}[/img]"
+				"Text":"\n[font_size=24][img=48]{ColorInput_A}[/img]					Mode: H - [img=48,center,center]{ColorInput_C}[/img][font_size=24] [img=48,center,center]{ColorInput_D}[/img] 					[img=48]{ColorInput_B}[/img]"
 			},
 			"Themer_S":{
 				"Tag":"Translation_Text",
-				"Text":"\n[font_size=24][img=60x32]{ColorInput_A}[/img]					Mode: S - [img=48,center,center]{ColorInput_C}[/img][font_size=24] [img=48,center,center]{ColorInput_D}[/img] 					[img=60x32]{ColorInput_B}[/img]"
+				"Text":"\n[font_size=24][img=48]{ColorInput_A}[/img]					Mode: S - [img=48,center,center]{ColorInput_C}[/img][font_size=24] [img=48,center,center]{ColorInput_D}[/img] 					[img=48]{ColorInput_B}[/img]"
 			},
 			"Themer_V":{
 				"Tag":"Translation_Text",
-				"Text":"\n[font_size=24][img=60x32]{ColorInput_A}[/img]					Mode: V - [img=48,center,center]{ColorInput_C}[/img][font_size=24] [img=48,center,center]{ColorInput_D}[/img] 					[img=60x32]{ColorInput_B}[/img]"
+				"Text":"\n[font_size=24][img=48]{ColorInput_A}[/img]					Mode: V - [img=48,center,center]{ColorInput_C}[/img][font_size=24] [img=48,center,center]{ColorInput_D}[/img] 					[img=48]{ColorInput_B}[/img]"
 			},
 			"Interact_Key":{
 				"Tag":"Translation_Text",
-				"Text":"\nInteract [img=32]{Interact_Key}[/img]"
+				"Text":"\nInteract [img=48]{Interact_Key}[/img]"
 			},
 				
 		}

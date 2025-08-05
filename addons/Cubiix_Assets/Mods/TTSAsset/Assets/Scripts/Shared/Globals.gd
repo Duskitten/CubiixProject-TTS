@@ -23,7 +23,7 @@ var save_template = {
 		"Use_Middle_Mouse_Rotate":false,
 		"Mouse_Sensitivity":0.1,
 		"Input_Translations":{
-			"Keyboard_Button_Up":KEY_1,
+			"Keyboard_Button_Up":KEY_SHIFT,
 			"Keyboard_Button_Down":KEY_3,
 			"Keyboard_Button_Left":KEY_2,
 			"Keyboard_Button_Right":KEY_SPACE,
@@ -47,19 +47,22 @@ var save_template = {
 			"Keyboard_Menu":KEY_TAB,
 		},
 		"Input_Overrides":{
-			"{ColorInput_A}":["",""],
-			"{ColorInput_B}":["",""],
-			"{ColorInput_C}":["",""],
-			"{ColorInput_D}":["",""],
-			"{Interact_Key}":["",""],
-			"{UI_Up}":["",""],
-			"{UI_Down}":["",""],
-			"{UI_Left}":["",""],
-			"{UI_Right}":["",""],
-			"{Walk_Forwards}":["",""],
-			"{Walk_Backwards}":["",""],
-			"{Walk_Left}":["",""],
-			"{Walk_Right}":["",""],
+			"{ColorInput_A}":[["",""],["",""]],
+			"{ColorInput_B}":[["",""],["",""]],
+			"{ColorInput_C}":[["",""],["",""]],
+			"{ColorInput_D}":[["",""],["",""]],
+			"{Interact_Key}":[["",""],["",""]],
+			"{UI_Up}":[["",""],["",""]],
+			"{UI_Down}":[["",""],["",""]],
+			"{UI_Left}":[["",""],["",""]],
+			"{UI_Right}":[["",""],["",""]],
+			"{UI_Back}":[["",""],["",""]],
+			"{Character_Forwards}":[["",""],["",""]],
+			"{Character_Backwards}":[["",""],["",""]],
+			"{Character_Left}":[["",""],["",""]],
+			"{Character_Right}":[["",""],["",""]],
+			"{Character_Jump}":[["",""],["",""]],
+			"{Character_Walk}":[["",""],["",""]]
 		}
 	},
 	"Theme":{
@@ -154,7 +157,7 @@ func _ready() -> void:
 func setup_new_controller(InputNum:int = 0) -> void:
 	for i in Data["Controls_"+str(InputNum)]["Input_Translations"]:
 			var event = InputEventKey.new()
-			event.keycode = Data["Controls_"+str(InputNum)]["Input_Translations"][i]
+			event.keycode = int(Data["Controls_"+str(InputNum)]["Input_Translations"][i])
 			InputMap.action_add_event(i,event)
 			
 	var newcontroller = InputController.new(self,InputNum)
