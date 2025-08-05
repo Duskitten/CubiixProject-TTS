@@ -52,9 +52,9 @@ func _process(delta: float) -> void:
 		Camera_X.rotation_degrees.x += Core.Globals.local_inputs[ControllerID].Current_Input["Joy_2_Input"].y*Sensitivity
 		Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)
 
-	if Core.Globals.local_inputs[ControllerID].Current_Input["Shoulder_Button_Input_Just_Pressed"]["Right"]:
+	if Core.Globals.local_inputs[ControllerID].Current_Input["Shoulder_Button_Input_Just_Pressed_Right"]:
 		CameraZoom += 1
-	elif Core.Globals.local_inputs[ControllerID].Current_Input["Shoulder_Button_Input_Just_Pressed"]["Left"]:
+	elif Core.Globals.local_inputs[ControllerID].Current_Input["Shoulder_Button_Input_Just_Pressed_Left"]:
 		CameraZoom -= 1
 			
 	CameraZoom = clampf(CameraZoom, -10,0)

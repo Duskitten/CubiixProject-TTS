@@ -54,7 +54,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if find_parent("Slide_UI").visible && HasControl:
-		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Down"] && Target_Option[3] != "Bottom":
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed_Down"] && Target_Option[3] != "Bottom":
 			Core.Globals.local_inputs[ControllerID].vibrate_controller(.2, 0, 0.5)
 			var value = options[TargetList].pop_front()
 			options[TargetList].push_back(value)
@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
 				newpopup.show()
 				tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 		
-		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Up"] && Target_Option[3] != "Top":
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed_Up"] && Target_Option[3] != "Top":
 			Core.Globals.local_inputs[ControllerID].vibrate_controller( .2, 0, 0.5)
 			var tween = get_tree().create_tween()
 			tween.set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
@@ -121,7 +121,7 @@ func _process(delta: float) -> void:
 					tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 			
 			tween.tween_property(Target_Container, "position:y", Target_Option[1], .2)
-		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Right"]:
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed_Right"]:
 			Core.Globals.local_inputs[ControllerID].vibrate_controller( .2, 0, 0.5)
 			if Target_Option[2] == "Base":
 				match Target_Option[0]:
@@ -170,7 +170,7 @@ func _process(delta: float) -> void:
 				tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_size", 32, .2)
 				tween.tween_property(Target_Container.get_node(Target_Option[0]), "label_settings:font_color", Color("FFFFFF"), .1)
 		
-		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed"]["Left"]:
+		if Core.Globals.local_inputs[ControllerID].Current_Input["DPad_Input_Just_Pressed_Left"]:
 			if options.has(Target_Option[2]):
 				Core.Globals.local_inputs[ControllerID].vibrate_controller( .2, 0, 0.5)
 				var tween = get_tree().create_tween()
@@ -194,7 +194,7 @@ func _process(delta: float) -> void:
 					tween.tween_property(newpopup, "modulate", Color("FFFFFF",1), .2)
 	
 				
-	if Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Just_Pressed"]["Right"] && InMenu:
+	if Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Just_Pressed_Right"] && InMenu:
 		Core.Globals.local_inputs[ControllerID].vibrate_controller( .2, 0, 0.5)
 		var newpopup = $"../Screens".find_child(Target_Option[0],false)
 		if newpopup != null:

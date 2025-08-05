@@ -217,7 +217,7 @@ Controller_0_Trigger_Right={
 }
 Controller_0_Menu={
 "deadzone": 0.2,
-"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":5,"pressure":0.0,"pressed":true,"script":null)
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
 Keyboard_Button_Up={
@@ -310,7 +310,6 @@ Mouse_M={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
@@ -319,7 +318,6 @@ lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
 shading/overrides/force_lambert_over_burley=true
 textures/default_filters/use_nearest_mipmap_filter=true
-textures/default_filters/anisotropic_filtering_level=0
 environment/ssao/blur_passes=4
 anti_aliasing/screen_space_roughness_limiter/enabled=false
 textures/decals/filter=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dvvu2ls7inlev"]
+[gd_scene load_steps=35 format=3 uid="uid://dvvu2ls7inlev"]
 
 [ext_resource type="Script" uid="uid://ktth0ilkl1ry" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/persistant_core.gd" id="1_avm5g"]
 [ext_resource type="PackedScene" uid="uid://bb30770sajce6" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/version_image.tscn" id="2_j6tbw"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dgb6t21nv2nw1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scenes/UI/slide_ui.tscn" id="4_1exjl"]
 [ext_resource type="Texture2D" uid="uid://3y0k7m58gqtr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Map_Previews/Hexstaria_MK2.png" id="7_h2oss"]
 [ext_resource type="FontFile" uid="uid://qmcw1vrbnrwr" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Fonts/Jura/Jura-Bold.ttf" id="10_st7my"]
-[ext_resource type="PackedScene" uid="uid://bp2i6mg0360am" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Objects/Client/UI/dialogue_box.tscn" id="11_25qpu"]
 [ext_resource type="Texture2D" uid="uid://bxbehfpnollp1" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Textures/UI/Other/Loading.png" id="11_jhpuk"]
 [ext_resource type="Script" uid="uid://cv18ea4ncsogo" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/UI/Phone/clock.gd" id="11_rr2a5"]
 [ext_resource type="Script" uid="uid://bh6yacjxyssxg" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Scripts/Client/Map/camera_settings.gd" id="11_v4hbs"]
@@ -360,7 +359,6 @@ texture_filter = 1
 position = Vector2(-11, 18)
 texture = ExtResource("11_jhpuk")
 hframes = 4
-frame = 3
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -550,9 +548,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_bpbmt")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nvwao")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nwxdb")
 text = "Hexii_Tablet"
-
-[node name="Dialogue_Box" parent="CanvasLayer" instance=ExtResource("11_25qpu")]
-grow_vertical = 0
 
 [node name="Node3D" type="Node3D" parent="."]
 

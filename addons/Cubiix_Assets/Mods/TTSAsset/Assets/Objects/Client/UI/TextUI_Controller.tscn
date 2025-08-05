@@ -424,6 +424,7 @@ shadow_color = Color(0, 0, 0, 0.352941)
 shadow_offset = Vector2(3, 2)
 
 [node name="TextUI" type="Control"]
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 746.0
