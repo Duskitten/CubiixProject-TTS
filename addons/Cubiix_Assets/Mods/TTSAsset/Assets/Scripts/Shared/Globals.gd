@@ -26,7 +26,7 @@ var save_template = {
 			"Keyboard_Button_Up":KEY_1,
 			"Keyboard_Button_Down":KEY_3,
 			"Keyboard_Button_Left":KEY_2,
-			"Keyboard_Button_Right":KEY_4,
+			"Keyboard_Button_Right":KEY_SPACE,
 			
 			"Keyboard_DPad_Up":KEY_W,
 			"Keyboard_DPad_Down":KEY_S,
@@ -43,6 +43,8 @@ var save_template = {
 			"Keyboard_Joy_Down":KEY_S,
 			"Keyboard_Joy_Left":KEY_A,
 			"Keyboard_Joy_Right":KEY_D,
+			
+			"Keyboard_Menu":KEY_TAB,
 		},
 		"Input_Overrides":{
 			"{ColorInput_A}":["",""],
@@ -130,16 +132,8 @@ func _ready() -> void:
 		###For continuity/Updating purposes
 		#print(Data)
 		_setup_audio(Data["Audio"])
+		setup_new_controller(0)
 		
-		for i in Data["Controls"]["Input_Translations"]:
-			var event = InputEventKey.new()
-			event.keycode = Data["Controls"]["Input_Translations"][i]
-			InputMap.action_add_event(i,event)
-			
-		print(InputMap.action_get_events("Keyboard_Button_Down"))
-		var newcontroller = InputController.new(self,0)
-		add_child(newcontroller)
-		local_inputs.append(newcontroller)
 
 	if OS.has_feature("server"):
 		var Json = JSON.new()
@@ -156,6 +150,16 @@ func _ready() -> void:
 		
 		data_failsafe_check(server_template)
 		
+
+func setup_new_controller(InputNum:int = 0) -> void:
+	for i in Data["Controls_"+str(InputNum)]["Input_Translations"]:
+			var event = InputEventKey.new()
+			event.keycode = Data["Controls_"+str(InputNum)]["Input_Translations"][i]
+			InputMap.action_add_event(i,event)
+			
+	var newcontroller = InputController.new(self,InputNum)
+	add_child(newcontroller)
+	local_inputs.append(newcontroller)
 
 func data_failsafe_check(pathobj):
 	for i in pathobj:

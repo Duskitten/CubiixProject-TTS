@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
-	if Core.Globals.local_inputs[ControllerID].Current_Input["Mode"] == "Keyboard" && Core.Globals.local_inputs[ControllerID].Current_Input["Button_Input_Pressed"]["Left"]:
+	if Core.Globals.local_inputs[ControllerID].Current_Input["Mode"] == "Keyboard" && Core.Globals.local_inputs[ControllerID].Current_Input["Keyboard_Mouse_Rotate_Down"]:
 		Camera_Y.rotation_degrees.y -= Core.Globals.local_inputs[ControllerID].Current_Input["Joy_2_Input"].x/Sensitivity
 		Camera_X.rotation_degrees.x += Core.Globals.local_inputs[ControllerID].Current_Input["Joy_2_Input"].y/Sensitivity
 		Camera_X.rotation_degrees.x =  clampf(Camera_X.rotation_degrees.x,-90,90)

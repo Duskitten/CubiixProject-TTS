@@ -360,6 +360,7 @@ texture_filter = 1
 position = Vector2(-11, 18)
 texture = ExtResource("11_jhpuk")
 hframes = 4
+frame = 3
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -374,7 +375,6 @@ position = Vector2(18, -11)
 rotation = -1.5708
 texture = ExtResource("11_jhpuk")
 hframes = 4
-frame = 1
 
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Transitioner/Control"]
 texture_filter = 1
@@ -587,6 +587,7 @@ margin = 0.2
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.24216e-07, 0, -2.56473)
 current = true
 fov = 45.0
+far = 400.0
 
 [node name="Node" type="Node" parent="Node3D/Core_Follow/Rot_Y/Rot_X/Rot_Z/Camera3D"]
 script = ExtResource("11_v4hbs")

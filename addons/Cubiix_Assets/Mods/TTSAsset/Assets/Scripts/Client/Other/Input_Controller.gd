@@ -208,12 +208,15 @@ var Keyboard_Translation = {
 	"Keyboard_Joy_Down":"{ControllerInputDJ1}",
 	"Keyboard_Joy_Left":"{ControllerInputLJ1}",
 	"Keyboard_Joy_Right":"{ControllerInputRJ1}",
+	
+	"Keyboard_Menu":"{ControllerInputMB}",
 }
 
 var oldmouse_pos:Vector2
 var Creator
 var Key_Update_Checker:bool = false
 var IsKeyboard:bool = true
+var KeyKey = ""
 
 signal Binded_Controller
 signal Controller_Changed
@@ -223,9 +226,6 @@ func _init(creator,who) -> void:
 	
 func _ready() -> void:
 	reset_keyboard_images()
-	await get_tree().create_timer(2).timeout
-	print("enabling_Key_update")
-	enable_key_update("test")
 	
 func _input(event: InputEvent) -> void:
 	controller_manager(event)
@@ -233,19 +233,20 @@ func _input(event: InputEvent) -> void:
 		if IsKeyboard && event is InputEventKey && ControllerInput == 0:
 			Key_Update_Checker = false
 			#print(event)
-			emit_signal("Binded_Controller", true, event)
+			emit_signal("Binded_Controller", true, event, KeyKey)
 		elif !IsKeyboard && event is InputEventJoypadButton:
 			Key_Update_Checker = false
 			#print(event)
-			emit_signal("Binded_Controller", true, event)
+			emit_signal("Binded_Controller", true, event, KeyKey)
 		elif event is InputEventKey || event is InputEventJoypadButton:
 			Key_Update_Checker = false
 			#print("Input Failed")
-			emit_signal("Binded_Controller", false,{})
+			emit_signal("Binded_Controller", false,{}, "")
 			
 
 func enable_key_update(KeyName) -> void:
 	Key_Update_Checker = true
+	KeyKey = KeyName
 	if Current_Input["Mode"] == "Controller":
 		IsKeyboard = false
 	else:
@@ -355,14 +356,12 @@ func _process(delta: float) -> void:
 			#Joy Input
 			Current_Input["Joy_1_Input"] = Input.get_vector("Keyboard_Joy_Left","Keyboard_Joy_Right","Keyboard_Joy_Up","Keyboard_Joy_Down")
 			Current_Input["Joy_2_Input"] = get_viewport().get_mouse_position()-oldmouse_pos
-			
 			#Menu Button
 			Current_Input["Menu_Button_Pressed"] = Input.is_action_pressed("Keyboard_Menu")
 			Current_Input["Menu_Button_Just_Pressed"] = Input.is_action_just_pressed("Keyboard_Menu")
 			Current_Input["Menu_Button_Just_Released"] = Input.is_action_just_released("Keyboard_Menu")
 			
-			
-			if Creator.Data["Controls"]["Use_Middle_Mouse_Rotate"]:
+			if Creator.Data["Controls_"+str(ControllerInput)]["Use_Middle_Mouse_Rotate"]:
 				Current_Input["Keyboard_Mouse_Rotate_Down"] = Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE)
 			else:
 				Current_Input["Keyboard_Mouse_Rotate_Down"] = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
@@ -394,7 +393,7 @@ func reparse_controller_context(text:String) -> String:
 	
 	##Adaptive First Pass // {VarName} -> {InputName}
 	for i in Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Overrides"]:
-		newtext = newtext.replace(i,Core.Globals.Data["Controls_"+str(ControllerInput)+""]["Input_Overrides"][i])
+		newtext = newtext.replace(i,Core.Globals.Data["Controls_"+str(ControllerInput)]["Input_Overrides"][i][int(Current_Input["Mode"] == "Controller")])
 	
 	##Apply New Images // {InputName} -> res://image.png
 	for i in ControllerInputImages[Current_Input["Controller_Type"]]:

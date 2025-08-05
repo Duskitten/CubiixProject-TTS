@@ -8,7 +8,8 @@ func _process(delta: float) -> void:
 	elif !self.visible && Core.Globals.DisablePlayerInput:
 		Core.Globals.DisablePlayerInput = false
 	
-	if Core.Globals.local_inputs[ControllerID].Current_Input["Menu_Button_Just_Pressed"]:
+	if Core.Globals.local_inputs[ControllerID].Current_Input["Menu_Button_Just_Pressed"] :
+		print("Honk")
 		if self.visible:
 			var tween = get_tree().create_tween()
 			tween.set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
