@@ -515,7 +515,6 @@ text = "Quit"
 label_settings = SubResource("LabelSettings_wa808")
 
 [node name="Home" type="Control" parent="Control/HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(108.47, 0)
 layout_mode = 2
 
