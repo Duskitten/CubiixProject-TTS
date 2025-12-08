@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c5xmac7ixdgwr"]
-
-[ext_resource type="Shader" uid="uid://dkxme3tk1a8xu" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Shaders/Hexstaria_PalmTrees.tres" id="1_w3iqj"]
-[ext_resource type="Texture2D" uid="uid://uph2ua7mkd07" path="res://addons/Cubiix_Assets/Mods/TTSAsset/Assets/Mesh/Maps/Hexstaria/BackingObjects.png" id="2_5s4o5"]
-
-[resource]
-render_priority = 13
-shader = ExtResource("1_w3iqj")
-shader_parameter/Texture2DParameter = ExtResource("2_5s4o5")

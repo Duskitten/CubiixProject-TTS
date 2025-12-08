@@ -1,0 +1,3 @@
+{
+	"ModID":"G_AutoUpdater"
+}
