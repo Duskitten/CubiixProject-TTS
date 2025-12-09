@@ -19,7 +19,8 @@ func scan_dir(dir:DirAccess, modpath:String) -> void:
 			var Modjson = FileAccess.file_exists(modpath+directory+"/Mod.txt")
 			if Modjson:
 				currentmodlist[directory] = modpath+directory
-				coreobj.gassetmanager.add_new_value(modpath, "path", modpath+directory+"/Mod.txt")
+				coreobj.gassetmanager.add_new_index(directory)
+				coreobj.gassetmanager.add_new_value(directory, "path", modpath+directory+"/Mod.txt")
 		else:
 			print("Error: ModID "+directory+" already taken.")
 

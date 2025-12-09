@@ -1,6 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://blpqoyp2dro26"]
+[gd_scene load_steps=6 format=3 uid="uid://blpqoyp2dro26"]
 
 [ext_resource type="Script" uid="uid://ctfrr7w5rwxid" path="res://Mods/G_Core/Scripts/Core.gd" id="1_sncya"]
+[ext_resource type="PackedScene" uid="uid://b3ejx6fmamr7s" path="res://Mods/G_CubiixCore/Meshes/Cubiix_Base_MK4_Core.gltf" id="2_w3gnm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w3gnm"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bt1ec"]
+sky_material = SubResource("ProceduralSkyMaterial_w3gnm")
+
+[sub_resource type="Environment" id="Environment_vrelg"]
+background_mode = 2
+sky = SubResource("Sky_bt1ec")
+tonemap_mode = 2
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sncya")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vrelg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5732233, 0.46338847, -0.67578566, -0.3535534, 0.8838834, 0.30618626, 0.7391989, 0.06341334, 0.6704951, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Cubiix_Base_MK4_Core" parent="Node3D" instance=ExtResource("2_w3gnm")]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(0.8904592, -0.110405676, 0.44146693, 0, 0.97012234, 0.24261616, -0.45506316, -0.21603979, 0.86385435, 0.6174046, 0.680535, 1.2830776)
+current = true
+
+[editable path="Node3D/Cubiix_Base_MK4_Core"]
