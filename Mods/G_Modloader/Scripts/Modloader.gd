@@ -1,30 +1,30 @@
 extends Node
 
-var CoreOBJ = null
+var coreobj = null
 
-var mod_locations:Array[String] = [
+var modlocations:Array[String] = [
 	"res://Mods/",
 	"user://Mods/"
 	]
 
-var current_modlist = {}
+var currentmodlist = {}
 
-func setup(Core:Node):
-	CoreOBJ = Core
+func setup(core:Node):
+	coreobj = core
 	run_parser()
 
 func scan_dir(dir:DirAccess, modpath:String) -> void:
 	for directory in dir.get_directories():
-		if !current_modlist.has(directory):
+		if !currentmodlist.has(directory):
 			var Modjson = FileAccess.file_exists(modpath+directory+"/Mod.txt")
 			if Modjson:
-				current_modlist[directory] = modpath+directory
-				
+				currentmodlist[directory] = modpath+directory
+				coreobj.gassetmanager.add_new_value(modpath, "path", modpath+directory+"/Mod.txt")
 		else:
 			print("Error: ModID "+directory+" already taken.")
 
 func run_parser():
-	for modpath in mod_locations:
+	for modpath in modlocations:
 		var dir:DirAccess = DirAccess.open(modpath)
 		if !dir:
 			DirAccess.make_dir_absolute(modpath)
@@ -32,4 +32,4 @@ func run_parser():
 	
 	
 func reset_current_modlist():
-	current_modlist = {}
+	currentmodlist = {}
