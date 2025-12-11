@@ -1,7 +1,7 @@
 extends Node
 
 
-func compile_mesh(meshfrom:ArrayMesh, meshto:ArrayMesh) -> Dictionary:
+func compile_mesh(meshfrom:ArrayMesh, meshto:ArrayMesh, skipreadjustblendshapes:bool) -> Dictionary:
 	##All of our replacement variables
 	var replacementmesh = ArrayMesh.new()
 	var replacementaabb = AABB()
@@ -50,8 +50,9 @@ func compile_mesh(meshfrom:ArrayMesh, meshto:ArrayMesh) -> Dictionary:
 			var surfacetoola = SurfaceTool.new()
 			surfacetoola.create_from_blend_shape(meshfrom,0,blendshapenamed.keys()[shape])
 			var blendshapea = surfacetoola.commit_to_arrays()
-			for x in blendshapea[0].size():
-				blendshapea[0][x] -=   meshaarray[0][x]
+			if !skipreadjustblendshapes:
+				for x in blendshapea[0].size():
+					blendshapea[0][x] -=   meshaarray[0][x]
 
 			compiledblendarray[0].append_array(blendshapea[0])
 			compiledblendarray[1].append_array(meshaarray[1])
@@ -82,7 +83,6 @@ func compile_mesh(meshfrom:ArrayMesh, meshto:ArrayMesh) -> Dictionary:
 			compiledblendarray[2].append_array( meshbarray[2])
 		
 		blendshapes[shape] = compiledblendarray
-		print(compiledblendarray[0].size())
 	replacementmeshcommit = replacementsurfacetool.commit_to_arrays()
 	
 	replacementmesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,replacementmeshcommit,blendshapes)

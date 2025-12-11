@@ -30,7 +30,7 @@ shadow_enabled = true
 [node name="Cubiix_Base_MK4_Core" parent="Node3D" instance=ExtResource("2_w3gnm")]
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.8904592, -0.110405676, 0.44146693, 0, 0.97012234, 0.24261616, -0.45506316, -0.21603979, 0.86385435, 0.6174046, 0.680535, 1.2830776)
+transform = Transform3D(0.6799151, -0.17790826, 0.7113819, 0, 0.9701224, 0.24261618, -0.733291, -0.16495837, 0.65960073, 1.0686322, 0.680535, 0.58305454)
 current = true
 
 [editable path="Node3D/Cubiix_Base_MK4_Core"]
