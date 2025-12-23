@@ -76,14 +76,19 @@ texture={
 "roughness/src_normal": ""
 }
 
+[input]
+
+up={
+"deadzone": 0.2,
+"events": []
+}
+
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_environment="res://default_env.tres"
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true

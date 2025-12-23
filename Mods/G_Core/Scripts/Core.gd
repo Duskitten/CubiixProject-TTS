@@ -31,3 +31,7 @@ func reload_mods_and_assets():
 	gassetmanager.reset_asset_table()
 	gmodloader.reset_current_modlist()
 	gmodloader.run_parser()
+	
+func _process(delta: float) -> void:
+	if Input.is_joy_button_pressed(0,JOY_BUTTON_A):
+		print("hi")

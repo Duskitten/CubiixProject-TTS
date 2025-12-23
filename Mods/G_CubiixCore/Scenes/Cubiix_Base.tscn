@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccp3ysmbmgayg"]
+
+[ext_resource type="PackedScene" uid="uid://b3ejx6fmamr7s" path="res://Mods/G_CubiixCore/Meshes/Cubiix_Base_MK4_Core.gltf" id="1_53h65"]
+[ext_resource type="Script" uid="uid://b5k4vkyinxm57" path="res://Mods/G_CubiixCore/Scripts/CubiixGenerator.gd" id="1_jvayr"]
+[ext_resource type="Script" uid="uid://dy3u37edpc4bu" path="res://Mods/G_DemoScripts/Scripts/Spinner.gd" id="2_jvayr"]
+[ext_resource type="Material" uid="uid://bd1veheowej63" path="res://Mods/G_CubiixCore/Meshes/new_standard_material_3d.tres" id="3_mbfc1"]
+
+[node name="Cubiix" type="Node3D"]
+script = ExtResource("1_jvayr")
+characterscripts = Array[String](["G_CubiixCore:charactercontroller"])
+
+[node name="Model" parent="." instance=ExtResource("1_53h65")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("2_jvayr")
+
+[node name="Body" parent="Model/Armature/Skeleton3D" index="0"]
+material_override = ExtResource("3_mbfc1")
+
+[node name="Scripts" type="Node" parent="."]
+
+[editable path="Model"]

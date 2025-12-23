@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://cg00i0d7bj4qw"]
+
+[ext_resource type="Shader" uid="uid://bojwfiyex57ft" path="res://Mods/G_TTSAssets/Shaders/Hexstaria_Map.gdshader" id="1_krlgx"]
+[ext_resource type="Texture2D" uid="uid://dxheo8bpgwhop" path="res://Mods/G_TTSAssets/Models/Hexstaria/Dirt.png" id="2_6w88e"]
+[ext_resource type="Texture2D" uid="uid://hqlr841slv8j" path="res://Mods/G_TTSAssets/Models/Hexstaria/Sand.png" id="3_o8bes"]
+[ext_resource type="Texture2D" uid="uid://lxk1euto12rn" path="res://Mods/G_TTSAssets/Models/Hexstaria/Stone.png" id="4_qd1xg"]
+[ext_resource type="Texture2D" uid="uid://b2o5glw1qbbgd" path="res://Mods/G_TTSAssets/Models/Hexstaria/TerrainMask.png" id="5_xvswf"]
+[ext_resource type="Texture2D" uid="uid://cpnko6c7gxu4x" path="res://Mods/G_TTSAssets/Models/Hexstaria/Grass.png" id="6_hdwaa"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_krlgx")
+shader_parameter/source_texture_mask = ExtResource("5_xvswf")
+shader_parameter/source_texture_black = ExtResource("2_6w88e")
+shader_parameter/source_texture_red = ExtResource("6_hdwaa")
+shader_parameter/source_texture_green = ExtResource("4_qd1xg")
+shader_parameter/source_texture_blue = ExtResource("3_o8bes")
+shader_parameter/uv_size = 383.4299914295726

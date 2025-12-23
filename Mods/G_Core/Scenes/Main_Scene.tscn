@@ -1,40 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://blpqoyp2dro26"]
+[gd_scene load_steps=4 format=3 uid="uid://blpqoyp2dro26"]
 
 [ext_resource type="Script" uid="uid://ctfrr7w5rwxid" path="res://Mods/G_Core/Scripts/Core.gd" id="1_sncya"]
-[ext_resource type="PackedScene" uid="uid://b3ejx6fmamr7s" path="res://Mods/G_CubiixCore/Meshes/Cubiix_Base_MK4_Core.gltf" id="2_w3gnm"]
-[ext_resource type="Script" uid="uid://dy3u37edpc4bu" path="res://Mods/G_DemoScripts/Scripts/Spinner.gd" id="3_bt1ec"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w3gnm"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_bt1ec"]
-sky_material = SubResource("ProceduralSkyMaterial_w3gnm")
-
-[sub_resource type="Environment" id="Environment_vrelg"]
-background_mode = 2
-sky = SubResource("Sky_bt1ec")
-tonemap_mode = 2
+[ext_resource type="PackedScene" uid="uid://ccp3ysmbmgayg" path="res://Mods/G_CubiixCore/Scenes/Cubiix_Base.tscn" id="2_bt1ec"]
+[ext_resource type="PackedScene" uid="uid://bikwbchf4qscu" path="res://Mods/G_TTSAssets/Scenes/Hexstaria_Map.tscn" id="4_vrelg"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sncya")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vrelg")
+[node name="Core" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.306507, 2.0218077, 8.182214)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.5732233, 0.46338847, -0.67578566, -0.3535534, 0.8838834, 0.30618626, 0.7391989, 0.06341334, 0.6704951, 0, 0, 0)
-directional_shadow_mode = 0
-
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="Cubiix_Base_MK4_Core" parent="Node3D" instance=ExtResource("2_w3gnm")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-script = ExtResource("3_bt1ec")
-
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.70463425, -0.20152898, 0.6803504, 0, 0.95881975, 0.28401536, -0.70957077, -0.20012693, 0.67561716, 0.774, 0.516, 0.643)
+[node name="Camera3D" type="Camera3D" parent="Core"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.49313, -0.31703544, 55.122955)
 current = true
-fov = 50.0
+fov = 65.0
 
-[editable path="Node3D/Cubiix_Base_MK4_Core"]
+[node name="Characters" type="Node3D" parent="Core"]
+
+[node name="Cubiix" parent="Core/Characters" instance=ExtResource("2_bt1ec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.650326, -0.7274405, 34.58448)
+
+[node name="HexstariaMap" parent="." instance=ExtResource("4_vrelg")]

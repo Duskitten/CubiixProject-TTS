@@ -1,0 +1,13 @@
+{
+	"moddata":{
+		"modname":"Cubiix Base",
+		"version":"1.0"
+	},
+	"assets":{
+		"scripts":{
+			"charactercontroller":{
+				"scriptloadpath":"/Scripts/CharacterController.gd"
+			}
+		}
+	}
+}
