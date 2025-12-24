@@ -5,5 +5,32 @@
 		"author":"Selkspace / Duskitten"
 	},
 	"assets":{
+		"character_models":{
+			"Core":{
+				"meshpath":"/Meshes/Cubiix_Base_MK4_Core.gltf",
+			},
+			"Ears_1":{
+				"meshpath":"/Meshes/Cubiix_Base_MK4_Ears_1.gltf",
+			},
+			"Tail_1":{
+				"meshpath":"/Meshes/Cubiix_Base_MK4_Tail_1.gltf",
+			},
+			"Wings_1":{
+				"meshpath":"/Meshes/Cubiix_Base_MK4_Wings_1.gltf",
+			}
+	},
+	"character_textures":{
+		"Body_Colors":{
+			"texturepath":"/Textures/Body_Colors.png",
+			"texturepositioning":[0,0]
+		},
+		"Ears_Bunny":{
+			"texturepath":"/Textures/Ears_Bunny.png",
+			"texturepositioning":[1,0]
+		},
+		"Ears_Cat":{
+			"texturepath":"/Textures/Ears_Cat.png",
+			"texturepositioning":[1,0]
+		},
 	}
 }

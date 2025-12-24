@@ -35,7 +35,7 @@ func scan_dir(dir:DirAccess, modpath:String) -> void:
 								coreobj.gassetmanager.add_new_index(directory+":"+y)
 								coreobj.gassetmanager.add_new_value(directory+":"+y, "data",  json.data["assets"][x][y])
 								coreobj.gassetmanager.add_new_value(directory+":"+y, "modpath", modpath+directory)
-				
+								coreobj.gassetmanager.add_new_value(directory+":"+y, "tag", x)
 		else:
 			print("Error: ModID "+directory+" already taken.")
 
