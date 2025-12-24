@@ -1,6 +1,6 @@
 {
 	"moddata":{
-		"modname":"Cubiix Go AutoUpdater",
+		"modname":"Cubiix Project: Go! - Auto Updater",
 		"version":"1.0",
 		"author":"Selkspace / Duskitten"
 	}

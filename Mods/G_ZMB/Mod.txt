@@ -1,0 +1,7 @@
+{
+	"moddata":{
+		"modname":"Cubiix Project: Go! - ZMB UI Asset Pack",
+		"version":"1.0",
+		"author":"Selkspace / Duskitten"
+	}
+}

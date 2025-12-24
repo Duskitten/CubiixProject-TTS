@@ -1,0 +1,7 @@
+{
+	"moddata":{
+		"modname":"Cubiix Project: Go! - Mesh Compiler",
+		"version":"1.0",
+		"author":"Selkspace / Duskitten"
+	}
+}

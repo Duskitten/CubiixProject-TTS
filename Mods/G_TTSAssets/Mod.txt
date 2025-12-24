@@ -1,9 +1,10 @@
 {
 	"moddata":{
-		"modname":"Cubiix To The Stars",
+		"modname":"Cubiix Project: Go! - To The Stars Asset Pack",
 		"version":"1.0",
 		"author":"Selkspace / Duskitten"
 	},
+
 	"assets":{
 		"scripts":{
 			"charactercontroller":{

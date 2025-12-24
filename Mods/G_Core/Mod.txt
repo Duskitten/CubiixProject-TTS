@@ -1,0 +1,7 @@
+{
+	"moddata":{
+		"modname":"Cubiix Project: Go! - Core Module",
+		"version":"1.0",
+		"author":"Selkspace / Duskitten"
+	}
+}

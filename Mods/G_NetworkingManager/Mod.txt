@@ -1,6 +1,6 @@
 {
 	"moddata":{
-		"modname":"Cubiix Project: Go! - Zehn TCG Asset Pack",
+		"modname":"Cubiix Project: Go! - Networking Manager",
 		"version":"1.0",
 		"author":"Selkspace / Duskitten"
 	}

@@ -1,6 +1,6 @@
 {
 	"moddata":{
-		"modname":"Cubiix Base Character",
+		"modname":"Cubiix Project - Cubiix Character Core",
 		"version":"1.0",
 		"author":"Selkspace / Duskitten"
 	},
