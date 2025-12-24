@@ -15,7 +15,12 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Hexstaria_Map_Mesh"
+			"name":"Hexstaria_Map_Mesh",
+			"scale":[
+				30,
+				30,
+				30
+			]
 		}
 	],
 	"materials":[
@@ -70,6 +75,11 @@
 			"mimeType":"image/png",
 			"name":"TerrainMask",
 			"uri":"TerrainMask.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Dusk_Base",
+			"uri":"Dusk_Base.png"
 		}
 	],
 	"accessors":[

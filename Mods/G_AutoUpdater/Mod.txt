@@ -1,3 +1,7 @@
 {
-	"ModID":"G_AutoUpdater"
+	"moddata":{
+		"modname":"Cubiix Go AutoUpdater",
+		"version":"1.0",
+		"author":"Selkspace / Duskitten"
+	}
 }

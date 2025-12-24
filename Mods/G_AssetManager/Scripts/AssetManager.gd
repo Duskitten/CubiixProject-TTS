@@ -13,14 +13,12 @@ func setup(core:Node):
 func add_new_index(index:String) -> void:
 	assetstable[index] = {}
 
-func add_new_value(index:String, key:String, value:String) -> void:
+func add_new_value(index:String, key:String, value:Variant) -> void:
 	assetstable[index][key] = value
 
-func get_value(assetstring:String) -> String:
-	var newstringarray:PackedStringArray = assetstring.split(":")
-	if newstringarray.size() == 2 \
-		&& assetstable.has(newstringarray[0]) \
-		&& assetstable[newstringarray[0]].has(newstringarray[1]):
-		return assetstable[newstringarray[0]][newstringarray[1]]
+func get_value(assetstring:String) -> Dictionary:
+	print(assetstring)
+	if  assetstable.has(assetstring):
+		return assetstable[assetstring]
 	else:
-		return ""
+		return {}

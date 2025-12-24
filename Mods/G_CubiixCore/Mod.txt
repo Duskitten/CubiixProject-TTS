@@ -5,10 +5,5 @@
 		"author":"Selkspace / Duskitten"
 	},
 	"assets":{
-		"scripts":{
-			"charactercontroller":{
-				"scriptloadpath":"/Scripts/CharacterController.gd"
-			}
-		}
 	}
 }
