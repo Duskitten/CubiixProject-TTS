@@ -8,16 +8,18 @@
 script = ExtResource("1_sncya")
 
 [node name="Core" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.306507, 2.0218077, 8.182214)
 
 [node name="Camera3D" type="Camera3D" parent="Core"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.49313, -0.31703544, 55.122955)
+transform = Transform3D(1, 0, 0, 0, 0.84280956, 0.53821194, 0, -0.53821194, 0.84280956, 0, 87.187195, 133.06046)
+projection = 1
 current = true
 fov = 65.0
+size = 136.47
 
 [node name="Characters" type="Node3D" parent="Core"]
 
 [node name="Cubiix" parent="Core/Characters" instance=ExtResource("2_bt1ec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.650326, -0.7274405, 34.58448)
+characterscripts = Array[String]([])
 
 [node name="HexstariaMap" parent="." instance=ExtResource("4_vrelg")]

@@ -1,7 +1,8 @@
 {
 	"moddata":{
-		"modname":"Cubiix Base",
-		"version":"1.0"
+		"modname":"Cubiix Base Character",
+		"version":"1.0",
+		"author":"Selkspace / Duskitten"
 	},
 	"assets":{
 		"scripts":{

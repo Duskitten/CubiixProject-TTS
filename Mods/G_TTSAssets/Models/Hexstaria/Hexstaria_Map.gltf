@@ -76,7 +76,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":2289,
+			"count":2292,
 			"max":[
 				60,
 				4.346170902252197,
@@ -92,51 +92,51 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":2289,
+			"count":2292,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":2289,
+			"count":2292,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":6180,
+			"count":6183,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":27468,
+			"byteLength":27504,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":27468,
-			"byteOffset":27468,
+			"byteLength":27504,
+			"byteOffset":27504,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":18312,
-			"byteOffset":54936,
+			"byteLength":18336,
+			"byteOffset":55008,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":12360,
-			"byteOffset":73248,
+			"byteLength":12366,
+			"byteOffset":73344,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":85608,
+			"byteLength":85712,
 			"uri":"Hexstaria_Map.bin"
 		}
 	]
