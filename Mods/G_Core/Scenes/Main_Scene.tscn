@@ -19,7 +19,7 @@ size = 136.47
 [node name="Characters" type="Node3D" parent="Core"]
 
 [node name="Cubiix" parent="Core/Characters" instance=ExtResource("2_bt1ec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.984745, 1.2776062, 49.972218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5941057, 1.2776062, 40.30777)
 characterscripts = Array[String](["G_TTSAssets:charactercontroller", "G_CubiixCore:cubiixgenerator"])
 
 [node name="HexstariaMap" parent="." instance=ExtResource("4_vrelg")]

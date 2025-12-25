@@ -17,7 +17,6 @@ func add_new_value(index:String, key:String, value:Variant) -> void:
 	assetstable[index][key] = value
 
 func get_value(assetstring:String) -> Dictionary:
-	print(assetstring)
 	if  assetstable.has(assetstring):
 		return assetstable[assetstring]
 	else:

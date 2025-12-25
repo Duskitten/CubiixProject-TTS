@@ -8,7 +8,9 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0
+				0,
+				1,
+				2
 			]
 		}
 	],
@@ -21,12 +23,42 @@
 				30,
 				30
 			]
+		},
+		{
+			"mesh":1,
+			"name":"Mangrove_Model"
+		},
+		{
+			"mesh":2,
+			"name":"Mangrove_MultimeshArea",
+			"rotation":[
+				0,
+				0.20460909605026245,
+				0,
+				0.9788438677787781
+			],
+			"translation":[
+				2.75241756439209,
+				23.672685623168945,
+				330.2718505859375
+			]
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
 			"name":"Material.002"
+		},
+		{
+			"alphaMode":"BLEND",
+			"doubleSided":true,
+			"name":"Mangrove Mat",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":0
+				},
+				"metallicFactor":0
+			}
 		}
 	],
 	"meshes":[
@@ -43,9 +75,47 @@
 					"material":0
 				}
 			]
+		},
+		{
+			"name":"Plane.001",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":4,
+						"NORMAL":5,
+						"TEXCOORD_0":6
+					},
+					"indices":7,
+					"material":1
+				}
+			]
+		},
+		{
+			"name":"Plane.041",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":8,
+						"NORMAL":9,
+						"TEXCOORD_0":10
+					},
+					"indices":11
+				}
+			]
+		}
+	],
+	"textures":[
+		{
+			"sampler":0,
+			"source":0
 		}
 	],
 	"images":[
+		{
+			"mimeType":"image/png",
+			"name":"Mangrove",
+			"uri":"Mangrove.png"
+		},
 		{
 			"mimeType":"image/png",
 			"name":"Dirt",
@@ -75,11 +145,6 @@
 			"mimeType":"image/png",
 			"name":"TerrainMask",
 			"uri":"TerrainMask.png"
-		},
-		{
-			"mimeType":"image/png",
-			"name":"Dusk_Base",
-			"uri":"Dusk_Base.png"
 		}
 	],
 	"accessors":[
@@ -116,6 +181,74 @@
 			"componentType":5123,
 			"count":6183,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":4,
+			"componentType":5126,
+			"count":16,
+			"max":[
+				9.175201416015625,
+				43.887115478515625,
+				9.175202369689941
+			],
+			"min":[
+				-9.175203323364258,
+				-1.9073486328125e-06,
+				-9.175200462341309
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":5,
+			"componentType":5126,
+			"count":16,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":6,
+			"componentType":5126,
+			"count":16,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":7,
+			"componentType":5123,
+			"count":24,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":8,
+			"componentType":5126,
+			"count":742,
+			"max":[
+				173.26002502441406,
+				-2.509768486022949,
+				91.06558227539062
+			],
+			"min":[
+				-173.26011657714844,
+				-25.607250213623047,
+				-251.47425842285156
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":9,
+			"componentType":5126,
+			"count":742,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":10,
+			"componentType":5126,
+			"count":742,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":11,
+			"componentType":5123,
+			"count":2022,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -142,11 +275,65 @@
 			"byteLength":12366,
 			"byteOffset":73344,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":192,
+			"byteOffset":85712,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":192,
+			"byteOffset":85904,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":128,
+			"byteOffset":86096,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":48,
+			"byteOffset":86224,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":8904,
+			"byteOffset":86272,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":8904,
+			"byteOffset":95176,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":5936,
+			"byteOffset":104080,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":4044,
+			"byteOffset":110016,
+			"target":34963
+		}
+	],
+	"samplers":[
+		{
+			"magFilter":9728,
+			"minFilter":9984
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":85712,
+			"byteLength":114060,
 			"uri":"Hexstaria_Map.bin"
 		}
 	]

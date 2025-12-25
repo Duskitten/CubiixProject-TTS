@@ -8,6 +8,7 @@
 [node name="Cubiix" type="Node3D"]
 script = ExtResource("1_jvayr")
 characterscripts = Array[String](["G_CubiixCore:charactercontroller"])
+metadata/_edit_lock_ = true
 
 [node name="Model" parent="." instance=ExtResource("1_53h65")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
