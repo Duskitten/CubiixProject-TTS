@@ -46,7 +46,8 @@ func run_parser():
 			DirAccess.make_dir_absolute(modpath)
 		scan_dir(dir, modpath)
 	
-	print(coreobj.gassetmanager.assetstable)
+	for i in coreobj.gassetmanager.assetstable.keys():
+		print("A: = " + i)
 	
 func reset_current_modlist():
 	currentmodlist = {}
