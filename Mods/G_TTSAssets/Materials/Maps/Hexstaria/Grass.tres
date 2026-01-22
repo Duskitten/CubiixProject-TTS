@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ctilq5m8vxxnq"]
+
+[ext_resource type="Texture2D" uid="uid://b074rb1gmxmh2" path="res://Mods/G_TTSAssets/Models/Hexstaria/Mangrove.png" id="1_5hnug"]
+
+[resource]
+resource_name = "Mangrove Mat"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_5hnug")
+texture_filter = 2

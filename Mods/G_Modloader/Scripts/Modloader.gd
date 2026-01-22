@@ -15,6 +15,7 @@ func setup(core:Node):
 
 func scan_dir(dir:DirAccess, modpath:String) -> void:
 	for directory in dir.get_directories():
+		print(directory)
 		if !currentmodlist.has(directory):
 			var Modjson = FileAccess.file_exists(modpath+directory+"/Mod.txt")
 			if Modjson:
@@ -46,8 +47,8 @@ func run_parser():
 			DirAccess.make_dir_absolute(modpath)
 		scan_dir(dir, modpath)
 	
-	for i in coreobj.gassetmanager.assetstable.keys():
-		print("A: = " + i)
+	#for i in coreobj.gassetmanager.assetstable.keys():
+		#print("A: = " + i)
 	
 func reset_current_modlist():
 	currentmodlist = {}

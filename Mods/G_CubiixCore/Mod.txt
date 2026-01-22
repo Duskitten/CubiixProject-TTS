@@ -22,211 +22,280 @@
 				},
 				"wings1":{
 					"meshpath":"/Meshes/Cubiix_Base_MK4_Wings_1.gltf",
+				},
+				"extras1":{
+					"meshpath":"/Meshes/Cubiix_Base_MK4_Extras_1.gltf",
+				},
+				"extras2":{
+					"meshpath":"/Meshes/Cubiix_Base_MK4_Extras_2.gltf",
+				},
+				"extras3":{
+					"meshpath":"/Meshes/Cubiix_Base_MK4_Extras_3.gltf",
+				},
+				"extras4":{
+					"meshpath":"/Meshes/Cubiix_Base_MK4_Extras_4.gltf",
+				},
+				"extras5":{
+					"meshpath":"/Meshes/Cubiix_Base_MK4_Extras_5.gltf",
+				},
+				"extras6":{
+					"meshpath":"/Meshes/Cubiix_Base_MK4_Extras_6.gltf",
 				}
 		},
 		"charactertextures":{
 			"bodycolors":{
 				"texturepath":"/Textures/Body_Colors.png",
+				"meshtype":"none",
 				"meshtag":"body"
 			},
 			"earsbunny":{
 				"texturepath":"/Textures/Ears_Bunny.png",
+				"meshtype":"none",
 				"meshtag":"ears"
 			},
 			"earscat":{
 				"texturepath":"/Textures/Ears_Cat.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earsdeer":{
 				"texturepath":"/Textures/Ears_Deer.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earsdog":{
 				"texturepath":"/Textures/Ears_Dog.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earsentity":{
 				"texturepath":"/Textures/Ears_Entity.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earsfluffy":{
 				"texturepath":"/Textures/Ears_Fluffy.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earsfox":{
 				"texturepath":"/Textures/Ears_Fox.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earsgoat":{
 				"texturepath":"/Textures/Ears_Goat.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earsmouse":{
 				"texturepath":"/Textures/Ears_Mouse.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earspanda":{
 				"texturepath":"/Textures/Ears_Panda.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"earswolf":{
 				"texturepath":"/Textures/Ears_Wolf.png",
+				"meshtype":"G_CubiixCore:ears1",
 				"meshtag":"ears"
 			},
 			"extrasalienantenna":{
 				"texturepath":"/Textures/Extras_Alien_Antenna.png",
+				"meshtype":"G_CubiixCore:extras1",
 				"meshtag":"extras"
 			},
 			"extrasantlers":{
 				"texturepath":"/Textures/Extras_Antlers.png",
+				"meshtype":"G_CubiixCore:extras4",
 				"meshtag":"extras"
 			},
 			"extrasbeeantenna":{
 				"texturepath":"/Textures/Extras_Bee_Antenna.png",
+				"meshtype":"G_CubiixCore:extras1",
 				"meshtag":"extras"
 			},
 			"extrasdragon":{
 				"texturepath":"/Textures/Extras_Dragon.png",
+				"meshtype":"G_CubiixCore:extras4",
 				"meshtag":"extras"
 			},
 			"extrasfish":{
 				"texturepath":"/Textures/Extras_Fish.png",
+				"meshtype":"G_CubiixCore:extras2",
 				"meshtag":"extras"
 			},
 			"extrasmothantenna":{
 				"texturepath":"/Textures/Extras_Moth_Antenna.png",
+				"meshtype":"G_CubiixCore:extras1",
 				"meshtag":"extras"
 			},
 			"extrasnawhal":{
 				"texturepath":"/Textures/Extras_Narwhal.png",
+				"meshtype":"G_CubiixCore:extras5",
 				"meshtag":"extras"
 			},
 			"extrasnub":{
 				"texturepath":"/Textures/Extras_Nub.png",
+				"meshtype":"G_CubiixCore:extras1",
 				"meshtag":"extras"
 			},
 			"extrasram":{
 				"texturepath":"/Textures/Extras_Ram.png",
+				"meshtype":"G_CubiixCore:extras6",
 				"meshtag":"extras"
 			},
 			"extrasshark":{
 				"texturepath":"/Textures/Extras_Shark.png",
+				"meshtype":"G_CubiixCore:extras3",
 				"meshtag":"extras"
 			},
 			"eyeschonk":{
 				"texturepath":"/Textures/Eyes_Chonk.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyescircle":{
 				"texturepath":"/Textures/Eyes_Circle.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyesdefault":{
 				"texturepath":"/Textures/Eyes_Default.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyesentity":{
 				"texturepath":"/Textures/Eyes_Entity.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyesfour":{
 				"texturepath":"/Textures/Eyes_Four.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyesfox":{
 				"texturepath":"/Textures/Eyes_Fox.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyesmouse":{
 				"texturepath":"/Textures/Eyes_Mouse.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyesnat":{
 				"texturepath":"/Textures/Eyes_Nat.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyestext":{
 				"texturepath":"/Textures/Eyes_Text.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"eyestri":{
 				"texturepath":"/Textures/Eyes_Tri.png",
+				"meshtype":"none",
 				"meshtag":"eyes"
 			},
 			"tailsbee":{
 				"texturepath":"/Textures/Tails_Bee.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsbug":{
 				"texturepath":"/Textures/Tails_Bug.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsbunny":{
 				"texturepath":"/Textures/Tails_Bunny.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailscat":{
 				"texturepath":"/Textures/Tails_Cat.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsdeer":{
 				"texturepath":"/Textures/Tails_Deer.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsdog":{
 				"texturepath":"/Textures/Tails_Dog.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsdragon":{
 				"texturepath":"/Textures/Tails_Dragon.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsentity":{
 				"texturepath":"/Textures/Tails_Entity.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsfluffy":{
 				"texturepath":"/Textures/Tails_Fluffy.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsfox":{
 				"texturepath":"/Textures/Tails_Fox.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsmoth":{
 				"texturepath":"/Textures/Tails_Moth.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsmouse":{
 				"texturepath":"/Textures/Tails_Mouse.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailsshark":{
 				"texturepath":"/Textures/Tails_Shark.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"tailswolf":{
 				"texturepath":"/Textures/Tails_Wolf.png",
+				"meshtype":"G_CubiixCore:tails1",
 				"meshtag":"tails"
 			},
 			"wingsangel":{
 				"texturepath":"/Textures/Wings_Angel.png",
+				"meshtype":"G_CubiixCore:wings1",
 				"meshtag":"wings"
 			},
 			"wingsbutterfly":{
 				"texturepath":"/Textures/Wings_Butterfly.png",
+				"meshtype":"G_CubiixCore:wings1",
 				"meshtag":"wings"
 			},
 			"wingsdragon":{
 				"texturepath":"/Textures/Wings_Dragon.png",
+				"meshtype":"G_CubiixCore:wings1",
 				"meshtag":"wings"
 			},
 			"wingsentity":{
 				"texturepath":"/Textures/Wings_Entity.png",
+				"meshtype":"G_CubiixCore:wings1",
 				"meshtag":"wings"
 			},
 			"wingswasp":{
 				"texturepath":"/Textures/Wings_Wasp.png",
+				"meshtype":"G_CubiixCore:wings1",
 				"meshtag":"wings"
 			}
 		}

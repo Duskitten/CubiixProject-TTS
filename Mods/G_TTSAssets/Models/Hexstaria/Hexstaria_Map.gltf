@@ -10,7 +10,9 @@
 			"nodes":[
 				0,
 				1,
-				2
+				2,
+				3,
+				4
 			]
 		}
 	],
@@ -39,8 +41,26 @@
 			],
 			"translation":[
 				2.75241756439209,
-				23.672685623168945,
+				28.016056060791016,
 				330.2718505859375
+			]
+		},
+		{
+			"mesh":3,
+			"name":"Grass_Model"
+		},
+		{
+			"mesh":4,
+			"name":"Grass_Hill_1_MultimeshArea",
+			"scale":[
+				38.923194885253906,
+				38.923194885253906,
+				38.923194885253906
+			],
+			"translation":[
+				120.91727447509766,
+				23.63471031188965,
+				411.656494140625
 			]
 		}
 	],
@@ -100,6 +120,33 @@
 						"TEXCOORD_0":10
 					},
 					"indices":11
+				}
+			]
+		},
+		{
+			"name":"Plane.042",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":12,
+						"NORMAL":13,
+						"TEXCOORD_0":14
+					},
+					"indices":15,
+					"material":1
+				}
+			]
+		},
+		{
+			"name":"Plane.043",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":16,
+						"NORMAL":17,
+						"TEXCOORD_0":18
+					},
+					"indices":19
 				}
 			]
 		}
@@ -219,35 +266,103 @@
 		{
 			"bufferView":8,
 			"componentType":5126,
-			"count":742,
+			"count":273,
 			"max":[
 				173.26002502441406,
-				-2.509768486022949,
-				91.06558227539062
+				-22.179222106933594,
+				63.80908203125
 			],
 			"min":[
 				-173.26011657714844,
 				-25.607250213623047,
-				-251.47425842285156
+				-226.83010864257812
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":9,
 			"componentType":5126,
-			"count":742,
+			"count":273,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":10,
 			"componentType":5126,
-			"count":742,
+			"count":273,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":11,
 			"componentType":5123,
-			"count":2022,
+			"count":1176,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":12,
+			"componentType":5126,
+			"count":8,
+			"max":[
+				2.6181528568267822,
+				4.025764465332031,
+				2.6181533336639404
+			],
+			"min":[
+				-2.6181528568267822,
+				0,
+				-2.6181533336639404
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":13,
+			"componentType":5126,
+			"count":8,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":14,
+			"componentType":5126,
+			"count":8,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":15,
+			"componentType":5123,
+			"count":12,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":16,
+			"componentType":5126,
+			"count":32,
+			"max":[
+				1.000000238418579,
+				0.014295991510152817,
+				0.9893379211425781
+			],
+			"min":[
+				-0.9999997615814209,
+				-0.1084810197353363,
+				-1
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":17,
+			"componentType":5126,
+			"count":32,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":18,
+			"componentType":5126,
+			"count":32,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":19,
+			"componentType":5123,
+			"count":54,
 			"type":"SCALAR"
 		}
 	],
@@ -302,26 +417,74 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":8904,
+			"byteLength":3276,
 			"byteOffset":86272,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":8904,
-			"byteOffset":95176,
+			"byteLength":3276,
+			"byteOffset":89548,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":5936,
-			"byteOffset":104080,
+			"byteLength":2184,
+			"byteOffset":92824,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4044,
-			"byteOffset":110016,
+			"byteLength":2352,
+			"byteOffset":95008,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":96,
+			"byteOffset":97360,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":96,
+			"byteOffset":97456,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":64,
+			"byteOffset":97552,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":24,
+			"byteOffset":97616,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":384,
+			"byteOffset":97640,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":384,
+			"byteOffset":98024,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":256,
+			"byteOffset":98408,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":108,
+			"byteOffset":98664,
 			"target":34963
 		}
 	],
@@ -333,7 +496,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":114060,
+			"byteLength":98772,
 			"uri":"Hexstaria_Map.bin"
 		}
 	]
