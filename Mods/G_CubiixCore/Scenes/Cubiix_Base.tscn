@@ -21,7 +21,13 @@ script = ExtResource("2_jvayr")
 
 [node name="Body" parent="Model/Armature/Skeleton3D" index="0"]
 material_override = ExtResource("3_mbfc1")
+blend_shapes/Eye_Open = 1.0
+blend_shapes/Eye_Closed = -0.19052
 
 [node name="Scripts" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [editable path="Model"]

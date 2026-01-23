@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3cp5gr73phii"]
+
+[ext_resource type="PackedScene" uid="uid://ccp3ysmbmgayg" path="res://Mods/G_CubiixCore/Scenes/Cubiix_Base.tscn" id="1_w8kd6"]
+[ext_resource type="PackedScene" uid="uid://bikwbchf4qscu" path="res://Mods/G_TTSAssets/Scenes/Hexstaria_Map.tscn" id="2_oj4xd"]
+
+[node name="ClientCore" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.84280956, 0.53821194, 0, -0.53821194, 0.84280956, 0, 1.029315, 1.6908488)
+current = true
+fov = 65.0
+size = 7.18
+
+[node name="Characters" type="Node3D" parent="."]
+
+[node name="Cubiix" parent="Characters" instance=ExtResource("1_w8kd6")]
+characterscripts = Array[String](["G_CubiixCore:cubiixgenerator", "G_TTSAssets:charactercontroller"])
+cubiixcharacter = {
+"Back": "",
+"Ears": "",
+"Extra": "G_CubiixCore:extrasalienantenna",
+"Eyes": "G_CubiixCore:eyeschonk",
+"Hand_L": "",
+"Hand_R": "",
+"Hat": "",
+"Hip_L": "",
+"Hip_R": "",
+"Palette": "G_CubiixCore:bodycolors",
+"Tail": "G_CubiixCore:tailsdragon",
+"Wings": "G_CubiixCore:wingsbutterfly"
+}
+
+[node name="HexstariaMap" parent="." instance=ExtResource("2_oj4xd")]

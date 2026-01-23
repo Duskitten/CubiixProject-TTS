@@ -1,0 +1,7 @@
+{
+	"moddata":{
+		"modname":"Cubiix Project: Go! - Server Manager",
+		"version":"1.0",
+		"author":"Selkspace / Duskitten"
+	}
+}

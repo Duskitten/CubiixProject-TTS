@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://hqv72e8v1c63" path="res://Mods/G_CubiixCore/Meshes/Dusk_Base.png" id="1_xrqol"]
 
 [resource]
+resource_local_to_scene = true
 transparency = 4
 cull_mode = 2
 albedo_texture = ExtResource("1_xrqol")

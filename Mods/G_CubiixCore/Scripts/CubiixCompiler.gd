@@ -4,7 +4,7 @@ var coreobj = null
 var cubiixobj = null
 
 var charactertexture = Image.create_empty(128,128,false, Image.FORMAT_RGBA8)
-var charactermaterial = load("res://Mods/G_CubiixCore/Meshes/CubiixMat.tres")
+var charactermaterial = load("res://Mods/G_CubiixCore/Meshes/CubiixMat.tres").duplicate(true)
 
 var cubiixrenderorder = {
 	"Palette":[Vector2i(0,0),true],
@@ -15,10 +15,10 @@ var cubiixrenderorder = {
 	"Tail":[Vector2i(2,1),true],
 	"Hat":[Vector2i(3,2),false],
 	"Back":[Vector2i(4,2),false],
-	"Hip_R":[Vector2i(0,3),false],
-	"Hip_L":[Vector2i(1,3),false],
-	"Hand_R":[Vector2i(2,3),false],
-	"Hand_L":[Vector2i(3,3),false]
+	"Hip_R":[Vector2i(1,3),false],
+	"Hip_L":[Vector2i(0,3),false],
+	"Hand_R":[Vector2i(3,3),false],
+	"Hand_L":[Vector2i(2,3),false]
 }
 var colormaps = [
 	Color("31a2f2"),
@@ -49,7 +49,7 @@ func compile_cubiix():
 		"mesh":core.get_node("Armature/Skeleton3D/Body").mesh,
 		"aabb":null
 	}
-	
+	var cnt = 0
 	for value in cubiixobj.cubiixcharacter.keys():
 		if  cubiixobj.cubiixcharacter[value] != "":
 			var data = coreobj.gassetmanager.get_value(cubiixobj.cubiixcharacter[value])
@@ -68,8 +68,9 @@ func compile_cubiix():
 				var mesh = coreobj.gassetmanager.get_value(data["data"]["meshtype"])
 				var newmesh = load(mesh["modpath"]+mesh["data"]["meshpath"]).instantiate()
 				var meshobj = newmesh.get_node("Armature/Skeleton3D").get_child(0).mesh
-				newmeshdict = coreobj.gmeshcompiler.compile_mesh(newmeshdict["mesh"],meshobj, newmeshdict["mesh"] != null )
+				newmeshdict = coreobj.gmeshcompiler.compile_mesh(newmeshdict["mesh"],meshobj, cnt != 0)
 				RenderingServer.mesh_set_custom_aabb(newmeshdict["mesh"].get_rid(), newmeshdict["aabb"])
+				cnt += 1
 	for x in texturesize:
 		for y in texturesize:
 			match masks[(y * texturesize) + x]:
@@ -82,9 +83,11 @@ func compile_cubiix():
 				4:
 					charactertexture.set_pixel(x,y,cubiixobj.cubiixcolors["Secondary"])
 
-	#$"../../TextureRect".texture = ImageTexture.create_from_image(charactertexture)
+	$"../../TextureRect".texture = ImageTexture.create_from_image(charactertexture)
 	charactermaterial.albedo_texture = ImageTexture.create_from_image(charactertexture)
 	cubiixobj.get_node("Model/Armature/Skeleton3D/Body").mesh = newmeshdict["mesh"]
+	cubiixobj.get_node("Model/Armature/Skeleton3D/Body").material_override = charactermaterial
+	cubiixobj.get_node("Model/Armature/Skeleton3D/Body").set_blend_shape_value(0, 1.0)
 #	
 #func compile_cubiix(cubiixdata:Dictionary):
 	#var newcubiixdata = {
