@@ -19,6 +19,7 @@ func _ready() -> void:
 		print("Server Loading!")
 		gservermanager = load("res://Mods/G_ServerManager/Scripts/ServerManager.gd").new()
 		gservermanager.setup(self)
+		add_child(gservermanager)
 
 func reload_mods_and_assets():
 	gassetmanager.reset_asset_table()
