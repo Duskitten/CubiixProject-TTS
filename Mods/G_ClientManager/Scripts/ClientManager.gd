@@ -6,9 +6,17 @@ var client:StreamPeerTCP = StreamPeerTCP.new()
 var attemptedconnect = false
 
 var currentpacket = {}
+var networkscriptlist = {}
 
 func setup(core:Node):
 	coreobj = core
+	var networkscripts = coreobj.gassetmanager.get_tag("networkscripts")
+	
+	for i in networkscripts:
+		var newscript = load(networkscripts[i]["modpath"] + networkscripts[i]["data"]["scriptloadpath"]).new()
+		newscript.setup(coreobj, self, i)
+		networkscriptlist[i] = newscript
+		self.add_child(newscript)
 	connect_to_server("localhost", 25565)
 
 func connect_to_server(host:String, port:int):
@@ -23,7 +31,6 @@ func _process(delta: float) -> void:
 				var data = client.get_var(false)
 				##Now we send back that we got a response!
 				client.put_var(currentpacket,false)
-				currentpacket = {}
 		elif client.get_status() == StreamPeerTCP.STATUS_NONE:
 			attemptedconnect = false
 			client.disconnect_from_host()

@@ -83,7 +83,6 @@ func server_process():
 					if !nextplayerpacket.has(i["room"]):
 						nextplayerpacket[i["room"]] = {}
 						nextplayerpacket[i["room"]][i["id"]] = packetdata
-						
 				elif peerobj.get_available_bytes() <= 0:
 					pass
 			elif peerobj.get_status() == StreamPeerTCP.STATUS_NONE || i["disconnected"]:

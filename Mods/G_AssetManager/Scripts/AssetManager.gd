@@ -21,3 +21,10 @@ func get_value(assetstring:String) -> Dictionary:
 		return assetstable[assetstring]
 	else:
 		return {}
+
+func get_tag(tagid:String) -> Dictionary:
+	var taglist = {}
+	for i in assetstable:
+		if assetstable[i]["tag"] == tagid:
+			taglist[i] = assetstable[i]
+	return taglist

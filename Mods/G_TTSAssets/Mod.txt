@@ -9,6 +9,14 @@
 			"charactercontroller":{
 				"scriptloadpath":"/Scripts/Character/CharacterController.gd"
 			}
+		},
+		"networkscripts":{
+			"playerjoin":{
+				"scriptloadpath":"/Scripts/Networking/PlayerJoin.gd"
+			},
+			"template":{
+				"scriptloadpath":"/Scripts/Networking/TemplateNetworkScript.gd"
+			}
 		}
 	}
 }
