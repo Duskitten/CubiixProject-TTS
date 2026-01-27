@@ -1,6 +1,6 @@
 {
 	"moddata":{
-		"modname":"Cubiix Project: Go! - Networking Manager",
+		"modname":"Cubiix Project: Go! - Client Manager Module",
 		"version":"1.0",
 		"author":"Selkspace / Duskitten"
 	}
