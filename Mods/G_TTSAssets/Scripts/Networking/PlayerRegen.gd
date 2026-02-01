@@ -12,19 +12,15 @@ func setup(core:Node, client:Node, netid:String) -> void:
 ##Client A > Client B
 func sender_compile():
 	var data = {
-		"room":"",
 		"character":"",
 		"animation":"",
 		"transform":Transform3D()
 	}
-	#print("Sending new player!")
 	clientobj.append_new_packetdata(networkingid,data)
 
 ##This is what we'll recieve As
 ##Client B
 func reciever_parse(data:Dictionary):
-	##This is where we take all the data and process to generate a new player.
-	
-	
-	##Then we want to send back the current player so that the new player can see them.
-	clientobj.networkscriptlist["G_TTSAssets:playerregen"].sender_compile()
+	##This is where we recieve a character updoot.
+	##This will just find an existing player and update the mesh/texture/color/etc
+	pass

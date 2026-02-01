@@ -14,8 +14,14 @@
 			"playerjoin":{
 				"scriptloadpath":"/Scripts/Networking/PlayerJoin.gd"
 			},
-			"template":{
-				"scriptloadpath":"/Scripts/Networking/TemplateNetworkScript.gd"
+			"playerregen":{
+				"scriptloadpath":"/Scripts/Networking/PlayerRegen.gd"
+			},
+			"playerupdate":{
+				"scriptloadpath":"/Scripts/Networking/PlayerUpdate.gd"
+			},
+			"networktest":{
+				"scriptloadpath":"/Scripts/Networking/NetworkTest.gd"
 			}
 		}
 	}

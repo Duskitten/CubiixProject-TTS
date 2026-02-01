@@ -15,7 +15,6 @@ func setup(core:Node):
 
 func scan_dir(dir:DirAccess, modpath:String) -> void:
 	for directory in dir.get_directories():
-		print(directory)
 		if !currentmodlist.has(directory):
 			var Modjson = FileAccess.file_exists(modpath+directory+"/Mod.txt")
 			if Modjson:

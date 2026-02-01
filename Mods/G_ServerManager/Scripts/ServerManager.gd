@@ -34,15 +34,12 @@ var ticktimer = 0
 var tickcurrent = 0
 
 var unsortedconnections = []
-
-var newplayerpacket = {}
 var nextplayerpacket = {}
+var packetholder = {}
 
 var peertemplate = {
 	"id":0,
 	"peer":null,
-	"room":"room_1",
-	"disconnected":false
 }
 
 func server_process():
@@ -54,23 +51,20 @@ func server_process():
 	if newclientcheck:
 		var peer = PacketPeerStream.new()
 		peer.stream_peer = newclientcheck
+		peer.stream_peer.put_var({"G_TTSAssets:networktest":{}})
 		print("Connected!")
-		var name = hash(peer)
-		var peertemplate = peertemplate.duplicate(true)
-		peertemplate["peer"] = peer
-		peertemplate["id"] = hash
-		unsortedconnections.append(peertemplate)
-		newplayerpacket[name] = {"server:spawn_character_node":true}
+		var name = int(hash(peer))
+		var template = peertemplate.duplicate(true)
+		template["peer"] = peer
+		template["id"] = hash
+		unsortedconnections.append(template)
 		
 	
 	if ticktimer > 1000/20:
 		tickcurrent += 1
 		ticktimer = 0
-		
-		nextplayerpacket = newplayerpacket.duplicate(true)
-		newplayerpacket = {}
-		
-		
+		nextplayerpacket.clear()
+		packetholder.clear()
 		###This is the Reciever Pass
 		###We want to grab the old packet to put in our list.
 		for i in unsortedconnections:
@@ -80,31 +74,40 @@ func server_process():
 				##Check for avaliable data
 				if peerobj.get_available_bytes() > 0:
 					var packetdata = peerobj.get_var(false)
-					if !nextplayerpacket.has(i["room"]):
-						nextplayerpacket[i["room"]] = {}
-						nextplayerpacket[i["room"]][i["id"]] = packetdata
-				elif peerobj.get_available_bytes() <= 0:
-					pass
-			elif peerobj.get_status() == StreamPeerTCP.STATUS_NONE || i["disconnected"]:
-				if !nextplayerpacket.has(i["room"]):
-					nextplayerpacket[i["room"]] = {}
-					nextplayerpacket[i["room"]][i["id"]] = {"server:disconnected":true}
-				i["peer"].stream_peer.disconnect_from_host()
-				unsortedconnections.erase(i)
+					var roomid = ""
+					if packetdata.has("G_TTSAssets:playerupdate"):
+						roomid = packetdata["G_TTSAssets:playerupdate"]["room"]
+					elif packetdata.has("G_TTSAssets:playerjoin"):
+						roomid = packetdata["G_TTSAssets:playerjoin"]["room"]
+
+					if roomid != "":
+						if !nextplayerpacket.has(roomid):
+							nextplayerpacket[roomid] = {}
+						nextplayerpacket[roomid][i["id"]] = packetdata
+						packetholder[i["id"]] = packetdata
+						
+						
+			elif peerobj.get_status() == StreamPeerTCP.STATUS_NONE:
+				pass
 		
 		###This is our Send Pass
 		###We want to send the new dictionary this time.
 		for i in unsortedconnections:
 			var peerobj = i["peer"].stream_peer
 			if peerobj.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-				##Remove current player in a temp cache
-				if !nextplayerpacket.has(i["room"]):
-						nextplayerpacket[i["room"]] = {}
-				var CopyPass = nextplayerpacket[i["room"]].duplicate(true)
-				CopyPass.erase(i["id"])
-				peerobj.put_var(CopyPass)
+				var roomid = ""
+				if packetholder.has(i["id"]):
+					if packetholder[i["id"]].has("G_TTSAssets:playerupdate"):
+						roomid = packetholder[i["id"]]["G_TTSAssets:playerupdate"]["room"]
+					elif packetholder[i["id"]].has("G_TTSAssets:playerjoin"):
+						roomid = packetholder[i["id"]]["G_TTSAssets:playerjoin"]["room"]
+					
+					if roomid != "":
+						var duplicatedict = nextplayerpacket[roomid].duplicate(true)
+						duplicatedict.erase(i["id"])
+						peerobj.put_var(duplicatedict)
+				
+				
 			elif peerobj.get_status() == StreamPeerTCP.STATUS_NONE:
-				i["disconnected"] = true
-		
-	
+				pass
 	

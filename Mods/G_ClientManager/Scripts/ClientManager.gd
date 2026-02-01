@@ -29,8 +29,10 @@ func _process(delta: float) -> void:
 		if client.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 			if client.get_available_bytes() > 0:
 				var data = client.get_var(false)
+				for i in data:
+					send_to_parser(i, data[i])
 				##Now we send back that we got a response!
-				client.put_var(currentpacket,false)
+				#client.put_var(currentpacket,false)
 		elif client.get_status() == StreamPeerTCP.STATUS_NONE:
 			attemptedconnect = false
 			client.disconnect_from_host()
@@ -38,3 +40,6 @@ func _process(delta: float) -> void:
 
 func append_new_packetdata(dataname:String,data:Dictionary):
 	currentpacket[dataname] = data
+
+func send_to_parser(dataname:String,data:Dictionary) -> void:
+	networkscriptlist[dataname].reciever_parse(data)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://blpqoyp2dro26"]
+[gd_scene format=3 uid="uid://blpqoyp2dro26"]
 
 [ext_resource type="Script" uid="uid://ctfrr7w5rwxid" path="res://Mods/G_Core/Scripts/Core.gd" id="1_sncya"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1595604322]
 script = ExtResource("1_sncya")
 
-[node name="Scripts" type="Node" parent="."]
+[node name="Scripts" type="Node" parent="." unique_id=552810390]
